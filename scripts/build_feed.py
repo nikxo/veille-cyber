@@ -20,6 +20,9 @@ from html import escape
 from pathlib import Path
 from urllib.parse import quote
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import covers  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 STORIES = ROOT / "data" / "stories.json"
 DOCS = ROOT / "docs"
@@ -189,6 +192,9 @@ def story_html(s):
     src = s["sources"]
     L = lambda t: linkify(t, src)
     parts = []
+    if s.get("_cover"):
+        parts.append(f'<p><img class="webfeedsFeaturedVisual" src="{SITE_URL}/covers/{s["_cover"]}" '
+                     f'width="1200" height="630" alt="{escape(s["title"])}"></p>')
     if s["version"] > 1:
         parts.append(f"<p><strong>Mise à jour n°{s['version'] - 1}</strong> : nouvelles informations ou sources ajoutées.</p>")
     parts.append(f"<p>{L(s['resume'])}</p>")
@@ -250,7 +256,8 @@ def ask_claude_url(s):
 
 
 def build_rss(stories, now):
-    rss = ET.Element("rss", version="2.0", attrib={"xmlns:atom": "http://www.w3.org/2005/Atom"})
+    rss = ET.Element("rss", version="2.0", attrib={"xmlns:atom": "http://www.w3.org/2005/Atom",
+                                                  "xmlns:media": "http://search.yahoo.com/mrss/"})
     ch = ET.SubElement(rss, "channel")
     ET.SubElement(ch, "title").text = "Veille cyber : attaques et vecteurs d'intrusion"
     ET.SubElement(ch, "link").text = SITE_URL + "/"
@@ -269,6 +276,9 @@ def build_rss(stories, now):
         ET.SubElement(it, "guid", isPermaLink="false").text = s["id"]  # stable : ne change jamais
         ET.SubElement(it, "pubDate").text = format_datetime(s["_updated"])
         ET.SubElement(it, "description").text = story_html(s)
+        if s.get("_cover"):
+            ET.SubElement(it, "media:content", url=f"{SITE_URL}/covers/{s['_cover']}", medium="image",
+                          type="image/png", width="1200", height="630")
         for c in s["cves"]:
             ET.SubElement(it, "category").text = c["id"]
     ET.indent(rss)
@@ -310,6 +320,9 @@ def main():
     stories = stories[:MAX_ITEMS]
     now = datetime.now(timezone.utc)
     DOCS.mkdir(exist_ok=True)
+    for s in stories:
+        s["_cover"] = covers.make_cover(s, DOCS / "covers")
+    covers.prune(DOCS / "covers", {s["_cover"] for s in stories if s["_cover"]})
     xml_bytes = build_rss(stories, now)
     ET.fromstring(xml_bytes)  # vérifie que le XML produit est bien formé
     (DOCS / "veille.xml").write_bytes(xml_bytes)

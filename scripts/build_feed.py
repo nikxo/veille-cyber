@@ -29,6 +29,8 @@ DOCS = ROOT / "docs"
 SITE_URL = "https://nikxo.github.io/veille-cyber"
 MAX_ITEMS = 100
 SCHEMA = 3
+# À incrémenter à chaque changement de présentation pour que les lecteurs RSS republient les articles
+FORMAT_REV = 1
 # Limites de longueur (en mots, références [n] non comptées)
 MAX_WORDS = {"resume": 45, "etape_titre": 4, "etape_texte": 30, "limites": 35,
              "cve": 30, "mitre": 20, "acteur": 25, "cible": 25, "definition": 15}
@@ -273,7 +275,9 @@ def build_rss(stories, now):
         prefix = "[MàJ] " if s["version"] > 1 else ""
         ET.SubElement(it, "title").text = prefix + s["title"]
         ET.SubElement(it, "link").text = s["sources"][0]["url"]
-        ET.SubElement(it, "guid", isPermaLink="false").text = s["id"]  # stable : ne change jamais
+        # Identifiant = sujet + version + format : une mise à jour ou un changement de format
+        # apparaît comme un nouvel article (choix assumé : visibilité plutôt qu'absence de doublons)
+        ET.SubElement(it, "guid", isPermaLink="false").text = f"{s['id']}-v{s['version']}-f{FORMAT_REV}"
         ET.SubElement(it, "pubDate").text = format_datetime(s["_updated"])
         ET.SubElement(it, "description").text = story_html(s)
         if s.get("_cover"):

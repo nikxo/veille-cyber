@@ -41,3 +41,33 @@ jobs:
             sleep 10
           done
           exit 1
+
+      # Lance la routine Claude seulement s'il reste des articles à traiter dans data/inbox/.
+      # Nécessite deux secrets du dépôt : CLAUDE_ROUTINE_URL et CLAUDE_ROUTINE_TOKEN.
+      - name: Déclencher la synthèse Claude
+        env:
+          ROUTINE_URL: ${{ secrets.CLAUDE_ROUTINE_URL }}
+          ROUTINE_TOKEN: ${{ secrets.CLAUDE_ROUTINE_TOKEN }}
+        run: |
+          COUNT=$(find data/inbox -name '*.json' | wc -l)
+          echo "Articles en attente : $COUNT"
+          if [ "$COUNT" -eq 0 ]; then
+            echo "File vide, pas de déclenchement."
+            exit 0
+          fi
+          if [ -z "$ROUTINE_URL" ] || [ -z "$ROUTINE_TOKEN" ]; then
+            echo "Secrets CLAUDE_ROUTINE_URL / CLAUDE_ROUTINE_TOKEN absents, déclenchement ignoré."
+            exit 0
+          fi
+          HTTP=$(curl -sS -o /tmp/fire.json -w '%{http_code}' -X POST "$ROUTINE_URL" \
+            -H "Authorization: Bearer $ROUTINE_TOKEN" \
+            -H "anthropic-beta: experimental-cc-routine-2026-04-01" \
+            -H "anthropic-version: 2023-06-01" \
+            -H "Content-Type: application/json" \
+            -d '{}')
+          echo "Réponse HTTP : $HTTP"
+          if [ "$HTTP" -lt 200 ] || [ "$HTTP" -ge 300 ]; then
+            cat /tmp/fire.json
+            exit 1
+          fi
+          echo "Routine déclenchée."

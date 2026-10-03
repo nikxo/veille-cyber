@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
 """Génère docs/feed.xml (RSS 2.0) et docs/index.html à partir de data/stories.json.
 
-Bibliothèque standard uniquement. Sort en erreur (code 1) si stories.json est mal formé,
-pour que la tâche planifiée ne publie jamais un flux cassé.
+Bibliothèque standard uniquement. Sort en erreur (code 1) si stories.json ne respecte pas
+le format (schéma 2, voir ROUTINE.md), pour que la routine ne publie jamais un flux cassé.
+
+Contrôles :
+- chaque référence [n] renvoie à une source existante, chaque source est citée au moins une fois ;
+- chaque texte (résumé, vecteur, étapes, CVE, techniques, acteurs, cibles) porte au moins une référence ;
+- chaque sigle employé dans les textes figure dans le glossaire `abreviations` ;
+- aucun tiret cadratin.
 """
 import json
+import re
 import sys
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
@@ -17,87 +24,182 @@ STORIES = ROOT / "data" / "stories.json"
 DOCS = ROOT / "docs"
 SITE_URL = "https://nikxo.github.io/veille-cyber"
 MAX_ITEMS = 100
+SCHEMA = 2
 
-REQUIRED = ["id", "title", "created", "updated", "version", "resume", "vecteur", "chaine",
-            "mitre", "cves", "acteurs", "cibles", "sources"]
+REF_RE = re.compile(r"\[(\d+(?:\s*,\s*\d+)*)\]")
+# Un sigle : au moins deux caractères, majuscules et chiffres, sans minuscule (RCE, BYOVD, C2, AD).
+ACRONYM_RE = re.compile(r"(?<![\w-])(?=[A-Z0-9]*[A-Z][A-Z0-9]*[A-Z0-9])[A-Z][A-Z0-9]+(?![\w-])")
+IGNORED_ACRONYMS = {"MITRE", "ATT", "CK"}  # "MITRE ATT&CK" est expliqué dans l'en-tête de section
 NON_PRECISE = "Non précisé par les sources."
 
+errors = []
 
-def fail(msg):
-    print(f"ERREUR: {msg}", file=sys.stderr)
-    sys.exit(1)
+
+def err(sid, msg):
+    errors.append(f"story {sid}: {msg}")
 
 
 def parse_dt(value, field, sid):
     try:
         dt = datetime.fromisoformat(value)
     except (TypeError, ValueError):
-        fail(f"story {sid}: champ {field} invalide ({value!r}), format ISO 8601 attendu")
+        err(sid, f"champ {field} invalide ({value!r}), format ISO 8601 attendu")
+        return datetime.now(timezone.utc)
     return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
+
+
+def refs_in(text):
+    found = []
+    for group in REF_RE.findall(text):
+        found += [int(n) for n in re.split(r"\s*,\s*", group)]
+    return found
+
+
+def story_texts(s):
+    """(libellé, texte) de chaque champ rédigé qui doit être sourcé."""
+    texts = [("resume", s["resume"])]
+    if s["vecteur"]:
+        texts.append(("vecteur", s["vecteur"]))
+    texts += [(f"deroule[{i}]", t) for i, t in enumerate(s["deroule"], 1)]
+    texts += [(f"cves[{c.get('id')}]", c.get("explication", "")) for c in s["cves"]]
+    texts += [(f"mitre[{i}]", t) for i, t in enumerate(s["mitre"], 1)]
+    texts += [(f"acteurs[{i}]", t) for i, t in enumerate(s["acteurs"], 1)]
+    texts += [(f"cibles[{i}]", t) for i, t in enumerate(s["cibles"], 1)]
+    return texts
 
 
 def validate(stories):
     ids = set()
+    required = {"schema": int, "id": str, "title": str, "created": str, "updated": str, "version": int,
+                "resume": str, "vecteur": str, "deroule": list, "cves": list, "mitre": list,
+                "acteurs": list, "cibles": list, "abreviations": list, "sources": list}
     for s in stories:
         sid = s.get("id", "?")
-        for key in REQUIRED:
-            if key not in s:
-                fail(f"story {sid}: champ manquant {key}")
+        missing = [k for k, t in required.items() if not isinstance(s.get(k), t)]
+        if missing:
+            err(sid, f"champs manquants ou de mauvais type : {', '.join(missing)}")
+            continue
+        if s["schema"] != SCHEMA:
+            err(sid, f"schema {s['schema']} au lieu de {SCHEMA} (sujet à réécrire au nouveau format)")
         if sid in ids:
-            fail(f"story {sid}: id en double")
+            err(sid, "id en double")
         ids.add(sid)
+        if not s["resume"].strip():
+            err(sid, "résumé vide")
         if not s["sources"]:
-            fail(f"story {sid}: aucune source (interdit)")
-        for src in s["sources"]:
+            err(sid, "aucune source (interdit)")
+        for i, src in enumerate(s["sources"], 1):
             for key in ("titre", "site", "url"):
                 if not src.get(key):
-                    fail(f"story {sid}: source sans {key}")
-        for section in ("vecteur", "chaine"):
-            for point in s[section]:
-                if not point.get("texte") or not point.get("source"):
-                    fail(f"story {sid}: un point de '{section}' n'a pas de texte ou de source")
+                    err(sid, f"source [{i}] sans {key}")
+        for c in s["cves"]:
+            if not re.fullmatch(r"CVE-\d{4}-\d{4,}", c.get("id", "")):
+                err(sid, f"identifiant CVE invalide : {c.get('id')!r}")
+            if not c.get("explication", "").strip():
+                err(sid, f"{c.get('id')} sans explication")
+        for a in s["abreviations"]:
+            if not a.get("sigle") or not a.get("definition"):
+                err(sid, "entrée du glossaire sans sigle ou sans définition")
+
+        n_sources = len(s["sources"])
+        cited = set()
+        texts = story_texts(s) + [("title", s["title"])]
+        for label, text in texts:
+            if "—" in text:
+                err(sid, f"{label} : tiret cadratin interdit")
+            if label == "title":
+                continue
+            refs = refs_in(text)
+            if not refs:
+                err(sid, f"{label} : aucune référence [n]")
+            for n in refs:
+                if not 1 <= n <= n_sources:
+                    err(sid, f"{label} : référence [{n}] inexistante ({n_sources} sources)")
+            cited.update(refs)
+        for n in range(1, n_sources + 1):
+            if n not in cited:
+                err(sid, f"source [{n}] jamais citée dans le texte")
+
+        glossary = set()
+        for a in s["abreviations"]:
+            glossary.update(ACRONYM_RE.findall(a.get("sigle", "")))
+        site_words = set(ACRONYM_RE.findall(" ".join(src.get("site", "") for src in s["sources"])))
+        used = set()
+        for label, text in texts:
+            text = re.sub(r"CVE-\d{4}-\d+", " ", text)
+            text = re.sub(r"\bT\d{4}(?:\.\d{3})?\b", " ", text)
+            used.update(ACRONYM_RE.findall(REF_RE.sub(" ", text)))
+        used.discard("CVE")  # sigle expliqué dans l'en-tête de section
+        missing_gloss = sorted(used - glossary - site_words - IGNORED_ACRONYMS)
+        if missing_gloss:
+            err(sid, f"sigles absents du glossaire 'abreviations' : {', '.join(missing_gloss)}")
+
         s["_created"] = parse_dt(s["created"], "created", sid)
         s["_updated"] = parse_dt(s["updated"], "updated", sid)
 
 
-def points_html(points):
-    if not points:
-        return f"<p><em>{NON_PRECISE}</em></p>"
-    items = "".join(f"<li>{escape(p['texte'])} <em>({escape(p['source'])})</em></li>" for p in points)
-    return f"<ul>{items}</ul>"
-
-
-def list_html(values):
-    if not values:
-        return f"<p><em>{NON_PRECISE}</em></p>"
-    return "<ul>" + "".join(f"<li>{escape(v)}</li>" for v in values) + "</ul>"
-
-
-def cves_html(cves):
-    if not cves:
-        return f"<p><em>Aucune CVE citée.</em></p>"
-    links = ", ".join(
-        f'<a href="https://www.cve.org/CVERecord?id={escape(c)}">{escape(c)}</a>' for c in cves)
-    return f"<p>{links}</p>"
+def linkify(text, sources):
+    """Échappe le texte et transforme [1] ou [1, 2] en liens vers les sources."""
+    out, last = [], 0
+    for m in REF_RE.finditer(text):
+        out.append(escape(text[last:m.start()]))
+        links = []
+        for n in (int(x) for x in re.split(r"\s*,\s*", m.group(1))):
+            url = escape(sources[n - 1]["url"]) if 1 <= n <= len(sources) else "#"
+            links.append(f'<a href="{url}">{n}</a>')
+        out.append("[" + ", ".join(links) + "]")
+        last = m.end()
+    out.append(escape(text[last:]))
+    return "".join(out)
 
 
 def story_html(s):
-    sources = "".join(
-        f'<li><a href="{escape(src["url"])}">{escape(src["titre"])}</a> ({escape(src["site"])}'
-        + (f", {escape(src['date'][:10])}" if src.get("date") else "") + ")</li>"
-        for src in s["sources"])
-    parts = [
-        f"<p>{escape(s['resume'])}</p>",
-        "<h3>Comment les attaquants sont entrés</h3>", points_html(s["vecteur"]),
-        "<h3>Déroulé de l'attaque</h3>", points_html(s["chaine"]),
-        "<h3>Techniques MITRE ATT&amp;CK citées par les sources</h3>", list_html(s["mitre"]),
-        "<h3>Vulnérabilités</h3>", cves_html(s["cves"]),
-        "<h3>Attaquant</h3>", list_html(s["acteurs"]),
-        "<h3>Victimes / cibles</h3>", list_html(s["cibles"]),
-        f"<h3>Sources ({len(s['sources'])})</h3><ul>{sources}</ul>",
-    ]
+    src = s["sources"]
+    L = lambda t: linkify(t, src)
+    parts = []
     if s["version"] > 1:
-        parts.insert(0, f"<p><strong>Mise à jour n°{s['version'] - 1}</strong> : nouvelles sources ajoutées.</p>")
+        parts.append(f"<p><strong>Mise à jour n°{s['version'] - 1}</strong> : nouvelles informations ou sources ajoutées.</p>")
+    parts.append(f"<p>{L(s['resume'])}</p>")
+
+    parts.append("<h3>Comment les attaquants sont entrés</h3>")
+    parts.append(f"<p>{L(s['vecteur'])}</p>" if s["vecteur"] else f"<p><em>{NON_PRECISE}</em></p>")
+
+    parts.append("<h3>Déroulé de l'attaque</h3>")
+    if s["deroule"]:
+        parts += [f"<p><strong>{i}.</strong> {L(t)}</p>" for i, t in enumerate(s["deroule"], 1)]
+    else:
+        parts.append(f"<p><em>{NON_PRECISE}</em></p>")
+
+    if s["cves"]:
+        parts.append("<h3>Vulnérabilités exploitées (CVE, identifiants publics de failles)</h3><ul>")
+        for c in s["cves"]:
+            cid = escape(c["id"])
+            parts.append(f'<li><a href="https://www.cve.org/CVERecord?id={cid}"><strong>{cid}</strong></a> : {L(c["explication"])}</li>')
+        parts.append("</ul>")
+
+    if s["mitre"]:
+        parts.append("<h3>Techniques MITRE ATT&amp;CK citées (référentiel des techniques d'attaque)</h3><ul>")
+        parts += [f"<li>{L(t)}</li>" for t in s["mitre"]]
+        parts.append("</ul>")
+
+    parts.append("<h3>Attaquant</h3>")
+    parts.append("<ul>" + "".join(f"<li>{L(t)}</li>" for t in s["acteurs"]) + "</ul>"
+                 if s["acteurs"] else f"<p><em>{NON_PRECISE}</em></p>")
+    parts.append("<h3>Victimes et cibles</h3>")
+    parts.append("<ul>" + "".join(f"<li>{L(t)}</li>" for t in s["cibles"]) + "</ul>"
+                 if s["cibles"] else f"<p><em>{NON_PRECISE}</em></p>")
+
+    if s["abreviations"]:
+        parts.append("<h3>Abréviations</h3><ul>")
+        for a in sorted(s["abreviations"], key=lambda a: a["sigle"].lower()):
+            parts.append(f"<li><strong>{escape(a['sigle'])}</strong> : {escape(a['definition'])}</li>")
+        parts.append("</ul>")
+
+    parts.append("<h3>Sources</h3><ol>")
+    for item in src:
+        date = f", {escape(item['date'][:10])}" if item.get("date") else ""
+        parts.append(f'<li><a href="{escape(item["url"])}">{escape(item["titre"])}</a> ({escape(item["site"])}{date})</li>')
+    parts.append("</ol>")
     return "".join(parts)
 
 
@@ -118,11 +220,11 @@ def build_rss(stories, now):
         prefix = "[MàJ] " if s["version"] > 1 else ""
         ET.SubElement(it, "title").text = prefix + s["title"]
         ET.SubElement(it, "link").text = s["sources"][0]["url"]
-        ET.SubElement(it, "guid", isPermaLink="false").text = f"{s['id']}-v{s['version']}"
+        ET.SubElement(it, "guid", isPermaLink="false").text = f"{s['id']}-s{SCHEMA}-v{s['version']}"
         ET.SubElement(it, "pubDate").text = format_datetime(s["_updated"])
         ET.SubElement(it, "description").text = story_html(s)
         for c in s["cves"]:
-            ET.SubElement(it, "category").text = c
+            ET.SubElement(it, "category").text = c["id"]
     ET.indent(rss)
     return b'<?xml version="1.0" encoding="UTF-8"?>\n' + ET.tostring(rss, encoding="utf-8")
 
@@ -150,8 +252,14 @@ def main():
     data = json.loads(STORIES.read_text(encoding="utf-8")) if STORIES.exists() else {"stories": []}
     stories = data.get("stories")
     if not isinstance(stories, list):
-        fail("data/stories.json doit contenir {\"stories\": [...]}")
+        print("ERREUR: data/stories.json doit contenir {\"stories\": [...]}", file=sys.stderr)
+        sys.exit(1)
     validate(stories)
+    if errors:
+        print(f"ERREUR: {len(errors)} problème(s), flux NON généré :", file=sys.stderr)
+        for e in errors:
+            print(f"  - {e}", file=sys.stderr)
+        sys.exit(1)
     stories.sort(key=lambda s: s["_updated"], reverse=True)
     stories = stories[:MAX_ITEMS]
     now = datetime.now(timezone.utc)

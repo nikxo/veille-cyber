@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Génère docs/feed.xml (RSS 2.0) et docs/index.html à partir de data/stories.json.
+"""Génère docs/veille.xml (RSS 2.0) et docs/index.html à partir de data/stories.json.
 
 Bibliothèque standard uniquement. Sort en erreur (code 1) si stories.json ne respecte pas
 le format (schéma 2, voir ROUTINE.md), pour que la routine ne publie jamais un flux cassé.
@@ -242,7 +242,7 @@ def build_rss(stories, now):
     ET.SubElement(ch, "language").text = "fr-fr"
     ET.SubElement(ch, "lastBuildDate").text = format_datetime(now)
     ET.SubElement(ch, "ttl").text = "60"
-    ET.SubElement(ch, "atom:link", href=SITE_URL + "/feed.xml", rel="self", type="application/rss+xml")
+    ET.SubElement(ch, "atom:link", href=SITE_URL + "/veille.xml", rel="self", type="application/rss+xml")
     for s in stories:
         it = ET.SubElement(ch, "item")
         prefix = "[MàJ] " if s["version"] > 1 else ""
@@ -265,11 +265,11 @@ def build_index(stories, now):
     return f"""<!doctype html>
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Veille cyber</title>
-<link rel="alternate" type="application/rss+xml" title="Veille cyber" href="feed.xml">
+<link rel="alternate" type="application/rss+xml" title="Veille cyber" href="veille.xml">
 <style>body{{font-family:system-ui,sans-serif;max-width:760px;margin:2rem auto;padding:0 16px;line-height:1.5}}
 small{{color:#666}}li{{margin:.4rem 0}}code{{background:#eee;padding:2px 4px}}</style></head>
 <body><h1>Veille cyber</h1>
-<p>Flux RSS : <a href="feed.xml"><code>{SITE_URL}/feed.xml</code></a></p>
+<p>Flux RSS : <a href="veille.xml"><code>{SITE_URL}/veille.xml</code></a></p>
 <p>Dernière génération : {now.strftime("%d/%m/%Y %H:%M")} UTC</p>
 <h2>Derniers sujets</h2><ul>{rows or "<li>Aucun sujet pour l'instant.</li>"}</ul>
 </body></html>
@@ -294,10 +294,10 @@ def main():
     DOCS.mkdir(exist_ok=True)
     xml_bytes = build_rss(stories, now)
     ET.fromstring(xml_bytes)  # vérifie que le XML produit est bien formé
-    (DOCS / "feed.xml").write_bytes(xml_bytes)
+    (DOCS / "veille.xml").write_bytes(xml_bytes)
     (DOCS / "index.html").write_text(build_index(stories, now), encoding="utf-8")
     (DOCS / ".nojekyll").touch()
-    print(f"feed.xml généré : {len(stories)} sujets")
+    print(f"veille.xml généré : {len(stories)} sujets")
 
 
 if __name__ == "__main__":

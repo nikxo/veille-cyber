@@ -1,0 +1,11 @@
+{
+  "collected_at": "2026-10-03T15:48:21+00:00",
+  "feed_summary": "Dell has released security updates to address multiple critical security flaws in Dell Container Storage Modules (CSM) that could be exploited by bad actors to take over susceptible systems. The vulnerabilities are listed below - CVE-2026-63688 (CVSS score: 10.0) - A missing authentication for critical function vulnerability in the csm-authorization-storage gRPC server that an",
+  "id": "0214f46e5aeb5bf7",
+  "lang": "en",
+  "link": "https://thehackernews.com/2026/10/dell-csm-flaws-enable-unauthenticated.html",
+  "published": "2026-10-02T22:32:12+05:30",
+  "source": "The Hacker News",
+  "source_type": "actu",
+  "title": "Dell CSM Flaws Enable Unauthenticated Admin Access and Root on Kubernetes Nodes"
+}

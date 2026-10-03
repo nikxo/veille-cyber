@@ -65,21 +65,24 @@ l'attaque d'une étape à l'autre. Le générateur refuse les textes trop longs.
     `{"etape": "Accès initial", "texte": "Non précisé par les sources [1]."}`.
   - Regroupe les actions qui servent le même but dans une seule étape. Les liaisons de
     cause ou de but ne s'écrivent que si la source les donne.
-- **`parcours`** : la carte simplifiée du chemin de l'attaquant **à travers les machines et
-  systèmes**, dessinée en schéma au-dessus de la chaîne d'attaque. Elle sert à comprendre en un
-  coup d'oeil par où il est passé ; les détails restent dans `chaine`.
-  - `noeuds` (2 à 7) : le premier est toujours `{"id": "att", "type": "attaquant", "nom": "Attaquant"}`
-    (avec le nom du groupe s'il est connu). Chaque autre nœud est une machine, un système ou une
-    ressource touchée : `nom` (6 mots max), `note` (8 mots max, ce qui s'y est passé, peut être
-    vide), `etapes` (numéros des étapes de `chaine` qui s'y déroulent). `type` parmi :
-    `messagerie` (boîte mail), `application` (application ou site web), `serveur`, `passerelle`
-    (VPN, pare-feu, équipement exposé), `poste` (un ordinateur), `postes` (plusieurs machines),
-    `annuaire` (Active Directory, contrôleur ou partage de domaine, système d'identités),
-    `cloud`, `donnees` (base ou données volées), `utilisateur` (personne ciblée), `inconnu`.
-  - `liens` : une chaîne simple qui part de l'attaquant et passe par chaque nœud une seule
-    fois, dans l'ordre : `{"de": "att", "vers": "sp", "texte": "Exploitation de failles SharePoint", "etape": 1}`.
-    `texte` fait 7 mots max, `etape` est le numéro de l'étape de `chaine` correspondante.
-  - Le parcours **ne contient aucun fait absent de `chaine`** : il ne fait que la représenter
+- **`parcours`** : le schéma réseau de l'attaque, dessiné au-dessus de la chaîne d'attaque.
+  Il montre **les machines et systèmes touchés, où ils se trouvent, et comment l'attaquant
+  est passé de l'un à l'autre**, de façon large et simplifiée. Les détails restent dans `chaine`.
+  - `noeuds` (2 à 7) : chaque machine, système ou ressource, avec `id`, `type`, `zone`, `nom`
+    (5 mots max) et `note` (4 mots max, peut être vide). Il y a toujours un nœud
+    `{"id": "att", "type": "attaquant", "zone": "internet", "nom": "Attaquant"}` (avec le nom
+    du groupe s'il est connu). Regroupe les machines semblables en un seul nœud `postes`.
+  - `type` parmi : `messagerie` (boîte mail), `application` (application ou site web),
+    `serveur`, `passerelle` (VPN, pare-feu, équipement exposé), `poste` (un ordinateur),
+    `postes` (plusieurs machines), `annuaire` (Active Directory, partage ou contrôleur de
+    domaine, système d'identités), `cloud`, `donnees`, `utilisateur`, `inconnu`.
+  - `zone` parmi : `internet` (l'attaquant et les services externes qu'il utilise), `expose`
+    (systèmes de la victime **dont une source dit qu'ils sont exposés sur Internet**),
+    `victime` (réseau et systèmes de la victime). Dans le doute, `victime`.
+  - `liens` (1 à 8) : `{"de": "att", "vers": "sp", "etape": 1, "texte": "..."}`. `etape` est le
+    numéro de l'étape de `chaine` représentée, `texte` (12 mots max) sert de légende. Plusieurs
+    liens peuvent partir d'un même nœud. Chaque nœud doit être relié à au moins un autre.
+  - Le schéma **ne contient aucun fait absent de `chaine`** : il ne fait que la représenter
     par machine. Si le système d'entrée n'est pas connu, utilise un nœud de type `inconnu`.
 - **`limites`** (35 mots max, peut être vide) : ce que les sources ne disent pas et qui
   manque pour comprendre la chaîne (ordre incertain, vecteur inconnu, sources en désaccord).
@@ -167,15 +170,15 @@ réutilise jamais, chaque sujet est rédigé uniquement à partir de ses propres
       ],
       "parcours": {
         "noeuds": [
-          {"id": "att", "type": "attaquant", "nom": "Attaquant (Warlock)", "note": ""},
-          {"id": "sp", "type": "serveur", "nom": "Serveur SharePoint", "note": "Porte dérobée web", "etapes": [1, 2]},
-          {"id": "pc", "type": "postes", "nom": "Machines du réseau", "note": "Antivirus coupés", "etapes": [3]},
-          {"id": "fin", "type": "postes", "nom": "Machines chiffrées", "note": "33 machines", "etapes": [4]}
+          {"id": "att", "type": "attaquant", "zone": "internet", "nom": "Attaquant (Warlock)", "note": ""},
+          {"id": "sp", "type": "serveur", "zone": "victime", "nom": "Serveur SharePoint", "note": "Porte dérobée web"},
+          {"id": "pc", "type": "postes", "zone": "victime", "nom": "Machines du réseau", "note": "Antivirus coupés"},
+          {"id": "sys", "type": "annuaire", "zone": "victime", "nom": "Partage SYSVOL du domaine", "note": ""}
         ],
         "liens": [
-          {"de": "att", "vers": "sp", "texte": "Exploitation de failles SharePoint", "etape": 1},
-          {"de": "sp", "vers": "pc", "texte": "Pilote vulnérable (BYOVD)", "etape": 3},
-          {"de": "pc", "vers": "fin", "texte": "Diffusion via SYSVOL", "etape": 4}
+          {"de": "att", "vers": "sp", "etape": 1, "texte": "Exploitation de failles SharePoint"},
+          {"de": "sp", "vers": "pc", "etape": 2, "texte": "Pilote vulnérable chargé (BYOVD), antivirus coupés"},
+          {"de": "sys", "vers": "pc", "etape": 4, "texte": "Rançongiciel diffusé depuis SYSVOL"}
         ]
       },
       "limites": "Les sources ne précisent pas combien de temps les attaquants sont restés avant le chiffrement [1, 2].",

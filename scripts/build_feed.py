@@ -31,7 +31,7 @@ SITE_URL = "https://nikxo.github.io/veille-cyber"
 MAX_ITEMS = 100
 SCHEMA = 3
 # À incrémenter à chaque changement de présentation pour que les lecteurs RSS republient les articles
-FORMAT_REV = 3
+FORMAT_REV = 4
 # Limites de longueur (en mots, références [n] non comptées)
 MAX_WORDS = {"resume": 45, "etape_titre": 4, "etape_texte": 30, "limites": 35,
              "cve": 30, "mitre": 20, "acteur": 25, "cible": 25, "definition": 15}
@@ -80,7 +80,7 @@ def story_texts(s):
 
 
 def check_parcours(s, sid):
-    """Parcours de l'attaquant : chaîne simple de nœuds (machines/systèmes) reliés par des étapes."""
+    """Schéma de l'attaque : machines (nœuds) placées par zone, reliées par des étapes de la chaîne."""
     p = s.get("parcours")
     if p is None:
         err(sid, "champ 'parcours' manquant")
@@ -88,30 +88,34 @@ def check_parcours(s, sid):
     nodes, links = p.get("noeuds", []), p.get("liens", [])
     if not 2 <= len(nodes) <= 7:
         err(sid, f"parcours : {len(nodes)} nœuds (entre 2 et 7 attendus)")
-    if nodes and nodes[0].get("type") != "attaquant":
-        err(sid, "parcours : le premier nœud doit être de type 'attaquant'")
+    if not 1 <= len(links) <= 8:
+        err(sid, f"parcours : {len(links)} liens (entre 1 et 8 attendus)")
     ids = [n.get("id") for n in nodes]
     if len(set(ids)) != len(ids):
         err(sid, "parcours : identifiants de nœuds en double")
+    if not any(n.get("type") == "attaquant" and n.get("zone") == "internet" for n in nodes):
+        err(sid, "parcours : il faut un nœud de type 'attaquant' en zone 'internet'")
     for n in nodes:
         if n.get("type") not in diagram.TYPES:
             err(sid, f"parcours : type inconnu {n.get('type')!r} (autorisés : {', '.join(sorted(diagram.TYPES))})")
-        if not n.get("nom") or len(n["nom"].split()) > 6:
-            err(sid, f"parcours : nom du nœud {n.get('id')} vide ou trop long (6 mots max)")
-        if len(n.get("note", "").split()) > 8:
-            err(sid, f"parcours : note du nœud {n.get('id')} trop longue (8 mots max)")
-        for e in n.get("etapes", []):
-            if not 1 <= e <= len(s["chaine"]):
-                err(sid, f"parcours : nœud {n.get('id')} renvoie à une étape {e} inexistante")
+        if n.get("zone") not in diagram.ZONE_IDS:
+            err(sid, f"parcours : zone inconnue {n.get('zone')!r} pour {n.get('id')} (internet, expose, victime)")
+        if not n.get("nom") or len(n["nom"].split()) > 5:
+            err(sid, f"parcours : nom du nœud {n.get('id')} vide ou trop long (5 mots max)")
+        if len(n.get("note", "").split()) > 4:
+            err(sid, f"parcours : note du nœud {n.get('id')} trop longue (4 mots max)")
+    linked = set()
     for l in links:
-        if l.get("de") not in ids or l.get("vers") not in ids:
-            err(sid, f"parcours : lien vers un nœud inexistant ({l.get('de')} -> {l.get('vers')})")
+        if l.get("de") not in ids or l.get("vers") not in ids or l.get("de") == l.get("vers"):
+            err(sid, f"parcours : lien invalide ({l.get('de')} -> {l.get('vers')})")
+        linked.update((l.get("de"), l.get("vers")))
         if not isinstance(l.get("etape"), int) or not 1 <= l["etape"] <= len(s["chaine"]):
             err(sid, f"parcours : lien {l.get('de')} -> {l.get('vers')} sans numéro d'étape valide")
-        if not l.get("texte") or len(l["texte"].split()) > 7:
-            err(sid, f"parcours : libellé du lien {l.get('de')} -> {l.get('vers')} vide ou trop long (7 mots max)")
-    if nodes and diagram.path_order(p) is None:
-        err(sid, "parcours : les liens doivent former une chaîne simple partant du premier nœud et passant par tous les nœuds")
+        if not l.get("texte") or len(l["texte"].split()) > 12:
+            err(sid, f"parcours : libellé du lien {l.get('de')} -> {l.get('vers')} vide ou trop long (12 mots max)")
+    for i in ids:
+        if i not in linked:
+            err(sid, f"parcours : le nœud {i} n'est relié à rien")
 
 
 def validate(stories):

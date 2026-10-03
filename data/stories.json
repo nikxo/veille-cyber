@@ -123,70 +123,49 @@
           {
             "id": "att",
             "type": "attaquant",
+            "zone": "internet",
             "nom": "Attaquant (Warlock)",
             "note": ""
           },
           {
             "id": "sp",
             "type": "serveur",
+            "zone": "victime",
             "nom": "Serveur SharePoint",
-            "note": "Porte dérobée web, exécution de code",
-            "etapes": [
-              1,
-              2
-            ]
+            "note": "Porte dérobée web"
           },
           {
             "id": "pc",
             "type": "postes",
+            "zone": "victime",
             "nom": "Machines du réseau",
-            "note": "Protections coupées sur au moins 40 machines",
-            "etapes": [
-              4
-            ]
+            "note": "Protections coupées (40)"
           },
           {
             "id": "sys",
             "type": "annuaire",
+            "zone": "victime",
             "nom": "Partage SYSVOL du domaine",
-            "note": "Rançongiciel déposé pour le diffuser",
-            "etapes": [
-              5
-            ]
-          },
-          {
-            "id": "fin",
-            "type": "postes",
-            "nom": "Machines chiffrées",
-            "note": "Au moins 33 machines",
-            "etapes": [
-              5
-            ]
+            "note": ""
           }
         ],
         "liens": [
           {
             "de": "att",
             "vers": "sp",
-            "texte": "Exploitation de failles SharePoint",
+            "texte": "Exploitation de failles SharePoint, dépôt d'une porte dérobée web",
             "etape": 1
           },
           {
             "de": "sp",
             "vers": "pc",
-            "texte": "Progression, tunnels Visual Studio Code",
+            "texte": "Progression dans le réseau, tunnels Visual Studio Code",
             "etape": 3
           },
           {
-            "de": "pc",
-            "vers": "sys",
-            "texte": "Dépôt de la charge",
-            "etape": 5
-          },
-          {
             "de": "sys",
-            "vers": "fin",
-            "texte": "Diffusion du rançongiciel",
+            "vers": "pc",
+            "texte": "Rançongiciel diffusé depuis SYSVOL vers au moins 33 machines",
             "etape": 5
           }
         ]
@@ -289,57 +268,55 @@
           {
             "id": "att",
             "type": "attaquant",
+            "zone": "internet",
             "nom": "Attaquant (UAT-11587)",
             "note": ""
           },
           {
+            "id": "m365",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Microsoft 365",
+            "note": "Outlook, OneDrive"
+          },
+          {
             "id": "mail",
             "type": "messagerie",
+            "zone": "victime",
             "nom": "Boîte mail de la cible",
-            "note": "Expéditeur de confiance usurpé",
-            "etapes": [
-              1
-            ]
+            "note": ""
           },
           {
             "id": "pc",
             "type": "poste",
+            "zone": "victime",
             "nom": "Poste de la cible",
-            "note": "Antino installé, relancé à chaque session",
-            "etapes": [
-              2,
-              3,
-              4,
-              6
-            ]
-          },
-          {
-            "id": "m365",
-            "type": "cloud",
-            "nom": "Microsoft 365 (Outlook, OneDrive)",
-            "note": "Ordres, résultats et fichiers échangés",
-            "etapes": [
-              5
-            ]
+            "note": "Antino installé"
           }
         ],
         "liens": [
           {
             "de": "att",
             "vers": "mail",
-            "texte": "Courriel d'hameçonnage ciblé",
+            "texte": "Courriel d'hameçonnage ciblé, expéditeur de confiance usurpé",
             "etape": 1
           },
           {
             "de": "mail",
             "vers": "pc",
-            "texte": "Fichier HTA ou WSF téléchargé",
-            "etape": 1
+            "texte": "Fichier HTA ou WSF téléchargé et exécuté",
+            "etape": 2
           },
           {
             "de": "pc",
             "vers": "m365",
-            "texte": "Pilotage et exfiltration via Microsoft Graph",
+            "texte": "Résultats et fichiers déposés via Microsoft Graph",
+            "etape": 5
+          },
+          {
+            "de": "att",
+            "vers": "m365",
+            "texte": "Ordres déposés dans Outlook",
             "etape": 5
           }
         ]
@@ -386,39 +363,36 @@
           {
             "id": "att",
             "type": "attaquant",
+            "zone": "internet",
             "nom": "Attaquant",
             "note": ""
           },
           {
             "id": "sys",
-            "type": "serveur",
-            "nom": "Systèmes de Frontline Education",
-            "note": "Accès non autorisé",
-            "etapes": [
-              1
-            ]
+            "type": "application",
+            "zone": "victime",
+            "nom": "Logiciel tiers vulnérable",
+            "note": "Non nommé"
           },
           {
             "id": "data",
             "type": "donnees",
+            "zone": "victime",
             "nom": "Données des employés",
-            "note": "Sécurité sociale, adresses",
-            "etapes": [
-              2
-            ]
+            "note": ""
           }
         ],
         "liens": [
           {
             "de": "att",
             "vers": "sys",
-            "texte": "Faille d'un logiciel tiers",
+            "texte": "Exploitation d'une faille du logiciel tiers",
             "etape": 1
           },
           {
             "de": "sys",
             "vers": "data",
-            "texte": "Vol de données",
+            "texte": "Vol de données d'employés",
             "etape": 2
           }
         ]
@@ -473,26 +447,23 @@
           {
             "id": "att",
             "type": "attaquant",
+            "zone": "internet",
             "nom": "Attaquant",
             "note": ""
           },
           {
             "id": "dtub",
             "type": "annuaire",
+            "zone": "victime",
             "nom": "DTUBasen",
-            "note": "Plus de vingt ans de données",
-            "etapes": [
-              1
-            ]
+            "note": ""
           },
           {
             "id": "data",
             "type": "donnees",
+            "zone": "victime",
             "nom": "Données personnelles",
-            "note": "Numéros CPR, noms, adresses, photos",
-            "etapes": [
-              2
-            ]
+            "note": "Jusqu'à 200 000 personnes"
           }
         ],
         "liens": [
@@ -505,7 +476,7 @@
           {
             "de": "dtub",
             "vers": "data",
-            "texte": "Téléchargement d'un grand volume",
+            "texte": "Téléchargement d'un grand volume de données",
             "etape": 2
           }
         ]
@@ -617,41 +588,36 @@
           {
             "id": "att",
             "type": "attaquant",
+            "zone": "internet",
             "nom": "Attaquants non identifiés",
             "note": ""
           },
           {
             "id": "ns",
             "type": "passerelle",
-            "nom": "Passerelle NetScaler exposée",
-            "note": "Droits root, web shells, persistance",
-            "etapes": [
-              1,
-              2,
-              3
-            ]
+            "zone": "expose",
+            "nom": "Passerelle NetScaler",
+            "note": "Web shells, droits root"
           },
           {
             "id": "int",
             "type": "postes",
+            "zone": "victime",
             "nom": "Machines internes",
-            "note": "Reconnaissance, vol d'identifiants",
-            "etapes": [
-              4
-            ]
+            "note": ""
           }
         ],
         "liens": [
           {
             "de": "att",
             "vers": "ns",
-            "texte": "Exploitation de CVE-2026-88772",
+            "texte": "Exploitation de CVE-2026-88772, code exécuté en root",
             "etape": 1
           },
           {
             "de": "ns",
             "vers": "int",
-            "texte": "Tunnel SLAPSHOT",
+            "texte": "Tunnel SLAPSHOT : reconnaissance et vol d'identifiants",
             "etape": 4
           }
         ]

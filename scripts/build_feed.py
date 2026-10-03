@@ -229,11 +229,8 @@ def story_html(s):
         date = f", {escape(item['date'][:10])}" if item.get("date") else ""
         parts.append(f'<li><a href="{escape(item["url"])}">{escape(item["titre"])}</a> ({escape(item["site"])}{date})</li>')
     parts.append("</ol>")
-    # Bouton en image (les lecteurs RSS suppriment souvent le CSS), texte alternatif si les images sont bloquées
-    parts.append(
-        f'<p><a href="{escape(ask_claude_url(s))}">'
-        f'<img src="{SITE_URL}/ask-claude.png" width="264" height="52" alt="Demander à Claude sur ce sujet" '
-        f'style="border:0;display:block"></a></p>')
+    # Lien texte (une image serait reprise comme vignette par certains lecteurs et ouverte au lieu du lien)
+    parts.append(f'<hr><p><a href="{escape(ask_claude_url(s))}"><strong>\U0001F4AC Demander à Claude sur ce sujet</strong></a></p>')
     return "".join(parts)
 
 

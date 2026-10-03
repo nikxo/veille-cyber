@@ -6,15 +6,15 @@ lire ces articles, garder ceux qui décrivent des attaques, les regrouper par su
 une synthèse en français qui fait **comprendre comment les attaquants s'y sont pris**, puis
 publier le flux RSS.
 
-Le lecteur est un étudiant ingénieur en cybersécurité. Il veut comprendre l'enchaînement de
-l'attaque, pas lire une liste d'outils.
+Le lecteur est un étudiant ingénieur en cybersécurité. Il veut comprendre la logique de
+l'attaque en un coup d'oeil, pas lire une liste d'outils ni de longs paragraphes.
 
 ## Règles absolues
 
 1. **Aucune déduction.** Tu n'écris que ce qu'une source dit explicitement. Pas de
    « probablement », pas de « il est vraisemblable », pas de lien de cause à effet que la
    source ne fait pas elle-même. Si une source ne précise pas le vecteur d'accès initial,
-   `vecteur` reste une chaîne vide (le flux affichera « Non précisé par les sources. »).
+   la première étape de `chaine` l'indique (« Non précisé par les sources »).
    Erreurs typiques à ne pas commettre :
    - **calculer une date** (« deux jours après le 22 juillet, soit le 24 ») : recopie la
      formulation de la source (« deux jours après l'accès initial ») ;
@@ -46,30 +46,35 @@ l'attaque, pas lire une liste d'outils.
 
 ## Comment rédiger
 
-- **`resume`** : 2 à 4 phrases. Qui a été attaqué, par qui (si connu), quand, avec quel
-  impact.
-- **`vecteur`** : un paragraphe qui explique la porte d'entrée comme on l'expliquerait à
-  quelqu'un : ce qui était exposé ou fragile (un serveur accessible depuis Internet, un
-  compte sans double authentification, un e-mail piégé…), comment les attaquants l'ont
-  exploité, et ce que ça leur a donné (quel accès, quels droits).
-- **`deroule`** : le récit de l'attaque, une étape par paragraphe, **dans l'ordre
-  chronologique**. Chaque paragraphe dit ce que les attaquants ont fait, comment, et ce que
-  ça leur a permis, puis enchaîne sur l'étape suivante avec des liaisons (« une fois ce
-  premier accès obtenu », « pour se déplacer vers d'autres machines », « afin de ne pas être
-  détectés »). Regroupe les actions liées dans la même étape plutôt que d'aligner un outil
-  par ligne. Les liaisons de cause ou de but ne s'écrivent que si la source les donne. Si
-  les sources ne disent pas dans quel ordre les actions ont eu lieu ou comment une étape a
-  mené à la suivante, écris-le explicitement (« Les sources ne précisent pas à quel moment
-  ... »).
-- **`cves`** : pour chaque CVE, une ligne d'explication : produit touché, nature de la
-  faille, ce qu'elle permet à un attaquant (et la gravité si une source la donne). Si les
-  articles ne décrivent pas la faille, lis sa fiche NVD avec WebFetch sur
-  `https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=<CVE>`, ajoute cette fiche aux
-  `sources` (titre « Fiche NVD <CVE> », site « NVD (NIST) », url
+**Objectif : court et clair.** Le lecteur doit comprendre la logique de l'attaque en
+30 secondes : par où les attaquants sont entrés, ce qu'ils ont fait ensuite, et dans quel but.
+Pas d'inventaire de tous les outils et détails : garde seulement ce qui fait avancer
+l'attaque d'une étape à l'autre. Le générateur refuse les textes trop longs.
+
+- **`resume`** (45 mots max) : 1 ou 2 phrases. Qui a été attaqué, par qui si c'est connu,
+  et l'impact.
+- **`chaine`** (1 à 6 étapes) : la chaîne d'attaque, dans l'ordre. Chaque étape a :
+  - `etape` (4 mots max) : le nom de la phase, par exemple « Accès initial »,
+    « Prise de contrôle », « Persistance », « Déplacement dans le réseau »,
+    « Neutralisation des défenses », « Vol de données », « Chiffrement » ;
+  - `texte` (30 mots max) : **ce qu'ils ont fait → ce que ça leur a donné**, en une phrase,
+    avec la flèche « → » quand la source donne le résultat. Exemple :
+    « Exploitation d'une faille de SharePoint exposé sur Internet → exécution de code sur
+    le serveur [1]. »
+  - La première étape est toujours l'accès initial. Si aucune source ne le décrit, écris
+    `{"etape": "Accès initial", "texte": "Non précisé par les sources [1]."}`.
+  - Regroupe les actions qui servent le même but dans une seule étape. Les liaisons de
+    cause ou de but ne s'écrivent que si la source les donne.
+- **`limites`** (35 mots max, peut être vide) : ce que les sources ne disent pas et qui
+  manque pour comprendre la chaîne (ordre incertain, vecteur inconnu, sources en désaccord).
+- **`cves`** (30 mots max chacune) : produit touché, nature de la faille, ce qu'elle permet,
+  gravité si une source la donne. Si les articles ne décrivent pas la faille, lis sa fiche
+  NVD avec WebFetch sur `https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=<CVE>`,
+  ajoute cette fiche aux `sources` (titre « Fiche NVD <CVE> », site « NVD (NIST) », url
   `https://nvd.nist.gov/vuln/detail/<CVE>`) et cite-la.
-- **`mitre`** : une ligne par technique : identifiant, nom, explication en français en
-  quelques mots, référence.
-- **`acteurs`** / **`cibles`** : une ligne par élément, avec référence.
+- **`mitre`** (20 mots max chacune) : identifiant, nom, explication en quelques mots.
+- **`acteurs`** / **`cibles`** (25 mots max chacun) : une ligne par élément.
+- **`abreviations`** : définitions de 15 mots max.
 
 ## Étapes
 
@@ -100,11 +105,11 @@ l'attaque, pas lire une liste d'outils.
    sujet.
    - Même sujet : ajoute la nouvelle source **à la fin** de `sources` (les numéros existants
      ne changent jamais), réécris les sections pour intégrer les informations nouvelles dans
-     le récit, mets `updated` à l'heure actuelle et incrémente `version` de 1 (une seule fois
+     la chaîne d'attaque en restant dans les limites de longueur, mets `updated` à l'heure actuelle et incrémente `version` de 1 (une seule fois
      par exécution, même si plusieurs articles s'ajoutent au même sujet).
-   - Nouveau sujet : crée-le avec `version` = 1 et `schema` = 2.
+   - Nouveau sujet : crée-le avec `version` = 1 et `schema` = 3.
 5. **Vérification avant publication.** Pour chaque sujet créé ou modifié, relis chaque
-   phrase de `resume`, `vecteur`, `deroule` et `cves` et confirme que chaque affirmation
+   phrase de `resume`, `chaine`, `limites` et `cves` et confirme que chaque affirmation
    (fait, date, chiffre, lien de cause, détail technique) figure dans une des sources citées
    entre crochets **sur cette phrase**. Si tu disposes de l'outil Agent, confie cette
    vérification à un agent séparé qui n'a pas rédigé le texte : donne-lui le sujet et les
@@ -131,26 +136,29 @@ réutilise jamais, chaque sujet est rédigé uniquement à partir de ses propres
 {
   "stories": [
     {
-      "schema": 2,
+      "schema": 3,
       "id": "2026-10-03-warlock-sharepoint",
       "title": "Titre clair en français (acteur ou produit + ce qui s'est passé)",
       "created": "2026-10-03T15:20:00+00:00",
       "updated": "2026-10-03T15:20:00+00:00",
       "version": 1,
-      "resume": "Le groupe Warlock a chiffré les systèmes d'une compagnie d'eau et d'un opérateur télécom entre juillet et septembre 2026 [1, 2].",
-      "vecteur": "Les victimes utilisaient des serveurs SharePoint installés en interne et accessibles depuis Internet. Les attaquants ont exploité des failles de ces serveurs pour y exécuter du code sans s'authentifier [1], puis y ont déposé une porte dérobée web qui leur a servi de point d'entrée durable [1, 2].",
-      "deroule": [
-        "Une fois installés sur le serveur SharePoint, les attaquants ont récupéré les clés cryptographiques du serveur, ce qui leur permettait de fabriquer des requêtes acceptées comme légitimes et de relancer l'exécution de code à volonté [2].",
-        "Pour garder un accès à distance discret, ils ont installé VS Code comme service et utilisé sa fonction de tunnel intégrée [1]. Les sources ne précisent pas combien de temps après l'intrusion initiale."
+      "resume": "Le groupe Warlock a chiffré les systèmes d'une compagnie d'eau et d'un opérateur télécom [1, 2].",
+      "chaine": [
+        {"etape": "Accès initial", "texte": "Exploitation de failles de SharePoint exposé sur Internet → exécution de code sur le serveur [1]."},
+        {"etape": "Persistance", "texte": "Dépôt d'une porte dérobée web → accès durable au serveur [1, 2]."},
+        {"etape": "Neutralisation des défenses", "texte": "Pilote vulnérable chargé volontairement (BYOVD) → antivirus coupés sur 40 machines [1]."},
+        {"etape": "Chiffrement", "texte": "Rançongiciel diffusé via le partage SYSVOL du domaine → 33 machines chiffrées [1]."}
       ],
+      "limites": "Les sources ne précisent pas combien de temps les attaquants sont restés avant le chiffrement [1, 2].",
       "cves": [
-        {"id": "CVE-2025-53770", "explication": "Faille de désérialisation dans SharePoint Server installé en interne, qui permet à un attaquant non authentifié d'exécuter du code à distance, gravité critique (9,8 sur 10) [3]."}
+        {"id": "CVE-2025-53770", "explication": "SharePoint Server installé en local : désérialisation non sécurisée permettant d'exécuter du code sans authentification, gravité critique 9,8 sur 10 [3]."}
       ],
-      "mitre": ["T1190 Exploit Public-Facing Application : exploitation d'une application exposée sur Internet [2]"],
+      "mitre": [],
       "acteurs": ["Warlock, aussi suivi sous le nom Storm-2603 [2]"],
-      "cibles": ["Une compagnie d'eau, un opérateur télécom, une administration régionale et une université [1]"],
+      "cibles": ["Compagnie d'eau, opérateur télécom, administration régionale, université [1]"],
       "abreviations": [
-        {"sigle": "VS Code", "definition": "Visual Studio Code, éditeur de code de Microsoft"}
+        {"sigle": "BYOVD", "definition": "Bring Your Own Vulnerable Driver : charger un pilote vulnérable pour couper les défenses"},
+        {"sigle": "SYSVOL", "definition": "Dossier partagé répliqué sur les contrôleurs de domaine Windows"}
       ],
       "sources": [
         {"titre": "Titre original de l'article", "site": "BleepingComputer", "url": "https://...", "date": "2026-10-02"},
@@ -164,8 +172,8 @@ réutilise jamais, chaque sujet est rédigé uniquement à partir de ses propres
 
 - `id` : `AAAA-MM-JJ-mots-cles` en minuscules, sans accents, unique et **jamais modifié**
   ensuite.
-- `vecteur` peut être vide ; `deroule`, `cves`, `mitre`, `acteurs`, `cibles`, `abreviations`
-  peuvent être des listes vides ; `resume` et `sources` jamais.
+- `limites` peut être vide ; `cves`, `mitre`, `acteurs`, `cibles`, `abreviations` peuvent
+  être des listes vides ; `resume`, `chaine` et `sources` jamais.
 - Conserve au maximum 500 sujets : supprime les plus anciens (`updated`) au-delà.
 
 ## Format de `data/skipped.json`

@@ -24,7 +24,11 @@ STORIES = ROOT / "data" / "stories.json"
 DOCS = ROOT / "docs"
 SITE_URL = "https://nikxo.github.io/veille-cyber"
 MAX_ITEMS = 100
-SCHEMA = 2
+SCHEMA = 3
+# Limites de longueur (en mots, références [n] non comptées)
+MAX_WORDS = {"resume": 45, "etape_titre": 4, "etape_texte": 30, "limites": 35,
+             "cve": 30, "mitre": 20, "acteur": 25, "cible": 25, "definition": 15}
+MIN_STEPS, MAX_STEPS = 1, 6
 
 REF_RE = re.compile(r"\[(\d+(?:\s*,\s*\d+)*)\]")
 # Un sigle : au moins deux caractères, majuscules et chiffres, sans minuscule (RCE, BYOVD, C2, AD).
@@ -58,9 +62,9 @@ def refs_in(text):
 def story_texts(s):
     """(libellé, texte) de chaque champ rédigé qui doit être sourcé."""
     texts = [("resume", s["resume"])]
-    if s["vecteur"]:
-        texts.append(("vecteur", s["vecteur"]))
-    texts += [(f"deroule[{i}]", t) for i, t in enumerate(s["deroule"], 1)]
+    texts += [(f"chaine[{i}]", e.get("texte", "")) for i, e in enumerate(s["chaine"], 1)]
+    if s["limites"]:
+        texts.append(("limites", s["limites"]))
     texts += [(f"cves[{c.get('id')}]", c.get("explication", "")) for c in s["cves"]]
     texts += [(f"mitre[{i}]", t) for i, t in enumerate(s["mitre"], 1)]
     texts += [(f"acteurs[{i}]", t) for i, t in enumerate(s["acteurs"], 1)]
@@ -71,7 +75,7 @@ def story_texts(s):
 def validate(stories):
     ids = set()
     required = {"schema": int, "id": str, "title": str, "created": str, "updated": str, "version": int,
-                "resume": str, "vecteur": str, "deroule": list, "cves": list, "mitre": list,
+                "resume": str, "chaine": list, "limites": str, "cves": list, "mitre": list,
                 "acteurs": list, "cibles": list, "abreviations": list, "sources": list}
     for s in stories:
         sid = s.get("id", "?")
@@ -101,13 +105,40 @@ def validate(stories):
             if not a.get("sigle") or not a.get("definition"):
                 err(sid, "entrée du glossaire sans sigle ou sans définition")
 
+        def too_long(label, text, key):
+            n = len(REF_RE.sub(" ", text).split())
+            if n > MAX_WORDS[key]:
+                err(sid, f"{label} trop long : {n} mots (maximum {MAX_WORDS[key]})")
+        too_long("resume", s["resume"], "resume")
+        if not MIN_STEPS <= len(s["chaine"]) <= MAX_STEPS:
+            err(sid, f"chaine : {len(s['chaine'])} étapes (entre {MIN_STEPS} et {MAX_STEPS} attendues)")
+        for i, e in enumerate(s["chaine"], 1):
+            if not e.get("etape") or not e.get("texte"):
+                err(sid, f"chaine[{i}] : champs 'etape' et 'texte' obligatoires")
+                continue
+            too_long(f"chaine[{i}].etape", e["etape"], "etape_titre")
+            too_long(f"chaine[{i}].texte", e["texte"], "etape_texte")
+        if s["limites"]:
+            too_long("limites", s["limites"], "limites")
+        for c in s["cves"]:
+            too_long(f"cves[{c.get('id')}]", c.get("explication", ""), "cve")
+        for i, x in enumerate(s["mitre"], 1):
+            too_long(f"mitre[{i}]", x, "mitre")
+        for i, x in enumerate(s["acteurs"], 1):
+            too_long(f"acteurs[{i}]", x, "acteur")
+        for i, x in enumerate(s["cibles"], 1):
+            too_long(f"cibles[{i}]", x, "cible")
+        for a in s["abreviations"]:
+            too_long(f"abreviations[{a.get('sigle')}]", a.get("definition", ""), "definition")
+
         n_sources = len(s["sources"])
         cited = set()
         texts = story_texts(s) + [("title", s["title"])]
+        texts += [(f"title_etape[{i}]", e.get("etape", "")) for i, e in enumerate(s["chaine"], 1)]
         for label, text in texts:
             if "—" in text:
                 err(sid, f"{label} : tiret cadratin interdit")
-            if label == "title":
+            if label == "title" or label.startswith("title_etape"):
                 continue
             refs = refs_in(text)
             if not refs:
@@ -161,14 +192,11 @@ def story_html(s):
         parts.append(f"<p><strong>Mise à jour n°{s['version'] - 1}</strong> : nouvelles informations ou sources ajoutées.</p>")
     parts.append(f"<p>{L(s['resume'])}</p>")
 
-    parts.append("<h3>Comment les attaquants sont entrés</h3>")
-    parts.append(f"<p>{L(s['vecteur'])}</p>" if s["vecteur"] else f"<p><em>{NON_PRECISE}</em></p>")
-
-    parts.append("<h3>Déroulé de l'attaque</h3>")
-    if s["deroule"]:
-        parts += [f"<p><strong>{i}.</strong> {L(t)}</p>" for i, t in enumerate(s["deroule"], 1)]
-    else:
-        parts.append(f"<p><em>{NON_PRECISE}</em></p>")
+    parts.append("<h3>Chaîne d'attaque</h3><ol>")
+    parts += [f"<li><strong>{escape(e['etape'])}</strong> : {L(e['texte'])}</li>" for e in s["chaine"]]
+    parts.append("</ol>")
+    if s["limites"]:
+        parts.append(f"<p><em>{L(s['limites'])}</em></p>")
 
     if s["cves"]:
         parts.append("<h3>Vulnérabilités exploitées (CVE, identifiants publics de failles)</h3><ul>")
@@ -220,7 +248,7 @@ def build_rss(stories, now):
         prefix = "[MàJ] " if s["version"] > 1 else ""
         ET.SubElement(it, "title").text = prefix + s["title"]
         ET.SubElement(it, "link").text = s["sources"][0]["url"]
-        ET.SubElement(it, "guid", isPermaLink="false").text = f"{s['id']}-s{SCHEMA}-v{s['version']}"
+        ET.SubElement(it, "guid", isPermaLink="false").text = s["id"]  # stable : ne change jamais
         ET.SubElement(it, "pubDate").text = format_datetime(s["_updated"])
         ET.SubElement(it, "description").text = story_html(s)
         for c in s["cves"]:

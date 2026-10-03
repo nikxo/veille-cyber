@@ -1,89 +1,81 @@
 {
   "stories": [
     {
-      "schema": 2,
+      "schema": 3,
       "id": "2026-10-03-warlock-ransomware-sharepoint",
-      "title": "Warlock (Storm-2603) exploite SharePoint pour pénétrer une compagnie d'eau, un opérateur télécom, une administration et une université",
+      "title": "Warlock (Storm-2603) exploite SharePoint contre une compagnie d'eau, un opérateur télécom, une administration, une université",
       "created": "2026-10-03T16:02:48+00:00",
       "updated": "2026-10-03T16:02:48+00:00",
       "version": 1,
-      "resume": "Selon les chercheurs de Symantec et Carbon Black, le groupe de rançongiciel Warlock, présenté comme lié à la Chine [1] ou soupçonné de l'être [2], a attaqué au moins quatre organisations en deux mois : une compagnie d'eau, un opérateur de télécommunications, un organisme gouvernemental régional et une université [1, 2]. Les victimes se trouvent dans des pays lusophones et hispanophones d'Europe, d'Afrique et d'Amérique latine [1, 2]. Dans une intrusion débutée le 22 juillet [1, 2], les attaquants ont désactivé les logiciels de protection d'au moins 40 machines puis lancé le rançongiciel Warlock sur au moins 33 machines [1].",
-      "vecteur": "Les victimes utilisaient des serveurs Microsoft SharePoint installés dans leurs propres locaux, et les attaquants ont exploité des vulnérabilités de ces serveurs pour obtenir leur accès initial [1, 2]. Warlock continue d'exploiter des failles SharePoint que l'article qualifie de probablement anciennes comme récentes, sans donner leurs numéros [2]. Une fois la faille exploitée, ils ont déposé une porte dérobée web (web shell) conçue pour fonctionner sur plusieurs versions de SharePoint [1, 2]. Le but de cette porte dérobée est de récupérer les clés machine ASP.NET de la ferme SharePoint, qui servent ensuite à fabriquer une charge utile correctement signée et à obtenir l'exécution de code à distance à l'intérieur du pool d'applications SharePoint [2].",
-      "deroule": [
-        "Les chercheurs décrivent en détail une intrusion débutée le 22 juillet [1], datée du 22 juillet 2026 dans l'autre article [2]. La méthode habituelle du groupe consiste à exploiter des failles de SharePoint installé en local puis à déposer une porte dérobée web [1], mais l'article qui détaille cette intrusion ne précise pas comment l'accès initial y a été obtenu [1]. Pour une attaque datée du 22 juillet 2026, l'autre article décrit cet enchaînement : exploitation de SharePoint Server et dépôt d'une porte dérobée, exploration de l'environnement, exécution de code dans le pool d'applications SharePoint, déploiement d'autres charges, progression dans le réseau, ouverture de tunnels VS Code, arrêt des logiciels de sécurité et enfin déploiement du rançongiciel, sans dater chacune de ces actions [2].",
-        "Deux jours après avoir obtenu leur accès initial, les attaquants ont mené des actions de reconnaissance et supprimé ce qui ressemblait à des fichiers de préparation [1].",
-        "Pour se connecter à distance aux machines compromises, ils ont installé Visual Studio Code Insiders comme service et utilisé la fonction de tunnel intégrée à VS Code [1, 2]. Ils ont aussi employé NetExec, un outil de tests d'intrusion libre, pour énumérer l'Active Directory, tester des mots de passe sur de nombreux comptes et exécuter des commandes à distance [1]. Dans l'enchaînement décrit par l'une des sources, les tunnels VS Code viennent après la progression dans le réseau et avant l'arrêt des logiciels de sécurité [2]. Pour NetExec, la source indique seulement qu'il a servi pendant l'attaque, sans préciser à quel moment [1].",
-        "Plus largement, d'autres méthodes employées dans les attaques de Warlock sont décrites, sans être rattachées à une intrusion ni à une date précise : détournement du chargement de bibliothèques (DLL sideloading), téléchargement des charges suivantes depuis des services légitimes de partage et de stockage de fichiers comme catbox[.]moe et wasabisys[.]com afin de passer inaperçus, et usage d'outils déjà présents sur les systèmes pour la reconnaissance et l'exécution de commandes [2]. Le groupe s'est également appuyé sur l'outil légitime Velociraptor comme canal de commande et de contrôle [2].",
-        "Afin de neutraliser les défenses, les attaquants ont déployé un outil qui désactive les antivirus et les EDR, en utilisant la technique BYOVD avec le pilote K7RKScan.sys, signé [1] et vulnérable à CVE-2025-1055 [1, 2]. Cet outil a désactivé les logiciels de protection d'au moins 40 machines en deux heures environ [1, 2]. Cette étape est rattachée à l'intrusion débutée le 22 juillet [1], et décrite dans une intrusion contre un opérateur d'infrastructure critique [2]. Ce même pilote avait déjà été exploité par les opérateurs du rançongiciel DragonForce [2].",
-        "Pour diffuser le rançongiciel sur tout le réseau, les attaquants ont placé la charge dans le partage SYSVOL du domaine [1, 2], un emplacement de fichiers publics répliqué sur chaque contrôleur de domaine, connu pour permettre de pousser un programme à exécuter sur l'ensemble d'un réseau via un script d'ouverture de session ou une stratégie de groupe [1].",
-        "L'étape finale a eu lieu le 31 juillet, après le déploiement de l'outil de désactivation des protections : le rançongiciel Warlock est apparu presque aussitôt que la protection était coupée sur chaque machine, et il a été lancé sur au moins 33 machines [1, 2]. Les sources ne mentionnent ni vol de données ni demande de rançon [1, 2]."
+      "resume": "Le groupe Warlock, lié à la Chine [1] ou soupçonné de l'être [2], a attaqué en deux mois une compagnie d'eau, un opérateur télécom, un organisme gouvernemental régional et une université [1, 2]. Dans une intrusion, le rançongiciel a été lancé sur au moins 33 machines [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de failles de serveurs SharePoint installés en local → accès initial, puis dépôt d'une porte dérobée web [1, 2]."
+        },
+        {
+          "etape": "Exécution de code",
+          "texte": "Porte dérobée qui récupère les clés machine ASP.NET de la ferme SharePoint → charge utile signée et exécution de code dans le pool d'applications SharePoint [2]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "Reconnaissance, progression dans le réseau, puis tunnels de Visual Studio Code installé comme service → connexion à distance aux machines compromises [1, 2]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Outil exploitant le pilote vulnérable K7RKScan.sys (BYOVD) → logiciels de protection coupés sur au moins 40 machines en deux heures environ [1, 2]."
+        },
+        {
+          "etape": "Chiffrement",
+          "texte": "Charge placée dans le partage SYSVOL du domaine pour la diffuser ; rançongiciel lancé le 31 juillet sur au moins 33 machines [1, 2]."
+        }
       ],
+      "limites": "L'article qui détaille l'intrusion du 22 juillet ne précise pas son accès initial [1] ; l'enchaînement décrit vient de l'autre article, sans date pour chaque action [2]. Ni vol de données ni rançon mentionnés [1, 2].",
       "cves": [
         {
           "id": "CVE-2025-49704",
-          "explication": "Fait partie de la chaîne de failles zero-day de SharePoint appelée ToolShell, exploitée par Warlock [1]. Il s'agit d'une injection de code dans Microsoft Office SharePoint qui permet à un attaquant disposant d'un compte d'exécuter du code à travers le réseau, gravité élevée (8,8 sur 10) [3]."
+          "explication": "Chaîne ToolShell exploitée par Warlock [1]. Injection de code dans SharePoint permettant à un attaquant disposant d'un compte d'exécuter du code à distance, gravité élevée 8,8 sur 10 [3]."
         },
         {
           "id": "CVE-2025-49706",
-          "explication": "Fait partie de la chaîne ToolShell [1]. Défaut d'authentification dans Microsoft Office SharePoint qui permet à un attaquant non autorisé d'usurper une identité à travers le réseau, gravité moyenne (6,5 sur 10) [4]."
+          "explication": "Chaîne ToolShell [1]. Défaut d'authentification dans SharePoint permettant à un attaquant non autorisé d'usurper une identité à travers le réseau, gravité moyenne 6,5 sur 10 [4]."
         },
         {
           "id": "CVE-2025-53770",
-          "explication": "Fait partie de la chaîne ToolShell [1]. Désérialisation de données non fiables dans Microsoft SharePoint Server installé en local, qui permet à un attaquant non autorisé d'exécuter du code à travers le réseau, gravité critique (9,8 sur 10) [5]."
+          "explication": "Chaîne ToolShell [1]. Désérialisation de données non fiables dans SharePoint Server installé en local : exécution de code à distance sans autorisation, gravité critique 9,8 sur 10 [5]."
         },
         {
           "id": "CVE-2025-53771",
-          "explication": "Fait partie de la chaîne ToolShell [1]. Défaut d'authentification dans Microsoft Office SharePoint qui permet à un attaquant non autorisé d'usurper une identité à travers le réseau, gravité moyenne (6,5 sur 10) [6]."
+          "explication": "Chaîne ToolShell [1]. Défaut d'authentification dans SharePoint permettant à un attaquant non autorisé d'usurper une identité à travers le réseau, gravité moyenne 6,5 sur 10 [6]."
         },
         {
           "id": "CVE-2025-1055",
-          "explication": "Vulnérabilité du pilote K7RKScan.sys, utilisée par Warlock dans une attaque BYOVD pour désactiver les logiciels de sécurité [1, 2]. Elle se trouve dans ce pilote de la suite K7 Security Anti-Malware et permet à un utilisateur local peu privilégié d'envoyer des requêtes IOCTL forgées pour arrêter de nombreux processus tournant avec des droits administrateur ou système, gravité moyenne (5,6 sur 10) [7]."
+          "explication": "Pilote K7RKScan.sys détourné en BYOVD pour couper les logiciels de sécurité [1, 2]. Un utilisateur local peu privilégié peut arrêter des processus administrateur ou système, gravité moyenne 5,6 sur 10 [7]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "Warlock, groupe de rançongiciel apparu en juin 2025 et connu un mois plus tard pour l'exploitation en zero-day de la chaîne de failles SharePoint ToolShell [1, 2]",
-        "Suivi sous les noms Longlegs par Symantec et Storm-2603 par Microsoft [1], ainsi que Gold Salem [2]",
-        "Présenté comme lié à la Chine [1] ou soupçonné de l'être [2], il présente des recoupements avec des groupes d'activité plus anciens appelés CL-CRI-1040, CamoFei et ChamelGang [2]",
-        "Plus tôt en 2026, le groupe a été relié à la compromission de SmarterTools via une instance SmarterMail non corrigée [2]"
+        "Warlock, groupe de rançongiciel apparu en juin 2025, connu pour l'exploitation en zero-day de la chaîne de failles SharePoint ToolShell [1, 2]",
+        "Suivi sous les noms Longlegs par Symantec, Storm-2603 par Microsoft [1] et Gold Salem [2]",
+        "Lié à la Chine [1] ou soupçonné de l'être [2], avec des recoupements avec CL-CRI-1040, CamoFei et ChamelGang [2]"
       ],
       "cibles": [
-        "Une compagnie d'eau et un opérateur de télécommunications, qualifiés d'opérateurs d'infrastructure critique [1, 2]",
+        "Une compagnie d'eau et un opérateur de télécommunications, opérateurs d'infrastructure critique [1, 2]",
         "Un organisme gouvernemental régional et une université [1, 2]",
         "Pays lusophones et hispanophones d'Europe, d'Afrique et d'Amérique latine [1, 2]"
       ],
       "abreviations": [
         {
           "sigle": "ASP.NET",
-          "definition": "Cadre de développement web de Microsoft sur lequel repose SharePoint ; ses clés machine servent à signer et chiffrer les données échangées par l'application"
-        },
-        {
-          "sigle": "VS Code",
-          "definition": "Visual Studio Code, éditeur de code de Microsoft, dont la fonction de tunnel permet d'accéder à distance à une machine"
-        },
-        {
-          "sigle": "DLL",
-          "definition": "Dynamic Link Library, bibliothèque de code chargée par les programmes Windows"
-        },
-        {
-          "sigle": "EDR",
-          "definition": "Endpoint Detection and Response, logiciel qui surveille les postes et serveurs pour détecter et bloquer les attaques"
+          "definition": "Cadre web de Microsoft sur lequel repose SharePoint ; ses clés machine signent les données"
         },
         {
           "sigle": "BYOVD",
-          "definition": "Bring Your Own Vulnerable Driver, technique qui consiste à installer un pilote légitime mais vulnérable pour obtenir des droits élevés et neutraliser les protections"
+          "definition": "Bring Your Own Vulnerable Driver : installer un pilote vulnérable pour neutraliser les protections"
         },
         {
           "sigle": "SYSVOL",
-          "definition": "System Volume, dossier partagé d'un domaine Windows répliqué sur tous les contrôleurs de domaine, qui contient scripts et stratégies de groupe"
-        },
-        {
-          "sigle": "K7",
-          "definition": "Nom de la suite de sécurité K7 Security Anti-Malware, dont fait partie le pilote K7RKScan.sys"
-        },
-        {
-          "sigle": "IOCTL",
-          "definition": "Input/Output Control, requête qu'un programme envoie à un pilote pour lui demander une opération"
+          "definition": "Dossier partagé d'un domaine Windows, répliqué sur tous les contrôleurs de domaine"
         }
       ],
       "sources": [
@@ -127,64 +119,68 @@
       ]
     },
     {
-      "schema": 2,
+      "schema": 3,
       "id": "2026-10-03-uat-11587-antino-backdoor-asie",
       "title": "UAT-11587 : la porte dérobée Antino, pilotée via Outlook et OneDrive, contre des gouvernements asiatiques",
       "created": "2026-10-03T16:02:48+00:00",
       "updated": "2026-10-03T16:02:48+00:00",
       "version": 1,
-      "resume": "Cisco Talos décrit une campagne d'espionnage menée par UAT-11587, un groupe lié à la Chine, contre des organisations gouvernementales et politiques en Asie, avec une porte dérobée inédite écrite en Rust et baptisée Antino [1, 2]. Talos a observé cette activité de septembre 2025 à juillet 2026 et recense au moins 16 environnements institutionnels touchés ou visés dans huit pays, pour environ 350 postes compromis [1, 2]. Les attaques se sont intensifiées entre mars et début juin 2026, avec une vague concentrée les 8 et 9 juin [1, 2].",
-      "vecteur": "La porte d'entrée est un courriel d'hameçonnage ciblé dans lequel les attaquants se font passer pour un expéditeur de confiance, ce qui leur permet de contourner les contrôles SPF et DMARC [1]. Talos précise que les messages étaient envoyés via le service Migadu avec le domaine osc-cdn[.]com, contrôlé par l'attaquant, comme expéditeur technique, tandis que l'expéditeur affiché au destinataire était l'organisation usurpée ; le contrôle SPF validait donc le domaine de l'attaquant, et l'échec du contrôle DMARC n'entraînait pas de rejet parce que les domaines visés appliquaient une politique de simple surveillance [2]. Le corps du message reproduisait fidèlement le cadre d'aperçu de pièce jointe de Gmail, et toute cette fausse pièce jointe était en réalité un lien vers une adresse Cloudflare Pages contrôlée par l'attaquant [1, 2]. Ces liens commençaient par // sans protocole explicite, afin d'échapper aux outils de sécurité qui extraient les URL des messages [2]. Cette adresse menait au téléchargement d'un fichier HTA ou WSF, qui était ensuite exécuté sur le poste [1].",
-      "deroule": [
-        "Ce fichier HTA ou WSF est le premier des cinq étages de la chaîne d'infection [1]. Exécuté par mshta.exe, il masque et redimensionne sa fenêtre, envoie une requête de suivi à une balise hébergée sur Cloudflare Pages, puis importe l'étage suivant, un téléchargeur JavaScript, depuis un stockage en ligne chez Cloudflare ou Amazon CloudFront [1, 2].",
-        "Ce téléchargeur récupère trois ressources chiffrées, les décode puis les déchiffre avec l'algorithme RC4 grâce à une clé qu'il contient, et exécute en mémoire le script d'orchestration ainsi obtenu afin de lancer une chaîne de désérialisation .NET [1, 2].",
-        "Cette chaîne de désérialisation charge directement en mémoire TestAssembly.dll, un petit programme .NET de téléchargement et de lancement, et l'exécute à l'intérieur du processus mshta.exe [1, 2]. TestAssembly.dll télécharge puis ouvre un document leurre pour la victime, récupère un lot de trois fichiers qui comprend une fausse calculatrice servant de leurre et la porte dérobée Antino, écrit ce lot dans un dossier de travail et lance l'exécutable GatherOsState.exe [1, 2].",
-        "GatherOsState.exe est un binaire légitime signé par Microsoft : en démarrant, il charge la bibliothèque slc.dll placée à côté de lui, qui est en réalité Antino, selon la technique du chargement latéral de DLL [1, 2]. Talos indique que GatherOsState.exe appelle ensuite la fonction SLOpen de cette bibliothèque, ce qui initialise la porte dérobée [2].",
-        "Une fois active, Antino communique avec ses opérateurs uniquement par Microsoft 365, en passant par l'API Microsoft Graph pour accéder à Outlook et à OneDrive [1]. Elle s'authentifie auprès de Microsoft Graph avec le flux OAuth 2.0 dit « client credentials », qui ne demande aucune connexion interactive d'un utilisateur [2]. Toutes les 10 secondes, elle consulte un dossier de la boîte Outlook de l'attaquant à la recherche de messages dont l'objet commence par command_req_ suivi de l'identifiant de session, et renvoie ses résultats dans des messages dont l'objet commence par command_res_ [1, 2]. OneDrive sert au signal de vie, déposé au démarrage puis renvoyé chaque minute, et aux transferts de fichiers dans les deux sens [1, 2].",
-        "Par ce canal, les opérateurs peuvent faire de la reconnaissance sur la machine, exécuter des commandes cmd.exe ou PowerShell et des programmes de leur choix, lister des dossiers, déposer des fichiers sur le poste, exfiltrer des fichiers vers leur OneDrive et charger du code directement en mémoire [1, 2]. Pour ce chargement en mémoire, Antino peut chiffrer la zone du code pendant ses phases d'attente et ne la déchiffrer qu'au moment de l'exécution, ce qui réduit le temps pendant lequel un analyseur de mémoire peut la repérer [2].",
-        "Pour lancer des programmes et s'installer durablement, Antino détourne le cadre Windows Scripted Diagnostics afin de faire exécuter du PowerShell de l'attaquant par des composants Windows légitimes [1, 2]. Concrètement, elle initialise un diagnostic légitime, l'assistant de compatibilité des programmes, écrit un script PowerShell dans un dossier temporaire et laisse le processus Windows sdiagnhost.exe l'exécuter [2]. Avec la commande add_to_run, ce script crée une valeur dans la clé de registre Run de l'utilisateur, qui relance Antino à sa prochaine ouverture de session [2]. Un paramètre de configuration permet aussi à Antino d'installer automatiquement une copie persistante dès son démarrage [2]. Les sources ne précisent pas à quel moment après l'infection les opérateurs ont utilisé chacune de ces commandes."
+      "resume": "Selon Cisco Talos, UAT-11587, lié à la Chine, espionne des organisations gouvernementales et politiques en Asie avec Antino, porte dérobée inédite en Rust [1, 2]. De septembre 2025 à juillet 2026, environ 350 postes ont été compromis dans huit pays [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Courriel d'hameçonnage ciblé usurpant un expéditeur de confiance (SPF et DMARC contournés), fausse pièce jointe Gmail menant à Cloudflare Pages → téléchargement d'un fichier HTA ou WSF [1, 2]."
+        },
+        {
+          "etape": "Exécution",
+          "texte": "Fichier HTA exécuté par mshta.exe (WSF par Windows Script Host), qui importe un téléchargeur JavaScript → script d'orchestration déchiffré et exécuté en mémoire → chaîne de désérialisation .NET [1, 2]."
+        },
+        {
+          "etape": "Dépôt de la charge",
+          "texte": "TestAssembly.dll chargé en mémoire → document leurre ouvert, porte dérobée Antino et fausse calculatrice déposées, GatherOsState.exe lancé [1, 2]."
+        },
+        {
+          "etape": "Chargement latéral",
+          "texte": "GatherOsState.exe, binaire légitime signé par Microsoft, charge la fausse slc.dll placée à côté (chargement latéral de DLL) → porte dérobée Antino initialisée [1, 2]."
+        },
+        {
+          "etape": "Commande à distance",
+          "texte": "Échanges uniquement via Microsoft 365, par Microsoft Graph : ordres et résultats dans Outlook, signal de vie et fichiers dans OneDrive → commandes, exfiltration de fichiers, code en mémoire [1, 2]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Détournement de Windows Scripted Diagnostics : sdiagnhost.exe exécute un script PowerShell, et ce script crée une valeur dans la clé Run → Antino relancé à l'ouverture de session [1, 2]."
+        }
       ],
+      "limites": "Les sources ne précisent pas à quel moment après l'infection les opérateurs ont utilisé chacune des commandes d'Antino [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "UAT-11587, groupe lié à la Chine selon Cisco Talos avec un degré de confiance élevé, notamment en raison de métadonnées en chinois simplifié et du fuseau horaire UTC+08:00 dans les documents leurres et les en-têtes de courriels, et de chemins de compilation pointant vers rsproxy.cn, un miroir chinois des paquets Rust [1, 2]",
-        "Chevauchement partiel avec Jewelbug, groupe lui-même proche de CL-STA-0049, Earth Alux, Ink Dragon et REF7707 ; Talos n'a trouvé aucun lien entre cette campagne d'espionnage et les activités financières de Jewelbug et suit donc UAT-11587 comme un ensemble distinct [1, 2]",
-        "Le téléchargeur JavaScript faisait référence à un domaine CloudFront déjà associé à UNC6384, un groupe lié à la Chine ; Talos juge ce lien de faible confiance, car une infrastructure cloud peut être réutilisée [1, 2]"
+        "UAT-11587, lié à la Chine selon Cisco Talos avec une confiance élevée : métadonnées en chinois simplifié, fuseau horaire UTC+08:00, miroir chinois de paquets Rust [1, 2]",
+        "Chevauchements avec Jewelbug, mais suivi comme un ensemble distinct : Talos n'a pas pu vérifier de lien avec les activités financières de Jewelbug [1, 2]"
       ],
       "cibles": [
-        "Organisations gouvernementales et de politique étrangère à Taïwan, principale cible, en Inde, aux Philippines, au Cambodge, au Pakistan, en Thaïlande et au Myanmar [1, 2]",
+        "Campagne repérée d'abord contre des cibles à Taïwan, puis étendue à d'autres pays [1, 2]",
+        "Organisations gouvernementales et de politique étrangère en Inde, aux Philippines, au Cambodge, au Pakistan, en Thaïlande et au Myanmar [1, 2]",
         "Organisations en Syrie, visées vers mai 2026 [1]",
-        "Secteurs visés : défense et sécurité nationale, administrations centrales, diplomatie, justice et sécurité intérieure, parlements, services informatiques publics, groupes de réflexion, universités et société civile [2]",
-        "Environ 57 nouveaux postes liés à l'Inde lors de la vague des 8 et 9 juin 2026 [2]"
+        "Secteurs : défense, administrations centrales, diplomatie, justice, parlements, services informatiques publics, groupes de réflexion, universités, société civile [2]"
       ],
       "abreviations": [
         {
           "sigle": "SPF",
-          "definition": "Sender Policy Framework, contrôle qui vérifie qu'un serveur est autorisé à envoyer des courriels pour un domaine"
+          "definition": "Sender Policy Framework : vérifie qu'un serveur peut envoyer des courriels pour un domaine"
         },
         {
           "sigle": "DMARC",
-          "definition": "Domain-based Message Authentication, Reporting and Conformance, politique qui indique quoi faire d'un courriel dont l'expéditeur affiché n'est pas authentifié"
-        },
-        {
-          "sigle": "URL",
-          "definition": "Uniform Resource Locator, adresse d'une ressource sur le web"
+          "definition": "Politique indiquant quoi faire d'un courriel dont l'expéditeur affiché n'est pas authentifié"
         },
         {
           "sigle": "HTA",
-          "definition": "HTML Application, fichier exécuté par Windows comme une application à partir de code web"
-        },
-        {
-          "sigle": "HTML",
-          "definition": "HyperText Markup Language, langage de description des pages web"
+          "definition": "HTML Application : fichier de code web exécuté par Windows comme une application"
         },
         {
           "sigle": "WSF",
-          "definition": "Windows Script File, fichier de script exécuté par l'hôte de scripts Windows"
-        },
-        {
-          "sigle": "RC4",
-          "definition": "Rivest Cipher 4, algorithme de chiffrement par flot"
+          "definition": "Windows Script File : fichier de script exécuté par l'hôte de scripts Windows"
         },
         {
           "sigle": ".NET",
@@ -192,23 +188,11 @@
         },
         {
           "sigle": "DLL",
-          "definition": "Dynamic Link Library, bibliothèque de code chargée par un programme Windows"
-        },
-        {
-          "sigle": "API",
-          "definition": "Application Programming Interface, interface qui permet à un programme d'utiliser un service"
+          "definition": "Dynamic Link Library : bibliothèque de code chargée par un programme Windows"
         },
         {
           "sigle": "UTC",
           "definition": "Temps universel coordonné, référence des fuseaux horaires"
-        },
-        {
-          "sigle": "REF7707",
-          "definition": "Nom de code d'un groupe d'activité malveillante, cité comme proche de Jewelbug"
-        },
-        {
-          "sigle": "UNC6384",
-          "definition": "Nom de code d'un groupe lié à la Chine, cité pour une infrastructure commune"
         }
       ],
       "sources": [
@@ -227,20 +211,24 @@
       ]
     },
     {
-      "schema": 2,
+      "schema": 3,
       "id": "2026-10-03-frontline-education-fuite-donnees",
       "title": "Frontline Education : vol de données d'employés de districts scolaires via une faille d'un logiciel tiers",
       "created": "2026-10-03T16:02:48+00:00",
       "updated": "2026-10-03T16:02:48+00:00",
       "version": 1,
-      "resume": "Frontline Education, éditeur de logiciels d'administration et de gestion du personnel utilisés par des districts scolaires, a subi une intrusion dans ses systèmes au cours de laquelle des données d'employés ont été volées [1]. Les attaquants ont exploité une vulnérabilité d'un logiciel tiers utilisé par l'entreprise, identifiée par son équipe de sécurité le 14 août 2026 [1]. Les informations dérobées comprennent des numéros de sécurité sociale, des adresses électroniques et des adresses postales, et les notifications aux districts ont commencé à arriver le 1er octobre 2026 [1]. Le nombre total de districts et de personnes touchés n'est pas connu [1].",
-      "vecteur": "Frontline Education utilisait un logiciel fourni par un tiers qui comportait une vulnérabilité permettant un accès non autorisé [1]. Les attaquants ont exploité cette faille pour pénétrer dans les systèmes de l'entreprise [1]. L'entreprise n'a pas nommé le produit concerné, et la source ne décrit ni la nature de la faille ni le niveau de droits qu'elle a donné aux attaquants [1].",
-      "deroule": [
-        "Le 14 août 2026, l'équipe de sécurité de Frontline Education a identifié la vulnérabilité du logiciel tiers qui avait permis l'accès non autorisé à ses systèmes [1]. La source ne précise pas à quel moment l'intrusion a commencé ni combien de temps les attaquants sont restés dans les systèmes [1].",
-        "Une fois cet accès obtenu, les attaquants ont volé des informations sur les employés des districts scolaires clients : numéros de sécurité sociale, adresses électroniques et adresses postales [1]. La source ne détaille aucune autre action des attaquants (installation d'un accès durable, déplacement vers d'autres machines, chiffrement) et ne mentionne ni demande de rançon ni revendication [1].",
-        "Après la découverte, l'entreprise a mené une enquête avec l'aide d'une société de cybersécurité indépendante, a corrigé la vulnérabilité, a contacté les forces de l'ordre et a renforcé la sécurité de ses systèmes [1]. La source ne donne pas la date de cette correction [1].",
-        "Le 1er octobre 2026, des responsables de districts ont commencé à recevoir les lettres de notification, envoyées depuis une adresse du domaine cyberscout.com, ce que des administrateurs informatiques scolaires ont signalé sur le forum K12SysAdmin de Reddit [1]. Selon une notification partagée par l'un d'eux, 1 210 employés liés à son district sont touchés, et l'article indique que tous les employés de ce district l'ont été [1]. Les adultes touchés se voient proposer deux ans de surveillance de crédit et de protection contre l'usurpation d'identité via TransUnion, et les mineurs un service de surveillance en ligne [1]. Contacté par BleepingComputer, Frontline Education n'avait pas répondu au moment de la publication [1]."
+      "resume": "Frontline Education, éditeur de logiciels de gestion du personnel pour districts scolaires, s'est fait voler des données d'employés (numéros de sécurité sociale, adresses) via une faille d'un logiciel tiers [1]. Le nombre de personnes touchées n'est pas connu [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation d'une vulnérabilité d'un logiciel tiers non nommé → accès non autorisé aux systèmes de l'entreprise [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Vol des numéros de sécurité sociale, adresses électroniques et adresses postales d'employés des districts clients [1]."
+        }
       ],
+      "limites": "La source ne décrit ni la nature de la faille, ni les droits obtenus, ni le début de l'intrusion ; la vulnérabilité a été identifiée le 14 août 2026 [1].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
@@ -259,24 +247,29 @@
       ]
     },
     {
-      "schema": 2,
+      "schema": 3,
       "id": "2026-10-03-dtu-universite-danoise-dtubasen",
-      "title": "Université technique du Danemark (DTU) : jusqu'à 200 000 personnes exposées après une connexion avec des identifiants compromis",
+      "title": "Université technique du Danemark (DTU) : jusqu'à 200 000 personnes exposées via des identifiants compromis",
       "created": "2026-10-03T16:02:48+00:00",
       "updated": "2026-10-03T16:02:48+00:00",
       "version": 1,
-      "resume": "L'Université technique du Danemark (DTU) a annoncé le vendredi 3 octobre 2026 qu'un attaquant avait accédé à DTUBasen, son système de gestion des identités et des accès, et y avait téléchargé un grand volume de données [1]. Jusqu'à 200 000 personnes pourraient être concernées, soit environ 40 000 utilisateurs actifs et 160 000 anciens utilisateurs [1]. Les données exposées comprennent notamment des numéros d'identification nationaux danois (CPR), des noms, des adresses personnelles et des photos de profil [1]. L'auteur de l'attaque n'est pas nommé [1].",
-      "vecteur": "La porte d'entrée était DTUBasen, le système qui gère les identités et les droits d'accès des utilisateurs de l'université [1]. L'attaquant s'y est connecté avec des identifiants compromis, ce qui lui a donné accès à plus de vingt ans de données sur les utilisateurs [1]. La source ne précise pas comment ces identifiants ont été obtenus ni à quel compte ils appartenaient [1].",
-      "deroule": [
-        "Une fois connecté à DTUBasen avec les identifiants compromis, l'attaquant a pu consulter les données accumulées depuis plus de vingt ans sur les utilisateurs de l'université [1]. La source ne donne pas la date de l'intrusion ni celle de sa découverte [1].",
-        "L'attaquant a ensuite téléchargé un grand volume de données depuis ce système [1]. L'université indique ne pas pouvoir déterminer précisément quelles informations ont été téléchargées ni combien de personnes sont touchées [1]. Pour les utilisateurs actuels, il peut s'agir du numéro CPR, du nom complet, de l'adresse personnelle, de la photo de profil, de l'adresse électronique professionnelle, de l'intitulé de poste, de la localisation du bureau et d'autres informations liées à l'emploi, ainsi que du nom, du lien de parenté et du numéro de téléphone des proches à contacter lorsqu'ils avaient été renseignés [1]. Pour les anciens utilisateurs, l'adresse, la photo et les informations sur les proches sont supprimées automatiquement au bout de six mois [1].",
-        "Pour prévenir les personnes concernées, l'université utilise e-Boks, la messagerie officielle par laquelle elle échange documents et avis avec ses étudiants et son personnel [1]. Tous les employés actuels et anciens seront prévenus, mais pas tous les étudiants dont elle détient le numéro CPR ; l'annonce publique vise à toucher les personnes qu'elle ne peut pas joindre directement, et l'université demande de la relayer [1]. Elle avertit que les numéros CPR et les autres données pourraient servir à des usurpations d'identité et à rendre des tentatives d'hameçonnage plus convaincantes [1]."
+      "resume": "L'Université technique du Danemark (DTU) a annoncé qu'un attaquant avait téléchargé un grand volume de données depuis DTUBasen, son système de gestion des identités et des accès [1]. Jusqu'à 200 000 personnes pourraient être concernées (numéros CPR, noms, adresses, photos) [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Connexion à DTUBasen avec des identifiants compromis → accès à plus de vingt ans de données sur les utilisateurs [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Téléchargement d'un grand volume de données pouvant inclure numéros CPR, noms, adresses, photos et contacts des proches [1]."
+        }
       ],
+      "limites": "La source ne dit pas comment les identifiants ont été obtenus, à quel compte ils appartenaient, ni quand l'intrusion a eu lieu ; DTU ignore précisément ce qui a été téléchargé [1].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Université technique du Danemark : environ 40 000 utilisateurs actifs et 160 000 anciens utilisateurs de DTUBasen ; toute personne ayant été employée, étudiante, invitée ou partenaire externe de l'université depuis 2003 peut être concernée [1]"
+        "Environ 40 000 utilisateurs actifs et 160 000 anciens de DTUBasen ; tout employé, étudiant, invité ou partenaire externe depuis 2003 peut être concerné [1]"
       ],
       "abreviations": [
         {
@@ -285,7 +278,7 @@
         },
         {
           "sigle": "CPR",
-          "definition": "Det Centrale Personregister, registre civil danois ; le numéro CPR est l'identifiant personnel national attribué à chaque résident"
+          "definition": "Det Centrale Personregister : registre civil danois, son numéro identifie chaque résident"
         }
       ],
       "sources": [
@@ -298,37 +291,50 @@
       ]
     },
     {
-      "schema": 2,
+      "schema": 3,
       "id": "2026-10-03-citrix-netscaler-zero-day-cve-2026-88771",
-      "title": "Citrix NetScaler : deux failles zero-day (CVE-2026-88771 et CVE-2026-88772) exploitées pour prendre le contrôle des passerelles et y installer des web shells",
+      "title": "Citrix NetScaler : deux failles zero-day exploitées pour contrôler les passerelles et poser des web shells",
       "created": "2026-10-03T16:02:48+00:00",
       "updated": "2026-10-03T16:02:48+00:00",
       "version": 1,
-      "resume": "Des attaquants non identifiés ont exploité deux failles zero-day des équipements Citrix NetScaler ADC et NetScaler Gateway, CVE-2026-88771 et CVE-2026-88772, corrigées par Citrix fin septembre 2026 au sein d'une mise à jour de huit vulnérabilités [1, 2]. Selon Mandiant et Google, des dizaines d'organisations d'Amérique du Nord et d'Europe ont été touchées, dans le public, la finance, la technologie, l'éducation et les services juridiques et professionnels [2]. Les attaquants ont obtenu un accès avec les droits root sur les équipements, y ont installé des web shells, ont tenté de voler la configuration et, dans au moins un cas, ont rebondi vers le réseau interne pour voler des identifiants [2, 3]. Dark Reading met cette réponse en regard de celle de Kiteworks, qui a demandé à ses clients d'arrêter sa plateforme de protection des données pendant neuf heures sur la foi d'un avertissement d'attaque imminente, avant de publier un correctif pour une vulnérabilité qui aurait concerné 1 % de ses clients, sans que l'article relie cette vulnérabilité aux failles NetScaler [1].",
-      "vecteur": "La porte d'entrée était les équipements NetScaler ADC et NetScaler Gateway exposés sur Internet [2]. Google souligne que ces équipements de bordure de réseau sont des cibles attractives parce qu'ils sont joignables depuis Internet, échappent aux outils de détection installés sur les postes (EDR) et stockent ou traitent souvent des identifiants réutilisables pour avancer dans le réseau [2]. Deux failles ont servi : CVE-2026-88772 permet de contourner l'authentification et de faire planter le moteur de traitement des paquets (NSPPE), ce qui donne un premier accès avec les droits root sur l'équipement [2] ; CVE-2026-88771 permet à un attaquant non authentifié d'exécuter des commandes, en glissant des données piégées dans les champs d'authentification, par exemple le nom d'utilisateur [3], ou dans l'en-tête User-Agent des requêtes HTTP [2]. Censys dénombrait au 28 septembre 2026 42 735 hôtes faisant tourner NetScaler ADC ou NetScaler Gateway, dont 32 % aux États-Unis et 13 % en Allemagne, sans savoir combien étaient vulnérables [2].",
-      "deroule": [
-        "Le 24 septembre 2026, GreyNoise a observé une seule adresse IP située aux États-Unis qui recherchait des installations NetScaler et menait des attaques d'exécution de code à distance [1]. Certains se sont demandé si cette activité visait deux failles déjà corrigées en août, CVE-2026-19490 et CVE-2026-19489 [1]. Dans les deux jours suivants, des signalements d'attaques zero-day potentielles sur NetScaler sont apparus sur les réseaux sociaux, et le 26 septembre le fondateur de watchTowr a appelé les utilisateurs à déconnecter leurs équipements [1]. À une date que la source ne précise pas, le centre national de cybersécurité néerlandais (NCSC-NL) aurait aussi prévenu des organisations des Pays-Bas en leur demandant d'éteindre leurs équipements, en invoquant une exploitation active [3]. Citrix a publié au plus tard le dimanche suivant une mise à jour corrigeant huit vulnérabilités, en demandant d'installer immédiatement les versions corrigées sans recommander de déconnecter les serveurs en attendant [1]. Les deux zero-days CVE-2026-88771 et CVE-2026-88772 ont fait l'objet d'une exploitation généralisée [1].",
-        "Dans les intrusions analysées par Mandiant et Google, la prise de contrôle passe par CVE-2026-88772, un débordement mémoire dans le traitement DTLS détaillé par watchTowr Labs : d'après les données de terrain citées, l'envoi d'en-têtes d'enregistrement DTLS malformés ou fragmentés corrompt la mémoire du moteur de traitement des paquets et détourne son exécution vers un code arbitraire, lancé avec les droits root sur le système FreeBSD sous-jacent [2]. Une fois cet accès obtenu, un premier web shell s'installe de lui-même en modifiant le fichier httpd.conf pour que les fichiers au format de paquet Debian (.deb) soient exécutés comme des scripts PHP, ce qui ouvre la voie au déploiement des outils WHIPSHOT et SLAPSHOT [2]. Le web shell WHIPSHOT reçoit ses ordres encodés en Base64 dissimulés dans les en-têtes HTTP, les exécute et renvoie le résultat [2].",
-        "Dans d'autres cas, l'attaquant a ajouté une configuration discrète qui fait passer l'exécution du web shell pour des demandes d'images : les requêtes vers des fichiers .ico sous /vpn/media/ sont servies par un fichier .sig du même nom, enregistré comme script PHP exécutable [2]. Dans au moins un cas, les journaux du serveur web montraient des réponses HTTP 404 anormalement longues à produire et lourdes de plusieurs kilo-octets [2]. Les jours suivants, l'attaquant a tenté d'accéder à des fichiers .sig inexistants, ce qui a laissé des erreurs de fichier manquant dans les journaux httperror-vpn [2].",
-        "Pour rendre leur accès durable, les attaquants se sont servis des web shells d'installation pour modifier les permissions de /bin/sh, puis ont déclenché un redémarrage complet de l'équipement, ce qui assure à leurs web shells une exécution persistante avec les droits root [2].",
-        "Pour atteindre le réseau interne, ils ont utilisé SLAPSHOT, un outil de tunnel écrit en Python qui reçoit ses ordres de WHIPSHOT et relaie des flux TCP vers des machines internes, afin de faciliter la reconnaissance, le déplacement vers d'autres machines et la collecte d'identifiants [2]. Dans au moins un cas observé par Google, l'attaquant a fait passer son trafic par ce relais pour mener à la main la reconnaissance interne et le vol d'identifiants [2]. Afin de masquer ses traces, le logiciel malveillant efface ses fichiers de port et de verrou et arrête son processus s'il ne reçoit aucune session ni commande pendant 10 minutes [2].",
-        "En parallèle, GreyNoise a vu une activité malveillante supplémentaire liée à l'exploitation de CVE-2026-88771 démarrer le 28 septembre 2026 vers 8 h 30, heure de l'Est américain, avec une forte hausse le même jour vers 22 h 30 [2]. Les sources ne précisent pas si les intrusions via CVE-2026-88772 ont commencé avant ou après cette date [2]. Selon GreyNoise, la reconnaissance de masse de la veille s'est transformée en exploitation de masse par de multiples acteurs indépendants, qui déploient web shells et logiciels malveillants surtout pour enrôler les équipements dans des réseaux de machines zombies et revendre les accès [2]. Le CERT-EU a décrit des commandes encodées en Base64 placées dans l'en-tête User-Agent qui, une fois exécutées, activent PHP dans /etc/httpd.conf puis déposent un web shell accessible depuis Internet [2]. Les attaquants remplissent les journaux HTTP de ces charges et inondent en même temps les journaux d'authentification avec l'exploit, pour que leur déclencheur soit la dernière ligne lue si la fonction ns_monupload_err est appelée [2].",
-        "Les sources ne situent pas dans le temps les attaques analysées par LevelBlue par rapport aux précédentes [3]. LevelBlue a relevé dans plusieurs environnements clients des événements d'authentification NetScaler dont le nom d'utilisateur, contrôlé par l'attaquant, contenait des variantes des chaînes pitboss et NSPPE liées à CVE-2026-88771 [3]. Certaines tentatives se contentaient de tester l'exécution de commandes avec whoami, d'autres téléchargeaient des charges supplémentaires avec curl ou wget, récupéraient la configuration, ouvraient des connexions inverses, créaient des comptes privilégiés ou déposaient des web shells [3]. Le script Python main.py ouvre ainsi une connexion inverse vers l'adresse 45.141.21[.]130 sur le port TCP 443 [3]. Le script Perl update_c08937.pl modifie le fichier /flash/nsconfig/ns.conf pour créer un compte local sec_monitor doté du rôle de super-utilisateur, dépose un web shell PHP dans /var/netscaler/logon/LogonPoint/.local_journal et modifie /etc/httpd.conf pour activer PHP et rendre ce web shell accessible par des URL imitant des feuilles de style CSS [3]. Il archive aussi le dossier /flash/nsconfig et envoie l'archive vers 64.94.85[.]67:443, puis supprime l'archive et s'efface lui-même pour réduire les traces sur le disque [3]. La source ne précise pas dans quel ordre le script réalise les autres actions [3]."
+      "resume": "Des attaquants non identifiés ont exploité deux failles zero-day de Citrix NetScaler ADC et Gateway contre des dizaines d'organisations d'Amérique du Nord et d'Europe [1, 2]. Ils ont obtenu les droits root, posé des web shells et, au moins une fois, volé des identifiants internes [2, 3].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de CVE-2026-88772 (débordement mémoire DTLS) sur des NetScaler exposés sur Internet → code exécuté avec les droits root [2]."
+        },
+        {
+          "etape": "Web shells",
+          "texte": "Premier web shell modifiant httpd.conf pour exécuter les fichiers .deb comme du PHP → déploiement de WHIPSHOT, web shell commandé via les en-têtes HTTP [2]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Modification des permissions de /bin/sh puis redémarrage complet de l'équipement → web shells exécutés durablement avec les droits root [2]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "Tunnel Python SLAPSHOT, piloté par WHIPSHOT, relayant des flux TCP vers les machines internes → reconnaissance et vol d'identifiants, à la main dans au moins un cas [2]."
+        },
+        {
+          "etape": "Autres vagues d'exploitation",
+          "texte": "Injection de commandes via CVE-2026-88771 (nom d'utilisateur, en-tête User-Agent) par de multiples acteurs → web shells, création d'un compte super-utilisateur, vol de la configuration [2, 3]."
+        }
       ],
+      "limites": "Étapes 1 à 4 : intrusions analysées par Mandiant et Google. Leur ordre par rapport à l'activité supplémentaire liée à CVE-2026-88771, observée par GreyNoise dès le 28 septembre, n'est pas précisé [2].",
       "cves": [
         {
           "id": "CVE-2026-88772",
-          "explication": "Débordement mémoire dans le traitement du protocole DTLS par le moteur de paquets NSPPE de NetScaler ADC et NetScaler Gateway, qui permet sans authentification d'exécuter du code avec les droits root, gravité critique (9,5 sur 10) [2]."
+          "explication": "NetScaler ADC et Gateway : débordement mémoire dans le traitement DTLS du moteur de paquets, exécution de code root sans authentification, score de gravité 9,5 sur 10 [2]."
         },
         {
           "id": "CVE-2026-88771",
-          "explication": "Validation insuffisante des entrées dans NetScaler ADC et NetScaler Gateway, qui permet à un attaquant non authentifié d'injecter et d'exécuter des commandes arbitraires, gravité critique (9,5 sur 10) [3]."
+          "explication": "NetScaler ADC et Gateway : validation insuffisante des entrées permettant à un attaquant non authentifié d'exécuter des commandes arbitraires, gravité critique 9,5 sur 10 [3]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "Acteurs non identifiés : Mandiant parle d'une exploitation large et opportuniste par une variété d'acteurs [2], et aucune information n'est disponible sur les auteurs [3].",
-        "Selon GreyNoise, l'exploitation de CVE-2026-88772 qu'il a observée recoupe celle vue par Google dans la manière d'exploiter la faille mais diffère par les acteurs et les outils, signe que plusieurs groupes tentent de l'exploiter [2]."
+        "Acteurs non identifiés : exploitation large et opportuniste par une variété d'acteurs selon Mandiant [2], aucune information sur les auteurs [3].",
+        "Selon GreyNoise, plusieurs groupes tentent d'exploiter CVE-2026-88772, avec des acteurs et des outils différents de ceux vus par Google [2]."
       ],
       "cibles": [
         "Des dizaines d'organisations en Amérique du Nord et en Europe, dans l'administration, la finance, la technologie, l'éducation et les services juridiques et professionnels [2].",
@@ -340,16 +346,8 @@
           "definition": "Application Delivery Controller, équipement réseau qui répartit et protège le trafic vers des applications"
         },
         {
-          "sigle": "NSPPE",
-          "definition": "NetScaler Packet Processing Engine, moteur de traitement des paquets des équipements NetScaler"
-        },
-        {
           "sigle": "DTLS",
           "definition": "Datagram Transport Layer Security, version du chiffrement TLS adaptée aux échanges en datagrammes (UDP)"
-        },
-        {
-          "sigle": "EDR",
-          "definition": "Endpoint Detection and Response, logiciel de détection et de réponse installé sur les postes et serveurs"
         },
         {
           "sigle": "HTTP",
@@ -364,32 +362,12 @@
           "definition": "Transmission Control Protocol, protocole de transport des connexions réseau fiables"
         },
         {
-          "sigle": "IP",
-          "definition": "Internet Protocol, l'adresse IP identifie une machine sur le réseau"
-        },
-        {
-          "sigle": "URL",
-          "definition": "Uniform Resource Locator, adresse d'une ressource sur le Web"
-        },
-        {
-          "sigle": "CSS",
-          "definition": "Cascading Style Sheets, fichiers de mise en forme des pages web"
-        },
-        {
-          "sigle": "CERT-EU",
-          "definition": "équipe de réponse aux incidents de sécurité des institutions de l'Union européenne"
-        },
-        {
-          "sigle": "NCSC-NL",
-          "definition": "Nationaal Cyber Security Centrum, centre national de cybersécurité des Pays-Bas"
-        },
-        {
           "sigle": "WHIPSHOT",
-          "definition": "nom donné par Google et Mandiant à un web shell PHP qui cache ses commandes dans les en-têtes HTTP"
+          "definition": "Web shell PHP nommé par Google et Mandiant, commandé via les en-têtes HTTP"
         },
         {
           "sigle": "SLAPSHOT",
-          "definition": "nom donné par Google et Mandiant à un outil de tunnel en Python qui relaie le trafic vers le réseau interne"
+          "definition": "Tunnel Python nommé par Google et Mandiant, relayant le trafic vers le réseau interne"
         }
       ],
       "sources": [

@@ -1,1 +1,238 @@
-{"stories": []}
+{
+  "stories": [
+    {
+      "created": "2026-10-03T16:02:48+00:00",
+      "updated": "2026-10-03T16:02:48+00:00",
+      "version": 1,
+      "mitre": [],
+      "id": "2026-10-03-warlock-ransomware-sharepoint",
+      "title": "Warlock (Storm-2603) exploite SharePoint pour chiffrer une compagnie d'eau, un opérateur télécom, une administration et une université",
+      "resume": "Selon les chercheurs de Symantec et Carbon Black, le groupe Warlock, présenté comme lié à la Chine, a attaqué au moins quatre organisations en deux mois dans des pays lusophones et hispanophones. Les victimes sont une compagnie d'eau, un fournisseur de télécommunications, un organisme gouvernemental régional et une université. Dans l'intrusion détaillée, débutée le 22 juillet 2026, le rançongiciel Warlock a été déployé sur au moins 33 machines.",
+      "vecteur": [
+        {
+          "texte": "Exploitation de vulnérabilités Microsoft SharePoint pour obtenir l'accès initial",
+          "source": "BleepingComputer (d'après Symantec et Carbon Black)"
+        },
+        {
+          "texte": "Web shells déposés sur SharePoint pour récupérer les clés machine ASP.NET de la ferme, puis forge d'une charge utile signée valide menant à une exécution de code à distance",
+          "source": "The Hacker News (d'après Symantec et Carbon Black)"
+        }
+      ],
+      "chaine": [
+        {
+          "texte": "Web shell conçu pour fonctionner sur plusieurs versions de SharePoint",
+          "source": "BleepingComputer"
+        },
+        {
+          "texte": "Visual Studio Code Insiders installé comme service pour se connecter à distance via la fonction de tunnel intégrée de VS Code",
+          "source": "BleepingComputer"
+        },
+        {
+          "texte": "Utilisation de NetExec pour l'énumération Active Directory, la pulvérisation d'identifiants et l'exécution de commandes à distance",
+          "source": "BleepingComputer"
+        },
+        {
+          "texte": "Outil légitime Velociraptor utilisé comme canal de commande et contrôle",
+          "source": "The Hacker News"
+        },
+        {
+          "texte": "Désactivation des logiciels de sécurité sur au moins 40 hôtes en environ deux heures, via un pilote vulnérable signé K7RKScan (CVE-2025-1055) selon la technique BYOVD",
+          "source": "The Hacker News"
+        },
+        {
+          "texte": "Charges utiles placées dans le partage SYSVOL du domaine pour déployer le rançongiciel à grande échelle",
+          "source": "The Hacker News"
+        },
+        {
+          "texte": "Chiffrement par le rançongiciel Warlock d'au moins 33 hôtes, étape finale le 31 juillet",
+          "source": "BleepingComputer"
+        }
+      ],
+      "cves": [
+        "CVE-2025-49704",
+        "CVE-2025-49706",
+        "CVE-2025-53770",
+        "CVE-2025-53771",
+        "CVE-2025-1055"
+      ],
+      "acteurs": [
+        "Warlock, aussi suivi sous les noms Gold Salem, Longlegs et Storm-2603, présenté comme lié à la Chine (The Hacker News, BleepingComputer)"
+      ],
+      "cibles": [
+        "Compagnie d'eau, fournisseur de télécommunications, organisme gouvernemental régional, université (Symantec et Carbon Black via BleepingComputer)",
+        "Pays lusophones et hispanophones d'Europe, d'Afrique et d'Amérique latine (BleepingComputer, The Hacker News)"
+      ],
+      "sources": [
+        {
+          "titre": "Warlock ransomware breach SharePoint in water, telecom operator attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/warlock-ransomware-breach-sharepoint-in-water-telecom-operator-attacks/",
+          "date": "2026-10-02"
+        },
+        {
+          "titre": "Warlock Exploits SharePoint Flaws to Disable Security Tools and Deploy Ransomware",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/warlock-exploits-sharepoint-flaws-to.html",
+          "date": "2026-10-03"
+        }
+      ]
+    },
+    {
+      "created": "2026-10-03T16:02:48+00:00",
+      "updated": "2026-10-03T16:02:48+00:00",
+      "version": 1,
+      "mitre": [],
+      "id": "2026-10-03-uat-11587-antino-backdoor-asie",
+      "title": "UAT-11587 : la porte dérobée Antino pilotée via Outlook et OneDrive contre des gouvernements asiatiques",
+      "resume": "Cisco Talos décrit une campagne d'espionnage d'un groupe lié à la Chine, suivi sous le nom UAT-11587, visant des organisations gouvernementales et politiques à Taïwan, en Inde, aux Philippines, au Cambodge, au Pakistan, en Thaïlande et au Myanmar. Elle déploie une porte dérobée inédite écrite en Rust, baptisée Antino. L'activité a culminé entre mars et début juin 2026.",
+      "vecteur": [
+        {
+          "texte": "Hameçonnage ciblé avec usurpation d'expéditeurs de confiance pour contourner les contrôles SPF et DMARC",
+          "source": "Cisco Talos via The Hacker News"
+        },
+        {
+          "texte": "Courriels imitant le widget d'aperçu de pièce jointe de Gmail et renvoyant vers une URL Cloudflare Pages contrôlée par l'attaquant",
+          "source": "Cisco Talos via The Hacker News"
+        }
+      ],
+      "chaine": [
+        {
+          "texte": "L'URL Cloudflare Pages fournit un fichier HTA ou WSF qui récupère un téléchargeur JavaScript",
+          "source": "Cisco Talos via The Hacker News"
+        },
+        {
+          "texte": "Chaîne de désérialisation .NET chargeant TestAssembly.dll, qui télécharge un leurre, une fausse calculatrice et Antino",
+          "source": "Cisco Talos via The Hacker News"
+        },
+        {
+          "texte": "Chargement de l'implant slc.dll par détournement de DLL via le binaire Microsoft signé GatherOsState.exe",
+          "source": "Cisco Talos via The Hacker News"
+        },
+        {
+          "texte": "Abus du framework Windows Scripted Diagnostics pour exécuter du PowerShell contrôlé par l'attaquant",
+          "source": "Cisco Talos via The Hacker News"
+        },
+        {
+          "texte": "Commandes relevées toutes les 10 secondes dans une boîte Outlook, OneDrive servant au signal de vie et au transfert de fichiers",
+          "source": "Cisco Talos via The Hacker News"
+        }
+      ],
+      "cves": [],
+      "acteurs": [
+        "UAT-11587, groupe lié à la Chine, avec un chevauchement partiel avec Jewelbug (Cisco Talos)"
+      ],
+      "cibles": [
+        "Organisations gouvernementales et de politique étrangère à Taïwan, en Inde, aux Philippines, au Cambodge, au Pakistan, en Thaïlande et au Myanmar (Cisco Talos)"
+      ],
+      "sources": [
+        {
+          "titre": "Antino Backdoor Uses Outlook and OneDrive for C2 in China-Nexus Espionage Campaign",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/antino-backdoor-uses-outlook-and.html",
+          "date": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "created": "2026-10-03T16:02:48+00:00",
+      "updated": "2026-10-03T16:02:48+00:00",
+      "version": 1,
+      "mitre": [],
+      "id": "2026-10-03-frontline-education-fuite-donnees",
+      "title": "Frontline Education : vol de données d'employés de districts scolaires via une faille d'un logiciel tiers",
+      "resume": "Frontline Education informe des districts scolaires américains d'une fuite de données. Des attaquants ont exploité une vulnérabilité dans un logiciel tiers non nommé pour accéder à ses systèmes et voler des informations d'employés, dont des numéros de sécurité sociale. La faille a été découverte le 14 août 2026 et les notifications ont débuté début octobre 2026.",
+      "vecteur": [
+        {
+          "texte": "Exploitation d'une vulnérabilité dans un logiciel tiers, que l'entreprise n'a pas identifié publiquement",
+          "source": "BleepingComputer"
+        }
+      ],
+      "chaine": [
+        {
+          "texte": "Vol d'informations d'employés : numéros de sécurité sociale, adresses électroniques et postales",
+          "source": "BleepingComputer"
+        }
+      ],
+      "cves": [],
+      "acteurs": [],
+      "cibles": [
+        "Employés de districts scolaires clients de Frontline Education (BleepingComputer)"
+      ],
+      "sources": [
+        {
+          "titre": "Frontline Education breach exposes school district employee data",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/frontline-education-data-breach-impacts-school-district-employees/",
+          "date": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "created": "2026-10-03T16:02:48+00:00",
+      "updated": "2026-10-03T16:02:48+00:00",
+      "version": 1,
+      "mitre": [],
+      "id": "2026-10-03-dtu-universite-danoise-dtubasen",
+      "title": "Université technique du Danemark (DTU) : données de jusqu'à 200 000 personnes exposées via des identifiants compromis",
+      "resume": "La DTU indique que des pirates ont accédé à son système de gestion des identités et des accès, DTUBasen, et y ont téléchargé un grand volume de données. Jusqu'à 200 000 utilisateurs actuels et anciens pourraient être concernés. Les données comprennent notamment numéros CPR, noms, adresses, photos et adresses électroniques professionnelles.",
+      "vecteur": [
+        {
+          "texte": "Connexion à DTUBasen avec des identifiants compromis",
+          "source": "DTU via BleepingComputer"
+        }
+      ],
+      "chaine": [
+        {
+          "texte": "Téléchargement d'un grand volume de données depuis le système de gestion des identités",
+          "source": "DTU via BleepingComputer"
+        }
+      ],
+      "cves": [],
+      "acteurs": [],
+      "cibles": [
+        "Technical University of Denmark : environ 40 000 utilisateurs actifs et 160 000 anciens utilisateurs (BleepingComputer)"
+      ],
+      "sources": [
+        {
+          "titre": "Danish university DTU breach exposes data of up to 200,000 people",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/danish-university-dtu-breach-exposes-data-of-up-to-200-000-people/",
+          "date": "2026-10-03"
+        }
+      ]
+    },
+    {
+      "created": "2026-10-03T16:02:48+00:00",
+      "updated": "2026-10-03T16:02:48+00:00",
+      "version": 1,
+      "mitre": [],
+      "id": "2026-10-03-citrix-netscaler-zero-day-cve-2026-88771",
+      "title": "Citrix NetScaler : deux failles zero-day massivement exploitées, Kiteworks pousse ses clients à couper leur plateforme",
+      "resume": "Citrix a corrigé fin septembre 2026 huit vulnérabilités NetScaler, dont deux zero-days, CVE-2026-88771 et CVE-2026-88772, exploitées dans la nature puis de façon généralisée. GreyNoise a observé une activité dès le 24 septembre 2026. Le même week-end, Kiteworks a recommandé l'arrêt préventif de sa plateforme de protection des données, estimant que la faille ne concernait que 1 % de ses clients.",
+      "vecteur": [
+        {
+          "texte": "Exploitation des zero-days CVE-2026-88771 et CVE-2026-88772 sur des installations NetScaler",
+          "source": "Dark Reading"
+        }
+      ],
+      "chaine": [],
+      "cves": [
+        "CVE-2026-88771",
+        "CVE-2026-88772"
+      ],
+      "acteurs": [],
+      "cibles": [
+        "Installations Citrix NetScaler (Dark Reading)",
+        "Clients Kiteworks, administrations et secteurs réglementés (Dark Reading)"
+      ],
+      "sources": [
+        {
+          "titre": "Kiteworks & Citrix Incidents Show Challenges of Zero-Day Response",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/cybersecurity-operations/kiteworks-citrix-incidents-challenges-zero-day-response",
+          "date": "2026-10-02"
+        }
+      ]
+    }
+  ]
+}

@@ -138,6 +138,30 @@ def parse_regex(content):
     return entries
 
 
+META_IMAGE_RE = re.compile(
+    r'<meta[^>]+(?:property|name)=["\'](?:og:image(?::secure_url)?|twitter:image)["\'][^>]*>', re.I)
+CONTENT_RE = re.compile(r'content=["\']([^"\']+)["\']', re.I)
+
+
+def preview_image(url):
+    """URL de l'image d'aperçu de l'article (balise og:image ou twitter:image), ou None."""
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "text/html"})
+        with urllib.request.urlopen(req, timeout=12) as resp:
+            head = resp.read(400_000).decode("utf-8", errors="replace")
+    except Exception:
+        return None
+    for tag in META_IMAGE_RE.findall(head):
+        m = CONTENT_RE.search(tag)
+        if m:
+            img = unescape(m.group(1)).strip()
+            if img.startswith("//"):
+                img = "https:" + img
+            if img.startswith("https://"):
+                return img
+    return None
+
+
 def fetch(url):
     req = urllib.request.Request(url, headers={
         "User-Agent": USER_AGENT,
@@ -206,6 +230,7 @@ def main():
                 "link": link,
                 "published": entry["date"].isoformat(timespec="seconds") if entry["date"] else None,
                 "feed_summary": clean(entry["summary"]),
+                "image": preview_image(link),
                 "collected_at": now_utc().isoformat(timespec="seconds"),
             }
             save_json(INBOX / f"{iid}.json", item)

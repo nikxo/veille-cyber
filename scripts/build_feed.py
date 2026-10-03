@@ -20,8 +20,6 @@ from html import escape
 from pathlib import Path
 from urllib.parse import quote
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import covers  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 STORIES = ROOT / "data" / "stories.json"
@@ -195,8 +193,7 @@ def story_html(s):
     L = lambda t: linkify(t, src)
     parts = []
     if s.get("_cover"):
-        parts.append(f'<p><img class="webfeedsFeaturedVisual" src="{SITE_URL}/covers/{s["_cover"]}" '
-                     f'width="1200" height="630" alt="{escape(s["title"])}"></p>')
+        parts.append(f'<p><img class="webfeedsFeaturedVisual" src="{escape(s["_cover"])}" alt=""></p>')
     if s["version"] > 1:
         parts.append(f"<p><strong>Mise à jour n°{s['version'] - 1}</strong> : nouvelles informations ou sources ajoutées.</p>")
     parts.append(f"<p>{L(s['resume'])}</p>")
@@ -281,8 +278,7 @@ def build_rss(stories, now):
         ET.SubElement(it, "pubDate").text = format_datetime(s["_updated"])
         ET.SubElement(it, "description").text = story_html(s)
         if s.get("_cover"):
-            ET.SubElement(it, "media:content", url=f"{SITE_URL}/covers/{s['_cover']}", medium="image",
-                          type="image/png", width="1200", height="630")
+            ET.SubElement(it, "media:content", url=s["_cover"], medium="image")
         for c in s["cves"]:
             ET.SubElement(it, "category").text = c["id"]
     ET.indent(rss)
@@ -324,9 +320,9 @@ def main():
     stories = stories[:MAX_ITEMS]
     now = datetime.now(timezone.utc)
     DOCS.mkdir(exist_ok=True)
-    for s in stories:
-        s["_cover"] = covers.make_cover(s, DOCS / "covers")
-    covers.prune(DOCS / "covers", {s["_cover"] for s in stories if s["_cover"]})
+    for s in stories:  # vignette : image d'aperçu de la première source qui en fournit une
+        s["_cover"] = next((x["image"] for x in s["sources"]
+                            if str(x.get("image", "")).startswith("https://")), None)
     xml_bytes = build_rss(stories, now)
     ET.fromstring(xml_bytes)  # vérifie que le XML produit est bien formé
     (DOCS / "veille.xml").write_bytes(xml_bytes)

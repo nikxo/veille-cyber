@@ -174,6 +174,9 @@ réutilise jamais, chaque sujet est rédigé uniquement à partir de ses propres
   ensuite.
 - `limites` peut être vide ; `cves`, `mitre`, `acteurs`, `cibles`, `abreviations` peuvent
   être des listes vides ; `resume`, `chaine` et `sources` jamais.
+- Chaque source issue de `data/inbox/` reprend le champ `image` du fichier inbox s'il
+  existe (`"image": "https://..."`), sans le modifier. Ne cherche pas d'image toi-même. Le
+  flux utilise l'image de la première source qui en a une comme vignette.
 - Conserve au maximum 500 sujets : supprime les plus anciens (`updated`) au-delà.
 
 ## Format de `data/skipped.json`

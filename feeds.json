@@ -1,0 +1,39 @@
+{
+  "_comment": "Liste des flux suivis. type = analyse (rapports techniques d'attaques), actu (actualité cyber), officiel (CERT/agences), revendications. enabled=false pour désactiver un flux sans le supprimer.",
+  "feeds": [
+    {"name": "The DFIR Report", "url": "https://thedfirreport.com/feed/", "type": "analyse", "lang": "en", "enabled": true},
+    {"name": "Cisco Talos", "url": "https://blog.talosintelligence.com/rss/", "type": "analyse", "lang": "en", "enabled": true},
+    {"name": "Unit 42 (Palo Alto Networks)", "url": "https://unit42.paloaltonetworks.com/feed/", "type": "analyse", "lang": "en", "enabled": true},
+    {"name": "Microsoft Threat Intelligence", "url": "https://www.microsoft.com/en-us/security/blog/topic/threat-intelligence/feed/", "type": "analyse", "lang": "en", "enabled": true},
+    {"name": "Google Threat Intelligence (Mandiant)", "url": "https://cloudblog.withgoogle.com/topics/threat-intelligence/rss/", "type": "analyse", "lang": "en", "enabled": true},
+    {"name": "Securelist (Kaspersky)", "url": "https://securelist.com/feed/", "type": "analyse", "lang": "en", "enabled": true},
+    {"name": "WeLiveSecurity (ESET)", "url": "https://www.welivesecurity.com/en/rss/feed/", "type": "analyse", "lang": "en", "enabled": true},
+    {"name": "Huntress", "url": "https://www.huntress.com/blog/rss.xml", "type": "analyse", "lang": "en", "enabled": true},
+    {"name": "Sekoia", "url": "https://www.sekoia.com/blog/rss.xml", "type": "analyse", "lang": "en", "enabled": true},
+    {"name": "Check Point Research", "url": "https://research.checkpoint.com/feed/", "type": "analyse", "lang": "en", "enabled": true},
+    {"name": "SentinelLABS", "url": "https://www.sentinelone.com/labs/feed/", "type": "analyse", "lang": "en", "enabled": true},
+    {"name": "Proofpoint Threat Insight", "url": "https://www.proofpoint.com/us/threat-insight-blog.xml", "type": "analyse", "lang": "en", "enabled": true},
+    {"name": "Red Canary", "url": "https://redcanary.com/blog/feed/", "type": "analyse", "lang": "en", "enabled": true},
+    {"name": "Elastic Security Labs", "url": "https://www.elastic.co/security-labs/rss/feed.xml", "type": "analyse", "lang": "en", "enabled": true},
+    {"name": "Sophos Threat Research", "url": "https://www.sophos.com/en-us/category/threat-research/feed", "type": "analyse", "lang": "en", "enabled": true},
+    {"name": "watchTowr Labs", "url": "https://labs.watchtowr.com/rss/", "type": "analyse", "lang": "en", "enabled": true},
+    {"name": "Volexity", "url": "https://www.volexity.com/feed/", "type": "analyse", "lang": "en", "enabled": true},
+    {"name": "Rapid7", "url": "https://www.rapid7.com/blog/rss/", "type": "analyse", "lang": "en", "enabled": true},
+    {"name": "Trend Micro Research", "url": "http://feeds.trendmicro.com/TrendMicroResearch", "type": "analyse", "lang": "en", "enabled": true},
+
+    {"name": "BleepingComputer", "url": "https://www.bleepingcomputer.com/feed/", "type": "actu", "lang": "en", "enabled": true},
+    {"name": "The Hacker News", "url": "https://feeds.feedburner.com/TheHackersNews", "type": "actu", "lang": "en", "enabled": true},
+    {"name": "The Record", "url": "https://therecord.media/feed", "type": "actu", "lang": "en", "enabled": true},
+    {"name": "SecurityWeek", "url": "https://www.securityweek.com/feed/", "type": "actu", "lang": "en", "enabled": true},
+    {"name": "Dark Reading", "url": "https://www.darkreading.com/rss.xml", "type": "actu", "lang": "en", "enabled": true},
+    {"name": "Krebs on Security", "url": "https://krebsonsecurity.com/feed/", "type": "actu", "lang": "en", "enabled": true},
+    {"name": "ZATAZ", "url": "https://www.zataz.com/feed/", "type": "actu", "lang": "fr", "enabled": true},
+    {"name": "LeMagIT", "url": "https://www.lemagit.fr/rss/ContentSyndication.xml", "type": "actu", "lang": "fr", "enabled": true},
+
+    {"name": "CERT-FR (alertes)", "url": "https://cert.ssi.gouv.fr/alerte/feed/", "type": "officiel", "lang": "fr", "enabled": true},
+    {"name": "CERT-FR (menaces et incidents)", "url": "https://cert.ssi.gouv.fr/cti/feed/", "type": "officiel", "lang": "fr", "enabled": true},
+    {"name": "CISA Advisories", "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml", "type": "officiel", "lang": "en", "enabled": true},
+
+    {"name": "Ransomware.live", "url": "https://www.ransomware.live/rss.xml", "type": "revendications", "lang": "en", "enabled": false}
+  ]
+}

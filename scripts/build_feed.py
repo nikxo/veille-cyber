@@ -18,6 +18,7 @@ from datetime import datetime, timezone
 from email.utils import format_datetime
 from html import escape
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parent.parent
 STORIES = ROOT / "data" / "stories.json"
@@ -228,7 +229,23 @@ def story_html(s):
         date = f", {escape(item['date'][:10])}" if item.get("date") else ""
         parts.append(f'<li><a href="{escape(item["url"])}">{escape(item["titre"])}</a> ({escape(item["site"])}{date})</li>')
     parts.append("</ol>")
+    parts.append(f'<p><a href="{escape(ask_claude_url(s))}"><strong>Poser une question à Claude sur ce sujet</strong></a></p>')
     return "".join(parts)
+
+
+def ask_claude_url(s):
+    """Lien qui ouvre une conversation Claude avec le résumé du sujet prérempli (envoi manuel)."""
+    chain = "\n".join(f"{i}. {e['etape']} : {e['texte']}" for i, e in enumerate(s["chaine"], 1))
+    sources = "\n".join(f"[{i}] {x['url']}" for i, x in enumerate(s["sources"], 1))
+    prompt = (
+        "Je lis ce résumé de veille cyber. Réponds à mes questions en t'appuyant sur ces "
+        "informations et sur les sources citées, et dis-le clairement quand une réponse n'y figure pas.\n\n"
+        f"{s['title']}\n{s['resume']}\n\nChaîne d'attaque :\n{chain}\n"
+        + (f"\nLimites : {s['limites']}\n" if s["limites"] else "")
+        + (f"\nCVE : {', '.join(c['id'] for c in s['cves'])}\n" if s["cves"] else "")
+        + f"\nSources :\n{sources}"
+    )
+    return "https://claude.ai/new?q=" + quote(prompt, safe="")
 
 
 def build_rss(stories, now):

@@ -21,7 +21,7 @@ from pathlib import Path
 from urllib.parse import quote
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import schema  # noqa: E402
+import diagram  # noqa: E402
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -31,7 +31,7 @@ SITE_URL = "https://nikxo.github.io/veille-cyber"
 MAX_ITEMS = 100
 SCHEMA = 3
 # À incrémenter à chaque changement de présentation pour que les lecteurs RSS republient les articles
-FORMAT_REV = 2
+FORMAT_REV = 3
 # Limites de longueur (en mots, références [n] non comptées)
 MAX_WORDS = {"resume": 45, "etape_titre": 4, "etape_texte": 30, "limites": 35,
              "cve": 30, "mitre": 20, "acteur": 25, "cible": 25, "definition": 15}
@@ -77,6 +77,41 @@ def story_texts(s):
     texts += [(f"acteurs[{i}]", t) for i, t in enumerate(s["acteurs"], 1)]
     texts += [(f"cibles[{i}]", t) for i, t in enumerate(s["cibles"], 1)]
     return texts
+
+
+def check_parcours(s, sid):
+    """Parcours de l'attaquant : chaîne simple de nœuds (machines/systèmes) reliés par des étapes."""
+    p = s.get("parcours")
+    if p is None:
+        err(sid, "champ 'parcours' manquant")
+        return
+    nodes, links = p.get("noeuds", []), p.get("liens", [])
+    if not 2 <= len(nodes) <= 7:
+        err(sid, f"parcours : {len(nodes)} nœuds (entre 2 et 7 attendus)")
+    if nodes and nodes[0].get("type") != "attaquant":
+        err(sid, "parcours : le premier nœud doit être de type 'attaquant'")
+    ids = [n.get("id") for n in nodes]
+    if len(set(ids)) != len(ids):
+        err(sid, "parcours : identifiants de nœuds en double")
+    for n in nodes:
+        if n.get("type") not in diagram.TYPES:
+            err(sid, f"parcours : type inconnu {n.get('type')!r} (autorisés : {', '.join(sorted(diagram.TYPES))})")
+        if not n.get("nom") or len(n["nom"].split()) > 6:
+            err(sid, f"parcours : nom du nœud {n.get('id')} vide ou trop long (6 mots max)")
+        if len(n.get("note", "").split()) > 8:
+            err(sid, f"parcours : note du nœud {n.get('id')} trop longue (8 mots max)")
+        for e in n.get("etapes", []):
+            if not 1 <= e <= len(s["chaine"]):
+                err(sid, f"parcours : nœud {n.get('id')} renvoie à une étape {e} inexistante")
+    for l in links:
+        if l.get("de") not in ids or l.get("vers") not in ids:
+            err(sid, f"parcours : lien vers un nœud inexistant ({l.get('de')} -> {l.get('vers')})")
+        if not isinstance(l.get("etape"), int) or not 1 <= l["etape"] <= len(s["chaine"]):
+            err(sid, f"parcours : lien {l.get('de')} -> {l.get('vers')} sans numéro d'étape valide")
+        if not l.get("texte") or len(l["texte"].split()) > 7:
+            err(sid, f"parcours : libellé du lien {l.get('de')} -> {l.get('vers')} vide ou trop long (7 mots max)")
+    if nodes and diagram.path_order(p) is None:
+        err(sid, "parcours : les liens doivent former une chaîne simple partant du premier nœud et passant par tous les nœuds")
 
 
 def validate(stories):
@@ -138,14 +173,19 @@ def validate(stories):
         for a in s["abreviations"]:
             too_long(f"abreviations[{a.get('sigle')}]", a.get("definition", ""), "definition")
 
+        check_parcours(s, sid)
+
         n_sources = len(s["sources"])
         cited = set()
         texts = story_texts(s) + [("title", s["title"])]
         texts += [(f"title_etape[{i}]", e.get("etape", "")) for i, e in enumerate(s["chaine"], 1)]
+        p = s.get("parcours") or {}
+        texts += [(f"title_noeud[{n.get('id')}]", f"{n.get('nom', '')} {n.get('note', '')}") for n in p.get("noeuds", [])]
+        texts += [(f"title_lien[{i}]", l.get("texte", "")) for i, l in enumerate(p.get("liens", []), 1)]
         for label, text in texts:
             if "—" in text:
                 err(sid, f"{label} : tiret cadratin interdit")
-            if label == "title" or label.startswith("title_etape"):
+            if label == "title" or label.startswith("title_"):
                 continue
             refs = refs_in(text)
             if not refs:
@@ -202,17 +242,11 @@ def story_html(s):
     parts.append(f"<p>{L(s['resume'])}</p>")
 
     parts.append("<h3>Chaîne d'attaque</h3>")
-    if s.get("_schema"):
-        # schéma en image, puis les références de chaque étape sur une ligne
-        parts.append(f'<p><img src="{SITE_URL}/schemas/{s["_schema"]}" alt="Schéma de la chaîne d\'attaque"></p>')
-        refs = " · ".join(
-            f"{i}. {escape(e['etape'])} " + " ".join(L(m.group(0)) for m in REF_RE.finditer(e["texte"]))
-            for i, e in enumerate(s["chaine"], 1))
-        parts.append(f"<p><small>Sources par étape : {refs}</small></p>")
-    else:
-        parts.append("<ol>")
-        parts += [f"<li><strong>{escape(e['etape'])}</strong> : {L(e['texte'])}</li>" for e in s["chaine"]]
-        parts.append("</ol>")
+    if s.get("_diagram"):
+        parts.append(f'<p><img src="{SITE_URL}/schemas/{s["_diagram"]}" alt="Schéma du parcours de l\'attaquant"></p>')
+    parts.append("<ol>")
+    parts += [f"<li><strong>{escape(e['etape'])}</strong> : {L(e['texte'])}</li>" for e in s["chaine"]]
+    parts.append("</ol>")
     if s["limites"]:
         parts.append(f"<p><em>{L(s['limites'])}</em></p>")
 
@@ -335,8 +369,8 @@ def main():
     for s in stories:  # vignette : image d'aperçu de la première source qui en fournit une
         s["_cover"] = next((x["image"] for x in s["sources"]
                             if str(x.get("image", "")).startswith("https://")), None)
-        s["_schema"] = schema.make_schema(s, DOCS / "schemas")
-    schema.prune(DOCS / "schemas", {s["_schema"] for s in stories if s["_schema"]})
+        s["_diagram"] = diagram.make_diagram(s, DOCS / "schemas")
+    diagram.prune(DOCS / "schemas", {s["_diagram"] for s in stories if s["_diagram"]})
     xml_bytes = build_rss(stories, now)
     ET.fromstring(xml_bytes)  # vérifie que le XML produit est bien formé
     (DOCS / "veille.xml").write_bytes(xml_bytes)

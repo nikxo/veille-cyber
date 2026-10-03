@@ -65,6 +65,22 @@ l'attaque d'une étape à l'autre. Le générateur refuse les textes trop longs.
     `{"etape": "Accès initial", "texte": "Non précisé par les sources [1]."}`.
   - Regroupe les actions qui servent le même but dans une seule étape. Les liaisons de
     cause ou de but ne s'écrivent que si la source les donne.
+- **`parcours`** : la carte simplifiée du chemin de l'attaquant **à travers les machines et
+  systèmes**, dessinée en schéma au-dessus de la chaîne d'attaque. Elle sert à comprendre en un
+  coup d'oeil par où il est passé ; les détails restent dans `chaine`.
+  - `noeuds` (2 à 7) : le premier est toujours `{"id": "att", "type": "attaquant", "nom": "Attaquant"}`
+    (avec le nom du groupe s'il est connu). Chaque autre nœud est une machine, un système ou une
+    ressource touchée : `nom` (6 mots max), `note` (8 mots max, ce qui s'y est passé, peut être
+    vide), `etapes` (numéros des étapes de `chaine` qui s'y déroulent). `type` parmi :
+    `messagerie` (boîte mail), `application` (application ou site web), `serveur`, `passerelle`
+    (VPN, pare-feu, équipement exposé), `poste` (un ordinateur), `postes` (plusieurs machines),
+    `annuaire` (Active Directory, contrôleur ou partage de domaine, système d'identités),
+    `cloud`, `donnees` (base ou données volées), `utilisateur` (personne ciblée), `inconnu`.
+  - `liens` : une chaîne simple qui part de l'attaquant et passe par chaque nœud une seule
+    fois, dans l'ordre : `{"de": "att", "vers": "sp", "texte": "Exploitation de failles SharePoint", "etape": 1}`.
+    `texte` fait 7 mots max, `etape` est le numéro de l'étape de `chaine` correspondante.
+  - Le parcours **ne contient aucun fait absent de `chaine`** : il ne fait que la représenter
+    par machine. Si le système d'entrée n'est pas connu, utilise un nœud de type `inconnu`.
 - **`limites`** (35 mots max, peut être vide) : ce que les sources ne disent pas et qui
   manque pour comprendre la chaîne (ordre incertain, vecteur inconnu, sources en désaccord).
 - **`cves`** (30 mots max chacune) : produit touché, nature de la faille, ce qu'elle permet,
@@ -149,6 +165,19 @@ réutilise jamais, chaque sujet est rédigé uniquement à partir de ses propres
         {"etape": "Neutralisation des défenses", "texte": "Pilote vulnérable chargé volontairement (BYOVD) → antivirus coupés sur 40 machines [1]."},
         {"etape": "Chiffrement", "texte": "Rançongiciel diffusé via le partage SYSVOL du domaine → 33 machines chiffrées [1]."}
       ],
+      "parcours": {
+        "noeuds": [
+          {"id": "att", "type": "attaquant", "nom": "Attaquant (Warlock)", "note": ""},
+          {"id": "sp", "type": "serveur", "nom": "Serveur SharePoint", "note": "Porte dérobée web", "etapes": [1, 2]},
+          {"id": "pc", "type": "postes", "nom": "Machines du réseau", "note": "Antivirus coupés", "etapes": [3]},
+          {"id": "fin", "type": "postes", "nom": "Machines chiffrées", "note": "33 machines", "etapes": [4]}
+        ],
+        "liens": [
+          {"de": "att", "vers": "sp", "texte": "Exploitation de failles SharePoint", "etape": 1},
+          {"de": "sp", "vers": "pc", "texte": "Pilote vulnérable (BYOVD)", "etape": 3},
+          {"de": "pc", "vers": "fin", "texte": "Diffusion via SYSVOL", "etape": 4}
+        ]
+      },
       "limites": "Les sources ne précisent pas combien de temps les attaquants sont restés avant le chiffrement [1, 2].",
       "cves": [
         {"id": "CVE-2025-53770", "explication": "SharePoint Server installé en local : désérialisation non sécurisée permettant d'exécuter du code sans authentification, gravité critique 9,8 sur 10 [3]."}
@@ -173,7 +202,7 @@ réutilise jamais, chaque sujet est rédigé uniquement à partir de ses propres
 - `id` : `AAAA-MM-JJ-mots-cles` en minuscules, sans accents, unique et **jamais modifié**
   ensuite.
 - `limites` peut être vide ; `cves`, `mitre`, `acteurs`, `cibles`, `abreviations` peuvent
-  être des listes vides ; `resume`, `chaine` et `sources` jamais.
+  être des listes vides ; `resume`, `chaine`, `parcours` et `sources` jamais.
 - Chaque source issue de `data/inbox/` reprend le champ `image` du fichier inbox s'il
   existe (`"image": "https://..."`), sans le modifier. Ne cherche pas d'image toi-même. Le
   flux utilise l'image de la première source qui en a une comme vignette.

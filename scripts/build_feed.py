@@ -251,7 +251,7 @@ def ask_claude_url(s):
         + (f"\nCVE : {', '.join(c['id'] for c in s['cves'])}\n" if s["cves"] else "")
         + f"\nSources :\n{sources}"
     )
-    return "https://claude.ai/new?q=" + quote(prompt, safe="")
+    return "claude://claude.ai/new?q=" + quote(prompt, safe="")
 
 
 def build_rss(stories, now):

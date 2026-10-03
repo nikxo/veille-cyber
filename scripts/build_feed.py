@@ -20,6 +20,9 @@ from html import escape
 from pathlib import Path
 from urllib.parse import quote
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import schema  # noqa: E402
+
 
 ROOT = Path(__file__).resolve().parent.parent
 STORIES = ROOT / "data" / "stories.json"
@@ -28,7 +31,7 @@ SITE_URL = "https://nikxo.github.io/veille-cyber"
 MAX_ITEMS = 100
 SCHEMA = 3
 # À incrémenter à chaque changement de présentation pour que les lecteurs RSS republient les articles
-FORMAT_REV = 1
+FORMAT_REV = 2
 # Limites de longueur (en mots, références [n] non comptées)
 MAX_WORDS = {"resume": 45, "etape_titre": 4, "etape_texte": 30, "limites": 35,
              "cve": 30, "mitre": 20, "acteur": 25, "cible": 25, "definition": 15}
@@ -198,9 +201,18 @@ def story_html(s):
         parts.append(f"<p><strong>Mise à jour n°{s['version'] - 1}</strong> : nouvelles informations ou sources ajoutées.</p>")
     parts.append(f"<p>{L(s['resume'])}</p>")
 
-    parts.append("<h3>Chaîne d'attaque</h3><ol>")
-    parts += [f"<li><strong>{escape(e['etape'])}</strong> : {L(e['texte'])}</li>" for e in s["chaine"]]
-    parts.append("</ol>")
+    parts.append("<h3>Chaîne d'attaque</h3>")
+    if s.get("_schema"):
+        # schéma en image, puis les références de chaque étape sur une ligne
+        parts.append(f'<p><img src="{SITE_URL}/schemas/{s["_schema"]}" alt="Schéma de la chaîne d\'attaque"></p>')
+        refs = " · ".join(
+            f"{i}. {escape(e['etape'])} " + " ".join(L(m.group(0)) for m in REF_RE.finditer(e["texte"]))
+            for i, e in enumerate(s["chaine"], 1))
+        parts.append(f"<p><small>Sources par étape : {refs}</small></p>")
+    else:
+        parts.append("<ol>")
+        parts += [f"<li><strong>{escape(e['etape'])}</strong> : {L(e['texte'])}</li>" for e in s["chaine"]]
+        parts.append("</ol>")
     if s["limites"]:
         parts.append(f"<p><em>{L(s['limites'])}</em></p>")
 
@@ -323,6 +335,8 @@ def main():
     for s in stories:  # vignette : image d'aperçu de la première source qui en fournit une
         s["_cover"] = next((x["image"] for x in s["sources"]
                             if str(x.get("image", "")).startswith("https://")), None)
+        s["_schema"] = schema.make_schema(s, DOCS / "schemas")
+    schema.prune(DOCS / "schemas", {s["_schema"] for s in stories if s["_schema"]})
     xml_bytes = build_rss(stories, now)
     ET.fromstring(xml_bytes)  # vérifie que le XML produit est bien formé
     (DOCS / "veille.xml").write_bytes(xml_bytes)

@@ -718,6 +718,94 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgR69JnEBkz8N6_Nd5K75adIWh8xVmxW8FB21gsKinx9HBzgXQSLWL5sYdKMe9d-cbTSrgc45ZtYhmvhLZJII1H-tPXKn4AiRvj4KrU8ayeZskmMCfiV-mUc2pz10MumKyXKH6ybJ2RsVj9ZZ67l-4u0Y2f5Dl3kX7PLEzCAqogMfHTSfD7gM7QypHi-yos/s1700-nu-rw-lo-l85-e365/china-ms.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-04-citrix-netscaler-saml-cve-2026-88779",
+      "title": "Citrix NetScaler : faille zero-day SAML (CVE-2026-88779) exploitée pour provoquer des plantages et télécharger un binaire",
+      "created": "2026-10-04T23:10:00+00:00",
+      "updated": "2026-10-04T23:10:00+00:00",
+      "version": 1,
+      "resume": "Une faille zero-day d'authentification SAML de Citrix NetScaler ADC et Gateway est exploitée dans la nature [1]. Elle provoque des plantages répétés, et un binaire malveillant a été téléchargé et exécuté sur au moins un honeypot [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Requêtes avec des noms d'utilisateur d'authentification forgés contenant des commandes shell → téléchargement d'une charge depuis l'adresse 213.209.159[.]55 [1]."
+        },
+        {
+          "etape": "Plantages répétés",
+          "texte": "Déclenchement de plantages du processus nsaaad, redémarré en boucle → dépassement des limites du processus Pitboss [1]."
+        },
+        {
+          "etape": "Exécution de code",
+          "texte": "Téléchargement puis exécution d'un binaire malveillant → code exécuté, confirmé sur au moins un honeypot [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "ns",
+            "type": "passerelle",
+            "zone": "victime",
+            "nom": "Passerelle NetScaler",
+            "note": "Plantages, binaire exécuté"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ns",
+            "etape": 1,
+            "texte": "Noms d'utilisateur forgés avec commandes shell"
+          },
+          {
+            "de": "ns",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Binaire téléchargé depuis 213.209.159[.]55"
+          }
+        ]
+      },
+      "limites": "L'article ne nomme aucun acteur et ne dit pas si la faille permet l'exécution de code à distance ; des chercheurs enquêtent [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-88779",
+          "explication": "NetScaler ADC et Gateway : débordement mémoire dans SAML, déni de service, impact d'exécution de code à distance à l'étude, gravité 8,7 sur 10 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non précisé par la source [1]"
+      ],
+      "cibles": [
+        "Déploiements NetScaler non protégés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SAML",
+          "definition": "Security Assertion Markup Language : standard d'authentification unique entre systèmes"
+        },
+        {
+          "sigle": "ADC",
+          "definition": "Application Delivery Controller, équipement réseau qui répartit et protège le trafic vers des applications"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Citrix patches NetScaler SAML zero-day exploited in attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks/",
+          "date": "2026-10-04",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/08/27/Citrix.jpg"
+        }
+      ]
     }
   ]
 }

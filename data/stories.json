@@ -622,6 +622,102 @@
           }
         ]
       }
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-04-ta419-phishing-experts-ia",
+      "title": "TA419 : hameçonnage de Microsoft ciblant des experts américains en politique de l'IA",
+      "created": "2026-10-04T10:00:00+00:00",
+      "updated": "2026-10-04T10:00:00+00:00",
+      "version": 1,
+      "resume": "Le groupe TA419, lié à la Chine, a mené des campagnes de vol d'identifiants contre des experts en IA de groupes de réflexion, universités et cabinets juridiques américains [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Invitations inoffensives envoyées pour établir la confiance de la cible, en usurpant des économistes et un employé d'Anthropic [1]."
+        },
+        {
+          "etape": "Redirection",
+          "texte": "Réponse de la cible → lien raccourci qui déclenche plusieurs redirections, puis vérification Cloudflare Turnstile [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Fausse page OneDrive avec fenêtre de navigateur simulée → identifiants captés par un proxy puis relayés à l'infrastructure Microsoft réelle [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (TA419)",
+            "note": ""
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Experts en politique de l'IA",
+            "note": ""
+          },
+          {
+            "id": "ph",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Fausse page OneDrive",
+            "note": "Proxy intermédiaire"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 1,
+            "texte": "Invitations pour établir la confiance"
+          },
+          {
+            "de": "usr",
+            "vers": "ph",
+            "etape": 2,
+            "texte": "Lien raccourci et redirections"
+          },
+          {
+            "de": "ph",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Identifiants captés par le proxy"
+          }
+        ]
+      },
+      "limites": "Les sources ne citent aucune technique MITRE ni CVE, et ne détaillent pas le contenu des invitations [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "TA419, groupe d'espionnage aligné sur la Chine, actif depuis avril 2025 au moins [1]"
+      ],
+      "cibles": [
+        "Experts en IA de groupes de réflexion, universités et organisations juridiques aux États-Unis [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "TA419",
+          "definition": "Nom donné par les analystes au groupe d'espionnage"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "China-Aligned TA419 Targets U.S. AI Policy Experts With Microsoft AitM Phishing",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/china-aligned-ta419-targets-us-ai.html",
+          "date": "2026-10-04",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgR69JnEBkz8N6_Nd5K75adIWh8xVmxW8FB21gsKinx9HBzgXQSLWL5sYdKMe9d-cbTSrgc45ZtYhmvhLZJII1H-tPXKn4AiRvj4KrU8ayeZskmMCfiV-mUc2pz10MumKyXKH6ybJ2RsVj9ZZ67l-4u0Y2f5Dl3kX7PLEzCAqogMfHTSfD7gM7QypHi-yos/s1700-nu-rw-lo-l85-e365/china-ms.jpg"
+        }
+      ]
     }
   ]
 }

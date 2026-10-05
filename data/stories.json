@@ -1113,9 +1113,9 @@
       "id": "2026-10-05-rejetto-hfs-cve-2026-61500",
       "title": "Rejetto HFS : faille exploitée pour forger une session administrateur et exécuter du code",
       "created": "2026-10-05T18:14:12+00:00",
-      "updated": "2026-10-05T18:14:12+00:00",
-      "version": 1,
-      "resume": "Des attaquants exploitent CVE-2026-61500 dans Rejetto HTTP File Server pour forger un cookie administrateur puis exécuter du code à distance [1, 2].",
+      "updated": "2026-10-05T22:07:16+00:00",
+      "version": 2,
+      "resume": "Des attaquants exploitent CVE-2026-61500 dans Rejetto HTTP File Server pour forger un cookie administrateur puis exécuter du code à distance [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -1210,6 +1210,13 @@
           "url": "https://www.securityweek.com/exploitation-hits-rejetto-hfs-vulnerability-discovered-by-ai/",
           "date": "2026-10-05",
           "image": "https://www.securityweek.com/wp-content/uploads/2025/11/NPM-code-software-development.jpeg"
+        },
+        {
+          "titre": "Rejetto HFS servers now actively scanned for critical RCE flaw",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/rejetto-hfs-servers-now-actively-scanned-for-critical-rce-flaw/",
+          "date": "2026-10-05",
+          "image": "https://www.bleepstatic.com/content/hl-images/2025/11/05/Credit-card-hacker.jpg"
         }
       ]
     },
@@ -1218,13 +1225,13 @@
       "id": "2026-10-05-cling-botnet-realtek-stun",
       "title": "Cling : réseau de machines infectées pilotées via des messages STUN, par failles de routeurs",
       "created": "2026-10-05T18:14:12+00:00",
-      "updated": "2026-10-05T18:14:12+00:00",
-      "version": 1,
+      "updated": "2026-10-05T22:07:16+00:00",
+      "version": 2,
       "resume": "Le logiciel malveillant Cling infecte routeurs et enregistreurs vidéo en exploitant des failles dont CVE-2021-35394, puis reçoit ses ordres par le protocole STUN [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Exploitation de CVE-2021-35394 et d'environ vingt-quatre failles d'appareils de marques diverses → exécution de commandes sur l'appareil [1, 2]."
+          "texte": "Exploitation de CVE-2021-35394 et d'environ vingt-quatre failles d'appareils de marques diverses → exécution de commandes sur l'appareil [1, 2, 3]."
         },
         {
           "etape": "Persistance",
@@ -1331,6 +1338,12 @@
           "url": "https://www.securityweek.com/linux-backdoor-abuses-stun-protocol-exploits-dozens-of-flaws/",
           "date": "2026-10-05",
           "image": "https://www.securityweek.com/wp-content/uploads/2025/02/Linux-malware.jpeg"
+        },
+        {
+          "titre": "ClingSTUN Turns Vulnerable IoT Devices Into Proxy Nodes",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/iot/clingstun-vulnerable-iot-devices-proxy-nodes",
+          "date": "2026-10-05"
         }
       ]
     },

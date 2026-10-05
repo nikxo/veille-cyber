@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-10-05T18:09:15+00:00",
+  "feed_summary": "A critical security flaw impacting Rejetto HTTP File Server (HFS) is witnessing active exploitation attempts, according to VulnCheck. The vulnerability in question is CVE-2026-61500 (CVSS score: 9.3), a case of session forgery stemming from the use of a weak pseudo-random number generator (PRNG) that can lead to a predictable key, which an attacker can then use to gain unauthorized access and",
+  "id": "984946d5750a4e3a",
+  "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTCvFj7lVSH1eLS0oYdxqBa4wQkNQvuemuCAL5XqwKueywAUl8Fg6zY-5UT9cdx3fZZ81DHX_emE9JXthW_OfH-axyWn3bE5CpCp4CDs4HREWjv_1uBtt5iJE947S-Bkn-4Mn1Shwt1kV9FF4RO9Wa7_4jmUtvbWrx2zs4-cdSg-FkUtxW-erVx2CXKhU3/s1700-nu-rw-lo-l85-e365/hfs-rce-main.jpg",
+  "lang": "en",
+  "link": "https://thehackernews.com/2026/10/attackers-target-rejetto-hfs-flaw-that.html",
+  "published": "2026-10-05T13:39:23+05:30",
+  "source": "The Hacker News",
+  "source_type": "actu",
+  "title": "Attackers Target Rejetto HFS Flaw That Enables Admin Session Forgery and RCE"
+}

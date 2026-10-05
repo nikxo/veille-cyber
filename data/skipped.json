@@ -1,282 +1,338 @@
 [
-  {
-    "id": "6d1223c7a39f4554",
-    "title": "The First 24 Hours: What Happens When Ransomware Lands",
-    "link": "https://www.huntress.com/blog/what-happens-during-a-ransomware-attack",
-    "source": "Huntress",
-    "raison": "conseils génériques",
-    "date": "2026-10-03T16:02:48+00:00"
-  },
-  {
-    "id": "46f9ae7612dc6b4b",
-    "title": "GitLab Patches Critical 9.9 AI Gateway Flaw Allowing Command Execution on Self-Hosted Servers",
-    "link": "https://thehackernews.com/2026/10/gitlab-patches-critical-self-hosted-ai.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-03T16:02:48+00:00"
-  },
-  {
-    "id": "676727015c51554c",
-    "title": "GitLab warns of critical RCE vulnerability in AI Gateway service",
-    "link": "https://www.bleepingcomputer.com/news/security/gitlab-warns-of-critical-rce-vulnerability-in-ai-gateway-service/",
-    "source": "BleepingComputer",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-03T16:02:48+00:00"
-  },
-  {
-    "id": "c8f7d668a6f4d8ed",
-    "title": "Judge dismisses spyware case brought by Salvadoran journalists targeted with Pegasus",
-    "link": "https://therecord.media/judge-dismisses-spyware-case-brought-by-salvadoran-journalists",
-    "source": "The Record",
-    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
-    "date": "2026-10-03T16:02:48+00:00"
-  },
-  {
-    "id": "875077590ba6fbe9",
-    "title": "MI5 Says China’s MSS Funded Research Involving 100+ U.K.-Linked Academics",
-    "link": "https://thehackernews.com/2026/10/mi5-says-chinas-mss-funded-research.html",
-    "source": "The Hacker News",
-    "raison": "actualité politique sans détail sur la méthode d'attaque",
-    "date": "2026-10-03T16:02:48+00:00"
-  },
-  {
-    "id": "892547187af603e6",
-    "title": "Bipartisan backlash to ALPRs grows as two high-profile bills are introduced",
-    "link": "https://therecord.media/alpr-legislation-hawley-sanders-merkley-aoc",
-    "source": "The Record",
-    "raison": "actualité politique sans détail sur la méthode d'attaque",
-    "date": "2026-10-03T16:02:48+00:00"
-  },
-  {
-    "id": "0214f46e5aeb5bf7",
-    "title": "Dell CSM Flaws Enable Unauthenticated Admin Access and Root on Kubernetes Nodes",
-    "link": "https://thehackernews.com/2026/10/dell-csm-flaws-enable-unauthenticated.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-03T16:02:48+00:00"
-  },
-  {
-    "id": "3dc5273a31dff197",
-    "title": "The State of Cybersecurity in 2026: Key Segments, Insights, and Innovations",
-    "link": "https://thehackernews.com/2026/10/the-state-of-cybersecurity-in-2026key.html",
-    "source": "The Hacker News",
-    "raison": "contenu sponsorisé",
-    "date": "2026-10-03T16:02:48+00:00"
-  },
-  {
-    "id": "c3c3a325fb15cc78",
-    "title": "Fortra Patches Critical Vulnerabilities in BoKS",
-    "link": "https://www.securityweek.com/fortra-patches-critical-vulnerabilities-in-boks/",
-    "source": "SecurityWeek",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-03T16:02:48+00:00"
-  },
-  {
-    "id": "89cfb1b30e620c9a",
-    "title": "Is It Fair to Blame 'Rogue' AI for Security Failures?",
-    "link": "https://www.darkreading.com/insider-threats/blame-rogue-ai-security-failures",
-    "source": "Dark Reading",
-    "raison": "article d'opinion, conseils génériques",
-    "date": "2026-10-03T16:02:48+00:00"
-  },
-  {
-    "id": "1d9e3889e62c89f6",
-    "title": "RemoteThreat Bets Security Teams Need to Test What Happens After Defenses Fail",
-    "link": "https://www.darkreading.com/cybersecurity-operations/remotethreat-bets-security-teams-need-to-test-what-happens-after-defenses-fail",
-    "source": "Dark Reading",
-    "raison": "annonce produit, levée de fonds",
-    "date": "2026-10-03T16:02:48+00:00"
-  },
-  {
-    "id": "21d2d20460691dcd",
-    "title": "Is Your Organization Ready for 2027's AI Accountability Era?",
-    "link": "https://www.darkreading.com/cybersecurity-operations/is-your-organization-ready-for-2027-s-ai-accountability-era-",
-    "source": "Dark Reading",
-    "raison": "conseils génériques",
-    "date": "2026-10-03T16:02:48+00:00"
-  },
-  {
-    "id": "7041e8eddbf0e0da",
-    "title": "doxx.net Raises $38 Million to Prevent AI Agent-on-the-Internet Misadventures",
-    "link": "https://www.securityweek.com/doxx-net-raises-38-million-to-prevent-ai-agent-on-the-internet-misadventures/",
-    "source": "SecurityWeek",
-    "raison": "levée de fonds, annonce produit",
-    "date": "2026-10-03T16:02:48+00:00"
-  },
-  {
-    "id": "59130545c940eaeb",
-    "title": "SWIFT Banking & Government Middleware Enables RCE",
-    "link": "https://www.darkreading.com/cybersecurity-operations/swift-banking-govt-middleware-rce",
-    "source": "Dark Reading",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-03T16:02:48+00:00"
-  },
-  {
-    "id": "d19f7dd7df8ae6db",
-    "title": "ShinyHunters hacker reportedly detained in Jordan, aiding FBI",
-    "link": "https://www.bleepingcomputer.com/news/security/shinyhunters-hacker-reportedly-detained-in-jordan-aiding-fbi/",
-    "source": "BleepingComputer",
-    "raison": "actualité judiciaire (arrestation), méthode d'attaque non établie par l'article",
-    "date": "2026-10-03T19:30:00+00:00"
-  },
-  {
-    "id": "59741cfde7582d8e",
-    "title": "Google Gemini could soon get full access to your Mac’s files, apps and the web",
-    "link": "https://www.bleepingcomputer.com/news/google/google-gemini-could-soon-get-full-access-to-your-macs-files-apps-and-the-web/",
-    "source": "BleepingComputer",
-    "raison": "annonce produit",
-    "date": "2026-10-04T03:00:00+00:00"
-  },
-  {
-    "id": "9e761cdf74292555",
-    "title": "ShinyHunters Suspect Rey Reportedly Detained in Jordan, Helping FBI Identify Group Members",
-    "link": "https://thehackernews.com/2026/10/shinyhunters-suspect-rey-reportedly.html",
-    "source": "The Hacker News",
-    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
-    "date": "2026-10-04T10:00:00+00:00"
-  },
-  {
-    "id": "16150ce896b79be0",
-    "title": "Trump Names National Intelligence Director Jay Clayton to Lead a New Federal AI Task Force",
-    "link": "https://www.securityweek.com/trump-names-national-intelligence-director-jay-clayton-to-lead-a-new-federal-ai-task-force/",
-    "source": "SecurityWeek",
-    "raison": "actualité politique sans méthode d'attaque",
-    "date": "2026-10-04T15:30:00+00:00"
-  },
-  {
-    "id": "35c6cc06809bc5c4",
-    "title": "Anthropic asks Claude users to share voice data for AI model training",
-    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-asks-claude-users-to-share-voice-data-for-ai-model-training/",
-    "source": "BleepingComputer",
-    "raison": "annonce produit, pas d'attaque",
-    "date": "2026-10-04T15:30:00+00:00"
-  },
-  {
-    "id": "1425475faac619d8",
-    "title": "Alleged ShinyHunters Leader Arrested in Jordan",
-    "link": "https://www.securityweek.com/alleged-shinyhunters-leader-arrested-in-jordan/",
-    "source": "SecurityWeek",
-    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
-    "date": "2026-10-05T09:10:00+00:00"
-  },
-  {
-    "id": "dedd4fe42e2cc044",
-    "title": "Google halts open-source bug bounty program amid AI spam surge",
-    "link": "https://www.bleepingcomputer.com/news/google/google-halts-open-source-bug-bounty-program-amid-ai-spam-surge/",
-    "source": "BleepingComputer",
-    "raison": "annonce de programme de bug bounty, pas une attaque",
-    "date": "2026-10-05T09:10:00+00:00"
-  },
-  {
-    "id": "5b587e2212600fbc",
-    "title": "Behind the tags: How Elastic SIEM grades 1,781 detection rules on noise, speed, and threat coverage",
-    "link": "https://www.elastic.co/security-labs/threat-command/elastic-siem-detection-rule-tags",
-    "source": "Elastic Security Labs",
-    "raison": "annonce produit",
-    "date": "2026-10-05T18:14:12+00:00"
-  },
-  {
-    "id": "953f34da3ba3dd96",
-    "title": "5th October – Threat Intelligence Report",
-    "link": "https://research.checkpoint.com/2026/5th-october-threat-intelligence-report/",
-    "source": "Check Point Research",
-    "raison": "synthèse hebdomadaire sans détail de méthode d'attaque",
-    "date": "2026-10-05T18:14:12+00:00"
-  },
-  {
-    "id": "39632667e9913739",
-    "title": "IQVIA fined $7.8 million for failing to properly anonymize health data",
-    "link": "https://www.bleepingcomputer.com/news/security/iqvia-fined-78-million-for-failing-to-properly-anonymize-health-data/",
-    "source": "BleepingComputer",
-    "raison": "actualité judiciaire sans méthode d'attaque",
-    "date": "2026-10-05T18:14:12+00:00"
-  },
-  {
-    "id": "dd33f5c1b0c61ca0",
-    "title": "New Dell System Update flaw lets hackers gain root privileges",
-    "link": "https://www.bleepingcomputer.com/news/security/new-dell-system-update-flaw-lets-hackers-gain-root-privileges/",
-    "source": "BleepingComputer",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-05T18:14:12+00:00"
-  },
-  {
-    "id": "2d0754242b731142",
-    "title": "Alleged dev of Ploutus ATM malware appears in US court after arrest",
-    "link": "https://www.bleepingcomputer.com/news/security/suspected-dev-of-ploutus-atm-malware-appears-in-us-court-after-arrest/",
-    "source": "BleepingComputer",
-    "raison": "actualité judiciaire (arrestation)",
-    "date": "2026-10-05T18:14:12+00:00"
-  },
-  {
-    "id": "acb91d74c1ac878c",
-    "title": "⚡ Weekly Recap: NetScaler and FortiMail 0-Days, AI Coding Leaks, Spectre v2 and Ransomware Arrests",
-    "link": "https://thehackernews.com/2026/10/weekly-recap-netscaler-and-fortimail-0.html",
-    "source": "The Hacker News",
-    "raison": "revue hebdomadaire sans détail de chaîne d'attaque",
-    "date": "2026-10-05T18:14:12+00:00"
-  },
-  {
-    "id": "cb207012cadc4c9d",
-    "title": "Microsoft Exchange Flaw Lets Authenticated Attackers Read Other Users' Mailboxes",
-    "link": "https://thehackernews.com/2026/10/microsoft-exchange-flaw-lets.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-05T18:14:12+00:00"
-  },
-  {
-    "id": "886e2b8e6d5af6d0",
-    "title": "OpenAI will show visual ads in ChatGPT while you generate images",
-    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-will-show-visual-ads-in-chatgpt-while-you-generate-images/",
-    "source": "BleepingComputer",
-    "raison": "annonce produit",
-    "date": "2026-10-05T18:14:12+00:00"
-  },
-  {
-    "id": "20616b5d110d0e27",
-    "title": "The Credential Layer Is Expanding Faster Than Security Teams Can See It",
-    "link": "https://thehackernews.com/2026/10/the-credential-layer-is-expanding.html",
-    "source": "The Hacker News",
-    "raison": "contenu sponsorisé",
-    "date": "2026-10-05T18:14:12+00:00"
-  },
-  {
-    "id": "2a3d9efdfcd5a959",
-    "title": "Microsoft: Windows KB5124010 update crashes some games and apps",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-kb5124010-update-crashes-some-games-and-apps/",
-    "source": "BleepingComputer",
-    "raison": "mise à jour logicielle, pas une attaque",
-    "date": "2026-10-05T18:14:12+00:00"
-  },
-  {
-    "id": "4a8712355bea80e4",
-    "title": "Apple Plans Tighter macOS Full Disk Access Controls Over AI Agent Data Access",
-    "link": "https://thehackernews.com/2026/10/apple-plans-tighter-macos-full-disk.html",
-    "source": "The Hacker News",
-    "raison": "annonce produit",
-    "date": "2026-10-05T18:14:12+00:00"
-  },
-  {
-    "id": "8a4e3df57a103d5f",
-    "title": "Google Narrows Open Source Bug Bounty Amid Wave of Invalid Automated Reports",
-    "link": "https://www.securityweek.com/google-narrows-open-source-bug-bounty-amid-wave-of-invalid-automated-reports/",
-    "source": "SecurityWeek",
-    "raison": "programme de primes aux bogues, pas une attaque",
-    "date": "2026-10-05T18:14:12+00:00"
-  },
-  {
-    "id": "f64e40e8a42769b9",
-    "title": "Need for Speed: AI-Driven Attacks Are Changing Security Strategies",
-    "link": "https://www.darkreading.com/cyber-risk/ai-attacks-security-strategies",
-    "source": "Dark Reading",
-    "raison": "conseils génériques",
-    "date": "2026-10-05T18:14:12+00:00"
-  },
-  {
-    "id": "17fe23d382fd4939",
-    "title": "Senate Passes Bipartisan Bill to Strengthen Healthcare Cybersecurity",
-    "link": "https://www.securityweek.com/senate-passes-bipartisan-bill-to-strengthen-healthcare-cybersecurity/",
-    "source": "SecurityWeek",
-    "raison": "actualité politique sans méthode d'attaque",
-    "date": "2026-10-05T18:14:12+00:00"
-  }
+ {
+  "id": "6d1223c7a39f4554",
+  "title": "The First 24 Hours: What Happens When Ransomware Lands",
+  "link": "https://www.huntress.com/blog/what-happens-during-a-ransomware-attack",
+  "source": "Huntress",
+  "raison": "conseils génériques",
+  "date": "2026-10-03T16:02:48+00:00"
+ },
+ {
+  "id": "46f9ae7612dc6b4b",
+  "title": "GitLab Patches Critical 9.9 AI Gateway Flaw Allowing Command Execution on Self-Hosted Servers",
+  "link": "https://thehackernews.com/2026/10/gitlab-patches-critical-self-hosted-ai.html",
+  "source": "The Hacker News",
+  "raison": "vulnérabilité sans exploitation constatée",
+  "date": "2026-10-03T16:02:48+00:00"
+ },
+ {
+  "id": "676727015c51554c",
+  "title": "GitLab warns of critical RCE vulnerability in AI Gateway service",
+  "link": "https://www.bleepingcomputer.com/news/security/gitlab-warns-of-critical-rce-vulnerability-in-ai-gateway-service/",
+  "source": "BleepingComputer",
+  "raison": "vulnérabilité sans exploitation constatée",
+  "date": "2026-10-03T16:02:48+00:00"
+ },
+ {
+  "id": "c8f7d668a6f4d8ed",
+  "title": "Judge dismisses spyware case brought by Salvadoran journalists targeted with Pegasus",
+  "link": "https://therecord.media/judge-dismisses-spyware-case-brought-by-salvadoran-journalists",
+  "source": "The Record",
+  "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
+  "date": "2026-10-03T16:02:48+00:00"
+ },
+ {
+  "id": "875077590ba6fbe9",
+  "title": "MI5 Says China’s MSS Funded Research Involving 100+ U.K.-Linked Academics",
+  "link": "https://thehackernews.com/2026/10/mi5-says-chinas-mss-funded-research.html",
+  "source": "The Hacker News",
+  "raison": "actualité politique sans détail sur la méthode d'attaque",
+  "date": "2026-10-03T16:02:48+00:00"
+ },
+ {
+  "id": "892547187af603e6",
+  "title": "Bipartisan backlash to ALPRs grows as two high-profile bills are introduced",
+  "link": "https://therecord.media/alpr-legislation-hawley-sanders-merkley-aoc",
+  "source": "The Record",
+  "raison": "actualité politique sans détail sur la méthode d'attaque",
+  "date": "2026-10-03T16:02:48+00:00"
+ },
+ {
+  "id": "0214f46e5aeb5bf7",
+  "title": "Dell CSM Flaws Enable Unauthenticated Admin Access and Root on Kubernetes Nodes",
+  "link": "https://thehackernews.com/2026/10/dell-csm-flaws-enable-unauthenticated.html",
+  "source": "The Hacker News",
+  "raison": "vulnérabilité sans exploitation constatée",
+  "date": "2026-10-03T16:02:48+00:00"
+ },
+ {
+  "id": "3dc5273a31dff197",
+  "title": "The State of Cybersecurity in 2026: Key Segments, Insights, and Innovations",
+  "link": "https://thehackernews.com/2026/10/the-state-of-cybersecurity-in-2026key.html",
+  "source": "The Hacker News",
+  "raison": "contenu sponsorisé",
+  "date": "2026-10-03T16:02:48+00:00"
+ },
+ {
+  "id": "c3c3a325fb15cc78",
+  "title": "Fortra Patches Critical Vulnerabilities in BoKS",
+  "link": "https://www.securityweek.com/fortra-patches-critical-vulnerabilities-in-boks/",
+  "source": "SecurityWeek",
+  "raison": "vulnérabilité sans exploitation constatée",
+  "date": "2026-10-03T16:02:48+00:00"
+ },
+ {
+  "id": "89cfb1b30e620c9a",
+  "title": "Is It Fair to Blame 'Rogue' AI for Security Failures?",
+  "link": "https://www.darkreading.com/insider-threats/blame-rogue-ai-security-failures",
+  "source": "Dark Reading",
+  "raison": "article d'opinion, conseils génériques",
+  "date": "2026-10-03T16:02:48+00:00"
+ },
+ {
+  "id": "1d9e3889e62c89f6",
+  "title": "RemoteThreat Bets Security Teams Need to Test What Happens After Defenses Fail",
+  "link": "https://www.darkreading.com/cybersecurity-operations/remotethreat-bets-security-teams-need-to-test-what-happens-after-defenses-fail",
+  "source": "Dark Reading",
+  "raison": "annonce produit, levée de fonds",
+  "date": "2026-10-03T16:02:48+00:00"
+ },
+ {
+  "id": "21d2d20460691dcd",
+  "title": "Is Your Organization Ready for 2027's AI Accountability Era?",
+  "link": "https://www.darkreading.com/cybersecurity-operations/is-your-organization-ready-for-2027-s-ai-accountability-era-",
+  "source": "Dark Reading",
+  "raison": "conseils génériques",
+  "date": "2026-10-03T16:02:48+00:00"
+ },
+ {
+  "id": "7041e8eddbf0e0da",
+  "title": "doxx.net Raises $38 Million to Prevent AI Agent-on-the-Internet Misadventures",
+  "link": "https://www.securityweek.com/doxx-net-raises-38-million-to-prevent-ai-agent-on-the-internet-misadventures/",
+  "source": "SecurityWeek",
+  "raison": "levée de fonds, annonce produit",
+  "date": "2026-10-03T16:02:48+00:00"
+ },
+ {
+  "id": "59130545c940eaeb",
+  "title": "SWIFT Banking & Government Middleware Enables RCE",
+  "link": "https://www.darkreading.com/cybersecurity-operations/swift-banking-govt-middleware-rce",
+  "source": "Dark Reading",
+  "raison": "vulnérabilité sans exploitation constatée",
+  "date": "2026-10-03T16:02:48+00:00"
+ },
+ {
+  "id": "d19f7dd7df8ae6db",
+  "title": "ShinyHunters hacker reportedly detained in Jordan, aiding FBI",
+  "link": "https://www.bleepingcomputer.com/news/security/shinyhunters-hacker-reportedly-detained-in-jordan-aiding-fbi/",
+  "source": "BleepingComputer",
+  "raison": "actualité judiciaire (arrestation), méthode d'attaque non établie par l'article",
+  "date": "2026-10-03T19:30:00+00:00"
+ },
+ {
+  "id": "59741cfde7582d8e",
+  "title": "Google Gemini could soon get full access to your Mac’s files, apps and the web",
+  "link": "https://www.bleepingcomputer.com/news/google/google-gemini-could-soon-get-full-access-to-your-macs-files-apps-and-the-web/",
+  "source": "BleepingComputer",
+  "raison": "annonce produit",
+  "date": "2026-10-04T03:00:00+00:00"
+ },
+ {
+  "id": "9e761cdf74292555",
+  "title": "ShinyHunters Suspect Rey Reportedly Detained in Jordan, Helping FBI Identify Group Members",
+  "link": "https://thehackernews.com/2026/10/shinyhunters-suspect-rey-reportedly.html",
+  "source": "The Hacker News",
+  "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
+  "date": "2026-10-04T10:00:00+00:00"
+ },
+ {
+  "id": "16150ce896b79be0",
+  "title": "Trump Names National Intelligence Director Jay Clayton to Lead a New Federal AI Task Force",
+  "link": "https://www.securityweek.com/trump-names-national-intelligence-director-jay-clayton-to-lead-a-new-federal-ai-task-force/",
+  "source": "SecurityWeek",
+  "raison": "actualité politique sans méthode d'attaque",
+  "date": "2026-10-04T15:30:00+00:00"
+ },
+ {
+  "id": "35c6cc06809bc5c4",
+  "title": "Anthropic asks Claude users to share voice data for AI model training",
+  "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-asks-claude-users-to-share-voice-data-for-ai-model-training/",
+  "source": "BleepingComputer",
+  "raison": "annonce produit, pas d'attaque",
+  "date": "2026-10-04T15:30:00+00:00"
+ },
+ {
+  "id": "1425475faac619d8",
+  "title": "Alleged ShinyHunters Leader Arrested in Jordan",
+  "link": "https://www.securityweek.com/alleged-shinyhunters-leader-arrested-in-jordan/",
+  "source": "SecurityWeek",
+  "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
+  "date": "2026-10-05T09:10:00+00:00"
+ },
+ {
+  "id": "dedd4fe42e2cc044",
+  "title": "Google halts open-source bug bounty program amid AI spam surge",
+  "link": "https://www.bleepingcomputer.com/news/google/google-halts-open-source-bug-bounty-program-amid-ai-spam-surge/",
+  "source": "BleepingComputer",
+  "raison": "annonce de programme de bug bounty, pas une attaque",
+  "date": "2026-10-05T09:10:00+00:00"
+ },
+ {
+  "id": "5b587e2212600fbc",
+  "title": "Behind the tags: How Elastic SIEM grades 1,781 detection rules on noise, speed, and threat coverage",
+  "link": "https://www.elastic.co/security-labs/threat-command/elastic-siem-detection-rule-tags",
+  "source": "Elastic Security Labs",
+  "raison": "annonce produit",
+  "date": "2026-10-05T18:14:12+00:00"
+ },
+ {
+  "id": "953f34da3ba3dd96",
+  "title": "5th October – Threat Intelligence Report",
+  "link": "https://research.checkpoint.com/2026/5th-october-threat-intelligence-report/",
+  "source": "Check Point Research",
+  "raison": "synthèse hebdomadaire sans détail de méthode d'attaque",
+  "date": "2026-10-05T18:14:12+00:00"
+ },
+ {
+  "id": "39632667e9913739",
+  "title": "IQVIA fined $7.8 million for failing to properly anonymize health data",
+  "link": "https://www.bleepingcomputer.com/news/security/iqvia-fined-78-million-for-failing-to-properly-anonymize-health-data/",
+  "source": "BleepingComputer",
+  "raison": "actualité judiciaire sans méthode d'attaque",
+  "date": "2026-10-05T18:14:12+00:00"
+ },
+ {
+  "id": "dd33f5c1b0c61ca0",
+  "title": "New Dell System Update flaw lets hackers gain root privileges",
+  "link": "https://www.bleepingcomputer.com/news/security/new-dell-system-update-flaw-lets-hackers-gain-root-privileges/",
+  "source": "BleepingComputer",
+  "raison": "vulnérabilité sans exploitation constatée",
+  "date": "2026-10-05T18:14:12+00:00"
+ },
+ {
+  "id": "2d0754242b731142",
+  "title": "Alleged dev of Ploutus ATM malware appears in US court after arrest",
+  "link": "https://www.bleepingcomputer.com/news/security/suspected-dev-of-ploutus-atm-malware-appears-in-us-court-after-arrest/",
+  "source": "BleepingComputer",
+  "raison": "actualité judiciaire (arrestation)",
+  "date": "2026-10-05T18:14:12+00:00"
+ },
+ {
+  "id": "acb91d74c1ac878c",
+  "title": "⚡ Weekly Recap: NetScaler and FortiMail 0-Days, AI Coding Leaks, Spectre v2 and Ransomware Arrests",
+  "link": "https://thehackernews.com/2026/10/weekly-recap-netscaler-and-fortimail-0.html",
+  "source": "The Hacker News",
+  "raison": "revue hebdomadaire sans détail de chaîne d'attaque",
+  "date": "2026-10-05T18:14:12+00:00"
+ },
+ {
+  "id": "cb207012cadc4c9d",
+  "title": "Microsoft Exchange Flaw Lets Authenticated Attackers Read Other Users' Mailboxes",
+  "link": "https://thehackernews.com/2026/10/microsoft-exchange-flaw-lets.html",
+  "source": "The Hacker News",
+  "raison": "vulnérabilité sans exploitation constatée",
+  "date": "2026-10-05T18:14:12+00:00"
+ },
+ {
+  "id": "886e2b8e6d5af6d0",
+  "title": "OpenAI will show visual ads in ChatGPT while you generate images",
+  "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-will-show-visual-ads-in-chatgpt-while-you-generate-images/",
+  "source": "BleepingComputer",
+  "raison": "annonce produit",
+  "date": "2026-10-05T18:14:12+00:00"
+ },
+ {
+  "id": "20616b5d110d0e27",
+  "title": "The Credential Layer Is Expanding Faster Than Security Teams Can See It",
+  "link": "https://thehackernews.com/2026/10/the-credential-layer-is-expanding.html",
+  "source": "The Hacker News",
+  "raison": "contenu sponsorisé",
+  "date": "2026-10-05T18:14:12+00:00"
+ },
+ {
+  "id": "2a3d9efdfcd5a959",
+  "title": "Microsoft: Windows KB5124010 update crashes some games and apps",
+  "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-kb5124010-update-crashes-some-games-and-apps/",
+  "source": "BleepingComputer",
+  "raison": "mise à jour logicielle, pas une attaque",
+  "date": "2026-10-05T18:14:12+00:00"
+ },
+ {
+  "id": "4a8712355bea80e4",
+  "title": "Apple Plans Tighter macOS Full Disk Access Controls Over AI Agent Data Access",
+  "link": "https://thehackernews.com/2026/10/apple-plans-tighter-macos-full-disk.html",
+  "source": "The Hacker News",
+  "raison": "annonce produit",
+  "date": "2026-10-05T18:14:12+00:00"
+ },
+ {
+  "id": "8a4e3df57a103d5f",
+  "title": "Google Narrows Open Source Bug Bounty Amid Wave of Invalid Automated Reports",
+  "link": "https://www.securityweek.com/google-narrows-open-source-bug-bounty-amid-wave-of-invalid-automated-reports/",
+  "source": "SecurityWeek",
+  "raison": "programme de primes aux bogues, pas une attaque",
+  "date": "2026-10-05T18:14:12+00:00"
+ },
+ {
+  "id": "f64e40e8a42769b9",
+  "title": "Need for Speed: AI-Driven Attacks Are Changing Security Strategies",
+  "link": "https://www.darkreading.com/cyber-risk/ai-attacks-security-strategies",
+  "source": "Dark Reading",
+  "raison": "conseils génériques",
+  "date": "2026-10-05T18:14:12+00:00"
+ },
+ {
+  "id": "17fe23d382fd4939",
+  "title": "Senate Passes Bipartisan Bill to Strengthen Healthcare Cybersecurity",
+  "link": "https://www.securityweek.com/senate-passes-bipartisan-bill-to-strengthen-healthcare-cybersecurity/",
+  "source": "SecurityWeek",
+  "raison": "actualité politique sans méthode d'attaque",
+  "date": "2026-10-05T18:14:12+00:00"
+ },
+ {
+  "id": "5f141970707163ff",
+  "title": "TGV prend le train du Data Mesh",
+  "link": "https://www.lemagit.fr/etude/TGV-Europe-prend-le-train-du-Data-Mesh",
+  "source": "LeMagIT",
+  "raison": "article d'architecture de données, hors attaque",
+  "date": "2026-10-05T19:07:11+00:00"
+ },
+ {
+  "id": "9dc8b94c255c30c2",
+  "title": "KillSec démantelé, son opérateur présumé a 16 ans",
+  "link": "https://www.zataz.com/killsec-demantele-son-operateur-presume-a-16-ans/",
+  "source": "ZATAZ",
+  "raison": "actualité judiciaire (arrestations) sans détail sur la méthode d'attaque",
+  "date": "2026-10-05T19:07:11+00:00"
+ },
+ {
+  "id": "b94363d572ec44cc",
+  "title": "ZATAZ dans le top 10 tech français : merci à vous !",
+  "link": "https://www.zataz.com/zataz-dans-le-top-10-tech-francais-merci-a-vous/",
+  "source": "ZATAZ",
+  "raison": "classement de média, hors attaque",
+  "date": "2026-10-05T19:07:11+00:00"
+ },
+ {
+  "id": "c0bfec56e1a02768",
+  "title": "Scattered Lapsus$ Hunters : Rey arrêté en Jordanie",
+  "link": "https://www.lemagit.fr/news/366651656/Scattered-Lapsus-Hunters-Rey-arrete-en-Jordanie",
+  "source": "LeMagIT",
+  "raison": "actualité judiciaire (arrestation) sans détail sur la méthode d'attaque",
+  "date": "2026-10-05T19:07:11+00:00"
+ },
+ {
+  "id": "c8bf22f8a71e7020",
+  "title": "Omnissa One 2026 : ce qui a retenu l’attention à l’ère des utilisateurs finaux agentiques",
+  "link": "https://www.lemagit.fr/tribune/Omnissa-One-2026-ce-qui-a-retenu-lattention-a-lere-des-utilisateurs-finaux-agentiques",
+  "source": "LeMagIT",
+  "raison": "annonces produit",
+  "date": "2026-10-05T19:07:11+00:00"
+ },
+ {
+  "id": "e38ba47aaf5e38d7",
+  "title": "NetApp rend l’ingestion des données par les IA plus universelle",
+  "link": "https://www.lemagit.fr/actualites/366651304/NetApp-rend-lingestion-des-donnees-pour-les-IA-plus-universelle",
+  "source": "LeMagIT",
+  "raison": "annonce produit",
+  "date": "2026-10-05T19:07:11+00:00"
+ },
+ {
+  "id": "f7e35c1706fea596",
+  "title": "Microsoft pousse SQL Server sur Azure Local",
+  "link": "https://www.lemagit.fr/actualites/366651559/Microsoft-pousse-SQL-Server-sur-Azure-Local",
+  "source": "LeMagIT",
+  "raison": "annonce produit",
+  "date": "2026-10-05T19:07:11+00:00"
+ }
 ]

@@ -324,7 +324,9 @@ def build_rss(stories, now):
         ET.SubElement(it, "link").text = s["sources"][0]["url"]
         # Identifiant = sujet + version + format : une mise à jour ou un changement de format
         # apparaît comme un nouvel article (choix assumé : visibilité plutôt qu'absence de doublons)
-        ET.SubElement(it, "guid", isPermaLink="false").text = f"{s['id']}-v{s['version']}-f{FORMAT_REV}"
+        # "republication" (optionnel) : republie un seul sujet sans changer sa version
+        rep = f"-r{s['republication']}" if s.get("republication") else ""
+        ET.SubElement(it, "guid", isPermaLink="false").text = f"{s['id']}-v{s['version']}-f{FORMAT_REV}{rep}"
         ET.SubElement(it, "pubDate").text = format_datetime(s["_updated"])
         ET.SubElement(it, "description").text = story_html(s)
         if s.get("_cover"):
@@ -374,6 +376,13 @@ def main():
         s["_cover"] = next((x["image"] for x in s["sources"]
                             if str(x.get("image", "")).startswith("https://")), None)
         s["_diagram"] = diagram.make_diagram(s, DOCS / "schemas")
+    missing = [s["id"] for s in stories if s.get("parcours") and not s["_diagram"]]
+    if missing:
+        print("ERREUR: schéma non généré pour : " + ", ".join(missing), file=sys.stderr)
+        print("  Cause la plus probable : bibliothèque Pillow absente. Lance :", file=sys.stderr)
+        print("  python3 -m pip install --quiet pillow  (ou avec --break-system-packages)", file=sys.stderr)
+        print("  puis relance python3 scripts/build_feed.py. Flux NON généré.", file=sys.stderr)
+        sys.exit(1)
     diagram.prune(DOCS / "schemas", {s["_diagram"] for s in stories if s["_diagram"]})
     xml_bytes = build_rss(stories, now)
     ET.fromstring(xml_bytes)  # vérifie que le XML produit est bien formé

@@ -134,7 +134,9 @@ l'attaque d'une étape à l'autre. Le générateur refuse les textes trop longs.
    vérification à un agent séparé qui n'a pas rédigé le texte : donne-lui le sujet et les
    URL des sources, et demande-lui la liste des phrases non conformes. Corrige ou supprime
    chaque phrase signalée.
-6. Écris `data/stories.json`, puis lance `python3 scripts/build_feed.py`. Il vérifie les
+6. Installe la bibliothèque d'images nécessaire aux schémas :
+   `python3 -m pip install --quiet pillow || python3 -m pip install --quiet --break-system-packages pillow`.
+   Écris `data/stories.json`, puis lance `python3 scripts/build_feed.py`. Il vérifie les
    références, le glossaire et le format. S'il sort en erreur, lis la liste des problèmes,
    corrige `data/stories.json` et relance jusqu'à ce qu'il passe. Ne publie jamais sans ce
    succès.

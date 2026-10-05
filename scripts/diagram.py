@@ -25,7 +25,8 @@ ACCENT = (201, 100, 66)
 TILE = (44, 56, 74)
 TILE_ATT = (176, 52, 52)
 WHITE = (255, 255, 255)
-FONT_DIRS = ["/usr/share/fonts/opentype/inter", "/usr/share/fonts/truetype/inter"]
+FONT_DIRS = [str(Path(__file__).resolve().parent.parent / "fonts"),  # polices Inter du dépôt (licence OFL)
+             "/usr/share/fonts/opentype/inter", "/usr/share/fonts/truetype/inter"]
 
 T = 96          # taille d'une tuile d'icône
 CELL_W = 250    # largeur d'une cellule de nœud

@@ -1,8 +1,12 @@
 name: Collecte des flux
 
+# Déclenchée par la routine Claude « Veille » : elle pousse un commit vide sur la branche
+# `collecte` (scripts/trigger_collect.sh), puis attend le commit de collecte sur main avant
+# de lancer la synthèse. Plus de cron GitHub : les exécutions planifiées sont souvent
+# retardées ou abandonnées, les événements push ne le sont pas.
 on:
-  schedule:
-    - cron: "5 * * * *"   # toutes les heures à hh:05 (UTC)
+  push:
+    branches: [collecte]
   workflow_dispatch: {}
 
 permissions:
@@ -18,6 +22,8 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
 
       - uses: actions/setup-python@v5
         with:
@@ -26,48 +32,18 @@ jobs:
       - name: Collecter les flux
         run: python scripts/collect.py
 
+      # Toujours un commit, même sans nouvel article : la routine attend celui qui porte
+      # l'identifiant de sa demande (le commit poussé sur `collecte`).
       - name: Enregistrer les nouveaux articles
+        env:
+          DEMANDE: ${{ github.sha }}
         run: |
           git config user.name "veille-cyber-bot"
           git config user.email "veille-cyber-bot@users.noreply.github.com"
           git add data/
-          if git diff --cached --quiet; then
-            echo "Rien de nouveau."
-            exit 0
-          fi
-          git commit -m "collecte: $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git commit --allow-empty -m "collecte: $(date -u +'%Y-%m-%d %H:%M') UTC (demande ${DEMANDE:0:12})"
           for i in 1 2 3; do
             git pull --rebase origin main && git push origin HEAD:main && exit 0
             sleep 10
           done
           exit 1
-
-      # Lance la routine Claude seulement s'il reste des articles à traiter dans data/inbox/.
-      # Nécessite deux secrets du dépôt : CLAUDE_ROUTINE_URL et CLAUDE_ROUTINE_TOKEN.
-      - name: Déclencher la synthèse Claude
-        env:
-          ROUTINE_URL: ${{ secrets.CLAUDE_ROUTINE_URL }}
-          ROUTINE_TOKEN: ${{ secrets.CLAUDE_ROUTINE_TOKEN }}
-        run: |
-          COUNT=$(find data/inbox -name '*.json' | wc -l)
-          echo "Articles en attente : $COUNT"
-          if [ "$COUNT" -eq 0 ]; then
-            echo "File vide, pas de déclenchement."
-            exit 0
-          fi
-          if [ -z "$ROUTINE_URL" ] || [ -z "$ROUTINE_TOKEN" ]; then
-            echo "Secrets CLAUDE_ROUTINE_URL / CLAUDE_ROUTINE_TOKEN absents, déclenchement ignoré."
-            exit 0
-          fi
-          HTTP=$(curl -sS -o /tmp/fire.json -w '%{http_code}' -X POST "$ROUTINE_URL" \
-            -H "Authorization: Bearer $ROUTINE_TOKEN" \
-            -H "anthropic-beta: experimental-cc-routine-2026-04-01" \
-            -H "anthropic-version: 2023-06-01" \
-            -H "Content-Type: application/json" \
-            -d '{}')
-          echo "Réponse HTTP : $HTTP"
-          if [ "$HTTP" -lt 200 ] || [ "$HTTP" -ge 300 ]; then
-            cat /tmp/fire.json
-            exit 1
-          fi
-          echo "Routine déclenchée."

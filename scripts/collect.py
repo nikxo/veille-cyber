@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Collecte des flux RSS/Atom (exécuté par GitHub Actions toutes les heures).
+"""Collecte des flux RSS/Atom (exécuté par GitHub Actions, à la demande de la routine Claude).
 
 - Lit feeds.json
 - Pour chaque nouvel article (jamais vu), écrit un fichier data/inbox/<id>.json
 - Tient à jour data/seen.json (articles déjà vus) et data/health.json (état de chaque flux)
 
 Bibliothèque standard uniquement, aucune IA : ce script est déterministe.
-La synthèse est faite ensuite par la tâche planifiée Claude, qui lit data/inbox/.
+La synthèse est faite ensuite par la routine Claude, qui lit data/inbox/.
 """
 import hashlib
 import json

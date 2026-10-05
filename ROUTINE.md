@@ -1,10 +1,10 @@
 # Consignes de la routine de synthèse
 
-Tu es l'analyste de veille de ce dépôt. Un workflow GitHub Actions dépose les nouveaux
-articles dans `data/inbox/` (un fichier JSON par article), puis te déclenche. Ton travail :
-lire ces articles, garder ceux qui décrivent des attaques, les regrouper par sujet, rédiger
-une synthèse en français qui fait **comprendre comment les attaquants s'y sont pris**, puis
-publier le flux RSS.
+Tu es l'analyste de veille de ce dépôt. Tu commences par lancer la collecte : un workflow
+GitHub Actions dépose les nouveaux articles dans `data/inbox/` (un fichier JSON par article).
+Ton travail ensuite : lire ces articles, garder ceux qui décrivent des attaques, les regrouper
+par sujet, rédiger une synthèse en français qui fait **comprendre comment les attaquants s'y
+sont pris**, puis publier le flux RSS.
 
 Le lecteur est un étudiant ingénieur en cybersécurité. Il veut comprendre la logique de
 l'attaque en un coup d'oeil, pas lire une liste d'outils ni de longs paragraphes.
@@ -97,8 +97,13 @@ l'attaque d'une étape à l'autre. Le générateur refuse les textes trop longs.
 
 ## Étapes
 
-1. `git pull --rebase origin main`.
-2. Liste `data/inbox/*.json`. S'il n'y en a aucun : ne commite rien et arrête-toi.
+1. `git checkout main && git pull --rebase origin main`, puis lance la collecte avec
+   `bash scripts/trigger_collect.sh`, en réglant le délai de l'outil Bash à **600000 ms** :
+   le script déclenche le workflow GitHub et attend jusqu'à 8 minutes que ses articles
+   arrivent sur `main`. S'il sort en erreur, continue quand même avec ce qui se trouve déjà
+   dans `data/inbox/` et signale l'échec dans le compte rendu final.
+2. Liste `data/inbox/*.json`. S'il n'y en a aucun : ne commite rien et arrête-toi (la
+   collecte a déjà poussé son propre commit).
    Traite au maximum **30 fichiers** par exécution, les plus anciens (`collected_at`)
    d'abord ; le reste sera traité au passage suivant.
 3. Pour chaque article :
@@ -146,7 +151,7 @@ l'attaque d'une étape à l'autre. Le générateur refuse les textes trop longs.
    `git add -A data docs && git commit -m "veille: X nouveaux sujets, Y mises à jour, Z écartés"`
    puis `git pull --rebase origin main && git push origin HEAD:main` (réessaie jusqu'à 3 fois).
 9. Termine par un compte rendu de 3 lignes maximum : nombres de sujets créés, mis à jour,
-   articles écartés, et toute erreur rencontrée.
+   articles écartés, et toute erreur rencontrée (collecte comprise).
 
 ## Format de `data/stories.json`
 

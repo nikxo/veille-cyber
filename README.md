@@ -10,8 +10,9 @@ d'un flux RSS groupé par sujet.
 
 | Étape | Qui | Quand | Fichiers |
 |---|---|---|---|
-| Collecte des flux (sans IA) | GitHub Actions, `scripts/collect.py` | toutes les heures à hh:05 UTC | écrit `data/inbox/`, `data/seen.json`, `data/health.json` |
-| Lecture, tri, regroupement, synthèse | Tâche planifiée Claude, `ROUTINE.md` | toutes les heures | lit `data/inbox/`, écrit `data/stories.json`, `data/skipped.json` |
+| Déclenchement | Routine Claude « Veille », `scripts/trigger_collect.sh` | toutes les heures à hh:05 UTC | pousse un commit vide sur la branche `collecte` et attend la collecte |
+| Collecte des flux (sans IA) | GitHub Actions, `scripts/collect.py` | à chaque push sur `collecte` | écrit `data/inbox/`, `data/seen.json`, `data/health.json` |
+| Lecture, tri, regroupement, synthèse | Routine Claude, `ROUTINE.md` | juste après la collecte | lit `data/inbox/`, écrit `data/stories.json`, `data/skipped.json` |
 | Génération du flux | `scripts/build_feed.py` (lancé par Claude) | à chaque synthèse | écrit `docs/veille.xml`, `docs/index.html` |
 | Publication | GitHub Pages (branche `main`, dossier `/docs`) | à chaque push | |
 

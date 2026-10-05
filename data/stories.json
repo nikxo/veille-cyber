@@ -725,21 +725,25 @@
       "id": "2026-10-04-citrix-netscaler-saml-cve-2026-88779",
       "title": "Citrix NetScaler : faille zero-day SAML (CVE-2026-88779) exploitée pour provoquer des plantages et télécharger un binaire",
       "created": "2026-10-04T23:10:00+00:00",
-      "updated": "2026-10-04T23:10:00+00:00",
-      "version": 1,
-      "resume": "Une faille zero-day d'authentification SAML de Citrix NetScaler ADC et Gateway est exploitée dans la nature [1]. Elle provoque des plantages répétés, et un binaire malveillant a été téléchargé et exécuté sur au moins un honeypot [1].",
+      "updated": "2026-10-05T09:10:00+00:00",
+      "version": 2,
+      "resume": "Une faille zero-day d'authentification SAML de Citrix NetScaler ADC et Gateway est exploitée dans la nature [1, 2]. Elle provoque des plantages répétés ; un binaire a été exécuté sur au moins un honeypot [1] et un script est récupéré [3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Requêtes avec des noms d'utilisateur d'authentification forgés contenant des commandes shell → téléchargement d'une charge depuis l'adresse 213.209.159[.]55 [1]."
+          "texte": "Demandes d'authentification avec commandes shell cachées dans le nom d'utilisateur, contre des NetScaler non protégés configurés en SAML → récupération d'une charge depuis 213.209.159[.]55 [1, 3]."
         },
         {
           "etape": "Plantages répétés",
-          "texte": "Déclenchement de plantages du processus nsaaad, redémarré en boucle → dépassement des limites du processus Pitboss [1]."
+          "texte": "Plantages du processus nsaaad, redémarré en boucle → dépassement des limites de Pitboss [1] ; répéter la condition peut garder le service indisponible [2]."
         },
         {
           "etape": "Exécution de code",
           "texte": "Téléchargement puis exécution d'un binaire malveillant → code exécuté, confirmé sur au moins un honeypot [1]."
+        },
+        {
+          "etape": "Actions du script",
+          "texte": "Le script tente de déposer des shells web, de persister après redémarrage et de charger configuration et sauvegardes de l'appliance [3]."
         }
       ],
       "parcours": {
@@ -771,14 +775,20 @@
             "vers": "att",
             "etape": 3,
             "texte": "Binaire téléchargé depuis 213.209.159[.]55"
+          },
+          {
+            "de": "att",
+            "vers": "ns",
+            "etape": 4,
+            "texte": "Script tentant shells web et persistance"
           }
         ]
       },
-      "limites": "L'article ne nomme aucun acteur et ne dit pas si la faille permet l'exécution de code à distance ; des chercheurs enquêtent [1].",
+      "limites": "Aucun acteur n'est nommé [1, 2, 3]. Les sources [2, 3] décrivent un déni de service ; l'exécution de code à distance est à l'étude selon [1].",
       "cves": [
         {
           "id": "CVE-2026-88779",
-          "explication": "NetScaler ADC et Gateway : débordement mémoire dans SAML, déni de service, impact d'exécution de code à distance à l'étude, gravité 8,7 sur 10 [1]."
+          "explication": "NetScaler ADC et Gateway configurés en authentification SAML : débordement mémoire menant à un déni de service, gravité 8,7 sur 10 [1, 2]."
         }
       ],
       "mitre": [],
@@ -786,7 +796,8 @@
         "Non précisé par la source [1]"
       ],
       "cibles": [
-        "Déploiements NetScaler non protégés [1]"
+        "Déploiements NetScaler non protégés configurés en SAML [1, 3]",
+        "Secteurs gouvernement et finance [3]"
       ],
       "abreviations": [
         {
@@ -805,6 +816,20 @@
           "url": "https://www.bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks/",
           "date": "2026-10-04",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/08/27/Citrix.jpg"
+        },
+        {
+          "titre": "New NetScaler Zero-Day Exploited in Targeted Attacks Can Knock SAML Deployments Offline",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/new-netscaler-zero-day-exploited-in.html",
+          "date": "2026-10-05",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhV4of0Q-gWaIOffgWXdEfAxmI1ENcyrpDSSDjBurAHSpUuAI8lASQI5wrUvL3Evb0iqA31rRywo51olFOzoWe_lQ9cwN7Sp5QQw_2h-y44n0Va4vwlRQZipZ5fkm98BRmTOoVDPTs8pUMW_ClnH2GlPobgQQ33rNzL8EBnBW84aacH3dLXdyyLW9bBEqG5/s1700-nu-rw-lo-l85-e365/citrix-offline.jpg"
+        },
+        {
+          "titre": "Exploitation of Citrix NetScaler Zero-Day Hits Appliances Patched Days Earlier",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/exploitation-of-citrix-netscaler-zero-day-hits-appliances-patched-days-earlier/",
+          "date": "2026-10-05",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/08/Citrix-vulnerability.jpeg"
         }
       ],
       "republication": 1

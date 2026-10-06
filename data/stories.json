@@ -2819,6 +2819,114 @@
           "image": "https://cms.therecord.media/uploads/asos_popup_nov_2023_af35a21811.jpeg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-06-clickfix-ukraine-lunex",
+      "title": "Ukraine : plus de 100 sites compromis diffusent le voleur Lunex via de fausses pages Cloudflare",
+      "created": "2026-10-06T14:20:00+00:00",
+      "updated": "2026-10-06T14:20:00+00:00",
+      "version": 1,
+      "resume": "Le CERT-UA a découvert une campagne ClickFix : plus de 100 sites légitimes injectés affichent de fausses vérifications Cloudflare pour installer le voleur d'informations Lunex Stealer chez des internautes ukrainiens [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Injection de code malveillant dans plus de 100 sites web légitimes → visiteurs ukrainiens ciblés [1]."
+        },
+        {
+          "etape": "Fausse vérification",
+          "texte": "Fausse page de vérification Cloudflare → le visiteur copie et exécute une commande PowerShell [1]."
+        },
+        {
+          "etape": "Vol d'informations",
+          "texte": "Installation de Lunex Stealer → vol de mots de passe, de jetons d'authentification et de données de portefeuilles de cryptomonnaies [1]."
+        },
+        {
+          "etape": "Extension malveillante",
+          "texte": "Extension LunarAxe pour navigateurs Chromium, déguisée en « Microsoft Office Word Editor », combinée à NaiveMess pour accéder au système de fichiers [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (UAC-0277)",
+            "note": ""
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Plus de 100 sites compromis",
+            "note": "Fausse vérification"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste du visiteur",
+            "note": "Lunex Stealer"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Injection de code dans des sites légitimes"
+          },
+          {
+            "de": "web",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Fausse page Cloudflare, commande PowerShell exécutée"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Lunex Stealer installé, identifiants volés"
+          }
+        ]
+      },
+      "limites": "L'article ne dit pas combien d'ordinateurs ont été infectés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "UAC-0277, identifiant de suivi du CERT-UA; développeur russe ou équipe russophone selon Ontinue [1]"
+      ],
+      "cibles": [
+        "Utilisateurs ukrainiens; plus de 100 sites compromis dont une boutique en ligne et un site de coloriages pour enfants [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ClickFix",
+          "definition": "Technique qui pousse l'utilisateur à exécuter lui-même une commande malveillante"
+        },
+        {
+          "sigle": "PowerShell",
+          "definition": "Interpréteur de commandes et langage de script de Windows"
+        },
+        {
+          "sigle": "CERT-UA",
+          "definition": "Équipe ukrainienne de réponse aux incidents informatiques"
+        },
+        {
+          "sigle": "Chromium",
+          "definition": "Base logicielle commune à Chrome, Edge et d'autres navigateurs"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "ClickFix campaign in Ukraine compromises over 100 websites to spread Lunex malware",
+          "site": "The Record",
+          "url": "https://therecord.media/clickfix-campaign-ukraine-lunex-stealer",
+          "date": "2026-10-06",
+          "image": "https://cms.therecord.media/uploads/cursor_planet_volumes_s2x_Ok_El_8g_Y_unsplash_bc9d2ca594.jpg"
+        }
+      ]
     }
   ]
 }

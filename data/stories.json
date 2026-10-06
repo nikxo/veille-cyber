@@ -2138,6 +2138,97 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVB4YaCEMdO6UU6llRwDBMNe82j6s6myWlT8Y92f808ntjdWsPEFgXBpFhGxoAZdkFq5DVA4_XaQpbwvJFjpEUxrRjjRVITahCSGSxmi3qkad2fk-kZ1oXnoxKaFHNs2aRQl7LQ6r2Ljt57IZNaFvwejEQ20us7fMVpNYptJxoVCyol8BlVaXyLkkaeHQI/s1700-nu-rw-lo-l85-e365/fbi-breach.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-06-ingenieur-verrouillage-reseau-employeur",
+      "title": "Un ingénieur interne verrouille des milliers de machines de son employeur et réclame une rançon",
+      "created": "2026-10-06T09:30:00+00:00",
+      "updated": "2026-10-06T09:30:00+00:00",
+      "version": 1,
+      "resume": "Un ancien ingénieur d'une entreprise industrielle du New Jersey a verrouillé plus de 3 000 appareils du réseau de son employeur, puis réclamé 20 bitcoins. Il a été condamné à 32 mois de prison [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Connexion à distance au réseau de l'employeur, sans autorisation, avec un compte administrateur → accès au réseau [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Mot de passe du compte administrateur changé, 13 comptes d'administrateur de domaine supprimés, 301 mots de passe d'utilisateurs changés → contrôle du domaine [1]."
+        },
+        {
+          "etape": "Extinction de machines",
+          "texte": "Arrêt de serveurs et de postes de travail au hasard sur plusieurs jours de décembre 2023 → 254 serveurs et 3 284 postes verrouillés [1]."
+        },
+        {
+          "etape": "Demande de rançon",
+          "texte": "Courriel « Your Network Has Been Penetrated » le 25 novembre → demande de 20 bitcoins et menace d'éteindre 40 serveurs par jour [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (ancien ingénieur)",
+            "note": ""
+          },
+          {
+            "id": "res",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Domaine de l'employeur",
+            "note": "Comptes supprimés"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Serveurs et postes",
+            "note": "Verrouillés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "res",
+            "etape": 1,
+            "texte": "Connexion à distance avec un compte administrateur"
+          },
+          {
+            "de": "att",
+            "vers": "res",
+            "etape": 2,
+            "texte": "Comptes supprimés, mots de passe changés"
+          },
+          {
+            "de": "res",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Serveurs et postes éteints au hasard"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas comment l'accès au compte administrateur a été obtenu ni quels moyens ont servi à éteindre les machines [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Daniel Rhyne, ancien ingénieur de l'entreprise, 57 ans [1]"
+      ],
+      "cibles": [
+        "Entreprise industrielle dont le siège est dans le New Jersey [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Engineer sentenced for locking over 3,000 devices on employer network",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/engineer-sentenced-for-locking-thousands-of-devices-on-employer-network/",
+          "date": "2026-10-06",
+          "image": "https://www.bleepstatic.com/content/hl-images/2025/11/10/Hacker_IAB.jpg"
+        }
+      ]
     }
   ]
 }

@@ -486,5 +486,29 @@
     "source": "watchTowr Labs",
     "raison": "vulnérabilité sans exploitation constatée",
     "date": "2026-10-06T17:20:00+00:00"
+  },
+  {
+    "id": "ef90afea648e965f",
+    "title": "'BigDiskBuster' Leaves Microsoft Defender Running While Blocking Updates",
+    "link": "https://www.darkreading.com/application-security/bigdiskbuster-microsoft-defender-running-blocking-updates",
+    "source": "Dark Reading",
+    "raison": "preuve de concept, aucune exploitation constatée",
+    "date": "2026-10-06T18:20:00+00:00"
+  },
+  {
+    "id": "f80da27a19175540",
+    "title": "Atlassian warns of critical file-access flaw in Jira, Confluence",
+    "link": "https://www.bleepingcomputer.com/news/security/atlassian-warns-of-critical-file-access-flaw-in-jira-confluence/",
+    "source": "BleepingComputer",
+    "raison": "vulnérabilité sans exploitation constatée dans le résumé",
+    "date": "2026-10-06T18:20:00+00:00"
+  },
+  {
+    "id": "0e963e876be8023b",
+    "title": "Google's PageBreak AI Agent Finds 500 Flaws in Its Web Apps",
+    "link": "https://www.darkreading.com/application-security/google-pagebreak-ai-agent-500-flaws-web-apps",
+    "source": "Dark Reading",
+    "raison": "outil de recherche de failles, aucune attaque décrite",
+    "date": "2026-10-06T18:20:00+00:00"
   }
 ]

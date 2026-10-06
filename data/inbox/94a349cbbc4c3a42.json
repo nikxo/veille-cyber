@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-10-06T15:06:55+00:00",
+  "feed_summary": "As organizations deploy autonomous AI agents, security teams face a significant shift as non-human non-human entities making decisions, invoking tools, and delegating tasks to other agents without human intervention. Security architectures built around human users, static APIs, and distinct endpoints break down when AI agents dynamically collaborate across an environment. As these interactions become more common, securing agent-to-agent communication without blocking adoption will require security leaders to treat autonomous agents as first-class identities, with their own permissions, behaviors, and activity to monitor. The operational reality: A new attack surface Consider a standard enterprise scenario where a primary agent delegates a task to a secondary agent, which then queries a pro",
+  "id": "94a349cbbc4c3a42",
+  "image": "https://www.rapid7.com/cdn/images/blt0b0762ca94c50b0b/6846a711eac0e395093e52e3/AI.jpg",
+  "lang": "en",
+  "link": "https://www.rapid7.com/blog/post/ai-securing-agent-to-agent-communication-next-identity-frontier",
+  "published": "2026-10-06T14:11:03+00:00",
+  "source": "Rapid7",
+  "source_type": "analyse",
+  "title": "Securing Agent-to-Agent Communication: The Next Identity Frontier"
+}

@@ -2,6 +2,626 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-10-06-wordpress-ninja-forms-wpc-bundles",
+      "title": "Failles XSS de Ninja Forms et WPC Product Bundles exploitées pour piéger des sites WordPress",
+      "created": "2026-10-06T21:30:00+00:00",
+      "updated": "2026-10-06T21:30:00+00:00",
+      "version": 1,
+      "resume": "Des attaquants exploitent des failles XSS stockées dans deux extensions WordPress, Ninja Forms et WPC Product Bundles, pour installer des portes dérobées et créer des comptes administrateur cachés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "JavaScript malveillant glissé dans des commandes WooCommerce ou des envois Ninja Forms → il s'exécute quand un administrateur connecté charge le contenu [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Fonctions WordPress légitimes détournées → installation d'un faux plugin « WP Smart Thumbnails » 1.2.4 [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Compte administrateur visible, compte caché, URL de connexion secrète et gestionnaire de fichiers sans authentification → compte caché et URL secrète restent actifs après suppression du plugin [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "wp",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Site WordPress",
+            "note": "Extension vulnérable"
+          },
+          {
+            "id": "adm",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Administrateur du site",
+            "note": "Charge le contenu piégé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "wp",
+            "etape": 1,
+            "texte": "JavaScript injecté via commandes ou formulaires"
+          },
+          {
+            "de": "adm",
+            "vers": "wp",
+            "etape": 1,
+            "texte": "Le script s'exécute chez l'administrateur"
+          },
+          {
+            "de": "att",
+            "vers": "wp",
+            "etape": 2,
+            "texte": "Faux plugin installé, accès persistants créés"
+          }
+        ]
+      },
+      "limites": "L'article ne nomme pas l'acteur [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-93836",
+          "explication": "WPC Product Bundles pour WooCommerce, versions jusqu'à 8.6.6 : faille XSS stockée exploitée [1]."
+        },
+        {
+          "id": "CVE-2026-94504",
+          "explication": "Ninja Forms, versions jusqu'à 3.15.3 : faille XSS stockée exploitée [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1]"
+      ],
+      "cibles": [
+        "Sites WordPress utilisant Ninja Forms ou WPC Product Bundles [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "XSS",
+          "definition": "Cross-site scripting : injection de code JavaScript exécuté dans le navigateur d'un autre utilisateur"
+        },
+        {
+          "sigle": "JavaScript",
+          "definition": "Langage de programmation exécuté dans les navigateurs web"
+        },
+        {
+          "sigle": "WordPress",
+          "definition": "Logiciel de création de sites web"
+        },
+        {
+          "sigle": "WooCommerce",
+          "definition": "Extension WordPress de boutique en ligne"
+        },
+        {
+          "sigle": "URL",
+          "definition": "Adresse web"
+        },
+        {
+          "sigle": "WP",
+          "definition": "Abréviation de WordPress dans le nom du faux plugin"
+        },
+        {
+          "sigle": "WPC",
+          "definition": "Nom de l'éditeur de l'extension WPC Product Bundles"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Ninja Forms plugin flaw exploited to hack WordPress sites",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/ninja-forms-plugin-flaw-exploited-to-hack-wordpress-sites/",
+          "date": "2026-10-06",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/04/07/NinjaForms.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-06-portes-derobees-linux-coree-taiwan",
+      "title": "Portes dérobées Linux déguisées en outils de messagerie contre des équipements télécom en Corée et à Taïwan",
+      "created": "2026-10-06T21:30:00+00:00",
+      "updated": "2026-10-06T21:30:00+00:00",
+      "version": 1,
+      "resume": "Rapid7 décrit des portes dérobées Linux (BPFDoor, Rekoobe, AVERAT) qui se fondent dans des outils antispam ou de messagerie sur des équipements télécom et réseau en Corée du Sud et à Taïwan [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Installation déguisée",
+          "texte": "Dropper ELF « ntpdate » dans /addpkg/sbin/ d'appareils ShareTech à Taïwan → charge utile « udevds », l'outil AVERAT [1]."
+        },
+        {
+          "etape": "Imitation de processus",
+          "texte": "Variantes de BPFDoor imitant le fichier PID du produit antispam SpamSniper → confusion avec un composant légitime en Corée du Sud [1]."
+        },
+        {
+          "etape": "Activation discrète",
+          "texte": "BPFDoor surveille le trafic avec BPF et agit seulement après un « magic packet », parfois enveloppé dans des requêtes HTTPS POST [1]."
+        },
+        {
+          "etape": "Commande à distance",
+          "texte": "AVERAT dialogue en SMTP avec son serveur de commande → shell interactif, transfert de fichiers, redirection de ports [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Red Menshen)",
+            "note": ""
+          },
+          {
+            "id": "eq",
+            "type": "passerelle",
+            "zone": "victime",
+            "nom": "Équipements télécom et réseau",
+            "note": "Portes dérobées Linux"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de commande",
+            "note": "Dialogue SMTP"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "eq",
+            "etape": 2,
+            "texte": "Dropper ELF déposé sur appareils ShareTech"
+          },
+          {
+            "de": "att",
+            "vers": "eq",
+            "etape": 4,
+            "texte": "Magic packet, parfois dans HTTPS POST"
+          },
+          {
+            "de": "eq",
+            "vers": "c2",
+            "etape": 5,
+            "texte": "AVERAT communique en SMTP"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent pas comment les attaquants accèdent aux équipements, ni le nombre de victimes [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Red Menshen, aussi nommé Earth Bluecrow, DecisiveArchitect ou Red Dev 18, groupe lié à la Chine, actif depuis 2021 [1]"
+      ],
+      "cibles": [
+        "Fournisseurs télécom et équipements réseau en Corée du Sud et à Taïwan [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "BPFDoor",
+          "definition": "Porte dérobée Linux qui s'active à la réception d'un paquet réseau spécial"
+        },
+        {
+          "sigle": "Rekoobe",
+          "definition": "Porte dérobée Linux, ici dans une variante utilisant BPF"
+        },
+        {
+          "sigle": "AVERAT",
+          "definition": "Porte dérobée Linux visant des appareils taïwanais"
+        },
+        {
+          "sigle": "BPF",
+          "definition": "Berkeley Packet Filter : mécanisme Linux d'inspection du trafic réseau"
+        },
+        {
+          "sigle": "ELF",
+          "definition": "Format des programmes exécutables Linux"
+        },
+        {
+          "sigle": "PID",
+          "definition": "Identifiant de processus sous Linux"
+        },
+        {
+          "sigle": "SMTP",
+          "definition": "Protocole d'envoi de courriels"
+        },
+        {
+          "sigle": "HTTPS",
+          "definition": "Protocole web chiffré"
+        },
+        {
+          "sigle": "POST",
+          "definition": "Type de requête HTTP qui envoie des données"
+        },
+        {
+          "sigle": "SpamSniper",
+          "definition": "Produit antispam coréen imité par les portes dérobées"
+        },
+        {
+          "sigle": "ShareTech",
+          "definition": "Marque d'appareils réseau"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Linux Backdoors Impersonate Email Security Tools to Evade Detection in Korea and Taiwan",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/linux-backdoors-impersonate-email.html",
+          "date": "2026-10-06",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj42ncE2ZMHIbAm_fj5U9fqCYUvPwhyUiNbARM3CC5IxhnMXjIZ2ENa99UDGeaZqGPlqn53A7y7Nkz1ZxzzyykKxEb4GT0jxWhrar9Q5yPmBN1NL6599HRdbzbLSYf3WPuU7tkkY5eOsvhAT9dw-24DXuusztPyRr2H66840cWZx17MZ0B-rB877W19bgX1/s1700-nu-rw-lo-l85-e365/linux-spam.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-06-portails-publicitaires-ia-island",
+      "title": "Faux portails publicitaires d'IA : vol d'identifiants et de codes MFA avec une fausse fenêtre de connexion",
+      "created": "2026-10-06T21:30:00+00:00",
+      "updated": "2026-10-06T21:30:00+00:00",
+      "version": 1,
+      "resume": "Island décrit une plateforme de hameçonnage opérée par des humains, qui imite des produits publicitaires de chatbots d'IA pour voler identifiants et codes MFA de comptes publicitaires [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Faux e-mails d'invitation usurpant ChatGPT, Gemini, Claude, Perplexity, Meta Muse et Manus → victimes dirigées vers de faux portails [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Le bouton « Connect » ouvre un navigateur dessiné dans la page (BitB), avec fausse barre d'adresse Google ou Okta → chaque mot de passe saisi est conservé [1]."
+        },
+        {
+          "etape": "Interception du MFA",
+          "texte": "Un opérateur choisit le défi MFA suivant montré à la victime → connexion en temps réel au compte [1]."
+        },
+        {
+          "etape": "Monétisation",
+          "texte": "Comptes publicitaires monétisés ou revendus, surtout avec un historique de dépenses propre [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Responsables de comptes publicitaires",
+            "note": ""
+          },
+          {
+            "id": "site",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux portails publicitaires d'IA",
+            "note": "Fausse fenêtre BitB"
+          },
+          {
+            "id": "cpt",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Comptes publicitaires",
+            "note": "Monétisés ou revendus"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 1,
+            "texte": "Faux e-mails d'invitation"
+          },
+          {
+            "de": "usr",
+            "vers": "site",
+            "etape": 2,
+            "texte": "Mots de passe saisis dans la fausse fenêtre"
+          },
+          {
+            "de": "att",
+            "vers": "site",
+            "etape": 3,
+            "texte": "L'opérateur choisit le défi MFA affiché"
+          },
+          {
+            "de": "att",
+            "vers": "cpt",
+            "etape": 4,
+            "texte": "Comptes monétisés"
+          }
+        ]
+      },
+      "limites": "L'article ne nomme pas l'acteur et ne donne aucun nombre de victimes [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1]"
+      ],
+      "cibles": [
+        "Personnel d'agences, acheteurs médias et administrateurs de comptes multi-clients [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "MFA",
+          "definition": "Authentification multifacteur : second code demandé en plus du mot de passe"
+        },
+        {
+          "sigle": "BitB",
+          "definition": "Browser-in-the-Browser : fausse fenêtre de navigateur dessinée dans une page web"
+        },
+        {
+          "sigle": "Okta",
+          "definition": "Service d'authentification et de gestion d'identités"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "Meta Muse",
+          "definition": "Produit d'IA de Meta cité par la source"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Fake ChatGPT, Gemini, and Claude Ad Portals Capture Credentials and MFA Codes",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/fake-chatgpt-gemini-and-claude-ad.html",
+          "date": "2026-10-06",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOD8Nta3AzEJA8JDouSAdwr3Obls6VzxBZwHHerzX0eZDKBTqWzVrAmZbX8VrvxKN1QNooX5GVAahBTaqPkWWcqRCO12MDDHWjboFPyw5FU1BaH07_wQhZkUNOROwHLFneZKKBY8oxjPTs0CpBF52UrLjeloGDwolt4udNn-ojCQNvvGvmo1TXdS3wNJlw/s1700-nu-rw-lo-l85-e365/muse.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-06-fbi-shinyhunters-peoplesoft",
+      "title": "FBI : ShinyHunters vole des données d'employés via une faille PeopleSoft non corrigée",
+      "created": "2026-10-06T08:30:00+00:00",
+      "updated": "2026-10-06T17:20:00+00:00",
+      "version": 3,
+      "resume": "Des données personnelles de milliers d'employés du FBI ont été volées par ShinyHunters sur une plateforme Oracle PeopleSoft gérée par un tiers. Un sous-traitant d'Accenture a été retiré [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de CVE-2026-35273 sur la plateforme PeopleSoft d'un tiers, dont le correctif n'avait pas été appliqué → accès à la plateforme [1, 2, 3]."
+        },
+        {
+          "etape": "Contournement du pare-feu",
+          "texte": "Astuce d'encodage d'URL contre une règle du pare-feu applicatif → accès au point d'accès PSEMHUB [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Accès au point PSEMHUB → vol des données personnelles d'employés du FBI [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (ShinyHunters)",
+            "note": ""
+          },
+          {
+            "id": "ps",
+            "type": "application",
+            "zone": "victime",
+            "nom": "PeopleSoft du tiers",
+            "note": "Point PSEMHUB"
+          },
+          {
+            "id": "dn",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données des employés du FBI",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ps",
+            "etape": 1,
+            "texte": "Exploitation de CVE-2026-35273"
+          },
+          {
+            "de": "att",
+            "vers": "ps",
+            "etape": 2,
+            "texte": "Contournement du pare-feu par encodage d'URL"
+          },
+          {
+            "de": "ps",
+            "vers": "dn",
+            "etape": 3,
+            "texte": "Vol de données personnelles"
+          }
+        ]
+      },
+      "limites": "L'article ne détaille pas les données volées ni la durée de l'intrusion, et ne décrit pas d'étape après le vol [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-35273",
+          "explication": "Faille d'Oracle PeopleSoft exploitée avec un contournement du pare-feu applicatif ; le correctif existait mais n'avait pas été appliqué [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "ShinyHunters [1]"
+      ],
+      "cibles": [
+        "FBI : données personnelles de milliers d'employés [1] ; environ 60 000 agents actuels et anciens [3]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "FBI",
+          "definition": "Federal Bureau of Investigation : police fédérale américaine"
+        },
+        {
+          "sigle": "PSEMHUB",
+          "definition": "Point d'accès Environment Management Hub de PeopleSoft"
+        },
+        {
+          "sigle": "URL",
+          "definition": "Adresse d'une ressource web"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "FBI Removes Accenture Contractor After Patch Failure Led to ShinyHunters Breach",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/fbi-removes-accenture-contractor-after.html",
+          "date": "2026-10-06",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVB4YaCEMdO6UU6llRwDBMNe82j6s6myWlT8Y92f808ntjdWsPEFgXBpFhGxoAZdkFq5DVA4_XaQpbwvJFjpEUxrRjjRVITahCSGSxmi3qkad2fk-kZ1oXnoxKaFHNs2aRQl7LQ6r2Ljt57IZNaFvwejEQ20us7fMVpNYptJxoVCyol8BlVaXyLkkaeHQI/s1700-nu-rw-lo-l85-e365/fbi-breach.jpg"
+        },
+        {
+          "titre": "FBI Blames Contractor’s Missed Patch for ShinyHunters Breach",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/fbi-blames-contractors-missed-patch-for-shinyhunters-breach/",
+          "date": "2026-10-06",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/09/hack.jpeg"
+        },
+        {
+          "titre": "Gestion des correctifs : le FBI remercie l’un de ses prestataires",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366651752/Gestion-des-correctifs-le-FBI-remercie-lun-de-ses-prestataires",
+          "date": "2026-10-06",
+          "image": "https://www.lemagit.fr/visuals/German/article/patch-management-fabric-3-adobe.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-06-asos-notification-push",
+      "title": "ASOS : fausse alerte « ASOS HACKED » envoyée par notification push",
+      "created": "2026-10-06T13:20:00+00:00",
+      "updated": "2026-10-06T17:20:00+00:00",
+      "version": 2,
+      "resume": "Des clients de l'application ASOS ont reçu une notification push « ASOS HACKED » avec un message de rançon ; l'action de l'entreprise a perdu plus de 10 % [1]. ASOS confirme une fuite de données [2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Accès non autorisé à des plateformes tierces servant à communiquer avec les clients, d'après ASOS [2]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Accès à l'infrastructure de messagerie client d'ASOS → notification push envoyée aux utilisateurs de l'application [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Le message renvoyait vers un canal Telegram nommé « Xuanye Group » → revendication de l'attaque [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Xuanye Group)",
+            "note": ""
+          },
+          {
+            "id": "msg",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Messagerie client ASOS",
+            "note": "Envoi de notifications"
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Clients de l'application",
+            "note": ""
+          },
+          {
+            "id": "tg",
+            "type": "inconnu",
+            "zone": "internet",
+            "nom": "Canal Telegram",
+            "note": "Xuanye Group"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "msg",
+            "etape": 2,
+            "texte": "Accès à l'infrastructure de messagerie client"
+          },
+          {
+            "de": "msg",
+            "vers": "usr",
+            "etape": 2,
+            "texte": "Notification push « ASOS HACKED »"
+          },
+          {
+            "de": "usr",
+            "vers": "tg",
+            "etape": 3,
+            "texte": "Lien vers le canal Telegram dans le message"
+          }
+        ]
+      },
+      "limites": "Les attaquants revendiquent la compromission d'une instance Snowflake, sans preuve [1] ; ASOS ne l'a pas confirmée [2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Xuanye Group, nom jamais vu par les experts du suivi des groupes d'extorsion [1]"
+      ],
+      "cibles": [
+        "ASOS, vendeur de vêtements en ligne britannique coté à Londres [1]",
+        "Clients d'ASOS : noms et coordonnées touchés, ni paiement ni mots de passe [2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ASOS",
+          "definition": "Nom de l'enseigne britannique de vêtements en ligne"
+        },
+        {
+          "sigle": "HACKED",
+          "definition": "Mot anglais signifiant « piraté », titre de la notification"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Shares in British clothing company ASOS dive after hackers apparently send push notification",
+          "site": "The Record",
+          "url": "https://therecord.media/asos-push-notification-apparently-sent-by-hackers",
+          "date": "2026-10-06",
+          "image": "https://cms.therecord.media/uploads/asos_popup_nov_2023_af35a21811.jpeg"
+        },
+        {
+          "titre": "ASOS confirms data breach after “HACKED” in-app notifications",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/asos-confirms-data-breach-after-hacked-in-app-notifications/",
+          "date": "2026-10-06",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/06/asos-logo.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-10-05-coree-banques-attaques-ia",
       "title": "Corée du Sud : attaques contre sept banques, un outil chinois d'intelligence artificielle soupçonné",
       "created": "2026-10-05T18:14:12+00:00",
@@ -222,125 +842,6 @@
           "url": "https://www.bleepingcomputer.com/news/security/fake-chatgpt-gemini-sites-steal-advertising-accounts-mfa-codes/",
           "date": "2026-10-06",
           "image": "https://www.bleepstatic.com/content/hl-images/2024/05/13/Phishing.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-06-fbi-shinyhunters-peoplesoft",
-      "title": "FBI : ShinyHunters vole des données d'employés via une faille PeopleSoft non corrigée",
-      "created": "2026-10-06T08:30:00+00:00",
-      "updated": "2026-10-06T17:20:00+00:00",
-      "version": 3,
-      "resume": "Des données personnelles de milliers d'employés du FBI ont été volées par ShinyHunters sur une plateforme Oracle PeopleSoft gérée par un tiers. Un sous-traitant d'Accenture a été retiré [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Exploitation de CVE-2026-35273 sur la plateforme PeopleSoft d'un tiers, dont le correctif n'avait pas été appliqué → accès à la plateforme [1, 2, 3]."
-        },
-        {
-          "etape": "Contournement du pare-feu",
-          "texte": "Astuce d'encodage d'URL contre une règle du pare-feu applicatif → accès au point d'accès PSEMHUB [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Accès au point PSEMHUB → vol des données personnelles d'employés du FBI [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (ShinyHunters)",
-            "note": ""
-          },
-          {
-            "id": "ps",
-            "type": "application",
-            "zone": "victime",
-            "nom": "PeopleSoft du tiers",
-            "note": "Point PSEMHUB"
-          },
-          {
-            "id": "dn",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Données des employés du FBI",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "ps",
-            "etape": 1,
-            "texte": "Exploitation de CVE-2026-35273"
-          },
-          {
-            "de": "att",
-            "vers": "ps",
-            "etape": 2,
-            "texte": "Contournement du pare-feu par encodage d'URL"
-          },
-          {
-            "de": "ps",
-            "vers": "dn",
-            "etape": 3,
-            "texte": "Vol de données personnelles"
-          }
-        ]
-      },
-      "limites": "L'article ne détaille pas les données volées ni la durée de l'intrusion, et ne décrit pas d'étape après le vol [1].",
-      "cves": [
-        {
-          "id": "CVE-2026-35273",
-          "explication": "Faille d'Oracle PeopleSoft exploitée avec un contournement du pare-feu applicatif ; le correctif existait mais n'avait pas été appliqué [1]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "ShinyHunters [1]"
-      ],
-      "cibles": [
-        "FBI : données personnelles de milliers d'employés [1] ; environ 60 000 agents actuels et anciens [3]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "FBI",
-          "definition": "Federal Bureau of Investigation : police fédérale américaine"
-        },
-        {
-          "sigle": "PSEMHUB",
-          "definition": "Point d'accès Environment Management Hub de PeopleSoft"
-        },
-        {
-          "sigle": "URL",
-          "definition": "Adresse d'une ressource web"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "FBI Removes Accenture Contractor After Patch Failure Led to ShinyHunters Breach",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/fbi-removes-accenture-contractor-after.html",
-          "date": "2026-10-06",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVB4YaCEMdO6UU6llRwDBMNe82j6s6myWlT8Y92f808ntjdWsPEFgXBpFhGxoAZdkFq5DVA4_XaQpbwvJFjpEUxrRjjRVITahCSGSxmi3qkad2fk-kZ1oXnoxKaFHNs2aRQl7LQ6r2Ljt57IZNaFvwejEQ20us7fMVpNYptJxoVCyol8BlVaXyLkkaeHQI/s1700-nu-rw-lo-l85-e365/fbi-breach.jpg"
-        },
-        {
-          "titre": "FBI Blames Contractor’s Missed Patch for ShinyHunters Breach",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/fbi-blames-contractors-missed-patch-for-shinyhunters-breach/",
-          "date": "2026-10-06",
-          "image": "https://www.securityweek.com/wp-content/uploads/2024/09/hack.jpeg"
-        },
-        {
-          "titre": "Gestion des correctifs : le FBI remercie l’un de ses prestataires",
-          "site": "LeMagIT",
-          "url": "https://www.lemagit.fr/actualites/366651752/Gestion-des-correctifs-le-FBI-remercie-lun-de-ses-prestataires",
-          "date": "2026-10-06",
-          "image": "https://www.lemagit.fr/visuals/German/article/patch-management-fabric-3-adobe.jpg"
         }
       ]
     },
@@ -679,117 +1180,6 @@
           "url": "https://www.huntress.com/blog/mapping-akira-ransomware-attack",
           "date": "2026-10-06",
           "image": "https://cdn.builder.io/api/v1/image/assets%2F3eb6f92aedf74f109c7b4b0897ec39a8%2F6cc6693ad7e4485f9b9d61ff3db41c56"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-06-asos-notification-push",
-      "title": "ASOS : fausse alerte « ASOS HACKED » envoyée par notification push",
-      "created": "2026-10-06T13:20:00+00:00",
-      "updated": "2026-10-06T17:20:00+00:00",
-      "version": 2,
-      "resume": "Des clients de l'application ASOS ont reçu une notification push « ASOS HACKED » avec un message de rançon ; l'action de l'entreprise a perdu plus de 10 % [1]. ASOS confirme une fuite de données [2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Accès non autorisé à des plateformes tierces servant à communiquer avec les clients, d'après ASOS [2]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Accès à l'infrastructure de messagerie client d'ASOS → notification push envoyée aux utilisateurs de l'application [1]."
-        },
-        {
-          "etape": "Extorsion",
-          "texte": "Le message renvoyait vers un canal Telegram nommé « Xuanye Group » → revendication de l'attaque [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (Xuanye Group)",
-            "note": ""
-          },
-          {
-            "id": "msg",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Messagerie client ASOS",
-            "note": "Envoi de notifications"
-          },
-          {
-            "id": "usr",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Clients de l'application",
-            "note": ""
-          },
-          {
-            "id": "tg",
-            "type": "inconnu",
-            "zone": "internet",
-            "nom": "Canal Telegram",
-            "note": "Xuanye Group"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "msg",
-            "etape": 2,
-            "texte": "Accès à l'infrastructure de messagerie client"
-          },
-          {
-            "de": "msg",
-            "vers": "usr",
-            "etape": 2,
-            "texte": "Notification push « ASOS HACKED »"
-          },
-          {
-            "de": "usr",
-            "vers": "tg",
-            "etape": 3,
-            "texte": "Lien vers le canal Telegram dans le message"
-          }
-        ]
-      },
-      "limites": "Les attaquants revendiquent la compromission d'une instance Snowflake, sans preuve [1] ; ASOS ne l'a pas confirmée [2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Xuanye Group, nom jamais vu par les experts du suivi des groupes d'extorsion [1]"
-      ],
-      "cibles": [
-        "ASOS, vendeur de vêtements en ligne britannique coté à Londres [1]",
-        "Clients d'ASOS : noms et coordonnées touchés, ni paiement ni mots de passe [2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "ASOS",
-          "definition": "Nom de l'enseigne britannique de vêtements en ligne"
-        },
-        {
-          "sigle": "HACKED",
-          "definition": "Mot anglais signifiant « piraté », titre de la notification"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Shares in British clothing company ASOS dive after hackers apparently send push notification",
-          "site": "The Record",
-          "url": "https://therecord.media/asos-push-notification-apparently-sent-by-hackers",
-          "date": "2026-10-06",
-          "image": "https://cms.therecord.media/uploads/asos_popup_nov_2023_af35a21811.jpeg"
-        },
-        {
-          "titre": "ASOS confirms data breach after “HACKED” in-app notifications",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/asos-confirms-data-breach-after-hacked-in-app-notifications/",
-          "date": "2026-10-06",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/06/asos-logo.jpg"
         }
       ]
     },

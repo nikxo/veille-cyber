@@ -2053,13 +2053,13 @@
       "id": "2026-10-06-fbi-shinyhunters-peoplesoft",
       "title": "FBI : ShinyHunters vole des données d'employés via une faille PeopleSoft non corrigée",
       "created": "2026-10-06T08:30:00+00:00",
-      "updated": "2026-10-06T08:30:00+00:00",
-      "version": 1,
-      "resume": "Des données personnelles de milliers d'employés du FBI ont été volées par ShinyHunters sur une plateforme Oracle PeopleSoft gérée par un tiers. Un sous-traitant d'Accenture a été retiré [1].",
+      "updated": "2026-10-06T15:07:50+00:00",
+      "version": 2,
+      "resume": "Des données personnelles de milliers d'employés du FBI ont été volées par ShinyHunters sur une plateforme Oracle PeopleSoft gérée par un tiers. Un sous-traitant d'Accenture a été retiré [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Exploitation de CVE-2026-35273 sur la plateforme PeopleSoft d'un tiers, dont le correctif n'avait pas été appliqué → accès à la plateforme [1]."
+          "texte": "Exploitation de CVE-2026-35273 sur la plateforme PeopleSoft d'un tiers, dont le correctif n'avait pas été appliqué → accès à la plateforme [1, 2]."
         },
         {
           "etape": "Contournement du pare-feu",
@@ -2150,6 +2150,13 @@
           "url": "https://thehackernews.com/2026/10/fbi-removes-accenture-contractor-after.html",
           "date": "2026-10-06",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVB4YaCEMdO6UU6llRwDBMNe82j6s6myWlT8Y92f808ntjdWsPEFgXBpFhGxoAZdkFq5DVA4_XaQpbwvJFjpEUxrRjjRVITahCSGSxmi3qkad2fk-kZ1oXnoxKaFHNs2aRQl7LQ6r2Ljt57IZNaFvwejEQ20us7fMVpNYptJxoVCyol8BlVaXyLkkaeHQI/s1700-nu-rw-lo-l85-e365/fbi-breach.jpg"
+        },
+        {
+          "titre": "FBI Blames Contractor’s Missed Patch for ShinyHunters Breach",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/fbi-blames-contractors-missed-patch-for-shinyhunters-breach/",
+          "date": "2026-10-06",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/09/hack.jpeg"
         }
       ]
     },
@@ -2925,6 +2932,83 @@
           "url": "https://therecord.media/clickfix-campaign-ukraine-lunex-stealer",
           "date": "2026-10-06",
           "image": "https://cms.therecord.media/uploads/cursor_planet_volumes_s2x_Ok_El_8g_Y_unsplash_bc9d2ca594.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-06-osaka-metropolitan-university-rancongiciel",
+      "title": "Université métropolitaine d'Osaka : panne massive, rançongiciel soupçonné",
+      "created": "2026-10-06T15:07:50+00:00",
+      "updated": "2026-10-06T15:07:50+00:00",
+      "version": 1,
+      "resume": "L'université métropolitaine d'Osaka a perdu son réseau interne, sa messagerie et des systèmes administratifs et pédagogiques. Elle pense qu'un rançongiciel est en cause [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Perturbation des systèmes",
+          "texte": "Panne d'environ 500 serveurs → réseau interne, messagerie et systèmes administratifs et académiques indisponibles [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveurs de l'université",
+            "note": "Environ 500 à l'arrêt"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Panne des serveurs, rançongiciel soupçonné"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'accès, ni l'auteur, ni si une rançon a été demandée [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1]"
+      ],
+      "cibles": [
+        "Université métropolitaine d'Osaka : au moins 130 000 étudiants, enseignants et personnels actuels et anciens, données potentiellement exposées [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Osaka Metropolitan University cancels classes after suspected ransomware attack",
+          "site": "The Record",
+          "url": "https://therecord.media/osaka-university-cancels-classes-ransomware",
+          "date": "2026-10-06",
+          "image": "https://cms.therecord.media/uploads/Osaka_Metropolitan_University_Sugimoto_Campus_1_b2a0608dc0.jpg"
         }
       ]
     }

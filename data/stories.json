@@ -2033,6 +2033,111 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8Vjgif5jASBMNSuYjBnVZcm9vGO378mJ7VTFTNo9HRROtViKbP_Nm0F0vf626be5n4cwnfDdqgfWVzjKrKboh0BnbM8ALWzt-W7kNq4PSc_TOUbNlwps6sCQgfNyK5DhXk3FHZCuJSo8D2eMOm4r89VmhNa6l5gPpadRZSgTuB_N2yPZlwj0voYddOoVr/s1700-nu-rw-lo-l85-e365/clickfix.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-06-fbi-shinyhunters-peoplesoft",
+      "title": "FBI : ShinyHunters vole des données d'employés via une faille PeopleSoft non corrigée",
+      "created": "2026-10-06T08:30:00+00:00",
+      "updated": "2026-10-06T08:30:00+00:00",
+      "version": 1,
+      "resume": "Des données personnelles de milliers d'employés du FBI ont été volées par ShinyHunters sur une plateforme Oracle PeopleSoft gérée par un tiers. Un sous-traitant d'Accenture a été retiré [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de CVE-2026-35273 sur la plateforme PeopleSoft d'un tiers, dont le correctif n'avait pas été appliqué → accès à la plateforme [1]."
+        },
+        {
+          "etape": "Contournement du pare-feu",
+          "texte": "Astuce d'encodage d'URL contre une règle du pare-feu applicatif → accès au point d'accès PSEMHUB [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Accès au point PSEMHUB → vol des données personnelles d'employés du FBI [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (ShinyHunters)",
+            "note": ""
+          },
+          {
+            "id": "ps",
+            "type": "application",
+            "zone": "victime",
+            "nom": "PeopleSoft du tiers",
+            "note": "Point PSEMHUB"
+          },
+          {
+            "id": "dn",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données des employés du FBI",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ps",
+            "etape": 1,
+            "texte": "Exploitation de CVE-2026-35273"
+          },
+          {
+            "de": "att",
+            "vers": "ps",
+            "etape": 2,
+            "texte": "Contournement du pare-feu par encodage d'URL"
+          },
+          {
+            "de": "ps",
+            "vers": "dn",
+            "etape": 3,
+            "texte": "Vol de données personnelles"
+          }
+        ]
+      },
+      "limites": "L'article ne détaille pas les données volées ni la durée de l'intrusion, et ne décrit pas d'étape après le vol [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-35273",
+          "explication": "Faille d'Oracle PeopleSoft exploitée avec un contournement du pare-feu applicatif ; le correctif existait mais n'avait pas été appliqué [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "ShinyHunters [1]"
+      ],
+      "cibles": [
+        "FBI : données personnelles de milliers d'employés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "FBI",
+          "definition": "Federal Bureau of Investigation : police fédérale américaine"
+        },
+        {
+          "sigle": "PSEMHUB",
+          "definition": "Point d'accès Environment Management Hub de PeopleSoft"
+        },
+        {
+          "sigle": "URL",
+          "definition": "Adresse d'une ressource web"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "FBI Removes Accenture Contractor After Patch Failure Led to ShinyHunters Breach",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/fbi-removes-accenture-contractor-after.html",
+          "date": "2026-10-06",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVB4YaCEMdO6UU6llRwDBMNe82j6s6myWlT8Y92f808ntjdWsPEFgXBpFhGxoAZdkFq5DVA4_XaQpbwvJFjpEUxrRjjRVITahCSGSxmi3qkad2fk-kZ1oXnoxKaFHNs2aRQl7LQ6r2Ljt57IZNaFvwejEQ20us7fMVpNYptJxoVCyol8BlVaXyLkkaeHQI/s1700-nu-rw-lo-l85-e365/fbi-breach.jpg"
+        }
+      ]
     }
   ]
 }

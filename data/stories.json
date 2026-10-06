@@ -230,13 +230,13 @@
       "id": "2026-10-06-fbi-shinyhunters-peoplesoft",
       "title": "FBI : ShinyHunters vole des données d'employés via une faille PeopleSoft non corrigée",
       "created": "2026-10-06T08:30:00+00:00",
-      "updated": "2026-10-06T15:07:50+00:00",
-      "version": 2,
+      "updated": "2026-10-06T17:20:00+00:00",
+      "version": 3,
       "resume": "Des données personnelles de milliers d'employés du FBI ont été volées par ShinyHunters sur une plateforme Oracle PeopleSoft gérée par un tiers. Un sous-traitant d'Accenture a été retiré [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Exploitation de CVE-2026-35273 sur la plateforme PeopleSoft d'un tiers, dont le correctif n'avait pas été appliqué → accès à la plateforme [1, 2]."
+          "texte": "Exploitation de CVE-2026-35273 sur la plateforme PeopleSoft d'un tiers, dont le correctif n'avait pas été appliqué → accès à la plateforme [1, 2, 3]."
         },
         {
           "etape": "Contournement du pare-feu",
@@ -304,7 +304,7 @@
         "ShinyHunters [1]"
       ],
       "cibles": [
-        "FBI : données personnelles de milliers d'employés [1]"
+        "FBI : données personnelles de milliers d'employés [1] ; environ 60 000 agents actuels et anciens [3]"
       ],
       "abreviations": [
         {
@@ -334,6 +334,13 @@
           "url": "https://www.securityweek.com/fbi-blames-contractors-missed-patch-for-shinyhunters-breach/",
           "date": "2026-10-06",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/09/hack.jpeg"
+        },
+        {
+          "titre": "Gestion des correctifs : le FBI remercie l’un de ses prestataires",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366651752/Gestion-des-correctifs-le-FBI-remercie-lun-de-ses-prestataires",
+          "date": "2026-10-06",
+          "image": "https://www.lemagit.fr/visuals/German/article/patch-management-fabric-3-adobe.jpg"
         }
       ]
     },
@@ -680,13 +687,13 @@
       "id": "2026-10-06-asos-notification-push",
       "title": "ASOS : fausse alerte « ASOS HACKED » envoyée par notification push",
       "created": "2026-10-06T13:20:00+00:00",
-      "updated": "2026-10-06T13:20:00+00:00",
-      "version": 1,
-      "resume": "Des clients de l'application ASOS ont reçu une notification push « ASOS HACKED » avec un message de rançon ; l'action de l'entreprise a perdu plus de 10 % [1].",
+      "updated": "2026-10-06T17:20:00+00:00",
+      "version": 2,
+      "resume": "Des clients de l'application ASOS ont reçu une notification push « ASOS HACKED » avec un message de rançon ; l'action de l'entreprise a perdu plus de 10 % [1]. ASOS confirme une fuite de données [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Accès non autorisé à des plateformes tierces servant à communiquer avec les clients, d'après ASOS [2]."
         },
         {
           "etape": "Prise de contrôle",
@@ -749,14 +756,15 @@
           }
         ]
       },
-      "limites": "Les attaquants revendiquent la compromission d'une instance Snowflake, sans preuve fournie [1].",
+      "limites": "Les attaquants revendiquent la compromission d'une instance Snowflake, sans preuve [1] ; ASOS ne l'a pas confirmée [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Xuanye Group, nom jamais vu par les experts du suivi des groupes d'extorsion [1]"
       ],
       "cibles": [
-        "ASOS, vendeur de vêtements en ligne britannique coté à Londres [1]"
+        "ASOS, vendeur de vêtements en ligne britannique coté à Londres [1]",
+        "Clients d'ASOS : noms et coordonnées touchés, ni paiement ni mots de passe [2]"
       ],
       "abreviations": [
         {
@@ -775,6 +783,13 @@
           "url": "https://therecord.media/asos-push-notification-apparently-sent-by-hackers",
           "date": "2026-10-06",
           "image": "https://cms.therecord.media/uploads/asos_popup_nov_2023_af35a21811.jpeg"
+        },
+        {
+          "titre": "ASOS confirms data breach after “HACKED” in-app notifications",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/asos-confirms-data-breach-after-hacked-in-app-notifications/",
+          "date": "2026-10-06",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/06/asos-logo.jpg"
         }
       ]
     },

@@ -2365,6 +2365,106 @@
           "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/09/05_Malware_Category_1920x900-1.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-06-malfex-npm-paquets-malveillants",
+      "title": "Campagne MALFEX : paquets npm malveillants publiés depuis août 2023",
+      "created": "2026-10-06T11:30:00+00:00",
+      "updated": "2026-10-06T11:30:00+00:00",
+      "version": 1,
+      "resume": "Depuis août 2023, un même acteur a publié huit paquets npm malveillants dans la campagne MALFEX. Le paquet function-flag a dépassé 37 000 téléchargements [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Publication de paquets npm malveillants → installation directe par les utilisateurs [1]."
+        },
+        {
+          "etape": "Exécution du code",
+          "texte": "Chargeurs et scripts obfusqués lancés pendant npm install → déploiement du cheval de Troie Overlord [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Le code malveillant déploie le voleur movinlike → ciblage de Discord, navigateurs et portefeuilles de cryptomonnaies [1]."
+        },
+        {
+          "etape": "Charge externe",
+          "texte": "Chaque version de function-flag contient un téléchargeur → récupération d'une charge utile externe [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (MALFEX)",
+            "note": ""
+          },
+          {
+            "id": "reg",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Registre npm",
+            "note": "Paquets malveillants"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes des utilisateurs",
+            "note": "Installation des paquets"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "reg",
+            "etape": 1,
+            "texte": "Publication de paquets malveillants"
+          },
+          {
+            "de": "reg",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Scripts lancés pendant npm install"
+          },
+          {
+            "de": "pc",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Voleur movinlike : Discord, navigateurs, portefeuilles"
+          }
+        ]
+      },
+      "limites": "La source ne nomme ni l'acteur ni les victimes, et ne décrit aucun ciblage géographique ou organisationnel [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Un seul acteur derrière les paquets, non nommé [1]"
+      ],
+      "cibles": [
+        "Utilisateurs de paquets npm, sans ciblage géographique ou organisationnel [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "npm",
+          "definition": "Gestionnaire de paquets et registre public de JavaScript"
+        },
+        {
+          "sigle": "MALFEX",
+          "definition": "Nom donné à la campagne de paquets npm malveillants"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Long-Running NPM Malware Campaign Accumulates 40,000 Downloads",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/long-running-npm-malware-campaign-accumulates-40000-downloads/",
+          "date": "2026-10-06",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/supply-chain-threat.webp"
+        }
+      ]
     }
   ]
 }

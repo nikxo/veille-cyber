@@ -944,17 +944,17 @@
       "id": "2026-10-05-danemark-registre-population-cpr",
       "title": "Danemark : fuite du registre de la population via l'accès d'une entreprise privée",
       "created": "2026-10-05T18:14:12+00:00",
-      "updated": "2026-10-05T18:14:12+00:00",
-      "version": 1,
-      "resume": "Les données personnelles d'environ 8,8 millions de personnes du registre central danois ont été exposées, soit 80 % des 11 millions d'inscrits [1].",
+      "updated": "2026-10-06T06:30:00+00:00",
+      "version": 2,
+      "resume": "Les données personnelles d'environ 8,8 millions de personnes du registre central danois ont été exposées, soit 80 % des 11 millions d'inscrits [1]. L'accès non autorisé a duré environ 10 jours selon le ministre [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Abus de l'accès autorisé d'une entreprise privée danoise au système du registre → accès aux données du registre [1]."
+          "texte": "Abus de l'accès autorisé d'une entreprise privée danoise au système du registre → accès aux données du registre [1, 2]."
         },
         {
           "etape": "Énumération",
-          "texte": "Force brute pour énumérer des numéros CPR valides → extraction des données associées à chaque numéro [1]."
+          "texte": "Très grand nombre de recherches automatisées pour trouver des numéros CPR valides → extraction des noms, adresses et numéros d'identification [1, 2]."
         }
       ],
       "parcours": {
@@ -989,7 +989,7 @@
           }
         ]
       },
-      "limites": "La source ne nomme ni l'entreprise privée ni les auteurs [1].",
+      "limites": "Les sources ne nomment ni l'entreprise ni les auteurs ; la méthode de compromission du compte de l'entreprise n'est pas précisée [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -1011,6 +1011,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/denmark-population-registry-data-breach-affects-88-million-people/",
           "date": "2026-10-05",
           "image": "https://www.bleepstatic.com/content/hl-images/2025/12/19/Denmark.jpg"
+        },
+        {
+          "titre": "Denmark Says Attackers Accessed CPR Data for 8.8 Million People via Company Account",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/denmark-says-attackers-accessed-cpr.html",
+          "date": "2026-10-05",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyl-dsAiVrN_a0ie2xM1-2S8GDtnp-OYIAY1Cd_nhYhGkY3q0VeVEvEInjHAYCJTtnRYkXag2mY_iFjcEkFjeLQ7LrF6JqbTQ6eLZQM7aVzTHQsZ37a7PMIWPNkPvc8yTvHgWRLhdnoXbHZSlYfXJMAgfKkPcgSWD6JVb6kBYfzz9LB3SQPx357xqsr8o/s1700-nu-rw-lo-l85-e365/cpr.jpg"
         }
       ]
     },
@@ -1903,6 +1910,127 @@
           "url": "https://www.zataz.com/cjis-online-une-fuite-de-469-169-fiches-revendiquee/",
           "date": "2026-10-05",
           "image": "https://www.zataz.com/wp-content/uploads/CJIS_FBI.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-06-clickfix-cache-navigateur",
+      "title": "ClickFix : charge cachée dans le cache du navigateur pour contourner la limite de la boîte Exécuter",
+      "created": "2026-10-06T06:30:00+00:00",
+      "updated": "2026-10-06T06:30:00+00:00",
+      "version": 1,
+      "resume": "Une variante de ClickFix utilise des sites compromis qui placent un script dans le cache du navigateur, déguisé en image PNG, puis font exécuter une commande courte à l'utilisateur [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Faux message d'erreur ou fausse vérification sur un site compromis → l'utilisateur colle une commande dans Windows [1]."
+        },
+        {
+          "etape": "Dissimulation de la charge",
+          "texte": "Script préchargé dans le cache du navigateur, déguisé en PNG → contournement de la limite de caractères de la boîte Exécuter [1]."
+        },
+        {
+          "etape": "Exécution du script",
+          "texte": "Un script VBScript repère l'entrée de cache de la bonne taille, la copie dans le dossier Temp puis l'exécute avec wscript.exe [1]."
+        },
+        {
+          "etape": "Récupération de la suite",
+          "texte": "Collecte d'informations sur la machine, puis téléchargement de scripts PowerShell depuis un serveur externe [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Code injecté dans le processus Windows timeout.exe → ciblage des identifiants du navigateur et de l'appareil [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Site web compromis",
+            "note": "Script dans le cache"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste Windows",
+            "note": "Identifiants ciblés"
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur externe",
+            "note": "Scripts PowerShell"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Sites compromis servant de faux messages"
+          },
+          {
+            "de": "web",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Script préchargé dans le cache, déguisé en PNG"
+          },
+          {
+            "de": "pc",
+            "vers": "srv",
+            "etape": 4,
+            "texte": "Téléchargement de scripts PowerShell"
+          },
+          {
+            "de": "srv",
+            "vers": "pc",
+            "etape": 5,
+            "texte": "Code injecté, identifiants ciblés"
+          }
+        ]
+      },
+      "limites": "La source ne détaille pas ce que deviennent les identifiants volés ni la victime de chaque intrusion [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [],
+      "abreviations": [
+        {
+          "sigle": "ClickFix",
+          "definition": "Technique qui pousse l'utilisateur à exécuter lui-même une commande malveillante"
+        },
+        {
+          "sigle": "PNG",
+          "definition": "Format de fichier image"
+        },
+        {
+          "sigle": "VBScript",
+          "definition": "Langage de script Windows (Visual Basic Script)"
+        },
+        {
+          "sigle": "PowerShell",
+          "definition": "Interpréteur de commandes et langage de script de Windows"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "ClickFix Smuggles Payloads Through Browser Cache to Bypass Windows Run Limits",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/clickfix-smuggles-payloads-through.html",
+          "date": "2026-10-06",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8Vjgif5jASBMNSuYjBnVZcm9vGO378mJ7VTFTNo9HRROtViKbP_Nm0F0vf626be5n4cwnfDdqgfWVzjKrKboh0BnbM8ALWzt-W7kNq4PSc_TOUbNlwps6sCQgfNyK5DhXk3FHZCuJSo8D2eMOm4r89VmhNa6l5gPpadRZSgTuB_N2yPZlwj0voYddOoVr/s1700-nu-rw-lo-l85-e365/clickfix.jpg"
         }
       ]
     }

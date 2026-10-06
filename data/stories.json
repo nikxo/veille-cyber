@@ -2563,6 +2563,262 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWN60cSxpzLhK9K0oXjbeGNCoMl79wSkfW1h7dVHHi3dQPeRx2QUvM9dNGF3qKELV9xwkn8N_FBHk0WgftQryFzkKWyEf0jGbPb6ffor00ZQQnVPSrSSWKDfL10Shpkm2Q_LRFb85BarRqvdDE8eIksiGSrRy6hk8CD2cGf4xIIALAbOZEfHWMHWc7LfhA/s1700-nu-rw-lo-l85-e365/wiki.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-06-akira-rdp-bitdefender",
+      "title": "Akira : intrusion par bureau à distance, antivirus coupé puis chiffrement",
+      "created": "2026-10-06T13:20:00+00:00",
+      "updated": "2026-10-06T13:20:00+00:00",
+      "version": 1,
+      "resume": "Un affilié du rançongiciel Akira s'est connecté en RDP, a désactivé l'antivirus Bitdefender, volé des identifiants, copié des données puis chiffré les dossiers partagés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Connexion par bureau à distance (RDP) depuis un poste externe → accès au réseau de la victime [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Accès à la console Bitdefender → services antivirus désactivés [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Lancement de procdump depuis le dossier C:\\PerfLogs pour extraire le processus lsass.exe [1]."
+        },
+        {
+          "etape": "Tunnel vers l'attaquant",
+          "texte": "Outil de tunnel GOST déployé environ 4 heures après le début du chiffrement → communication avec un serveur de commande [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Lancement de Rclone depuis C:\\PerfLogs → synchronisation de données vers le cloud [1]."
+        },
+        {
+          "etape": "Chiffrement",
+          "texte": "Rançongiciel lancé, copies shadow supprimées par une commande PowerShell → plusieurs cycles de chiffrement des dossiers partagés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (affilié Akira)",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines du réseau",
+            "note": "Accès RDP"
+          },
+          {
+            "id": "bd",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Console Bitdefender",
+            "note": "Antivirus coupé"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de commande",
+            "note": "Via tunnel GOST"
+          },
+          {
+            "id": "cl",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Stockage cloud",
+            "note": "Rclone"
+          },
+          {
+            "id": "sh",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Dossiers partagés",
+            "note": "Chiffrés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Connexion RDP depuis un poste externe"
+          },
+          {
+            "de": "att",
+            "vers": "bd",
+            "etape": 2,
+            "texte": "Accès à la console, antivirus désactivé"
+          },
+          {
+            "de": "pc",
+            "vers": "c2",
+            "etape": 4,
+            "texte": "Tunnel GOST vers le serveur de commande"
+          },
+          {
+            "de": "pc",
+            "vers": "cl",
+            "etape": 5,
+            "texte": "Synchronisation de données avec Rclone"
+          },
+          {
+            "de": "pc",
+            "vers": "sh",
+            "etape": 6,
+            "texte": "Chiffrement des dossiers partagés"
+          }
+        ]
+      },
+      "limites": "L'article ne précise ni le secteur de la victime, ni comment l'attaquant a obtenu l'accès RDP, ni techniques MITRE [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Affilié du rançongiciel Akira, sans attribution plus précise [1]"
+      ],
+      "cibles": [
+        "Victime non précisée [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "RDP",
+          "definition": "Remote Desktop Protocol : prise de contrôle d'un ordinateur à distance"
+        },
+        {
+          "sigle": "GOST",
+          "definition": "Go Simple Tunnel : outil de tunnel réseau"
+        },
+        {
+          "sigle": "Rclone",
+          "definition": "Outil en ligne de commande de synchronisation de fichiers vers le cloud"
+        },
+        {
+          "sigle": "procdump",
+          "definition": "Outil Microsoft qui vide la mémoire d'un processus dans un fichier"
+        },
+        {
+          "sigle": "lsass.exe",
+          "definition": "Processus Windows qui gère l'authentification des utilisateurs"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Up a Creek Without a Command Line: Mapping an Akira Ransomware Attack",
+          "site": "Huntress",
+          "url": "https://www.huntress.com/blog/mapping-akira-ransomware-attack",
+          "date": "2026-10-06",
+          "image": "https://cdn.builder.io/api/v1/image/assets%2F3eb6f92aedf74f109c7b4b0897ec39a8%2F6cc6693ad7e4485f9b9d61ff3db41c56"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-06-asos-notification-push",
+      "title": "ASOS : fausse alerte « ASOS HACKED » envoyée par notification push",
+      "created": "2026-10-06T13:20:00+00:00",
+      "updated": "2026-10-06T13:20:00+00:00",
+      "version": 1,
+      "resume": "Des clients de l'application ASOS ont reçu une notification push « ASOS HACKED » avec un message de rançon ; l'action de l'entreprise a perdu plus de 10 % [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Accès à l'infrastructure de messagerie client d'ASOS → notification push envoyée aux utilisateurs de l'application [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Le message renvoyait vers un canal Telegram nommé « Xuanye Group » → revendication de l'attaque [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Xuanye Group)",
+            "note": ""
+          },
+          {
+            "id": "msg",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Messagerie client ASOS",
+            "note": "Envoi de notifications"
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Clients de l'application",
+            "note": ""
+          },
+          {
+            "id": "tg",
+            "type": "inconnu",
+            "zone": "internet",
+            "nom": "Canal Telegram",
+            "note": "Xuanye Group"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "msg",
+            "etape": 2,
+            "texte": "Accès à l'infrastructure de messagerie client"
+          },
+          {
+            "de": "msg",
+            "vers": "usr",
+            "etape": 2,
+            "texte": "Notification push « ASOS HACKED »"
+          },
+          {
+            "de": "usr",
+            "vers": "tg",
+            "etape": 3,
+            "texte": "Lien vers le canal Telegram dans le message"
+          }
+        ]
+      },
+      "limites": "Les attaquants revendiquent la compromission d'une instance Snowflake, sans preuve fournie [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Xuanye Group, nom jamais vu par les experts du suivi des groupes d'extorsion [1]"
+      ],
+      "cibles": [
+        "ASOS, vendeur de vêtements en ligne britannique coté à Londres [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ASOS",
+          "definition": "Nom de l'enseigne britannique de vêtements en ligne"
+        },
+        {
+          "sigle": "HACKED",
+          "definition": "Mot anglais signifiant « piraté », titre de la notification"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Shares in British clothing company ASOS dive after hackers apparently send push notification",
+          "site": "The Record",
+          "url": "https://therecord.media/asos-push-notification-apparently-sent-by-hackers",
+          "date": "2026-10-06",
+          "image": "https://cms.therecord.media/uploads/asos_popup_nov_2023_af35a21811.jpeg"
+        }
+      ]
     }
   ]
 }

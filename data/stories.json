@@ -944,13 +944,13 @@
       "id": "2026-10-05-danemark-registre-population-cpr",
       "title": "Danemark : fuite du registre de la population via l'accès d'une entreprise privée",
       "created": "2026-10-05T18:14:12+00:00",
-      "updated": "2026-10-06T06:30:00+00:00",
-      "version": 2,
+      "updated": "2026-10-06T10:30:00+00:00",
+      "version": 3,
       "resume": "Les données personnelles d'environ 8,8 millions de personnes du registre central danois ont été exposées, soit 80 % des 11 millions d'inscrits [1]. L'accès non autorisé a duré environ 10 jours selon le ministre [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Abus de l'accès autorisé d'une entreprise privée danoise au système du registre → accès aux données du registre [1, 2]."
+          "texte": "Abus de l'accès autorisé d'une entreprise privée danoise au système du registre → accès aux données du registre [1, 2, 3]."
         },
         {
           "etape": "Énumération",
@@ -989,7 +989,7 @@
           }
         ]
       },
-      "limites": "Les sources ne nomment ni l'entreprise ni les auteurs ; la méthode de compromission du compte de l'entreprise n'est pas précisée [1, 2].",
+      "limites": "Les sources ne nomment ni l'entreprise ni les auteurs ; la méthode de compromission du compte de l'entreprise n'est pas précisée [1, 2, 3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -1018,6 +1018,13 @@
           "url": "https://thehackernews.com/2026/10/denmark-says-attackers-accessed-cpr.html",
           "date": "2026-10-05",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyl-dsAiVrN_a0ie2xM1-2S8GDtnp-OYIAY1Cd_nhYhGkY3q0VeVEvEInjHAYCJTtnRYkXag2mY_iFjcEkFjeLQ7LrF6JqbTQ6eLZQM7aVzTHQsZ37a7PMIWPNkPvc8yTvHgWRLhdnoXbHZSlYfXJMAgfKkPcgSWD6JVb6kBYfzz9LB3SQPx357xqsr8o/s1700-nu-rw-lo-l85-e365/cpr.jpg"
+        },
+        {
+          "titre": "8.8 Million Impacted by Data Breach at Denmark’s Central Person Register",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/8-8-million-impacted-by-data-breach-at-denmarks-central-person-register/",
+          "date": "2026-10-06",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/08/data-breach.jpeg"
         }
       ]
     },
@@ -1532,21 +1539,21 @@
       "id": "2026-10-05-nikkei-comptes-google-microsoft",
       "title": "Nikkei : deux comptes d'employés compromis, dont un utilisé pour envoyer 9 000 messages d'hameçonnage",
       "created": "2026-10-05T18:14:12+00:00",
-      "updated": "2026-10-05T18:14:12+00:00",
-      "version": 1,
+      "updated": "2026-10-06T10:30:00+00:00",
+      "version": 2,
       "resume": "Le groupe de presse japonais Nikkei révèle deux intrusions : un compte Google Workspace d'employé et un compte Microsoft 365 utilisé pour envoyer des messages malveillants [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par la source [1]."
+          "texte": "Non précisé par les sources [1, 2]."
         },
         {
           "etape": "Compte Google Workspace",
-          "texte": "Accès non autorisé en juillet-août, découvert en août après une alerte de Google → noms et adresses e-mail de 1 646 personnes potentiellement exposés [1]."
+          "texte": "Accès non autorisé en juillet-août, découvert en août après une alerte de Google → noms et adresses e-mail de 1 646 personnes potentiellement exposés [1, 2]."
         },
         {
           "etape": "Compte Microsoft 365",
-          "texte": "Compte Microsoft 365 compromis → environ 9 000 e-mails d'hameçonnage envoyés le 30 septembre à des contacts internes et externes [1]."
+          "texte": "Compte Microsoft 365 compromis → environ 9 000 e-mails d'hameçonnage envoyés le 30 septembre à des contacts internes et externes [1, 2]."
         }
       ],
       "parcours": {
@@ -1601,7 +1608,7 @@
           }
         ]
       },
-      "limites": "Le lien entre les deux incidents est indéterminé et le vecteur d'accès n'est pas précisé [1].",
+      "limites": "Le lien entre les deux incidents est indéterminé, le vecteur d'accès n'est pas précisé et aucun auteur n'est désigné [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -1618,6 +1625,13 @@
           "url": "https://therecord.media/nikkei-cyberattack-japan-data",
           "date": "2026-10-05",
           "image": "https://cms.therecord.media/uploads/nikkei_headquarters_6e6f5a53cc.jpg"
+        },
+        {
+          "titre": "Nikkei discloses breaches of employees’ Microsoft, Google email accounts",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/nikkei-discloses-breaches-of-employees-microsoft-google-email-accounts/",
+          "date": "2026-10-06",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/06/Nikkei.jpg"
         }
       ]
     },
@@ -2227,6 +2241,128 @@
           "url": "https://www.bleepingcomputer.com/news/security/engineer-sentenced-for-locking-thousands-of-devices-on-employer-network/",
           "date": "2026-10-06",
           "image": "https://www.bleepstatic.com/content/hl-images/2025/11/10/Hacker_IAB.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-06-blinder-tunnel-irak",
+      "title": "Blinder Tunnel : faux recrutement Dubai Airports visant une infrastructure critique irakienne",
+      "created": "2026-10-06T10:30:00+00:00",
+      "updated": "2026-10-06T10:30:00+00:00",
+      "version": 1,
+      "resume": "Un acteur lié à l'Iran, suivi sous le nom CL-STA-1178, a visé un ingénieur logiciel irakien avec un faux recrutement de Dubai Airports et des logiciels malveillants pilotés via GitHub [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Ingénierie sociale en se faisant passer pour le service informatique de Dubai Airports → installateur piégé remis à un ingénieur logiciel irakien [1]."
+        },
+        {
+          "etape": "Exécution du code",
+          "texte": "Archive de projet Visual Studio présentée comme test de programmation → code malveillant lancé à la construction du projet, avant toute action de l'utilisateur [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Fichier de configuration détourné → exécution dans un processus de confiance, traçage d'événements Windows désactivé [1]."
+        },
+        {
+          "etape": "Persistance et pilotage",
+          "texte": "Clé de registre et échanges avec un dépôt GitHub via un jeton codé en dur → balise envoyée toutes les 63 secondes [1]."
+        },
+        {
+          "etape": "Tunnel vers le réseau",
+          "texte": "Outil Blackwood, basé sur Chisel → tunnel chiffré sur HTTP vers le réseau compromis [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (CL-STA-1178)",
+            "note": ""
+          },
+          {
+            "id": "gh",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Dépôt GitHub de pilotage",
+            "note": "Jeton codé en dur"
+          },
+          {
+            "id": "dev",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de l'ingénieur irakien",
+            "note": "Projet piégé"
+          },
+          {
+            "id": "res",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Réseau compromis",
+            "note": "Tunnel chiffré"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "dev",
+            "etape": 1,
+            "texte": "Faux recrutement Dubai Airports, installateur piégé"
+          },
+          {
+            "de": "att",
+            "vers": "dev",
+            "etape": 2,
+            "texte": "Projet Visual Studio piégé exécuté"
+          },
+          {
+            "de": "dev",
+            "vers": "gh",
+            "etape": 4,
+            "texte": "Balise toutes les 63 secondes"
+          },
+          {
+            "de": "att",
+            "vers": "res",
+            "etape": 5,
+            "texte": "Tunnel chiffré Blackwood"
+          }
+        ]
+      },
+      "limites": "La source ne précise pas ce que les attaquants ont fait dans le réseau via le tunnel [1].",
+      "cves": [],
+      "mitre": [
+        "T1127 : Trusted Developer Utilities Proxy Execution, exécution via un outil de développement [1]",
+        "T1574.014 : détournement du gestionnaire AppDomain [1]",
+        "T1574.001 : chargement d'une bibliothèque DLL détournée [1]",
+        "T1059.001 : exécution PowerShell sans PowerShell.exe [1]"
+      ],
+      "acteurs": [
+        "CL-STA-1178, acteur lié à l'Iran, aussi suivi par Elastic sous le nom The Shelby Strategy [1]"
+      ],
+      "cibles": [
+        "Infrastructure critique irakienne, aviation des Émirats ; entité israélienne visée en mai-juin 2026 [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "DLL",
+          "definition": "Bibliothèque de code chargée par un programme Windows"
+        },
+        {
+          "sigle": "HTTP",
+          "definition": "Protocole de communication du web"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Blinder Tunnel Campaign Targets Iraqi Infrastructure",
+          "site": "Unit 42 (Palo Alto Networks)",
+          "url": "https://unit42.paloaltonetworks.com/blinder-tunnel-targets-critical-infrastructure/",
+          "date": "2026-10-06",
+          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/09/05_Malware_Category_1920x900-1.jpg"
         }
       ]
     }

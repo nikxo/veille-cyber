@@ -4329,13 +4329,13 @@
       "id": "2026-10-07-poellm-serveurs-ia-minage",
       "title": "PoeLLM : des serveurs d'IA exposés infectés pour miner de la cryptomonnaie",
       "created": "2026-10-07T16:30:00+00:00",
-      "updated": "2026-10-07T16:30:00+00:00",
-      "version": 1,
-      "resume": "Le logiciel malveillant PoeLLM infecte des serveurs d'IA exposés, surtout aux États-Unis et en Europe de l'Ouest, pour miner de la cryptomonnaie. Plus de 3 400 serveurs sont compromis [1].",
+      "updated": "2026-10-07T17:30:00+00:00",
+      "version": 2,
+      "resume": "Le logiciel malveillant PoeLLM infecte des serveurs d'IA exposés, surtout aux États-Unis et en Europe de l'Ouest, pour miner de la cryptomonnaie. Plus de 3 400 serveurs sont compromis [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Exploitation de services mal configurés et exposés en ligne (LiteLLM, Ollama, Gotenberg, Gitea, Ivanti Sentry), en visant les grappes de processeurs graphiques → serveurs compromis [1]."
+          "texte": "Exploitation de failles de services exposés sur Internet (LiteLLM, Gotenberg, Gitea, Ivanti Sentry) ou de services mal configurés (Ollama), en visant les grappes de processeurs graphiques → serveurs compromis [1, 2]."
         },
         {
           "etape": "Communication de contrôle",
@@ -4347,7 +4347,7 @@
         },
         {
           "etape": "Minage",
-          "texte": "Déploiement des mineurs XMRig et Iron, avec une fonction de shell à distance → cryptomonnaie minée sur les serveurs [1]."
+          "texte": "Déploiement des mineurs XMRig et Iron, avec une fonction de shell à distance → victimes reliées au service minier russe Kryptex [1, 2]."
         }
       ],
       "parcours": {
@@ -4402,7 +4402,7 @@
           }
         ]
       },
-      "limites": "L'article ne précise pas quelle faille a servi pour l'accès initial sur chaque service cité [1].",
+      "limites": "L'article ne précise pas quelle faille a servi pour l'accès initial sur chaque service cité [1]. La seconde source ne mentionne aucune CVE [2].",
       "cves": [
         {
           "id": "CVE-2026-42271",
@@ -4415,7 +4415,7 @@
       ],
       "mitre": [],
       "acteurs": [
-        "Acteur évalué avec confiance modérée comme basé en Italie [1]"
+        "Acteur parlant italien, évalué avec confiance modérée par Lumen Black Lotus Labs [1, 2]"
       ],
       "cibles": [
         "Plus de 3 400 serveurs, surtout aux États-Unis et en Europe de l'Ouest [1]"
@@ -4432,6 +4432,10 @@
         {
           "sigle": "IA",
           "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "XMRig",
+          "definition": "Logiciel de minage de la cryptomonnaie Monero"
         }
       ],
       "sources": [
@@ -4441,6 +4445,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/poellm-malware-infects-exposed-ai-servers-in-cryptomining-attacks/",
           "date": "2026-10-07",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/04/10/Hacker_bitcoin.jpg"
+        },
+        {
+          "titre": "PoeLLM Malware Infects 3,400+ Servers to Expand Crypto Mining Botnet",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/poellm-malware-infects-3400-servers-to.html",
+          "date": "2026-10-07",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDjQ8O0UFcl1dpOxEJoAM0s1mXXZHJNpJF4uJV_4jg7UPhHlDEvGHVxHKtyZQpnFC4HC3stGB-jJOSYUB5vdayfwx_eWPq-0F_l_ViYZNcA768t1N95JWhhbhUzY8anGOjVSL06QtsKVv_mz4lKgGrBMNBckAtFPxaW-KuG3mbWuUJrsyJP2vdWVbq8r9P/s1700-nu-rw-lo-l85-e365/crypto.jpg"
         }
       ]
     },

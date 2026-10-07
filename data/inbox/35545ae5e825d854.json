@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-10-07T17:06:37+00:00",
+  "feed_summary": "A critical vulnerability in LMCache, open-source software that speeds up large language model (LLM) servers such as vLLM, lets an attacker run code on the cache server without logging in, and no fixed version is available. The flaw is in LMCache's multiprocess mode, where the cache runs as a standalone server that LLM workers reach over the ZeroMQ messaging library. A single network",
+  "id": "35545ae5e825d854",
+  "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjyMSiFF8XNm1OpF4uWou7e4nt4fqsuPc0IXyUXhHky9w8ydKkauWm_j0yxdpMsRFlDx-5PHhtAxYNg3Z-rYqvexgILhokXO8tARRTtDHn2P83GOlUhiD6jN7rtkf3Ul1-Hp7O4VyvwV6EGNUgjmcC-B_o_P-xQy9eD7RaTnO_RoDpDwgjTePDvkjC9xso/s1700-nu-rw-lo-l85-e365/lm.jpg",
+  "lang": "en",
+  "link": "https://thehackernews.com/2026/10/unpatched-critical-lmcache-flaw-lets.html",
+  "published": "2026-10-07T21:04:53+05:30",
+  "source": "The Hacker News",
+  "source_type": "actu",
+  "title": "Unpatched Critical LMCache Flaw Lets Unauthenticated Attackers Run Code Remotely"
+}

@@ -3547,6 +3547,104 @@
           }
         ]
       }
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-07-arizona-tribunaux-donnees-personnelles",
+      "title": "Système judiciaire de l'Arizona : données personnelles de 1,3 million de personnes copiées après un lien piégé",
+      "created": "2026-10-07T02:30:00+00:00",
+      "updated": "2026-10-07T02:30:00+00:00",
+      "version": 1,
+      "resume": "Le système judiciaire de l'Arizona a subi une cyberattaque détectée le 24 septembre 2026 : des données personnelles de 1,3 million de personnes ont été copiées [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Un employé de la cour clique sur un lien malveillant reçu par courriel → compromission du système [1]."
+        },
+        {
+          "etape": "Accès aux dossiers",
+          "texte": "Consultation de dossiers de protection (près de 30 000) et de rapports de protection de l'enfance (150 000 depuis 2010) → données exposées [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Copie des informations personnelles de 1,3 million de personnes → données volées, sans modification ni suppression [1]."
+        },
+        {
+          "etape": "Présence sur les sauvegardes",
+          "texte": "Présence détectée sur un serveur de sauvegarde → l'attaque est arrêtée environ 2 heures après sa détection [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "emp",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Employé de la cour",
+            "note": "Lien malveillant"
+          },
+          {
+            "id": "sys",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Dossiers judiciaires",
+            "note": "Données copiées"
+          },
+          {
+            "id": "sav",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur de sauvegarde",
+            "note": "Présence détectée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "emp",
+            "etape": 1,
+            "texte": "Lien malveillant dans un courriel"
+          },
+          {
+            "de": "emp",
+            "vers": "sys",
+            "etape": 3,
+            "texte": "Copie des données personnelles"
+          },
+          {
+            "de": "att",
+            "vers": "sav",
+            "etape": 4,
+            "texte": "Présence détectée sur la sauvegarde"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment aucun acteur ni technique précise après le courriel, et ne disent pas comment l'attaquant a atteint le serveur de sauvegarde [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non précisé par les sources [1]"
+      ],
+      "cibles": [
+        "Système judiciaire de l'Arizona : 1,3 million de personnes concernées [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Personal Information for Over 1 Million People Stolen in a Cyberattack on Arizona’s Court System",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/personal-information-for-over-1-million-people-stolen-in-a-cyberattack-on-arizonas-court-system/",
+          "date": "2026-10-07",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+        }
+      ]
     }
   ]
 }

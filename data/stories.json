@@ -4559,17 +4559,17 @@
       "id": "2026-10-07-cctld-gh-sl-as-certificats-google",
       "title": "Registres .gh, .sl et .as détournés : certificats frauduleux émis pour des domaines Google",
       "created": "2026-10-07T20:20:00+00:00",
-      "updated": "2026-10-07T20:20:00+00:00",
-      "version": 1,
-      "resume": "Des attaquants ont compromis les domaines nationaux .gh, .sl et .as et obtenu au moins 12 certificats HTTPS pour des noms Google et YouTube. Les systèmes de Google n'ont pas été touchés [1].",
+      "updated": "2026-10-07T21:20:00+00:00",
+      "version": 2,
+      "resume": "Des attaquants ont compromis les domaines nationaux .gh, .sl et .as et obtenu au moins 12 certificats HTTPS pour des noms Google et YouTube [1]. Selon [2], ils ont d'abord compromis des opérateurs tiers de ces domaines.",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Compromission de trois domaines de premier niveau nationaux, méthode non précisée par la source [1]."
+          "texte": "Compromission de trois domaines de premier niveau nationaux, méthode non précisée [1] ; la seconde source parle d'opérateurs tiers compromis [2]."
         },
         {
           "etape": "Modification du DNS",
-          "texte": "Modification des enregistrements DNS faisant autorité → preuve de contrôle du domaine auprès des autorités de certification [1]."
+          "texte": "Modification des enregistrements DNS faisant autorité → preuve de contrôle du domaine auprès des autorités de certification [1] ; domaines redirigés vers une infrastructure des attaquants [2]."
         },
         {
           "etape": "Obtention de certificats",
@@ -4577,7 +4577,7 @@
         },
         {
           "etape": "Réaction de Google",
-          "texte": "Blocage dans Chrome et révocation des certificats par les autorités de certification, entre le 26 septembre et le 1er octobre [1]."
+          "texte": "Blocage dans Chrome et révocation des certificats du 26 septembre au 1er octobre [1] ; d'autres certificats trouvés via les journaux de transparence, bloqués aussi [2]."
         }
       ],
       "parcours": {
@@ -4619,14 +4619,14 @@
           }
         ]
       },
-      "limites": "La source ne précise ni l'acteur, ni la méthode de compromission des domaines, ni si les certificats ont servi à intercepter des données [1].",
+      "limites": "Les sources ne précisent ni l'acteur, ni la méthode de compromission, ni si les certificats ont servi à intercepter des données [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non identifié [1]"
+        "Non identifié [1, 2]"
       ],
       "cibles": [
-        "Noms Google et YouTube sous .gh, .sl et .as; d'autres organisations non nommées [1]"
+        "Noms Google et YouTube sous .gh, .sl et .as; d'autres organisations non nommées [1, 2]"
       ],
       "abreviations": [
         {
@@ -4645,6 +4645,13 @@
           "url": "https://thehackernews.com/2026/10/attackers-hijack-gh-sl-and-as.html",
           "date": "2026-10-07",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhlqu6e-ijwp1hAEuYyfUUL9hV5kwu0cIe1cMibzayov0GdV2FkSpwvF10YKcxLyw1AUNdKF54RV9o3bfeshwWIWdda1AvgNm4iu6t9F16pb1jOVDQRXBoRjw2uueD4Ov7oEzjPJV7pXgK1U-MzkkqRKgHqP207GG2pqtkRQ09IVZ94HvSlBVArvu7tkNE/s1700-nu-rw-lo-l85-e365/google-tls.jpg"
+        },
+        {
+          "titre": "Hackers hijack Google domains after breaching ccTLD registries",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-google-domains-after-breaching-cctld-registries/",
+          "date": "2026-10-07",
+          "image": "https://www.bleepstatic.com/content/hl-images/2023/12/29/google-flare.jpg"
         }
       ]
     }

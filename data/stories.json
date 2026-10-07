@@ -3245,8 +3245,8 @@
       "id": "2026-10-07-arizona-tribunaux-donnees-personnelles",
       "title": "Système judiciaire de l'Arizona : données personnelles de 1,3 million de personnes copiées après un lien piégé",
       "created": "2026-10-07T02:30:00+00:00",
-      "updated": "2026-10-07T02:30:00+00:00",
-      "version": 1,
+      "updated": "2026-10-07T19:07:56+00:00",
+      "version": 2,
       "resume": "Le système judiciaire de l'Arizona a subi une cyberattaque détectée le 24 septembre 2026 : des données personnelles de 1,3 million de personnes ont été copiées [1].",
       "chaine": [
         {
@@ -3255,11 +3255,11 @@
         },
         {
           "etape": "Accès aux dossiers",
-          "texte": "Consultation de dossiers de protection (près de 30 000) et de rapports de protection de l'enfance (150 000 depuis 2010) → données exposées [1]."
+          "texte": "Consultation de dossiers de protection (près de 30 000) et de rapports de protection de l'enfance (150 000 depuis 2010) → données exposées [1, 2]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Copie des informations personnelles de 1,3 million de personnes → données volées, sans modification ni suppression [1]."
+          "texte": "Copie de fichiers de sauvegarde et des informations de 1,3 million de personnes (programme FARE) → données volées [1, 2], sans modification ni suppression [1]."
         },
         {
           "etape": "Présence sur les sauvegardes",
@@ -3318,16 +3318,21 @@
           }
         ]
       },
-      "limites": "Les sources ne nomment aucun acteur ni technique précise après le courriel, et ne disent pas comment l'attaquant a atteint le serveur de sauvegarde [1].",
+      "limites": "Aucun acteur nommé, aucune revendication ni demande de rançon [2] ; le chemin vers le serveur de sauvegarde n'est pas précisé [1].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non précisé par les sources [1]"
+        "Non précisé par les sources [1, 2]"
       ],
       "cibles": [
-        "Système judiciaire de l'Arizona : 1,3 million de personnes concernées [1]"
+        "Système judiciaire de l'Arizona : 1,3 million de personnes concernées par le programme FARE [1, 2]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "FARE",
+          "definition": "Fines/Fees and Restitution Enforcement : programme de recouvrement des amendes"
+        }
+      ],
       "sources": [
         {
           "titre": "Personal Information for Over 1 Million People Stolen in a Cyberattack on Arizona’s Court System",
@@ -3335,6 +3340,13 @@
           "url": "https://www.securityweek.com/personal-information-for-over-1-million-people-stolen-in-a-cyberattack-on-arizonas-court-system/",
           "date": "2026-10-07",
           "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+        },
+        {
+          "titre": "Arizona courts say hackers stole info on more than 1.3 million people",
+          "site": "The Record",
+          "url": "https://therecord.media/arizona-courts-say-hackers-stole-info-on-over-1-million",
+          "date": "2026-10-07",
+          "image": "https://cms.therecord.media/uploads/courtroom_gavel_joe_gratz_887e3f2669.jpg"
         }
       ]
     },
@@ -3816,13 +3828,13 @@
       "id": "2026-10-07-fortibleed-fortigate-identifiants",
       "title": "FortiBleed : vol d'identifiants sur plus de 86 000 pare-feu Fortinet exposés",
       "created": "2026-10-07T13:30:00+00:00",
-      "updated": "2026-10-07T13:30:00+00:00",
-      "version": 1,
+      "updated": "2026-10-07T19:07:56+00:00",
+      "version": 2,
       "resume": "La campagne FortiBleed vise des pare-feu et passerelles VPN FortiGate exposés sur Internet. Le FBI et le Secret Service avertissent qu'elle reste active après 86 644 identifiants récoltés [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Balayage d'Internet pour trouver des portails VPN FortiGate exposés, puis essais d'identifiants réutilisés ou issus de fuites → accès aux pare-feu [1, 2]."
+          "texte": "Balayage d'Internet pour trouver des portails VPN FortiGate exposés, puis essais d'identifiants réutilisés ou issus de fuites, et force brute → accès aux pare-feu [1, 2, 3]."
         },
         {
           "etape": "Récolte d'identifiants",
@@ -3834,11 +3846,11 @@
         },
         {
           "etape": "Persistance, déplacement",
-          "texte": "Création de nouveaux comptes sur les pare-feu [2] ; identifiants cassés utilisés pour explorer l'annuaire Active Directory et créer des comptes administrateurs [1]."
+          "texte": "Nouveaux comptes sur les pare-feu [2], mots de passe d'origine modifiés ou supprimés → propriétaire bloqué [3] ; annuaire Active Directory exploré, comptes administrateurs créés [1]."
         },
         {
           "etape": "Revente des accès",
-          "texte": "Accès revendus à des affiliés de rançongiciels ou utilisés directement → au moins 12 organisations compromises et chiffrées [2]."
+          "texte": "Accès revendus à des affiliés de rançongiciels ou utilisés directement → au moins 12 organisations compromises et chiffrées [2] ; FortiGate utilisé comme point d'entrée du rançongiciel [3]."
         }
       ],
       "parcours": {
@@ -3903,10 +3915,13 @@
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Opération de langue russe, courtier en accès soupçonné, qui vend à des opérateurs de rançongiciels INC et Lynx [1] ; affiliés INC, Lynx et Payload cités [2]"
+        "Opération de langue russe, courtier en accès soupçonné, qui vend à des opérateurs de rançongiciels INC et Lynx [1]",
+        "affiliés INC, Lynx et Payload cités [2]",
+        "Courtier en accès initiaux, nom non mentionné [3]"
       ],
       "cibles": [
-        "Pare-feu et passerelles VPN FortiGate exposés dans 194 pays [1] ; au moins 12 organisations chiffrées, fonctionnaires britanniques visés [2]"
+        "Pare-feu et passerelles VPN FortiGate exposés dans 194 pays [1] ; au moins 12 organisations chiffrées, fonctionnaires britanniques visés [2]",
+        "Surtout des organisations de moins de 200 employés, dont un sous-traitant de défense de l'OTAN [3]"
       ],
       "abreviations": [
         {
@@ -3948,6 +3963,10 @@
         {
           "sigle": "Payload",
           "definition": "Groupe de rançongiciel"
+        },
+        {
+          "sigle": "OTAN",
+          "definition": "Alliance militaire de pays occidentaux"
         }
       ],
       "sources": [
@@ -3964,6 +3983,13 @@
           "url": "https://therecord.media/fortibleed-warning-fbi-secret-service",
           "date": "2026-10-07",
           "image": "https://cms.therecord.media/uploads/fortigate_ports_4f1884633e.png"
+        },
+        {
+          "titre": "FortiBleed : une tempête loin d'être passée",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366651777/FortiBleed-une-tempete-loin-detre-passee",
+          "date": "2026-10-07",
+          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/Hero Images/LAN-ethernet-cables-internet-Wi-Fi-OleksandrDelyk-adobe.jpg"
         }
       ]
     },

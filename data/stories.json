@@ -3828,13 +3828,13 @@
       "id": "2026-10-07-fortibleed-fortigate-identifiants",
       "title": "FortiBleed : vol d'identifiants sur plus de 86 000 pare-feu Fortinet exposés",
       "created": "2026-10-07T13:30:00+00:00",
-      "updated": "2026-10-07T19:07:56+00:00",
-      "version": 2,
+      "updated": "2026-10-07T22:30:00+00:00",
+      "version": 3,
       "resume": "La campagne FortiBleed vise des pare-feu et passerelles VPN FortiGate exposés sur Internet. Le FBI et le Secret Service avertissent qu'elle reste active après 86 644 identifiants récoltés [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Balayage d'Internet pour trouver des portails VPN FortiGate exposés, puis essais d'identifiants réutilisés ou issus de fuites, et force brute → accès aux pare-feu [1, 2, 3]."
+          "texte": "Balayage d'Internet pour trouver des portails VPN FortiGate exposés, puis essais d'identifiants réutilisés ou issus de fuites, et force brute → accès aux pare-feu [1, 2, 3, 4]."
         },
         {
           "etape": "Récolte d'identifiants",
@@ -3846,7 +3846,7 @@
         },
         {
           "etape": "Persistance, déplacement",
-          "texte": "Nouveaux comptes sur les pare-feu [2], mots de passe d'origine modifiés ou supprimés → propriétaire bloqué [3] ; annuaire Active Directory exploré, comptes administrateurs créés [1]."
+          "texte": "Nouveaux comptes sur les pare-feu [2, 4], mots de passe d'origine modifiés ou comptes supprimés → administrateurs légitimes bloqués [3, 4] ; annuaire Active Directory exploré, comptes administrateurs créés [1]."
         },
         {
           "etape": "Revente des accès",
@@ -3916,7 +3916,7 @@
       "mitre": [],
       "acteurs": [
         "Opération de langue russe, courtier en accès soupçonné, qui vend à des opérateurs de rançongiciels INC et Lynx [1]",
-        "affiliés INC, Lynx et Payload cités [2]",
+        "affiliés INC, Lynx et Payload cités [2, 4]",
         "Courtier en accès initiaux, nom non mentionné [3]"
       ],
       "cibles": [
@@ -3990,6 +3990,13 @@
           "url": "https://www.lemagit.fr/actualites/366651777/FortiBleed-une-tempete-loin-detre-passee",
           "date": "2026-10-07",
           "image": "https://www.lemagit.fr/visuals/ComputerWeekly/Hero Images/LAN-ethernet-cables-internet-Wi-Fi-OleksandrDelyk-adobe.jpg"
+        },
+        {
+          "titre": "FBI: Ongoing FortiBleed attacks lock out FortiGate VPN admins",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fbi-ongoing-fortibleed-attacks-lock-out-fortigate-vpn-admins/",
+          "date": "2026-10-07",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/06/19/Fortinet-headpic.jpg"
         }
       ]
     },
@@ -4652,6 +4659,159 @@
           "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-google-domains-after-breaching-cctld-registries/",
           "date": "2026-10-07",
           "image": "https://www.bleepstatic.com/content/hl-images/2023/12/29/google-flare.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-07-web3-chaine-approvisionnement-cloud",
+      "title": "Paquets open source empoisonnés : vol d'identifiants cloud et commande via Web3",
+      "created": "2026-10-07T22:30:00+00:00",
+      "updated": "2026-10-07T22:30:00+00:00",
+      "version": 1,
+      "resume": "Unit 42 décrit des campagnes d'empoisonnement de dépendances open source qui volent des identifiants cloud sur les postes développeurs et les pipelines de build, avec une infrastructure de commande cachée dans des contrats intelligents [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Empoisonnement de dépendances open source (paquets npm, modules, crates) → code malveillant exécuté sur les postes développeurs et les pipelines de build [1]."
+        },
+        {
+          "etape": "Exécution du code",
+          "texte": "ChainDrop : script lancé avant l'installation du paquet ; PolinRider : chargeurs cachés dans des fichiers de configuration de dépôts → collecteur d'identifiants exécuté sans installation classique [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Recherche de clés cloud, jetons de pipeline et clés à courte durée de vie sur le disque et en mémoire des processus de build → identifiants éphémères volés [1]."
+        },
+        {
+          "etape": "Commande via blockchain",
+          "texte": "Lecture de transactions de contrats intelligents (EtherHiding) pour obtenir les adresses d'exfiltration → communication de commande sans domaine fixe [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Tâches persistantes injectées, déclenchées à l'ouverture d'un projet ou d'une session de codage assisté par IA → maintien sur le poste développeur [1]."
+        },
+        {
+          "etape": "Accès au cloud",
+          "texte": "Identifiants développeur et jetons de session cloud exfiltrés → accès possible aux consoles et API cloud [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "dep",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Dépôts de paquets open source",
+            "note": "Paquets empoisonnés"
+          },
+          {
+            "id": "dev",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes développeurs et pipelines",
+            "note": "Identifiants volés"
+          },
+          {
+            "id": "bc",
+            "type": "inconnu",
+            "zone": "internet",
+            "nom": "Contrats intelligents (Web3)",
+            "note": "Adresses de commande"
+          },
+          {
+            "id": "cl",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Environnement cloud d'entreprise",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "dep",
+            "etape": 1,
+            "texte": "Dépendances open source empoisonnées"
+          },
+          {
+            "de": "dep",
+            "vers": "dev",
+            "etape": 2,
+            "texte": "Code malveillant exécuté à l'installation ou à l'ouverture"
+          },
+          {
+            "de": "dev",
+            "vers": "bc",
+            "etape": 4,
+            "texte": "Lecture des adresses de commande"
+          },
+          {
+            "de": "dev",
+            "vers": "cl",
+            "etape": 6,
+            "texte": "Accès avec les identifiants volés"
+          }
+        ]
+      },
+      "limites": "L'article ne donne ni la date des campagnes ChainDrop et PolinRider, ni victime nommée, ni acteur pour ChainDrop [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Alluring Pisces (aussi Sapphire Sleet, Midnight Neptune), groupe lié à la Corée du Nord, associé aux cas Axios, Mastra AI et arrayref [1]",
+        "PolinRider décrit comme des opérations liées à la Corée du Nord [1]"
+      ],
+      "cibles": [
+        "Environnements cloud d'entreprise, postes développeurs, pipelines de build, flux de développement avec IA [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "npm",
+          "definition": "Gestionnaire de paquets JavaScript et son dépôt public"
+        },
+        {
+          "sigle": "Web3",
+          "definition": "Services décentralisés fondés sur des blockchains"
+        },
+        {
+          "sigle": "EtherHiding",
+          "definition": "Technique qui cache des instructions dans des contrats intelligents Ethereum"
+        },
+        {
+          "sigle": "ChainDrop",
+          "definition": "Campagne de ver npm de la famille Shai-Hulud"
+        },
+        {
+          "sigle": "PolinRider",
+          "definition": "Campagne d'opérations liées à la Corée du Nord"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle : logiciels qui imitent des tâches humaines"
+        },
+        {
+          "sigle": "AI",
+          "definition": "Artificial Intelligence : intelligence artificielle (nom de projet Mastra AI)"
+        },
+        {
+          "sigle": "API",
+          "definition": "Interface permettant à des programmes de communiquer avec un service"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Evolution of Web3 in Cloud Supply Chain Attacks",
+          "site": "Unit 42 (Palo Alto Networks)",
+          "url": "https://unit42.paloaltonetworks.com/web3-cloud-supply-chain-attacks/",
+          "date": "2026-10-07",
+          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/01/10_Myth-Busting_Category_1505x922.jpg"
         }
       ]
     }

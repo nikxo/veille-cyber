@@ -4323,6 +4323,190 @@
           "date": "2026-10-07"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-07-poellm-serveurs-ia-minage",
+      "title": "PoeLLM : des serveurs d'IA exposés infectés pour miner de la cryptomonnaie",
+      "created": "2026-10-07T16:30:00+00:00",
+      "updated": "2026-10-07T16:30:00+00:00",
+      "version": 1,
+      "resume": "Le logiciel malveillant PoeLLM infecte des serveurs d'IA exposés, surtout aux États-Unis et en Europe de l'Ouest, pour miner de la cryptomonnaie. Plus de 3 400 serveurs sont compromis [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de services mal configurés et exposés en ligne (LiteLLM, Ollama, Gotenberg, Gitea, Ivanti Sentry), en visant les grappes de processeurs graphiques → serveurs compromis [1]."
+        },
+        {
+          "etape": "Communication de contrôle",
+          "texte": "Quatre mots d'un poème publié sur GitHub, convertis en nombres → adresse IPv4 du serveur de commande [1]."
+        },
+        {
+          "etape": "Propagation",
+          "texte": "Serveurs compromis utilisés comme tremplin, scan des ports 3000 et 4000, exploitation de CVE-2026-42271 puis de CVE-2026-48710 → nouveaux serveurs infectés [1]."
+        },
+        {
+          "etape": "Minage",
+          "texte": "Déploiement des mineurs XMRig et Iron, avec une fonction de shell à distance → cryptomonnaie minée sur les serveurs [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (PoeLLM)",
+            "note": ""
+          },
+          {
+            "id": "ia",
+            "type": "serveur",
+            "zone": "expose",
+            "nom": "Serveurs d'IA exposés",
+            "note": "Mineurs installés"
+          },
+          {
+            "id": "gh",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Poème sur GitHub",
+            "note": "Adresses de contrôle"
+          },
+          {
+            "id": "nx",
+            "type": "serveur",
+            "zone": "expose",
+            "nom": "Autres serveurs exposés",
+            "note": "Ports 3000 et 4000"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ia",
+            "etape": 1,
+            "texte": "Exploitation de services mal configurés"
+          },
+          {
+            "de": "ia",
+            "vers": "gh",
+            "etape": 2,
+            "texte": "Lecture de quatre mots du poème"
+          },
+          {
+            "de": "ia",
+            "vers": "nx",
+            "etape": 3,
+            "texte": "Scan et exploitation de failles"
+          }
+        ]
+      },
+      "limites": "L'article ne précise pas quelle faille a servi pour l'accès initial sur chaque service cité [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-42271",
+          "explication": "LiteLLM : points de test du serveur MCP vulnérables, exécution de code à distance, gravité élevée [1]."
+        },
+        {
+          "id": "CVE-2026-48710",
+          "explication": "Faille chaînée avec la précédente, permettant un accès sans authentification [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Acteur évalué avec confiance modérée comme basé en Italie [1]"
+      ],
+      "cibles": [
+        "Plus de 3 400 serveurs, surtout aux États-Unis et en Europe de l'Ouest [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "MCP",
+          "definition": "Model Context Protocol : protocole reliant les modèles d'IA à des outils"
+        },
+        {
+          "sigle": "IPv4",
+          "definition": "Format d'adresse numérique d'une machine sur Internet"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "PoeLLM malware infects exposed AI servers in cryptomining attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/poellm-malware-infects-exposed-ai-servers-in-cryptomining-attacks/",
+          "date": "2026-10-07",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/04/10/Hacker_bitcoin.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-07-southern-company-portail-client",
+      "title": "Georgia Power et Alabama Power : 400 000 comptes clients consultés via le portail en ligne",
+      "created": "2026-10-07T16:30:00+00:00",
+      "updated": "2026-10-07T16:30:00+00:00",
+      "version": 1,
+      "resume": "Un tiers non autorisé a accédé à des informations limitées de comptes clients de Southern Company : environ 300 000 chez Georgia Power et 100 000 chez Alabama Power [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Accès aux comptes",
+          "texte": "Un tiers non autorisé accède à des informations limitées sur le portail client → nom, adresse, téléphone, courriel ou 4 derniers chiffres du numéro de sécurité sociale exposés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Tiers non autorisé",
+            "note": ""
+          },
+          {
+            "id": "por",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Portail client en ligne",
+            "note": "Données de comptes"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "por",
+            "etape": 2,
+            "texte": "Accès non autorisé aux comptes"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni la date, ni la méthode d'accès, ni l'auteur [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Tiers non autorisé, non identifié [1]"
+      ],
+      "cibles": [
+        "Georgia Power (environ 300 000 comptes), Alabama Power (environ 100 000 comptes), Mississippi Power [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Georgia Power, Alabama Power Data Breach Hits 400,000 Accounts",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/georgia-power-alabama-power-data-breach-hits-400000-accounts/",
+          "date": "2026-10-07",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/05/COSMICENERGY-OT-Malware.jpg"
+        }
+      ]
     }
   ]
 }

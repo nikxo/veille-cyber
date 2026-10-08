@@ -3610,13 +3610,13 @@
       "id": "2026-10-06-asos-notification-push",
       "title": "ASOS : fausse alerte « ASOS HACKED » envoyée par notification push",
       "created": "2026-10-06T13:20:00+00:00",
-      "updated": "2026-10-07T11:30:00+00:00",
-      "version": 4,
+      "updated": "2026-10-08T12:07:53+00:00",
+      "version": 5,
       "resume": "Des clients de l'application ASOS ont reçu une notification push « ASOS HACKED » avec un message de rançon ; l'action de l'entreprise a perdu plus de 10 % [1]. ASOS confirme une fuite de données [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Compromission d'une plateforme tierce de communication utilisée pour les notifications aux clients [2, 3, 4]."
+          "texte": "Identifiants d'un employé volés par usurpation d'un contact de confiance → accès à des plateformes tierces utilisées par ASOS [5]."
         },
         {
           "etape": "Prise de contrôle",
@@ -3679,7 +3679,7 @@
           }
         ]
       },
-      "limites": "Les attaquants revendiquent une compromission Snowflake, sans preuve [1] ; ASOS ne l'a pas confirmée [2, 3] et Snowflake dit n'avoir constaté aucune compromission [4]. Vecteur d'accès non précisé [3].",
+      "limites": "Revendication Snowflake sans preuve [1], non confirmée par ASOS [2, 3] ; Snowflake dit n'avoir constaté aucune compromission [4]. Noms des plateformes tierces et date d'intrusion non précisés [5].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -3727,6 +3727,13 @@
           "url": "https://www.rapid7.com/blog/post/it-asos-incident-attackers-using-channels-customers-trust",
           "date": "2026-10-07",
           "image": "https://www.rapid7.com/cdn/images/blt83e3180716d766f0/69b180eb669f1ce1a02fe1aa/Purple-teaming-in-2026-hero.jpg"
+        },
+        {
+          "titre": "ASOS links data breach to social engineering attack, credential theft",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/asos-links-data-breach-to-social-engineering-attack-credential-theft/",
+          "date": "2026-10-08",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/06/asos-logo.jpg"
         }
       ]
     },

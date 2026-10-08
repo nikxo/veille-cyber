@@ -7554,6 +7554,79 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2023/05/25/Android_malware.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-idc-frontier-idcf-cloud-rancongiciel",
+      "title": "IDC Frontier : attaque par rançongiciel sur le service IDCF Cloud au Japon",
+      "created": "2026-10-08T21:30:00+00:00",
+      "updated": "2026-10-08T21:30:00+00:00",
+      "version": 1,
+      "resume": "IDC Frontier, fournisseur japonais d'infrastructures cloud, indique que son service IDCF Cloud a été visé par un rançongiciel, provoquant une panne dans un groupe de centres de données de l'est du pays [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Chiffrement",
+          "texte": "Attaque par rançongiciel contre IDCF Cloud → panne dans un groupe de centres de données servant l'est du Japon [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "idcf",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "IDCF Cloud",
+            "note": "Centres de données est"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "idcf",
+            "etape": 2,
+            "texte": "Attaque par rançongiciel, panne du service"
+          }
+        ]
+      },
+      "limites": "Le résumé disponible ne précise ni le vecteur d'accès, ni le groupe responsable, ni les étapes de l'attaque [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non précisé [1]"
+      ],
+      "cibles": [
+        "IDC Frontier, service IDCF Cloud, centres de données de l'est du Japon [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IDC",
+          "definition": "Début du nom de l'entreprise IDC Frontier"
+        },
+        {
+          "sigle": "IDCF",
+          "definition": "Nom abrégé du service cloud d'IDC Frontier"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Ransomware attack disrupts Japan's IDCF Cloud used by govt clients",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/ransomware-attack-disrupts-japans-idcf-cloud-used-by-govt-clients/",
+          "date": "2026-10-08",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/08/10/cloud.jpg"
+        }
+      ]
     }
   ]
 }

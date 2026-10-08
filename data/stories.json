@@ -6818,6 +6818,638 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCKjRUY0kVdYD5knK69g1IBPPL21WViperTcXNtjnWiYjNuL6GsohD9A6Q_SpyDpAT6mNMjLTZGOJ_eB1FIMUllxUVEnkUXA1zTWGU1aw5LYJrVZu5gNxH1zSpxX5elSBB-f2OG4LjdhzWTX97lT16uAdvKClT_gP4ucRJjKAXKU4a-3KxbbNLU5RdwKc/s1700-nu-rw-lo-l85-e365/japan.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-integrity-technology-emails-asie-sud-est",
+      "title": "Pirates liés à Integrity Technology Group : vol d'emails en Asie du Sud-Est",
+      "created": "2026-10-08T19:09:11+00:00",
+      "updated": "2026-10-08T19:09:11+00:00",
+      "version": 1,
+      "resume": "Des pirates liés à l'entreprise chinoise Integrity Technology Group ont volé des emails de gouvernements, forces de l'ordre, systèmes de santé et institutions religieuses en Asie du Sud-Est, et fait fonctionner une application web donnant à des tiers accès à ces emails [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Analyse de sites avec des outils de scan, exploitation de huit failles connues, faux formulaire de connexion (XSS) ou password spraying contre Microsoft 365 et Exchange [1]."
+        },
+        {
+          "etape": "Exécution du logiciel malveillant",
+          "texte": "Après saisie dans le faux formulaire, la victime reçoit une archive contenant live700_v1.exe, qui lance DiagTrack.exe → trafic chiffré vers un domaine de l'opération [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Installation de SoftEther, logiciel légitime de réseau privé virtuel, renommé conhost.exe ou dllhost.exe → reconnexion à chaque démarrage [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "L'outil DC.exe utilise DCSync → copie des identifiants, des groupes et des relations d'approbation depuis un contrôleur de domaine [1]."
+        },
+        {
+          "etape": "Vol d'emails",
+          "texte": "Un bot PHP récupère les emails via EWS puis les envoie vers un serveur distant ; l'outil office-cli relève ceux de comptes Microsoft 365 [1]."
+        },
+        {
+          "etape": "Accès pour des tiers",
+          "texte": "Une application web affiche les emails d'un compte via des arguments ajoutés à l'adresse web ; l'accès était parfois limité à des adresses de Xiamen [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Integrity Technology)",
+            "note": ""
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Sites web vulnérables",
+            "note": ""
+          },
+          {
+            "id": "poste",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de la victime",
+            "note": "Archive piégée"
+          },
+          {
+            "id": "msg",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Microsoft 365 et Exchange",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur distant des attaquants",
+            "note": ""
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Application web d'accès tiers",
+            "note": ""
+          },
+          {
+            "id": "tiers",
+            "type": "utilisateur",
+            "zone": "internet",
+            "nom": "Tiers non identifiés",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Scan de sites et exploitation de failles"
+          },
+          {
+            "de": "att",
+            "vers": "msg",
+            "etape": 1,
+            "texte": "Password spraying sur Microsoft 365 et Exchange"
+          },
+          {
+            "de": "web",
+            "vers": "poste",
+            "etape": 2,
+            "texte": "Archive envoyée après saisie du faux formulaire"
+          },
+          {
+            "de": "poste",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Trafic chiffré vers un domaine de l'opération"
+          },
+          {
+            "de": "msg",
+            "vers": "srv",
+            "etape": 5,
+            "texte": "Emails envoyés vers un serveur distant"
+          },
+          {
+            "de": "tiers",
+            "vers": "app",
+            "etape": 6,
+            "texte": "Consultation des emails d'un compte"
+          }
+        ]
+      },
+      "limites": "Les sources ne donnent ni la date des vols ni le nombre d'organisations touchées, et n'identifient pas les tiers qui consultent les emails [1].",
+      "cves": [
+        {
+          "id": "CVE-2014-6278",
+          "explication": "GNU Bash jusqu'à la version 4.3, citée parmi les huit failles exploitées [1]."
+        },
+        {
+          "id": "CVE-2015-3306",
+          "explication": "ProFTPD 1.3.5, citée parmi les huit failles exploitées ; correctif en 1.3.5a [1]."
+        },
+        {
+          "id": "CVE-2015-5477",
+          "explication": "ISC BIND (plusieurs versions 9.x) : déni de service qui fait quitter le serveur DNS [1]."
+        },
+        {
+          "id": "CVE-2016-3081",
+          "explication": "Apache Struts (plusieurs plages 2.3.x) : fonctionne uniquement si Dynamic Method Invocation est activé [1]."
+        },
+        {
+          "id": "CVE-2019-11510",
+          "explication": "Pulse Connect Secure (versions 8.2, 8.3 et 9.0 selon les plages), citée parmi les huit failles exploitées [1]."
+        },
+        {
+          "id": "CVE-2021-22205",
+          "explication": "GitLab à partir de la version 11.9, citée parmi les huit failles exploitées [1]."
+        },
+        {
+          "id": "CVE-2021-3199",
+          "explication": "ONLYOFFICE Document Server 5.1.5 à 5.6.2, applicable lorsque JWT est utilisé [1]."
+        },
+        {
+          "id": "CVE-2023-22894",
+          "explication": "Strapi jusqu'à la version 4.5.5, citée parmi les huit failles exploitées [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Integrity Technology Group, entreprise chinoise sanctionnée par les États-Unis et le Royaume-Uni [1]",
+        "Noms de suivi jugés cohérents avec les méthodes : Flax Typhoon, Ethereal Panda, RedJuliett [1]"
+      ],
+      "cibles": [
+        "Gouvernements, forces de l'ordre, santé et institutions religieuses en Asie du Sud-Est [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "XSS",
+          "definition": "Cross-Site Scripting : code injecté dans une page web vulnérable"
+        },
+        {
+          "sigle": "DCSync",
+          "definition": "Technique qui copie les identifiants depuis un contrôleur de domaine"
+        },
+        {
+          "sigle": "EWS",
+          "definition": "Exchange Web Services : interface d'accès aux emails Exchange"
+        },
+        {
+          "sigle": "PHP",
+          "definition": "Langage de programmation de scripts web"
+        },
+        {
+          "sigle": "DNS",
+          "definition": "Système qui associe un nom de domaine à une adresse"
+        },
+        {
+          "sigle": "BIND",
+          "definition": "Berkeley Internet Name Domain : logiciel de serveur DNS"
+        },
+        {
+          "sigle": "DC",
+          "definition": "Domain Controller : contrôleur de domaine, serveur qui gère les comptes"
+        },
+        {
+          "sigle": "GNU",
+          "definition": "Projet de logiciels libres, éditeur de l'interpréteur Bash"
+        },
+        {
+          "sigle": "ISC",
+          "definition": "Internet Systems Consortium : organisation qui édite BIND"
+        },
+        {
+          "sigle": "JWT",
+          "definition": "JSON Web Token : jeton signé servant à l'authentification"
+        },
+        {
+          "sigle": "ONLYOFFICE",
+          "definition": "Suite bureautique en ligne, produit visé"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "FBI Says China-Linked Hackers Ran Portal Giving Third Parties Access to Stolen Emails",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/fbi-says-china-linked-hackers-ran.html",
+          "date": "2026-10-08",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyj_ek8VTEYw5CpVqkAK63I01D84oGBvRsHmwpjeAfat3TCDqzhXqRWXWCGkNZKwH3rF0uyeuowCSGcBT-mLkdw-174FA0gGh8ZIVKOXUbXt9w0eTZZTlMGE-ySkZIIkswfxe0-cEU9ww6E8iIpWI2eDQU_NrsezDxIoE2WNBt8mDtG6nYeke9Ut17_JY/s1700-nu-rw-lo-l85-e365/china-email.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-vulcanrat207-whatsapp",
+      "title": "VulcanRAT207 diffusé par un leurre financier reçu via WhatsApp",
+      "created": "2026-10-08T19:09:11+00:00",
+      "updated": "2026-10-08T19:09:11+00:00",
+      "version": 1,
+      "resume": "Un leurre financier nommé Statement.exe, reçu via WhatsApp d'après l'article, livre le RAT VulcanRAT207 dans une intrusion Windows en plusieurs étapes [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Leurre financier « Statement.exe » reçu via WhatsApp, selon l'article [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Le chargeur tente une élévation de privilèges et injecte un téléchargeur dans le processus du planificateur de tâches → récupération d'un lot de déploiement [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Pilote signé GoFly64.sys chargé (BYOVD) → arrêt de processus de sécurité de Baidu [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Création d'une tâche de side-loading de DLL Vulkan, puis lancement du RAT WebSocket [1]."
+        },
+        {
+          "etape": "Contrôle à distance",
+          "texte": "Le RAT collecte des métadonnées système, ouvre un shell interactif, énumère les comptes locaux, remplace le texte du presse-papiers et peut s'auto-supprimer [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "wa",
+            "type": "messagerie",
+            "zone": "internet",
+            "nom": "WhatsApp",
+            "note": "Leurre Statement.exe"
+          },
+          {
+            "id": "poste",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste Windows de la victime",
+            "note": "RAT WebSocket"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "wa",
+            "etape": 1,
+            "texte": "Envoi du leurre financier"
+          },
+          {
+            "de": "wa",
+            "vers": "poste",
+            "etape": 1,
+            "texte": "Statement.exe reçu par la victime"
+          },
+          {
+            "de": "att",
+            "vers": "poste",
+            "etape": 5,
+            "texte": "Contrôle par le RAT WebSocket"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment ni l'acteur, ni les victimes, et ne donnent pas de dates [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [],
+      "abreviations": [
+        {
+          "sigle": "RAT",
+          "definition": "Remote Access Trojan : logiciel de prise de contrôle à distance"
+        },
+        {
+          "sigle": "BYOVD",
+          "definition": "Bring Your Own Vulnerable Driver : charger un pilote vulnérable pour couper les défenses"
+        },
+        {
+          "sigle": "DLL",
+          "definition": "Bibliothèque de code Windows chargée par un programme"
+        },
+        {
+          "sigle": "WebSocket",
+          "definition": "Protocole de communication continue entre un client et un serveur"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "ThreatsDay: Ransomware Affiliate Betrayal, WhatsApp RAT, Exposed Hacker Tools and 12 More Stories",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/threatsday-ransomware-affiliate.html",
+          "date": "2026-10-08",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgR_DE5ORKWCpLgZgXBuH-MFmuqfxFNnkGQxremc0ffY4dopMHnx-2HvgZTMh48BvVr8k22lGaM__jTS83DuXnLpF4NC9u4bsQF-8_K34gZU0kJS_-10pUSL7WNxecJG0pCiHyNFiqxXEqWP7NqUK2-uvwzo8-ETqwZkPWdNOjhNn5S1Y0uFQX2HGBE5_5J/s1700-nu-rw-lo-l85-e365/t-day.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-viva-aerobus-serveur-expose",
+      "title": "Serveur d'outils d'attaque exposé lié à une intrusion chez Viva Aerobus",
+      "created": "2026-10-08T19:09:11+00:00",
+      "updated": "2026-10-08T19:09:11+00:00",
+      "version": 1,
+      "resume": "Un serveur de préparation resté ouvert exposait 17 outils d'après intrusion liés à un environnement de la compagnie aérienne mexicaine Viva Aerobus ; l'acteur avait accédé à un serveur Microsoft SQL [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]. L'acteur a accédé à un serveur Microsoft SQL [1]."
+        },
+        {
+          "etape": "Exécution de commandes",
+          "texte": "Utilisation de xp_cmdshell → exécution de commandes et mise à disposition de charges supplémentaires [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Scripts de vidage d'identifiants, sortie Mimikatz et utilitaires de test d'identifiants SQL présents parmi les outils exposés [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Fichiers découpés, encodés en Base64 et renvoyés par morceaux dans les résultats de requêtes MSSQL [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sql",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur Microsoft SQL",
+            "note": ""
+          },
+          {
+            "id": "stg",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de préparation ouvert",
+            "note": "17 outils exposés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sql",
+            "etape": 1,
+            "texte": "Accès au serveur Microsoft SQL"
+          },
+          {
+            "de": "stg",
+            "vers": "sql",
+            "etape": 2,
+            "texte": "Charges supplémentaires servies"
+          },
+          {
+            "de": "sql",
+            "vers": "att",
+            "etape": 4,
+            "texte": "Fichiers renvoyés par morceaux"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment pas l'acteur et ne disent pas comment il a obtenu l'accès au serveur Microsoft SQL [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Environnement lié à la compagnie aérienne mexicaine Viva Aerobus [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SQL",
+          "definition": "Structured Query Language : langage d'interrogation de bases de données"
+        },
+        {
+          "sigle": "MSSQL",
+          "definition": "Microsoft SQL Server : serveur de bases de données de Microsoft"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "ThreatsDay: Ransomware Affiliate Betrayal, WhatsApp RAT, Exposed Hacker Tools and 12 More Stories",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/threatsday-ransomware-affiliate.html",
+          "date": "2026-10-08",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgR_DE5ORKWCpLgZgXBuH-MFmuqfxFNnkGQxremc0ffY4dopMHnx-2HvgZTMh48BvVr8k22lGaM__jTS83DuXnLpF4NC9u4bsQF-8_K34gZU0kJS_-10pUSL7WNxecJG0pCiHyNFiqxXEqWP7NqUK2-uvwzo8-ETqwZkPWdNOjhNn5S1Y0uFQX2HGBE5_5J/s1700-nu-rw-lo-l85-e365/t-day.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-loisirs-faille-televersement",
+      "title": "Faille de téléversement dans un logiciel de gestion de loisirs : trois serveurs compromis",
+      "created": "2026-10-08T19:09:11+00:00",
+      "updated": "2026-10-08T19:09:11+00:00",
+      "version": 1,
+      "resume": "Une faille de téléversement de fichiers dans une plateforme web de gestion de loisirs, utilisée par des municipalités et des parcs, a permis de compromettre trois serveurs [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Création d'un compte sur la plateforme, puis exploitation de sa fonction de téléversement de fichiers [1]."
+        },
+        {
+          "etape": "Exécution",
+          "texte": "Téléversement de web shells, puis de scripts PowerShell sur les serveurs [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Vol de données de paiement [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateforme de gestion de loisirs",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Trois serveurs compromis",
+            "note": "Web shells, PowerShell"
+          },
+          {
+            "id": "data",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données de paiement",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 1,
+            "texte": "Compte créé, faille de téléversement exploitée"
+          },
+          {
+            "de": "app",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Web shells et scripts PowerShell déposés"
+          },
+          {
+            "de": "data",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Données de paiement volées"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment ni le produit ni l'acteur ; l'article le suppose basé en Chine d'après des user-agents [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Origine chinoise supposée par l'article, d'après des user-agents [1]"
+      ],
+      "cibles": [
+        "Municipalités et parcs utilisant la plateforme [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "ThreatsDay: Ransomware Affiliate Betrayal, WhatsApp RAT, Exposed Hacker Tools and 12 More Stories",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/threatsday-ransomware-affiliate.html",
+          "date": "2026-10-08",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgR_DE5ORKWCpLgZgXBuH-MFmuqfxFNnkGQxremc0ffY4dopMHnx-2HvgZTMh48BvVr8k22lGaM__jTS83DuXnLpF4NC9u4bsQF-8_K34gZU0kJS_-10pUSL7WNxecJG0pCiHyNFiqxXEqWP7NqUK2-uvwzo8-ETqwZkPWdNOjhNn5S1Y0uFQX2HGBE5_5J/s1700-nu-rw-lo-l85-e365/t-day.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-powerbi-phishing-screenconnect",
+      "title": "Phishing hébergé sur Power BI pour installer ScreenConnect",
+      "created": "2026-10-08T19:09:11+00:00",
+      "updated": "2026-10-08T19:09:11+00:00",
+      "version": 1,
+      "resume": "Une campagne de phishing utilise des domaines Power BI légitimes pour faire télécharger de faux installateurs ScreenConnect [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Email de phishing menant à un faux document de référence hébergé sur Power BI [1]."
+        },
+        {
+          "etape": "Redirection",
+          "texte": "Le bouton « Download Reference » ouvre un site contrôlé par l'attaquant, qui empreinte les victimes [1]."
+        },
+        {
+          "etape": "Livraison de l'outil",
+          "texte": "Après un délai, téléchargement d'un faux installateur ScreenConnect → accès à distance au poste [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "msg",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Boîte mail de la victime",
+            "note": ""
+          },
+          {
+            "id": "pbi",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux document Power BI",
+            "note": ""
+          },
+          {
+            "id": "site",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Site de l'attaquant",
+            "note": ""
+          },
+          {
+            "id": "poste",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de la victime",
+            "note": "ScreenConnect"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "msg",
+            "etape": 1,
+            "texte": "Email de phishing"
+          },
+          {
+            "de": "msg",
+            "vers": "pbi",
+            "etape": 1,
+            "texte": "Lien vers le faux document"
+          },
+          {
+            "de": "pbi",
+            "vers": "site",
+            "etape": 2,
+            "texte": "Bouton « Download Reference »"
+          },
+          {
+            "de": "site",
+            "vers": "poste",
+            "etape": 3,
+            "texte": "Installateur ScreenConnect téléchargé"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment pas l'acteur et ne disent pas ce que les attaquants font après l'installation [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [],
+      "abreviations": [
+        {
+          "sigle": "BI",
+          "definition": "Business Intelligence : informatique décisionnelle, dans Power BI"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "ThreatsDay: Ransomware Affiliate Betrayal, WhatsApp RAT, Exposed Hacker Tools and 12 More Stories",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/threatsday-ransomware-affiliate.html",
+          "date": "2026-10-08",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgR_DE5ORKWCpLgZgXBuH-MFmuqfxFNnkGQxremc0ffY4dopMHnx-2HvgZTMh48BvVr8k22lGaM__jTS83DuXnLpF4NC9u4bsQF-8_K34gZU0kJS_-10pUSL7WNxecJG0pCiHyNFiqxXEqWP7NqUK2-uvwzo8-ETqwZkPWdNOjhNn5S1Y0uFQX2HGBE5_5J/s1700-nu-rw-lo-l85-e365/t-day.jpg"
+        }
+      ]
     }
   ]
 }

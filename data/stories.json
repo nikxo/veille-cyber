@@ -3828,13 +3828,13 @@
       "id": "2026-10-07-fortibleed-fortigate-identifiants",
       "title": "FortiBleed : vol d'identifiants sur plus de 86 000 pare-feu Fortinet exposés",
       "created": "2026-10-07T13:30:00+00:00",
-      "updated": "2026-10-07T22:30:00+00:00",
-      "version": 3,
+      "updated": "2026-10-08T08:07:54+00:00",
+      "version": 4,
       "resume": "La campagne FortiBleed vise des pare-feu et passerelles VPN FortiGate exposés sur Internet. Le FBI et le Secret Service avertissent qu'elle reste active après 86 644 identifiants récoltés [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Balayage d'Internet pour trouver des portails VPN FortiGate exposés, puis essais d'identifiants réutilisés ou issus de fuites, et force brute → accès aux pare-feu [1, 2, 3, 4]."
+          "texte": "Balayage d'Internet pour trouver des portails VPN FortiGate exposés, puis essais d'identifiants réutilisés ou issus de fuites, et force brute → accès aux pare-feu [1, 2, 3, 4, 5]."
         },
         {
           "etape": "Récolte d'identifiants",
@@ -3846,7 +3846,7 @@
         },
         {
           "etape": "Persistance, déplacement",
-          "texte": "Nouveaux comptes sur les pare-feu [2, 4], mots de passe d'origine modifiés ou comptes supprimés → administrateurs légitimes bloqués [3, 4] ; annuaire Active Directory exploré, comptes administrateurs créés [1]."
+          "texte": "Nouveaux comptes sur les pare-feu [2, 4], mots de passe d'origine modifiés ou comptes supprimés → administrateurs légitimes bloqués [3, 4, 5] ; annuaire Active Directory exploré, comptes administrateurs créés [1]."
         },
         {
           "etape": "Revente des accès",
@@ -3917,7 +3917,7 @@
       "acteurs": [
         "Opération de langue russe, courtier en accès soupçonné, qui vend à des opérateurs de rançongiciels INC et Lynx [1]",
         "affiliés INC, Lynx et Payload cités [2, 4]",
-        "Courtier en accès initiaux, nom non mentionné [3]"
+        "Courtier en accès initiaux, nom non mentionné [3] ; décrit comme russe [5]"
       ],
       "cibles": [
         "Pare-feu et passerelles VPN FortiGate exposés dans 194 pays [1] ; au moins 12 organisations chiffrées, fonctionnaires britanniques visés [2]",
@@ -3997,6 +3997,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/fbi-ongoing-fortibleed-attacks-lock-out-fortigate-vpn-admins/",
           "date": "2026-10-07",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/06/19/Fortinet-headpic.jpg"
+        },
+        {
+          "titre": "FortiBleed Attackers Locking Victims Out of Fortinet Devices",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/fortibleed-attackers-locking-victims-out-of-fortinet-devices/",
+          "date": "2026-10-08",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Fortinet.jpeg"
         }
       ]
     },

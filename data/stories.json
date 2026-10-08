@@ -6824,13 +6824,13 @@
       "id": "2026-10-08-integrity-technology-emails-asie-sud-est",
       "title": "Pirates liés à Integrity Technology Group : vol d'emails en Asie du Sud-Est",
       "created": "2026-10-08T19:09:11+00:00",
-      "updated": "2026-10-08T19:09:11+00:00",
-      "version": 1,
+      "updated": "2026-10-08T20:30:00+00:00",
+      "version": 2,
       "resume": "Des pirates liés à l'entreprise chinoise Integrity Technology Group ont volé des emails de gouvernements, forces de l'ordre, systèmes de santé et institutions religieuses en Asie du Sud-Est, et fait fonctionner une application web donnant à des tiers accès à ces emails [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Analyse de sites avec des outils de scan, exploitation de huit failles connues, faux formulaire de connexion (XSS) ou password spraying contre Microsoft 365 et Exchange [1]."
+          "texte": "Analyse de sites avec des outils de scan, exploitation de huit failles connues, faux formulaire de connexion (XSS) ou password spraying contre Microsoft 365 et Exchange [1, 2]."
         },
         {
           "etape": "Exécution du logiciel malveillant",
@@ -6850,7 +6850,7 @@
         },
         {
           "etape": "Accès pour des tiers",
-          "texte": "Une application web affiche les emails d'un compte via des arguments ajoutés à l'adresse web ; l'accès était parfois limité à des adresses de Xiamen [1]."
+          "texte": "Une application web affiche les emails d'un compte via des arguments ajoutés à l'adresse web ; l'accès était parfois limité à des adresses de Xiamen [1, 2]."
         }
       ],
       "parcours": {
@@ -6982,10 +6982,12 @@
       "mitre": [],
       "acteurs": [
         "Integrity Technology Group, entreprise chinoise sanctionnée par les États-Unis et le Royaume-Uni [1]",
-        "Noms de suivi jugés cohérents avec les méthodes : Flax Typhoon, Ethereal Panda, RedJuliett [1]"
+        "Noms de suivi jugés cohérents avec les méthodes : Flax Typhoon, Ethereal Panda, RedJuliett [1]",
+        "Entreprise chinoise liée au ministère de la Sécurité d'État ; ses outils (Microscan, FishHub) ont été saisis par plusieurs pays le 8 octobre 2026 [2]"
       ],
       "cibles": [
-        "Gouvernements, forces de l'ordre, santé et institutions religieuses en Asie du Sud-Est [1]"
+        "Gouvernements, forces de l'ordre, santé et institutions religieuses en Asie du Sud-Est [1]",
+        "Entreprise électrique américaine, aéroports japonais et polonais, entreprises taïwanaises de gaz et d'électricité [2]"
       ],
       "abreviations": [
         {
@@ -7040,6 +7042,13 @@
           "url": "https://thehackernews.com/2026/10/fbi-says-china-linked-hackers-ran.html",
           "date": "2026-10-08",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyj_ek8VTEYw5CpVqkAK63I01D84oGBvRsHmwpjeAfat3TCDqzhXqRWXWCGkNZKwH3rF0uyeuowCSGcBT-mLkdw-174FA0gGh8ZIVKOXUbXt9w0eTZZTlMGE-ySkZIIkswfxe0-cEU9ww6E8iIpWI2eDQU_NrsezDxIoE2WNBt8mDtG6nYeke9Ut17_JY/s1700-nu-rw-lo-l85-e365/china-email.jpg"
+        },
+        {
+          "titre": "International coalition seizes tools used by cyber firm behind Flax Typhoon",
+          "site": "The Record",
+          "url": "https://therecord.media/flax-typhoon-china-tools-integrity-tech-international-takedown",
+          "date": "2026-10-08",
+          "image": "https://cms.therecord.media/uploads/china_flag_wesley_tingey_unsplash_a9625e393a.jpg"
         }
       ]
     },
@@ -7448,6 +7457,101 @@
           "url": "https://thehackernews.com/2026/10/threatsday-ransomware-affiliate.html",
           "date": "2026-10-08",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgR_DE5ORKWCpLgZgXBuH-MFmuqfxFNnkGQxremc0ffY4dopMHnx-2HvgZTMh48BvVr8k22lGaM__jTS83DuXnLpF4NC9u4bsQF-8_K34gZU0kJS_-10pUSL7WNxecJG0pCiHyNFiqxXEqWP7NqUK2-uvwzo8-ETqwZkPWdNOjhNn5S1Y0uFQX2HGBE5_5J/s1700-nu-rw-lo-l85-e365/t-day.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-midnight-mimosa-android-firmware",
+      "title": "Midnight Mimosa : téléphones Android bas de gamme livrés avec un logiciel malveillant dans le firmware",
+      "created": "2026-10-08T20:30:00+00:00",
+      "updated": "2026-10-08T20:30:00+00:00",
+      "version": 1,
+      "resume": "La campagne Midnight Mimosa a touché des milliers de téléphones Android bas de gamme dans plus de 150 pays : un logiciel préinstallé dans le firmware installe des applications, fraude à la publicité et prépare un proxy résidentiel [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Logiciel malveillant préinstallé dans le firmware de téléphones Android bas de gamme à puces MediaTek ; l'auteur et l'étape de la modification sont inconnus [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Application système imitant un paquet Android légitime, signée et non désinstallable → installation, suppression d'applications et exécution de code distant sans action de l'utilisateur [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Désactivation temporaire du Play Store avant les installations → Google Play Protect ne détecte pas ces installations [1]."
+        },
+        {
+          "etape": "Fraude publicitaire",
+          "texte": "Environ 32 applications téléchargées depuis des serveurs de commande ; une fenêtre invisible superposée → impressions et clics publicitaires générés [1]."
+        },
+        {
+          "etape": "Proxy résidentiel",
+          "texte": "Une application enregistre l'appareil auprès d'un serveur de commande → trafic relayable vers des cibles choisies ; usage actif non confirmé [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (non identifié)",
+            "note": ""
+          },
+          {
+            "id": "tel",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Téléphones Android bas de gamme",
+            "note": "Firmware piégé"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveurs de commande",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "tel",
+            "etape": 1,
+            "texte": "Logiciel préinstallé dans le firmware"
+          },
+          {
+            "de": "c2",
+            "vers": "tel",
+            "etape": 4,
+            "texte": "Modules et applications téléchargés"
+          },
+          {
+            "de": "tel",
+            "vers": "c2",
+            "etape": 5,
+            "texte": "Enregistrement du composant proxy"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent pas qui a modifié le firmware ni à quel moment ; l'utilisation réelle du proxy n'est pas confirmée [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1]"
+      ],
+      "cibles": [
+        "Utilisateurs de téléphones Android bas de gamme dans plus de 150 pays [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Low-cost Android phones ship with residential proxy malware",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/low-cost-android-phones-ship-with-residential-proxy-malware/",
+          "date": "2026-10-08",
+          "image": "https://www.bleepstatic.com/content/hl-images/2023/05/25/Android_malware.jpg"
         }
       ]
     }

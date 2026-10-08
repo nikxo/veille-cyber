@@ -5174,6 +5174,100 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1ZJrw-vCazDC3YJlfmY9WewJ170my9lYex6Ccg7VTa8UQCrXWoCiy_F9w_LoP-GDEarC_RoYnx63fAa_i_RmR5564MS6tgcoqi77wlcqPzX7kambOt4Gga7rsMlWWBwyHKZtCb1lAowiE4bf5up8aIJuwoVsZSKTq15TTynJ-uNPirAGnY8uwMMGqBsgU/s1700-nu-rw-lo-l85-e365/npm-hack.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-oracle-health-cerner-donnees-sante",
+      "title": "Oracle Health : des identifiants clients volés ouvrent un serveur Cerner, près de 20 millions de personnes touchées",
+      "created": "2026-10-08T09:30:00+00:00",
+      "updated": "2026-10-08T09:30:00+00:00",
+      "version": 1,
+      "resume": "Un attaquant a copié des données de santé depuis un serveur Cerner d'Oracle Health, puis a exigé des cryptomonnaies aux hôpitaux. Le total avancé est de près de 20 millions de personnes, non confirmé par Oracle [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Utilisation d'identifiants clients volés → accès à un serveur Cerner ancien, non encore migré vers Oracle Cloud [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Copie des données vers un serveur distant → noms, numéros de sécurité sociale et informations de dossiers médicaux exposés [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Demande de millions de dollars en cryptomonnaies et création de sites publics sur la violation → pression sur les hôpitaux [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur Cerner ancien",
+            "note": "Non migré"
+          },
+          {
+            "id": "dist",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur distant",
+            "note": "Données copiées"
+          },
+          {
+            "id": "hop",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Hôpitaux clients",
+            "note": "Extorqués"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 1,
+            "texte": "Identifiants clients volés"
+          },
+          {
+            "de": "srv",
+            "vers": "dist",
+            "etape": 2,
+            "texte": "Copie des données"
+          },
+          {
+            "de": "att",
+            "vers": "hop",
+            "etape": 3,
+            "texte": "Extorsion en cryptomonnaies"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas comment les identifiants ont été obtenus. Oracle n'a pas confirmé le chiffre de près de 20 millions [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Individu isolé appelé « Andrew » selon des sources citées par BleepingComputer, sans lien revendiqué avec un groupe établi [1]"
+      ],
+      "cibles": [
+        "Secteur de la santé : hôpitaux clients de Cerner et d'Oracle Health, notamment au Texas, en Caroline du Sud et à Washington [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Oracle Health Data Breach Tally Climbs to Nearly 20 Million",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/oracle-health-data-breach-tally-climbs-to-nearly-20-million/",
+          "date": "2026-10-08",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/03/healthcare-medical.jpeg"
+        }
+      ]
     }
   ]
 }

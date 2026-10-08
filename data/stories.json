@@ -6219,6 +6219,102 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/08/Bitcoin_cryptocurrency_theft.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-silent-ransom-agents-cabinets-avocats",
+      "title": "Silent Ransom Group : des « agents » envoyés dans des cabinets d'avocats américains",
+      "created": "2026-10-08T15:07:49+00:00",
+      "updated": "2026-10-08T15:07:49+00:00",
+      "version": 1,
+      "resume": "Des messages internes du groupe d'extorsion russe Silent Ransom Group ont fuité. Ils montrent des recrues qui se font passer pour du personnel informatique pour accéder physiquement aux ordinateurs d'environ 50 organisations, surtout des cabinets d'avocats [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Des « agents » se font passer pour du personnel informatique → accès physique aux ordinateurs des victimes [1]."
+        },
+        {
+          "etape": "Recrutement et préparation",
+          "texte": "Annonces Telegram déguisées en offres d'emploi, puis achat de matériel pour de faux badges et uniformes → agents équipés pour entrer dans les locaux [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Un individu entre dans un cabinet new-yorkais → fichiers copiés sur une clé USB [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Suivi des victimes en étapes de négociation → le cabinet new-yorkais accepte une demande de 1 million de dollars [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Silent Ransom Group)",
+            "note": ""
+          },
+          {
+            "id": "ag",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Agent recruté sur place",
+            "note": "Faux informaticien"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Ordinateurs du cabinet",
+            "note": "Fichiers copiés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ag",
+            "etape": 2,
+            "texte": "Recrutement via annonces Telegram"
+          },
+          {
+            "de": "ag",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Accès physique en se faisant passer pour l'informatique"
+          },
+          {
+            "de": "pc",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Fichiers copiés sur clé USB"
+          }
+        ]
+      },
+      "limites": "L'article ne cite aucune faille ni technique MITRE. Les enlèvements, filatures et le ciblage d'un sous-traitant militaire sont évoqués dans les messages, sans confirmation d'exécution [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Silent Ransom Group, aussi suivi sous les noms Luna Moth et Chatty Spider [1]"
+      ],
+      "cibles": [
+        "Environ 50 organisations, principalement des cabinets d'avocats [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "USB",
+          "definition": "Universal Serial Bus : port et clé de stockage amovible"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Leaked chats show Russian extortion gang sending ‘agents’ into US law firms",
+          "site": "The Record",
+          "url": "https://therecord.media/leaked-chats-show-russian-extortion-gang-sending-agents-to-law-firms",
+          "date": "2026-10-08",
+          "image": "https://cms.therecord.media/uploads/silent_ransom_babc64adfe.jpg"
+        }
+      ]
     }
   ]
 }

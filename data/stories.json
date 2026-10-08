@@ -6315,6 +6315,195 @@
           "image": "https://cms.therecord.media/uploads/silent_ransom_babc64adfe.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-uac-0099-ashvein",
+      "title": "UAC-0099 : le malware ASHVEIN vise le personnel du gouvernement ukrainien",
+      "created": "2026-10-08T16:30:00+00:00",
+      "updated": "2026-10-08T16:30:00+00:00",
+      "version": 1,
+      "resume": "Le groupe UAC-0099, aligné sur la Russie, utilise un voleur d'informations et outil d'accès à distance inédit, ASHVEIN, contre du personnel du gouvernement ukrainien [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Le canal de diffusion n'est pas mentionné [1]. L'article cite chargement latéral de DLL, conteneurs VHD et droppers avec document Word leurre [1]."
+        },
+        {
+          "etape": "Vol d'informations",
+          "texte": "ASHVEIN vole les identifiants de Chrome et Firefox, capture l'écran, énumère et récupère des fichiers → données de la machine collectées [1]."
+        },
+        {
+          "etape": "Contrôle à distance",
+          "texte": "Shell PowerShell distant et canal chiffré vers le serveur de commande → exécution de commandes par les attaquants [1]."
+        },
+        {
+          "etape": "Dissimulation des ordres",
+          "texte": "Tâches cachées dans des éléments HTML invisibles ; certaines variantes utilisent un dépôt GitHub comme solution de secours [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (UAC-0099)",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes du personnel gouvernemental",
+            "note": "ASHVEIN"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Livraison d'ASHVEIN, canal non précisé"
+          },
+          {
+            "de": "pc",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Données volées, commandes via canal chiffré"
+          }
+        ]
+      },
+      "limites": "L'article ne précise pas le canal de diffusion ni le lien exact entre les techniques d'accès citées et ASHVEIN [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "UAC-0099, aligné sur la Russie, suivi par TrendAI sous le nom Earth Sirrush [1]"
+      ],
+      "cibles": [
+        "Personnel du gouvernement ukrainien [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "DLL",
+          "definition": "Bibliothèque de code Windows chargée par des programmes"
+        },
+        {
+          "sigle": "VHD",
+          "definition": "Fichier image de disque virtuel"
+        },
+        {
+          "sigle": "HTML",
+          "definition": "Langage de description des pages web"
+        },
+        {
+          "sigle": "ASHVEIN",
+          "definition": "Nom du logiciel malveillant voleur d'informations utilisé par UAC-0099"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "UAC-0099 Targets Ukrainian Government Personnel With ASHVEIN RAT Hiding Commands in HTML",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/uac-0099-targets-ukrainian-government.html",
+          "date": "2026-10-08",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZWPW7zD0DZUCKyeRcD-sBZtZ28n4PPaJDPjiskf9ghOI7b3aYbYCEbNvITxaYjCkejq8Vfuc0xeZtJ7p2R4j4dEqGXwfb1JLqQVHrgE4uxdSCq-JJgAeLA0WZbz5Fi98LQbxr3ncRXodrBd83xaX2UpXtDb-Q55ryWBPeXGAQlDBykN_BYecleld5rxJM/s1700-nu-rw-lo-l85-e365/uk.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-artex-banques-coree-sud",
+      "title": "Outil ARTEX d'attaque pilotée par IA contre des organisations financières sud-coréennes",
+      "created": "2026-10-08T16:30:00+00:00",
+      "updated": "2026-10-08T16:30:00+00:00",
+      "version": 1,
+      "resume": "Une campagne de fin septembre à début octobre 2026 a visé des organisations financières sud-coréennes avec l'outil de test d'intrusion ARTEX, et a abouti à un vol de données [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Attaque par ARTEX",
+          "texte": "Instance ARTEX hébergée sur une adresse dédiée, avec plusieurs modèles de langage comme moteur → attaques menées contre les victimes [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Les attaques ont abouti à une exfiltration de données [1]."
+        },
+        {
+          "etape": "Revente envisagée",
+          "texte": "L'opérateur a cherché où vendre des données sud-coréennes volées, notamment des groupes Telegram [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (opérateur ARTEX)",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur ARTEX",
+            "note": ""
+          },
+          {
+            "id": "fin",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Organisations financières",
+            "note": "Données volées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Pilotage de l'instance ARTEX"
+          },
+          {
+            "de": "srv",
+            "vers": "fin",
+            "etape": 2,
+            "texte": "Attaques contre les organisations"
+          }
+        ]
+      },
+      "limites": "Les sources ne donnent ni le vecteur d'accès initial, ni le détail des actions dans les systèmes des victimes, ni l'acteur [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non attribué ; CrowdStrike évoque un opérateur probablement chinophone, motivé financièrement [1]"
+      ],
+      "cibles": [
+        "Organisations financières sud-coréennes [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "ARTEX",
+          "definition": "Outil open source de test d'intrusion piloté par IA"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "ARTEX AI Pentesting Tool Used in Data Theft Attacks on South Korean Financial Firms",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/artex-ai-pentesting-tool-used-in-data.html",
+          "date": "2026-10-08",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrg8bHUppR3zYriUhWwJig9yJq8F69XCeJrtY040zk39DNhblhBRkcTcQSqRo6K3PwnMVoygOCmbWf2X7ySQDxpfDlgmXFBDGhoiicnG3_5E84RhV6muyzgGacKye5eiB5dLcvsNfny5yS-4TlrypAdPcU1PVfT-jMxWvdfg9algqsvxycUV1Jy1xUjGiT/s1700-nu-rw-lo-l85-e365/ai-hacker.jpg"
+        }
+      ]
     }
   ]
 }

@@ -4906,6 +4906,114 @@
           "image": "https://www.zataz.com/wp-content/uploads/byod_trump_mobile.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-youtube-fausses-offres-hollyland",
+      "title": "Fausses offres de sponsoring visant à voler des comptes Google de créateurs YouTube",
+      "created": "2026-10-08T05:30:00+00:00",
+      "updated": "2026-10-08T05:30:00+00:00",
+      "version": 1,
+      "resume": "Une campagne se faisant passer pour la marque Hollyland, ainsi que Nike et Spotify, contacte des créateurs YouTube au Pérou, au Japon et dans le monde anglophone pour leur voler leur compte Google [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Courriel personnalisé proposant une collaboration sponsorisée, envoyé depuis un domaine sans lien avec Hollyland → premier contact avec le créateur [1]."
+        },
+        {
+          "etape": "Mise en confiance",
+          "texte": "Second courriel après l'envoi des tarifs, invitant à vérifier l'accord et le paiement sur un site → la cible arrive sur une fausse plateforme [1]."
+        },
+        {
+          "etape": "Fausse plateforme",
+          "texte": "Le site affiche statistiques, logos et calculateur de revenus, puis demande l'adresse de la chaîne YouTube → informations publiques utilisées pour personnaliser la page [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Fausse page de connexion Google présentée comme vérification de propriété de la chaîne → capture du mot de passe et du code à usage unique [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Dans le cas d'une créatrice, remplacement du téléphone et de l'adresse de récupération, ajout de codes de secours → récupération du compte entravée [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "bal",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Boîte mail du créateur",
+            "note": "Fausse offre reçue"
+          },
+          {
+            "id": "pf",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Fausse plateforme de marque",
+            "note": "Fausse page Google"
+          },
+          {
+            "id": "cpt",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Compte Google du créateur",
+            "note": "Gmail, Drive"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "bal",
+            "etape": 1,
+            "texte": "Courriel d'offre de sponsoring"
+          },
+          {
+            "de": "bal",
+            "vers": "pf",
+            "etape": 2,
+            "texte": "Invitation à vérifier l'accord sur un site"
+          },
+          {
+            "de": "pf",
+            "vers": "att",
+            "etape": 4,
+            "texte": "Mot de passe et code à usage unique capturés"
+          },
+          {
+            "de": "att",
+            "vers": "cpt",
+            "etape": 5,
+            "texte": "Téléphone et adresse de récupération remplacés"
+          }
+        ]
+      },
+      "limites": "L'article n'attribue la campagne à aucun acteur nommé [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié; l'article parle d'attaquants sans attribution [1]"
+      ],
+      "cibles": [
+        "Créateurs YouTube au Pérou, au Japon et anglophones; marque Hollyland usurpée [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Inside a brand deal scam targeting YouTube creators",
+          "site": "WeLiveSecurity (ESET)",
+          "url": "https://www.welivesecurity.com/en/social-media/brand-deal-scam-targeting-youtube-creators/",
+          "date": "2026-10-07",
+          "image": "https://web-assets.esetstatic.com/wls/2026/09-26/influencers-scams.png"
+        }
+      ]
     }
   ]
 }

@@ -6610,6 +6610,214 @@
           "image": "https://cms.therecord.media/uploads/clothing_apparel_fd2b2bef29.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-fakegit-smartloader-stealc",
+      "title": "Campagne FakeGit : 17 610 faux dépôts GitHub diffusent SmartLoader et StealC",
+      "created": "2026-10-08T18:20:00+00:00",
+      "updated": "2026-10-08T18:20:00+00:00",
+      "version": 1,
+      "resume": "Selon Apiiro, le réseau FakeGit compte 17 610 dépôts GitHub frauduleux qui diffusent SmartLoader, relancé début octobre pour distribuer le voleur d'informations StealC [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Faux dépôts GitHub dont le README propose un bouton de téléchargement → archive ZIP qui installe SmartLoader quand la victime la télécharge [1]."
+        },
+        {
+          "etape": "Charge finale",
+          "texte": "SmartLoader sert à distribuer d'autres logiciels malveillants → livraison du voleur d'informations StealC [1]."
+        },
+        {
+          "etape": "Résistance aux suppressions",
+          "texte": "Liens redirigés vers des copies de secours (forks, anciennes archives, dépôts d'hébergement séparés) → l'opérateur continue malgré les retraits [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (opérateur FakeGit)",
+            "note": ""
+          },
+          {
+            "id": "gh",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux dépôts GitHub",
+            "note": "17 610 dépôts"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de la victime",
+            "note": "SmartLoader puis StealC"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gh",
+            "etape": 1,
+            "texte": "Publication de faux dépôts avec bouton de téléchargement"
+          },
+          {
+            "de": "gh",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Archive ZIP téléchargée, SmartLoader installé"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "SmartLoader livre le voleur StealC"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment pas d'acteur, ne donnent ni nombre de victimes ni secteur, et ne décrivent pas ce que fait StealC sur le poste [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non nommé : l'article parle d'un opérateur [1]"
+      ],
+      "cibles": [
+        "Utilisateurs qui téléchargent des archives depuis ces dépôts ; victimes non précisées [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "README",
+          "definition": "Fichier de présentation affiché en page d'accueil d'un dépôt"
+        },
+        {
+          "sigle": "ZIP",
+          "definition": "Format d'archive qui regroupe des fichiers compressés"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "FakeGit malware campaign returns with 17,610 malicious GitHub repos",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fakegit-malware-campaign-returns-with-17-610-malicious-github-repos/",
+          "date": "2026-10-08",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/08/github.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-japon-fuites-api-mobiles-metabase",
+      "title": "Japon : fuites de données via API d'applications mobiles et faille Metabase",
+      "created": "2026-10-08T18:20:00+00:00",
+      "updated": "2026-10-08T18:20:00+00:00",
+      "version": 1,
+      "resume": "Le JPCERT/CC attribue une série de fuites de données personnelles d'organisations japonaises à l'abus d'API d'applications mobiles et à des failles connues, dont une faille de Metabase [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Analyse d'une application mobile publique, ou clés d'API volées ailleurs, ou mots de passe d'administration faibles, ou failles connues → accès aux services [1]."
+        },
+        {
+          "etape": "Abus de l'API",
+          "texte": "Appels à des API internes → modification de privilèges, création de comptes non autorisés, données de comptes obtenues [1]."
+        },
+        {
+          "etape": "Exploitation de Metabase",
+          "texte": "Injection SQL dans la base de Metabase (CVE-2026-72898) → accès administrateur, vol des identifiants des bases connectées, export de leurs données [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (non nommé)",
+            "note": ""
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Application mobile et API",
+            "note": ""
+          },
+          {
+            "id": "mb",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Outil Metabase",
+            "note": "Accès administrateur"
+          },
+          {
+            "id": "db",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Bases de données connectées",
+            "note": "Données exportées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 2,
+            "texte": "Appels à des API internes"
+          },
+          {
+            "de": "att",
+            "vers": "mb",
+            "etape": 3,
+            "texte": "Injection SQL (CVE-2026-72898)"
+          },
+          {
+            "de": "mb",
+            "vers": "db",
+            "etape": 3,
+            "texte": "Identifiants volés, données lues et exportées"
+          }
+        ]
+      },
+      "limites": "L'alerte est décrite comme limitée et fragmentaire, et une même méthode n'a pas servi dans tous les cas [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-72898",
+          "explication": "Metabase, outil d'analyse de données : injection SQL dans la base applicative pouvant donner un accès administrateur, sans compte requis, gravité 10 sur 10, exploitée avant correctif [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Aucun groupe nommé par le JPCERT/CC ni par Macnica [1]"
+      ],
+      "cibles": [
+        "Boutiques en ligne, services aux membres, Park24 (Times Car), Monogatari (Yakiniku King), AhaSlides [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Interface qui permet à des programmes d'échanger des données"
+        },
+        {
+          "sigle": "SQL",
+          "definition": "Langage d'interrogation des bases de données"
+        },
+        {
+          "sigle": "JPCERT/CC",
+          "definition": "Centre japonais de coordination qui reçoit les signalements d'incidents"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Japan Sees Sharp Rise in Web Data Leaks Amid Mobile API Abuse and Metabase Attacks",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/japan-sees-sharp-rise-in-web-data-leaks.html",
+          "date": "2026-10-08",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCKjRUY0kVdYD5knK69g1IBPPL21WViperTcXNtjnWiYjNuL6GsohD9A6Q_SpyDpAT6mNMjLTZGOJ_eB1FIMUllxUVEnkUXA1zTWGU1aw5LYJrVZu5gNxH1zSpxX5elSBB-f2OG4LjdhzWTX97lT16uAdvKClT_gP4ucRJjKAXKU4a-3KxbbNLU5RdwKc/s1700-nu-rw-lo-l85-e365/japan.jpg"
+        }
+      ]
     }
   ]
 }

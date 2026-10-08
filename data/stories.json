@@ -2169,115 +2169,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-10-06-malfex-npm-paquets-malveillants",
-      "title": "Campagne MALFEX : paquets npm malveillants publiés depuis août 2023",
-      "created": "2026-10-06T11:30:00+00:00",
-      "updated": "2026-10-07T18:30:00+00:00",
-      "version": 2,
-      "resume": "Depuis août 2023, un même acteur a publié des paquets npm malveillants dans la campagne MALFEX ; huit ont été téléchargés 40 767 fois, dont 37 419 pour function-flag [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Publication de paquets npm malveillants sur le registre public → installation directe par les utilisateurs [1, 2]."
-        },
-        {
-          "etape": "Exécution du code",
-          "texte": "Scripts lancés après l'installation des paquets → téléchargement et exécution des charges, dont le chargeur du cheval de Troie Overlord dans trois paquets [1, 2]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Le code malveillant déploie le voleur movinlike → ciblage de Discord, navigateurs et portefeuilles de cryptomonnaies [1]."
-        },
-        {
-          "etape": "Charge externe",
-          "texte": "Chaque version de function-flag contient un téléchargeur → récupération d'une charge utile externe [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (MALFEX)",
-            "note": ""
-          },
-          {
-            "id": "reg",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Registre npm",
-            "note": "Paquets malveillants"
-          },
-          {
-            "id": "pc",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Postes des utilisateurs",
-            "note": "Installation des paquets"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "reg",
-            "etape": 1,
-            "texte": "Publication de paquets malveillants"
-          },
-          {
-            "de": "reg",
-            "vers": "pc",
-            "etape": 2,
-            "texte": "Scripts lancés pendant npm install"
-          },
-          {
-            "de": "pc",
-            "vers": "att",
-            "etape": 3,
-            "texte": "Voleur movinlike : Discord, navigateurs, portefeuilles"
-          }
-        ]
-      },
-      "limites": "Aucune source ne cite de victime précise ; l'acteur est décrit comme opportuniste, sans ciblage géographique [1, 2]. Le pays de l'opérateur est seulement soupçonné [2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Un seul acteur derrière les paquets [1]",
-        "Individu lusophone utilisant le pseudonyme « Murizada », opérateur soupçonné brésilien d'après les métadonnées du dépôt [2]"
-      ],
-      "cibles": [
-        "Utilisateurs de paquets npm, sans ciblage géographique ou organisationnel [1]",
-        "Systèmes Windows, ciblage décrit comme opportuniste [2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "npm",
-          "definition": "Gestionnaire de paquets et registre public de JavaScript"
-        },
-        {
-          "sigle": "MALFEX",
-          "definition": "Nom donné à la campagne de paquets npm malveillants"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Long-Running NPM Malware Campaign Accumulates 40,000 Downloads",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/long-running-npm-malware-campaign-accumulates-40000-downloads/",
-          "date": "2026-10-06",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/supply-chain-threat.webp"
-        },
-        {
-          "titre": "Eight Malicious npm Packages Downloaded 40,767 Times Deliver Overlord RAT and Stealer",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/eight-malicious-npm-packages-downloaded.html",
-          "date": "2026-10-07",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgopANe3MXyNNOXog__x1pF53wYoQxinI47tN9gLrZSzJfumz-Dg05ZfyjiGsqF47Pugj71iZ1buX7OEiupWYa09xVQdu7DKOMX5NO-uGKCF0UjNila0x5fNiYw5NWEX1TUQTPidjT5NnGmPwM_6mGfKcOxqcjZuPAZLdzRX5u_TXJM76GQ6mQOkikw_kxo/s1700-nu-rw-lo-l85-e365/npm-malware.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-10-06-akira-rdp-bitdefender",
       "title": "Akira : intrusion par bureau à distance, antivirus coupé puis chiffrement",
       "created": "2026-10-06T13:20:00+00:00",
@@ -3242,116 +3133,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-10-07-arizona-tribunaux-donnees-personnelles",
-      "title": "Système judiciaire de l'Arizona : données personnelles de 1,3 million de personnes copiées après un lien piégé",
-      "created": "2026-10-07T02:30:00+00:00",
-      "updated": "2026-10-07T19:07:56+00:00",
-      "version": 2,
-      "resume": "Le système judiciaire de l'Arizona a subi une cyberattaque détectée le 24 septembre 2026 : des données personnelles de 1,3 million de personnes ont été copiées [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Un employé de la cour clique sur un lien malveillant reçu par courriel → compromission du système [1]."
-        },
-        {
-          "etape": "Accès aux dossiers",
-          "texte": "Consultation de dossiers de protection (près de 30 000) et de rapports de protection de l'enfance (150 000 depuis 2010) → données exposées [1, 2]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Copie de fichiers de sauvegarde et des informations de 1,3 million de personnes (programme FARE) → données volées [1, 2], sans modification ni suppression [1]."
-        },
-        {
-          "etape": "Présence sur les sauvegardes",
-          "texte": "Présence détectée sur un serveur de sauvegarde → l'attaque est arrêtée environ 2 heures après sa détection [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "emp",
-            "type": "messagerie",
-            "zone": "victime",
-            "nom": "Employé de la cour",
-            "note": "Lien malveillant"
-          },
-          {
-            "id": "sys",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Dossiers judiciaires",
-            "note": "Données copiées"
-          },
-          {
-            "id": "sav",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur de sauvegarde",
-            "note": "Présence détectée"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "emp",
-            "etape": 1,
-            "texte": "Lien malveillant dans un courriel"
-          },
-          {
-            "de": "emp",
-            "vers": "sys",
-            "etape": 3,
-            "texte": "Copie des données personnelles"
-          },
-          {
-            "de": "att",
-            "vers": "sav",
-            "etape": 4,
-            "texte": "Présence détectée sur la sauvegarde"
-          }
-        ]
-      },
-      "limites": "Aucun acteur nommé, aucune revendication ni demande de rançon [2] ; le chemin vers le serveur de sauvegarde n'est pas précisé [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non précisé par les sources [1, 2]"
-      ],
-      "cibles": [
-        "Système judiciaire de l'Arizona : 1,3 million de personnes concernées par le programme FARE [1, 2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "FARE",
-          "definition": "Fines/Fees and Restitution Enforcement : programme de recouvrement des amendes"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Personal Information for Over 1 Million People Stolen in a Cyberattack on Arizona’s Court System",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/personal-information-for-over-1-million-people-stolen-in-a-cyberattack-on-arizonas-court-system/",
-          "date": "2026-10-07",
-          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-        },
-        {
-          "titre": "Arizona courts say hackers stole info on more than 1.3 million people",
-          "site": "The Record",
-          "url": "https://therecord.media/arizona-courts-say-hackers-stole-info-on-over-1-million",
-          "date": "2026-10-07",
-          "image": "https://cms.therecord.media/uploads/courtroom_gavel_joe_gratz_887e3f2669.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-10-06-clickfix-ukraine-lunex",
       "title": "Ukraine : plus de 100 sites compromis diffusent le voleur Lunex via de fausses pages Cloudflare",
       "created": "2026-10-06T14:20:00+00:00",
@@ -3607,138 +3388,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-10-06-asos-notification-push",
-      "title": "ASOS : fausse alerte « ASOS HACKED » envoyée par notification push",
-      "created": "2026-10-06T13:20:00+00:00",
-      "updated": "2026-10-08T12:07:53+00:00",
-      "version": 5,
-      "resume": "Des clients de l'application ASOS ont reçu une notification push « ASOS HACKED » avec un message de rançon ; l'action de l'entreprise a perdu plus de 10 % [1]. ASOS confirme une fuite de données [2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Identifiants d'un employé volés par usurpation d'un contact de confiance → accès à des plateformes tierces utilisées par ASOS [5]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Accès à l'infrastructure de messagerie client d'ASOS → notification push envoyée aux utilisateurs de l'application [1]."
-        },
-        {
-          "etape": "Extorsion",
-          "texte": "Le message renvoyait vers un canal Telegram nommé « Xuanye Group » → revendication de l'attaque [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (Xuanye Group)",
-            "note": ""
-          },
-          {
-            "id": "msg",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Messagerie client ASOS",
-            "note": "Envoi de notifications"
-          },
-          {
-            "id": "usr",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Clients de l'application",
-            "note": ""
-          },
-          {
-            "id": "tg",
-            "type": "inconnu",
-            "zone": "internet",
-            "nom": "Canal Telegram",
-            "note": "Xuanye Group"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "msg",
-            "etape": 2,
-            "texte": "Accès à l'infrastructure de messagerie client"
-          },
-          {
-            "de": "msg",
-            "vers": "usr",
-            "etape": 2,
-            "texte": "Notification push « ASOS HACKED »"
-          },
-          {
-            "de": "usr",
-            "vers": "tg",
-            "etape": 3,
-            "texte": "Lien vers le canal Telegram dans le message"
-          }
-        ]
-      },
-      "limites": "Revendication Snowflake sans preuve [1], non confirmée par ASOS [2, 3] ; Snowflake dit n'avoir constaté aucune compromission [4]. Noms des plateformes tierces et date d'intrusion non précisés [5].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Xuanye Group, nom jamais vu par les experts du suivi des groupes d'extorsion [1]"
-      ],
-      "cibles": [
-        "ASOS, vendeur de vêtements en ligne britannique coté à Londres [1]",
-        "Clients d'ASOS : noms et coordonnées touchés, ni paiement ni mots de passe [2, 3]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "ASOS",
-          "definition": "Nom de l'enseigne britannique de vêtements en ligne"
-        },
-        {
-          "sigle": "HACKED",
-          "definition": "Mot anglais signifiant « piraté », titre de la notification"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Shares in British clothing company ASOS dive after hackers apparently send push notification",
-          "site": "The Record",
-          "url": "https://therecord.media/asos-push-notification-apparently-sent-by-hackers",
-          "date": "2026-10-06",
-          "image": "https://cms.therecord.media/uploads/asos_popup_nov_2023_af35a21811.jpeg"
-        },
-        {
-          "titre": "ASOS confirms data breach after “HACKED” in-app notifications",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/asos-confirms-data-breach-after-hacked-in-app-notifications/",
-          "date": "2026-10-06",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/06/asos-logo.jpg"
-        },
-        {
-          "titre": "ASOS Confirms Cyberattack, Data Breach",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/asos-confirms-cyberattack-data-breach/",
-          "date": "2026-10-07",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Asos.jpeg"
-        },
-        {
-          "titre": "The ASOS incident: When attackers use the channels customers trust",
-          "site": "Rapid7",
-          "url": "https://www.rapid7.com/blog/post/it-asos-incident-attackers-using-channels-customers-trust",
-          "date": "2026-10-07",
-          "image": "https://www.rapid7.com/cdn/images/blt83e3180716d766f0/69b180eb669f1ce1a02fe1aa/Purple-teaming-in-2026-hero.jpg"
-        },
-        {
-          "titre": "ASOS links data breach to social engineering attack, credential theft",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/asos-links-data-breach-to-social-engineering-attack-credential-theft/",
-          "date": "2026-10-08",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/06/asos-logo.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-10-07-advantest-rancongiciel-donnees",
       "title": "Advantest : données personnelles volées lors d'une attaque par rançongiciel en février",
       "created": "2026-10-07T11:30:00+00:00",
@@ -3827,190 +3476,6 @@
           "url": "https://www.securityweek.com/advantest-discloses-data-breach-months-after-ransomware-attack/",
           "date": "2026-10-07",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/02/Advantest.jpeg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-07-fortibleed-fortigate-identifiants",
-      "title": "FortiBleed : vol d'identifiants sur plus de 86 000 pare-feu Fortinet exposés",
-      "created": "2026-10-07T13:30:00+00:00",
-      "updated": "2026-10-08T08:07:54+00:00",
-      "version": 4,
-      "resume": "La campagne FortiBleed vise des pare-feu et passerelles VPN FortiGate exposés sur Internet. Le FBI et le Secret Service avertissent qu'elle reste active après 86 644 identifiants récoltés [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Balayage d'Internet pour trouver des portails VPN FortiGate exposés, puis essais d'identifiants réutilisés ou issus de fuites, et force brute → accès aux pare-feu [1, 2, 3, 4, 5]."
-        },
-        {
-          "etape": "Récolte d'identifiants",
-          "texte": "Outil FortigateSniffer déployé → authentifications interceptées sur 24 protocoles, identifiants et empreintes de mots de passe récoltés [1]."
-        },
-        {
-          "etape": "Cassage des empreintes",
-          "texte": "Empreintes envoyées vers une grappe de calcul à cartes graphiques (Hashmat, Hashtopolis) → mots de passe retrouvés hors ligne [1]."
-        },
-        {
-          "etape": "Persistance, déplacement",
-          "texte": "Nouveaux comptes sur les pare-feu [2, 4], mots de passe d'origine modifiés ou comptes supprimés → administrateurs légitimes bloqués [3, 4, 5] ; annuaire Active Directory exploré, comptes administrateurs créés [1]."
-        },
-        {
-          "etape": "Revente des accès",
-          "texte": "Accès revendus à des affiliés de rançongiciels ou utilisés directement → au moins 12 organisations compromises et chiffrées [2] ; FortiGate utilisé comme point d'entrée du rançongiciel [3]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (FortiBleed)",
-            "note": ""
-          },
-          {
-            "id": "fw",
-            "type": "passerelle",
-            "zone": "expose",
-            "nom": "Pare-feu et VPN FortiGate",
-            "note": "Comptes ajoutés"
-          },
-          {
-            "id": "ad",
-            "type": "annuaire",
-            "zone": "victime",
-            "nom": "Active Directory de la victime",
-            "note": ""
-          },
-          {
-            "id": "ran",
-            "type": "utilisateur",
-            "zone": "internet",
-            "nom": "Affiliés de rançongiciels",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "fw",
-            "etape": 1,
-            "texte": "Identifiants volés ou réutilisés testés"
-          },
-          {
-            "de": "att",
-            "vers": "fw",
-            "etape": 2,
-            "texte": "Outil d'interception FortigateSniffer"
-          },
-          {
-            "de": "fw",
-            "vers": "ad",
-            "etape": 4,
-            "texte": "Exploration de l'annuaire, comptes administrateurs"
-          },
-          {
-            "de": "att",
-            "vers": "ran",
-            "etape": 5,
-            "texte": "Accès revendus"
-          }
-        ]
-      },
-      "limites": "Les sources ne nomment pas les victimes ; le nombre de pare-feu compromis (plus de 86 000 [2]) et d'identifiants récoltés (86 644 [1]) est présenté différemment.",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Opération de langue russe, courtier en accès soupçonné, qui vend à des opérateurs de rançongiciels INC et Lynx [1]",
-        "affiliés INC, Lynx et Payload cités [2, 4]",
-        "Courtier en accès initiaux, nom non mentionné [3] ; décrit comme russe [5]"
-      ],
-      "cibles": [
-        "Pare-feu et passerelles VPN FortiGate exposés dans 194 pays [1] ; au moins 12 organisations chiffrées, fonctionnaires britanniques visés [2]",
-        "Surtout des organisations de moins de 200 employés, dont un sous-traitant de défense de l'OTAN [3]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "VPN",
-          "definition": "Réseau privé virtuel : accès distant chiffré au réseau d'une organisation"
-        },
-        {
-          "sigle": "FortiGate",
-          "definition": "Gamme de pare-feu de l'éditeur Fortinet"
-        },
-        {
-          "sigle": "Active Directory",
-          "definition": "Annuaire Windows qui gère les comptes et les droits des utilisateurs"
-        },
-        {
-          "sigle": "FortigateSniffer",
-          "definition": "Outil de l'attaquant qui intercepte les authentifications"
-        },
-        {
-          "sigle": "Hashmat",
-          "definition": "Outil de cassage d'empreintes de mots de passe"
-        },
-        {
-          "sigle": "Hashtopolis",
-          "definition": "Plateforme répartissant le cassage de mots de passe sur plusieurs machines"
-        },
-        {
-          "sigle": "FBI",
-          "definition": "Police fédérale américaine"
-        },
-        {
-          "sigle": "INC",
-          "definition": "Groupe de rançongiciel"
-        },
-        {
-          "sigle": "Lynx",
-          "definition": "Groupe de rançongiciel"
-        },
-        {
-          "sigle": "Payload",
-          "definition": "Groupe de rançongiciel"
-        },
-        {
-          "sigle": "OTAN",
-          "definition": "Alliance militaire de pays occidentaux"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "FBI Warns FortiBleed Remains Active After Amassing 86,644 Fortinet Device Credentials",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/fbi-warns-fortibleed-remains-active.html",
-          "date": "2026-10-07",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQZeKQIcHTVLgqnHpZYN73YclFawl51QxpykrKEb97sAJjA8qtN7FaUJaS0jLMeSS29cTB0nR_yFzsITX_e5SI8Xa8BfM1LDOGsEEEpDmVC8YNqOcEYEuep1UbHovyLlxrwRmYZ3FrbaaKq9eKwICiUTkkPleIibOHdWnbV5cpwYPCrHQasrTxVFA9seQ-/s1700-nu-rw-lo-l85-e365/forti-admin.jpg"
-        },
-        {
-          "titre": "FBI, Secret Service add to warnings of FortiBleed credential stealing campaign",
-          "site": "The Record",
-          "url": "https://therecord.media/fortibleed-warning-fbi-secret-service",
-          "date": "2026-10-07",
-          "image": "https://cms.therecord.media/uploads/fortigate_ports_4f1884633e.png"
-        },
-        {
-          "titre": "FortiBleed : une tempête loin d'être passée",
-          "site": "LeMagIT",
-          "url": "https://www.lemagit.fr/actualites/366651777/FortiBleed-une-tempete-loin-detre-passee",
-          "date": "2026-10-07",
-          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/Hero Images/LAN-ethernet-cables-internet-Wi-Fi-OleksandrDelyk-adobe.jpg"
-        },
-        {
-          "titre": "FBI: Ongoing FortiBleed attacks lock out FortiGate VPN admins",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/fbi-ongoing-fortibleed-attacks-lock-out-fortigate-vpn-admins/",
-          "date": "2026-10-07",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/06/19/Fortinet-headpic.jpg"
-        },
-        {
-          "titre": "FortiBleed Attackers Locking Victims Out of Fortinet Devices",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/fortibleed-attackers-locking-victims-out-of-fortinet-devices/",
-          "date": "2026-10-08",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Fortinet.jpeg"
         }
       ]
     },
@@ -4382,6 +3847,70 @@
     },
     {
       "schema": 3,
+      "id": "2026-10-07-southern-company-portail-client",
+      "title": "Georgia Power et Alabama Power : 400 000 comptes clients consultés via le portail en ligne",
+      "created": "2026-10-07T16:30:00+00:00",
+      "updated": "2026-10-07T16:30:00+00:00",
+      "version": 1,
+      "resume": "Un tiers non autorisé a accédé à des informations limitées de comptes clients de Southern Company : environ 300 000 chez Georgia Power et 100 000 chez Alabama Power [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Accès aux comptes",
+          "texte": "Un tiers non autorisé accède à des informations limitées sur le portail client → nom, adresse, téléphone, courriel ou 4 derniers chiffres du numéro de sécurité sociale exposés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Tiers non autorisé",
+            "note": ""
+          },
+          {
+            "id": "por",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Portail client en ligne",
+            "note": "Données de comptes"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "por",
+            "etape": 2,
+            "texte": "Accès non autorisé aux comptes"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni la date, ni la méthode d'accès, ni l'auteur [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Tiers non autorisé, non identifié [1]"
+      ],
+      "cibles": [
+        "Georgia Power (environ 300 000 comptes), Alabama Power (environ 100 000 comptes), Mississippi Power [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Georgia Power, Alabama Power Data Breach Hits 400,000 Accounts",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/georgia-power-alabama-power-data-breach-hits-400000-accounts/",
+          "date": "2026-10-07",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/05/COSMICENERGY-OT-Malware.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-10-07-poellm-serveurs-ia-minage",
       "title": "PoeLLM : des serveurs d'IA exposés infectés pour miner de la cryptomonnaie",
       "created": "2026-10-07T16:30:00+00:00",
@@ -4513,20 +4042,28 @@
     },
     {
       "schema": 3,
-      "id": "2026-10-07-southern-company-portail-client",
-      "title": "Georgia Power et Alabama Power : 400 000 comptes clients consultés via le portail en ligne",
-      "created": "2026-10-07T16:30:00+00:00",
-      "updated": "2026-10-07T16:30:00+00:00",
-      "version": 1,
-      "resume": "Un tiers non autorisé a accédé à des informations limitées de comptes clients de Southern Company : environ 300 000 chez Georgia Power et 100 000 chez Alabama Power [1].",
+      "id": "2026-10-06-malfex-npm-paquets-malveillants",
+      "title": "Campagne MALFEX : paquets npm malveillants publiés depuis août 2023",
+      "created": "2026-10-06T11:30:00+00:00",
+      "updated": "2026-10-07T18:30:00+00:00",
+      "version": 2,
+      "resume": "Depuis août 2023, un même acteur a publié des paquets npm malveillants dans la campagne MALFEX ; huit ont été téléchargés 40 767 fois, dont 37 419 pour function-flag [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Publication de paquets npm malveillants sur le registre public → installation directe par les utilisateurs [1, 2]."
         },
         {
-          "etape": "Accès aux comptes",
-          "texte": "Un tiers non autorisé accède à des informations limitées sur le portail client → nom, adresse, téléphone, courriel ou 4 derniers chiffres du numéro de sécurité sociale exposés [1]."
+          "etape": "Exécution du code",
+          "texte": "Scripts lancés après l'installation des paquets → téléchargement et exécution des charges, dont le chargeur du cheval de Troie Overlord dans trois paquets [1, 2]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Le code malveillant déploie le voleur movinlike → ciblage de Discord, navigateurs et portefeuilles de cryptomonnaies [1]."
+        },
+        {
+          "etape": "Charge externe",
+          "texte": "Chaque version de function-flag contient un téléchargeur → récupération d'une charge utile externe [1]."
         }
       ],
       "parcours": {
@@ -4535,43 +4072,190 @@
             "id": "att",
             "type": "attaquant",
             "zone": "internet",
-            "nom": "Tiers non autorisé",
+            "nom": "Attaquant (MALFEX)",
             "note": ""
           },
           {
-            "id": "por",
+            "id": "reg",
             "type": "application",
+            "zone": "internet",
+            "nom": "Registre npm",
+            "note": "Paquets malveillants"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
             "zone": "victime",
-            "nom": "Portail client en ligne",
-            "note": "Données de comptes"
+            "nom": "Postes des utilisateurs",
+            "note": "Installation des paquets"
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "por",
+            "vers": "reg",
+            "etape": 1,
+            "texte": "Publication de paquets malveillants"
+          },
+          {
+            "de": "reg",
+            "vers": "pc",
             "etape": 2,
-            "texte": "Accès non autorisé aux comptes"
+            "texte": "Scripts lancés pendant npm install"
+          },
+          {
+            "de": "pc",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Voleur movinlike : Discord, navigateurs, portefeuilles"
           }
         ]
       },
-      "limites": "Les sources ne précisent ni la date, ni la méthode d'accès, ni l'auteur [1].",
+      "limites": "Aucune source ne cite de victime précise ; l'acteur est décrit comme opportuniste, sans ciblage géographique [1, 2]. Le pays de l'opérateur est seulement soupçonné [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Tiers non autorisé, non identifié [1]"
+        "Un seul acteur derrière les paquets [1]",
+        "Individu lusophone utilisant le pseudonyme « Murizada », opérateur soupçonné brésilien d'après les métadonnées du dépôt [2]"
       ],
       "cibles": [
-        "Georgia Power (environ 300 000 comptes), Alabama Power (environ 100 000 comptes), Mississippi Power [1]"
+        "Utilisateurs de paquets npm, sans ciblage géographique ou organisationnel [1]",
+        "Systèmes Windows, ciblage décrit comme opportuniste [2]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "npm",
+          "definition": "Gestionnaire de paquets et registre public de JavaScript"
+        },
+        {
+          "sigle": "MALFEX",
+          "definition": "Nom donné à la campagne de paquets npm malveillants"
+        }
+      ],
       "sources": [
         {
-          "titre": "Georgia Power, Alabama Power Data Breach Hits 400,000 Accounts",
+          "titre": "Long-Running NPM Malware Campaign Accumulates 40,000 Downloads",
           "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/georgia-power-alabama-power-data-breach-hits-400000-accounts/",
+          "url": "https://www.securityweek.com/long-running-npm-malware-campaign-accumulates-40000-downloads/",
+          "date": "2026-10-06",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/supply-chain-threat.webp"
+        },
+        {
+          "titre": "Eight Malicious npm Packages Downloaded 40,767 Times Deliver Overlord RAT and Stealer",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/eight-malicious-npm-packages-downloaded.html",
           "date": "2026-10-07",
-          "image": "https://www.securityweek.com/wp-content/uploads/2023/05/COSMICENERGY-OT-Malware.jpg"
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgopANe3MXyNNOXog__x1pF53wYoQxinI47tN9gLrZSzJfumz-Dg05ZfyjiGsqF47Pugj71iZ1buX7OEiupWYa09xVQdu7DKOMX5NO-uGKCF0UjNila0x5fNiYw5NWEX1TUQTPidjT5NnGmPwM_6mGfKcOxqcjZuPAZLdzRX5u_TXJM76GQ6mQOkikw_kxo/s1700-nu-rw-lo-l85-e365/npm-malware.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-07-arizona-tribunaux-donnees-personnelles",
+      "title": "Système judiciaire de l'Arizona : données personnelles de 1,3 million de personnes copiées après un lien piégé",
+      "created": "2026-10-07T02:30:00+00:00",
+      "updated": "2026-10-07T19:07:56+00:00",
+      "version": 2,
+      "resume": "Le système judiciaire de l'Arizona a subi une cyberattaque détectée le 24 septembre 2026 : des données personnelles de 1,3 million de personnes ont été copiées [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Un employé de la cour clique sur un lien malveillant reçu par courriel → compromission du système [1]."
+        },
+        {
+          "etape": "Accès aux dossiers",
+          "texte": "Consultation de dossiers de protection (près de 30 000) et de rapports de protection de l'enfance (150 000 depuis 2010) → données exposées [1, 2]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Copie de fichiers de sauvegarde et des informations de 1,3 million de personnes (programme FARE) → données volées [1, 2], sans modification ni suppression [1]."
+        },
+        {
+          "etape": "Présence sur les sauvegardes",
+          "texte": "Présence détectée sur un serveur de sauvegarde → l'attaque est arrêtée environ 2 heures après sa détection [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "emp",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Employé de la cour",
+            "note": "Lien malveillant"
+          },
+          {
+            "id": "sys",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Dossiers judiciaires",
+            "note": "Données copiées"
+          },
+          {
+            "id": "sav",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur de sauvegarde",
+            "note": "Présence détectée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "emp",
+            "etape": 1,
+            "texte": "Lien malveillant dans un courriel"
+          },
+          {
+            "de": "emp",
+            "vers": "sys",
+            "etape": 3,
+            "texte": "Copie des données personnelles"
+          },
+          {
+            "de": "att",
+            "vers": "sav",
+            "etape": 4,
+            "texte": "Présence détectée sur la sauvegarde"
+          }
+        ]
+      },
+      "limites": "Aucun acteur nommé, aucune revendication ni demande de rançon [2] ; le chemin vers le serveur de sauvegarde n'est pas précisé [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non précisé par les sources [1, 2]"
+      ],
+      "cibles": [
+        "Système judiciaire de l'Arizona : 1,3 million de personnes concernées par le programme FARE [1, 2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "FARE",
+          "definition": "Fines/Fees and Restitution Enforcement : programme de recouvrement des amendes"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Personal Information for Over 1 Million People Stolen in a Cyberattack on Arizona’s Court System",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/personal-information-for-over-1-million-people-stolen-in-a-cyberattack-on-arizonas-court-system/",
+          "date": "2026-10-07",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+        },
+        {
+          "titre": "Arizona courts say hackers stole info on more than 1.3 million people",
+          "site": "The Record",
+          "url": "https://therecord.media/arizona-courts-say-hackers-stole-info-on-over-1-million",
+          "date": "2026-10-07",
+          "image": "https://cms.therecord.media/uploads/courtroom_gavel_joe_gratz_887e3f2669.jpg"
         }
       ]
     },
@@ -5184,6 +4868,190 @@
     },
     {
       "schema": 3,
+      "id": "2026-10-07-fortibleed-fortigate-identifiants",
+      "title": "FortiBleed : vol d'identifiants sur plus de 86 000 pare-feu Fortinet exposés",
+      "created": "2026-10-07T13:30:00+00:00",
+      "updated": "2026-10-08T08:07:54+00:00",
+      "version": 4,
+      "resume": "La campagne FortiBleed vise des pare-feu et passerelles VPN FortiGate exposés sur Internet. Le FBI et le Secret Service avertissent qu'elle reste active après 86 644 identifiants récoltés [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Balayage d'Internet pour trouver des portails VPN FortiGate exposés, puis essais d'identifiants réutilisés ou issus de fuites, et force brute → accès aux pare-feu [1, 2, 3, 4, 5]."
+        },
+        {
+          "etape": "Récolte d'identifiants",
+          "texte": "Outil FortigateSniffer déployé → authentifications interceptées sur 24 protocoles, identifiants et empreintes de mots de passe récoltés [1]."
+        },
+        {
+          "etape": "Cassage des empreintes",
+          "texte": "Empreintes envoyées vers une grappe de calcul à cartes graphiques (Hashmat, Hashtopolis) → mots de passe retrouvés hors ligne [1]."
+        },
+        {
+          "etape": "Persistance, déplacement",
+          "texte": "Nouveaux comptes sur les pare-feu [2, 4], mots de passe d'origine modifiés ou comptes supprimés → administrateurs légitimes bloqués [3, 4, 5] ; annuaire Active Directory exploré, comptes administrateurs créés [1]."
+        },
+        {
+          "etape": "Revente des accès",
+          "texte": "Accès revendus à des affiliés de rançongiciels ou utilisés directement → au moins 12 organisations compromises et chiffrées [2] ; FortiGate utilisé comme point d'entrée du rançongiciel [3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (FortiBleed)",
+            "note": ""
+          },
+          {
+            "id": "fw",
+            "type": "passerelle",
+            "zone": "expose",
+            "nom": "Pare-feu et VPN FortiGate",
+            "note": "Comptes ajoutés"
+          },
+          {
+            "id": "ad",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Active Directory de la victime",
+            "note": ""
+          },
+          {
+            "id": "ran",
+            "type": "utilisateur",
+            "zone": "internet",
+            "nom": "Affiliés de rançongiciels",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "fw",
+            "etape": 1,
+            "texte": "Identifiants volés ou réutilisés testés"
+          },
+          {
+            "de": "att",
+            "vers": "fw",
+            "etape": 2,
+            "texte": "Outil d'interception FortigateSniffer"
+          },
+          {
+            "de": "fw",
+            "vers": "ad",
+            "etape": 4,
+            "texte": "Exploration de l'annuaire, comptes administrateurs"
+          },
+          {
+            "de": "att",
+            "vers": "ran",
+            "etape": 5,
+            "texte": "Accès revendus"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment pas les victimes ; le nombre de pare-feu compromis (plus de 86 000 [2]) et d'identifiants récoltés (86 644 [1]) est présenté différemment.",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Opération de langue russe, courtier en accès soupçonné, qui vend à des opérateurs de rançongiciels INC et Lynx [1]",
+        "affiliés INC, Lynx et Payload cités [2, 4]",
+        "Courtier en accès initiaux, nom non mentionné [3] ; décrit comme russe [5]"
+      ],
+      "cibles": [
+        "Pare-feu et passerelles VPN FortiGate exposés dans 194 pays [1] ; au moins 12 organisations chiffrées, fonctionnaires britanniques visés [2]",
+        "Surtout des organisations de moins de 200 employés, dont un sous-traitant de défense de l'OTAN [3]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "VPN",
+          "definition": "Réseau privé virtuel : accès distant chiffré au réseau d'une organisation"
+        },
+        {
+          "sigle": "FortiGate",
+          "definition": "Gamme de pare-feu de l'éditeur Fortinet"
+        },
+        {
+          "sigle": "Active Directory",
+          "definition": "Annuaire Windows qui gère les comptes et les droits des utilisateurs"
+        },
+        {
+          "sigle": "FortigateSniffer",
+          "definition": "Outil de l'attaquant qui intercepte les authentifications"
+        },
+        {
+          "sigle": "Hashmat",
+          "definition": "Outil de cassage d'empreintes de mots de passe"
+        },
+        {
+          "sigle": "Hashtopolis",
+          "definition": "Plateforme répartissant le cassage de mots de passe sur plusieurs machines"
+        },
+        {
+          "sigle": "FBI",
+          "definition": "Police fédérale américaine"
+        },
+        {
+          "sigle": "INC",
+          "definition": "Groupe de rançongiciel"
+        },
+        {
+          "sigle": "Lynx",
+          "definition": "Groupe de rançongiciel"
+        },
+        {
+          "sigle": "Payload",
+          "definition": "Groupe de rançongiciel"
+        },
+        {
+          "sigle": "OTAN",
+          "definition": "Alliance militaire de pays occidentaux"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "FBI Warns FortiBleed Remains Active After Amassing 86,644 Fortinet Device Credentials",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/fbi-warns-fortibleed-remains-active.html",
+          "date": "2026-10-07",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQZeKQIcHTVLgqnHpZYN73YclFawl51QxpykrKEb97sAJjA8qtN7FaUJaS0jLMeSS29cTB0nR_yFzsITX_e5SI8Xa8BfM1LDOGsEEEpDmVC8YNqOcEYEuep1UbHovyLlxrwRmYZ3FrbaaKq9eKwICiUTkkPleIibOHdWnbV5cpwYPCrHQasrTxVFA9seQ-/s1700-nu-rw-lo-l85-e365/forti-admin.jpg"
+        },
+        {
+          "titre": "FBI, Secret Service add to warnings of FortiBleed credential stealing campaign",
+          "site": "The Record",
+          "url": "https://therecord.media/fortibleed-warning-fbi-secret-service",
+          "date": "2026-10-07",
+          "image": "https://cms.therecord.media/uploads/fortigate_ports_4f1884633e.png"
+        },
+        {
+          "titre": "FortiBleed : une tempête loin d'être passée",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366651777/FortiBleed-une-tempete-loin-detre-passee",
+          "date": "2026-10-07",
+          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/Hero Images/LAN-ethernet-cables-internet-Wi-Fi-OleksandrDelyk-adobe.jpg"
+        },
+        {
+          "titre": "FBI: Ongoing FortiBleed attacks lock out FortiGate VPN admins",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fbi-ongoing-fortibleed-attacks-lock-out-fortigate-vpn-admins/",
+          "date": "2026-10-07",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/06/19/Fortinet-headpic.jpg"
+        },
+        {
+          "titre": "FortiBleed Attackers Locking Victims Out of Fortinet Devices",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/fortibleed-attackers-locking-victims-out-of-fortinet-devices/",
+          "date": "2026-10-08",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Fortinet.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-10-08-oracle-health-cerner-donnees-sante",
       "title": "Oracle Health : des identifiants clients volés ouvrent un serveur Cerner, près de 20 millions de personnes touchées",
       "created": "2026-10-08T09:30:00+00:00",
@@ -5726,6 +5594,138 @@
     },
     {
       "schema": 3,
+      "id": "2026-10-06-asos-notification-push",
+      "title": "ASOS : fausse alerte « ASOS HACKED » envoyée par notification push",
+      "created": "2026-10-06T13:20:00+00:00",
+      "updated": "2026-10-08T12:07:53+00:00",
+      "version": 5,
+      "resume": "Des clients de l'application ASOS ont reçu une notification push « ASOS HACKED » avec un message de rançon ; l'action de l'entreprise a perdu plus de 10 % [1]. ASOS confirme une fuite de données [2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Identifiants d'un employé volés par usurpation d'un contact de confiance → accès à des plateformes tierces utilisées par ASOS [5]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Accès à l'infrastructure de messagerie client d'ASOS → notification push envoyée aux utilisateurs de l'application [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Le message renvoyait vers un canal Telegram nommé « Xuanye Group » → revendication de l'attaque [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Xuanye Group)",
+            "note": ""
+          },
+          {
+            "id": "msg",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Messagerie client ASOS",
+            "note": "Envoi de notifications"
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Clients de l'application",
+            "note": ""
+          },
+          {
+            "id": "tg",
+            "type": "inconnu",
+            "zone": "internet",
+            "nom": "Canal Telegram",
+            "note": "Xuanye Group"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "msg",
+            "etape": 2,
+            "texte": "Accès à l'infrastructure de messagerie client"
+          },
+          {
+            "de": "msg",
+            "vers": "usr",
+            "etape": 2,
+            "texte": "Notification push « ASOS HACKED »"
+          },
+          {
+            "de": "usr",
+            "vers": "tg",
+            "etape": 3,
+            "texte": "Lien vers le canal Telegram dans le message"
+          }
+        ]
+      },
+      "limites": "Revendication Snowflake sans preuve [1], non confirmée par ASOS [2, 3] ; Snowflake dit n'avoir constaté aucune compromission [4]. Noms des plateformes tierces et date d'intrusion non précisés [5].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Xuanye Group, nom jamais vu par les experts du suivi des groupes d'extorsion [1]"
+      ],
+      "cibles": [
+        "ASOS, vendeur de vêtements en ligne britannique coté à Londres [1]",
+        "Clients d'ASOS : noms et coordonnées touchés, ni paiement ni mots de passe [2, 3]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ASOS",
+          "definition": "Nom de l'enseigne britannique de vêtements en ligne"
+        },
+        {
+          "sigle": "HACKED",
+          "definition": "Mot anglais signifiant « piraté », titre de la notification"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Shares in British clothing company ASOS dive after hackers apparently send push notification",
+          "site": "The Record",
+          "url": "https://therecord.media/asos-push-notification-apparently-sent-by-hackers",
+          "date": "2026-10-06",
+          "image": "https://cms.therecord.media/uploads/asos_popup_nov_2023_af35a21811.jpeg"
+        },
+        {
+          "titre": "ASOS confirms data breach after “HACKED” in-app notifications",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/asos-confirms-data-breach-after-hacked-in-app-notifications/",
+          "date": "2026-10-06",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/06/asos-logo.jpg"
+        },
+        {
+          "titre": "ASOS Confirms Cyberattack, Data Breach",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/asos-confirms-cyberattack-data-breach/",
+          "date": "2026-10-07",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Asos.jpeg"
+        },
+        {
+          "titre": "The ASOS incident: When attackers use the channels customers trust",
+          "site": "Rapid7",
+          "url": "https://www.rapid7.com/blog/post/it-asos-incident-attackers-using-channels-customers-trust",
+          "date": "2026-10-07",
+          "image": "https://www.rapid7.com/cdn/images/blt83e3180716d766f0/69b180eb669f1ce1a02fe1aa/Purple-teaming-in-2026-hero.jpg"
+        },
+        {
+          "titre": "ASOS links data breach to social engineering attack, credential theft",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/asos-links-data-breach-to-social-engineering-attack-credential-theft/",
+          "date": "2026-10-08",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/06/asos-logo.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-10-08-midnight-mimosa-android-fraude-publicitaire",
       "title": "Midnight Mimosa : téléphones Android bon marché livrés avec un malware de fraude publicitaire",
       "created": "2026-10-08T13:30:00+00:00",
@@ -5913,6 +5913,310 @@
           "url": "https://therecord.media/russia-ukraine-malware-transportation",
           "date": "2026-10-08",
           "image": "https://cms.therecord.media/uploads/Ukraine_railroad_f8f0a5b0ec.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-eglises-coree-sud-oasis",
+      "title": "Deux grandes églises sud-coréennes visées par des intrusions touchant des données de membres",
+      "created": "2026-10-08T14:30:00+00:00",
+      "updated": "2026-10-08T14:30:00+00:00",
+      "version": 1,
+      "resume": "Deux grandes églises protestantes sud-coréennes enquêtent sur des cyberattaques. Selon Oasis Security, des données personnelles de membres et d'employés ont été touchées ; une église a identifié un jeu de données d'environ 850 000 membres [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Première intrusion : vecteur non précisé. Seconde : mots de passe divulgués et failles d'applications internes → accès à des comptes non autorisés [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Installation d'une porte dérobée web (première intrusion) → contrôle du serveur à distance et accès administrateur aux systèmes internes [1]."
+        },
+        {
+          "etape": "Accès aux données",
+          "texte": "Accès aux bases de données et au stockage réseau → données de membres, paie, comptabilité, identifiants d'employés, rapports et sauvegardes [1]."
+        },
+        {
+          "etape": "Accès au logiciel SAP",
+          "texte": "Certaines failles permettaient de réinitialiser les mots de passe d'autres utilisateurs ; accès à SAP → données d'environ 89 000 membres et 286 employés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "apps",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Applications internes",
+            "note": "Failles, mots de passe"
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur de l'église",
+            "note": "Porte dérobée web"
+          },
+          {
+            "id": "db",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Bases de données et stockage",
+            "note": ""
+          },
+          {
+            "id": "sap",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Logiciel SAP",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "apps",
+            "etape": 1,
+            "texte": "Mots de passe divulgués et failles d'applications"
+          },
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Porte dérobée web installée"
+          },
+          {
+            "de": "srv",
+            "vers": "db",
+            "etape": 3,
+            "texte": "Accès aux bases et au stockage réseau"
+          },
+          {
+            "de": "apps",
+            "vers": "sap",
+            "etape": 4,
+            "texte": "Accès au logiciel SAP"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas quelle église correspond à quelle intrusion, ni qui sont les attaquants, ni les raisons du ciblage [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifiés ; l'infrastructure réutilise celle d'une compromission antérieure d'une plateforme chrétienne américaine [1]"
+      ],
+      "cibles": [
+        "Yoido Full Gospel Church et SaRang Church, deux églises protestantes sud-coréennes [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SAP",
+          "definition": "Logiciel de gestion des opérations et des ressources humaines"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers target two South Korean megachurches, potentially exposing congregant data",
+          "site": "The Record",
+          "url": "https://therecord.media/south-korea-hackers-megachurches",
+          "date": "2026-10-08",
+          "image": "https://cms.therecord.media/uploads/yoido_full_gospel_church_d661db7832.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-atlassian-cve-2026-21589",
+      "title": "Atlassian Data Center : tentatives d'exploitation de CVE-2026-21589 après publication d'une analyse",
+      "created": "2026-10-08T14:30:00+00:00",
+      "updated": "2026-10-08T14:30:00+00:00",
+      "version": 1,
+      "resume": "Des acteurs non identifiés tentent d'exploiter CVE-2026-21589 dans les produits Atlassian Data Center : Previdian a recensé 190 tentatives depuis 32 adresses IP dans 10 pays [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Requête à distance sans authentification sur l'application web, avec nom et chemin exacts du fichier → lecture d'un fichier du répertoire racine [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Lecture du fichier de configuration Crowd, si Jira est relié à Crowd → identifiants d'application Crowd en clair [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Création d'un utilisateur ajouté au groupe des administrateurs Jira → accès administrateur complet, démontré par WatchTowr [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Instance Atlassian Data Center",
+            "note": ""
+          },
+          {
+            "id": "cfg",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Configuration Crowd",
+            "note": "Identifiants en clair"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 1,
+            "texte": "Lecture de fichiers sans authentification"
+          },
+          {
+            "de": "app",
+            "vers": "cfg",
+            "etape": 2,
+            "texte": "Lecture du fichier de configuration Crowd"
+          },
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 3,
+            "texte": "Création d'un administrateur Jira"
+          }
+        ]
+      },
+      "limites": "Seules des tentatives d'exploitation sont décrites ; les étapes 2 et 3 ont été démontrées par des chercheurs, sans attaque réelle citée [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-21589",
+          "explication": "Produits Atlassian Data Center auto-hébergés (Bitbucket, Confluence, Jira, Bamboo, Crowd, Crucible, Fisheye) : lecture de fichiers arbitraires sans authentification, gravité critique 9,3 sur 10 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non identifiés [1]"
+      ],
+      "cibles": [
+        "Instances Atlassian Data Center auto-hébergées ; aucune victime citée [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IP",
+          "definition": "Adresse identifiant une machine sur un réseau"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Attackers Target Critical Atlassian Vulnerability Within Hours of PoC Publication",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/attackers-target-critical-atlassian-vulnerability-within-hours-of-poc-publication/",
+          "date": "2026-10-08",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/12/Atlassian.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-uranium-finance-spalletta",
+      "title": "Uranium Finance : deux vols par failles de contrat intelligent, le pirate déclaré coupable",
+      "created": "2026-10-08T14:30:00+00:00",
+      "updated": "2026-10-08T14:30:00+00:00",
+      "version": 1,
+      "resume": "Jonathan Spalletta a vidé deux fois la plateforme Uranium Finance en avril 2021, pour plus de 53 millions de dollars. Il vient d'être déclaré coupable [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation d'une faille de contrat intelligent permettant des retraits de zéro jeton → récompenses non dues versées, environ 1,4 million de dollars pris au pool de liquidité [1]."
+        },
+        {
+          "etape": "Pression",
+          "texte": "Demande d'une fausse prime de chasse aux bugs d'environ 386 000 dollars, prélevée sur les fonds volés, en échange de la restitution du reste [1]."
+        },
+        {
+          "etape": "Seconde intrusion",
+          "texte": "Environ trois semaines plus tard, erreur de codage (1 000 au lieu de 10 000) → près de 90 % des actifs retirés, 53,3 millions de dollars [1]."
+        },
+        {
+          "etape": "Blanchiment",
+          "texte": "Fonds transférés via le mixeur Tornado Cash et plusieurs plateformes d'échange décentralisées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Jonathan Spalletta)",
+            "note": ""
+          },
+          {
+            "id": "ctr",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Contrats Uranium Finance",
+            "note": "Pools de liquidité"
+          },
+          {
+            "id": "mix",
+            "type": "inconnu",
+            "zone": "internet",
+            "nom": "Tornado Cash et échanges",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ctr",
+            "etape": 1,
+            "texte": "Retraits de zéro jeton, récompenses non dues"
+          },
+          {
+            "de": "att",
+            "vers": "ctr",
+            "etape": 3,
+            "texte": "Erreur de seuil, 90 % des pools retirés"
+          },
+          {
+            "de": "att",
+            "vers": "mix",
+            "etape": 4,
+            "texte": "Fonds transférés via Tornado Cash"
+          }
+        ]
+      },
+      "limites": "La source ne donne pas la date exacte de la seconde intrusion [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Jonathan Spalletta, 36 ans, du Maryland, déclaré coupable [1]"
+      ],
+      "cibles": [
+        "Uranium Finance et les utilisateurs ayant des fonds dans ses pools de liquidité [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Uranium crypto exchange hacker convicted for stealing $53 million",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/uranium-crypto-exchange-hacker-found-guilty-of-53-million-theft/",
+          "date": "2026-10-08",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/08/Bitcoin_cryptocurrency_theft.jpg"
         }
       ]
     }

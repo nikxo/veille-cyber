@@ -5014,6 +5014,159 @@
           "image": "https://web-assets.esetstatic.com/wls/2026/09-26/influencers-scams.png"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-tensorlake-npm-shai-hulud",
+      "title": "Paquet npm tensorlake compromis : ver Shai-Hulud voleur d'identifiants",
+      "created": "2026-10-08T07:30:00+00:00",
+      "updated": "2026-10-08T07:30:00+00:00",
+      "version": 1,
+      "resume": "La version 0.5.144 du paquet npm tensorlake contenait un logiciel malveillant qui vole des identifiants, exfiltre des secrets et exécute du code fourni à distance. L'attaque est rattachée à ChainDrop / Shai-Hulud [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Fichiers malveillants poussés sur la branche principale du dépôt tensorlake sous le nom d'un mainteneur → source piégée ; l'article ne précise pas comment le compte a été utilisé [1]."
+        },
+        {
+          "etape": "Publication",
+          "texte": "Le workflow de release publie la version 0.5.144 sur npm, retirée ensuite du registre [1]."
+        },
+        {
+          "etape": "Exécution",
+          "texte": "Un script lancé avant l'installation démarre un chargeur obfusqué → exécution du code malveillant avec le runtime Bun [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Collecte de jetons npm et GitHub, identifiants AWS, Vault et Kubernetes, clés SSH, fichiers .env → secrets exfiltrés vers le serveur de commande ou un dépôt GitHub public [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Écriture de .claude/settings.json et .vscode/tasks.json dans les dépôts accessibles → relance à l'ouverture du projet dans Claude Code ou VS Code [1]."
+        },
+        {
+          "etape": "Propagation",
+          "texte": "Énumération des paquets liés à l'identité de publication de la victime → republication de versions compromises [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (ChainDrop / Shai-Hulud)",
+            "note": ""
+          },
+          {
+            "id": "dep",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Dépôt tensorlake et registre npm",
+            "note": "Version 0.5.144"
+          },
+          {
+            "id": "dev",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines ayant installé le paquet",
+            "note": "Secrets volés"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de commande ou GitHub",
+            "note": "Réception des secrets"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "dep",
+            "etape": 1,
+            "texte": "Fichiers malveillants poussés sous le nom d'un mainteneur"
+          },
+          {
+            "de": "dep",
+            "vers": "dev",
+            "etape": 3,
+            "texte": "Script exécuté avant l'installation du paquet"
+          },
+          {
+            "de": "dev",
+            "vers": "c2",
+            "etape": 4,
+            "texte": "Exfiltration des secrets collectés"
+          },
+          {
+            "de": "dev",
+            "vers": "dep",
+            "etape": 6,
+            "texte": "Republication de paquets avec l'identité de la victime"
+          }
+        ]
+      },
+      "limites": "L'article ne précise ni comment le compte du mainteneur a été utilisé, ni l'acteur, ni le nombre de victimes [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non nommé ; campagne rattachée à ChainDrop / Shai-Hulud [1]"
+      ],
+      "cibles": [
+        "Utilisateurs ayant installé la version 0.5.144 de tensorlake, identifiants de développeurs et de CI [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "npm",
+          "definition": "Gestionnaire de paquets JavaScript et son dépôt public"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Protocole d'accès distant sécurisé, utilisé avec des clés"
+        },
+        {
+          "sigle": "AWS",
+          "definition": "Amazon Web Services : service de cloud d'Amazon"
+        },
+        {
+          "sigle": "Vault",
+          "definition": "HashiCorp Vault : outil de stockage de secrets"
+        },
+        {
+          "sigle": "Kubernetes",
+          "definition": "Plateforme d'orchestration de conteneurs"
+        },
+        {
+          "sigle": "Bun",
+          "definition": "Environnement d'exécution JavaScript"
+        },
+        {
+          "sigle": "VS Code",
+          "definition": "Visual Studio Code : éditeur de code de Microsoft"
+        },
+        {
+          "sigle": "ChainDrop",
+          "definition": "Campagne de ver npm de la famille Shai-Hulud"
+        },
+        {
+          "sigle": "Shai-Hulud",
+          "definition": "Famille de vers qui se propagent via des paquets npm"
+        },
+        {
+          "sigle": "CI",
+          "definition": "Intégration continue : automatisation des builds et tests"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Tensorlake npm Package Compromised to Deliver Shai-Hulud Credential-Stealing Worm",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/tensorlake-npm-package-compromised-to.html",
+          "date": "2026-10-08",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1ZJrw-vCazDC3YJlfmY9WewJ170my9lYex6Ccg7VTa8UQCrXWoCiy_F9w_LoP-GDEarC_RoYnx63fAa_i_RmR5564MS6tgcoqi77wlcqPzX7kambOt4Gga7rsMlWWBwyHKZtCb1lAowiE4bf5up8aIJuwoVsZSKTq15TTynJ-uNPirAGnY8uwMMGqBsgU/s1700-nu-rw-lo-l85-e365/npm-hack.jpg"
+        }
+      ]
     }
   ]
 }

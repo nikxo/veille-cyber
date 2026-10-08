@@ -5723,6 +5723,198 @@
           "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/CAIRN-TechBlog-Header.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-midnight-mimosa-android-fraude-publicitaire",
+      "title": "Midnight Mimosa : téléphones Android bon marché livrés avec un malware de fraude publicitaire",
+      "created": "2026-10-08T13:30:00+00:00",
+      "updated": "2026-10-08T13:30:00+00:00",
+      "version": 1,
+      "resume": "Bitdefender a trouvé sur des milliers de téléphones Android bon marché, dans plus de 150 pays, un malware présent avant le premier allumage et impossible à désinstaller, utilisé pour la fraude publicitaire [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Malware intégré au système des téléphones avant leur vente → présent dès le premier allumage, sans désinstallation possible [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Application malveillante dotée de privilèges système → installation et suppression d'applications, permissions accordées, code téléchargé et exécuté sans accord du propriétaire [1]."
+        },
+        {
+          "etape": "Installation d'applications",
+          "texte": "Au moins 32 applications déguisées en utilitaires installées en secret, le Play Store étant désactivé temporairement avant certaines installations → présence cachée [1]."
+        },
+        {
+          "etape": "Fraude publicitaire",
+          "texte": "Vraies publicités affichées dans des fenêtres invisibles, avec des clics automatisés sur certaines composantes → impressions et clics que l'utilisateur ne voit pas, revenus frauduleux [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (non identifié)",
+            "note": ""
+          },
+          {
+            "id": "tel",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Téléphones Android bon marché",
+            "note": "Malware préinstallé"
+          },
+          {
+            "id": "pub",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Services publicitaires légitimes",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "tel",
+            "etape": 1,
+            "texte": "Malware intégré avant la vente"
+          },
+          {
+            "de": "pub",
+            "vers": "tel",
+            "etape": 4,
+            "texte": "Publicités chargées puis affichées invisibles"
+          }
+        ]
+      },
+      "limites": "Bitdefender n'a pas déterminé qui a placé le malware ni à quel endroit de la chaîne d'approvisionnement il a été ajouté [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié ; des certificats au nom de Shenzhen Zediel ont signé des firmwares, sans preuve de son implication [1]"
+      ],
+      "cibles": [
+        "Utilisateurs de milliers de téléphones, surtout Mexique, France et Italie [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Thousands of cheap Android phones shipped with ad-fraud malware",
+          "site": "The Record",
+          "url": "https://therecord.media/cheap-androids-shipped-with-ad-fraud-malware",
+          "date": "2026-10-08",
+          "image": "https://cms.therecord.media/uploads/phones_yianni_mathioudakis_unsplash_686f0c639b.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-uac-0099-matchboil-ukraine",
+      "title": "UAC-0099 : le malware MatchBoil vise des entreprises ukrainiennes de transport, d'industrie et d'énergie",
+      "created": "2026-10-08T13:30:00+00:00",
+      "updated": "2026-10-08T13:30:00+00:00",
+      "version": 1,
+      "resume": "ESET décrit un malware en évolution, MatchBoil, détecté dans des entreprises ukrainiennes de transport, de fabrication et d'énergie. Le groupe UAC-0099 en est l'auteur, ESET le jugeant probablement lié à la Russie [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "E-mails d'hameçonnage contenant des liens → téléchargement d'une archive dont les fichiers exécutent finalement le malware [1]."
+        },
+        {
+          "etape": "Collecte et téléchargement",
+          "texte": "Exécution de MatchBoil → informations collectées sur la machine et logiciels supplémentaires téléchargés depuis un serveur des attaquants [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Le malware reste présent sur le système [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Selon le rapport d'août 2025 de CERT-UA, MatchBoil déploie la porte dérobée MatchWok (commandes à distance) et le voleur Dragstare (mots de passe, cookies, fichiers du bureau) [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (UAC-0099)",
+            "note": ""
+          },
+          {
+            "id": "mail",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Messagerie des victimes",
+            "note": "Lien malveillant"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes des entreprises",
+            "note": "MatchBoil"
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur des attaquants",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "mail",
+            "etape": 1,
+            "texte": "E-mails d'hameçonnage avec liens"
+          },
+          {
+            "de": "mail",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Archive téléchargée, malware exécuté"
+          },
+          {
+            "de": "srv",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Logiciels supplémentaires téléchargés"
+          }
+        ]
+      },
+      "limites": "L'article ne dit pas combien d'entreprises ont été touchées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "UAC-0099, groupe de cyberespionnage actif depuis au moins 2022, probablement lié à la Russie selon ESET [1]"
+      ],
+      "cibles": [
+        "Entreprises ukrainiennes de transport, de fabrication et d'énergie [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CERT-UA",
+          "definition": "Équipe ukrainienne de réponse aux incidents informatiques"
+        },
+        {
+          "sigle": "ESET",
+          "definition": "Entreprise de cybersécurité qui a publié le rapport"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Russian-aligned spies upgrade malware used in attacks on Ukrainian transport, energy firms",
+          "site": "The Record",
+          "url": "https://therecord.media/russia-ukraine-malware-transportation",
+          "date": "2026-10-08",
+          "image": "https://cms.therecord.media/uploads/Ukraine_railroad_f8f0a5b0ec.jpg"
+        }
+      ]
     }
   ]
 }

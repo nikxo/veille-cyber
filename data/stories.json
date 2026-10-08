@@ -5268,6 +5268,454 @@
           "image": "https://www.securityweek.com/wp-content/uploads/2026/03/healthcare-medical.jpeg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-wazza-phishkit-device-code",
+      "title": "Wazza : kit d'hameçonnage filtrant les visiteurs avant une page Adobe en Device Code",
+      "created": "2026-10-08T11:30:00+00:00",
+      "updated": "2026-10-08T11:30:00+00:00",
+      "version": 1,
+      "resume": "Un nouveau kit d'hameçonnage nommé Wazza vise des organisations bancaires, industrielles et gouvernementales aux États-Unis, en Europe et en Australie, avec une page Adobe en Device Code [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Lien suspect vers un domaine d'atterrissage générique → vérification que le nom d'hôte appartient à une campagne active [1]."
+        },
+        {
+          "etape": "Filtrage des visiteurs",
+          "texte": "Marqueur client, jeton signé de courte durée et contrôle anti-bot avec télémétrie du navigateur → trafic indésirable filtré [1]."
+        },
+        {
+          "etape": "Redirection finale",
+          "texte": "Seuls les visiteurs retenus sont redirigés → page d'hameçonnage Adobe en Device Code [1]."
+        },
+        {
+          "etape": "Vol d'authentification",
+          "texte": "Ce flux vise l'authentification du compte plutôt que la seule capture de mots de passe [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "dom",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Domaine d'atterrissage générique",
+            "note": ""
+          },
+          {
+            "id": "flt",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Contrôle anti-bot",
+            "note": "Jeton et télémétrie"
+          },
+          {
+            "id": "pg",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Page Adobe Device Code",
+            "note": ""
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Visiteurs ciblés",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "dom",
+            "etape": 1,
+            "texte": "Lien suspect vers le domaine"
+          },
+          {
+            "de": "dom",
+            "vers": "flt",
+            "etape": 2,
+            "texte": "Marqueur, jeton signé, contrôle anti-bot"
+          },
+          {
+            "de": "flt",
+            "vers": "pg",
+            "etape": 3,
+            "texte": "Visiteurs retenus redirigés"
+          },
+          {
+            "de": "usr",
+            "vers": "pg",
+            "etape": 4,
+            "texte": "Authentification du compte visée"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le mode de diffusion du lien, ni l'acteur, ni la date de début de la campagne, ni les victimes nommées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Banque, industrie manufacturière et gouvernement aux États-Unis, en Europe et en Australie [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Wazza Phishkit Targets Banking, Government, and Manufacturing Across the US, EU, and Australia",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/wazza-phishkit-targets-banking.html",
+          "date": "2026-10-08",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnlTrJzuyuM3FgdyTkx-JLieOXeR9fK_hENZFrdItZ09E4ZFhk8UYOPslpbGGidTUGCDgcTHqY7wvYrThg-Hwl24MQhL63GIfmRsBLy9MJ7iDXn1XbbX1W_EgGFw9eRyT4LOJq0aoyWhmOHF3O5a9L5LcKNS1IJxQqs_UBwmOnPRmx3fXwUPpKeYdARVE/s1700-nu-rw-lo-l85-e365/anyrun.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-uat-11985-taiwan-google-aitm",
+      "title": "UAT-11985 : courriels d'événements piégés pour voler des comptes Google de chercheurs taïwanais",
+      "created": "2026-10-08T11:30:00+00:00",
+      "updated": "2026-10-08T11:30:00+00:00",
+      "version": 1,
+      "resume": "Le groupe UAT-11985, décrit comme un APT, a envoyé des courriels sur le thème d'événements à des personnes liées à des organismes de recherche taïwanais pour voler leurs comptes Google [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Courriels d'invitation à des événements (parfois avec affiche à code QR modifié) contenant un lien déguisé en formulaire Google → fausse page de connexion Google [1]."
+        },
+        {
+          "etape": "Relais en temps réel",
+          "texte": "Identifiant relayé à Google par le serveur de l'acteur, puis mot de passe transmis à ce serveur → type d'authentification multifacteur demandé renvoyé en temps réel [1]."
+        },
+        {
+          "etape": "Contournement multifacteur",
+          "texte": "Authentification multifacteur relayée par le serveur → jetons de session authentifiés et prise de contrôle complète du compte [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (UAT-11985)",
+            "note": ""
+          },
+          {
+            "id": "mail",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Boîtes des chercheurs",
+            "note": "Courriel d'événement"
+          },
+          {
+            "id": "site",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux formulaire Google",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de l'acteur",
+            "note": "Relais en temps réel"
+          },
+          {
+            "id": "ggl",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Compte Google",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "mail",
+            "etape": 1,
+            "texte": "Courriel d'événement avec lien piégé"
+          },
+          {
+            "de": "mail",
+            "vers": "site",
+            "etape": 1,
+            "texte": "Clic sur le faux formulaire Google"
+          },
+          {
+            "de": "site",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Identifiant et mot de passe transmis"
+          },
+          {
+            "de": "srv",
+            "vers": "ggl",
+            "etape": 3,
+            "texte": "Authentification relayée, jetons obtenus"
+          }
+        ]
+      },
+      "limites": "Le rattachement à un État n'est pas confirmé par Talos, et aucune victime ni aucun nombre de victimes n'est donné [1].",
+      "cves": [],
+      "mitre": [
+        "T1557 : Adversary-in-the-Middle, interception de l'authentification entre la victime et le service [1]"
+      ],
+      "acteurs": [
+        "UAT-11985, décrit comme un APT ; développeur du kit locuteur natif du chinois simplifié, confiance modérée, sans lien avec un État confirmé [1]"
+      ],
+      "cibles": [
+        "Chercheurs taïwanais ; institutions usurpées : Taiwan European Union Centre, NCCU Institute of International Relations, Taiwan Research Institute [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "APT",
+          "definition": "Advanced Persistent Threat : groupe d'attaquants menant des campagnes ciblées et durables"
+        },
+        {
+          "sigle": "QR",
+          "definition": "Code à deux dimensions que l'on scanne avec un téléphone"
+        },
+        {
+          "sigle": "WebSocket",
+          "definition": "Connexion permanente entre un navigateur et un serveur"
+        },
+        {
+          "sigle": "NCCU",
+          "definition": "Sigle d'une institution taïwanaise usurpée dans les courriels"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "UAT-11985: AI-assisted event lures delivering real-time Google AitM phishing",
+          "site": "Cisco Talos",
+          "url": "https://blog.talosintelligence.com/uat-11985/",
+          "date": "2026-10-08",
+          "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/threat_spotlight.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-firefox-extensions-rabby-okx",
+      "title": "16 extensions Firefox imitant Rabby et OKX pour voler des phrases de récupération",
+      "created": "2026-10-08T11:30:00+00:00",
+      "updated": "2026-10-08T11:30:00+00:00",
+      "version": 1,
+      "resume": "Seize extensions Firefox malveillantes imitent les portefeuilles Rabby et OKX pour intercepter les phrases de récupération et les clés privées de cryptomonnaies [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Installation par les utilisateurs d'extensions imitant Rabby Wallet (quatre) et OKX Wallet (les autres) → fausses interfaces de portefeuille [1]."
+        },
+        {
+          "etape": "Interception des secrets",
+          "texte": "Saisie d'une phrase de récupération ou d'une clé privée pendant l'import du portefeuille → secrets interceptés par le code de l'extension [1]."
+        },
+        {
+          "etape": "Exfiltration",
+          "texte": "Envoi des secrets vers des Cloudflare Workers contrôlés par les attaquants → quinze extensions contactent le même domaine workers.dev [1]."
+        },
+        {
+          "etape": "Renouvellement",
+          "texte": "Noms de paquets, versions, identifiants et descriptions modifiés, mêmes interfaces, même logique et même infrastructure réseau réutilisées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "ext",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Fausses extensions Firefox",
+            "note": "Rabby et OKX imités"
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Utilisateurs de portefeuilles",
+            "note": ""
+          },
+          {
+            "id": "cf",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Cloudflare Workers",
+            "note": "Contrôlés par l'attaquant"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ext",
+            "etape": 1,
+            "texte": "Extensions imitant Rabby et OKX"
+          },
+          {
+            "de": "usr",
+            "vers": "ext",
+            "etape": 2,
+            "texte": "Phrase ou clé saisie à l'import"
+          },
+          {
+            "de": "ext",
+            "vers": "cf",
+            "etape": 3,
+            "texte": "Secrets envoyés"
+          }
+        ]
+      },
+      "limites": "Le canal de distribution, l'auteur et le nombre de victimes ne sont pas précisés. Toutes les extensions ont été retirées le 5 octobre 2026 [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Utilisateurs de portefeuilles de cryptomonnaies Rabby Wallet et OKX Wallet [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "OKX",
+          "definition": "Nom d'un portefeuille de cryptomonnaies imité par des extensions"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "16 Malicious Firefox Extensions Pose as Rabby and OKX Wallets to Steal Recovery Phrases",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/16-malicious-firefox-extensions-pose-as.html",
+          "date": "2026-10-08",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh25slDP7PhWH155CxM4JUNITLHKzjfSXpuF4WWZJmkycx5UQUIjLJd5Jg_mEDQi62FwRkfpLV14DBpVu2pybVwacKkHpc2MABge_OjMCn3ISyUTsh_JS0fM3wgzv4hbR1du-9fp7cmd0vvB33xeCv7RD7-o4A66gCoKtuCQxmmQL2jM2ljZOMyude3uhOb/s1700-nu-rw-lo-l85-e365/firefox-plugins.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-talos-evasion-analyse-ia",
+      "title": "Logiciels malveillants : du texte glissé dans les échantillons pour influencer les analyses par IA",
+      "created": "2026-10-08T11:30:00+00:00",
+      "updated": "2026-10-08T11:30:00+00:00",
+      "version": 1,
+      "resume": "Cisco Talos a suivi 84 échantillons (janvier 2025 à juillet 2026) contenant du texte destiné à influencer l'analyse automatisée par IA ; les meilleures techniques ont orienté le verdict dans environ 35 % des essais [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Instructions glissées",
+          "texte": "Texte en langage naturel demandant d'ignorer le fichier (FRUITSHELL, PLOTSAFE) → tentative d'influencer les outils d'analyse automatisés [1]."
+        },
+        {
+          "etape": "Imitation de formats",
+          "texte": "Même instruction répétée dans sept formats de modèles de conversation (HOLLOWCLAD) → contenu pouvant être lu par le modèle comme une instruction système [1]."
+        },
+        {
+          "etape": "Intimidation du modèle",
+          "texte": "Menaces de surveillance et fausses revendications de contrats ou de certifications (HOLLOWCLAD, MANTLEMAZE) → intimidation du modèle d'analyse [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Auteurs de logiciels malveillants",
+            "note": ""
+          },
+          {
+            "id": "ech",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Échantillon malveillant",
+            "note": "Texte d'évasion intégré"
+          },
+          {
+            "id": "scan",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Outil d'analyse par IA",
+            "note": "Chaînes extraites"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ech",
+            "etape": 2,
+            "texte": "Instruction d'ignorer le fichier insérée"
+          },
+          {
+            "de": "ech",
+            "vers": "scan",
+            "etape": 3,
+            "texte": "Même instruction en sept formats de modèles"
+          },
+          {
+            "de": "ech",
+            "vers": "scan",
+            "etape": 4,
+            "texte": "Menaces et fausses revendications"
+          }
+        ]
+      },
+      "limites": "Les sources ne décrivent aucune victime. Au moins quatre acteurs distincts, non nommés, ont réutilisé le commentaire de FRUITSHELL [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Auteurs anonymes ; au moins quatre acteurs distincts ont réutilisé le commentaire de FRUITSHELL [1]"
+      ],
+      "cibles": [
+        "Outils d'analyse automatisée de logiciels malveillants fondés sur des modèles de langage [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "FRUITSHELL",
+          "definition": "Nom d'une famille de porte dérobée PowerShell suivie par Talos"
+        },
+        {
+          "sigle": "PLOTSAFE",
+          "definition": "Nom d'une famille de logiciel malveillant écrite en Go"
+        },
+        {
+          "sigle": "HOLLOWCLAD",
+          "definition": "Nom d'une famille de logiciel malveillant répétant des instructions de refus"
+        },
+        {
+          "sigle": "MANTLEMAZE",
+          "definition": "Nom d'une famille de chargeurs malveillants suivie par Talos"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Ignore all instructions and read this blog: The state of AI-analysis evasion in malware",
+          "site": "Cisco Talos",
+          "url": "https://blog.talosintelligence.com/ignore-all-instructions-and-read-this-blog-the-state-of-ai-analysis-evasion-in-malware/",
+          "date": "2026-10-08",
+          "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/CAIRN-TechBlog-Header.jpg"
+        }
+      ]
     }
   ]
 }

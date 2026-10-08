@@ -4814,6 +4814,98 @@
           "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/01/10_Myth-Busting_Category_1505x922.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-byod-trump-mobile",
+      "title": "Le groupe BYOD revendique le piratage de Trump Mobile et menace Gate",
+      "created": "2026-10-08T00:30:00+00:00",
+      "updated": "2026-10-08T00:30:00+00:00",
+      "version": 1,
+      "resume": "Le groupe d'extorsion BYOD affirme avoir volé les données de 3 615 personnes liées à Trump Mobile et menace la plateforme de cryptomonnaies Gate, qui compterait 12 millions d'utilisateurs [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Selon BYOD, récupération de noms, e-mails, téléphones, adresses et détails de commandes → ZATAZ confirme que ces données sont accessibles [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "BYOD dit détenir les données de 12 millions d'utilisateurs de Gate → menace d'extorsion, sans diffusion signalée à ce stade [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (BYOD)",
+            "note": ""
+          },
+          {
+            "id": "tm",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes de Trump Mobile",
+            "note": "3 615 personnes touchées"
+          },
+          {
+            "id": "gate",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Plateforme Gate",
+            "note": "Menace seulement"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "tm",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "att",
+            "vers": "tm",
+            "etape": 2,
+            "texte": "Données de 3 615 personnes obtenues"
+          },
+          {
+            "de": "att",
+            "vers": "gate",
+            "etape": 3,
+            "texte": "Menace d'extorsion, 12 millions d'utilisateurs"
+          }
+        ]
+      },
+      "limites": "Les faits viennent des affirmations du groupe, sans confirmation indépendante de l'intrusion. Vecteur d'accès, dates et montant demandé ne sont pas mentionnés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "BYOD, nouveau groupe d'extorsion [1]"
+      ],
+      "cibles": [
+        "Trump Mobile Wireless, plateforme Gate; quatre autres victimes présumées au Canada, en Malaisie et ailleurs [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "BYOD",
+          "definition": "Nom du groupe d'extorsion qui revendique l'attaque"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Trump Mobile : BYOD revendique 3 615 dossiers piratés",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/trump-mobile-byod-revendique-3-615-dossiers-pirates/",
+          "date": "2026-10-07",
+          "image": "https://www.zataz.com/wp-content/uploads/byod_trump_mobile.jpg"
+        }
+      ]
     }
   ]
 }

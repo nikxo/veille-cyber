@@ -6824,13 +6824,13 @@
       "id": "2026-10-08-integrity-technology-emails-asie-sud-est",
       "title": "Pirates liés à Integrity Technology Group : vol d'emails en Asie du Sud-Est",
       "created": "2026-10-08T19:09:11+00:00",
-      "updated": "2026-10-08T20:30:00+00:00",
-      "version": 2,
+      "updated": "2026-10-08T22:08:25+00:00",
+      "version": 3,
       "resume": "Des pirates liés à l'entreprise chinoise Integrity Technology Group ont volé des emails de gouvernements, forces de l'ordre, systèmes de santé et institutions religieuses en Asie du Sud-Est, et fait fonctionner une application web donnant à des tiers accès à ces emails [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Analyse de sites avec des outils de scan, exploitation de huit failles connues, faux formulaire de connexion (XSS) ou password spraying contre Microsoft 365 et Exchange [1, 2]."
+          "texte": "Analyse de sites avec des outils de scan, exploitation de huit failles connues, faux formulaire de connexion (XSS) ou password spraying contre Microsoft 365 et Exchange [1, 2, 3]."
         },
         {
           "etape": "Exécution du logiciel malveillant",
@@ -6944,7 +6944,7 @@
           }
         ]
       },
-      "limites": "Les sources ne donnent ni la date des vols ni le nombre d'organisations touchées, et n'identifient pas les tiers qui consultent les emails [1].",
+      "limites": "Les sources ne donnent ni la date des vols ni le vecteur de chaque intrusion [1, 3], et n'identifient pas les tiers [1].",
       "cves": [
         {
           "id": "CVE-2014-6278",
@@ -6983,11 +6983,13 @@
       "acteurs": [
         "Integrity Technology Group, entreprise chinoise sanctionnée par les États-Unis et le Royaume-Uni [1]",
         "Noms de suivi jugés cohérents avec les méthodes : Flax Typhoon, Ethereal Panda, RedJuliett [1]",
-        "Entreprise chinoise liée au ministère de la Sécurité d'État ; ses outils (Microscan, FishHub) ont été saisis par plusieurs pays le 8 octobre 2026 [2]"
+        "Entreprise chinoise liée au ministère de la Sécurité d'État ; ses outils (Microscan, FishHub) ont été saisis par plusieurs pays le 8 octobre 2026 [2]",
+        "Flax Typhoon, aussi appelé Ethereal Panda et Red Juliett ; toute l'activité n'est pas forcément liée à Integrity Tech [3]"
       ],
       "cibles": [
         "Gouvernements, forces de l'ordre, santé et institutions religieuses en Asie du Sud-Est [1]",
-        "Entreprise électrique américaine, aéroports japonais et polonais, entreprises taïwanaises de gaz et d'électricité [2]"
+        "Entreprise électrique américaine, aéroports japonais et polonais, entreprises taïwanaises de gaz et d'électricité [2]",
+        "Deux universités taïwanaises compromises après scan en 2022 et 2023, six autres identifiées via FishHub [3]"
       ],
       "abreviations": [
         {
@@ -7049,6 +7051,13 @@
           "url": "https://therecord.media/flax-typhoon-china-tools-integrity-tech-international-takedown",
           "date": "2026-10-08",
           "image": "https://cms.therecord.media/uploads/china_flag_wesley_tingey_unsplash_a9625e393a.jpg"
+        },
+        {
+          "titre": "FBI disrupts Chinese hacking tools used to breach critical infrastructure",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fbi-disrupts-chinese-hacking-tools-used-to-breach-critical-infrastructure/",
+          "date": "2026-10-08",
+          "image": "https://www.bleepstatic.com/content/hl-images/2025/01/06/Chinese-hacker.jpg"
         }
       ]
     },

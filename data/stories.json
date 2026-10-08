@@ -6504,6 +6504,112 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrg8bHUppR3zYriUhWwJig9yJq8F69XCeJrtY040zk39DNhblhBRkcTcQSqRo6K3PwnMVoygOCmbWf2X7ySQDxpfDlgmXFBDGhoiicnG3_5E84RhV6muyzgGacKye5eiB5dLcvsNfny5yS-4TlrypAdPcU1PVfT-jMxWvdfg9algqsvxycUV1Jy1xUjGiT/s1700-nu-rw-lo-l85-e365/ai-hacker.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-08-asos-notification-push",
+      "title": "ASOS : compte d'employé piraté et fausse notification push aux clients",
+      "created": "2026-10-08T17:20:00+00:00",
+      "updated": "2026-10-08T17:20:00+00:00",
+      "version": 1,
+      "resume": "Des pirates ont pris le contrôle du compte d'un employé d'ASOS et envoyé aux clients une fausse notification annonçant un piratage [1]. ASOS indique que des noms et coordonnées ont été consultés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Usurpation d'un contact de confiance → accès au compte d'un employé [1]."
+        },
+        {
+          "etape": "Notification aux clients",
+          "texte": "Envoi depuis l'application ASOS d'une notification non autorisée annonçant un piratage → lien vers une chaîne Telegram du groupe Xuanye [1]."
+        },
+        {
+          "etape": "Accès à des données",
+          "texte": "Identifiants obtenus via le compte de l'employé → accès à des informations sur certaines plateformes tierces [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Xuanye Group)",
+            "note": ""
+          },
+          {
+            "id": "emp",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Compte d'un employé",
+            "note": "Identifiants obtenus"
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Application ASOS",
+            "note": "Notification push"
+          },
+          {
+            "id": "cli",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Clients ASOS",
+            "note": ""
+          },
+          {
+            "id": "plat",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Plateformes tierces",
+            "note": "Informations consultées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "emp",
+            "etape": 1,
+            "texte": "Usurpation d'un contact de confiance"
+          },
+          {
+            "de": "app",
+            "vers": "cli",
+            "etape": 2,
+            "texte": "Fausse notification annonçant un piratage"
+          },
+          {
+            "de": "emp",
+            "vers": "plat",
+            "etape": 3,
+            "texte": "Identifiants utilisés, informations consultées"
+          }
+        ]
+      },
+      "limites": "L'ordre entre la notification et l'usage des identifiants n'est pas précisé [1]. Les revendications du groupe sur Snowflake ne sont pas vérifiées et Snowflake nie toute intrusion [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Xuanye Group, nom inconnu jusqu'ici des chercheurs suivant les gangs d'extorsion [1]"
+      ],
+      "cibles": [
+        "ASOS, détaillant britannique de mode en ligne [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ASOS",
+          "definition": "As Seen On Screen : détaillant britannique de mode en ligne"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "ASOS: Hackers tricked way into employee account before sending rogue push notification",
+          "site": "The Record",
+          "url": "https://therecord.media/asos-says-hackers-tricked-employee-access-push-notification",
+          "date": "2026-10-08",
+          "image": "https://cms.therecord.media/uploads/clothing_apparel_fd2b2bef29.jpg"
+        }
+      ]
     }
   ]
 }

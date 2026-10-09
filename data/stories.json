@@ -8044,6 +8044,423 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUJ8xcgqF85kQru4JEuCv6OipwHlff6IEp3r1zhFOY9tYpbwEeWYSqzPTILX4uqM97Cc9ZfNfb3HB4lZbecN48fqKgKryAL60KqqZU4HmdfTMsRYaDcFjNL7aE8vk7G0D_-mqY_B2Jk_3kXMsx2ABpgbWixg1GHZ2l7V0MSzqtEWnYZ_ymkOTf0j8yq2c/s1700-nu-rw-lo-l85-e365/onion.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-09-cctld-gh-sl-as-google",
+      "title": "Détournement des domaines nationaux .gh, .sl et .as : certificats HTTPS obtenus pour des domaines Google",
+      "created": "2026-10-09T12:30:00+00:00",
+      "updated": "2026-10-09T12:30:00+00:00",
+      "version": 1,
+      "resume": "Des attaquants ont détourné les suffixes de domaine .gh, .sl et .as et obtenu des certificats HTTPS pour plusieurs domaines Google et d'autres organisations [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Détournement des suffixes nationaux .gh, .sl et .as → contrôle des domaines placés sous ces suffixes [1]."
+        },
+        {
+          "etape": "Falsification du DNS",
+          "texte": "Modification des enregistrements DNS faisant autorité → contrôle de la résolution des domaines concernés [1]."
+        },
+        {
+          "etape": "Certificats frauduleux",
+          "texte": "Obtention de certificats HTTPS pour des domaines Google et d'autres organisations [1]."
+        },
+        {
+          "etape": "Réaction de Google",
+          "texte": "Blocage des certificats dans Chrome et révocation avec les autorités émettrices ; les journaux de transparence révèlent d'autres organisations touchées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "reg",
+            "type": "inconnu",
+            "zone": "internet",
+            "nom": "Registres .gh, .sl, .as",
+            "note": ""
+          },
+          {
+            "id": "dns",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "DNS des domaines visés",
+            "note": "Enregistrements modifiés"
+          },
+          {
+            "id": "ca",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Autorités de certification",
+            "note": "Certificats émis"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "reg",
+            "etape": 2,
+            "texte": "Détournement des suffixes nationaux"
+          },
+          {
+            "de": "reg",
+            "vers": "dns",
+            "etape": 3,
+            "texte": "Modification des enregistrements DNS"
+          },
+          {
+            "de": "att",
+            "vers": "ca",
+            "etape": 4,
+            "texte": "Obtention de certificats HTTPS"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent ni comment les registres ont été compromis, ni qui est l'acteur, ni quelles autres organisations sont touchées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non nommé par la source [1]"
+      ],
+      "cibles": [
+        "Domaines Google ; autres organisations non nommées, dont des marques mondiales et des services en ligne populaires [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "DNS",
+          "definition": "Système qui traduit un nom de domaine en adresse IP"
+        },
+        {
+          "sigle": "HTTPS",
+          "definition": "Version chiffrée du protocole web, prouvée par un certificat"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Google Domains Impacted by Recent ccTLD Hijacks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/google-domains-impacted-by-recent-cctld-domain-hijacks/",
+          "date": "2026-10-09",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Underminr-DNS-vulnerability.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-09-poellm-poeme-github",
+      "title": "PoeLLM : un botnet cache l'adresse de son serveur de contrôle dans un poème GitHub",
+      "created": "2026-10-09T12:30:00+00:00",
+      "updated": "2026-10-09T12:30:00+00:00",
+      "version": 1,
+      "resume": "Le logiciel malveillant PoeLLM, actif depuis au moins avril 2026, vise des services exposés d'IA et open source pour miner de la cryptomonnaie et étendre son botnet [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Ciblage de services exposés (LiteLLM, Ollama, Gotenberg, Gitea) ; le mode d'intrusion n'est pas précisé [1]."
+        },
+        {
+          "etape": "Localisation du contrôle",
+          "texte": "Les machines infectées extraient quatre mots d'un poème hébergé sur GitHub → conversion en adresse IP du serveur de contrôle [1]."
+        },
+        {
+          "etape": "Changement de serveur",
+          "texte": "L'opérateur modifie les mots du poème → changement de serveur sans toucher aux machines infectées [1]."
+        },
+        {
+          "etape": "Objectif",
+          "texte": "Minage de cryptomonnaie et extension du botnet [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (opérateur PoeLLM)",
+            "note": ""
+          },
+          {
+            "id": "svc",
+            "type": "serveur",
+            "zone": "expose",
+            "nom": "Services IA et open source",
+            "note": "LiteLLM, Ollama, Gitea"
+          },
+          {
+            "id": "gh",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Poème sur GitHub",
+            "note": "Modifié 11 fois"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "svc",
+            "etape": 1,
+            "texte": "Ciblage de services exposés"
+          },
+          {
+            "de": "svc",
+            "vers": "gh",
+            "etape": 2,
+            "texte": "Quatre mots lus dans le poème"
+          },
+          {
+            "de": "att",
+            "vers": "gh",
+            "etape": 3,
+            "texte": "Mots modifiés pour changer de serveur"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni la faille utilisée, ni le nombre de machines infectées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Opérateur supposé parler italien, qui a modifié le poème 11 fois [1]"
+      ],
+      "cibles": [
+        "Machines disposant de services d'IA ou open source exposés ; nombre non précisé [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "botnet",
+          "definition": "Réseau de machines infectées contrôlées à distance par un attaquant"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle : programmes capables de tâches dites intelligentes"
+        },
+        {
+          "sigle": "IP",
+          "definition": "Internet Protocol : adresse qui identifie une machine sur un réseau"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "In Other News: AI Used in Korean Bank Breaches, Poem-Guided Botnet, Empire Admin Gets 40 Years",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/in-other-news-ai-used-in-korean-bank-breaches-poem-guided-botnet-empire-admin-gets-40-years/",
+          "date": "2026-10-09",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-09-ghostaction-772-depots",
+      "title": "GhostAction : un workflow malveillant vole des secrets dans 772 dépôts GitHub",
+      "created": "2026-10-09T12:30:00+00:00",
+      "updated": "2026-10-09T12:30:00+00:00",
+      "version": 1,
+      "resume": "Selon GitGuardian, la campagne GhostAction a ajouté un workflow voleur de secrets à 772 dépôts publics et récupéré 2 577 secrets [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Ajout d'un workflow GitHub Actions malveillant dans des dépôts publics ; le moyen d'ajout n'est pas précisé [1]."
+        },
+        {
+          "etape": "Vol de secrets",
+          "texte": "Le workflow vole clés SSH et identifiants Azure, AWS et de bases de données → 2 577 secrets récupérés [1]."
+        },
+        {
+          "etape": "Exfiltration",
+          "texte": "Utilisation d'un nouveau serveur d'exfiltration, avec un mode opératoire repris de 2025 [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (GhostAction)",
+            "note": ""
+          },
+          {
+            "id": "dep",
+            "type": "application",
+            "zone": "internet",
+            "nom": "772 dépôts GitHub publics",
+            "note": "Workflow malveillant"
+          },
+          {
+            "id": "exf",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur d'exfiltration",
+            "note": "Nouveau"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "dep",
+            "etape": 1,
+            "texte": "Ajout du workflow malveillant"
+          },
+          {
+            "de": "dep",
+            "vers": "exf",
+            "etape": 3,
+            "texte": "Secrets envoyés au serveur de l'attaquant"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas comment les workflows ont été ajoutés, ni qui est l'acteur [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non nommé par la source [1]"
+      ],
+      "cibles": [
+        "373 utilisateurs et organisations, entre le 31 août et le 30 septembre [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "GitHub Actions",
+          "definition": "Service d'automatisation de GitHub qui exécute des workflows dans les dépôts"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Protocole d'accès distant sécurisé à une machine"
+        },
+        {
+          "sigle": "AWS",
+          "definition": "Amazon Web Services : services de cloud d'Amazon"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "In Other News: AI Used in Korean Bank Breaches, Poem-Guided Botnet, Empire Admin Gets 40 Years",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/in-other-news-ai-used-in-korean-bank-breaches-poem-guided-botnet-empire-admin-gets-40-years/",
+          "date": "2026-10-09",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-09-tensorlake-npm-ver",
+      "title": "Paquet npm tensorlake compromis : un ver vole des identifiants à l'installation",
+      "created": "2026-10-09T12:30:00+00:00",
+      "updated": "2026-10-09T12:30:00+00:00",
+      "version": 1,
+      "resume": "La version 0.5.144 du paquet npm tensorlake a été compromise pour exécuter à l'installation un ver voleur d'identifiants [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Compromission du paquet npm tensorlake, version 0.5.144 ; le mode de compromission n'est pas détaillé [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Exécution du ver à l'installation → vol d'identifiants npm, GitHub, AWS, Kubernetes et Vault, et de configurations d'outils de codage IA [1]."
+        },
+        {
+          "etape": "Propagation",
+          "texte": "Le ver republie du code via d'autres paquets de la victime → extension de la compromission [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "npm",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Paquet npm tensorlake",
+            "note": "Version 0.5.144"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines des utilisateurs",
+            "note": "Identifiants volés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "npm",
+            "etape": 1,
+            "texte": "Compromission du paquet"
+          },
+          {
+            "de": "npm",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Ver exécuté à l'installation"
+          },
+          {
+            "de": "pc",
+            "vers": "npm",
+            "etape": 3,
+            "texte": "Republication via d'autres paquets"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni l'acteur, ni le nombre d'utilisateurs touchés, ni la façon dont le paquet a été compromis [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non nommé par la source ; ver décrit comme de type Shai-Hulud [1]"
+      ],
+      "cibles": [
+        "Utilisateurs ayant installé la version 0.5.144 ; nombre non précisé [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "npm",
+          "definition": "Gestionnaire de paquets de l'écosystème JavaScript"
+        },
+        {
+          "sigle": "Kubernetes",
+          "definition": "Plateforme d'orchestration de conteneurs"
+        },
+        {
+          "sigle": "Vault",
+          "definition": "Outil de gestion de secrets"
+        },
+        {
+          "sigle": "AWS",
+          "definition": "Amazon Web Services : services de cloud d'Amazon"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle : programmes capables de tâches dites intelligentes"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "In Other News: AI Used in Korean Bank Breaches, Poem-Guided Botnet, Empire Admin Gets 40 Years",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/in-other-news-ai-used-in-korean-bank-breaches-poem-guided-botnet-empire-admin-gets-40-years/",
+          "date": "2026-10-09",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
+        }
+      ]
     }
   ]
 }

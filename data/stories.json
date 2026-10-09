@@ -7802,13 +7802,13 @@
       "id": "2026-10-09-ahsaycbs-webshell-xmrig",
       "title": "Failles AhsayCBS exploitées pour déposer un webshell et un mineur XMRig",
       "created": "2026-10-09T08:20:00+00:00",
-      "updated": "2026-10-09T08:20:00+00:00",
-      "version": 1,
-      "resume": "Des attaquants exploitent deux failles du logiciel de sauvegarde AhsayCBS exposé sur Internet pour exécuter du code, déposer un webshell et installer un mineur de Monero. Cinq organisations sont recensées [1].",
+      "updated": "2026-10-09T11:30:00+00:00",
+      "version": 2,
+      "resume": "Des attaquants exploitent deux failles du logiciel de sauvegarde AhsayCBS exposé sur Internet pour exécuter du code, déposer un webshell et installer un mineur de Monero. Au moins cinq organisations sont touchées [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Enchaînement de CVE-2026-105133 et CVE-2026-105134 sur AhsayCBS exposé sur Internet → exécution de code à distance sans authentification, avec les privilèges SYSTEM [1]."
+          "texte": "Enchaînement de CVE-2026-105133 et CVE-2026-105134 sur AhsayCBS exposé sur Internet → exécution de code à distance sans authentification, avec les privilèges SYSTEM [1, 2]."
         },
         {
           "etape": "Persistance",
@@ -7889,7 +7889,7 @@
           }
         ]
       },
-      "limites": "L'article ne nomme aucun acteur et ne mentionne ni mouvement latéral, ni exfiltration, ni chiffrement [1].",
+      "limites": "Aucun acteur nommé, ni mouvement latéral, exfiltration ou chiffrement mentionnés [1, 2]. Aucun correctif n'était disponible au moment de l'article de SecurityWeek [2].",
       "cves": [
         {
           "id": "CVE-2026-105133",
@@ -7941,6 +7941,13 @@
           "url": "https://www.huntress.com/blog/ahsaycbs-flaws-exploit",
           "date": "2026-10-08",
           "image": "https://cdn.builder.io/api/v1/image/assets%2F3eb6f92aedf74f109c7b4b0897ec39a8%2F266936e4b61b4dd6821599adf741b9db"
+        },
+        {
+          "titre": "Unpatched AhsayCBS Vulnerabilities Exploited in the Wild",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/unpatched-ahsaycbs-vulnerabilities-exploited-in-the-wild/",
+          "date": "2026-10-09",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
         }
       ]
     },

@@ -2648,8 +2648,8 @@
       "id": "2026-10-06-fbi-shinyhunters-peoplesoft",
       "title": "FBI : ShinyHunters vole des données d'employés via une faille PeopleSoft non corrigée",
       "created": "2026-10-06T08:30:00+00:00",
-      "updated": "2026-10-09T16:07:57+00:00",
-      "version": 4,
+      "updated": "2026-10-09T17:20:00+00:00",
+      "version": 5,
       "resume": "Des données personnelles de milliers d'employés du FBI ont été volées par ShinyHunters sur une plateforme Oracle PeopleSoft gérée par un tiers. Un sous-traitant d'Accenture a été retiré [1, 2].",
       "chaine": [
         {
@@ -2667,6 +2667,10 @@
         {
           "etape": "Prise de contrôle",
           "texte": "Prise de contrôle du domaine FBIjobs.gov, puis défiguration du site [4]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "Selon ShinyHunters, déplacement depuis PeopleSoft vers une infrastructure AWS GovCloud gérée par le FBI → 2 à 3 To de données revendiqués [5]."
         }
       ],
       "parcours": {
@@ -2691,6 +2695,13 @@
             "zone": "victime",
             "nom": "Données des employés du FBI",
             "note": ""
+          },
+          {
+            "id": "cl",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "AWS GovCloud du FBI",
+            "note": "Revendiqué par ShinyHunters"
           }
         ],
         "liens": [
@@ -2711,10 +2722,16 @@
             "vers": "dn",
             "etape": 3,
             "texte": "Vol de données personnelles"
+          },
+          {
+            "de": "ps",
+            "vers": "cl",
+            "etape": 5,
+            "texte": "Déplacement revendiqué par ShinyHunters"
           }
         ]
       },
-      "limites": "L'article ne détaille pas les données volées ni la durée de l'intrusion, et ne décrit pas d'étape après le vol [1].",
+      "limites": "Selon ShinyHunters, une faille zero-day PeopleSoft a servi puis AWS GovCloud a été visé ; le FBI parle d'une mise à jour non installée par un tiers [5].",
       "cves": [
         {
           "id": "CVE-2026-35273",
@@ -2723,7 +2740,7 @@
       ],
       "mitre": [],
       "acteurs": [
-        "ShinyHunters [1]"
+        "ShinyHunters [1, 5]"
       ],
       "cibles": [
         "FBI : données personnelles de milliers d'employés [1] ; environ 60 000 agents actuels et anciens [3]"
@@ -2740,6 +2757,10 @@
         {
           "sigle": "URL",
           "definition": "Adresse d'une ressource web"
+        },
+        {
+          "sigle": "AWS",
+          "definition": "Amazon Web Services : services d'informatique en nuage d'Amazon"
         }
       ],
       "sources": [
@@ -2770,6 +2791,13 @@
           "url": "https://therecord.media/shinyhunters-arrest-fbi-data-breach-investigation",
           "date": "2026-10-09",
           "image": "https://cms.therecord.media/uploads/fbi_agent_cf296b7c1b.jpg"
+        },
+        {
+          "titre": "FBI arrests another suspected ShinyHunters hacker after agency breach",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fbi-arrests-another-suspected-shinyhunters-hacker-after-agency-breach/",
+          "date": "2026-10-09",
+          "image": "https://www.bleepstatic.com/content/hl-images/2024/01/25/Hacker_prison.jpg"
         }
       ]
     },
@@ -8627,6 +8655,200 @@
           "url": "https://www.bleepingcomputer.com/news/security/max-severity-sonicwall-sma1000-flaw-now-exploited-in-attacks/",
           "date": "2026-10-09",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/SonicWall-headpic.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-09-darksword-p7-ios",
+      "title": "Variante P7 du kit d'exploitation iOS DarkSword : vol du trousseau et de portefeuilles crypto",
+      "created": "2026-10-09T17:20:00+00:00",
+      "updated": "2026-10-09T17:20:00+00:00",
+      "version": 1,
+      "resume": "Une variante nommée P7 du kit d'exploitation iOS DarkSword laisse moins de traces sur l'iPhone, vole le trousseau et des portefeuilles crypto, et reçoit des commandes de l'attaquant [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources pour la variante P7 [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Chaînage de plusieurs failles iOS → sortie du bac à sable du navigateur, puis privilèges noyau [1]."
+        },
+        {
+          "etape": "Exécution du code",
+          "texte": "Charge injectée dans SpringBoard → elle gère aussi les échanges avec le serveur de commande [1]."
+        },
+        {
+          "etape": "Réduction de la trace",
+          "texte": "Journalisation de débogage supprimée → empreinte réduite sur l'appareil [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Trousseau iCloud converti sur le téléphone avant exfiltration ; collecte de Notes, photos et portefeuilles crypto, dont imToken [1]."
+        },
+        {
+          "etape": "Commandes à distance",
+          "texte": "Interrogation du serveur de commande toutes les 15 secondes → exécution de commandes comme liste des applications ou téléchargement de fichiers [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "tel",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "iPhone de la victime",
+            "note": "Trousseau, portefeuilles"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de commande",
+            "note": "Cycle de 15 s"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "tel",
+            "etape": 2,
+            "texte": "Chaîne de failles iOS, sortie du bac à sable"
+          },
+          {
+            "de": "tel",
+            "vers": "c2",
+            "etape": 6,
+            "texte": "Interrogation toutes les 15 secondes"
+          },
+          {
+            "de": "c2",
+            "vers": "tel",
+            "etape": 6,
+            "texte": "Commandes envoyées à l'appareil"
+          }
+        ]
+      },
+      "limites": "Les sources ne décrivent pas comment P7 est livré, ni qui l'utilise, ni le nombre de victimes [1].",
+      "cves": [
+        {
+          "id": "CVE-2025-24201",
+          "explication": "WebKit : écriture hors limites permettant de sortir du bac à sable du processus de contenu web ; corrigée dans iOS 18.3.2 [1]."
+        },
+        {
+          "id": "CVE-2025-31200",
+          "explication": "Core Audio : corruption de mémoire permettant d'exécuter du code lors du traitement d'un flux audio d'un fichier piégé ; corrigée dans iOS 18.4.1 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Acteur de la variante P7 : non précisé [1]"
+      ],
+      "cibles": [
+        "Utilisateurs d'iPhone ; pays cités pour DarkSword : Arabie saoudite, Turquie, Malaisie, Ukraine [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "P7",
+          "definition": "Nom de la variante, tiré du préfixe de variable p7_ du code"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "P7 DarkSword iOS Exploit Kit Adds Crypto Wallet Data Theft and Remote Commands",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/p7-darksword-ios-exploit-kit-adds.html",
+          "date": "2026-10-09",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiT-SCb1qpP1Z0zyo_WOtyHzQKUiqJ3RudpC9uowSePmGcLZ9sPHcE-lvDGMZTHeB7YckgDmaBA775L13GvrYHl_gAVSg46-5sUJWzcA7Q3ec5h8WIuKO5l0Td2CCk5nlSvNByqPL22qlTNwHms3rbdXsJYoEe7gRqHiqmM8DHtvEkKniOP4Q70Dq_5Dr8I/s1700-nu-rw-lo-l85-e365/ios.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-09-irhythm-fuite-donnees",
+      "title": "iRhythm : données de patients volées dans des applications métier hébergées par des tiers",
+      "created": "2026-10-09T17:20:00+00:00",
+      "updated": "2026-10-09T17:20:00+00:00",
+      "version": 1,
+      "resume": "Des pirates ont volé des données dans des applications métier hébergées par des tiers chez iRhythm, fabricant du capteur cardiaque Zio Patch. Au moins 360 000 personnes sont touchées [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Attaque d'ingénierie sociale, méthode non précisée → accès à des applications métier hébergées par des tiers [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Accès aux informations puis téléchargement → noms, adresses, numéros de compte patient, numéros de série d'appareils et dates de naissance exfiltrés [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Un acteur a contacté l'entreprise → demande de paiement contre la non-divulgation des informations [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Applications métier tierces",
+            "note": "Non identifiées"
+          },
+          {
+            "id": "dn",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données de patients",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 1,
+            "texte": "Ingénierie sociale, méthode non précisée"
+          },
+          {
+            "de": "app",
+            "vers": "dn",
+            "etape": 2,
+            "texte": "Informations consultées et téléchargées"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni la méthode d'ingénierie sociale, ni les applications touchées, ni l'acteur ; l'accès a duré du 3 au 8 juin [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié, aucune revendication publique [1]"
+      ],
+      "cibles": [
+        "iRhythm : au moins 360 000 personnes, dont 298 647 au Texas et 69 526 en Caroline du Sud [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Hundreds of thousands impacted by data breach at biosensor firm iRhythm",
+          "site": "The Record",
+          "url": "https://therecord.media/irhythm-data-breach-reports",
+          "date": "2026-10-09",
+          "image": "https://cms.therecord.media/uploads/irhythm_zio_b2d3ad957a.jpg"
         }
       ]
     }

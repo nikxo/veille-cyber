@@ -7483,13 +7483,13 @@
       "id": "2026-10-08-midnight-mimosa-android-firmware",
       "title": "Midnight Mimosa : téléphones Android bas de gamme livrés avec un logiciel malveillant dans le firmware",
       "created": "2026-10-08T20:30:00+00:00",
-      "updated": "2026-10-08T20:30:00+00:00",
-      "version": 1,
-      "resume": "La campagne Midnight Mimosa a touché des milliers de téléphones Android bas de gamme dans plus de 150 pays : un logiciel préinstallé dans le firmware installe des applications, fraude à la publicité et prépare un proxy résidentiel [1].",
+      "updated": "2026-10-09T10:08:23+00:00",
+      "version": 2,
+      "resume": "La campagne Midnight Mimosa a touché des milliers de téléphones Android bas de gamme dans plus de 150 pays : un logiciel préinstallé dans le firmware installe des applications, fraude à la publicité et prépare un proxy résidentiel [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Logiciel malveillant préinstallé dans le firmware de téléphones Android bas de gamme à puces MediaTek ; l'auteur et l'étape de la modification sont inconnus [1]."
+          "texte": "Logiciel malveillant intégré au firmware de téléphones Android bas de gamme à puces MediaTek avant la vente ; l'auteur et l'étape de la modification sont inconnus [1, 2]."
         },
         {
           "etape": "Prise de contrôle",
@@ -7497,7 +7497,7 @@
         },
         {
           "etape": "Neutralisation des défenses",
-          "texte": "Désactivation temporaire du Play Store avant les installations → Google Play Protect ne détecte pas ces installations [1]."
+          "texte": "Désactivation temporaire du Play Store avant les installations, puis réactivation [2] → Google Play Protect ne détecte pas ces installations [1]."
         },
         {
           "etape": "Fraude publicitaire",
@@ -7506,6 +7506,10 @@
         {
           "etape": "Proxy résidentiel",
           "texte": "Une application enregistre l'appareil auprès d'un serveur de commande → trafic relayable vers des cibles choisies ; usage actif non confirmé [1]."
+        },
+        {
+          "etape": "Applications Google Play",
+          "texte": "Treize applications du Google Play, publiées sous deux comptes développeur, contiennent le même code de fraude publicitaire, sans les privilèges de la version préinstallée [2]."
         }
       ],
       "parcours": {
@@ -7560,7 +7564,7 @@
         "Non identifié [1]"
       ],
       "cibles": [
-        "Utilisateurs de téléphones Android bas de gamme dans plus de 150 pays [1]"
+        "Utilisateurs de milliers de téléphones Android bas de gamme dans plus de 150 pays, surtout Mexique et France [2]"
       ],
       "abreviations": [],
       "sources": [
@@ -7570,6 +7574,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/low-cost-android-phones-ship-with-residential-proxy-malware/",
           "date": "2026-10-08",
           "image": "https://www.bleepstatic.com/content/hl-images/2023/05/25/Android_malware.jpg"
+        },
+        {
+          "titre": "Pre-Baked Firmware Malware Hits Budget Android Devices in 150+ Countries",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/pre-baked-firmware-malware-hits-budget-android-devices-in-150-countries/",
+          "date": "2026-10-09",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/11/android-banking-malware.png"
         }
       ]
     },
@@ -7930,6 +7941,100 @@
           "url": "https://www.huntress.com/blog/ahsaycbs-flaws-exploit",
           "date": "2026-10-08",
           "image": "https://cdn.builder.io/api/v1/image/assets%2F3eb6f92aedf74f109c7b4b0897ec39a8%2F266936e4b61b4dd6821599adf741b9db"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-09-gobalance-onion-detournement",
+      "title": "GoBalance : faille permettant de détourner des adresses .onion, dont celles du forum Dread",
+      "created": "2026-10-09T10:08:23+00:00",
+      "updated": "2026-10-09T10:08:23+00:00",
+      "version": 1,
+      "resume": "Une faille de l'outil GoBalance permet de retrouver la clé secrète d'une adresse .onion à partir d'informations publiques et de la détourner [1]. Les deux adresses du forum Dread ont été redirigées vers Conclave [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Analyse d'un descripteur public d'un site .onion utilisant GoBalance → clé privée maîtresse de l'adresse retrouvée [1]."
+        },
+        {
+          "etape": "Détournement de l'adresse",
+          "texte": "Signature de descripteurs valides avec la clé retrouvée → visiteurs redirigés vers une copie du site contrôlée par l'attaquant [1]."
+        },
+        {
+          "etape": "Cas constatés",
+          "texte": "Les deux adresses .onion de Dread redirigées vers Conclave entre le 5 et le 7 octobre → Dread annonce sa migration [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "site",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Site .onion utilisant GoBalance",
+            "note": "Clé maîtresse retrouvée"
+          },
+          {
+            "id": "mir",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Copie du site (Conclave)",
+            "note": ""
+          },
+          {
+            "id": "vis",
+            "type": "utilisateur",
+            "zone": "internet",
+            "nom": "Visiteurs du site",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "site",
+            "etape": 1,
+            "texte": "Clé retrouvée depuis un descripteur public"
+          },
+          {
+            "de": "att",
+            "vers": "mir",
+            "etape": 2,
+            "texte": "Descripteurs signés pointant vers la copie"
+          },
+          {
+            "de": "vis",
+            "vers": "mir",
+            "etape": 2,
+            "texte": "Visiteurs redirigés vers la copie"
+          }
+        ]
+      },
+      "limites": "Aucun identifiant CVE ni avis officiel n'existe [1]. L'exploitation n'est pas formellement confirmée ; Paris attribue la fuite de la première adresse à une erreur de l'équipe [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié ; Conclave est seulement le site vers lequel les adresses ont été redirigées [1]"
+      ],
+      "cibles": [
+        "Dread (forum) : deux adresses .onion détournées ; Omega (marché) a retiré son ancienne adresse et migré [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "GoBalance Flaw Lets Attackers Hijack .onion Addresses by Recovering Tor-Format Keys",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/gobalance-flaw-lets-attackers-hijack.html",
+          "date": "2026-10-09",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUJ8xcgqF85kQru4JEuCv6OipwHlff6IEp3r1zhFOY9tYpbwEeWYSqzPTILX4uqM97Cc9ZfNfb3HB4lZbecN48fqKgKryAL60KqqZU4HmdfTMsRYaDcFjNL7aE8vk7G0D_-mqY_B2Jk_3kXMsx2ABpgbWixg1GHZ2l7V0MSzqtEWnYZ_ymkOTf0j8yq2c/s1700-nu-rw-lo-l85-e365/onion.jpg"
         }
       ]
     }

@@ -944,13 +944,17 @@
       "id": "2026-10-05-cyber-partisans-reseau-sante-russe",
       "title": "Cyber Partisans biélorusses : deux ans d'espionnage dans un réseau de santé russe",
       "created": "2026-10-05T18:14:12+00:00",
-      "updated": "2026-10-05T18:14:12+00:00",
-      "version": 1,
-      "resume": "Des chercheurs russes attribuent aux Cyber Partisans biélorusses une intrusion de deux ans, débutée début 2024 et découverte en décembre 2025, chez une organisation de santé russe [1].",
+      "updated": "2026-10-09T15:08:22+00:00",
+      "version": 2,
+      "resume": "Des chercheurs russes attribuent aux Cyber Partisans biélorusses une intrusion de deux ans, débutée début 2024 selon eux [1, 2]. Le groupe affirme l'avoir menée dès 2023 et être resté plusieurs mois [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par la source [1]."
+          "texte": "Non précisé par les sources [1, 2]."
+        },
+        {
+          "etape": "Accès administrateur",
+          "texte": "Intrusion dans le réseau du Département de la santé de Moscou → droits administrateur sur l'infrastructure, dont des systèmes liés à d'autres agences gouvernementales [2]."
         },
         {
           "etape": "Porte dérobée",
@@ -958,7 +962,11 @@
         },
         {
           "etape": "Contrôle à distance",
-          "texte": "Échanges avec les opérateurs via Telegram → accès maintenu environ deux ans sans activité destructrice [1]."
+          "texte": "Échanges avec les opérateurs via Telegram → accès maintenu environ deux ans selon [1], plusieurs mois selon le groupe [2]."
+        },
+        {
+          "etape": "Consultation des données",
+          "texte": "Consultation d'informations médicales sensibles → selon les chercheurs, aucune donnée détruite ni opération perturbée [2]."
         }
       ],
       "parcours": {
@@ -974,8 +982,8 @@
             "id": "pc",
             "type": "postes",
             "zone": "victime",
-            "nom": "Réseau de l'organisation de santé",
-            "note": "Vasilek installé"
+            "nom": "Réseau santé de Moscou",
+            "note": "Droits administrateur"
           },
           {
             "id": "tg",
@@ -990,30 +998,36 @@
             "de": "att",
             "vers": "pc",
             "etape": 2,
+            "texte": "Accès administrateur au réseau"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 3,
             "texte": "Porte dérobée Vasilek installée"
           },
           {
             "de": "pc",
             "vers": "tg",
-            "etape": 3,
+            "etape": 4,
             "texte": "Échanges relayés vers les opérateurs"
           },
           {
             "de": "tg",
             "vers": "att",
-            "etape": 3,
+            "etape": 4,
             "texte": "Messages reçus par les opérateurs"
           }
         ]
       },
-      "limites": "Le vecteur d'accès n'est pas précisé [1].",
+      "limites": "Le vecteur d'accès n'est pas précisé [1, 2]. La durée de l'intrusion diffère : deux ans [1], plusieurs mois selon le groupe [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Cyber Partisans biélorusses, connus pour des attaques publiques contre des gouvernements et infrastructures [1]"
+        "Cyber Partisans biélorusses, attribution par Solar (filiale de Rostelecom) reconnue par le groupe [2]"
       ],
       "cibles": [
-        "Organisation de santé russe non nommée, reliée à d'autres établissements ; données médicales sensibles [1]"
+        "Département de la santé de Moscou selon le groupe [2] ; organisation de santé reliée à d'autres établissements, données médicales sensibles [1, 2]"
       ],
       "abreviations": [],
       "sources": [
@@ -1023,6 +1037,13 @@
           "url": "https://therecord.media/belarusian-hacktivists-two-years-Russian-healthcare-network",
           "date": "2026-10-05",
           "image": "https://cms.therecord.media/uploads/belarusian_cyber_partisans_da3bac517d.jpg"
+        },
+        {
+          "titre": "Belarusian hacktivists admit to 2023 breach of Russian state healthcare network",
+          "site": "The Record",
+          "url": "https://therecord.media/belarusian-cyber-partisans-claim-2023-russia-healthcare-hack",
+          "date": "2026-10-09",
+          "image": "https://cms.therecord.media/uploads/ambulence_pexels_artem_korsakov_5d3f7c36ea.jpg"
         }
       ]
     },
@@ -7828,9 +7849,9 @@
       "id": "2026-10-09-ahsaycbs-webshell-xmrig",
       "title": "Failles AhsayCBS exploitées pour déposer un webshell et un mineur XMRig",
       "created": "2026-10-09T08:20:00+00:00",
-      "updated": "2026-10-09T11:30:00+00:00",
-      "version": 2,
-      "resume": "Des attaquants exploitent deux failles du logiciel de sauvegarde AhsayCBS exposé sur Internet pour exécuter du code, déposer un webshell et installer un mineur de Monero. Au moins cinq organisations sont touchées [1, 2].",
+      "updated": "2026-10-09T15:08:22+00:00",
+      "version": 3,
+      "resume": "Des attaquants exploitent deux failles du logiciel de sauvegarde AhsayCBS exposé sur Internet pour exécuter du code, déposer un webshell et installer un mineur de Monero. Au moins cinq organisations sont touchées [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -7854,7 +7875,7 @@
         },
         {
           "etape": "Dissimulation",
-          "texte": "Un script arrête le minage quand le Gestionnaire des tâches est ouvert → mineur moins visible [1]."
+          "texte": "Un script arrête le minage quand le Gestionnaire des tâches est ouvert → mineur moins visible [1, 3]."
         }
       ],
       "parcours": {
@@ -7915,7 +7936,7 @@
           }
         ]
       },
-      "limites": "Aucun acteur nommé, ni mouvement latéral, exfiltration ou chiffrement mentionnés [1, 2]. Aucun correctif n'était disponible au moment de l'article de SecurityWeek [2].",
+      "limites": "Aucun acteur nommé, ni mouvement latéral, exfiltration ou chiffrement [1, 2]. Les avis NVD donnent la version 10.3.4 comme corrigée, Huntress la dit aussi touchée [3].",
       "cves": [
         {
           "id": "CVE-2026-105133",
@@ -7958,6 +7979,10 @@
         {
           "sigle": "SYSTEM",
           "definition": "Compte Windows aux privilèges les plus élevés"
+        },
+        {
+          "sigle": "NVD",
+          "definition": "National Vulnerability Database : base américaine publique des failles"
         }
       ],
       "sources": [
@@ -7974,6 +7999,13 @@
           "url": "https://www.securityweek.com/unpatched-ahsaycbs-vulnerabilities-exploited-in-the-wild/",
           "date": "2026-10-09",
           "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+        },
+        {
+          "titre": "Attackers Exploit AhsayCBS Flaws to Deploy XMRig Miners Disguised as Microsoft Edge",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/attackers-exploit-ahsaycbs-flaws-to.html",
+          "date": "2026-10-09",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMpbMY9pFBnt6TekKFIlEqpeqQoPBjBuhu8rYuYtU7ce5P3LTFKwlv_F_BUDzfuuMu0gRU645YStocoUQnNtS11MoEIRrfxrgPZtShsFgr8YH1VYTtjPr2l6aHPFDBYPHJKLT-fa-KqaHGSJHeiDPKzUgA12IJH5zhAHpMnoGZc5Qsz9sJhCOB_3gYHQar/s1700-nu-rw-lo-l85-e365/edge.jpg"
         }
       ]
     },

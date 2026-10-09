@@ -7636,6 +7636,146 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/08/10/cloud.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-09-uac-0099-matchboil",
+      "title": "UAC-0099 : évolution du téléchargeur MATCHBOIL contre des entreprises ukrainiennes",
+      "created": "2026-10-09T05:07:51+00:00",
+      "updated": "2026-10-09T05:07:51+00:00",
+      "version": 1,
+      "resume": "ESET décrit l'évolution, d'avril 2024 à avril 2026, du téléchargeur MATCHBOIL du groupe UAC-0099, observé chez des entreprises ukrainiennes de transport, d'industrie et d'énergie [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Courriel de hameçonnage ciblé avec lien → archive contenant un script VBScript que la victime exécute elle-même [1]."
+        },
+        {
+          "etape": "Installation du téléchargeur",
+          "texte": "Le script télécharge et lance MATCHBOIL, et assure sa persistance → téléchargeur actif sur le poste [1]."
+        },
+        {
+          "etape": "Récupération de la charge",
+          "texte": "MATCHBOIL collecte des informations sur la machine, puis fait trois requêtes au serveur de commande → charge utile installée, le plus souvent MATCHWOK [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Tâche planifiée ou valeur de la clé Run du registre → charge utile relancée [1]."
+        },
+        {
+          "etape": "Évasion des analyses",
+          "texte": "Contrôles anti-sandbox, détection de débogueur, temporisation et interface leurre → exécution plus difficile à analyser [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (UAC-0099)",
+            "note": ""
+          },
+          {
+            "id": "mail",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Messagerie de la victime",
+            "note": "Lien malveillant"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de la victime",
+            "note": "MATCHBOIL"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de commande",
+            "note": "Charge utile"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "mail",
+            "etape": 1,
+            "texte": "Courriel de hameçonnage ciblé avec lien"
+          },
+          {
+            "de": "mail",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Archive avec script VBScript exécuté par la victime"
+          },
+          {
+            "de": "pc",
+            "vers": "c2",
+            "etape": 3,
+            "texte": "Trois requêtes pour obtenir la charge utile"
+          },
+          {
+            "de": "c2",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Charge utile installée, persistante"
+          }
+        ]
+      },
+      "limites": "Le nombre total de victimes n'est pas mentionné [1].",
+      "cves": [],
+      "mitre": [
+        "T1047 Windows Management Instrumentation : Cité par ESET [1].",
+        "T1053.005 Scheduled Task : Tâche planifiée citée par ESET [1].",
+        "T1547.001 Registry Run Keys / Startup Folder : Clé Run du registre citée par ESET [1].",
+        "T1497.001 Virtualization/Sandbox Evasion: System Checks : Contrôles anti-sandbox cités par ESET [1].",
+        "T1622 Debugger Evasion : Détection de débogueur citée par ESET [1].",
+        "T1678 Delay Execution : Temporisation de la communication citée par ESET [1]."
+      ],
+      "acteurs": [
+        "UAC-0099, groupe de cyberespionnage actif depuis au moins 2022, relié avec confiance moyenne aux intérêts russes [1]"
+      ],
+      "cibles": [
+        "Entreprises ukrainiennes de transport, d'industrie et d'énergie [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "VBScript",
+          "definition": "Langage de script Windows, ici livré dans une archive"
+        },
+        {
+          "sigle": "WMI",
+          "definition": "Interface Windows qui permet d'interroger les informations de la machine"
+        },
+        {
+          "sigle": "MATCHBOIL",
+          "definition": "Téléchargeur en C# qui installe la charge utile"
+        },
+        {
+          "sigle": "MATCHWOK",
+          "definition": "Porte dérobée installée le plus souvent par MATCHBOIL"
+        },
+        {
+          "sigle": "UAC-0099",
+          "definition": "Nom donné par CERT-UA à un groupe de cyberespionnage"
+        },
+        {
+          "sigle": "CERT-UA",
+          "definition": "Équipe ukrainienne de réponse aux incidents informatiques"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "MATCHBOIL: New tricks, same old evil intentions",
+          "site": "WeLiveSecurity (ESET)",
+          "url": "https://www.welivesecurity.com/en/eset-research/matchboil-new-tricks-same-old-evil-intentions/",
+          "date": "2026-10-08",
+          "image": "https://web-assets.esetstatic.com/wls/2026/10-26/matchboil/matchboil-eset-research.png"
+        }
+      ]
     }
   ]
 }

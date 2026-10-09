@@ -7785,6 +7785,153 @@
           "image": "https://web-assets.esetstatic.com/wls/2026/10-26/matchboil/matchboil-eset-research.png"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-09-ahsaycbs-webshell-xmrig",
+      "title": "Failles AhsayCBS exploitées pour déposer un webshell et un mineur XMRig",
+      "created": "2026-10-09T08:20:00+00:00",
+      "updated": "2026-10-09T08:20:00+00:00",
+      "version": 1,
+      "resume": "Des attaquants exploitent deux failles du logiciel de sauvegarde AhsayCBS exposé sur Internet pour exécuter du code, déposer un webshell et installer un mineur de Monero. Cinq organisations sont recensées [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Enchaînement de CVE-2026-105133 et CVE-2026-105134 sur AhsayCBS exposé sur Internet → exécution de code à distance sans authentification, avec les privilèges SYSTEM [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Récepteur de réplication malveillant et webshell JSP déposé dans le répertoire de l'application → accès maintenu au serveur [1]."
+        },
+        {
+          "etape": "Téléchargement d'outils",
+          "texte": "Utilisation de curl et certutil depuis un stockage Alibaba Cloud → récupération du mineur, d'un script et d'un pilote dans le dossier Temp [1]."
+        },
+        {
+          "etape": "Persistance du mineur",
+          "texte": "Service Windows MicrosoftEdgeUpdateSvc lançant une copie modifiée de NSSM → mineur relancé après un crash ou un redémarrage [1]."
+        },
+        {
+          "etape": "Minage de cryptomonnaie",
+          "texte": "XMRig déguisé en Edge, connecté à un pool Monero sur le port 8029 [1]."
+        },
+        {
+          "etape": "Dissimulation",
+          "texte": "Un script arrête le minage quand le Gestionnaire des tâches est ouvert → mineur moins visible [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "ahsay",
+            "type": "serveur",
+            "zone": "expose",
+            "nom": "Serveur AhsayCBS",
+            "note": "Webshell JSP"
+          },
+          {
+            "id": "stock",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Stockage Alibaba Cloud",
+            "note": "Outils hébergés"
+          },
+          {
+            "id": "pool",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Pool Monero",
+            "note": "Port 8029"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ahsay",
+            "etape": 1,
+            "texte": "Exploitation des deux failles AhsayCBS"
+          },
+          {
+            "de": "att",
+            "vers": "ahsay",
+            "etape": 2,
+            "texte": "Webshell et récepteur de réplication déposés"
+          },
+          {
+            "de": "stock",
+            "vers": "ahsay",
+            "etape": 3,
+            "texte": "Mineur, script et pilote téléchargés"
+          },
+          {
+            "de": "ahsay",
+            "vers": "pool",
+            "etape": 5,
+            "texte": "Mineur XMRig connecté au pool"
+          }
+        ]
+      },
+      "limites": "L'article ne nomme aucun acteur et ne mentionne ni mouvement latéral, ni exfiltration, ni chiffrement [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-105133",
+          "explication": "AhsayCBS jusqu'à 10.3.4 : authentification impropre dans la fonction checkSysPwd, gravité moyenne [1]."
+        },
+        {
+          "id": "CVE-2026-105134",
+          "explication": "AhsayCBS jusqu'à 10.3.4 : contournement d'authentification du récepteur de réplication menant à l'exécution de code sans authentification, gravité critique [1]."
+        }
+      ],
+      "mitre": [
+        "T1190 : exploitation d'une application exposée sur Internet [1]",
+        "T1505.003 : webshell [1]",
+        "T1543.003 : service Windows [1]",
+        "T1496.001 : détournement de ressources de calcul [1]"
+      ],
+      "acteurs": [
+        "Non mentionné [1]"
+      ],
+      "cibles": [
+        "Cinq organisations, secteur non précisé ; AhsayCBS est surtout utilisé par des MSP et intégrateurs [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "JSP",
+          "definition": "JavaServer Pages : pages web dynamiques exécutées côté serveur"
+        },
+        {
+          "sigle": "NSSM",
+          "definition": "Non-Sucking Service Manager : outil lançant un programme comme service Windows"
+        },
+        {
+          "sigle": "XMRig",
+          "definition": "Logiciel libre de minage de la cryptomonnaie Monero"
+        },
+        {
+          "sigle": "MSP",
+          "definition": "Prestataires qui gèrent à distance l'informatique de leurs clients"
+        },
+        {
+          "sigle": "SYSTEM",
+          "definition": "Compte Windows aux privilèges les plus élevés"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Threat Actors Exploit Critical AhsayCBS Flaws to Drop Webshells and XMRig Cryptominer",
+          "site": "Huntress",
+          "url": "https://www.huntress.com/blog/ahsaycbs-flaws-exploit",
+          "date": "2026-10-08",
+          "image": "https://cdn.builder.io/api/v1/image/assets%2F3eb6f92aedf74f109c7b4b0897ec39a8%2F266936e4b61b4dd6821599adf741b9db"
+        }
+      ]
     }
   ]
 }

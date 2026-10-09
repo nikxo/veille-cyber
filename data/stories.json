@@ -6824,13 +6824,13 @@
       "id": "2026-10-08-integrity-technology-emails-asie-sud-est",
       "title": "Pirates liés à Integrity Technology Group : vol d'emails en Asie du Sud-Est",
       "created": "2026-10-08T19:09:11+00:00",
-      "updated": "2026-10-09T07:07:57+00:00",
-      "version": 4,
+      "updated": "2026-10-09T13:30:00+00:00",
+      "version": 5,
       "resume": "Des pirates liés à l'entreprise chinoise Integrity Technology Group ont volé des emails de gouvernements, forces de l'ordre, systèmes de santé et institutions religieuses en Asie du Sud-Est, et fait fonctionner une application web donnant à des tiers accès à ces emails [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Analyse de sites avec des outils de scan, exploitation de huit failles connues, faux formulaire de connexion (XSS) ou password spraying contre Microsoft 365 et Exchange [1, 2, 3]."
+          "texte": "Analyse de sites avec des outils de scan, exploitation de huit failles connues, faux formulaire de connexion (XSS) ou password spraying contre Microsoft 365 et Exchange [1, 2, 3, 5]."
         },
         {
           "etape": "Exécution du logiciel malveillant",
@@ -6838,7 +6838,7 @@
         },
         {
           "etape": "Persistance",
-          "texte": "Installation de SoftEther, logiciel légitime de réseau privé virtuel, renommé conhost.exe ou dllhost.exe → reconnexion à chaque démarrage [1, 4]."
+          "texte": "Installation de SoftEther, logiciel légitime de réseau privé virtuel, renommé conhost.exe ou dllhost.exe → reconnexion à chaque démarrage [1, 4] ; la CISA cite aussi la persistance via des logiciels VPN [5]."
         },
         {
           "etape": "Vol d'identifiants",
@@ -6985,13 +6985,16 @@
         "Noms de suivi jugés cohérents avec les méthodes : Flax Typhoon, Ethereal Panda, RedJuliett [1]",
         "Entreprise chinoise liée au ministère de la Sécurité d'État ; ses outils (Microscan, FishHub) ont été saisis par plusieurs pays le 8 octobre 2026 [2]",
         "Flax Typhoon, aussi appelé Ethereal Panda et Red Juliett ; toute l'activité n'est pas forcément liée à Integrity Tech [3]",
-        "Flax Typhoon (aussi Ethereal Panda, RedJuliett), lié à Integrity Technology Group, entreprise basée à Pékin [4]"
+        "Flax Typhoon (aussi Ethereal Panda, RedJuliett), lié à Integrity Technology Group, entreprise basée à Pékin [4]",
+        "Flax Typhoon, lié à la Chine ; alerte conjointe de sept pays visant Integrity Technology Group [5]",
+        "Cinq failles ajoutées au catalogue KEV, échéance du 11 octobre 2026 pour les agences fédérales [5]"
       ],
       "cibles": [
         "Gouvernements, forces de l'ordre, santé et institutions religieuses en Asie du Sud-Est [1]",
         "Entreprise électrique américaine, aéroports japonais et polonais, entreprises taïwanaises de gaz et d'électricité [2]",
         "Deux universités taïwanaises compromises après scan en 2022 et 2023, six autres identifiées via FishHub [3]",
-        "Entreprise d'électricité en Caroline du Sud, organisation non gouvernementale multinationale, aéroports japonais et polonais ; 20 universités taïwanaises visées via FishHub [4]"
+        "Entreprise d'électricité en Caroline du Sud, organisation non gouvernementale multinationale, aéroports japonais et polonais ; 20 universités taïwanaises visées via FishHub [4]",
+        "Infrastructures critiques, y compris les systèmes OT, où l'acteur cherche à se positionner [5]"
       ],
       "abreviations": [
         {
@@ -7037,6 +7040,22 @@
         {
           "sigle": "ONLYOFFICE",
           "definition": "Suite bureautique en ligne, produit visé"
+        },
+        {
+          "sigle": "OT",
+          "definition": "Operational Technology : systèmes qui pilotent des équipements industriels"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité des infrastructures"
+        },
+        {
+          "sigle": "KEV",
+          "definition": "Known Exploited Vulnerabilities : catalogue de failles exploitées tenu par la CISA"
+        },
+        {
+          "sigle": "VPN",
+          "definition": "Virtual Private Network : réseau privé virtuel, liaison chiffrée entre machines"
         }
       ],
       "sources": [
@@ -7067,6 +7086,13 @@
           "url": "https://thehackernews.com/2026/10/fbi-seizes-7-domains-disrupts-flax.html",
           "date": "2026-10-09",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8SUqM44FwmONOU6YH1yTi4I8iGU_UiDk42WA2vB_qjqzCN3xtWE_AVyF2xXmlrP68vAXN3Pe_J6f8h9B6M8vgEmcImGt55z2FRc0638eta0V-P2FvbI6O0h3TWBaOlxw72-0cnMH91J2wNykDTSpQM8cvKYPbQ-YBrnb7e2xxSJuC7B9sU4hoGBXs8KnO/s1700-nu-rw-lo-l85-e365/china-hacker.jpg"
+        },
+        {
+          "titre": "Flax Typhoon Exploits Five Flaws as CISA Sets October 11 Deadline for Federal Agencies",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/flax-typhoon-exploits-five-flaws-as.html",
+          "date": "2026-10-09",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7eHv-Bv5ZZISuomW-aV50jkJ7Aqg-S56iEuV2y8Kl9w7SB4cp-zTDj8WicvMzPcw5tXuq-o5rIG0KPPmKxPZPcR5V47hVwbGvi7aLNE_1wgq_iDkNERTzz5kc9ivagiHEKM9BcsYjJRRB0_HWk_gsi9jzHudV_-4Ax4dUFaV5vpDlUnW2PywmEZHzN8mm/s1700-nu-rw-lo-l85-e365/kevs.jpg"
         }
       ]
     },
@@ -8459,6 +8485,105 @@
           "url": "https://www.securityweek.com/in-other-news-ai-used-in-korean-bank-breaches-poem-guided-botnet-empire-admin-gets-40-years/",
           "date": "2026-10-09",
           "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-09-sonicwall-sma1000-cve-2026-102255",
+      "title": "SonicWall SMA1000 : tentatives d'exploitation de la faille CVE-2026-102255, corrigée trois jours avant",
+      "created": "2026-10-09T13:30:00+00:00",
+      "updated": "2026-10-09T13:30:00+00:00",
+      "version": 1,
+      "resume": "Des tentatives d'exploitation de la faille de gravité maximale CVE-2026-102255 des appliances SonicWall SMA1000 ont été détectées par un réseau de pots de miel. Aucune victime n'est confirmée [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Requêtes forgées vers l'interface WorkPlace Extraweb → tentative d'atteindre le service CouchDB interne de l'appliance, sans preuve de réussite [1]."
+        },
+        {
+          "etape": "Appel de fonction interne",
+          "texte": "Requête OPTIONS forgée avec identifiants admin:admin → tentative d'accès à un document de conception et d'appel de sa fonction _rewrite [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sma",
+            "type": "passerelle",
+            "zone": "expose",
+            "nom": "Appliance SonicWall SMA1000",
+            "note": "Interface WorkPlace"
+          },
+          {
+            "id": "db",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Service CouchDB interne",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sma",
+            "etape": 1,
+            "texte": "Requêtes forgées vers WorkPlace Extraweb"
+          },
+          {
+            "de": "sma",
+            "vers": "db",
+            "etape": 2,
+            "texte": "Requête OPTIONS vers CouchDB interne"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent pas si les tentatives ont réussi, ni qui est derrière. Aucun groupe n'est nommé et aucune victime n'est confirmée [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-102255",
+          "explication": "Interface WorkPlace des SMA1000 6210, 7210 et 8200v : un attaquant distant non authentifié pourrait atteindre des fonctions internes. Gravité maximale, corrigée mardi [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non mentionné [1]"
+      ],
+      "cibles": [
+        "Appliances SMA1000 : plus de 400 exposées sur Internet selon Shadowserver [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SMA",
+          "definition": "Secure Mobile Access : passerelle d'accès distant de SonicWall"
+        },
+        {
+          "sigle": "CouchDB",
+          "definition": "Base de données documentaire"
+        },
+        {
+          "sigle": "OPTIONS",
+          "definition": "Méthode de requête HTTP qui interroge les options d'un serveur"
+        },
+        {
+          "sigle": "SMA1000",
+          "definition": "Gamme d'appliances d'accès distant de SonicWall"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Max severity SonicWall SMA1000 flaw now exploited in attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/max-severity-sonicwall-sma1000-flaw-now-exploited-in-attacks/",
+          "date": "2026-10-09",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/SonicWall-headpic.jpg"
         }
       ]
     }

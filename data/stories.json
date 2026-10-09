@@ -2648,8 +2648,8 @@
       "id": "2026-10-06-fbi-shinyhunters-peoplesoft",
       "title": "FBI : ShinyHunters vole des données d'employés via une faille PeopleSoft non corrigée",
       "created": "2026-10-06T08:30:00+00:00",
-      "updated": "2026-10-06T17:20:00+00:00",
-      "version": 3,
+      "updated": "2026-10-09T16:07:57+00:00",
+      "version": 4,
       "resume": "Des données personnelles de milliers d'employés du FBI ont été volées par ShinyHunters sur une plateforme Oracle PeopleSoft gérée par un tiers. Un sous-traitant d'Accenture a été retiré [1, 2].",
       "chaine": [
         {
@@ -2663,6 +2663,10 @@
         {
           "etape": "Vol de données",
           "texte": "Accès au point PSEMHUB → vol des données personnelles d'employés du FBI [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Prise de contrôle du domaine FBIjobs.gov, puis défiguration du site [4]."
         }
       ],
       "parcours": {
@@ -2759,6 +2763,13 @@
           "url": "https://www.lemagit.fr/actualites/366651752/Gestion-des-correctifs-le-FBI-remercie-lun-de-ses-prestataires",
           "date": "2026-10-06",
           "image": "https://www.lemagit.fr/visuals/German/article/patch-management-fabric-3-adobe.jpg"
+        },
+        {
+          "titre": "FBI touts another ShinyHunters arrest in response to data breach",
+          "site": "The Record",
+          "url": "https://therecord.media/shinyhunters-arrest-fbi-data-breach-investigation",
+          "date": "2026-10-09",
+          "image": "https://cms.therecord.media/uploads/fbi_agent_cf296b7c1b.jpg"
         }
       ]
     },

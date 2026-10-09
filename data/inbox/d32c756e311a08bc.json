@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-10-09T10:06:59+00:00",
+  "feed_summary": "A bug in GoBalance, a tool many dark-web sites use to stay reachable during attacks, lets anyone work out the secret key that controls a site's .onion address using only public information, and then take that address over. Searchlight Cyber, which disclosed the flaw on October 8, says an attacker who recovers the key can redirect the site's visitors to a copy of the site they control.",
+  "id": "d32c756e311a08bc",
+  "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUJ8xcgqF85kQru4JEuCv6OipwHlff6IEp3r1zhFOY9tYpbwEeWYSqzPTILX4uqM97Cc9ZfNfb3HB4lZbecN48fqKgKryAL60KqqZU4HmdfTMsRYaDcFjNL7aE8vk7G0D_-mqY_B2Jk_3kXMsx2ABpgbWixg1GHZ2l7V0MSzqtEWnYZ_ymkOTf0j8yq2c/s1700-nu-rw-lo-l85-e365/onion.jpg",
+  "lang": "en",
+  "link": "https://thehackernews.com/2026/10/gobalance-flaw-lets-attackers-hijack.html",
+  "published": "2026-10-09T14:33:24+05:30",
+  "source": "The Hacker News",
+  "source_type": "actu",
+  "title": "GoBalance Flaw Lets Attackers Hijack .onion Addresses by Recovering Tor-Format Keys"
+}

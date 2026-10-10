@@ -9140,6 +9140,79 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/05/07/ClaudeChats.png"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-10-artex-ai-banques-coreennes",
+      "title": "Banques sud-coréennes visées par un pirate utilisant ARTEX AI et des agents Claude",
+      "created": "2026-10-10T16:30:00+00:00",
+      "updated": "2026-10-10T16:30:00+00:00",
+      "version": 1,
+      "resume": "Les cyberattaques qui ont secoué le secteur financier sud-coréen ce mois-ci ont été lancées par un pirate chinois, avec la suite de test d'intrusion ARTEX AI et des agents Claude [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Attaque automatisée",
+          "texte": "Utilisation de la suite ARTEX AI et d'agents Claude par un pirate chinois → cyberattaques contre le secteur financier sud-coréen [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (pirate chinois)",
+            "note": ""
+          },
+          {
+            "id": "fin",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Secteur financier sud-coréen",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "fin",
+            "etape": 2,
+            "texte": "Attaques avec ARTEX AI et agents Claude"
+          }
+        ]
+      },
+      "limites": "Le résumé de l'article ne détaille ni l'accès initial, ni les étapes, ni l'impact précis des attaques [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Pirate chinois utilisant ARTEX AI et des agents Claude [1]"
+      ],
+      "cibles": [
+        "Secteur financier sud-coréen, banques [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "AI",
+          "definition": "Artificial Intelligence : intelligence artificielle, partie du nom de la suite ARTEX AI"
+        },
+        {
+          "sigle": "ARTEX",
+          "definition": "Nom de la suite de test d'intrusion utilisée par le pirate"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "ARTEX AI, Claude agents used in cyberattacks on South Korean banks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hacker-used-artex-ai-and-claude-agents-to-target-south-korean-banks/",
+          "date": "2026-10-10",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/robot-hacker.jpg"
+        }
+      ]
     }
   ]
 }

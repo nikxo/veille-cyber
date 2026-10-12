@@ -9388,9 +9388,9 @@
       "id": "2026-10-12-bricksforge-wordpress-cve-2026-85097",
       "title": "Faille critique du plugin Bricksforge pour WordPress exploitée pour exécuter du code",
       "created": "2026-10-12T10:30:00+00:00",
-      "updated": "2026-10-12T10:30:00+00:00",
-      "version": 1,
-      "resume": "Des attaquants exploitent sans authentification une faille du plugin Bricksforge pour WordPress afin d'exécuter du code PHP sur les sites vulnérables. Patchstack a vu les premières tentatives le 7 octobre [1].",
+      "updated": "2026-10-12T14:30:00+00:00",
+      "version": 2,
+      "resume": "Des attaquants exploitent sans authentification une faille du plugin Bricksforge pour WordPress afin d'exécuter du code PHP sur les sites vulnérables. Patchstack a vu les premières tentatives le 7 octobre [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -9403,6 +9403,10 @@
         {
           "etape": "Exécution de code",
           "texte": "Formulaire dont le champ url se termine par une extension PHP → contenu écrit en fichier PHP, exécuté à son appel, donc exécution de code à distance [1]."
+        },
+        {
+          "etape": "Exploitation automatisée",
+          "texte": "Patchstack voit 44 adresses réseau envoyer 56 requêtes identiques en quelques secondes, et trois autres tester 25 variantes d'extensions PHP [2]."
         }
       ],
       "parcours": {
@@ -9440,14 +9444,20 @@
             "vers": "wp",
             "etape": 3,
             "texte": "Écriture en PHP puis exécution de code"
+          },
+          {
+            "de": "att",
+            "vers": "wp",
+            "etape": 4,
+            "texte": "Requêtes identiques et variantes d'extensions PHP testées"
           }
         ]
       },
-      "limites": "Les sources ne nomment aucun acteur ni aucune victime. Patchstack ne peut pas attribuer l'activité à un seul acteur [1].",
+      "limites": "Les sources ne nomment aucun acteur ni aucune victime. Patchstack ne peut pas attribuer l'activité à un seul acteur [1]. La gravité est de 10 sur 10 pour [1] et de 9,8 pour [2].",
       "cves": [
         {
           "id": "CVE-2026-85097",
-          "explication": "Plugin Bricksforge pour WordPress jusqu'à la version 3.1.8.9 : envoi de fichier non authentifié menant à l'exécution de code PHP, gravité 10 sur 10 [1]."
+          "explication": "Plugin Bricksforge pour WordPress jusqu'à la 3.1.8.9 : envoi de fichier non authentifié menant à l'exécution de code PHP, gravité 10 sur 10 [1], 9,8 selon [2]."
         }
       ],
       "mitre": [],
@@ -9455,7 +9465,7 @@
         "Non attribué : Patchstack ne peut pas lier l'activité à un acteur unique [1]"
       ],
       "cibles": [
-        "Sites WordPress utilisant le plugin Bricksforge jusqu'à la version 3.1.8.9 [1]"
+        "Sites WordPress utilisant le plugin Bricksforge jusqu'à la version 3.1.8.9, environ 6 000 sites selon Patchstack [1, 2]"
       ],
       "abreviations": [
         {
@@ -9474,6 +9484,13 @@
           "url": "https://thehackernews.com/2026/10/attackers-exploit-cvss-100-bricksforge.html",
           "date": "2026-10-12",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrKeT1xQm0N8zjNRqWwsoqMm3kESRMqYnUJ9Wy6x9dEKlRVgZYDVqKqhu_2ZT7ZcCNd_RegNu2LtnUUQgL8R2OlK5LTyu9vKaCBRGTVrp05hGdB5wQrxFNi_eHnGxx-8yFR7maKT3tD_WBMVVBSeTyuku392tKdoOHIgvnj1tKQYU_Yq9anT5OKxUun4GW/s1700-nu-rw-lo-l85-e365/wp-php.jpg"
+        },
+        {
+          "titre": "Bricksforge WordPress Plugin Vulnerability Exploited in the Wild",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/bricksforge-wordpress-plugin-vulnerability-exploited-in-the-wild/",
+          "date": "2026-10-12",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/08/WordPress.jpeg"
         }
       ]
     },
@@ -9776,6 +9793,87 @@
           "url": "https://thehackernews.com/2026/10/ledger-finds-unauthorized-hardware.html",
           "date": "2026-10-12",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4nzJQQovkKtR-dl3ihW4VRAfIxiKwNwwVEHyH06we8iIkQbaxVqhryWIwB9MflLHfBYAd_opklCfnkLxg-GKqB2yt4CisdNcf2lRvOoaYHo9Pa6m1OWatzNsFHmY1ICBH_0P2XX4ykgFE7Gqviz0C0_8J0Qqz36_3gygDyHbot9z5obuYEHunIFsZmPQV/s1700-nu-rw-lo-l85-e365/ledgers.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-12-ahold-delhaize-systemes-hors-ligne",
+      "title": "Ahold Delhaize met des systèmes hors ligne après une cyberattaque",
+      "created": "2026-10-12T14:30:00+00:00",
+      "updated": "2026-10-12T14:30:00+00:00",
+      "version": 1,
+      "resume": "Le groupe de distribution alimentaire Ahold Delhaize a mis des systèmes hors ligne après un incident de cybersécurité dans son réseau. Des services de plusieurs enseignes sont perturbés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Mise hors ligne",
+          "texte": "Systèmes mis hors ligne pour évaluer et limiter le problème → sites, applications et services clients indisponibles pour Albert Heijn, Etos, Gall & Gall et Delhaize [1]."
+        },
+        {
+          "etape": "Perturbation des magasins",
+          "texte": "Incident aux États-Unis → employés de Stop & Shop sans accès à leurs horaires et fiches de paie, note interne de Food Lion évoquant une panne informatique [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "res",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Réseau Ahold Delhaize",
+            "note": "Systèmes touchés non précisés"
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Sites, applications, services clients",
+            "note": "Hors ligne"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "res",
+            "etape": 1,
+            "texte": "Accès non précisé par les sources"
+          },
+          {
+            "de": "res",
+            "vers": "app",
+            "etape": 2,
+            "texte": "Systèmes mis hors ligne, services indisponibles"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'accès, ni l'acteur, ni un éventuel chiffrement ou vol de données. L'entreprise n'a pas répondu sur le chiffrement [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1]"
+      ],
+      "cibles": [
+        "Ahold Delhaize, distribution alimentaire, plus de 9 400 magasins en Europe, aux États-Unis et en Indonésie [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Retail giant Ahold Delhaize takes systems offline after cyberattack",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/retail-giant-ahold-delhaize-takes-systems-offline-after-cyberattack/",
+          "date": "2026-10-12",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/Ahold_Delhaize.jpg"
         }
       ]
     }

@@ -9574,13 +9574,13 @@
       "id": "2026-10-12-danfoss-froid-supermarches",
       "title": "Régulation frigorifique Danfoss détournée : stocks détruits dans des supermarchés",
       "created": "2026-10-12T12:30:00+00:00",
-      "updated": "2026-10-12T12:30:00+00:00",
-      "version": 1,
-      "resume": "Des installations frigorifiques de supermarchés auraient été détournées à distance dans la nuit du 11 au 12 octobre. Des produits frais et surgelés ont été jetés [1].",
+      "updated": "2026-10-12T16:30:00+00:00",
+      "version": 2,
+      "resume": "Des installations frigorifiques de supermarchés auraient été détournées à distance dans la nuit du 11 au 12 octobre, et des produits jetés [1]. Des contrôleurs Danfoss auraient été visés [3] ; un dégivrage continu a fait monter les températures [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé par les sources [1, 2]. Les consoles d'administration web de ces équipements étaient accessibles directement sur Internet [2]."
         },
         {
           "etape": "Détournement de la régulation",
@@ -9588,7 +9588,7 @@
         },
         {
           "etape": "Impact",
-          "texte": "Produits frais et surgelés jetés → 270 000 euros de pertes cumulées pour deux magasins alsaciens [1]."
+          "texte": "Dégivrage continu → températures incompatibles avec la conservation des produits [2] ; produits jetés, 270 000 euros de pertes pour deux magasins alsaciens [1]."
         }
       ],
       "parcours": {
@@ -9610,7 +9610,7 @@
           {
             "id": "frg",
             "type": "serveur",
-            "zone": "victime",
+            "zone": "expose",
             "nom": "Régulation frigorifique Danfoss",
             "note": "Magasins"
           }
@@ -9630,14 +9630,27 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni le point d'entrée, ni la faille, ni l'acteur. Des versions de logiciel antérieures à la version 4 auraient été visées [1].",
-      "cves": [],
+      "limites": "Les sources ne précisent ni la faille exploitée, ni l'acteur, ni les étapes intermédiaires de l'attaque [1, 2].",
+      "cves": [
+        {
+          "id": "CVE-2025-41450",
+          "explication": "Contrôleurs AK-SM800A antérieurs à la version 4.2 : contournement de l'authentification. L'article ne dit pas qu'elle a été exploitée ici [2]."
+        },
+        {
+          "id": "CVE-2025-41451",
+          "explication": "Exécution de code à distance sur ces contrôleurs, découverte par Claroty. L'article ne dit pas qu'elle a été exploitée ici [2]."
+        },
+        {
+          "id": "CVE-2025-41452",
+          "explication": "Injection de données de configuration arbitraires dans le serveur web Nginx embarqué. L'article ne dit pas qu'elle a été exploitée ici [2]."
+        }
+      ],
       "mitre": [],
       "acteurs": [
         "Non identifié [1]"
       ],
       "cibles": [
-        "Environ 150 magasins Intermarché selon une source du secteur, Coopérative U, Leclerc [1]"
+        "Environ 150 magasins Intermarché selon une source du secteur, Coopérative U, Leclerc [1] ; Monoprix [2]"
       ],
       "abreviations": [],
       "sources": [
@@ -9647,6 +9660,20 @@
           "url": "https://www.zataz.com/une-cyberattaque-deregle-le-froid-des-supermarches/",
           "date": "2026-10-12",
           "image": "https://www.zataz.com/wp-content/uploads/froid_hack.jpg"
+        },
+        {
+          "titre": "Cyberattaque Danfoss : quand la distribution alimentaire découvre l'hygiène numérique",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366652072/Cyberattaque-Danfoss-quand-la-distribution-alimentaire-decouvre-lhygiene-numerique",
+          "date": "2026-10-12",
+          "image": "https://www.lemagit.fr/rms/computerweekly/food-waste-social-problem-adobe.jpeg"
+        },
+        {
+          "titre": "Cyberattack shuts down refrigerators at French supermarkets",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cyberattack-shuts-down-refrigerators-at-french-supermarkets/",
+          "date": "2026-10-12",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/supermarket-empty-fridges.jpg"
         }
       ]
     },
@@ -9874,6 +9901,156 @@
           "url": "https://www.bleepingcomputer.com/news/security/retail-giant-ahold-delhaize-takes-systems-offline-after-cyberattack/",
           "date": "2026-10-12",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/Ahold_Delhaize.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-12-apex-accelerator-npm",
+      "title": "Apex Accelerator : paquets npm piégés visant des start-ups crypto",
+      "created": "2026-10-12T16:30:00+00:00",
+      "updated": "2026-10-12T16:30:00+00:00",
+      "version": 1,
+      "resume": "Une opération suivie sous le nom REF8801 propose de faux outils d'audit et d'IA via des paquets npm piégés, visant des start-ups et fondateurs de cryptomonnaies. Ils installent un voleur d'informations sous Windows et macOS [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Installation des paquets npm @apexacc/cli et @apexacc/audit, présentés comme outils d'IA ou d'audit → lanceurs qui téléchargent des exécutables depuis GitHub [1]."
+        },
+        {
+          "etape": "Commande à distance",
+          "texte": "Le programme contacte vrf.apexaccs[.]org et exécute la commande reçue → exécution de commandes choisies à distance [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Le paquet audit ajoute une exclusion Defender et tente de désactiver Smart App Control → exécution du voleur d'informations Windows [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Le voleur collecte portefeuilles, navigateurs, messageries et configurations de clients IA, puis envoie une archive sur Telegram → mots de passe, cookies et historiques récupérés [1]."
+        },
+        {
+          "etape": "Détournement du trafic IA",
+          "texte": "Variables OPENROUTER_* redirigées vers arena.apexaccs[.]org → prompts, historique et extraits de code transitent par l'infrastructure de l'acteur [1]."
+        },
+        {
+          "etape": "Cas macOS",
+          "texte": "Fausse boîte de dialogue demandant le mot de passe administrateur → malware CloudSyncD qui contacte son serveur pour recevoir des tâches [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (REF8801)",
+            "note": ""
+          },
+          {
+            "id": "npm",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Paquets npm @apexacc",
+            "note": "Faux outils d'audit"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes des victimes",
+            "note": "Windows et macOS"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Infrastructure de l'attaquant",
+            "note": "vrf.apexaccs[.]org"
+          },
+          {
+            "id": "tg",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Telegram",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "npm",
+            "etape": 1,
+            "texte": "Paquets présentés comme outils d'IA ou d'audit"
+          },
+          {
+            "de": "npm",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Installation, exécutables téléchargés depuis GitHub"
+          },
+          {
+            "de": "pc",
+            "vers": "c2",
+            "etape": 2,
+            "texte": "Commande reçue et exécutée"
+          },
+          {
+            "de": "pc",
+            "vers": "tg",
+            "etape": 4,
+            "texte": "Archive de données volées envoyée"
+          },
+          {
+            "de": "pc",
+            "vers": "c2",
+            "etape": 5,
+            "texte": "Trafic IA redirigé vers arena.apexaccs[.]org"
+          },
+          {
+            "de": "pc",
+            "vers": "c2",
+            "etape": 6,
+            "texte": "CloudSyncD reçoit des tâches"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment aucune victime compromise ni l'acteur ; les commentaires en russe n'établissent ni nationalité ni attribution [1].",
+      "cves": [],
+      "mitre": [
+        "T1548 : Abuse Elevation Control Mechanism, technique citée par la source [1].",
+        "T1555.003 : Credentials from Web Browsers, technique citée par la source [1].",
+        "T1567 : Exfiltration Over Web Service, technique citée par la source [1].",
+        "T1105 : Ingress Tool Transfer, technique citée par la source [1].",
+        "T1059 : Command and Scripting Interpreter, technique citée par la source [1]."
+      ],
+      "acteurs": [
+        "REF8801, nom donné par Elastic ; aucune attribution établie [1]"
+      ],
+      "cibles": [
+        "Start-ups et fondateurs de cryptomonnaies [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "npm",
+          "definition": "Gestionnaire de paquets JavaScript où chacun publie des bibliothèques"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "REF8801",
+          "definition": "Nom de suivi donné par Elastic à cette opération"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Auditing the auditor: Unmasking Apex Accelerator",
+          "site": "Elastic Security Labs",
+          "url": "https://www.elastic.co/security-labs/threat-command/apex-accelerator-malicious-npm-packages",
+          "date": "2026-10-12",
+          "image": "https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/bltf966eb742fc2053d/6acc88d16d19162285159a77/image16.jpg"
         }
       ]
     }

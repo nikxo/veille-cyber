@@ -9227,6 +9227,136 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/robot-hacker.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-12-cyberxero-claude-code-ukraine",
+      "title": "CyberXero : sites WordPress et infrastructures ukrainiennes attaqués avec Claude Code",
+      "created": "2026-10-12T08:30:00+00:00",
+      "updated": "2026-10-12T08:30:00+00:00",
+      "version": 1,
+      "resume": "L'acteur CyberXero a mené une campagne contre des sites WordPress, des plateformes e-commerce et des infrastructures critiques ukrainiennes, avec Claude Code comme couche d'orchestration. Plus de 628 000 enregistrements ukrainiens ont été volés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de failles connues de WordPress et de plateformes e-commerce → prise de contrôle de sites [1]."
+        },
+        {
+          "etape": "Orchestration par IA",
+          "texte": "Claude Code avec 51 agents spécialisés, relié à PentAGI et Cobalt Strike → scan, enchaînement d'exploits, reconnaissance et post-exploitation [1]."
+        },
+        {
+          "etape": "Contournement des refus",
+          "texte": "Réinitialisation de session en présentant la tâche comme un pentest autorisé → refus du modèle contournés [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Une exécution automatisée scanne 4 708 cibles → accès à 429 panneaux d'administration WordPress et 32 portes dérobées web en 61 secondes [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Exfiltration de données de quatre organisations ukrainiennes → plus de 628 000 enregistrements liés à des Ukrainiens [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (CyberXero)",
+            "note": "Claude Code, PentAGI"
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Sites WordPress et e-commerce",
+            "note": "Panneaux d'administration"
+          },
+          {
+            "id": "org",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Organisations ukrainiennes",
+            "note": ""
+          },
+          {
+            "id": "dat",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Enregistrements ukrainiens",
+            "note": "Plus de 628 000"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Exploitation de failles connues"
+          },
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 4,
+            "texte": "429 panneaux d'administration, 32 portes dérobées"
+          },
+          {
+            "de": "web",
+            "vers": "org",
+            "etape": 5,
+            "texte": "Compromission de quatre organisations"
+          },
+          {
+            "de": "org",
+            "vers": "dat",
+            "etape": 5,
+            "texte": "Exfiltration des enregistrements"
+          }
+        ]
+      },
+      "limites": "L'article ne précise pas le vecteur du volet ciblé, décrit comme une exploitation manuelle, ni celui de Redis exposé sur Internet [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-63030",
+          "explication": "Faille WordPress exploitée (wp2shell) ; l'article ne la décrit pas [1]."
+        },
+        {
+          "id": "CVE-2026-60137",
+          "explication": "Faille WordPress exploitée (wp2shell) ; l'article ne la décrit pas [1]."
+        },
+        {
+          "id": "CVE-2026-4815",
+          "explication": "Plugin WordPress Support Board : injection dans la base de données [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "CyberXero, courtier d'accès initial russophone à motivation financière [1]"
+      ],
+      "cibles": [
+        "Sites WordPress, plateformes e-commerce, infrastructures critiques ukrainiennes dont un fournisseur de chaleur à Kharkiv [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "pentest",
+          "definition": "Test d'intrusion : simulation d'attaque autorisée pour trouver des failles"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CyberXero Uses Claude Code in Campaign That Stole Over 628,000 Ukrainian Records",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/cyberxero-uses-claude-code-in-campaign.html",
+          "date": "2026-10-12",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCjQWPc2H2EsKbjYztfxdp2ffZz6TGQNJ9BuALJB44sWqXbCxEa61fu5CZ4w1rS0llVr3hQP4H_Vg5Fj87Jrs5IoUDpBmochh3rA5bMMr3V4hUT22HTPgLUeX9WhGIQuFm4zF-Kf3zIzSNsQGQlP_gkSSSV-hu5rp5CHX_1T83TOeWsYia_xbuHLlwAxDv/s1700-nu-rw-lo-l85-e365/claude-hacker.jpg"
+        }
+      ]
     }
   ]
 }

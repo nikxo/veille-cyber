@@ -9574,17 +9574,17 @@
       "id": "2026-10-12-danfoss-froid-supermarches",
       "title": "Régulation frigorifique Danfoss détournée : stocks détruits dans des supermarchés",
       "created": "2026-10-12T12:30:00+00:00",
-      "updated": "2026-10-12T16:30:00+00:00",
-      "version": 2,
-      "resume": "Des installations frigorifiques de supermarchés auraient été détournées à distance dans la nuit du 11 au 12 octobre, et des produits jetés [1]. Des contrôleurs Danfoss auraient été visés [3] ; un dégivrage continu a fait monter les températures [2].",
+      "updated": "2026-10-12T17:30:00+00:00",
+      "version": 3,
+      "resume": "Des installations frigorifiques de supermarchés auraient été détournées à distance dans la nuit du 11 au 12 octobre, et des produits jetés [1, 5]. Le CERT-FR connaît de nombreuses compromissions de contrôleurs Danfoss AK-SM et AK-SC [4].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 2]. Les consoles d'administration web de ces équipements étaient accessibles directement sur Internet [2]."
+          "texte": "Non précisé par les sources [1, 2, 4, 5]. Les consoles d'administration web de ces équipements étaient accessibles directement sur Internet [2]."
         },
         {
           "etape": "Détournement de la régulation",
-          "texte": "Dégivrage automatique remplacé par une activation forcée et continue, consigne jusqu'à 50 °C → installations en fonctionnement plusieurs heures avant l'arrivée des salariés [1]."
+          "texte": "Dégivrage automatique remplacé par une activation forcée et continue, consigne jusqu'à 50 °C [1], déclenché à distance [5] → hausse des températures des réfrigérateurs [3]."
         },
         {
           "etape": "Impact",
@@ -9630,7 +9630,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni la faille exploitée, ni l'acteur, ni les étapes intermédiaires de l'attaque [1, 2].",
+      "limites": "Les sources ne précisent ni la faille exploitée, ni l'acteur, ni les étapes intermédiaires [1, 2, 4, 5]. Danfoss n'a pas confirmé publiquement avoir été ciblé [5].",
       "cves": [
         {
           "id": "CVE-2025-41450",
@@ -9650,7 +9650,7 @@
         "Non identifié [1]"
       ],
       "cibles": [
-        "Environ 150 magasins Intermarché selon une source du secteur, Coopérative U, Leclerc [1] ; Monoprix [2]"
+        "Intermarché : environ 150 magasins selon une source du secteur [1], environ 300 avec Netto selon un média [5] ; Coopérative U [5] ; Leclerc [1] ; Monoprix [2]"
       ],
       "abreviations": [],
       "sources": [
@@ -9674,6 +9674,19 @@
           "url": "https://www.bleepingcomputer.com/news/security/cyberattack-shuts-down-refrigerators-at-french-supermarkets/",
           "date": "2026-10-12",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/supermarket-empty-fridges.jpg"
+        },
+        {
+          "titre": "Incident de sécurité ciblant les Danfoss série AK-SM et AK-SC (12 octobre 2026)",
+          "site": "CERT-FR (alertes)",
+          "url": "https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-012/",
+          "date": "2026-10-12"
+        },
+        {
+          "titre": "Cyberattack disrupts refrigeration at hundreds of French supermarkets",
+          "site": "The Record",
+          "url": "https://therecord.media/cyberattack-disrupts-refridgeration-in-france",
+          "date": "2026-10-11",
+          "image": "https://cms.therecord.media/uploads/CC_BY_2_0_11a0e3277d.png"
         }
       ]
     },
@@ -9751,13 +9764,17 @@
       "id": "2026-10-12-ledger-cryptobilis-implant",
       "title": "Ledger : implant matériel trouvé dans un portefeuille vendu par CryptoBilis, fonds volés",
       "created": "2026-10-12T13:20:00+00:00",
-      "updated": "2026-10-12T13:20:00+00:00",
-      "version": 1,
+      "updated": "2026-10-12T17:30:00+00:00",
+      "version": 2,
       "resume": "Ledger a trouvé un implant matériel non autorisé dans l'appareil d'un utilisateur touché, vendu via le revendeur CryptoBilis. Des fonds ont été volés, plus de 86 millions de dollars selon un enquêteur [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]. Un implant matériel non autorisé a été trouvé dans un appareil vendu via CryptoBilis [1]."
+          "texte": "Implant matériel installé sur des appareils vendus par des revendeurs non autorisés, dont CryptoBilis ; moment et méthode de l'altération inconnus [1, 2]."
+        },
+        {
+          "etape": "Capture des secrets",
+          "texte": "Capture de l'écran et des pressions de boutons → phrase de récupération identifiée puis transmise à l'attaquant par réseau mobile, selon des chercheurs [2]."
         },
         {
           "etape": "Vol de fonds",
@@ -9796,18 +9813,24 @@
             "texte": "Implant matériel, méthode non précisée"
           },
           {
+            "de": "hw",
+            "vers": "att",
+            "etape": 2,
+            "texte": "Phrase de récupération transmise par réseau mobile"
+          },
+          {
             "de": "att",
             "vers": "fonds",
-            "etape": 2,
+            "etape": 3,
             "texte": "Fonds volés chez des acheteurs CryptoBilis"
           }
         ]
       },
-      "limites": "Les sources ne disent ni comment l'implant a été installé, ni le lien exact entre l'implant et le vol, ni l'auteur. Ledger parle d'un nombre limité d'appareils [1].",
+      "limites": "Les sources ne disent ni quand ni comment l'implant a été installé, ni qui en est l'auteur. Ledger parle d'un volume limité d'appareils [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non précisé par les sources [1]"
+        "Non identifié ; Ledger dit collaborer avec les autorités [2]"
       ],
       "cibles": [
         "Utilisateurs d'Asie du Sud-Est ayant acheté des appareils Ledger chez CryptoBilis [1]"
@@ -9820,6 +9843,13 @@
           "url": "https://thehackernews.com/2026/10/ledger-finds-unauthorized-hardware.html",
           "date": "2026-10-12",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4nzJQQovkKtR-dl3ihW4VRAfIxiKwNwwVEHyH06we8iIkQbaxVqhryWIwB9MflLHfBYAd_opklCfnkLxg-GKqB2yt4CisdNcf2lRvOoaYHo9Pa6m1OWatzNsFHmY1ICBH_0P2XX4ykgFE7Gqviz0C0_8J0Qqz36_3gygDyHbot9z5obuYEHunIFsZmPQV/s1700-nu-rw-lo-l85-e365/ledgers.jpg"
+        },
+        {
+          "titre": "Ledger confirms spy chip implant behind wallet crypto thefts",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/ledger-confirms-hardware-wallet-spy-implant-behind-crypto-thefts/",
+          "date": "2026-10-12",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/Ledger.jpg"
         }
       ]
     },

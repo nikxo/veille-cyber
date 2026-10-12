@@ -9701,6 +9701,83 @@
           "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-12-ledger-cryptobilis-implant",
+      "title": "Ledger : implant matériel trouvé dans un portefeuille vendu par CryptoBilis, fonds volés",
+      "created": "2026-10-12T13:20:00+00:00",
+      "updated": "2026-10-12T13:20:00+00:00",
+      "version": 1,
+      "resume": "Ledger a trouvé un implant matériel non autorisé dans l'appareil d'un utilisateur touché, vendu via le revendeur CryptoBilis. Des fonds ont été volés, plus de 86 millions de dollars selon un enquêteur [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]. Un implant matériel non autorisé a été trouvé dans un appareil vendu via CryptoBilis [1]."
+        },
+        {
+          "etape": "Vol de fonds",
+          "texte": "Fonds disparus chez des utilisateurs d'Asie du Sud-Est ayant acheté chez CryptoBilis → pertes de plus de 86 millions de dollars selon l'enquêteur Specter [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (non identifié)",
+            "note": ""
+          },
+          {
+            "id": "hw",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Portefeuille matériel Ledger",
+            "note": "Implant matériel"
+          },
+          {
+            "id": "fonds",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Fonds des utilisateurs",
+            "note": "Plus de 86 M$"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "hw",
+            "etape": 1,
+            "texte": "Implant matériel, méthode non précisée"
+          },
+          {
+            "de": "att",
+            "vers": "fonds",
+            "etape": 2,
+            "texte": "Fonds volés chez des acheteurs CryptoBilis"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent ni comment l'implant a été installé, ni le lien exact entre l'implant et le vol, ni l'auteur. Ledger parle d'un nombre limité d'appareils [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non précisé par les sources [1]"
+      ],
+      "cibles": [
+        "Utilisateurs d'Asie du Sud-Est ayant acheté des appareils Ledger chez CryptoBilis [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Ledger Finds Unauthorized Hardware Implant in CryptoBilis-Sold Wallet Amid Fund Theft Reports",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/ledger-finds-unauthorized-hardware.html",
+          "date": "2026-10-12",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4nzJQQovkKtR-dl3ihW4VRAfIxiKwNwwVEHyH06we8iIkQbaxVqhryWIwB9MflLHfBYAd_opklCfnkLxg-GKqB2yt4CisdNcf2lRvOoaYHo9Pa6m1OWatzNsFHmY1ICBH_0P2XX4ykgFE7Gqviz0C0_8J0Qqz36_3gygDyHbot9z5obuYEHunIFsZmPQV/s1700-nu-rw-lo-l85-e365/ledgers.jpg"
+        }
+      ]
     }
   ]
 }

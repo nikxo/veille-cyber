@@ -8629,9 +8629,9 @@
       "id": "2026-10-09-sonicwall-sma1000-cve-2026-102255",
       "title": "SonicWall SMA1000 : tentatives d'exploitation de la faille CVE-2026-102255, corrigée trois jours avant",
       "created": "2026-10-09T13:30:00+00:00",
-      "updated": "2026-10-09T13:30:00+00:00",
-      "version": 1,
-      "resume": "Des tentatives d'exploitation de la faille de gravité maximale CVE-2026-102255 des appliances SonicWall SMA1000 ont été détectées par un réseau de pots de miel. Aucune victime n'est confirmée [1].",
+      "updated": "2026-10-12T09:30:00+00:00",
+      "version": 2,
+      "resume": "Des tentatives d'exploitation de la faille de gravité maximale CVE-2026-102255 des appliances SonicWall SMA1000 ont été détectées par des pots de miel. Aucune victime n'est confirmée [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -8681,16 +8681,16 @@
           }
         ]
       },
-      "limites": "Les sources ne disent pas si les tentatives ont réussi, ni qui est derrière. Aucun groupe n'est nommé et aucune victime n'est confirmée [1].",
+      "limites": "Les sources ne disent pas si les tentatives ont réussi, ni qui est derrière. Previdian et Defused les signalent, sans victime confirmée [1, 2].",
       "cves": [
         {
           "id": "CVE-2026-102255",
-          "explication": "Interface WorkPlace des SMA1000 6210, 7210 et 8200v : un attaquant distant non authentifié pourrait atteindre des fonctions internes. Gravité maximale, corrigée mardi [1]."
+          "explication": "Interface WorkPlace des SMA1000 6210, 7210 et 8200v : faille SSRF sans authentification, requêtes non autorisées vers des fonctions internes, gravité 10,0 sur 10, divulguée le 6 octobre [2]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "Non mentionné [1]"
+        "Non mentionné [1, 2]"
       ],
       "cibles": [
         "Appliances SMA1000 : plus de 400 exposées sur Internet selon Shadowserver [1]"
@@ -8711,6 +8711,10 @@
         {
           "sigle": "SMA1000",
           "definition": "Gamme d'appliances d'accès distant de SonicWall"
+        },
+        {
+          "sigle": "SSRF",
+          "definition": "Server-Side Request Forgery : faire émettre des requêtes par le serveur attaqué"
         }
       ],
       "sources": [
@@ -8720,6 +8724,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/max-severity-sonicwall-sma1000-flaw-now-exploited-in-attacks/",
           "date": "2026-10-09",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/SonicWall-headpic.jpg"
+        },
+        {
+          "titre": "Critical SonicWall Vulnerability Exploited Days After Disclosure",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/critical-sonicwall-vulnerability-exploited-days-after-disclosure/",
+          "date": "2026-10-12",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/08/SonicWall.jpg"
         }
       ]
     },

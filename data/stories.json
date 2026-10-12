@@ -8629,13 +8629,13 @@
       "id": "2026-10-09-sonicwall-sma1000-cve-2026-102255",
       "title": "SonicWall SMA1000 : tentatives d'exploitation de la faille CVE-2026-102255, corrigée trois jours avant",
       "created": "2026-10-09T13:30:00+00:00",
-      "updated": "2026-10-12T09:30:00+00:00",
-      "version": 2,
+      "updated": "2026-10-12T12:30:00+00:00",
+      "version": 3,
       "resume": "Des tentatives d'exploitation de la faille de gravité maximale CVE-2026-102255 des appliances SonicWall SMA1000 ont été détectées par des pots de miel. Aucune victime n'est confirmée [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Requêtes forgées vers l'interface WorkPlace Extraweb → tentative d'atteindre le service CouchDB interne de l'appliance, sans preuve de réussite [1]."
+          "texte": "Requêtes forgées vers l'interface WorkPlace Extraweb → tentative d'atteindre le service CouchDB interne, sans preuve de réussite ; premiers signes d'exploitation le 8 octobre [1, 3]."
         },
         {
           "etape": "Appel de fonction interne",
@@ -8681,16 +8681,16 @@
           }
         ]
       },
-      "limites": "Les sources ne disent pas si les tentatives ont réussi, ni qui est derrière. Previdian et Defused les signalent, sans victime confirmée [1, 2].",
+      "limites": "Les sources ne disent pas si les tentatives ont réussi, ni qui est derrière. Previdian et Defused les signalent, sans victime confirmée [1, 2, 3].",
       "cves": [
         {
           "id": "CVE-2026-102255",
-          "explication": "Interface WorkPlace des SMA1000 6210, 7210 et 8200v : faille SSRF sans authentification, requêtes non autorisées vers des fonctions internes, gravité 10,0 sur 10, divulguée le 6 octobre [2]."
+          "explication": "Interface WorkPlace des SMA1000 : faille SSRF sans authentification, gravité 10,0 sur 10 [2]. Correctifs publiés le 6 octobre, 135 tentatives d'exploitation recensées [3]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "Non mentionné [1, 2]"
+        "Non mentionné [1, 2, 3]"
       ],
       "cibles": [
         "Appliances SMA1000 : plus de 400 exposées sur Internet selon Shadowserver [1]"
@@ -8731,6 +8731,13 @@
           "url": "https://www.securityweek.com/critical-sonicwall-vulnerability-exploited-days-after-disclosure/",
           "date": "2026-10-12",
           "image": "https://www.securityweek.com/wp-content/uploads/2025/08/SonicWall.jpg"
+        },
+        {
+          "titre": "Critical SonicWall SMA 1000 Flaw Targeted in 135 Exploitation Attempts After Patch",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/critical-sonicwall-sma-1000-flaw.html",
+          "date": "2026-10-12",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglEbu7YOWX4lrTm_x8p2FnL6B7z2hhGC0fKWPBSCVJqTt8l0rbcXFhQinT3ja0sVyx7hObbCQlmem9y4-wsxrwU6mtgsBIJjvH7rgC8n5w8DpEcv7G1N_u4dtOzA3qxVk22FPvly-ZmjsLJKdJqgTsKPtMHpit1oq-fk7jPFN1gTHLeJdF2JQRZ8yuwjxv/s1700-nu-rw-lo-l85-e365/sonics.jpg"
         }
       ]
     },
@@ -8852,8 +8859,8 @@
       "id": "2026-10-09-irhythm-fuite-donnees",
       "title": "iRhythm : données de patients volées dans des applications métier hébergées par des tiers",
       "created": "2026-10-09T17:20:00+00:00",
-      "updated": "2026-10-09T17:20:00+00:00",
-      "version": 1,
+      "updated": "2026-10-12T12:30:00+00:00",
+      "version": 2,
       "resume": "Des pirates ont volé des données dans des applications métier hébergées par des tiers chez iRhythm, fabricant du capteur cardiaque Zio Patch. Au moins 360 000 personnes sont touchées [1].",
       "chaine": [
         {
@@ -8862,11 +8869,11 @@
         },
         {
           "etape": "Vol de données",
-          "texte": "Accès aux informations puis téléchargement → noms, adresses, numéros de compte patient, numéros de série d'appareils et dates de naissance exfiltrés [1]."
+          "texte": "Accès puis extraction de données de patients entre le 3 et le 8 juin → noms, adresses, courriels, dates de naissance, téléphones, numéros de compte et d'appareil volés [1, 2]."
         },
         {
           "etape": "Extorsion",
-          "texte": "Un acteur a contacté l'entreprise → demande de paiement contre la non-divulgation des informations [1]."
+          "texte": "Contact des pirates le 9 juin → menace de publier les données volées en ligne si une rançon n'est pas versée [2]."
         }
       ],
       "parcours": {
@@ -8908,14 +8915,14 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni la méthode d'ingénierie sociale, ni les applications touchées, ni l'acteur ; l'accès a duré du 3 au 8 juin [1].",
+      "limites": "Les sources ne précisent ni les applications touchées ni l'acteur. [1] parle d'ingénierie sociale, sans méthode ; [2] ne mentionne pas le vecteur.",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Non identifié, aucune revendication publique [1]"
       ],
       "cibles": [
-        "iRhythm : au moins 360 000 personnes, dont 298 647 au Texas et 69 526 en Caroline du Sud [1]"
+        "iRhythm : au moins 360 000 personnes, dont 298 647 au Texas et 69 526 en Caroline du Sud [1, 2]"
       ],
       "abreviations": [],
       "sources": [
@@ -8925,6 +8932,13 @@
           "url": "https://therecord.media/irhythm-data-breach-reports",
           "date": "2026-10-09",
           "image": "https://cms.therecord.media/uploads/irhythm_zio_b2d3ad957a.jpg"
+        },
+        {
+          "titre": "iRhythm Data Breach Impacts at Least 360,000 People",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/irhythm-data-breach-impacts-over-360000-people/",
+          "date": "2026-10-12",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/iRhythm.jpeg"
         }
       ]
     },
@@ -9535,6 +9549,156 @@
           "url": "https://www.zataz.com/vacaf-139-million-de-lignes-revendiquees-a-la-vente/",
           "date": "2026-10-12",
           "image": "https://www.zataz.com/wp-content/uploads/vacaf_leak.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-12-danfoss-froid-supermarches",
+      "title": "Régulation frigorifique Danfoss détournée : stocks détruits dans des supermarchés",
+      "created": "2026-10-12T12:30:00+00:00",
+      "updated": "2026-10-12T12:30:00+00:00",
+      "version": 1,
+      "resume": "Des installations frigorifiques de supermarchés auraient été détournées à distance dans la nuit du 11 au 12 octobre. Des produits frais et surgelés ont été jetés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Détournement de la régulation",
+          "texte": "Dégivrage automatique remplacé par une activation forcée et continue, consigne jusqu'à 50 °C → installations en fonctionnement plusieurs heures avant l'arrivée des salariés [1]."
+        },
+        {
+          "etape": "Impact",
+          "texte": "Produits frais et surgelés jetés → 270 000 euros de pertes cumulées pour deux magasins alsaciens [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "frg",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Régulation frigorifique Danfoss",
+            "note": "Magasins"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "frg",
+            "etape": 2,
+            "texte": "Dégivrage forcé, consigne jusqu'à 50 °C"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le point d'entrée, ni la faille, ni l'acteur. Des versions de logiciel antérieures à la version 4 auraient été visées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1]"
+      ],
+      "cibles": [
+        "Environ 150 magasins Intermarché selon une source du secteur, Coopérative U, Leclerc [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Une cyberattaque dérègle le froid des supermarchés",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/une-cyberattaque-deregle-le-froid-des-supermarches/",
+          "date": "2026-10-12",
+          "image": "https://www.zataz.com/wp-content/uploads/froid_hack.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-12-canonical-ddos",
+      "title": "Canonical : sites Ubuntu perturbés par une attaque DDoS",
+      "created": "2026-10-12T12:30:00+00:00",
+      "updated": "2026-10-12T12:30:00+00:00",
+      "version": 1,
+      "resume": "Canonical a confirmé le 8 octobre une attaque par déni de service distribué contre ses sites, dont ubuntu.com. C'est la deuxième de l'année [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Saturation des sites",
+          "texte": "Attaque DDoS soutenue sur le forum Discourse puis d'autres sites → services parfois inaccessibles, interruption d'un peu plus de quatre heures selon un média [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "expose",
+            "nom": "Sites Ubuntu et Canonical",
+            "note": "Blog, portail développeur"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 2,
+            "texte": "Attaque DDoS soutenue"
+          }
+        ]
+      },
+      "limites": "Origine, taille et technique de l'attaque non partagées ; nul ne l'a revendiquée, et le lien avec l'attaque d'avril n'est pas établi [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié ; l'attaque d'avril a été revendiquée par le groupe 313 Team [1]"
+      ],
+      "cibles": [
+        "ubuntu.com, canonical.com, blog et portail développeur, avis de sécurité Ubuntu ; Launchpad et Snap Store non touchés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "DDoS",
+          "definition": "Déni de service distribué : saturer un service avec un flot de requêtes"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Canonical Websites Disrupted in Second DDoS Attack This Year",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/canonical-websites-disrupted-in-second-ddos-attack-this-year/",
+          "date": "2026-10-12",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
         }
       ]
     }

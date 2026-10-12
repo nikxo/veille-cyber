@@ -9368,6 +9368,175 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCjQWPc2H2EsKbjYztfxdp2ffZz6TGQNJ9BuALJB44sWqXbCxEa61fu5CZ4w1rS0llVr3hQP4H_Vg5Fj87Jrs5IoUDpBmochh3rA5bMMr3V4hUT22HTPgLUeX9WhGIQuFm4zF-Kf3zIzSNsQGQlP_gkSSSV-hu5rp5CHX_1T83TOeWsYia_xbuHLlwAxDv/s1700-nu-rw-lo-l85-e365/claude-hacker.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-12-bricksforge-wordpress-cve-2026-85097",
+      "title": "Faille critique du plugin Bricksforge pour WordPress exploitée pour exécuter du code",
+      "created": "2026-10-12T10:30:00+00:00",
+      "updated": "2026-10-12T10:30:00+00:00",
+      "version": 1,
+      "resume": "Des attaquants exploitent sans authentification une faille du plugin Bricksforge pour WordPress afin d'exécuter du code PHP sur les sites vulnérables. Patchstack a vu les premières tentatives le 7 octobre [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Appel d'un point d'accès du plugin ouvert sans authentification → obtention d'un jeton de sécurité valide pour soumettre des requêtes [1]."
+        },
+        {
+          "etape": "Dépôt du fichier piégé",
+          "texte": "Envoi d'un fichier à la fois image valide et code PHP → il passe la vérification du type et atterrit dans le répertoire temporaire [1]."
+        },
+        {
+          "etape": "Exécution de code",
+          "texte": "Formulaire dont le champ url se termine par une extension PHP → contenu écrit en fichier PHP, exécuté à son appel, donc exécution de code à distance [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "wp",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Site WordPress avec Bricksforge",
+            "note": "Versions jusqu'à 3.1.8.9"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "wp",
+            "etape": 1,
+            "texte": "Jeton valide obtenu sans authentification"
+          },
+          {
+            "de": "att",
+            "vers": "wp",
+            "etape": 2,
+            "texte": "Fichier image et PHP déposé"
+          },
+          {
+            "de": "att",
+            "vers": "wp",
+            "etape": 3,
+            "texte": "Écriture en PHP puis exécution de code"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment aucun acteur ni aucune victime. Patchstack ne peut pas attribuer l'activité à un seul acteur [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-85097",
+          "explication": "Plugin Bricksforge pour WordPress jusqu'à la version 3.1.8.9 : envoi de fichier non authentifié menant à l'exécution de code PHP, gravité 10 sur 10 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non attribué : Patchstack ne peut pas lier l'activité à un acteur unique [1]"
+      ],
+      "cibles": [
+        "Sites WordPress utilisant le plugin Bricksforge jusqu'à la version 3.1.8.9 [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "PHP",
+          "definition": "Langage de programmation de scripts web"
+        },
+        {
+          "sigle": "WordPress",
+          "definition": "Système de gestion de sites web très répandu"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Attackers Exploit CVSS 10.0 Bricksforge WordPress Flaw Enabling Unauthenticated RCE",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/attackers-exploit-cvss-100-bricksforge.html",
+          "date": "2026-10-12",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrKeT1xQm0N8zjNRqWwsoqMm3kESRMqYnUJ9Wy6x9dEKlRVgZYDVqKqhu_2ZT7ZcCNd_RegNu2LtnUUQgL8R2OlK5LTyu9vKaCBRGTVrp05hGdB5wQrxFNi_eHnGxx-8yFR7maKT3tD_WBMVVBSeTyuku392tKdoOHIgvnj1tKQYU_Yq9anT5OKxUun4GW/s1700-nu-rw-lo-l85-e365/wp-php.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-12-vacaf-donnees-familles-vente",
+      "title": "Un vendeur revendique 1,39 million de lignes de données Vacaf liées aux familles",
+      "created": "2026-10-12T10:30:00+00:00",
+      "updated": "2026-10-12T10:30:00+00:00",
+      "version": 1,
+      "resume": "Un vendeur affirme sur un forum pirate détenir plus d'un million de lignes issues de Vacaf, le dispositif d'aide aux vacances des CAF, et les propose à la vente. L'authenticité n'est pas établie [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Mise en vente",
+          "texte": "Annonce le 9 octobre sur un forum pirate : trois fichiers sur allocataires, séjours et enfants → 1 390 558 lignes revendiquées au total [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Vendeur (pseudonyme non confirmé)",
+            "note": ""
+          },
+          {
+            "id": "vac",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Données Vacaf",
+            "note": "Revendication non vérifiée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "vac",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "att",
+            "vers": "vac",
+            "etape": 2,
+            "texte": "Trois fichiers mis en vente"
+          }
+        ]
+      },
+      "limites": "L'article ne décrit aucune intrusion. Une collecte par logiciel voleur d'identifiants est évoquée comme possibilité par ZATAZ, sans confirmation. Des vendeurs gonflent parfois leurs bases [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Vendeur inscrit depuis septembre 2026 sur un forum pirate, identité non confirmée [1]"
+      ],
+      "cibles": [
+        "Allocataires des CAF, familles et enfants selon la description du vendeur [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CAF",
+          "definition": "Caisses d'allocations familiales, organismes français d'aides aux familles"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Vacaf : 1,39 million de lignes revendiquées à la vente",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/vacaf-139-million-de-lignes-revendiquees-a-la-vente/",
+          "date": "2026-10-12",
+          "image": "https://www.zataz.com/wp-content/uploads/vacaf_leak.jpg"
+        }
+      ]
     }
   ]
 }

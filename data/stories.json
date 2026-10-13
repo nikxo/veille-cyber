@@ -10909,6 +10909,202 @@
           "date": "2026-10-13"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-13-windows-shell-motw-zero-day",
+      "title": "Windows Shell : faille zero-day exploitée contournant le Mark of the Web",
+      "created": "2026-10-13T23:30:00+00:00",
+      "updated": "2026-10-13T23:30:00+00:00",
+      "version": 1,
+      "resume": "Microsoft a connaissance d'une exploitation dans la nature d'une faille du Windows Shell, publiée lors du Patch Tuesday d'octobre 2026. Elle contourne la protection Mark of the Web [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "L'utilisateur ouvre un fichier piégé ou visite un site contrôlé par l'attaquant, condition d'exploitation de la faille [1]."
+        },
+        {
+          "etape": "Contournement de protection",
+          "texte": "Faille du Windows Shell → Windows n'affiche pas la boîte de dialogue de protection attendue [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste Windows de l'utilisateur",
+            "note": "Protection non affichée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Fichier piégé ou site contrôlé par l'attaquant"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Boîte de dialogue de protection non affichée"
+          }
+        ]
+      },
+      "limites": "La source ne nomme aucun acteur ni victime et ne décrit pas la suite de l'attaque [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-96951",
+          "explication": "Windows Shell : contournement d'une fonction de sécurité (Mark of the Web), zero-day exploité dans la nature [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non précisé [1]"
+      ],
+      "cibles": [
+        "Utilisateurs de Windows, victimes non précisées [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Patch Tuesday - October 2026",
+          "site": "Rapid7",
+          "url": "https://www.rapid7.com/blog/post/em-patch-tuesday-october-2026",
+          "date": "2026-10-13",
+          "image": "https://www.rapid7.com/cdn/images/blt9952397815d84355/6849acff3860836b5c360685/patch-tuesday-repeated.webp"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-13-banque-europeenne-passerelle-tierce",
+      "title": "Banque européenne : intrusion via une passerelle gérée par un tiers, bloquée avant la persistance",
+      "created": "2026-10-13T23:30:00+00:00",
+      "updated": "2026-10-13T23:30:00+00:00",
+      "version": 1,
+      "resume": "Un attaquant est entré dans le réseau d'une banque européenne par une passerelle externe gérée par un tiers. Il n'a obtenu ni présence persistante ni déplacement latéral [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Passerelle externe d'un tiers mal configurée pour l'authentification stricte, et identifiants compromis → connexion aux systèmes internes [1]."
+        },
+        {
+          "etape": "Reconnaissance",
+          "texte": "Scans d'hôtes et de réseau sur de nombreux protocoles, milliers de systèmes touchés → repérage d'un maximum de points d'accès [1]."
+        },
+        {
+          "etape": "Attaque des comptes",
+          "texte": "Campagnes de devinette de mots de passe pendant quelques mois, surtout contre des comptes administrateurs [1]."
+        },
+        {
+          "etape": "Collecte d'informations",
+          "texte": "Requêtes web automatisées et énumération des partages → récupération de pages et pièces jointes internes [1]."
+        },
+        {
+          "etape": "Tentative d'élévation",
+          "texte": "Exploitation d'une faille d'exécution de code dans WSUS sur le serveur central de gestion de configuration [1]."
+        },
+        {
+          "etape": "Blocage",
+          "texte": "Cortex XDR détecte et contient la tentative → ni présence persistante ni déplacement latéral [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "gw",
+            "type": "passerelle",
+            "zone": "victime",
+            "nom": "Passerelle externe d'un tiers",
+            "note": "Mal configurée"
+          },
+          {
+            "id": "sys",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Systèmes internes de la banque",
+            "note": "Comptes administrateurs visés"
+          },
+          {
+            "id": "cfg",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur de gestion de configuration",
+            "note": "WSUS visé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gw",
+            "etape": 1,
+            "texte": "Connexion avec des identifiants compromis"
+          },
+          {
+            "de": "gw",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Scans et devinette de mots de passe"
+          },
+          {
+            "de": "gw",
+            "vers": "sys",
+            "etape": 4,
+            "texte": "Requêtes web et énumération des partages"
+          },
+          {
+            "de": "att",
+            "vers": "cfg",
+            "etape": 5,
+            "texte": "Tentative d'exploitation de WSUS, bloquée"
+          }
+        ]
+      },
+      "limites": "La source ne nomme ni la banque ni l'acteur, ne donne aucune date précise et ne cite aucun identifiant CVE pour la faille WSUS [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non précisé par la source [1]"
+      ],
+      "cibles": [
+        "Une banque européenne, nom non précisé [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "WSUS",
+          "definition": "Windows Server Update Services : service Microsoft de distribution des mises à jour"
+        },
+        {
+          "sigle": "XDR",
+          "definition": "Extended Detection and Response : outil de détection et de réponse sur les machines"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "The Noise Inside the Network: How an Unsophisticated Attack Exposed a Third-Party Risk",
+          "site": "Unit 42 (Palo Alto Networks)",
+          "url": "https://unit42.paloaltonetworks.com/noise-inside-network-third-party-risk/",
+          "date": "2026-10-13",
+          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2025/11/07_Listicle_Category_1505x922.jpg"
+        }
+      ]
     }
   ]
 }

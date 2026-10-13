@@ -9581,8 +9581,8 @@
       "id": "2026-10-12-danfoss-froid-supermarches",
       "title": "Régulation frigorifique Danfoss détournée : stocks détruits dans des supermarchés",
       "created": "2026-10-12T12:30:00+00:00",
-      "updated": "2026-10-12T17:30:00+00:00",
-      "version": 3,
+      "updated": "2026-10-13T09:30:00+00:00",
+      "version": 4,
       "resume": "Des installations frigorifiques de supermarchés auraient été détournées à distance dans la nuit du 11 au 12 octobre, et des produits jetés [1, 5]. Le CERT-FR connaît de nombreuses compromissions de contrôleurs Danfoss AK-SM et AK-SC [4].",
       "chaine": [
         {
@@ -9595,7 +9595,7 @@
         },
         {
           "etape": "Impact",
-          "texte": "Dégivrage continu → températures incompatibles avec la conservation des produits [2] ; produits jetés, 270 000 euros de pertes pour deux magasins alsaciens [1]."
+          "texte": "Températures incompatibles avec la conservation [2], en hausse pendant environ six heures sur certains équipements [6] → produits jetés, 270 000 euros de pertes pour deux magasins alsaciens [1]."
         }
       ],
       "parcours": {
@@ -9637,7 +9637,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni la faille exploitée, ni l'acteur, ni les étapes intermédiaires [1, 2, 4, 5]. Danfoss n'a pas confirmé publiquement avoir été ciblé [5].",
+      "limites": "Les sources ne précisent ni la faille exploitée, ni l'acteur [1, 2, 4, 5] ; on ignore si les failles divulguées par Claroty ont servi [6].",
       "cves": [
         {
           "id": "CVE-2025-41450",
@@ -9657,7 +9657,8 @@
         "Non identifié [1]"
       ],
       "cibles": [
-        "Intermarché : environ 150 magasins selon une source du secteur [1], environ 300 avec Netto selon un média [5] ; Coopérative U [5] ; Leclerc [1] ; Monoprix [2]"
+        "Intermarché : environ 150 magasins selon une source du secteur [1], environ 300 avec Netto selon un média [5] ; Coopérative U [5] ; Leclerc [1] ; Monoprix [2]",
+        "Magasins en France, Belgique, Allemagne, Pays-Bas, Pologne, Portugal et Espagne [6]"
       ],
       "abreviations": [],
       "sources": [
@@ -9694,6 +9695,13 @@
           "url": "https://therecord.media/cyberattack-disrupts-refridgeration-in-france",
           "date": "2026-10-11",
           "image": "https://cms.therecord.media/uploads/CC_BY_2_0_11a0e3277d.png"
+        },
+        {
+          "titre": "Refrigeration Controller Hack Spoils Food Across European Supermarkets",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/refrigeration-controller-hack-spoils-food-across-european-supermarkets/",
+          "date": "2026-10-13",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supermarket-refrigerators.jpeg"
         }
       ]
     },

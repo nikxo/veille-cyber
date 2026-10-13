@@ -9888,9 +9888,9 @@
       "id": "2026-10-12-ahold-delhaize-systemes-hors-ligne",
       "title": "Ahold Delhaize met des systèmes hors ligne après une cyberattaque",
       "created": "2026-10-12T14:30:00+00:00",
-      "updated": "2026-10-13T10:07:39+00:00",
-      "version": 2,
-      "resume": "Le groupe de distribution alimentaire Ahold Delhaize a mis des systèmes hors ligne après un incident de cybersécurité dans son réseau. Des services de plusieurs enseignes sont perturbés [1, 2].",
+      "updated": "2026-10-13T12:30:00+00:00",
+      "version": 3,
+      "resume": "Le groupe de distribution alimentaire Ahold Delhaize a mis des systèmes hors ligne après un incident de cybersécurité. Des services de plusieurs enseignes aux Pays-Bas, en Belgique et aux États-Unis sont perturbés [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -9898,7 +9898,7 @@
         },
         {
           "etape": "Mise hors ligne",
-          "texte": "Systèmes mis hors ligne pour évaluer et limiter le problème → sites, applications et services clients indisponibles pour Albert Heijn, Etos, Gall & Gall et Delhaize [1, 2]."
+          "texte": "Systèmes mis hors ligne pour évaluer et limiter le problème → sites, applications et services clients indisponibles pour Albert Heijn, Etos, Gall & Gall et Delhaize [1, 2, 3]."
         },
         {
           "etape": "Perturbation des magasins",
@@ -9944,7 +9944,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni le vecteur d'accès, ni l'acteur, ni un éventuel chiffrement ou vol de données [1, 2]. Le lien avec l'attaque des réfrigérateurs est incertain [2].",
+      "limites": "Les sources ne précisent ni le vecteur d'accès, ni l'acteur, ni un éventuel chiffrement ou vol de données [1, 2, 3]. Le lien avec l'attaque des réfrigérateurs est incertain [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -9968,6 +9968,13 @@
           "url": "https://www.securityweek.com/cyberattack-prompts-ahold-delhaize-to-disconnect-systems/",
           "date": "2026-10-13",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/11/Ahold-Delhaize-cyberattack.jpeg"
+        },
+        {
+          "titre": "Cyber incident hits grocery stores in US, Netherlands and Belgium",
+          "site": "The Record",
+          "url": "https://therecord.media/cyberattack-groceru-ahold-delhaize",
+          "date": "2026-10-13",
+          "image": "https://cms.therecord.media/uploads/Stop_and_shop_b4e4f10897.jpg"
         }
       ]
     },
@@ -10212,6 +10219,97 @@
           "url": "https://www.bleepingcomputer.com/news/security/anthropic-takes-risky-ai-tests-offline-after-models-breach-govt-sites/",
           "date": "2026-10-12",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/anthropic.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-13-xworm-surveillance-plugins",
+      "title": "XWorm : le logiciel espion passe à 46 modules de surveillance",
+      "created": "2026-10-13T12:30:00+00:00",
+      "updated": "2026-10-13T12:30:00+00:00",
+      "version": 1,
+      "resume": "Le cheval de Troie XWorm compte désormais 46 modules, dont des fonctions de localisation, d'écoute audio et de détournement de session de navigateur. Netskope a observé plus de 1 200 incidents dans 100 organisations [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Commandes de l'opérateur envoyées par le canal chiffré de XWorm → exécution sur la machine de la victime [1]."
+        },
+        {
+          "etape": "Surveillance",
+          "texte": "Modules Maps et Microphone → position de la victime et audio en direct, sans élévation de privilèges ni avertissement [1]."
+        },
+        {
+          "etape": "Détournement de session",
+          "texte": "Module HBrowser → vue en temps réel du navigateur et accès aux onglets authentifiés sans toucher aux identifiants, authentification multifacteur contournée [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Opérateur XWorm",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Systèmes Windows infectés",
+            "note": "Surveillance"
+          },
+          {
+            "id": "nav",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Sessions de navigateur authentifiées",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Commandes envoyées par canal chiffré"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Position et audio en direct récupérés"
+          },
+          {
+            "de": "pc",
+            "vers": "nav",
+            "etape": 4,
+            "texte": "Onglets authentifiés pilotés en temps réel"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'accès initial, ni l'acteur, ni les secteurs touchés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1]"
+      ],
+      "cibles": [
+        "100 organisations, systèmes Windows, secteurs non précisés [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "XWorm RAT Evolves Into Surveillance Platform",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/xworm-rat-evolves-into-surveillance-platform/",
+          "date": "2026-10-13",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
         }
       ]
     }

@@ -1870,5 +1870,45 @@
     "source": "SecurityWeek",
     "raison": "correctifs sans exploitation constatée",
     "date": "2026-10-13T18:20:00+00:00"
+  },
+  {
+    "id": "6e56ced53da56dc2",
+    "title": "SAP Discloses Critical CVSS 10 Flaw in Cloud SDK for Python Allowing OAuth2 Credential Theft",
+    "link": "https://thehackernews.com/2026/10/sap-discloses-critical-cvss-10-flaw-in.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-10-13T19:07:38+00:00"
+  },
+  {
+    "id": "8187d0f2ac60bf6f",
+    "title": "Docker Fixes Critical Two-Year-Old Hub Flaw That Let One User Push Images as Another",
+    "link": "https://thehackernews.com/2026/10/docker-fixes-critical-two-year-old-hub.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-10-13T19:07:38+00:00"
+  },
+  {
+    "id": "81a5bdad38829975",
+    "title": "Microsoft: Windows 11 24H2 Home and Pro reached end of support",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-11-24h2-home-and-pro-reached-end-of-support/",
+    "source": "BleepingComputer",
+    "raison": "fin de support, sans attaque",
+    "date": "2026-10-13T19:07:38+00:00"
+  },
+  {
+    "id": "d9ed76a64d3ea742",
+    "title": "Anthropic Warns Small AI Models Could Soon Form Self-Propagating IoT Botnets",
+    "link": "https://thehackernews.com/2026/10/anthropic-warns-small-ai-models-could.html",
+    "source": "The Hacker News",
+    "raison": "avertissement prospectif, sans attaque",
+    "date": "2026-10-13T19:07:38+00:00"
+  },
+  {
+    "id": "eed244433a32f2ea",
+    "title": "UK Housing Ombudsman Service investigates 'security incident'",
+    "link": "https://www.bleepingcomputer.com/news/security/uk-housing-ombudsman-service-investigates-security-incident/",
+    "source": "BleepingComputer",
+    "raison": "incident sans détail sur la méthode d'attaque",
+    "date": "2026-10-13T19:07:38+00:00"
   }
 ]

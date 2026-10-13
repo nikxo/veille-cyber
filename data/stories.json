@@ -10850,6 +10850,65 @@
           "image": "https://cms.therecord.media/uploads/NK_military_8b739bf964.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-13-coree-nord-hameconnage-ukrainiens",
+      "title": "Corée du Nord : hameçonnage de Ukrainiens pour obtenir du renseignement de guerre",
+      "created": "2026-10-13T22:20:00+00:00",
+      "updated": "2026-10-13T22:20:00+00:00",
+      "version": 1,
+      "resume": "La Corée du Nord mène des attaques d'hameçonnage simples, fondées sur l'amorce de réponse, contre des Ukrainiens pour obtenir des informations sur son propre effort de guerre en Ukraine [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Hameçonnage par amorce de réponse visant des Ukrainiens → informations recherchées sur l'effort de guerre nord-coréen en Ukraine [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Corée du Nord)",
+            "note": ""
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Ukrainiens ciblés",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 1,
+            "texte": "Hameçonnage par amorce de réponse"
+          }
+        ]
+      },
+      "limites": "Seul le résumé du flux est disponible, la page de l'article n'a pas pu être lue [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Corée du Nord (République populaire démocratique de Corée) [1]"
+      ],
+      "cibles": [
+        "Ukrainiens [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "North Korea Phishes Ukrainians for War Intel",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/cyberattacks-data-breaches/north-korea-phishes-ukrainians-war-intel",
+          "date": "2026-10-13"
+        }
+      ]
     }
   ]
 }

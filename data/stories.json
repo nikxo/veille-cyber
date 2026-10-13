@@ -9581,17 +9581,17 @@
       "id": "2026-10-12-danfoss-froid-supermarches",
       "title": "Régulation frigorifique Danfoss détournée : stocks détruits dans des supermarchés",
       "created": "2026-10-12T12:30:00+00:00",
-      "updated": "2026-10-13T09:30:00+00:00",
-      "version": 4,
+      "updated": "2026-10-13T10:07:39+00:00",
+      "version": 5,
       "resume": "Des installations frigorifiques de supermarchés auraient été détournées à distance dans la nuit du 11 au 12 octobre, et des produits jetés [1, 5]. Le CERT-FR connaît de nombreuses compromissions de contrôleurs Danfoss AK-SM et AK-SC [4].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 2, 4, 5]. Les consoles d'administration web de ces équipements étaient accessibles directement sur Internet [2]."
+          "texte": "Non précisé par les sources [1, 2, 4, 5, 7]. Les consoles d'administration web de ces équipements étaient accessibles directement sur Internet [2]."
         },
         {
           "etape": "Détournement de la régulation",
-          "texte": "Dégivrage automatique remplacé par une activation forcée et continue, consigne jusqu'à 50 °C [1], déclenché à distance [5] → hausse des températures des réfrigérateurs [3]."
+          "texte": "Dégivrage automatique remplacé par une activation forcée et continue, consigne jusqu'à 50 °C [1, 7], déclenché à distance [5] → hausse des températures des réfrigérateurs [3]."
         },
         {
           "etape": "Impact",
@@ -9637,7 +9637,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni la faille exploitée, ni l'acteur [1, 2, 4, 5] ; on ignore si les failles divulguées par Claroty ont servi [6].",
+      "limites": "Les sources ne précisent ni la faille exploitée, ni l'acteur [1, 2, 4, 5, 7] ; on ignore si les failles divulguées par Claroty ont servi [6].",
       "cves": [
         {
           "id": "CVE-2025-41450",
@@ -9658,7 +9658,8 @@
       ],
       "cibles": [
         "Intermarché : environ 150 magasins selon une source du secteur [1], environ 300 avec Netto selon un média [5] ; Coopérative U [5] ; Leclerc [1] ; Monoprix [2]",
-        "Magasins en France, Belgique, Allemagne, Pays-Bas, Pologne, Portugal et Espagne [6]"
+        "Magasins en France, Belgique, Allemagne, Pays-Bas, Pologne, Portugal et Espagne [6]",
+        "Carrefour : environ 80 supermarchés [7]"
       ],
       "abreviations": [],
       "sources": [
@@ -9702,6 +9703,13 @@
           "url": "https://www.securityweek.com/refrigeration-controller-hack-spoils-food-across-european-supermarkets/",
           "date": "2026-10-13",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supermarket-refrigerators.jpeg"
+        },
+        {
+          "titre": "Attackers Heat French Supermarket Fridges Up to 50°C by Hijacking Danfoss Controllers",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/attackers-heat-french-supermarket.html",
+          "date": "2026-10-13",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh64tQNgn3aqDhyphenhyphengoK8NxQG3DPvWWi0fP185meJUr14eUmcX18mKJdkUz6QsMU6bTxmwAtHrd8I0J5FQjvTENA1-N1F60zsR1x2iDzaJNhPbg_6iGYTELpBOwiTbBiaMWLmWQ4naaMfCLCcThNEfC302zF-YCjlev6138DvUrXfr5noGCpZaT9JnGd7hUw/s1700-nu-rw-lo-l85-e365/supermarket.jpg"
         }
       ]
     },
@@ -9873,9 +9881,9 @@
       "id": "2026-10-12-ahold-delhaize-systemes-hors-ligne",
       "title": "Ahold Delhaize met des systèmes hors ligne après une cyberattaque",
       "created": "2026-10-12T14:30:00+00:00",
-      "updated": "2026-10-12T14:30:00+00:00",
-      "version": 1,
-      "resume": "Le groupe de distribution alimentaire Ahold Delhaize a mis des systèmes hors ligne après un incident de cybersécurité dans son réseau. Des services de plusieurs enseignes sont perturbés [1].",
+      "updated": "2026-10-13T10:07:39+00:00",
+      "version": 2,
+      "resume": "Le groupe de distribution alimentaire Ahold Delhaize a mis des systèmes hors ligne après un incident de cybersécurité dans son réseau. Des services de plusieurs enseignes sont perturbés [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -9883,7 +9891,7 @@
         },
         {
           "etape": "Mise hors ligne",
-          "texte": "Systèmes mis hors ligne pour évaluer et limiter le problème → sites, applications et services clients indisponibles pour Albert Heijn, Etos, Gall & Gall et Delhaize [1]."
+          "texte": "Systèmes mis hors ligne pour évaluer et limiter le problème → sites, applications et services clients indisponibles pour Albert Heijn, Etos, Gall & Gall et Delhaize [1, 2]."
         },
         {
           "etape": "Perturbation des magasins",
@@ -9929,7 +9937,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni le vecteur d'accès, ni l'acteur, ni un éventuel chiffrement ou vol de données. L'entreprise n'a pas répondu sur le chiffrement [1].",
+      "limites": "Les sources ne précisent ni le vecteur d'accès, ni l'acteur, ni un éventuel chiffrement ou vol de données [1, 2]. Le lien avec l'attaque des réfrigérateurs est incertain [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -9946,6 +9954,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/retail-giant-ahold-delhaize-takes-systems-offline-after-cyberattack/",
           "date": "2026-10-12",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/Ahold_Delhaize.jpg"
+        },
+        {
+          "titre": "Cyberattack Prompts Ahold Delhaize to Disconnect Systems",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/cyberattack-prompts-ahold-delhaize-to-disconnect-systems/",
+          "date": "2026-10-13",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/11/Ahold-Delhaize-cyberattack.jpeg"
         }
       ]
     },

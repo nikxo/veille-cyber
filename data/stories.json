@@ -9787,21 +9787,21 @@
       "id": "2026-10-12-ledger-cryptobilis-implant",
       "title": "Ledger : implant matériel trouvé dans un portefeuille vendu par CryptoBilis, fonds volés",
       "created": "2026-10-12T13:20:00+00:00",
-      "updated": "2026-10-12T17:30:00+00:00",
-      "version": 2,
+      "updated": "2026-10-13T11:08:13+00:00",
+      "version": 3,
       "resume": "Ledger a trouvé un implant matériel non autorisé dans l'appareil d'un utilisateur touché, vendu via le revendeur CryptoBilis. Des fonds ont été volés, plus de 86 millions de dollars selon un enquêteur [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Implant matériel installé sur des appareils vendus par des revendeurs non autorisés, dont CryptoBilis ; moment et méthode de l'altération inconnus [1, 2]."
+          "texte": "Implant matériel sur des appareils vendus par CryptoBilis ; l'article indique qu'une personne de la chaîne de distribution l'a apparemment soudé [1, 2, 3]."
         },
         {
           "etape": "Capture des secrets",
-          "texte": "Capture de l'écran et des pressions de boutons → phrase de récupération identifiée puis transmise à l'attaquant par réseau mobile, selon des chercheurs [2]."
+          "texte": "Capture de l'écran → phrase de récupération identifiée puis transmise à l'attaquant par réseau mobile [2] ; l'implant décode les 24 mots affichés à la configuration [3]."
         },
         {
           "etape": "Vol de fonds",
-          "texte": "Fonds disparus chez des utilisateurs d'Asie du Sud-Est ayant acheté chez CryptoBilis → pertes de plus de 86 millions de dollars selon l'enquêteur Specter [1]."
+          "texte": "Fonds disparus chez des acheteurs de CryptoBilis → pertes de plus de 86 millions de dollars selon l'enquêteur Specter [1, 3]."
         }
       ],
       "parcours": {
@@ -9849,7 +9849,7 @@
           }
         ]
       },
-      "limites": "Les sources ne disent ni quand ni comment l'implant a été installé, ni qui en est l'auteur. Ledger parle d'un volume limité d'appareils [1, 2].",
+      "limites": "Les sources ne disent ni quand l'implant a été installé ni qui en est l'auteur [1, 2]. Ledger n'a confirmé ni le nombre de victimes ni le montant total volé [3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -9873,6 +9873,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/ledger-confirms-hardware-wallet-spy-implant-behind-crypto-thefts/",
           "date": "2026-10-12",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/Ledger.jpg"
+        },
+        {
+          "titre": "$86 Million Crypto Heist Linked to Ledger Signer Hardware Implant",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/86-million-crypto-heist-linked-to-ledger-signer-hardware-implant/",
+          "date": "2026-10-13",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/01/cryptocurrency.jpeg"
         }
       ]
     },

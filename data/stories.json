@@ -7590,13 +7590,13 @@
       "id": "2026-10-08-midnight-mimosa-android-firmware",
       "title": "Midnight Mimosa : téléphones Android bas de gamme livrés avec un logiciel malveillant dans le firmware",
       "created": "2026-10-08T20:30:00+00:00",
-      "updated": "2026-10-09T10:08:23+00:00",
-      "version": 2,
+      "updated": "2026-10-13T07:07:55+00:00",
+      "version": 3,
       "resume": "La campagne Midnight Mimosa a touché des milliers de téléphones Android bas de gamme dans plus de 150 pays : un logiciel préinstallé dans le firmware installe des applications, fraude à la publicité et prépare un proxy résidentiel [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Logiciel malveillant intégré au firmware de téléphones Android bas de gamme à puces MediaTek avant la vente ; l'auteur et l'étape de la modification sont inconnus [1, 2]."
+          "texte": "Logiciel malveillant intégré au firmware de téléphones Android bas de gamme de plusieurs marques, à puces MediaTek, avant la vente ; l'auteur et l'étape de la modification sont inconnus [1, 2, 3]."
         },
         {
           "etape": "Prise de contrôle",
@@ -7604,7 +7604,7 @@
         },
         {
           "etape": "Neutralisation des défenses",
-          "texte": "Désactivation temporaire du Play Store avant les installations, puis réactivation [2] → Google Play Protect ne détecte pas ces installations [1]."
+          "texte": "Désactivation temporaire du Play Store avant les installations, puis réactivation [2, 3] → Google Play Protect ne détecte pas ces installations [1]."
         },
         {
           "etape": "Fraude publicitaire",
@@ -7612,7 +7612,7 @@
         },
         {
           "etape": "Proxy résidentiel",
-          "texte": "Une application enregistre l'appareil auprès d'un serveur de commande → trafic relayable vers des cibles choisies ; usage actif non confirmé [1]."
+          "texte": "Enregistrement de l'appareil auprès d'un serveur de commande → trafic relayable, usage actif non confirmé [1] ; appareils devenus relais de proxy résidentiel selon [3]."
         },
         {
           "etape": "Applications Google Play",
@@ -7671,7 +7671,7 @@
         "Non identifié [1]"
       ],
       "cibles": [
-        "Utilisateurs de milliers de téléphones Android bas de gamme dans plus de 150 pays, surtout Mexique et France [2]"
+        "Utilisateurs de milliers de téléphones Android bas de gamme dans plus de 150 pays, surtout Mexique et France [2] ; Mexique, puis France et Italie [3]"
       ],
       "abreviations": [],
       "sources": [
@@ -7688,6 +7688,13 @@
           "url": "https://www.securityweek.com/pre-baked-firmware-malware-hits-budget-android-devices-in-150-countries/",
           "date": "2026-10-09",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/11/android-banking-malware.png"
+        },
+        {
+          "titre": "Low-Cost Android Phones Ship With Preinstalled Malware That Turns Them Into Residential Proxies",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/low-cost-android-phones-ship-with.html",
+          "date": "2026-10-13",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWazS9FTiMttWg9JuwySbOkXe9WBGk6EnDbYXfmFzGaoTsXD3FQKLo7YxjnYk9MIZlfmdt08nW3qRKbLggGv2H7ondflK4CbpXu98CiCxnccJfwnrvUwEhMVIHUdt7GO198VkHXASs12AKWj4r44vpT5mF5BHLqX9spJT24dZmpMGqOKyuqoh25f1UuqpY/s1700-nu-rw-lo-l85-e365/android-malware.jpg"
         }
       ]
     },

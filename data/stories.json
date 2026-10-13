@@ -9581,8 +9581,8 @@
       "id": "2026-10-12-danfoss-froid-supermarches",
       "title": "Régulation frigorifique Danfoss détournée : stocks détruits dans des supermarchés",
       "created": "2026-10-12T12:30:00+00:00",
-      "updated": "2026-10-13T10:07:39+00:00",
-      "version": 5,
+      "updated": "2026-10-13T14:30:00+00:00",
+      "version": 6,
       "resume": "Des installations frigorifiques de supermarchés auraient été détournées à distance dans la nuit du 11 au 12 octobre, et des produits jetés [1, 5]. Le CERT-FR connaît de nombreuses compromissions de contrôleurs Danfoss AK-SM et AK-SC [4].",
       "chaine": [
         {
@@ -9596,6 +9596,10 @@
         {
           "etape": "Impact",
           "texte": "Températures incompatibles avec la conservation [2], en hausse pendant environ six heures sur certains équipements [6] → produits jetés, 270 000 euros de pertes pour deux magasins alsaciens [1]."
+        },
+        {
+          "etape": "Extension à Dixell",
+          "texte": "Supervision d'un second fournisseur, Dixell, touchée dans un supermarché Leclerc du Tarn → magasin privé de froid [8]."
         }
       ],
       "parcours": {
@@ -9637,7 +9641,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni la faille exploitée, ni l'acteur [1, 2, 4, 5, 7] ; on ignore si les failles divulguées par Claroty ont servi [6].",
+      "limites": "Les sources ne précisent ni la faille exploitée ni l'acteur [1, 2, 4, 5, 7, 8] ; on ignore si les failles divulguées par Claroty ont servi [6].",
       "cves": [
         {
           "id": "CVE-2025-41450",
@@ -9659,7 +9663,8 @@
       "cibles": [
         "Intermarché : environ 150 magasins selon une source du secteur [1], environ 300 avec Netto selon un média [5] ; Coopérative U [5] ; Leclerc [1] ; Monoprix [2]",
         "Magasins en France, Belgique, Allemagne, Pays-Bas, Pologne, Portugal et Espagne [6]",
-        "Carrefour : environ 80 supermarchés [7]"
+        "Carrefour : environ 80 supermarchés [7]",
+        "Supermarché Leclerc de Lescure-d'Albigeois (Tarn), équipé de supervision Dixell [8]"
       ],
       "abreviations": [],
       "sources": [
@@ -9710,6 +9715,13 @@
           "url": "https://thehackernews.com/2026/10/attackers-heat-french-supermarket.html",
           "date": "2026-10-13",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh64tQNgn3aqDhyphenhyphengoK8NxQG3DPvWWi0fP185meJUr14eUmcX18mKJdkUz6QsMU6bTxmwAtHrd8I0J5FQjvTENA1-N1F60zsR1x2iDzaJNhPbg_6iGYTELpBOwiTbBiaMWLmWQ4naaMfCLCcThNEfC302zF-YCjlev6138DvUrXfr5noGCpZaT9JnGd7hUw/s1700-nu-rw-lo-l85-e365/supermarket.jpg"
+        },
+        {
+          "titre": "Coup de chaud sur la chaîne du froid : au tour de Dixell",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366651818/Coup-de-chaud-sur-la-chaine-du-froid-au-tour-de-Dixell",
+          "date": "2026-10-13",
+          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/HeroImages/heating-radiator-clrcrmck-hero.jpg"
         }
       ]
     },
@@ -9787,8 +9799,8 @@
       "id": "2026-10-12-ledger-cryptobilis-implant",
       "title": "Ledger : implant matériel trouvé dans un portefeuille vendu par CryptoBilis, fonds volés",
       "created": "2026-10-12T13:20:00+00:00",
-      "updated": "2026-10-13T11:08:13+00:00",
-      "version": 3,
+      "updated": "2026-10-13T14:30:00+00:00",
+      "version": 4,
       "resume": "Ledger a trouvé un implant matériel non autorisé dans l'appareil d'un utilisateur touché, vendu via le revendeur CryptoBilis. Des fonds ont été volés, plus de 86 millions de dollars selon un enquêteur [1].",
       "chaine": [
         {
@@ -9797,11 +9809,11 @@
         },
         {
           "etape": "Capture des secrets",
-          "texte": "Capture de l'écran → phrase de récupération identifiée puis transmise à l'attaquant par réseau mobile [2] ; l'implant décode les 24 mots affichés à la configuration [3]."
+          "texte": "Lecture de l'écran → phrase de récupération de 24 mots transmise par réseau mobile, avec une eSIM intégrée [2, 3, 4]."
         },
         {
           "etape": "Vol de fonds",
-          "texte": "Fonds disparus chez des acheteurs de CryptoBilis → pertes de plus de 86 millions de dollars selon l'enquêteur Specter [1, 3]."
+          "texte": "Fonds vidés le 9 octobre [4] chez des acheteurs de CryptoBilis → pertes de plus de 86 millions de dollars selon l'enquêteur Specter [1, 3]."
         }
       ],
       "parcours": {
@@ -9849,7 +9861,7 @@
           }
         ]
       },
-      "limites": "Les sources ne disent ni quand l'implant a été installé ni qui en est l'auteur [1, 2]. Ledger n'a confirmé ni le nombre de victimes ni le montant total volé [3].",
+      "limites": "Les sources ne disent ni quand l'implant a été installé ni qui en est l'auteur [1, 2, 4]. Ledger n'a confirmé ni le nombre de victimes ni le montant total [3, 4].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -9880,6 +9892,13 @@
           "url": "https://www.securityweek.com/86-million-crypto-heist-linked-to-ledger-signer-hardware-implant/",
           "date": "2026-10-13",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/01/cryptocurrency.jpeg"
+        },
+        {
+          "titre": "Ledger says hardware implant in cryptocurrency wallets stole recovery phrases",
+          "site": "The Record",
+          "url": "https://therecord.media/ledger-cryptocurrency-wallet-implant-theft",
+          "date": "2026-10-13",
+          "image": "https://cms.therecord.media/uploads/LEDGER_240515_EJEANNE_040_WIDE_ANGLE_WOMAN_HAND_013_952ccd372b.jpg"
         }
       ]
     },
@@ -10392,6 +10411,98 @@
           "url": "https://therecord.media/foschini-group-south-africa-cyber",
           "date": "2026-10-13",
           "image": "https://cms.therecord.media/uploads/Phase_eight_PP_d7bbff9d3f.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-13-bo-team-skynet-saint-petersbourg",
+      "title": "BO Team revendique des attaques contre le fournisseur d'accès russe SkyNet",
+      "created": "2026-10-13T14:30:00+00:00",
+      "updated": "2026-10-13T14:30:00+00:00",
+      "version": 1,
+      "resume": "Le groupe pro-ukrainien BO Team revendique des attaques contre SkyNet, fournisseur d'accès de Saint-Pétersbourg, dont un déni de service distribué qui perturbe son réseau depuis le 6 octobre [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Saturation du réseau",
+          "texte": "Déni de service distribué depuis le 6 octobre → ralentissements, forte latence, jeux en ligne, appels vocaux et visioconférences perturbés [1]."
+        },
+        {
+          "etape": "Accès revendiqué",
+          "texte": "Le groupe affirme avoir désactivé plus de 15 000 équipements réseau et montre des captures d'écran de systèmes internes, sans confirmation de SkyNet [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (BO Team)",
+            "note": ""
+          },
+          {
+            "id": "net",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Réseau de SkyNet",
+            "note": "Équipements réseau"
+          },
+          {
+            "id": "cli",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Clients de SkyNet",
+            "note": "Services dégradés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "net",
+            "etape": 2,
+            "texte": "Déni de service distribué depuis le 6 octobre"
+          },
+          {
+            "de": "att",
+            "vers": "net",
+            "etape": 3,
+            "texte": "Accès et désactivation revendiqués"
+          },
+          {
+            "de": "net",
+            "vers": "cli",
+            "etape": 2,
+            "texte": "Latence et coupures de services"
+          }
+        ]
+      },
+      "limites": "SkyNet n'a pas confirmé l'accès aux systèmes internes ni la désactivation d'équipements revendiquée ; le vecteur d'accès n'est pas précisé [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "BO Team, aussi appelé Black Owl, groupe pro-ukrainien [1]"
+      ],
+      "cibles": [
+        "SkyNet, fournisseur d'accès de Saint-Pétersbourg ; autres fournisseurs revendiqués : Vega-Internet, Kraft-S, SimStar, Orion Telecom [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "BO",
+          "definition": "Black Owl : nom du groupe pro-ukrainien BO Team"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Russian internet provider SkyNet reports outages after cyberattack claimed by Ukrainian hackers",
+          "site": "The Record",
+          "url": "https://therecord.media/russian-internet-provider-skynet-reports-outages-ddos",
+          "date": "2026-10-13",
+          "image": "https://cms.therecord.media/uploads/St_Petersburg_Russia_64699d0dbe.jpg"
         }
       ]
     }

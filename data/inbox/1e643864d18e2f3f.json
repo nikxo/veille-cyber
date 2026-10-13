@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-10-13T12:06:52+00:00",
+  "feed_summary": "Overview On October 12, 2026, GitLab published a critical patch release for CVE-2026-97229 , an integer overflow or wraparound ( CWE-190 ) in the CI/CD regular expression compiler affecting GitLab Community Edition (CE) and Enterprise Edition (EE). GitLab assigned the vulnerability a CVSSv3.1 score of 10.0 . Under certain conditions, a remote attacker can execute arbitrary code on an affected GitLab server through a specially crafted regular expression stored in a malicious CI/CD configuration. While the vendor supplied CVSS score indicates that exploitation is fully unauthenticated, in reproducing the exploit it was noted that an attacker must have a mechanism to plant a malicious CI/CD configuration to a repository prior to triggering the vulnerability. On GitLab instances where new user",
+  "id": "1e643864d18e2f3f",
+  "image": "https://www.rapid7.com/cdn/images/blt65a432ba319f4043/6846abddaf18306debe6cf4d/ETR.webp",
+  "lang": "en",
+  "link": "https://www.rapid7.com/blog/post/etr-cve-2026-97229-critical-unauthenticated-remote-code-execution-in-gitlab",
+  "published": "2026-10-13T11:29:03+00:00",
+  "source": "Rapid7",
+  "source_type": "analyse",
+  "title": "CVE-2026-97229: Critical Unauthenticated Remote Code Execution in GitLab"
+}

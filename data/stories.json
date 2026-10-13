@@ -10312,6 +10312,88 @@
           "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-13-tfg-london-cyberattaque",
+      "title": "Foschini Group : cyberattaque sur trois marques de mode britanniques",
+      "created": "2026-10-13T13:30:00+00:00",
+      "updated": "2026-10-13T13:30:00+00:00",
+      "version": 1,
+      "resume": "Le groupe sud-africain TFG a divulgué une cyberattaque qui a perturbé les systèmes informatiques de Phase Eight, Hobbs et Whistles, avec certains services indisponibles [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Perturbation des systèmes",
+          "texte": "Attaque découverte un dimanche → plusieurs systèmes hors ligne et services indisponibles pour trois marques britanniques, magasins restés ouverts [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Systèmes de TFG London",
+            "note": "Hors ligne"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Systèmes perturbés, services indisponibles"
+          }
+        ]
+      },
+      "limites": "Les sources ne donnent ni le vecteur d'accès, ni l'auteur, ni la nature des données touchées, l'enquête étant en cours [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1]"
+      ],
+      "cibles": [
+        "Phase Eight, Hobbs et Whistles (TFG London) ; Afrique du Sud et Australie non touchées [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "TFG",
+          "definition": "The Foschini Group : groupe de distribution sud-africain"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "South African clothing retailer Foschini Group investigating cyberattack on British fashion brands",
+          "site": "The Record",
+          "url": "https://therecord.media/foschini-group-south-africa-cyber",
+          "date": "2026-10-13",
+          "image": "https://cms.therecord.media/uploads/Phase_eight_PP_d7bbff9d3f.jpg"
+        }
+      ]
     }
   ]
 }

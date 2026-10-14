@@ -10518,9 +10518,9 @@
       "id": "2026-10-13-ivanti-connect-secure-uta0576",
       "title": "Ivanti Connect Secure : chaîne de failles zero-day exploitée par UTA0576",
       "created": "2026-10-13T16:09:31+00:00",
-      "updated": "2026-10-13T19:07:38+00:00",
-      "version": 3,
-      "resume": "Un acteur suivi sous le nom UTA0576 a exploité une chaîne de failles zero-day sur une passerelle VPN Ivanti Connect Secure d'un client de Volexity [1]. Ivanti confirme une exploitation limitée [2, 3]. Exploitation observée dès le 3 octobre [4, 5].",
+      "updated": "2026-10-14T13:30:00+00:00",
+      "version": 4,
+      "resume": "Un acteur suivi sous le nom UTA0576 a exploité une chaîne de failles zero-day sur une passerelle VPN Ivanti Connect Secure d'un client de Volexity [1]. La CISA demande une mise à jour immédiate [6, 7, 8].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -10540,7 +10540,7 @@
         },
         {
           "etape": "Attaques sur les comptes",
-          "texte": "Kerberoasting et password spraying [1] ; recherche de mots de passe LAPS et de clés de récupération BitLocker dans l'annuaire [5]."
+          "texte": "Kerberoasting et password spraying [1] ; recherche de mots de passe LAPS et de clés de récupération BitLocker dans l'annuaire [5, 6]."
         },
         {
           "etape": "Vol de données",
@@ -10592,11 +10592,11 @@
           }
         ]
       },
-      "limites": "Correctif de l'élévation de privilèges annoncé pour les semaines à venir, sans identifiant CVE [1, 3, 4]. Opération interrompue avant que les objectifs finaux soient connus [5].",
+      "limites": "Correctif de l'élévation de privilèges annoncé, sans identifiant CVE [1, 3, 4]. Opération interrompue avant que les objectifs finaux soient connus [5]. Premières traces : 1er octobre selon Defused [7], 3 octobre selon Volexity [1].",
       "cves": [
         {
           "id": "CVE-2026-104935",
-          "explication": "Ivanti Connect Secure : contournement d'authentification par usurpation, score 8,6 sur 10, exécution de commandes sans authentification [3]. Gravité élevée [2]."
+          "explication": "Ivanti Connect Secure : contournement d'authentification par usurpation, score 8,6 sur 10, exécution de commandes sans authentification [3, 6, 7]. Gravité élevée [2]."
         }
       ],
       "mitre": [
@@ -10634,6 +10634,10 @@
         {
           "sigle": "BitLocker",
           "definition": "Chiffrement de disque Windows protégé par une clé de récupération"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de protection des infrastructures"
         }
       ],
       "sources": [
@@ -10671,6 +10675,26 @@
           "url": "https://www.securityweek.com/ivanti-zero-day-chain-gave-attackers-root-access-to-fully-patched-vpn/",
           "date": "2026-10-13",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/02/Ivanti-Risks-Exploits.jpg"
+        },
+        {
+          "titre": "CISA Urges Immediate Ivanti Connect Secure Updates as Honeypots Log 105 Exploit Attempts",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/cisa-urges-immediate-ivanti-connect.html",
+          "date": "2026-10-14",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBUpsAaH4Pe-HlsDhdSH5KK3VgWm9NEXXLNBOpxxp4d8WMZwSNNyPALzuapR_iUlq3-dLDe2bnPJfh42cdfH5m3LQWGKXZvHF3sYacyDbtZacKIIoluyNgP01-6bjjEz-RBhAQqxw-VHGD7gpn3ToRulgeH0ydeWXOucoK4hLBwvXtlCg81tB1scdjPbKN/s1700-nu-rw-lo-l85-e365/i-h.jpg"
+        },
+        {
+          "titre": "CISA warns admins to immediately fix Ivanti flaw exploited as zero-day",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-admins-to-immediately-fix-ivanti-flaw-exploited-as-zero-day/",
+          "date": "2026-10-14"
+        },
+        {
+          "titre": "CISA warns of new Ivanti bug being exploited as latest Patch Tuesday breaks records",
+          "site": "The Record",
+          "url": "https://therecord.media/new-ivanti-microsoft-bugs-exploitation",
+          "date": "2026-10-14",
+          "image": "https://cms.therecord.media/uploads/cisa_code_background_cdd6a475aa.jpg"
         }
       ]
     },
@@ -11360,6 +11384,145 @@
           "url": "https://www.bleepingcomputer.com/news/security/hirudo-android-malware-replaces-banking-apps-to-evade-security-checks/",
           "date": "2026-10-14",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/14/android.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-14-yam-store-cogui-iron-man-phishing",
+      "title": "Démantèlement de YAM Store, CoGUI et Iron Man, services de phishing sinophones",
+      "created": "2026-10-14T13:30:00+00:00",
+      "updated": "2026-10-14T13:30:00+00:00",
+      "version": 1,
+      "resume": "Microsoft, Health-ISAC et leurs partenaires ont saisi des domaines de YAM Store, CoGUI et Iron Man, un écosystème de phishing sinophone [1, 2]. Plus d'un milliard de messages malveillants ont été envoyés depuis janvier 2026 [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Courriels de phishing usurpant des marques connues → victimes menées vers de fausses pages de connexion ou de paiement [2]."
+        },
+        {
+          "etape": "Filtrage des visiteurs",
+          "texte": "CAPTCHA et redirection vers un autre site si les conditions de navigation ne conviennent pas → contournement des bacs à sable automatisés [2]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Kits interactifs : les opérateurs suivent les victimes en direct et demandent leurs codes à usage unique → identifiants et données de paiement volés [1, 2]."
+        },
+        {
+          "etape": "Services revendus",
+          "texte": "YAM Store vend des comptes, licences et stockage volés (locataires Microsoft 365, Azure for Education) ainsi que les kits de phishing [1]."
+        },
+        {
+          "etape": "Démantèlement",
+          "texte": "Ordonnance du tribunal fédéral de Floride → domaines saisis et redirigés ; plus de 20 000 comptes désactivés et 100 000 domaines bloqués [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Opérateurs des kits",
+            "note": ""
+          },
+          {
+            "id": "ys",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "YAM Store",
+            "note": "Comptes volés"
+          },
+          {
+            "id": "kit",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Page de phishing",
+            "note": "Filtrage, CAPTCHA"
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Destinataires des courriels",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "ys",
+            "vers": "att",
+            "etape": 4,
+            "texte": "Comptes volés et kits revendus"
+          },
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 1,
+            "texte": "Courriels usurpant des marques connues"
+          },
+          {
+            "de": "usr",
+            "vers": "kit",
+            "etape": 2,
+            "texte": "Filtrage CAPTCHA, redirection leurre"
+          },
+          {
+            "de": "kit",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Identifiants et codes collectés en direct"
+          }
+        ]
+      },
+      "limites": "Méthode de compromission des locataires Microsoft 365 et Azure non précisée [1]. Identité des développeurs et des affiliés non précisée [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "YAM Store, suivi par Microsoft sous le nom Storm-3119 [1]",
+        "Storm-2990, kits CoGUI, Haozi et Iron Man [1]",
+        "CoGUI, CoAceV et CoFish_Ws, kits aux racines communes selon Proofpoint [2]"
+      ],
+      "cibles": [
+        "Japon en grande majorité, aussi États-Unis, Australie, Italie [2]",
+        "Plus de 75 000 organisations dans plus de 150 pays, dont la santé [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "Health-ISAC",
+          "definition": "Organisation d'échange d'informations sur les menaces pour le secteur de la santé"
+        },
+        {
+          "sigle": "CAPTCHA",
+          "definition": "Test de vérification censé distinguer un humain d'un programme automatique"
+        },
+        {
+          "sigle": "Microsoft 365",
+          "definition": "Suite bureautique et messagerie en ligne de Microsoft"
+        },
+        {
+          "sigle": "Azure",
+          "definition": "Service de cloud de Microsoft"
+        },
+        {
+          "sigle": "YAM",
+          "definition": "Nom de la boutique YAM Store, qui revend comptes volés et kits de phishing"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Microsoft Disrupts Chinese-Language Phishing Market Behind 1B+ Messages",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/microsoft-disrupts-chinese-language-phishing-market-behind-1b-messages/",
+          "date": "2026-10-14",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/11/AI-phishing.jpeg"
+        },
+        {
+          "titre": "Disruption Targets Major Chinese-Language Phishing Kits with Japanese Focus",
+          "site": "Proofpoint Threat Insight",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/disruption-targets-major-chinese-language-phishing-kits-japanese-focus",
+          "date": "2026-10-14",
+          "image": "https://www.proofpoint.com/sites/default/files/styles/metatag/public/blog-banners/pfpt-blog-laptop-phishing.jpg.webp?itok=Moo73Kqk"
         }
       ]
     }

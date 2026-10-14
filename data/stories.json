@@ -11254,6 +11254,114 @@
           "image": "https://cdn.builder.io/api/v1/image/assets%2F3eb6f92aedf74f109c7b4b0897ec39a8%2Fcfef74bee5f24031b294870ecfb4d79a"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-14-hirudo-android-banques",
+      "title": "Hirudo : un cheval de Troie Android remplace les applications bancaires par des copies modifiées",
+      "created": "2026-10-14T12:30:00+00:00",
+      "updated": "2026-10-14T12:30:00+00:00",
+      "version": 1,
+      "resume": "Le logiciel malveillant Android Hirudo remplace huit applications bancaires indonésiennes par des copies modifiées qui contournent leurs contrôles de sécurité, pour voler identifiants et codes de paiement [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Applications leurres (shopping, vidéos, séries courtes) installées par les victimes → fausse mise à jour qui obtient des permissions, dont l'accessibilité [1, 2]."
+        },
+        {
+          "etape": "Remplacement de l'application bancaire",
+          "texte": "Désinstallation de la vraie application, puis installation d'une copie modifiée téléchargée → l'application d'origine est remplacée [1, 2]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "La copie renvoie le certificat de signature authentique, masque les services d'accessibilité et retire la protection des captures d'écran → contrôles internes contournés [1, 2]."
+        },
+        {
+          "etape": "Falsification de l'intégrité",
+          "texte": "Requêtes Play Integrity relayées vers un serveur des opérateurs → verdict accepté par l'application [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Faux écrans de saisie → vol d'identifiants bancaires et de codes de paiement ; l'écran est diffusé en temps réel [1, 2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "tel",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Téléphone Android de la victime",
+            "note": "Application bancaire remplacée"
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur des opérateurs",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "tel",
+            "etape": 1,
+            "texte": "Application leurre installée, fausse mise à jour"
+          },
+          {
+            "de": "att",
+            "vers": "tel",
+            "etape": 2,
+            "texte": "Copie modifiée de la banque installée"
+          },
+          {
+            "de": "tel",
+            "vers": "srv",
+            "etape": 4,
+            "texte": "Requêtes d'intégrité relayées"
+          },
+          {
+            "de": "tel",
+            "vers": "srv",
+            "etape": 5,
+            "texte": "Identifiants volés, écran diffusé"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment aucun groupe ni ne donnent le nombre de victimes [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Aucun groupe nommé, les sources parlent d'opérateurs [1, 2]"
+      ],
+      "cibles": [
+        "Utilisateurs de huit applications bancaires indonésiennes ; ciblage aussi en Chine, Inde, Mexique, Maroc, Thaïlande [1, 2]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Hirudo Android Trojan Uses Patched Banking Apps to Bypass Their Built-In Security Checks",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/hirudo-android-trojan-uses-patched.html",
+          "date": "2026-10-14",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj010OXrg2ZBrxwqSnpzd8SrIDY_dYOMtdnzIpG7YnCjv1QB58_HylDTkfFmXtZYci90doRcSrPdFfYLowM_S5t2RpD6UkCoWveJrKajQS-7d3sDtyI22FYN0TKy-pQpzWScUB_ROhXRNzZi9dzhgg02kH3WVtdGPNWYBLKv8qZgsa9kREW1SvZ2LTF2AWV/s1700-nu-rw-lo-l85-e365/android-banking.jpg"
+        },
+        {
+          "titre": "Hirudo Android malware replaces banking apps to evade security checks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hirudo-android-malware-replaces-banking-apps-to-evade-security-checks/",
+          "date": "2026-10-14",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/14/android.jpg"
+        }
+      ]
     }
   ]
 }

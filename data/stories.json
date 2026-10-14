@@ -11219,9 +11219,9 @@
       "id": "2026-10-13-ivanti-connect-secure-uta0576",
       "title": "Ivanti Connect Secure : chaîne de failles zero-day exploitée par UTA0576",
       "created": "2026-10-13T16:09:31+00:00",
-      "updated": "2026-10-14T13:30:00+00:00",
-      "version": 4,
-      "resume": "Un acteur suivi sous le nom UTA0576 a exploité une chaîne de failles zero-day sur une passerelle VPN Ivanti Connect Secure d'un client de Volexity [1]. La CISA demande une mise à jour immédiate [6, 7, 8].",
+      "updated": "2026-10-14T16:07:47+00:00",
+      "version": 5,
+      "resume": "Un acteur suivi sous le nom UTA0576 a exploité une chaîne de failles zero-day sur une passerelle VPN Ivanti Connect Secure d'un client de Volexity [1]. La CISA demande une mise à jour immédiate [6, 7, 8] ; le CERT-FR conseille d'isoler l'appareil [9].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -11297,7 +11297,7 @@
       "cves": [
         {
           "id": "CVE-2026-104935",
-          "explication": "Ivanti Connect Secure : contournement d'authentification par usurpation, score 8,6 sur 10, exécution de commandes sans authentification [3, 6, 7]. Gravité élevée [2]."
+          "explication": "Ivanti Connect Secure : contournement d'authentification, score 8,6 sur 10, exécution de commandes sans authentification [3, 6, 7]. Gravité élevée [2]. Versions antérieures à 22.8R2.5, 25.1.1.2 ou 25.1.3.1 concernées [9]."
         }
       ],
       "mitre": [
@@ -11396,6 +11396,12 @@
           "url": "https://therecord.media/new-ivanti-microsoft-bugs-exploitation",
           "date": "2026-10-14",
           "image": "https://cms.therecord.media/uploads/cisa_code_background_cdd6a475aa.jpg"
+        },
+        {
+          "titre": "Vulnérabilité dans Ivanti Connect Secure (ICS) (14 octobre 2026)",
+          "site": "CERT-FR (alertes)",
+          "url": "https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-013/",
+          "date": "2026-10-14"
         }
       ]
     },

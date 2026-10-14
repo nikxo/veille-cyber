@@ -11414,9 +11414,9 @@
       "id": "2026-10-14-yam-store-cogui-iron-man-phishing",
       "title": "Démantèlement de YAM Store, CoGUI et Iron Man, services de phishing sinophones",
       "created": "2026-10-14T13:30:00+00:00",
-      "updated": "2026-10-14T19:08:13+00:00",
-      "version": 4,
-      "resume": "Microsoft, Health-ISAC et leurs partenaires ont saisi des domaines de YAM Store, CoGUI et Iron Man, un écosystème de phishing sinophone [1, 2, 3]. Plus d'un milliard de messages malveillants ont été envoyés depuis janvier 2026 [1].",
+      "updated": "2026-10-14T22:10:00+00:00",
+      "version": 5,
+      "resume": "Microsoft, Health-ISAC et leurs partenaires ont saisi des domaines de YAM Store, CoGUI et Iron Man, un écosystème de phishing sinophone [1, 2, 3]. Plus d'un milliard de messages malveillants ont été envoyés depuis janvier 2026 [1] ; la place de marché fournissait infrastructure cloud et kits [7].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -11582,6 +11582,12 @@
           "url": "https://thehackernews.com/2026/10/microsoft-disrupts-3-phishing-kits.html",
           "date": "2026-10-14",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtmZA0sGFnGRVBoPOHXGNOr-Q1MpdbCUNVrfxBTV6z_URgCka1DOH4xcc_WuismhU3W1BEiostTKZetIhtrFyXrInKdz_jqK6Dtia5TDOqRiu4rkktKmF2Iz1br28coCyU3c5td-yrINUgjYIdwG-7q_n1fEZT_mumUoVBp2HfNPKHnqC3jTryRDL7hxAL/s1700-nu-rw-lo-l85-e365/phish-shop.jpg"
+        },
+        {
+          "titre": "Yam Store: The Phishing Network Behind a Billion Messages",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/cyberattacks-data-breaches/yam-store-phishing-network-behind-billion-messages",
+          "date": "2026-10-14"
         }
       ]
     },
@@ -11590,8 +11596,8 @@
       "id": "2026-10-13-ivanti-connect-secure-uta0576",
       "title": "Ivanti Connect Secure : chaîne de failles zero-day exploitée par UTA0576",
       "created": "2026-10-13T16:09:31+00:00",
-      "updated": "2026-10-14T16:07:47+00:00",
-      "version": 5,
+      "updated": "2026-10-14T22:10:00+00:00",
+      "version": 6,
       "resume": "Un acteur suivi sous le nom UTA0576 a exploité une chaîne de failles zero-day sur une passerelle VPN Ivanti Connect Secure d'un client de Volexity [1]. La CISA demande une mise à jour immédiate [6, 7, 8] ; le CERT-FR conseille d'isoler l'appareil [9].",
       "chaine": [
         {
@@ -11664,7 +11670,7 @@
           }
         ]
       },
-      "limites": "Correctif de l'élévation de privilèges annoncé, sans identifiant CVE [1, 3, 4]. Opération interrompue avant que les objectifs finaux soient connus [5]. Premières traces : 1er octobre selon Defused [7], 3 octobre selon Volexity [1].",
+      "limites": "Correctif de l'élévation de privilèges annoncé, sans identifiant CVE [1, 3, 4]. Opération interrompue avant que les objectifs finaux soient connus [5]. Faille découverte et corrigée en partie seulement en juillet [10].",
       "cves": [
         {
           "id": "CVE-2026-104935",
@@ -11772,6 +11778,12 @@
           "titre": "Vulnérabilité dans Ivanti Connect Secure (ICS) (14 octobre 2026)",
           "site": "CERT-FR (alertes)",
           "url": "https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-013/",
+          "date": "2026-10-14"
+        },
+        {
+          "titre": "Ivanti ICS Zero-Day Attacks Highlight Vendor Patching Hurdles",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/vulnerabilities-threats/ivanti-ics-zero-day-attacks-vendor-patching",
           "date": "2026-10-14"
         }
       ]

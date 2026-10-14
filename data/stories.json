@@ -12078,6 +12078,103 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkZLcjmZtzt6NpWa8x4Wz7EdcOQEW6xYv6DA_mBnwy1ctZZeRAyeSYLES-H_mkr1QOBv72WNuGKwKQ-NN179Rw8BRTcYO38sYwxcbDkg1ISW_qWrCRJ9JfUXh3102OmwrF0HQq6dbSc58VXACXoi_EoI8ysPuSlzB_nBcHuFl9r3QakOsGG9GUm6UVOU8/s1700-nu-rw-lo-l85-e365/nextcloud.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-14-brooklyn-arnaque-crypto-russophones",
+      "title": "Arnaque aux cryptomonnaies visant les russophones de Brooklyn : serveurs et domaines saisis",
+      "created": "2026-10-14T21:30:00+00:00",
+      "updated": "2026-10-14T21:30:00+00:00",
+      "version": 1,
+      "resume": "Des criminels ont escroqué des russophones de Brooklyn avec de faux placements en cryptomonnaies. Le bureau du procureur de Brooklyn a perturbé 241 domaines et 112 serveurs [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Publicités Facebook en russe proposant des placements → prise de contact avec les victimes, sans intrusion technique décrite [1]."
+        },
+        {
+          "etape": "Guidage de la victime",
+          "texte": "Un faux conseiller appelle la victime → elle crée des comptes de cryptomonnaies et transfère des fonds vers des plateformes d'investissement [1]."
+        },
+        {
+          "etape": "Blocage des retraits",
+          "texte": "Retrait demandé → victimes bloquées hors de leurs comptes et sommées de payer frais et taxes [1]."
+        },
+        {
+          "etape": "Seconde escroquerie",
+          "texte": "Des semaines plus tard, offre de récupérer les cryptomonnaies volées contre paiement [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux sites d'investissement",
+            "note": "Europe de l'Est"
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Victimes russophones de Brooklyn",
+            "note": "Fonds transférés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 1,
+            "texte": "Publicités Facebook en russe"
+          },
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 2,
+            "texte": "Appel d'un faux conseiller"
+          },
+          {
+            "de": "usr",
+            "vers": "web",
+            "etape": 2,
+            "texte": "Fonds transférés vers les plateformes"
+          },
+          {
+            "de": "web",
+            "vers": "usr",
+            "etape": 3,
+            "texte": "Accès aux comptes bloqué, frais exigés"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment aucun groupe ni le nombre de victimes [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié : l'article parle de criminels [1]"
+      ],
+      "cibles": [
+        "Résidents russophones de Brooklyn [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Brooklyn DA’s office disrupts crypto scam targeting Russian community",
+          "site": "The Record",
+          "url": "https://therecord.media/brooklyn-da-server-takedowns-crypto-scam-russian-speakers",
+          "date": "2026-10-14",
+          "image": "https://cms.therecord.media/uploads/eric_gonzalez_brooklyn_da_1a04b6e52f.jpg"
+        }
+      ]
     }
   ]
 }

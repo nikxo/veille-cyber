@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-10-14T16:06:35+00:00",
+  "feed_summary": "An enterprise mail server authenticates users, stores private communications, delivers recovery links, runs calendars, and sends mail that employees and other systems trust. Compromising it can therefore expose both email and the identities and workflows built around it. During a broader assessment of Zimbra Collaboration Suite (ZCS), Rapid7 reported more than 80 vulnerabilities spanning authentication, mailbox authorization, calendar processing, web clients, document services, and the host operating system. The affected components are being fixed on different schedules, so we are publishing the analysis in stages. An accompanying GitHub repository containing full write-ups and PoCs serves as a live technical tracker, and will be updated as further findings and fixes become public. This fi",
+  "id": "a2de7043bd5e4226",
+  "image": "https://www.rapid7.com/cdn/images/blt54a310a9a8e37183/6acf895775da6136033d3f11/ews-share2.png",
+  "lang": "en",
+  "link": "https://www.rapid7.com/blog/post/ve-breaking-zimbra-identity-boundaries-part-1",
+  "published": "2026-10-14T13:00:00+00:00",
+  "source": "Rapid7",
+  "source_type": "analyse",
+  "title": "From One Account to Every Mailbox: Breaking Zimbra's Identity Boundaries (Part 1)"
+}

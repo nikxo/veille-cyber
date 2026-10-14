@@ -10915,9 +10915,9 @@
       "id": "2026-10-13-windows-shell-motw-zero-day",
       "title": "Windows Shell : faille zero-day exploitée contournant le Mark of the Web",
       "created": "2026-10-13T23:30:00+00:00",
-      "updated": "2026-10-14T05:30:00+00:00",
-      "version": 2,
-      "resume": "Microsoft indique qu'une faille du Windows Shell, corrigée lors du Patch Tuesday d'octobre 2026, a été exploitée dans la nature. Elle contourne la protection Mark of the Web [1, 2].",
+      "updated": "2026-10-14T08:30:00+00:00",
+      "version": 3,
+      "resume": "Microsoft indique qu'une faille du Windows Shell, corrigée lors du Patch Tuesday d'octobre 2026, a été exploitée dans la nature. Elle contourne la protection Mark of the Web [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -10925,7 +10925,7 @@
         },
         {
           "etape": "Contournement de protection",
-          "texte": "Faille du Windows Shell (injection de commande) → Windows n'affiche pas la boîte de dialogue de protection attendue [1, 2]."
+          "texte": "Faille du Windows Shell (injection de commande) → Windows n'affiche pas la boîte de dialogue de protection attendue [1, 2, 3]."
         }
       ],
       "parcours": {
@@ -10960,11 +10960,11 @@
           }
         ]
       },
-      "limites": "Les sources ne nomment aucun acteur ni victime et ne décrivent pas la suite de l'attaque ni la manière dont la faille est exploitée en pratique [1, 2].",
+      "limites": "Les sources ne nomment aucun acteur ni victime et ne décrivent pas la suite de l'attaque ni les attaques réelles [1, 2, 3].",
       "cves": [
         {
           "id": "CVE-2026-96951",
-          "explication": "Windows Shell : injection de commande permettant de contourner une fonction de sécurité (Mark of the Web) à distance sans authentification, gravité 8,8 sur 10, exploitée dans la nature [2]."
+          "explication": "Windows Shell : contournement de Mark of the Web, gravité 8,8 sur 10, exploitée dans la nature, ajoutée au catalogue KEV le 13 octobre [3]."
         }
       ],
       "mitre": [],
@@ -10974,7 +10974,16 @@
       "cibles": [
         "Utilisateurs de Windows, victimes non précisées [1]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "KEV",
+          "definition": "Known Exploited Vulnerabilities : catalogue américain des failles exploitées"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité"
+        }
+      ],
       "sources": [
         {
           "titre": "Patch Tuesday - October 2026",
@@ -10989,6 +10998,13 @@
           "url": "https://thehackernews.com/2026/10/microsoft-patches-record-1413-flaws.html",
           "date": "2026-10-14",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_wUoSEpf7bMmgL7Aa7NRI6qvluN83g3TcKAONrL5REtzYQIVR4TqrNs0awkDsRCXvaSEaOn83V0t1jpwkrh5FULBjyQJnxe-m4gkgjMHRC0SZHpkBDNjOSuZUrOXU5R6JGt4dwZXXn4JHYSoc4n22nIXcFIYtC51Vv89hGimRebEKzQ9-PX1U7M4Lk4ST/s1700-nu-rw-lo-l85-e365/windows-patch.jpg"
+        },
+        {
+          "titre": "Microsoft Patches Record 1,413 Vulnerabilities, Including Exploited Windows Zero-Day",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/microsoft-patches-record-1413-vulnerabilities-including-exploited-windows-zero-day/",
+          "date": "2026-10-14",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/10/Windows-10.jpeg"
         }
       ]
     },
@@ -11110,6 +11126,132 @@
           "url": "https://unit42.paloaltonetworks.com/noise-inside-network-third-party-risk/",
           "date": "2026-10-13",
           "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2025/11/07_Listicle_Category_1505x922.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-14-watchguard-faux-site-vpn",
+      "title": "Faux site WatchGuard VPN : vol d'identifiants après une recherche Bing",
+      "created": "2026-10-14T08:30:00+00:00",
+      "updated": "2026-10-14T08:30:00+00:00",
+      "version": 1,
+      "resume": "Un administrateur d'un prestataire informatique a atteint, depuis Bing, un faux site WatchGuard VPN qui a capturé ses identifiants avant de servir le vrai installateur [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Recherche Bing « watchguard vpn sll download » avec faute de frappe → arrivée sur un faux site de téléchargement WatchGuard [1]."
+        },
+        {
+          "etape": "Capture des identifiants",
+          "texte": "Fenêtre demandant serveur, identifiant et mot de passe → données envoyées vers un domaine de collecte [1]."
+        },
+        {
+          "etape": "Double saisie",
+          "texte": "Première soumission rejetée avec un message d'erreur, formulaire réinitialisé → seconde saisie demandée [1]."
+        },
+        {
+          "etape": "Installateur légitime",
+          "texte": "Après la seconde saisie, téléchargement de l'installateur WatchGuard réel et signé depuis le réseau de distribution de l'éditeur [1]."
+        },
+        {
+          "etape": "Détection",
+          "texte": "Huntress signale l'incident 21 secondes après le chargement du domaine malveillant [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sit",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux site WatchGuard VPN",
+            "note": ""
+          },
+          {
+            "id": "col",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Domaine de collecte",
+            "note": "Reçoit les identifiants"
+          },
+          {
+            "id": "adm",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Administrateur du prestataire",
+            "note": ""
+          },
+          {
+            "id": "off",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Site officiel WatchGuard",
+            "note": "Installateur signé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sit",
+            "etape": 1,
+            "texte": "Faux site imitant WatchGuard"
+          },
+          {
+            "de": "adm",
+            "vers": "sit",
+            "etape": 1,
+            "texte": "Recherche Bing, arrivée sur le faux site"
+          },
+          {
+            "de": "adm",
+            "vers": "col",
+            "etape": 2,
+            "texte": "Serveur, identifiant et mot de passe envoyés"
+          },
+          {
+            "de": "sit",
+            "vers": "adm",
+            "etape": 3,
+            "texte": "Première saisie rejetée, nouvelle saisie demandée"
+          },
+          {
+            "de": "off",
+            "vers": "adm",
+            "etape": 4,
+            "texte": "Installateur réel et signé téléchargé"
+          }
+        ]
+      },
+      "limites": "Dans le cas analysé, l'historique du navigateur ne montre aucun téléchargement de l'installateur, la victime a pu saisir ses identifiants à la première soumission [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non attribué pour cet incident ; une itération plus ancienne de la campagne est attribuée par Microsoft à Storm-2561 [1]"
+      ],
+      "cibles": [
+        "Administrateur d'un prestataire de services informatiques [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "VPN",
+          "definition": "Réseau privé virtuel : accès distant chiffré au réseau d'une organisation"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Fake WatchGuard VPN Site Steals Credentials",
+          "site": "Huntress",
+          "url": "https://www.huntress.com/blog/fake-watchguard-vpn-credential-phishing",
+          "date": "2026-10-13",
+          "image": "https://cdn.builder.io/api/v1/image/assets%2F3eb6f92aedf74f109c7b4b0897ec39a8%2Fcfef74bee5f24031b294870ecfb4d79a"
         }
       ]
     }

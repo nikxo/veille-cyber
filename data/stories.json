@@ -10915,17 +10915,17 @@
       "id": "2026-10-13-windows-shell-motw-zero-day",
       "title": "Windows Shell : faille zero-day exploitée contournant le Mark of the Web",
       "created": "2026-10-13T23:30:00+00:00",
-      "updated": "2026-10-13T23:30:00+00:00",
-      "version": 1,
-      "resume": "Microsoft a connaissance d'une exploitation dans la nature d'une faille du Windows Shell, publiée lors du Patch Tuesday d'octobre 2026. Elle contourne la protection Mark of the Web [1].",
+      "updated": "2026-10-14T05:30:00+00:00",
+      "version": 2,
+      "resume": "Microsoft indique qu'une faille du Windows Shell, corrigée lors du Patch Tuesday d'octobre 2026, a été exploitée dans la nature. Elle contourne la protection Mark of the Web [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "L'utilisateur ouvre un fichier piégé ou visite un site contrôlé par l'attaquant, condition d'exploitation de la faille [1]."
+          "texte": "Envoi d'un fichier spécialement conçu par e-mail ou messagerie instantanée → l'utilisateur doit cliquer sur un lien ou ouvrir la pièce jointe [2]."
         },
         {
           "etape": "Contournement de protection",
-          "texte": "Faille du Windows Shell → Windows n'affiche pas la boîte de dialogue de protection attendue [1]."
+          "texte": "Faille du Windows Shell (injection de commande) → Windows n'affiche pas la boîte de dialogue de protection attendue [1, 2]."
         }
       ],
       "parcours": {
@@ -10950,7 +10950,7 @@
             "de": "att",
             "vers": "pc",
             "etape": 1,
-            "texte": "Fichier piégé ou site contrôlé par l'attaquant"
+            "texte": "Fichier piégé envoyé par e-mail ou messagerie"
           },
           {
             "de": "att",
@@ -10960,11 +10960,11 @@
           }
         ]
       },
-      "limites": "La source ne nomme aucun acteur ni victime et ne décrit pas la suite de l'attaque [1].",
+      "limites": "Les sources ne nomment aucun acteur ni victime et ne décrivent pas la suite de l'attaque ni la manière dont la faille est exploitée en pratique [1, 2].",
       "cves": [
         {
           "id": "CVE-2026-96951",
-          "explication": "Windows Shell : contournement d'une fonction de sécurité (Mark of the Web), zero-day exploité dans la nature [1]."
+          "explication": "Windows Shell : injection de commande permettant de contourner une fonction de sécurité (Mark of the Web) à distance sans authentification, gravité 8,8 sur 10, exploitée dans la nature [2]."
         }
       ],
       "mitre": [],
@@ -10982,6 +10982,13 @@
           "url": "https://www.rapid7.com/blog/post/em-patch-tuesday-october-2026",
           "date": "2026-10-13",
           "image": "https://www.rapid7.com/cdn/images/blt9952397815d84355/6849acff3860836b5c360685/patch-tuesday-repeated.webp"
+        },
+        {
+          "titre": "Microsoft Patches Record 1,413 Flaws, Including Exploited Windows Shell Bug",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/microsoft-patches-record-1413-flaws.html",
+          "date": "2026-10-14",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_wUoSEpf7bMmgL7Aa7NRI6qvluN83g3TcKAONrL5REtzYQIVR4TqrNs0awkDsRCXvaSEaOn83V0t1jpwkrh5FULBjyQJnxe-m4gkgjMHRC0SZHpkBDNjOSuZUrOXU5R6JGt4dwZXXn4JHYSoc4n22nIXcFIYtC51Vv89hGimRebEKzQ9-PX1U7M4Lk4ST/s1700-nu-rw-lo-l85-e365/windows-patch.jpg"
         }
       ]
     },

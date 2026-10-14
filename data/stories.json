@@ -12187,6 +12187,229 @@
           "image": "https://cms.therecord.media/uploads/eric_gonzalez_brooklyn_da_1a04b6e52f.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-14-palo-alto-pan-os-zero-day",
+      "title": "PAN-OS de Palo Alto Networks : faille zero-day exploitée sur l'interface de gestion des pare-feu",
+      "created": "2026-10-14T23:07:48+00:00",
+      "updated": "2026-10-14T23:07:48+00:00",
+      "version": 1,
+      "resume": "Palo Alto Networks a corrigé la faille zero-day CVE-2026-0322 de PAN-OS, exploitée de façon « très limitée » contre l'interface de gestion de pare-feu [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Identifiants existants et accès réseau à l'interface de gestion de PAN-OS nécessaires ; l'origine des identifiants n'est pas mentionnée [1]."
+        },
+        {
+          "etape": "Exploitation de la faille",
+          "texte": "Exploitation de CVE-2026-0322 dans l'interface de gestion → exécution de code en tant que root sur les appareils vulnérables [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "fw",
+            "type": "passerelle",
+            "zone": "victime",
+            "nom": "Pare-feu PAN-OS",
+            "note": "Interface de gestion"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "fw",
+            "etape": 1,
+            "texte": "Identifiants existants, accès à l'interface de gestion"
+          },
+          {
+            "de": "att",
+            "vers": "fw",
+            "etape": 2,
+            "texte": "Exploitation de CVE-2026-0322, code exécuté en root"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent ni qui est l'acteur, ni quelles victimes sont touchées, ni ce que les attaquants ont fait après la prise de contrôle [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-0322",
+          "explication": "PAN-OS, interface de gestion des pare-feu : exécution de code à distance, zero-day exploité, gravité élevée (score 8,6), sans contournement connu [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Pare-feu PA-Series et VM-Series, appareils Panorama virtuels et M-Series [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "PAN-OS",
+          "definition": "Système d'exploitation des pare-feu de Palo Alto Networks"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Palo Alto Networks warns of PAN-OS RCE flaw exploited in attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/palo-alto-networks-warns-of-pan-os-rce-flaw-exploited-in-attacks/",
+          "date": "2026-10-14",
+          "image": "https://www.bleepstatic.com/content/hl-images/2024/10/09/Palo-Alto-Networks.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-14-peerstitch-fortimanager-fortigate",
+      "title": "PEERSTITCH : implant dans des FortiGate après l'exploitation de FortiManager (CVE-2024-47575)",
+      "created": "2026-10-14T23:07:48+00:00",
+      "updated": "2026-10-14T23:07:48+00:00",
+      "version": 1,
+      "resume": "Intrusion de septembre 2024 chez un fournisseur de services gérés en télécommunications : CVE-2024-47575 exploitée sur un FortiManager, configurations de plus de 500 FortiGate exfiltrées, puis implant PEERSTITCH déployé [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de CVE-2024-47575 sur un FortiManager (faux FortiGate enregistré) → archive de configuration de plus de 500 FortiGate exfiltrée, identifiants et clés privées compris [1]."
+        },
+        {
+          "etape": "Interception de trafic",
+          "texte": "Configurations de sniffer déployées sur des FortiGate → capture de trafic HTTP non chiffré, TFTP, RADIUS et LDAP [1]."
+        },
+        {
+          "etape": "Réutilisation d'identifiants",
+          "texte": "Brute-force des mots de passe administrateur et VPN extraits des configurations → sessions VPN ouvertes depuis des infrastructures externes [1]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Exploitation de CVE-2025-61624 depuis un compte administrateur → lecture et écriture de fichiers en root, dépôt du chargeur PEERSTITCH [1]."
+        },
+        {
+          "etape": "Implant en mémoire",
+          "texte": "PEERSTITCH injecté dans les démons miglogd et iked → aucun binaire persistant sur disque, validations de sécurité contournées pour certaines sessions VPN [1]."
+        },
+        {
+          "etape": "Contrôle et effacement",
+          "texte": "Requêtes ACME d'Apache mod_md routées vers l'infrastructure des attaquants → accès SSH à distance ; arrêt de miglogd et syslogd, journaux de plantage effacés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "fm",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "FortiManager",
+            "note": "Faux FortiGate enregistré"
+          },
+          {
+            "id": "fg",
+            "type": "passerelle",
+            "zone": "victime",
+            "nom": "FortiGate (plus de 500)",
+            "note": "Implant PEERSTITCH"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "fm",
+            "etape": 1,
+            "texte": "Exploitation de CVE-2024-47575, configurations exfiltrées"
+          },
+          {
+            "de": "att",
+            "vers": "fg",
+            "etape": 3,
+            "texte": "Sessions VPN avec identifiants extraits"
+          },
+          {
+            "de": "att",
+            "vers": "fg",
+            "etape": 4,
+            "texte": "CVE-2025-61624, chargeur PEERSTITCH déposé"
+          }
+        ]
+      },
+      "limites": "Deux voies sont citées pour l'usurpation de FortiManager (CVE-2024-26009 ou matériel de confiance exfiltré), sans être tranchées. Aucune intrusion chez les clients n'a été examinée [1].",
+      "cves": [
+        {
+          "id": "CVE-2024-47575",
+          "explication": "FortiManager : exécution de commandes arbitraires à distance sans authentification via des requêtes forgées [1]."
+        },
+        {
+          "id": "CVE-2025-61624",
+          "explication": "FortiOS, moteur system.auto-script : traversée de chemin permettant à un administrateur de lire et écrire des fichiers arbitraires en root [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "CL-STA-0954, alias UNC5820 ; recoupements avec des acteurs étatiques suspectés, sans attribution ferme [1]"
+      ],
+      "cibles": [
+        "Fournisseur de services gérés en télécommunications ; plus de 500 FortiGate protégeant son infrastructure et celle de ses clients [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "VPN",
+          "definition": "Réseau privé virtuel : accès distant chiffré au réseau interne"
+        },
+        {
+          "sigle": "ACME",
+          "definition": "Protocole de gestion automatique de certificats, ici détourné pour joindre les attaquants"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Protocole d'accès à distance sécurisé à une machine"
+        },
+        {
+          "sigle": "HTTP",
+          "definition": "Protocole de communication du web"
+        },
+        {
+          "sigle": "RADIUS",
+          "definition": "Protocole d'authentification des accès réseau"
+        },
+        {
+          "sigle": "LDAP",
+          "definition": "Protocole d'interrogation d'un annuaire"
+        },
+        {
+          "sigle": "TFTP",
+          "definition": "Protocole simple de transfert de fichiers"
+        },
+        {
+          "sigle": "PEERSTITCH",
+          "definition": "Nom donné par Unit 42 au malware déployé sur les FortiGate"
+        },
+        {
+          "sigle": "UNC5820",
+          "definition": "Identifiant de suivi alternatif du groupe CL-STA-0954"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Unit 42 Uncovers PEERSTITCH, a Stealthy FortiGate Implant",
+          "site": "Unit 42 (Palo Alto Networks)",
+          "url": "https://unit42.paloaltonetworks.com/fortimanager-cve-2024-47575-peerstitch-malware/",
+          "date": "2026-10-14",
+          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/10/09_Vulnerabilities_1920x900.jpg"
+        }
+      ]
     }
   ]
 }

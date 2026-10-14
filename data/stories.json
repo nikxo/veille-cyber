@@ -11781,25 +11781,29 @@
       "id": "2026-10-14-coree-nord-fermes-ordinateurs-it",
       "title": "Corée du Nord : faux informaticiens employés par des entreprises américaines via des fermes d'ordinateurs portables",
       "created": "2026-10-14T17:30:00+00:00",
-      "updated": "2026-10-14T17:30:00+00:00",
-      "version": 1,
-      "resume": "Des travailleurs informatiques nord-coréens se sont fait embaucher par plus de 70 employeurs américains sous de fausses identités. Le ministère de la Justice a inculpé 14 personnes et saisi environ 187 ordinateurs [1].",
+      "updated": "2026-10-14T20:30:00+00:00",
+      "version": 2,
+      "resume": "Des travailleurs informatiques nord-coréens se sont fait embaucher par plus de 70 employeurs américains sous de fausses identités. Le ministère de la Justice a inculpé 14 personnes et saisi environ 187 ordinateurs [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Embauche par des entreprises américaines avec de fausses identités → salaires réguliers, dont une partie est reversée au régime [1]."
+          "texte": "Embauche par des entreprises américaines avec des identités volées, louées ou fabriquées → salaires réguliers, dont une partie est reversée au régime [1, 2]."
         },
         {
           "etape": "Hébergement du matériel",
-          "texte": "Des facilitateurs américains hébergent les ordinateurs fournis par l'entreprise et utilisent un accès à distance → les travailleurs paraissent basés aux États-Unis [1]."
+          "texte": "Des facilitateurs américains hébergent les ordinateurs et installent un accès à distance, avec VPN et proxys → les travailleurs paraissent basés aux États-Unis [1, 2]."
         },
         {
           "etape": "Détournement d'équipements",
-          "texte": "Faux rapports de vol à la police et passage par des cabinets de recrutement → ordinateurs de remplacement envoyés à l'adresse d'une ferme, selon CrowdStrike [1]."
+          "texte": "Faux rapports de vol, changements d'adresse et abus de rôles informatiques pour détourner les envois → ordinateurs de remplacement envoyés à une ferme [1, 2]."
         },
         {
           "etape": "Sous-traitance du travail",
           "texte": "Travail confié à des freelances d'Asie du Sud ou d'Afrique de l'Ouest qui passent les entretiens à leur place, selon le FBI [1]."
+        },
+        {
+          "etape": "Transfert des revenus",
+          "texte": "Les facilitateurs envoient les salaires vers des comptes contrôlés par la Corée du Nord [2]."
         },
         {
           "etape": "Menaces",
@@ -11846,24 +11850,32 @@
           {
             "de": "att",
             "vers": "ent",
-            "etape": 5,
+            "etape": 6,
             "texte": "Menaces contre d'anciens managers"
           }
         ]
       },
-      "limites": "L'article ne mentionne ni malware, ni vulnérabilité, ni vol de données ; seule l'usurpation d'identité est décrite [1].",
+      "limites": "L'article de BleepingComputer ne mentionne ni technique MITRE ni CVE ; The Hacker News ne mentionne ni malware, ni vulnérabilité, ni vol de données [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Corée du Nord, suivie sous les noms Famous Chollima, purpledelta et Wagemole [1]"
+        "Corée du Nord, suivie sous les noms Famous Chollima, purpledelta et Wagemole [1, 2]"
       ],
       "cibles": [
-        "Plus de 70 employeurs américains : santé, communications, cybersécurité, commerce, industrie [1]"
+        "Plus de 70 employeurs américains : santé, communications, cybersécurité, commerce, industrie [1, 2]"
       ],
       "abreviations": [
         {
           "sigle": "FBI",
           "definition": "Police fédérale américaine"
+        },
+        {
+          "sigle": "VPN",
+          "definition": "Réseau privé virtuel qui masque l'adresse réelle d'une connexion"
+        },
+        {
+          "sigle": "proxy",
+          "definition": "Serveur relais qui fait passer la connexion par une autre adresse"
         }
       ],
       "sources": [
@@ -11873,6 +11885,13 @@
           "url": "https://thehackernews.com/2026/10/us-shuts-down-over-40-laptop-farms.html",
           "date": "2026-10-14",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRRY0Y0x4bBS7xZHNvUUjosK6tuvOhbBbE9XvaoyiONRttpSxhIwBaCgDpNKo9kMR37n1_8wKUXzpzL6KhmNC0OJsGZapzAaAteSFlbasNFzCM6XZXsSU99yOk6e2oR7tzG_3p_1-V04tnDyhhtGaBUJSviR-xaJh6mg4E-KT5gwR7_x3JmO-DDfM6-7ic/s1700-nu-rw-lo-l85-e365/laptop-farm.jpg"
+        },
+        {
+          "titre": "FBI raids DPRK IT worker laptop farms in Texas, US nationals arrested",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fbi-raids-dprk-it-worker-laptop-farms-in-texas-us-nationals-arrested/",
+          "date": "2026-10-14",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/14/doj.jpg"
         }
       ]
     },

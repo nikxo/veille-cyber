@@ -10080,13 +10080,13 @@
       "id": "2026-10-12-danfoss-froid-supermarches",
       "title": "Régulation frigorifique Danfoss détournée : stocks détruits dans des supermarchés",
       "created": "2026-10-12T12:30:00+00:00",
-      "updated": "2026-10-13T14:30:00+00:00",
-      "version": 6,
+      "updated": "2026-10-14T15:30:00+00:00",
+      "version": 7,
       "resume": "Des installations frigorifiques de supermarchés auraient été détournées à distance dans la nuit du 11 au 12 octobre, et des produits jetés [1, 5]. Le CERT-FR connaît de nombreuses compromissions de contrôleurs Danfoss AK-SM et AK-SC [4].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 2, 4, 5, 7]. Les consoles d'administration web de ces équipements étaient accessibles directement sur Internet [2]."
+          "texte": "Non précisé par les sources [1, 2, 4, 5, 7]. Consoles web accessibles sur Internet [2] ; une API d'intégration sur le même port est une piste non confirmée [9]."
         },
         {
           "etape": "Détournement de la régulation",
@@ -10140,7 +10140,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni la faille exploitée ni l'acteur [1, 2, 4, 5, 7, 8] ; on ignore si les failles divulguées par Claroty ont servi [6].",
+      "limites": "Les sources ne précisent ni la faille exploitée ni l'acteur [1, 2, 4, 5, 7, 8] ; on ignore si les failles divulguées par Claroty ont servi [6] ; LeMagIT ne confirme pas le vecteur d'accès [9].",
       "cves": [
         {
           "id": "CVE-2025-41450",
@@ -10165,7 +10165,12 @@
         "Carrefour : environ 80 supermarchés [7]",
         "Supermarché Leclerc de Lescure-d'Albigeois (Tarn), équipé de supervision Dixell [8]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Interface permettant à un programme de piloter un autre logiciel"
+        }
+      ],
       "sources": [
         {
           "titre": "Une cyberattaque dérègle le froid des supermarchés",
@@ -10221,6 +10226,13 @@
           "url": "https://www.lemagit.fr/actualites/366651818/Coup-de-chaud-sur-la-chaine-du-froid-au-tour-de-Dixell",
           "date": "2026-10-13",
           "image": "https://www.lemagit.fr/visuals/ComputerWeekly/HeroImages/heating-radiator-clrcrmck-hero.jpg"
+        },
+        {
+          "titre": "Piratage de systèmes de gestion du froid : ce n'est pas une fatalité",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366652137/Piratage-de-systemes-de-gestion-du-froid-ce-nest-pas-une-fatalite",
+          "date": "2026-10-14",
+          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/HeroImages/warm-jumper-hot-drink-cold-weather-StefaNikolic-Getty-RF.jpg"
         }
       ]
     },
@@ -11392,8 +11404,8 @@
       "id": "2026-10-14-yam-store-cogui-iron-man-phishing",
       "title": "Démantèlement de YAM Store, CoGUI et Iron Man, services de phishing sinophones",
       "created": "2026-10-14T13:30:00+00:00",
-      "updated": "2026-10-14T14:08:31+00:00",
-      "version": 2,
+      "updated": "2026-10-14T15:30:00+00:00",
+      "version": 3,
       "resume": "Microsoft, Health-ISAC et leurs partenaires ont saisi des domaines de YAM Store, CoGUI et Iron Man, un écosystème de phishing sinophone [1, 2, 3]. Plus d'un milliard de messages malveillants ont été envoyés depuis janvier 2026 [1].",
       "chaine": [
         {
@@ -11406,11 +11418,11 @@
         },
         {
           "etape": "Vol d'identifiants",
-          "texte": "Kits interactifs : les opérateurs suivent les victimes en direct et demandent leurs codes à usage unique → identifiants et données de paiement volés [1, 2]."
+          "texte": "Kits interactifs : opérateurs suivant les victimes en direct, codes à usage unique demandés [1, 2] ; collecte en temps réel → identifiants et données de paiement volés [1, 2, 5]."
         },
         {
           "etape": "Services revendus",
-          "texte": "YAM Store vend des comptes et licences compromis ou obtenus frauduleusement, ainsi que des kits ; domaines expirés rachetés et sites reconstruits → comptes cloud [1, 3, 4]."
+          "texte": "YAM Store vend des comptes et licences compromis ou obtenus frauduleusement, ainsi que des kits ; domaines expirés rachetés et sites reconstruits → comptes cloud [1, 3, 4, 5]."
         },
         {
           "etape": "Démantèlement",
@@ -11475,12 +11487,12 @@
           }
         ]
       },
-      "limites": "Méthode de compromission des locataires Microsoft 365 et Azure non précisée [1]. Identité des développeurs et des affiliés non précisée [1, 2].",
+      "limites": "Méthode de compromission des locataires Microsoft 365 et Azure non précisée [1, 5]. Identité des développeurs et des affiliés non précisée [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "YAM Store, suivi par Microsoft sous le nom Storm-3119 [1]",
-        "Storm-2990, kits CoGUI, Haozi et Iron Man [1]",
+        "YAM Store, suivi par Microsoft sous le nom Storm-3119 [1] ; courtier d'accès initial selon Microsoft [5]",
+        "Storm-2990, kits CoGUI, Haozi et Iron Man, développeurs de langue chinoise selon Microsoft [1, 5]",
         "CoGUI, CoAceV et CoFish_Ws, kits aux racines communes selon Proofpoint [2]"
       ],
       "cibles": [
@@ -11537,6 +11549,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/global-takedown-hits-network-behind-1-billion-phishing-messages/",
           "date": "2026-10-14",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/14/phishing.jpg"
+        },
+        {
+          "titre": "The hidden network: Inside the phishing infrastructure ecosystem powering global cybercrime",
+          "site": "Microsoft Threat Intelligence",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/14/the-hidden-network-inside-the-phishing-infrastructure-ecosystem-powering-global-cybercrime/",
+          "date": "2026-10-14",
+          "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/10/Storm-3119-and-Storm-2990-featured.png"
         }
       ]
     },

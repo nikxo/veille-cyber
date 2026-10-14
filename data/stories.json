@@ -10077,95 +10077,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-10-13-tfg-london-cyberattaque",
-      "title": "Foschini Group : cyberattaque sur trois marques de mode britanniques",
-      "created": "2026-10-13T13:30:00+00:00",
-      "updated": "2026-10-13T17:20:00+00:00",
-      "version": 2,
-      "resume": "TFG London, filiale britannique du groupe sud-africain TFG, a détecté le 11 octobre une cyberattaque qui a perturbé les systèmes de Phase Eight, Hobbs et Whistles [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Perturbation des systèmes",
-          "texte": "Attaque détectée → plans de réponse activés avec des experts externes, plusieurs systèmes toujours indisponibles, magasins restés ouverts [1, 2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "inc",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Point d'entrée inconnu",
-            "note": ""
-          },
-          {
-            "id": "sys",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Systèmes de TFG London",
-            "note": "Hors ligne"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "inc",
-            "etape": 1,
-            "texte": "Accès initial non précisé"
-          },
-          {
-            "de": "inc",
-            "vers": "sys",
-            "etape": 2,
-            "texte": "Systèmes perturbés, services indisponibles"
-          }
-        ]
-      },
-      "limites": "Les sources ne donnent ni le vecteur d'accès, ni l'auteur, ni la nature des données touchées, l'enquête étant en cours. Aucune revendication trouvée [1, 2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non identifié, aucune revendication publique trouvée [1, 2]"
-      ],
-      "cibles": [
-        "Phase Eight, Hobbs et Whistles (TFG London) ; Inside Story, White Stuff, Australie et Afrique non touchées [1, 2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "TFG",
-          "definition": "The Foschini Group : groupe de distribution sud-africain"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "South African clothing retailer Foschini Group investigating cyberattack on British fashion brands",
-          "site": "The Record",
-          "url": "https://therecord.media/foschini-group-south-africa-cyber",
-          "date": "2026-10-13",
-          "image": "https://cms.therecord.media/uploads/Phase_eight_PP_d7bbff9d3f.jpg"
-        },
-        {
-          "titre": "TFG London cyberattack disrupts systems at Hobbs and Whistles retailers",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/tfg-london-cyberattack-disrupts-systems-at-hobbs-and-whistles-retailers/",
-          "date": "2026-10-13",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/13/HOBBS.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-10-12-danfoss-froid-supermarches",
       "title": "Régulation frigorifique Danfoss détournée : stocks détruits dans des supermarchés",
       "created": "2026-10-12T12:30:00+00:00",
@@ -10515,191 +10426,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-10-13-ivanti-connect-secure-uta0576",
-      "title": "Ivanti Connect Secure : chaîne de failles zero-day exploitée par UTA0576",
-      "created": "2026-10-13T16:09:31+00:00",
-      "updated": "2026-10-14T13:30:00+00:00",
-      "version": 4,
-      "resume": "Un acteur suivi sous le nom UTA0576 a exploité une chaîne de failles zero-day sur une passerelle VPN Ivanti Connect Secure d'un client de Volexity [1]. La CISA demande une mise à jour immédiate [6, 7, 8].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Chaîne de failles zero-day sur une passerelle VPN Ivanti exposée et à jour → contournement d'authentification, puis exécution de code à distance [1]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Script Perl téléversé et exécuté avant sa suppression, puis élévation de privilèges → exécution de commandes en root sur l'appareil [1]."
-        },
-        {
-          "etape": "Effacement des traces",
-          "texte": "Suppression d'entrées dans les journaux debuglog et audit.log et nettoyage de fichiers temporaires [1]."
-        },
-        {
-          "etape": "Vol d'identifiants",
-          "texte": "Extraction des identifiants stockés, requêtes LDAP sur l'Active Directory et capture du trafic LDAP → mots de passe en clair et hachages NTLM récupérés [1]."
-        },
-        {
-          "etape": "Attaques sur les comptes",
-          "texte": "Kerberoasting et password spraying [1] ; recherche de mots de passe LAPS et de clés de récupération BitLocker dans l'annuaire [5, 6]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Données collectées renvoyées par le canal de l'exploitation ; aucune porte dérobée ni web shell déployés [1, 4, 5]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (UTA0576)",
-            "note": ""
-          },
-          {
-            "id": "vpn",
-            "type": "passerelle",
-            "zone": "expose",
-            "nom": "Passerelle VPN Ivanti",
-            "note": "Root obtenu"
-          },
-          {
-            "id": "ad",
-            "type": "annuaire",
-            "zone": "victime",
-            "nom": "Active Directory",
-            "note": "Identifiants visés"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "vpn",
-            "etape": 1,
-            "texte": "Chaîne de failles zero-day"
-          },
-          {
-            "de": "vpn",
-            "vers": "ad",
-            "etape": 4,
-            "texte": "Requêtes LDAP, capture du trafic"
-          },
-          {
-            "de": "vpn",
-            "vers": "att",
-            "etape": 6,
-            "texte": "Données renvoyées à l'attaquant"
-          }
-        ]
-      },
-      "limites": "Correctif de l'élévation de privilèges annoncé, sans identifiant CVE [1, 3, 4]. Opération interrompue avant que les objectifs finaux soient connus [5]. Premières traces : 1er octobre selon Defused [7], 3 octobre selon Volexity [1].",
-      "cves": [
-        {
-          "id": "CVE-2026-104935",
-          "explication": "Ivanti Connect Secure : contournement d'authentification par usurpation, score 8,6 sur 10, exécution de commandes sans authentification [3, 6, 7]. Gravité élevée [2]."
-        }
-      ],
-      "mitre": [
-        "T1558.003 : Kerberoasting, technique citée par Volexity [1]",
-        "T1110.003 : Password spraying, un mot de passe testé sur plusieurs comptes [1]"
-      ],
-      "acteurs": [
-        "UTA0576, acteur inconnu suivi par Volexity, motivation criminelle évaluée avec faible confiance [1]",
-        "Utilisation de modèles de langage pour les exploits et la post-exploitation, évaluée avec confiance moyenne [5]"
-      ],
-      "cibles": [
-        "Un client de supervision réseau de Volexity, non nommé [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "UTA0576",
-          "definition": "Nom donné par Volexity à un acteur d'attaque non identifié"
-        },
-        {
-          "sigle": "VPN",
-          "definition": "Réseau privé virtuel : accès distant chiffré au réseau d'une organisation"
-        },
-        {
-          "sigle": "LDAP",
-          "definition": "Protocole d'interrogation d'un annuaire d'utilisateurs"
-        },
-        {
-          "sigle": "NTLM",
-          "definition": "Protocole d'authentification Windows fondé sur des hachages de mots de passe"
-        },
-        {
-          "sigle": "LAPS",
-          "definition": "Outil Microsoft qui stocke les mots de passe administrateur locaux dans l'annuaire"
-        },
-        {
-          "sigle": "BitLocker",
-          "definition": "Chiffrement de disque Windows protégé par une clé de récupération"
-        },
-        {
-          "sigle": "CISA",
-          "definition": "Agence américaine de cybersécurité et de protection des infrastructures"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "A Series of Unauthenticated Events: Chained Exploitation of Ivanti Connect Secure Zero-Days",
-          "site": "Volexity",
-          "url": "https://www.volexity.com/blog/2026/10/13/a-series-of-unauthenticated-events-chained-exploitation-of-ivanti-connect-secure-zero-days/",
-          "date": "2026-10-13",
-          "image": "https://www.volexity.com/wp-content/uploads/2026/10/Volexity-Blog-A-Series-of-Unauthenticated-Events-Chained-Exploitation-of-Ivanti-Connect-Secure-Zero-Days-_FeaturedImage.png"
-        },
-        {
-          "titre": "Ivanti warns of Connect Secure zero-day exploited in attacks",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/ivanti-warns-of-connect-secure-zero-day-exploited-in-attacks/",
-          "date": "2026-10-13",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/13/Ivanti.jpg"
-        },
-        {
-          "titre": "Ivanti Connect Secure zero-day exploited in the wild (CVE-2026-104935)",
-          "site": "Rapid7",
-          "url": "https://www.rapid7.com/blog/post/etr-ivanti-connect-secure-zero-day-exploited-in-the-wild-cve-2026-104935",
-          "date": "2026-10-13",
-          "image": "https://www.rapid7.com/cdn/images/blt65a432ba319f4043/6846abddaf18306debe6cf4d/ETR.webp"
-        },
-        {
-          "titre": "Attacker Chains Three Ivanti Connect Secure Zero-Days for Root Access, Only Two Patched So Far",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/attacker-chains-three-ivanti-connect.html",
-          "date": "2026-10-13",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZSH26NsXmSsQGaAbhNyJLMaBQKFCmabIbFZ_yi2sUGXjHQOVztQEQfXLarEAx1Fl9lRwGAryBE4zZEooJ4cochODcB4x8wQnPl3MRWiyBcpyEV6i8VPxvwcLHmShQVZVhuOcTjMXRhHAlx4Y0Uo85c74EVU4cea84YgXju02I9jlNzcGOFtLfa_am82Q/s1700-nu-rw-lo-l85-e365/ivanti-hack.jpg"
-        },
-        {
-          "titre": "Ivanti Zero-Day Chain Gave Attackers Root Access to Fully Patched VPN",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/ivanti-zero-day-chain-gave-attackers-root-access-to-fully-patched-vpn/",
-          "date": "2026-10-13",
-          "image": "https://www.securityweek.com/wp-content/uploads/2024/02/Ivanti-Risks-Exploits.jpg"
-        },
-        {
-          "titre": "CISA Urges Immediate Ivanti Connect Secure Updates as Honeypots Log 105 Exploit Attempts",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/cisa-urges-immediate-ivanti-connect.html",
-          "date": "2026-10-14",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBUpsAaH4Pe-HlsDhdSH5KK3VgWm9NEXXLNBOpxxp4d8WMZwSNNyPALzuapR_iUlq3-dLDe2bnPJfh42cdfH5m3LQWGKXZvHF3sYacyDbtZacKIIoluyNgP01-6bjjEz-RBhAQqxw-VHGD7gpn3ToRulgeH0ydeWXOucoK4hLBwvXtlCg81tB1scdjPbKN/s1700-nu-rw-lo-l85-e365/i-h.jpg"
-        },
-        {
-          "titre": "CISA warns admins to immediately fix Ivanti flaw exploited as zero-day",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-admins-to-immediately-fix-ivanti-flaw-exploited-as-zero-day/",
-          "date": "2026-10-14"
-        },
-        {
-          "titre": "CISA warns of new Ivanti bug being exploited as latest Patch Tuesday breaks records",
-          "site": "The Record",
-          "url": "https://therecord.media/new-ivanti-microsoft-bugs-exploitation",
-          "date": "2026-10-14",
-          "image": "https://cms.therecord.media/uploads/cisa_code_background_cdd6a475aa.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-10-13-meta-depots-github",
       "title": "Meta : dépôts GitHub consultés avec les identifiants volés d'un employé",
       "created": "2026-10-13T16:09:31+00:00",
@@ -10877,6 +10603,95 @@
     },
     {
       "schema": 3,
+      "id": "2026-10-13-tfg-london-cyberattaque",
+      "title": "Foschini Group : cyberattaque sur trois marques de mode britanniques",
+      "created": "2026-10-13T13:30:00+00:00",
+      "updated": "2026-10-13T17:20:00+00:00",
+      "version": 2,
+      "resume": "TFG London, filiale britannique du groupe sud-africain TFG, a détecté le 11 octobre une cyberattaque qui a perturbé les systèmes de Phase Eight, Hobbs et Whistles [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Perturbation des systèmes",
+          "texte": "Attaque détectée → plans de réponse activés avec des experts externes, plusieurs systèmes toujours indisponibles, magasins restés ouverts [1, 2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Systèmes de TFG London",
+            "note": "Hors ligne"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Systèmes perturbés, services indisponibles"
+          }
+        ]
+      },
+      "limites": "Les sources ne donnent ni le vecteur d'accès, ni l'auteur, ni la nature des données touchées, l'enquête étant en cours. Aucune revendication trouvée [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié, aucune revendication publique trouvée [1, 2]"
+      ],
+      "cibles": [
+        "Phase Eight, Hobbs et Whistles (TFG London) ; Inside Story, White Stuff, Australie et Afrique non touchées [1, 2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "TFG",
+          "definition": "The Foschini Group : groupe de distribution sud-africain"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "South African clothing retailer Foschini Group investigating cyberattack on British fashion brands",
+          "site": "The Record",
+          "url": "https://therecord.media/foschini-group-south-africa-cyber",
+          "date": "2026-10-13",
+          "image": "https://cms.therecord.media/uploads/Phase_eight_PP_d7bbff9d3f.jpg"
+        },
+        {
+          "titre": "TFG London cyberattack disrupts systems at Hobbs and Whistles retailers",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/tfg-london-cyberattack-disrupts-systems-at-hobbs-and-whistles-retailers/",
+          "date": "2026-10-13",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/13/HOBBS.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-10-13-coree-nord-hameconnage-ukrainiens",
       "title": "Corée du Nord : hameçonnage de Ukrainiens pour obtenir du renseignement de guerre",
       "created": "2026-10-13T22:20:00+00:00",
@@ -10931,104 +10746,6 @@
           "site": "Dark Reading",
           "url": "https://www.darkreading.com/cyberattacks-data-breaches/north-korea-phishes-ukrainians-war-intel",
           "date": "2026-10-13"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-13-windows-shell-motw-zero-day",
-      "title": "Windows Shell : faille zero-day exploitée contournant le Mark of the Web",
-      "created": "2026-10-13T23:30:00+00:00",
-      "updated": "2026-10-14T08:30:00+00:00",
-      "version": 3,
-      "resume": "Microsoft indique qu'une faille du Windows Shell, corrigée lors du Patch Tuesday d'octobre 2026, a été exploitée dans la nature. Elle contourne la protection Mark of the Web [1, 2, 3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Envoi d'un fichier spécialement conçu par e-mail ou messagerie instantanée → l'utilisateur doit cliquer sur un lien ou ouvrir la pièce jointe [2]."
-        },
-        {
-          "etape": "Contournement de protection",
-          "texte": "Faille du Windows Shell (injection de commande) → Windows n'affiche pas la boîte de dialogue de protection attendue [1, 2, 3]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "pc",
-            "type": "poste",
-            "zone": "victime",
-            "nom": "Poste Windows de l'utilisateur",
-            "note": "Protection non affichée"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "pc",
-            "etape": 1,
-            "texte": "Fichier piégé envoyé par e-mail ou messagerie"
-          },
-          {
-            "de": "att",
-            "vers": "pc",
-            "etape": 2,
-            "texte": "Boîte de dialogue de protection non affichée"
-          }
-        ]
-      },
-      "limites": "Les sources ne nomment aucun acteur ni victime et ne décrivent pas la suite de l'attaque ni les attaques réelles [1, 2, 3].",
-      "cves": [
-        {
-          "id": "CVE-2026-96951",
-          "explication": "Windows Shell : contournement de Mark of the Web, gravité 8,8 sur 10, exploitée dans la nature, ajoutée au catalogue KEV le 13 octobre [3]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "Non précisé [1]"
-      ],
-      "cibles": [
-        "Utilisateurs de Windows, victimes non précisées [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "KEV",
-          "definition": "Known Exploited Vulnerabilities : catalogue américain des failles exploitées"
-        },
-        {
-          "sigle": "CISA",
-          "definition": "Agence américaine de cybersécurité"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Patch Tuesday - October 2026",
-          "site": "Rapid7",
-          "url": "https://www.rapid7.com/blog/post/em-patch-tuesday-october-2026",
-          "date": "2026-10-13",
-          "image": "https://www.rapid7.com/cdn/images/blt9952397815d84355/6849acff3860836b5c360685/patch-tuesday-repeated.webp"
-        },
-        {
-          "titre": "Microsoft Patches Record 1,413 Flaws, Including Exploited Windows Shell Bug",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/microsoft-patches-record-1413-flaws.html",
-          "date": "2026-10-14",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_wUoSEpf7bMmgL7Aa7NRI6qvluN83g3TcKAONrL5REtzYQIVR4TqrNs0awkDsRCXvaSEaOn83V0t1jpwkrh5FULBjyQJnxe-m4gkgjMHRC0SZHpkBDNjOSuZUrOXU5R6JGt4dwZXXn4JHYSoc4n22nIXcFIYtC51Vv89hGimRebEKzQ9-PX1U7M4Lk4ST/s1700-nu-rw-lo-l85-e365/windows-patch.jpg"
-        },
-        {
-          "titre": "Microsoft Patches Record 1,413 Vulnerabilities, Including Exploited Windows Zero-Day",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/microsoft-patches-record-1413-vulnerabilities-including-exploited-windows-zero-day/",
-          "date": "2026-10-14",
-          "image": "https://www.securityweek.com/wp-content/uploads/2025/10/Windows-10.jpeg"
         }
       ]
     },
@@ -11150,6 +10867,104 @@
           "url": "https://unit42.paloaltonetworks.com/noise-inside-network-third-party-risk/",
           "date": "2026-10-13",
           "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2025/11/07_Listicle_Category_1505x922.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-13-windows-shell-motw-zero-day",
+      "title": "Windows Shell : faille zero-day exploitée contournant le Mark of the Web",
+      "created": "2026-10-13T23:30:00+00:00",
+      "updated": "2026-10-14T08:30:00+00:00",
+      "version": 3,
+      "resume": "Microsoft indique qu'une faille du Windows Shell, corrigée lors du Patch Tuesday d'octobre 2026, a été exploitée dans la nature. Elle contourne la protection Mark of the Web [1, 2, 3].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Envoi d'un fichier spécialement conçu par e-mail ou messagerie instantanée → l'utilisateur doit cliquer sur un lien ou ouvrir la pièce jointe [2]."
+        },
+        {
+          "etape": "Contournement de protection",
+          "texte": "Faille du Windows Shell (injection de commande) → Windows n'affiche pas la boîte de dialogue de protection attendue [1, 2, 3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste Windows de l'utilisateur",
+            "note": "Protection non affichée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Fichier piégé envoyé par e-mail ou messagerie"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Boîte de dialogue de protection non affichée"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment aucun acteur ni victime et ne décrivent pas la suite de l'attaque ni les attaques réelles [1, 2, 3].",
+      "cves": [
+        {
+          "id": "CVE-2026-96951",
+          "explication": "Windows Shell : contournement de Mark of the Web, gravité 8,8 sur 10, exploitée dans la nature, ajoutée au catalogue KEV le 13 octobre [3]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non précisé [1]"
+      ],
+      "cibles": [
+        "Utilisateurs de Windows, victimes non précisées [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "KEV",
+          "definition": "Known Exploited Vulnerabilities : catalogue américain des failles exploitées"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Patch Tuesday - October 2026",
+          "site": "Rapid7",
+          "url": "https://www.rapid7.com/blog/post/em-patch-tuesday-october-2026",
+          "date": "2026-10-13",
+          "image": "https://www.rapid7.com/cdn/images/blt9952397815d84355/6849acff3860836b5c360685/patch-tuesday-repeated.webp"
+        },
+        {
+          "titre": "Microsoft Patches Record 1,413 Flaws, Including Exploited Windows Shell Bug",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/microsoft-patches-record-1413-flaws.html",
+          "date": "2026-10-14",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_wUoSEpf7bMmgL7Aa7NRI6qvluN83g3TcKAONrL5REtzYQIVR4TqrNs0awkDsRCXvaSEaOn83V0t1jpwkrh5FULBjyQJnxe-m4gkgjMHRC0SZHpkBDNjOSuZUrOXU5R6JGt4dwZXXn4JHYSoc4n22nIXcFIYtC51Vv89hGimRebEKzQ9-PX1U7M4Lk4ST/s1700-nu-rw-lo-l85-e365/windows-patch.jpg"
+        },
+        {
+          "titre": "Microsoft Patches Record 1,413 Vulnerabilities, Including Exploited Windows Zero-Day",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/microsoft-patches-record-1413-vulnerabilities-including-exploited-windows-zero-day/",
+          "date": "2026-10-14",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/10/Windows-10.jpeg"
         }
       ]
     },
@@ -11389,16 +11204,201 @@
     },
     {
       "schema": 3,
-      "id": "2026-10-14-yam-store-cogui-iron-man-phishing",
-      "title": "Démantèlement de YAM Store, CoGUI et Iron Man, services de phishing sinophones",
-      "created": "2026-10-14T13:30:00+00:00",
+      "id": "2026-10-13-ivanti-connect-secure-uta0576",
+      "title": "Ivanti Connect Secure : chaîne de failles zero-day exploitée par UTA0576",
+      "created": "2026-10-13T16:09:31+00:00",
       "updated": "2026-10-14T13:30:00+00:00",
-      "version": 1,
-      "resume": "Microsoft, Health-ISAC et leurs partenaires ont saisi des domaines de YAM Store, CoGUI et Iron Man, un écosystème de phishing sinophone [1, 2]. Plus d'un milliard de messages malveillants ont été envoyés depuis janvier 2026 [1].",
+      "version": 4,
+      "resume": "Un acteur suivi sous le nom UTA0576 a exploité une chaîne de failles zero-day sur une passerelle VPN Ivanti Connect Secure d'un client de Volexity [1]. La CISA demande une mise à jour immédiate [6, 7, 8].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Courriels de phishing usurpant des marques connues → victimes menées vers de fausses pages de connexion ou de paiement [2]."
+          "texte": "Chaîne de failles zero-day sur une passerelle VPN Ivanti exposée et à jour → contournement d'authentification, puis exécution de code à distance [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Script Perl téléversé et exécuté avant sa suppression, puis élévation de privilèges → exécution de commandes en root sur l'appareil [1]."
+        },
+        {
+          "etape": "Effacement des traces",
+          "texte": "Suppression d'entrées dans les journaux debuglog et audit.log et nettoyage de fichiers temporaires [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Extraction des identifiants stockés, requêtes LDAP sur l'Active Directory et capture du trafic LDAP → mots de passe en clair et hachages NTLM récupérés [1]."
+        },
+        {
+          "etape": "Attaques sur les comptes",
+          "texte": "Kerberoasting et password spraying [1] ; recherche de mots de passe LAPS et de clés de récupération BitLocker dans l'annuaire [5, 6]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Données collectées renvoyées par le canal de l'exploitation ; aucune porte dérobée ni web shell déployés [1, 4, 5]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (UTA0576)",
+            "note": ""
+          },
+          {
+            "id": "vpn",
+            "type": "passerelle",
+            "zone": "expose",
+            "nom": "Passerelle VPN Ivanti",
+            "note": "Root obtenu"
+          },
+          {
+            "id": "ad",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Active Directory",
+            "note": "Identifiants visés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "vpn",
+            "etape": 1,
+            "texte": "Chaîne de failles zero-day"
+          },
+          {
+            "de": "vpn",
+            "vers": "ad",
+            "etape": 4,
+            "texte": "Requêtes LDAP, capture du trafic"
+          },
+          {
+            "de": "vpn",
+            "vers": "att",
+            "etape": 6,
+            "texte": "Données renvoyées à l'attaquant"
+          }
+        ]
+      },
+      "limites": "Correctif de l'élévation de privilèges annoncé, sans identifiant CVE [1, 3, 4]. Opération interrompue avant que les objectifs finaux soient connus [5]. Premières traces : 1er octobre selon Defused [7], 3 octobre selon Volexity [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-104935",
+          "explication": "Ivanti Connect Secure : contournement d'authentification par usurpation, score 8,6 sur 10, exécution de commandes sans authentification [3, 6, 7]. Gravité élevée [2]."
+        }
+      ],
+      "mitre": [
+        "T1558.003 : Kerberoasting, technique citée par Volexity [1]",
+        "T1110.003 : Password spraying, un mot de passe testé sur plusieurs comptes [1]"
+      ],
+      "acteurs": [
+        "UTA0576, acteur inconnu suivi par Volexity, motivation criminelle évaluée avec faible confiance [1]",
+        "Utilisation de modèles de langage pour les exploits et la post-exploitation, évaluée avec confiance moyenne [5]"
+      ],
+      "cibles": [
+        "Un client de supervision réseau de Volexity, non nommé [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "UTA0576",
+          "definition": "Nom donné par Volexity à un acteur d'attaque non identifié"
+        },
+        {
+          "sigle": "VPN",
+          "definition": "Réseau privé virtuel : accès distant chiffré au réseau d'une organisation"
+        },
+        {
+          "sigle": "LDAP",
+          "definition": "Protocole d'interrogation d'un annuaire d'utilisateurs"
+        },
+        {
+          "sigle": "NTLM",
+          "definition": "Protocole d'authentification Windows fondé sur des hachages de mots de passe"
+        },
+        {
+          "sigle": "LAPS",
+          "definition": "Outil Microsoft qui stocke les mots de passe administrateur locaux dans l'annuaire"
+        },
+        {
+          "sigle": "BitLocker",
+          "definition": "Chiffrement de disque Windows protégé par une clé de récupération"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de protection des infrastructures"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "A Series of Unauthenticated Events: Chained Exploitation of Ivanti Connect Secure Zero-Days",
+          "site": "Volexity",
+          "url": "https://www.volexity.com/blog/2026/10/13/a-series-of-unauthenticated-events-chained-exploitation-of-ivanti-connect-secure-zero-days/",
+          "date": "2026-10-13",
+          "image": "https://www.volexity.com/wp-content/uploads/2026/10/Volexity-Blog-A-Series-of-Unauthenticated-Events-Chained-Exploitation-of-Ivanti-Connect-Secure-Zero-Days-_FeaturedImage.png"
+        },
+        {
+          "titre": "Ivanti warns of Connect Secure zero-day exploited in attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/ivanti-warns-of-connect-secure-zero-day-exploited-in-attacks/",
+          "date": "2026-10-13",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/13/Ivanti.jpg"
+        },
+        {
+          "titre": "Ivanti Connect Secure zero-day exploited in the wild (CVE-2026-104935)",
+          "site": "Rapid7",
+          "url": "https://www.rapid7.com/blog/post/etr-ivanti-connect-secure-zero-day-exploited-in-the-wild-cve-2026-104935",
+          "date": "2026-10-13",
+          "image": "https://www.rapid7.com/cdn/images/blt65a432ba319f4043/6846abddaf18306debe6cf4d/ETR.webp"
+        },
+        {
+          "titre": "Attacker Chains Three Ivanti Connect Secure Zero-Days for Root Access, Only Two Patched So Far",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/attacker-chains-three-ivanti-connect.html",
+          "date": "2026-10-13",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZSH26NsXmSsQGaAbhNyJLMaBQKFCmabIbFZ_yi2sUGXjHQOVztQEQfXLarEAx1Fl9lRwGAryBE4zZEooJ4cochODcB4x8wQnPl3MRWiyBcpyEV6i8VPxvwcLHmShQVZVhuOcTjMXRhHAlx4Y0Uo85c74EVU4cea84YgXju02I9jlNzcGOFtLfa_am82Q/s1700-nu-rw-lo-l85-e365/ivanti-hack.jpg"
+        },
+        {
+          "titre": "Ivanti Zero-Day Chain Gave Attackers Root Access to Fully Patched VPN",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/ivanti-zero-day-chain-gave-attackers-root-access-to-fully-patched-vpn/",
+          "date": "2026-10-13",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/02/Ivanti-Risks-Exploits.jpg"
+        },
+        {
+          "titre": "CISA Urges Immediate Ivanti Connect Secure Updates as Honeypots Log 105 Exploit Attempts",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/cisa-urges-immediate-ivanti-connect.html",
+          "date": "2026-10-14",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBUpsAaH4Pe-HlsDhdSH5KK3VgWm9NEXXLNBOpxxp4d8WMZwSNNyPALzuapR_iUlq3-dLDe2bnPJfh42cdfH5m3LQWGKXZvHF3sYacyDbtZacKIIoluyNgP01-6bjjEz-RBhAQqxw-VHGD7gpn3ToRulgeH0ydeWXOucoK4hLBwvXtlCg81tB1scdjPbKN/s1700-nu-rw-lo-l85-e365/i-h.jpg"
+        },
+        {
+          "titre": "CISA warns admins to immediately fix Ivanti flaw exploited as zero-day",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-admins-to-immediately-fix-ivanti-flaw-exploited-as-zero-day/",
+          "date": "2026-10-14"
+        },
+        {
+          "titre": "CISA warns of new Ivanti bug being exploited as latest Patch Tuesday breaks records",
+          "site": "The Record",
+          "url": "https://therecord.media/new-ivanti-microsoft-bugs-exploitation",
+          "date": "2026-10-14",
+          "image": "https://cms.therecord.media/uploads/cisa_code_background_cdd6a475aa.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-14-yam-store-cogui-iron-man-phishing",
+      "title": "Démantèlement de YAM Store, CoGUI et Iron Man, services de phishing sinophones",
+      "created": "2026-10-14T13:30:00+00:00",
+      "updated": "2026-10-14T14:08:31+00:00",
+      "version": 2,
+      "resume": "Microsoft, Health-ISAC et leurs partenaires ont saisi des domaines de YAM Store, CoGUI et Iron Man, un écosystème de phishing sinophone [1, 2, 3]. Plus d'un milliard de messages malveillants ont été envoyés depuis janvier 2026 [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Courriels de phishing usurpant des marques connues, dont hameçonnage par code d'appareil → victimes menées vers de fausses pages de connexion ou de paiement [2, 4]."
         },
         {
           "etape": "Filtrage des visiteurs",
@@ -11410,11 +11410,11 @@
         },
         {
           "etape": "Services revendus",
-          "texte": "YAM Store vend des comptes, licences et stockage volés (locataires Microsoft 365, Azure for Education) ainsi que les kits de phishing [1]."
+          "texte": "YAM Store vend des comptes et licences compromis ou obtenus frauduleusement, ainsi que des kits ; domaines expirés rachetés et sites reconstruits → comptes cloud [1, 3, 4]."
         },
         {
           "etape": "Démantèlement",
-          "texte": "Ordonnance du tribunal fédéral de Floride → domaines saisis et redirigés ; plus de 20 000 comptes désactivés et 100 000 domaines bloqués [1]."
+          "texte": "Ordonnance du tribunal fédéral de Floride → domaines saisis et redirigés ; plus de 20 000 comptes désactivés et 100 000 domaines bloqués [1, 3, 4]."
         }
       ],
       "parcours": {
@@ -11523,6 +11523,208 @@
           "url": "https://www.proofpoint.com/us/blog/threat-insight/disruption-targets-major-chinese-language-phishing-kits-japanese-focus",
           "date": "2026-10-14",
           "image": "https://www.proofpoint.com/sites/default/files/styles/metatag/public/blog-banners/pfpt-blog-laptop-phishing.jpg.webp?itok=Moo73Kqk"
+        },
+        {
+          "titre": "Microsoft takes down 3 major phishing platforms used by Chinese cybercriminals",
+          "site": "The Record",
+          "url": "https://therecord.media/microsoft-takes-down-3-major-chinese-phishing-platforms",
+          "date": "2026-10-14",
+          "image": "https://cms.therecord.media/uploads/Microsoftbuilding_89382ec37f.jpg"
+        },
+        {
+          "titre": "Global takedown hits network behind 1 billion phishing messages",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/global-takedown-hits-network-behind-1-billion-phishing-messages/",
+          "date": "2026-10-14",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/14/phishing.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-14-anywayanyday-cyberattaque",
+      "title": "Anywayanyday suspend ses réservations après une cyberattaque",
+      "created": "2026-10-14T14:08:31+00:00",
+      "updated": "2026-10-14T14:08:31+00:00",
+      "version": 1,
+      "resume": "La plateforme russe de réservation de voyages Anywayanyday a suspendu les nouvelles réservations de billets et d'hôtels après une cyberattaque contre son infrastructure informatique [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Interruption du service",
+          "texte": "Cyberattaque contre l'infrastructure informatique → nouvelles réservations suspendues, site indisponible pendant la restauration des systèmes [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inf",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Infrastructure informatique",
+            "note": "Réservations suspendues"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inf",
+            "etape": 2,
+            "texte": "Cyberattaque, point d'entrée non précisé"
+          }
+        ]
+      },
+      "limites": "Accès initial, auteurs et durée de l'interruption non précisés. L'entreprise ne signale aucune preuve de compromission des données personnelles [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Anywayanyday, agence de voyage en ligne russe, et ses clients [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Russian travel booking platform suspends reservations after cyberattack",
+          "site": "The Record",
+          "url": "https://therecord.media/russia-anywayanyday-travel-website-cyberattack",
+          "date": "2026-10-14",
+          "image": "https://cms.therecord.media/uploads/alexander_nrjwolf_X0_Osf55s5yk_unsplash_a37e72b437.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-14-uat-6275-gouvernements-cei",
+      "title": "UAT-6275 vise des organisations gouvernementales de la CEI",
+      "created": "2026-10-14T14:08:31+00:00",
+      "updated": "2026-10-14T14:08:31+00:00",
+      "version": 1,
+      "resume": "Cisco Talos et Recorded Future décrivent l'activité de UAT-6275 contre des organisations gouvernementales de la Communauté des États indépendants, avec un intérêt pour l'eau et l'énergie [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Selon la période : documents Word à macros, raccourci malveillant, puis archive RAR exploitant CVE-2025-8088 en avril 2026 [1]."
+        },
+        {
+          "etape": "Téléchargement de code",
+          "texte": "Les macros téléchargent et exécutent un binaire de second étage ; un script hébergé sur GitHub fournit un accès shell distant [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Tâches planifiées (juillet 2025) ; PickleShell dans le dossier Démarrage (avril 2026) → exécution à la prochaine ouverture de session [1]."
+        },
+        {
+          "etape": "Accès distant",
+          "texte": "Reverse shells Chvost, Laplas et PickleShell → exécution de commandes [1]."
+        },
+        {
+          "etape": "Collecte d'identifiants",
+          "texte": "Site imitant l'Agence d'État azerbaïdjanaise pour les services publics, utilisé dans une campagne de collecte d'identifiants [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (UAT-6275)",
+            "note": ""
+          },
+          {
+            "id": "gh",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Script hébergé sur GitHub",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes d'organisations publiques",
+            "note": "PickleShell, Démarrage"
+          },
+          {
+            "id": "fk",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux site d'agence azerbaïdjanaise",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Documents Word, raccourci, archive RAR piégés"
+          },
+          {
+            "de": "gh",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Script fournissant un accès shell distant"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Reverse shells : exécution de commandes"
+          },
+          {
+            "de": "att",
+            "vers": "fk",
+            "etape": 5,
+            "texte": "Site imitant une agence, collecte d'identifiants"
+          }
+        ]
+      },
+      "limites": "Mouvement latéral, élévation de privilèges et exfiltration non mentionnés. Une preuve de concept pour FortiWeb (CVE-2025-25257) a été retrouvée, sans exploitation décrite [1].",
+      "cves": [
+        {
+          "id": "CVE-2025-8088",
+          "explication": "WinRAR : faille exploitée via une archive RAR pour placer PickleShell dans le dossier Démarrage, première exploitation de vulnérabilité observée chez cet acteur [1]."
+        },
+        {
+          "id": "CVE-2025-25257",
+          "explication": "FortiWeb : preuve de concept retrouvée dans l'infrastructure de l'acteur, utilisation dans une attaque non mentionnée [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "UAT-6275 (Cisco Talos), aussi TAG-193 (Recorded Future), lien avec le Kazakhstan évalué avec confiance moyenne [1]"
+      ],
+      "cibles": [
+        "Organisations gouvernementales de la Communauté des États indépendants, avec un intérêt pour l'eau et l'énergie [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "RAR",
+          "definition": "Format d'archive compressée"
+        },
+        {
+          "sigle": "CEI",
+          "definition": "Communauté des États indépendants, regroupement d'anciennes républiques soviétiques"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Break the silence: Kazakhstan-nexus UAT-6275 targets CIS government organizations",
+          "site": "Cisco Talos",
+          "url": "https://blog.talosintelligence.com/break-the-silence-kazakhstan-nexus-uat-6275-targets-cis-government-organizations/",
+          "date": "2026-10-14",
+          "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/UAT-6275-Header.jpg"
         }
       ]
     }

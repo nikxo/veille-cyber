@@ -10077,167 +10077,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-10-12-danfoss-froid-supermarches",
-      "title": "Régulation frigorifique Danfoss détournée : stocks détruits dans des supermarchés",
-      "created": "2026-10-12T12:30:00+00:00",
-      "updated": "2026-10-14T15:30:00+00:00",
-      "version": 7,
-      "resume": "Des installations frigorifiques de supermarchés auraient été détournées à distance dans la nuit du 11 au 12 octobre, et des produits jetés [1, 5]. Le CERT-FR connaît de nombreuses compromissions de contrôleurs Danfoss AK-SM et AK-SC [4].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 2, 4, 5, 7]. Consoles web accessibles sur Internet [2] ; une API d'intégration sur le même port est une piste non confirmée [9]."
-        },
-        {
-          "etape": "Détournement de la régulation",
-          "texte": "Dégivrage automatique remplacé par une activation forcée et continue, consigne jusqu'à 50 °C [1, 7], déclenché à distance [5] → hausse des températures des réfrigérateurs [3]."
-        },
-        {
-          "etape": "Impact",
-          "texte": "Températures incompatibles avec la conservation [2], en hausse pendant environ six heures sur certains équipements [6] → produits jetés, 270 000 euros de pertes pour deux magasins alsaciens [1]."
-        },
-        {
-          "etape": "Extension à Dixell",
-          "texte": "Supervision d'un second fournisseur, Dixell, touchée dans un supermarché Leclerc du Tarn → magasin privé de froid [8]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "inc",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Point d'entrée inconnu",
-            "note": ""
-          },
-          {
-            "id": "frg",
-            "type": "serveur",
-            "zone": "expose",
-            "nom": "Régulation frigorifique Danfoss",
-            "note": "Magasins"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "inc",
-            "etape": 1,
-            "texte": "Accès initial non précisé"
-          },
-          {
-            "de": "inc",
-            "vers": "frg",
-            "etape": 2,
-            "texte": "Dégivrage forcé, consigne jusqu'à 50 °C"
-          }
-        ]
-      },
-      "limites": "Les sources ne précisent ni la faille exploitée ni l'acteur [1, 2, 4, 5, 7, 8] ; on ignore si les failles divulguées par Claroty ont servi [6] ; LeMagIT ne confirme pas le vecteur d'accès [9].",
-      "cves": [
-        {
-          "id": "CVE-2025-41450",
-          "explication": "Contrôleurs AK-SM800A antérieurs à la version 4.2 : contournement de l'authentification. L'article ne dit pas qu'elle a été exploitée ici [2]."
-        },
-        {
-          "id": "CVE-2025-41451",
-          "explication": "Exécution de code à distance sur ces contrôleurs, découverte par Claroty. L'article ne dit pas qu'elle a été exploitée ici [2]."
-        },
-        {
-          "id": "CVE-2025-41452",
-          "explication": "Injection de données de configuration arbitraires dans le serveur web Nginx embarqué. L'article ne dit pas qu'elle a été exploitée ici [2]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "Non identifié [1]"
-      ],
-      "cibles": [
-        "Intermarché : environ 150 magasins selon une source du secteur [1], environ 300 avec Netto selon un média [5] ; Coopérative U [5] ; Leclerc [1] ; Monoprix [2]",
-        "Magasins en France, Belgique, Allemagne, Pays-Bas, Pologne, Portugal et Espagne [6]",
-        "Carrefour : environ 80 supermarchés [7]",
-        "Supermarché Leclerc de Lescure-d'Albigeois (Tarn), équipé de supervision Dixell [8]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "API",
-          "definition": "Interface permettant à un programme de piloter un autre logiciel"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Une cyberattaque dérègle le froid des supermarchés",
-          "site": "ZATAZ",
-          "url": "https://www.zataz.com/une-cyberattaque-deregle-le-froid-des-supermarches/",
-          "date": "2026-10-12",
-          "image": "https://www.zataz.com/wp-content/uploads/froid_hack.jpg"
-        },
-        {
-          "titre": "Cyberattaque Danfoss : quand la distribution alimentaire découvre l'hygiène numérique",
-          "site": "LeMagIT",
-          "url": "https://www.lemagit.fr/actualites/366652072/Cyberattaque-Danfoss-quand-la-distribution-alimentaire-decouvre-lhygiene-numerique",
-          "date": "2026-10-12",
-          "image": "https://www.lemagit.fr/rms/computerweekly/food-waste-social-problem-adobe.jpeg"
-        },
-        {
-          "titre": "Cyberattack shuts down refrigerators at French supermarkets",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/cyberattack-shuts-down-refrigerators-at-french-supermarkets/",
-          "date": "2026-10-12",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/supermarket-empty-fridges.jpg"
-        },
-        {
-          "titre": "Incident de sécurité ciblant les Danfoss série AK-SM et AK-SC (12 octobre 2026)",
-          "site": "CERT-FR (alertes)",
-          "url": "https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-012/",
-          "date": "2026-10-12"
-        },
-        {
-          "titre": "Cyberattack disrupts refrigeration at hundreds of French supermarkets",
-          "site": "The Record",
-          "url": "https://therecord.media/cyberattack-disrupts-refridgeration-in-france",
-          "date": "2026-10-11",
-          "image": "https://cms.therecord.media/uploads/CC_BY_2_0_11a0e3277d.png"
-        },
-        {
-          "titre": "Refrigeration Controller Hack Spoils Food Across European Supermarkets",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/refrigeration-controller-hack-spoils-food-across-european-supermarkets/",
-          "date": "2026-10-13",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supermarket-refrigerators.jpeg"
-        },
-        {
-          "titre": "Attackers Heat French Supermarket Fridges Up to 50°C by Hijacking Danfoss Controllers",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/attackers-heat-french-supermarket.html",
-          "date": "2026-10-13",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh64tQNgn3aqDhyphenhyphengoK8NxQG3DPvWWi0fP185meJUr14eUmcX18mKJdkUz6QsMU6bTxmwAtHrd8I0J5FQjvTENA1-N1F60zsR1x2iDzaJNhPbg_6iGYTELpBOwiTbBiaMWLmWQ4naaMfCLCcThNEfC302zF-YCjlev6138DvUrXfr5noGCpZaT9JnGd7hUw/s1700-nu-rw-lo-l85-e365/supermarket.jpg"
-        },
-        {
-          "titre": "Coup de chaud sur la chaîne du froid : au tour de Dixell",
-          "site": "LeMagIT",
-          "url": "https://www.lemagit.fr/actualites/366651818/Coup-de-chaud-sur-la-chaine-du-froid-au-tour-de-Dixell",
-          "date": "2026-10-13",
-          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/HeroImages/heating-radiator-clrcrmck-hero.jpg"
-        },
-        {
-          "titre": "Piratage de systèmes de gestion du froid : ce n'est pas une fatalité",
-          "site": "LeMagIT",
-          "url": "https://www.lemagit.fr/actualites/366652137/Piratage-de-systemes-de-gestion-du-froid-ce-nest-pas-une-fatalite",
-          "date": "2026-10-14",
-          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/HeroImages/warm-jumper-hot-drink-cold-weather-StefaNikolic-Getty-RF.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-10-12-ledger-cryptobilis-implant",
       "title": "Ledger : implant matériel trouvé dans un portefeuille vendu par CryptoBilis, fonds volés",
       "created": "2026-10-12T13:20:00+00:00",
@@ -11216,6 +11055,515 @@
     },
     {
       "schema": 3,
+      "id": "2026-10-14-anywayanyday-cyberattaque",
+      "title": "Anywayanyday suspend ses réservations après une cyberattaque",
+      "created": "2026-10-14T14:08:31+00:00",
+      "updated": "2026-10-14T14:08:31+00:00",
+      "version": 1,
+      "resume": "La plateforme russe de réservation de voyages Anywayanyday a suspendu les nouvelles réservations de billets et d'hôtels après une cyberattaque contre son infrastructure informatique [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Interruption du service",
+          "texte": "Cyberattaque contre l'infrastructure informatique → nouvelles réservations suspendues, site indisponible pendant la restauration des systèmes [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inf",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Infrastructure informatique",
+            "note": "Réservations suspendues"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inf",
+            "etape": 2,
+            "texte": "Cyberattaque, point d'entrée non précisé"
+          }
+        ]
+      },
+      "limites": "Accès initial, auteurs et durée de l'interruption non précisés. L'entreprise ne signale aucune preuve de compromission des données personnelles [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Anywayanyday, agence de voyage en ligne russe, et ses clients [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Russian travel booking platform suspends reservations after cyberattack",
+          "site": "The Record",
+          "url": "https://therecord.media/russia-anywayanyday-travel-website-cyberattack",
+          "date": "2026-10-14",
+          "image": "https://cms.therecord.media/uploads/alexander_nrjwolf_X0_Osf55s5yk_unsplash_a37e72b437.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-14-uat-6275-gouvernements-cei",
+      "title": "UAT-6275 vise des organisations gouvernementales de la CEI",
+      "created": "2026-10-14T14:08:31+00:00",
+      "updated": "2026-10-14T14:08:31+00:00",
+      "version": 1,
+      "resume": "Cisco Talos et Recorded Future décrivent l'activité de UAT-6275 contre des organisations gouvernementales de la Communauté des États indépendants, avec un intérêt pour l'eau et l'énergie [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Selon la période : documents Word à macros, raccourci malveillant, puis archive RAR exploitant CVE-2025-8088 en avril 2026 [1]."
+        },
+        {
+          "etape": "Téléchargement de code",
+          "texte": "Les macros téléchargent et exécutent un binaire de second étage ; un script hébergé sur GitHub fournit un accès shell distant [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Tâches planifiées (juillet 2025) ; PickleShell dans le dossier Démarrage (avril 2026) → exécution à la prochaine ouverture de session [1]."
+        },
+        {
+          "etape": "Accès distant",
+          "texte": "Reverse shells Chvost, Laplas et PickleShell → exécution de commandes [1]."
+        },
+        {
+          "etape": "Collecte d'identifiants",
+          "texte": "Site imitant l'Agence d'État azerbaïdjanaise pour les services publics, utilisé dans une campagne de collecte d'identifiants [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (UAT-6275)",
+            "note": ""
+          },
+          {
+            "id": "gh",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Script hébergé sur GitHub",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes d'organisations publiques",
+            "note": "PickleShell, Démarrage"
+          },
+          {
+            "id": "fk",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux site d'agence azerbaïdjanaise",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Documents Word, raccourci, archive RAR piégés"
+          },
+          {
+            "de": "gh",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Script fournissant un accès shell distant"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Reverse shells : exécution de commandes"
+          },
+          {
+            "de": "att",
+            "vers": "fk",
+            "etape": 5,
+            "texte": "Site imitant une agence, collecte d'identifiants"
+          }
+        ]
+      },
+      "limites": "Mouvement latéral, élévation de privilèges et exfiltration non mentionnés. Une preuve de concept pour FortiWeb (CVE-2025-25257) a été retrouvée, sans exploitation décrite [1].",
+      "cves": [
+        {
+          "id": "CVE-2025-8088",
+          "explication": "WinRAR : faille exploitée via une archive RAR pour placer PickleShell dans le dossier Démarrage, première exploitation de vulnérabilité observée chez cet acteur [1]."
+        },
+        {
+          "id": "CVE-2025-25257",
+          "explication": "FortiWeb : preuve de concept retrouvée dans l'infrastructure de l'acteur, utilisation dans une attaque non mentionnée [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "UAT-6275 (Cisco Talos), aussi TAG-193 (Recorded Future), lien avec le Kazakhstan évalué avec confiance moyenne [1]"
+      ],
+      "cibles": [
+        "Organisations gouvernementales de la Communauté des États indépendants, avec un intérêt pour l'eau et l'énergie [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "RAR",
+          "definition": "Format d'archive compressée"
+        },
+        {
+          "sigle": "CEI",
+          "definition": "Communauté des États indépendants, regroupement d'anciennes républiques soviétiques"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Break the silence: Kazakhstan-nexus UAT-6275 targets CIS government organizations",
+          "site": "Cisco Talos",
+          "url": "https://blog.talosintelligence.com/break-the-silence-kazakhstan-nexus-uat-6275-targets-cis-government-organizations/",
+          "date": "2026-10-14",
+          "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/UAT-6275-Header.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-12-danfoss-froid-supermarches",
+      "title": "Régulation frigorifique Danfoss détournée : stocks détruits dans des supermarchés",
+      "created": "2026-10-12T12:30:00+00:00",
+      "updated": "2026-10-14T15:30:00+00:00",
+      "version": 7,
+      "resume": "Des installations frigorifiques de supermarchés auraient été détournées à distance dans la nuit du 11 au 12 octobre, et des produits jetés [1, 5]. Le CERT-FR connaît de nombreuses compromissions de contrôleurs Danfoss AK-SM et AK-SC [4].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1, 2, 4, 5, 7]. Consoles web accessibles sur Internet [2] ; une API d'intégration sur le même port est une piste non confirmée [9]."
+        },
+        {
+          "etape": "Détournement de la régulation",
+          "texte": "Dégivrage automatique remplacé par une activation forcée et continue, consigne jusqu'à 50 °C [1, 7], déclenché à distance [5] → hausse des températures des réfrigérateurs [3]."
+        },
+        {
+          "etape": "Impact",
+          "texte": "Températures incompatibles avec la conservation [2], en hausse pendant environ six heures sur certains équipements [6] → produits jetés, 270 000 euros de pertes pour deux magasins alsaciens [1]."
+        },
+        {
+          "etape": "Extension à Dixell",
+          "texte": "Supervision d'un second fournisseur, Dixell, touchée dans un supermarché Leclerc du Tarn → magasin privé de froid [8]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "frg",
+            "type": "serveur",
+            "zone": "expose",
+            "nom": "Régulation frigorifique Danfoss",
+            "note": "Magasins"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "frg",
+            "etape": 2,
+            "texte": "Dégivrage forcé, consigne jusqu'à 50 °C"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni la faille exploitée ni l'acteur [1, 2, 4, 5, 7, 8] ; on ignore si les failles divulguées par Claroty ont servi [6] ; LeMagIT ne confirme pas le vecteur d'accès [9].",
+      "cves": [
+        {
+          "id": "CVE-2025-41450",
+          "explication": "Contrôleurs AK-SM800A antérieurs à la version 4.2 : contournement de l'authentification. L'article ne dit pas qu'elle a été exploitée ici [2]."
+        },
+        {
+          "id": "CVE-2025-41451",
+          "explication": "Exécution de code à distance sur ces contrôleurs, découverte par Claroty. L'article ne dit pas qu'elle a été exploitée ici [2]."
+        },
+        {
+          "id": "CVE-2025-41452",
+          "explication": "Injection de données de configuration arbitraires dans le serveur web Nginx embarqué. L'article ne dit pas qu'elle a été exploitée ici [2]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1]"
+      ],
+      "cibles": [
+        "Intermarché : environ 150 magasins selon une source du secteur [1], environ 300 avec Netto selon un média [5] ; Coopérative U [5] ; Leclerc [1] ; Monoprix [2]",
+        "Magasins en France, Belgique, Allemagne, Pays-Bas, Pologne, Portugal et Espagne [6]",
+        "Carrefour : environ 80 supermarchés [7]",
+        "Supermarché Leclerc de Lescure-d'Albigeois (Tarn), équipé de supervision Dixell [8]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Interface permettant à un programme de piloter un autre logiciel"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Une cyberattaque dérègle le froid des supermarchés",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/une-cyberattaque-deregle-le-froid-des-supermarches/",
+          "date": "2026-10-12",
+          "image": "https://www.zataz.com/wp-content/uploads/froid_hack.jpg"
+        },
+        {
+          "titre": "Cyberattaque Danfoss : quand la distribution alimentaire découvre l'hygiène numérique",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366652072/Cyberattaque-Danfoss-quand-la-distribution-alimentaire-decouvre-lhygiene-numerique",
+          "date": "2026-10-12",
+          "image": "https://www.lemagit.fr/rms/computerweekly/food-waste-social-problem-adobe.jpeg"
+        },
+        {
+          "titre": "Cyberattack shuts down refrigerators at French supermarkets",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cyberattack-shuts-down-refrigerators-at-french-supermarkets/",
+          "date": "2026-10-12",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/supermarket-empty-fridges.jpg"
+        },
+        {
+          "titre": "Incident de sécurité ciblant les Danfoss série AK-SM et AK-SC (12 octobre 2026)",
+          "site": "CERT-FR (alertes)",
+          "url": "https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-012/",
+          "date": "2026-10-12"
+        },
+        {
+          "titre": "Cyberattack disrupts refrigeration at hundreds of French supermarkets",
+          "site": "The Record",
+          "url": "https://therecord.media/cyberattack-disrupts-refridgeration-in-france",
+          "date": "2026-10-11",
+          "image": "https://cms.therecord.media/uploads/CC_BY_2_0_11a0e3277d.png"
+        },
+        {
+          "titre": "Refrigeration Controller Hack Spoils Food Across European Supermarkets",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/refrigeration-controller-hack-spoils-food-across-european-supermarkets/",
+          "date": "2026-10-13",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supermarket-refrigerators.jpeg"
+        },
+        {
+          "titre": "Attackers Heat French Supermarket Fridges Up to 50°C by Hijacking Danfoss Controllers",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/attackers-heat-french-supermarket.html",
+          "date": "2026-10-13",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh64tQNgn3aqDhyphenhyphengoK8NxQG3DPvWWi0fP185meJUr14eUmcX18mKJdkUz6QsMU6bTxmwAtHrd8I0J5FQjvTENA1-N1F60zsR1x2iDzaJNhPbg_6iGYTELpBOwiTbBiaMWLmWQ4naaMfCLCcThNEfC302zF-YCjlev6138DvUrXfr5noGCpZaT9JnGd7hUw/s1700-nu-rw-lo-l85-e365/supermarket.jpg"
+        },
+        {
+          "titre": "Coup de chaud sur la chaîne du froid : au tour de Dixell",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366651818/Coup-de-chaud-sur-la-chaine-du-froid-au-tour-de-Dixell",
+          "date": "2026-10-13",
+          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/HeroImages/heating-radiator-clrcrmck-hero.jpg"
+        },
+        {
+          "titre": "Piratage de systèmes de gestion du froid : ce n'est pas une fatalité",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366652137/Piratage-de-systemes-de-gestion-du-froid-ce-nest-pas-une-fatalite",
+          "date": "2026-10-14",
+          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/HeroImages/warm-jumper-hot-drink-cold-weather-StefaNikolic-Getty-RF.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-14-yam-store-cogui-iron-man-phishing",
+      "title": "Démantèlement de YAM Store, CoGUI et Iron Man, services de phishing sinophones",
+      "created": "2026-10-14T13:30:00+00:00",
+      "updated": "2026-10-14T15:30:00+00:00",
+      "version": 3,
+      "resume": "Microsoft, Health-ISAC et leurs partenaires ont saisi des domaines de YAM Store, CoGUI et Iron Man, un écosystème de phishing sinophone [1, 2, 3]. Plus d'un milliard de messages malveillants ont été envoyés depuis janvier 2026 [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Courriels de phishing usurpant des marques connues, dont hameçonnage par code d'appareil → victimes menées vers de fausses pages de connexion ou de paiement [2, 4]."
+        },
+        {
+          "etape": "Filtrage des visiteurs",
+          "texte": "CAPTCHA et redirection vers un autre site si les conditions de navigation ne conviennent pas → contournement des bacs à sable automatisés [2]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Kits interactifs : opérateurs suivant les victimes en direct, codes à usage unique demandés [1, 2] ; collecte en temps réel → identifiants et données de paiement volés [1, 2, 5]."
+        },
+        {
+          "etape": "Services revendus",
+          "texte": "YAM Store vend des comptes et licences compromis ou obtenus frauduleusement, ainsi que des kits ; domaines expirés rachetés et sites reconstruits → comptes cloud [1, 3, 4, 5]."
+        },
+        {
+          "etape": "Démantèlement",
+          "texte": "Ordonnance du tribunal fédéral de Floride → domaines saisis et redirigés ; plus de 20 000 comptes désactivés et 100 000 domaines bloqués [1, 3, 4]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Opérateurs des kits",
+            "note": ""
+          },
+          {
+            "id": "ys",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "YAM Store",
+            "note": "Comptes volés"
+          },
+          {
+            "id": "kit",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Page de phishing",
+            "note": "Filtrage, CAPTCHA"
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Destinataires des courriels",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "ys",
+            "vers": "att",
+            "etape": 4,
+            "texte": "Comptes volés et kits revendus"
+          },
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 1,
+            "texte": "Courriels usurpant des marques connues"
+          },
+          {
+            "de": "usr",
+            "vers": "kit",
+            "etape": 2,
+            "texte": "Filtrage CAPTCHA, redirection leurre"
+          },
+          {
+            "de": "kit",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Identifiants et codes collectés en direct"
+          }
+        ]
+      },
+      "limites": "Méthode de compromission des locataires Microsoft 365 et Azure non précisée [1, 5]. Identité des développeurs et des affiliés non précisée [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "YAM Store, suivi par Microsoft sous le nom Storm-3119 [1] ; courtier d'accès initial selon Microsoft [5]",
+        "Storm-2990, kits CoGUI, Haozi et Iron Man, développeurs de langue chinoise selon Microsoft [1, 5]",
+        "CoGUI, CoAceV et CoFish_Ws, kits aux racines communes selon Proofpoint [2]"
+      ],
+      "cibles": [
+        "Japon en grande majorité, aussi États-Unis, Australie, Italie [2]",
+        "Plus de 75 000 organisations dans plus de 150 pays, dont la santé [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "Health-ISAC",
+          "definition": "Organisation d'échange d'informations sur les menaces pour le secteur de la santé"
+        },
+        {
+          "sigle": "CAPTCHA",
+          "definition": "Test de vérification censé distinguer un humain d'un programme automatique"
+        },
+        {
+          "sigle": "Microsoft 365",
+          "definition": "Suite bureautique et messagerie en ligne de Microsoft"
+        },
+        {
+          "sigle": "Azure",
+          "definition": "Service de cloud de Microsoft"
+        },
+        {
+          "sigle": "YAM",
+          "definition": "Nom de la boutique YAM Store, qui revend comptes volés et kits de phishing"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Microsoft Disrupts Chinese-Language Phishing Market Behind 1B+ Messages",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/microsoft-disrupts-chinese-language-phishing-market-behind-1b-messages/",
+          "date": "2026-10-14",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/11/AI-phishing.jpeg"
+        },
+        {
+          "titre": "Disruption Targets Major Chinese-Language Phishing Kits with Japanese Focus",
+          "site": "Proofpoint Threat Insight",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/disruption-targets-major-chinese-language-phishing-kits-japanese-focus",
+          "date": "2026-10-14",
+          "image": "https://www.proofpoint.com/sites/default/files/styles/metatag/public/blog-banners/pfpt-blog-laptop-phishing.jpg.webp?itok=Moo73Kqk"
+        },
+        {
+          "titre": "Microsoft takes down 3 major phishing platforms used by Chinese cybercriminals",
+          "site": "The Record",
+          "url": "https://therecord.media/microsoft-takes-down-3-major-chinese-phishing-platforms",
+          "date": "2026-10-14",
+          "image": "https://cms.therecord.media/uploads/Microsoftbuilding_89382ec37f.jpg"
+        },
+        {
+          "titre": "Global takedown hits network behind 1 billion phishing messages",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/global-takedown-hits-network-behind-1-billion-phishing-messages/",
+          "date": "2026-10-14",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/14/phishing.jpg"
+        },
+        {
+          "titre": "The hidden network: Inside the phishing infrastructure ecosystem powering global cybercrime",
+          "site": "Microsoft Threat Intelligence",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/14/the-hidden-network-inside-the-phishing-infrastructure-ecosystem-powering-global-cybercrime/",
+          "date": "2026-10-14",
+          "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/10/Storm-3119-and-Storm-2990-featured.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-10-13-ivanti-connect-secure-uta0576",
       "title": "Ivanti Connect Secure : chaîne de failles zero-day exploitée par UTA0576",
       "created": "2026-10-13T16:09:31+00:00",
@@ -11407,180 +11755,32 @@
     },
     {
       "schema": 3,
-      "id": "2026-10-14-yam-store-cogui-iron-man-phishing",
-      "title": "Démantèlement de YAM Store, CoGUI et Iron Man, services de phishing sinophones",
-      "created": "2026-10-14T13:30:00+00:00",
-      "updated": "2026-10-14T15:30:00+00:00",
-      "version": 3,
-      "resume": "Microsoft, Health-ISAC et leurs partenaires ont saisi des domaines de YAM Store, CoGUI et Iron Man, un écosystème de phishing sinophone [1, 2, 3]. Plus d'un milliard de messages malveillants ont été envoyés depuis janvier 2026 [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Courriels de phishing usurpant des marques connues, dont hameçonnage par code d'appareil → victimes menées vers de fausses pages de connexion ou de paiement [2, 4]."
-        },
-        {
-          "etape": "Filtrage des visiteurs",
-          "texte": "CAPTCHA et redirection vers un autre site si les conditions de navigation ne conviennent pas → contournement des bacs à sable automatisés [2]."
-        },
-        {
-          "etape": "Vol d'identifiants",
-          "texte": "Kits interactifs : opérateurs suivant les victimes en direct, codes à usage unique demandés [1, 2] ; collecte en temps réel → identifiants et données de paiement volés [1, 2, 5]."
-        },
-        {
-          "etape": "Services revendus",
-          "texte": "YAM Store vend des comptes et licences compromis ou obtenus frauduleusement, ainsi que des kits ; domaines expirés rachetés et sites reconstruits → comptes cloud [1, 3, 4, 5]."
-        },
-        {
-          "etape": "Démantèlement",
-          "texte": "Ordonnance du tribunal fédéral de Floride → domaines saisis et redirigés ; plus de 20 000 comptes désactivés et 100 000 domaines bloqués [1, 3, 4]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Opérateurs des kits",
-            "note": ""
-          },
-          {
-            "id": "ys",
-            "type": "cloud",
-            "zone": "internet",
-            "nom": "YAM Store",
-            "note": "Comptes volés"
-          },
-          {
-            "id": "kit",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Page de phishing",
-            "note": "Filtrage, CAPTCHA"
-          },
-          {
-            "id": "usr",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Destinataires des courriels",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "ys",
-            "vers": "att",
-            "etape": 4,
-            "texte": "Comptes volés et kits revendus"
-          },
-          {
-            "de": "att",
-            "vers": "usr",
-            "etape": 1,
-            "texte": "Courriels usurpant des marques connues"
-          },
-          {
-            "de": "usr",
-            "vers": "kit",
-            "etape": 2,
-            "texte": "Filtrage CAPTCHA, redirection leurre"
-          },
-          {
-            "de": "kit",
-            "vers": "att",
-            "etape": 3,
-            "texte": "Identifiants et codes collectés en direct"
-          }
-        ]
-      },
-      "limites": "Méthode de compromission des locataires Microsoft 365 et Azure non précisée [1, 5]. Identité des développeurs et des affiliés non précisée [1, 2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "YAM Store, suivi par Microsoft sous le nom Storm-3119 [1] ; courtier d'accès initial selon Microsoft [5]",
-        "Storm-2990, kits CoGUI, Haozi et Iron Man, développeurs de langue chinoise selon Microsoft [1, 5]",
-        "CoGUI, CoAceV et CoFish_Ws, kits aux racines communes selon Proofpoint [2]"
-      ],
-      "cibles": [
-        "Japon en grande majorité, aussi États-Unis, Australie, Italie [2]",
-        "Plus de 75 000 organisations dans plus de 150 pays, dont la santé [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "Health-ISAC",
-          "definition": "Organisation d'échange d'informations sur les menaces pour le secteur de la santé"
-        },
-        {
-          "sigle": "CAPTCHA",
-          "definition": "Test de vérification censé distinguer un humain d'un programme automatique"
-        },
-        {
-          "sigle": "Microsoft 365",
-          "definition": "Suite bureautique et messagerie en ligne de Microsoft"
-        },
-        {
-          "sigle": "Azure",
-          "definition": "Service de cloud de Microsoft"
-        },
-        {
-          "sigle": "YAM",
-          "definition": "Nom de la boutique YAM Store, qui revend comptes volés et kits de phishing"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Microsoft Disrupts Chinese-Language Phishing Market Behind 1B+ Messages",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/microsoft-disrupts-chinese-language-phishing-market-behind-1b-messages/",
-          "date": "2026-10-14",
-          "image": "https://www.securityweek.com/wp-content/uploads/2025/11/AI-phishing.jpeg"
-        },
-        {
-          "titre": "Disruption Targets Major Chinese-Language Phishing Kits with Japanese Focus",
-          "site": "Proofpoint Threat Insight",
-          "url": "https://www.proofpoint.com/us/blog/threat-insight/disruption-targets-major-chinese-language-phishing-kits-japanese-focus",
-          "date": "2026-10-14",
-          "image": "https://www.proofpoint.com/sites/default/files/styles/metatag/public/blog-banners/pfpt-blog-laptop-phishing.jpg.webp?itok=Moo73Kqk"
-        },
-        {
-          "titre": "Microsoft takes down 3 major phishing platforms used by Chinese cybercriminals",
-          "site": "The Record",
-          "url": "https://therecord.media/microsoft-takes-down-3-major-chinese-phishing-platforms",
-          "date": "2026-10-14",
-          "image": "https://cms.therecord.media/uploads/Microsoftbuilding_89382ec37f.jpg"
-        },
-        {
-          "titre": "Global takedown hits network behind 1 billion phishing messages",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/global-takedown-hits-network-behind-1-billion-phishing-messages/",
-          "date": "2026-10-14",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/14/phishing.jpg"
-        },
-        {
-          "titre": "The hidden network: Inside the phishing infrastructure ecosystem powering global cybercrime",
-          "site": "Microsoft Threat Intelligence",
-          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/14/the-hidden-network-inside-the-phishing-infrastructure-ecosystem-powering-global-cybercrime/",
-          "date": "2026-10-14",
-          "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/10/Storm-3119-and-Storm-2990-featured.png"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-14-anywayanyday-cyberattaque",
-      "title": "Anywayanyday suspend ses réservations après une cyberattaque",
-      "created": "2026-10-14T14:08:31+00:00",
-      "updated": "2026-10-14T14:08:31+00:00",
+      "id": "2026-10-14-coree-nord-fermes-ordinateurs-it",
+      "title": "Corée du Nord : faux informaticiens employés par des entreprises américaines via des fermes d'ordinateurs portables",
+      "created": "2026-10-14T17:30:00+00:00",
+      "updated": "2026-10-14T17:30:00+00:00",
       "version": 1,
-      "resume": "La plateforme russe de réservation de voyages Anywayanyday a suspendu les nouvelles réservations de billets et d'hôtels après une cyberattaque contre son infrastructure informatique [1].",
+      "resume": "Des travailleurs informatiques nord-coréens se sont fait embaucher par plus de 70 employeurs américains sous de fausses identités. Le ministère de la Justice a inculpé 14 personnes et saisi environ 187 ordinateurs [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Embauche par des entreprises américaines avec de fausses identités → salaires réguliers, dont une partie est reversée au régime [1]."
         },
         {
-          "etape": "Interruption du service",
-          "texte": "Cyberattaque contre l'infrastructure informatique → nouvelles réservations suspendues, site indisponible pendant la restauration des systèmes [1]."
+          "etape": "Hébergement du matériel",
+          "texte": "Des facilitateurs américains hébergent les ordinateurs fournis par l'entreprise et utilisent un accès à distance → les travailleurs paraissent basés aux États-Unis [1]."
+        },
+        {
+          "etape": "Détournement d'équipements",
+          "texte": "Faux rapports de vol à la police et passage par des cabinets de recrutement → ordinateurs de remplacement envoyés à l'adresse d'une ferme, selon CrowdStrike [1]."
+        },
+        {
+          "etape": "Sous-traitance du travail",
+          "texte": "Travail confié à des freelances d'Asie du Sud ou d'Afrique de l'Ouest qui passent les entretiens à leur place, selon le FBI [1]."
+        },
+        {
+          "etape": "Menaces",
+          "texte": "Menaces de violence physique contre d'anciens managers et leurs familles, pour exiger des paiements ou contraindre d'autres personnes [1]."
         }
       ],
       "parcours": {
@@ -11589,167 +11789,67 @@
             "id": "att",
             "type": "attaquant",
             "zone": "internet",
-            "nom": "Attaquant",
+            "nom": "Travailleurs nord-coréens",
             "note": ""
           },
           {
-            "id": "inf",
+            "id": "ent",
             "type": "inconnu",
             "zone": "victime",
-            "nom": "Infrastructure informatique",
-            "note": "Réservations suspendues"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "inf",
-            "etape": 2,
-            "texte": "Cyberattaque, point d'entrée non précisé"
-          }
-        ]
-      },
-      "limites": "Accès initial, auteurs et durée de l'interruption non précisés. L'entreprise ne signale aucune preuve de compromission des données personnelles [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Anywayanyday, agence de voyage en ligne russe, et ses clients [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Russian travel booking platform suspends reservations after cyberattack",
-          "site": "The Record",
-          "url": "https://therecord.media/russia-anywayanyday-travel-website-cyberattack",
-          "date": "2026-10-14",
-          "image": "https://cms.therecord.media/uploads/alexander_nrjwolf_X0_Osf55s5yk_unsplash_a37e72b437.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-14-uat-6275-gouvernements-cei",
-      "title": "UAT-6275 vise des organisations gouvernementales de la CEI",
-      "created": "2026-10-14T14:08:31+00:00",
-      "updated": "2026-10-14T14:08:31+00:00",
-      "version": 1,
-      "resume": "Cisco Talos et Recorded Future décrivent l'activité de UAT-6275 contre des organisations gouvernementales de la Communauté des États indépendants, avec un intérêt pour l'eau et l'énergie [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Selon la période : documents Word à macros, raccourci malveillant, puis archive RAR exploitant CVE-2025-8088 en avril 2026 [1]."
-        },
-        {
-          "etape": "Téléchargement de code",
-          "texte": "Les macros téléchargent et exécutent un binaire de second étage ; un script hébergé sur GitHub fournit un accès shell distant [1]."
-        },
-        {
-          "etape": "Persistance",
-          "texte": "Tâches planifiées (juillet 2025) ; PickleShell dans le dossier Démarrage (avril 2026) → exécution à la prochaine ouverture de session [1]."
-        },
-        {
-          "etape": "Accès distant",
-          "texte": "Reverse shells Chvost, Laplas et PickleShell → exécution de commandes [1]."
-        },
-        {
-          "etape": "Collecte d'identifiants",
-          "texte": "Site imitant l'Agence d'État azerbaïdjanaise pour les services publics, utilisé dans une campagne de collecte d'identifiants [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (UAT-6275)",
-            "note": ""
+            "nom": "Employeurs américains",
+            "note": "Plus de 70"
           },
           {
-            "id": "gh",
-            "type": "cloud",
-            "zone": "internet",
-            "nom": "Script hébergé sur GitHub",
-            "note": ""
-          },
-          {
-            "id": "pc",
+            "id": "fer",
             "type": "postes",
             "zone": "victime",
-            "nom": "Postes d'organisations publiques",
-            "note": "PickleShell, Démarrage"
-          },
-          {
-            "id": "fk",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Faux site d'agence azerbaïdjanaise",
-            "note": ""
+            "nom": "Ordinateurs chez facilitateurs",
+            "note": "Fermes"
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "pc",
+            "vers": "ent",
             "etape": 1,
-            "texte": "Documents Word, raccourci, archive RAR piégés"
+            "texte": "Embauche avec de fausses identités"
           },
           {
-            "de": "gh",
-            "vers": "pc",
+            "de": "att",
+            "vers": "fer",
             "etape": 2,
-            "texte": "Script fournissant un accès shell distant"
+            "texte": "Accès à distance aux ordinateurs fournis"
           },
           {
             "de": "att",
-            "vers": "pc",
-            "etape": 4,
-            "texte": "Reverse shells : exécution de commandes"
-          },
-          {
-            "de": "att",
-            "vers": "fk",
+            "vers": "ent",
             "etape": 5,
-            "texte": "Site imitant une agence, collecte d'identifiants"
+            "texte": "Menaces contre d'anciens managers"
           }
         ]
       },
-      "limites": "Mouvement latéral, élévation de privilèges et exfiltration non mentionnés. Une preuve de concept pour FortiWeb (CVE-2025-25257) a été retrouvée, sans exploitation décrite [1].",
-      "cves": [
-        {
-          "id": "CVE-2025-8088",
-          "explication": "WinRAR : faille exploitée via une archive RAR pour placer PickleShell dans le dossier Démarrage, première exploitation de vulnérabilité observée chez cet acteur [1]."
-        },
-        {
-          "id": "CVE-2025-25257",
-          "explication": "FortiWeb : preuve de concept retrouvée dans l'infrastructure de l'acteur, utilisation dans une attaque non mentionnée [1]."
-        }
-      ],
+      "limites": "L'article ne mentionne ni malware, ni vulnérabilité, ni vol de données ; seule l'usurpation d'identité est décrite [1].",
+      "cves": [],
       "mitre": [],
       "acteurs": [
-        "UAT-6275 (Cisco Talos), aussi TAG-193 (Recorded Future), lien avec le Kazakhstan évalué avec confiance moyenne [1]"
+        "Corée du Nord, suivie sous les noms Famous Chollima, purpledelta et Wagemole [1]"
       ],
       "cibles": [
-        "Organisations gouvernementales de la Communauté des États indépendants, avec un intérêt pour l'eau et l'énergie [1]"
+        "Plus de 70 employeurs américains : santé, communications, cybersécurité, commerce, industrie [1]"
       ],
       "abreviations": [
         {
-          "sigle": "RAR",
-          "definition": "Format d'archive compressée"
-        },
-        {
-          "sigle": "CEI",
-          "definition": "Communauté des États indépendants, regroupement d'anciennes républiques soviétiques"
+          "sigle": "FBI",
+          "definition": "Police fédérale américaine"
         }
       ],
       "sources": [
         {
-          "titre": "Break the silence: Kazakhstan-nexus UAT-6275 targets CIS government organizations",
-          "site": "Cisco Talos",
-          "url": "https://blog.talosintelligence.com/break-the-silence-kazakhstan-nexus-uat-6275-targets-cis-government-organizations/",
+          "titre": "U.S. Shuts Down Over 40 Laptop Farms, Charges 14 in North Korean IT Worker Fraud",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/us-shuts-down-over-40-laptop-farms.html",
           "date": "2026-10-14",
-          "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/UAT-6275-Header.jpg"
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRRY0Y0x4bBS7xZHNvUUjosK6tuvOhbBbE9XvaoyiONRttpSxhIwBaCgDpNKo9kMR37n1_8wKUXzpzL6KhmNC0OJsGZapzAaAteSFlbasNFzCM6XZXsSU99yOk6e2oR7tzG_3p_1-V04tnDyhhtGaBUJSviR-xaJh6mg4E-KT5gwR7_x3JmO-DDfM6-7ic/s1700-nu-rw-lo-l85-e365/laptop-farm.jpg"
         }
       ]
     }

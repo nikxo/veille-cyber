@@ -10080,17 +10080,17 @@
       "id": "2026-10-12-ledger-cryptobilis-implant",
       "title": "Ledger : implant matériel trouvé dans un portefeuille vendu par CryptoBilis, fonds volés",
       "created": "2026-10-12T13:20:00+00:00",
-      "updated": "2026-10-13T14:30:00+00:00",
-      "version": 4,
-      "resume": "Ledger a trouvé un implant matériel non autorisé dans l'appareil d'un utilisateur touché, vendu via le revendeur CryptoBilis. Des fonds ont été volés, plus de 86 millions de dollars selon un enquêteur [1].",
+      "updated": "2026-10-14T18:15:00+00:00",
+      "version": 5,
+      "resume": "Ledger a trouvé un implant matériel non autorisé dans l'appareil d'un utilisateur touché, vendu via CryptoBilis. Des fonds ont été volés, plus de 86 millions de dollars selon un enquêteur [1]. Ledger fait suspendre les ventes en Asie [5].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Implant matériel sur des appareils vendus par CryptoBilis ; l'article indique qu'une personne de la chaîne de distribution l'a apparemment soudé [1, 2, 3]."
+          "texte": "Implant matériel sur des appareils altérés chez le revendeur CryptoBilis ; l'article indique qu'une personne de la chaîne de distribution l'a apparemment soudé [1, 2, 3, 5]."
         },
         {
           "etape": "Capture des secrets",
-          "texte": "Lecture de l'écran → phrase de récupération de 24 mots transmise par réseau mobile, avec une eSIM intégrée [2, 3, 4]."
+          "texte": "Le microcontrôleur de l'implant décode la phrase de récupération de 24 mots → transmission par réseau mobile avec une eSIM, sans toucher à l'élément sécurisé ni aux signatures [2, 3, 4, 5]."
         },
         {
           "etape": "Vol de fonds",
@@ -10180,6 +10180,13 @@
           "url": "https://therecord.media/ledger-cryptocurrency-wallet-implant-theft",
           "date": "2026-10-13",
           "image": "https://cms.therecord.media/uploads/LEDGER_240515_EJEANNE_040_WIDE_ANGLE_WOMAN_HAND_013_952ccd372b.jpg"
+        },
+        {
+          "titre": "Ledger asks sellers across Asia to halt sales after supply-chain attack",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/ledger-asks-sellers-across-asia-to-halt-sales-after-supply-chain-attack/",
+          "date": "2026-10-14",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/ledger.jpg"
         }
       ]
     },
@@ -11850,6 +11857,87 @@
           "url": "https://thehackernews.com/2026/10/us-shuts-down-over-40-laptop-farms.html",
           "date": "2026-10-14",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRRY0Y0x4bBS7xZHNvUUjosK6tuvOhbBbE9XvaoyiONRttpSxhIwBaCgDpNKo9kMR37n1_8wKUXzpzL6KhmNC0OJsGZapzAaAteSFlbasNFzCM6XZXsSU99yOk6e2oR7tzG_3p_1-V04tnDyhhtGaBUJSviR-xaJh6mg4E-KT5gwR7_x3JmO-DDfM6-7ic/s1700-nu-rw-lo-l85-e365/laptop-farm.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-14-cisco-secure-email-gateway-zero-day",
+      "title": "Cisco Secure Email Gateway : faille zero-day exploitée pour exécuter des commandes root",
+      "created": "2026-10-14T18:15:00+00:00",
+      "updated": "2026-10-14T18:15:00+00:00",
+      "version": 1,
+      "resume": "Des attaquants exploitent une faille de Cisco Secure Email Gateway pour exécuter des commandes root sur l'appareil, sans authentification, au moyen d'un e-mail piégé. Cisco a publié un correctif le 14 octobre [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "E-mail avec pièce jointe spécialement conçue, reçu par un appareil non corrigé → déclenchement de la faille dans le traitement des pièces jointes [1]."
+        },
+        {
+          "etape": "Écriture de fichiers",
+          "texte": "Faille de traversée de chemin relatif dans Advanced Malware Protection → écriture de fichiers arbitraires sur le système sous-jacent [1]."
+        },
+        {
+          "etape": "Exécution de commandes root",
+          "texte": "Exploitation de la faille sans authentification → exécution de commandes avec privilèges root sur le système d'exploitation [1]."
+        },
+        {
+          "etape": "Effacement des traces",
+          "texte": "Cisco indique que les attaquants peuvent supprimer les preuves après avoir obtenu l'exécution root [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "gw",
+            "type": "passerelle",
+            "zone": "expose",
+            "nom": "Cisco Secure Email Gateway",
+            "note": "Non corrigé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gw",
+            "etape": 1,
+            "texte": "E-mail avec pièce jointe piégée"
+          },
+          {
+            "de": "att",
+            "vers": "gw",
+            "etape": 3,
+            "texte": "Commandes root, traces effaçables"
+          }
+        ]
+      },
+      "limites": "L'article ne nomme ni l'acteur ni les victimes, et ne décrit aucune étape après l'exécution root, hormis l'effacement des traces possible [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-76519",
+          "explication": "Cisco Secure Email Gateway, fonction Advanced Malware Protection : traversée de chemin relatif permettant à un attaquant distant non authentifié d'exécuter des commandes root [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Cisco Secure Email Gateway ; Shadowserver suit près de 300 instances exposées en ligne [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Cisco patches new Secure Email Gateway zero-day exploited in attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cisco-patches-actively-exploited-secure-email-gateway-zero-day/",
+          "date": "2026-10-14",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/14/Cisco.jpg"
         }
       ]
     }

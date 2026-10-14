@@ -11414,8 +11414,8 @@
       "id": "2026-10-14-yam-store-cogui-iron-man-phishing",
       "title": "Démantèlement de YAM Store, CoGUI et Iron Man, services de phishing sinophones",
       "created": "2026-10-14T13:30:00+00:00",
-      "updated": "2026-10-14T15:30:00+00:00",
-      "version": 3,
+      "updated": "2026-10-14T19:08:13+00:00",
+      "version": 4,
       "resume": "Microsoft, Health-ISAC et leurs partenaires ont saisi des domaines de YAM Store, CoGUI et Iron Man, un écosystème de phishing sinophone [1, 2, 3]. Plus d'un milliard de messages malveillants ont été envoyés depuis janvier 2026 [1].",
       "chaine": [
         {
@@ -11428,7 +11428,7 @@
         },
         {
           "etape": "Vol d'identifiants",
-          "texte": "Kits interactifs : opérateurs suivant les victimes en direct, codes à usage unique demandés [1, 2] ; collecte en temps réel → identifiants et données de paiement volés [1, 2, 5]."
+          "texte": "Kits interactifs : opérateurs suivant les victimes en direct, codes à usage unique demandés [1, 2] ; saisies captées par WebSocket, alertes Telegram → identifiants et données de paiement volés [1, 2, 5, 6]."
         },
         {
           "etape": "Services revendus",
@@ -11507,7 +11507,8 @@
       ],
       "cibles": [
         "Japon en grande majorité, aussi États-Unis, Australie, Italie [2]",
-        "Plus de 75 000 organisations dans plus de 150 pays, dont la santé [1]"
+        "Plus de 75 000 organisations dans plus de 150 pays, dont la santé [1]",
+        "Santé, services financiers, distribution de gros, informatique au Japon, aux États-Unis, en Australie et en Inde [6]"
       ],
       "abreviations": [
         {
@@ -11529,6 +11530,14 @@
         {
           "sigle": "YAM",
           "definition": "Nom de la boutique YAM Store, qui revend comptes volés et kits de phishing"
+        },
+        {
+          "sigle": "WebSocket",
+          "definition": "Protocole de communication permanente entre un navigateur et un serveur"
+        },
+        {
+          "sigle": "Telegram",
+          "definition": "Application de messagerie instantanée"
         }
       ],
       "sources": [
@@ -11566,6 +11575,13 @@
           "url": "https://www.microsoft.com/en-us/security/blog/2026/10/14/the-hidden-network-inside-the-phishing-infrastructure-ecosystem-powering-global-cybercrime/",
           "date": "2026-10-14",
           "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/10/Storm-3119-and-Storm-2990-featured.png"
+        },
+        {
+          "titre": "Microsoft Disrupts 3 Phishing Kits Linked to Over 1 Billion Scam Messages",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/microsoft-disrupts-3-phishing-kits.html",
+          "date": "2026-10-14",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtmZA0sGFnGRVBoPOHXGNOr-Q1MpdbCUNVrfxBTV6z_URgCka1DOH4xcc_WuismhU3W1BEiostTKZetIhtrFyXrInKdz_jqK6Dtia5TDOqRiu4rkktKmF2Iz1br28coCyU3c5td-yrINUgjYIdwG-7q_n1fEZT_mumUoVBp2HfNPKHnqC3jTryRDL7hxAL/s1700-nu-rw-lo-l85-e365/phish-shop.jpg"
         }
       ]
     },
@@ -11865,21 +11881,21 @@
       "id": "2026-10-14-cisco-secure-email-gateway-zero-day",
       "title": "Cisco Secure Email Gateway : faille zero-day exploitée pour exécuter des commandes root",
       "created": "2026-10-14T18:15:00+00:00",
-      "updated": "2026-10-14T18:15:00+00:00",
-      "version": 1,
-      "resume": "Des attaquants exploitent une faille de Cisco Secure Email Gateway pour exécuter des commandes root sur l'appareil, sans authentification, au moyen d'un e-mail piégé. Cisco a publié un correctif le 14 octobre [1].",
+      "updated": "2026-10-14T19:08:13+00:00",
+      "version": 2,
+      "resume": "Des attaquants exploitent une faille de Cisco Secure Email Gateway pour écrire des fichiers sur l'appareil, puis exécuter des commandes root, sans authentification, au moyen d'un e-mail piégé. Cisco a publié un correctif le 14 octobre [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "E-mail avec pièce jointe spécialement conçue, reçu par un appareil non corrigé → déclenchement de la faille dans le traitement des pièces jointes [1]."
+          "texte": "E-mail avec pièce jointe spécialement conçue, reçu par un appareil non corrigé → déclenchement de la faille dans le traitement des pièces jointes [1, 2]."
         },
         {
           "etape": "Écriture de fichiers",
-          "texte": "Faille de traversée de chemin relatif dans Advanced Malware Protection → écriture de fichiers arbitraires sur le système sous-jacent [1]."
+          "texte": "Faille de traversée de chemin relatif dans Advanced Malware Protection → écriture de fichiers arbitraires sur le système sous-jacent [1, 2]."
         },
         {
           "etape": "Exécution de commandes root",
-          "texte": "Exploitation de la faille sans authentification → exécution de commandes avec privilèges root sur le système d'exploitation [1]."
+          "texte": "Exploitation de la faille sans authentification → exécution de commandes avec privilèges root sur le système d'exploitation [1, 2]."
         },
         {
           "etape": "Effacement des traces",
@@ -11918,17 +11934,18 @@
           }
         ]
       },
-      "limites": "L'article ne nomme ni l'acteur ni les victimes, et ne décrit aucune étape après l'exécution root, hormis l'effacement des traces possible [1].",
+      "limites": "L'acteur, le nombre d'appareils touchés et les étapes après l'exécution root ne sont pas précisés, hormis l'effacement des traces [1]. La source 2 ne dit pas si root a été obtenu sur un appareil [2].",
       "cves": [
         {
           "id": "CVE-2026-76519",
-          "explication": "Cisco Secure Email Gateway, fonction Advanced Malware Protection : traversée de chemin relatif permettant à un attaquant distant non authentifié d'exécuter des commandes root [1]."
+          "explication": "Cisco Secure Email Gateway, Advanced Malware Protection : traversée de chemin relatif permettant à un attaquant distant non authentifié d'exécuter des commandes root, gravité 9,8 sur 10 [1, 2]."
         }
       ],
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Cisco Secure Email Gateway ; Shadowserver suit près de 300 instances exposées en ligne [1]"
+        "Cisco Secure Email Gateway ; Shadowserver suit près de 300 instances exposées en ligne [1]",
+        "Clients Secure Email Cloud contactés pour des indicateurs de compromission possibles [2]"
       ],
       "abreviations": [],
       "sources": [
@@ -11938,6 +11955,108 @@
           "url": "https://www.bleepingcomputer.com/news/security/cisco-patches-actively-exploited-secure-email-gateway-zero-day/",
           "date": "2026-10-14",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/14/Cisco.jpg"
+        },
+        {
+          "titre": "Cisco Warns of Active Attacks Exploiting New Critical Secure Email Gateway Vulnerability",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/cisco-warns-of-active-attacks.html",
+          "date": "2026-10-14",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhh__fSqm3p4u0HNpmeikU6Mo4abprP417Zb3pPW3-6IGrTHwqkbz1CqiuqxL2D0O1PH8J4Ho3_ZpNdJ5VFluIj_KHX6qT0WqZYfHQzyu0cVzGee9EmAZ9pNzsZJZx40UxuKjuz9eNHvuzlMANKOkDr6aRdKWxs8SpJqSi6vDBQTP5ZFgpgqn3Yj2TYNJU/s1700-nu-rw-lo-l85-e365/cisco-0day.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-14-nextcloud-collabora-webshell",
+      "title": "Nextcloud : web shells déposés via l'application Collabora Online intégrée",
+      "created": "2026-10-14T19:08:13+00:00",
+      "updated": "2026-10-14T19:08:13+00:00",
+      "version": 1,
+      "resume": "Des attaquants ont déposé des web shells sur des serveurs Nextcloud en exploitant l'application optionnelle Collabora Online intégrée. La première attaque journalisée date du 10 septembre [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Requête non authentifiée vers proxy.php avec commande shell cachée dans le chemin, serveur de documents local arrêté → commande exécutée avec le compte du serveur web [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "La commande décode un web shell PHP d'une ligne et tente d'envoyer la sortie de uname -a à webhook.site → commandes arbitraires par requête web [1]."
+        },
+        {
+          "etape": "Recherche de secrets",
+          "texte": "Sur un serveur, recherche de coffres de mots de passe et de portefeuilles de cryptomonnaies → exfiltration non confirmée [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "nc",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur Nextcloud",
+            "note": "Web shell PHP"
+          },
+          {
+            "id": "dn",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Coffres et portefeuilles",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "nc",
+            "etape": 1,
+            "texte": "Requête vers proxy.php, commande cachée"
+          },
+          {
+            "de": "att",
+            "vers": "nc",
+            "etape": 2,
+            "texte": "Web shell PHP, commandes par requête web"
+          },
+          {
+            "de": "nc",
+            "vers": "dn",
+            "etape": 3,
+            "texte": "Recherche de coffres et portefeuilles"
+          }
+        ]
+      },
+      "limites": "Acteur et nombre de victimes non précisés. L'exfiltration n'est pas confirmée et aucune élévation de privilèges n'est observée [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-110447",
+          "explication": "Application Collabora Online intégrée de Nextcloud : exécution de commande sans authentification quand le serveur de documents local est arrêté ; exploitée en septembre et octobre 2026 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Serveurs Nextcloud utilisant l'application Collabora Online intégrée ; trois administrateurs ont signalé l'incident [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "PHP",
+          "definition": "Langage de programmation courant pour les sites web"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers Backdoor Nextcloud Servers Through Critical Flaw in Collabora’s Built-in CODE App",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html",
+          "date": "2026-10-14",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkZLcjmZtzt6NpWa8x4Wz7EdcOQEW6xYv6DA_mBnwy1ctZZeRAyeSYLES-H_mkr1QOBv72WNuGKwKQ-NN179Rw8BRTcYO38sYwxcbDkg1ISW_qWrCRJ9JfUXh3102OmwrF0HQq6dbSc58VXACXoi_EoI8ysPuSlzB_nBcHuFl9r3QakOsGG9GUm6UVOU8/s1700-nu-rw-lo-l85-e365/nextcloud.jpg"
         }
       ]
     }

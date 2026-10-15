@@ -13647,6 +13647,283 @@
           "image": "https://cms.therecord.media/uploads/pexels_sora_shimazaki_5668481_fedd1032f0.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-15-armory-castle-beyondtrust",
+      "title": "Armory Castle exploite en zero-day une faille de BeyondTrust Remote Support",
+      "created": "2026-10-15T22:20:00+00:00",
+      "updated": "2026-10-15T22:20:00+00:00",
+      "version": 1,
+      "resume": "Le groupe Armory Castle, suspecté d'espionnage lié à la Chine, a exploité en zero-day une faille des appliances BeyondTrust Remote Support à partir de fin août 2026, selon Mandiant [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de CVE-2026-102764 par des requêtes POST sur l'appliance Remote Support → webshell Sawfly créé environ 11 minutes après [1]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Copie de /bin/sh avec bit SUID activé → porte dérobée root et accès aux identifiants gérés par l'appliance [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Utilisation du binaire bt-secrets → extraction du coffre de secrets, comptes de service puis mots de passe globaux de l'appliance [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Script zz-root-persist ajoutant NOPASSWD au compte de service → persistance qui survit aux redémarrages et aux réinitialisations de configuration [1]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "Compte Administrator compromis, rôles Jump Items et Teams relevés à Administrator → sessions vers des systèmes internes et téléchargement de documents [1]."
+        },
+        {
+          "etape": "Tunnel vers Internet",
+          "texte": "Tunnel Bareclaw rendu accessible via haproxy.conf modifié → accès depuis Internet masqué aux scans externes [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Armory Castle)",
+            "note": ""
+          },
+          {
+            "id": "app",
+            "type": "passerelle",
+            "zone": "victime",
+            "nom": "Appliance BeyondTrust Remote Support",
+            "note": "Webshell, accès root"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Systèmes internes",
+            "note": "Documents téléchargés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 1,
+            "texte": "Exploitation de CVE-2026-102764"
+          },
+          {
+            "de": "app",
+            "vers": "pc",
+            "etape": 5,
+            "texte": "Sessions de support, téléchargement de documents"
+          },
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 6,
+            "texte": "Tunnel Bareclaw accessible depuis Internet"
+          }
+        ]
+      },
+      "limites": "La source ne nomme ni victimes ni secteurs touchés, ne cite aucune technique MITRE ATT&CK et ne donne pas de gravité pour la faille [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-102764",
+          "explication": "BeyondTrust Remote Support : envoi arbitraire de fichiers par un attaquant distant non authentifié, menant au contrôle de l'hôte ; versions jusqu'à 26.2.3 touchées [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Armory Castle, ex-UNC5221, suspecté d'espionnage lié à la Chine, actif depuis octobre 2023 au moins [1]"
+      ],
+      "cibles": [
+        "Appliances BeyondTrust Remote Support ; victimes non précisées [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SUID",
+          "definition": "Bit de permission faisant exécuter un fichier avec les droits de son propriétaire"
+        },
+        {
+          "sigle": "NOPASSWD",
+          "definition": "Option sudo permettant d'exécuter des commandes sans mot de passe"
+        },
+        {
+          "sigle": "POST",
+          "definition": "Méthode HTTP servant à envoyer des données à un serveur"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Armory Castle Exploits BeyondTrust",
+          "site": "Google Threat Intelligence (Mandiant)",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/armory-castle-exploits-beyondtrust/",
+          "date": "2026-10-15",
+          "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-15-cl-unk-1211-linux-gouvernement",
+      "title": "Campagne d'espionnage CL-UNK-1211 contre des serveurs Linux gouvernementaux",
+      "created": "2026-10-15T22:20:00+00:00",
+      "updated": "2026-10-15T22:20:00+00:00",
+      "version": 1,
+      "resume": "Unit 42 décrit CL-UNK-1211, une campagne d'espionnage visant des entités gouvernementales, surtout des serveurs Linux et des bases de données, observée d'octobre 2025 à avril 2026 [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Web shells personnalisés et open source déployés sur des serveurs Linux ; moyen d'entrée non précisé [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Directive PHP auto_prepend_file modifiée → script malveillant exécuté avant tout autre script PHP ; clé publique SSH ajoutée à authorized_keys [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Alias sudo piégé dans .bashrc et journalisation ajoutée à une page de connexion PHP → mots de passe et identifiants administrateur capturés [1]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Recherche avec LinPEAS puis exploitation de CVE-2021-4034 → accès root [1]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "xp_cmdshell activé sur un serveur MSSQL interne, rebond via sqlcmd vers un second sous-réseau, sshpass pour pivoter entre cibles SSH [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Tables exportées en CSV, compressées en tar.gz et envoyées via netcat ; tentatives d'envoi vers des services de partage de fichiers [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (CL-UNK-1211)",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveurs Linux",
+            "note": "Web shells, PHP modifié"
+          },
+          {
+            "id": "sql",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur MSSQL interne",
+            "note": "xp_cmdshell activé"
+          },
+          {
+            "id": "sub",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Second sous-réseau",
+            "note": ""
+          },
+          {
+            "id": "ext",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Services de partage de fichiers",
+            "note": "Tentatives d'envoi"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 1,
+            "texte": "Web shells déployés"
+          },
+          {
+            "de": "srv",
+            "vers": "sql",
+            "etape": 5,
+            "texte": "Rebond vers le serveur MSSQL"
+          },
+          {
+            "de": "sql",
+            "vers": "sub",
+            "etape": 5,
+            "texte": "Rebond via sqlcmd"
+          },
+          {
+            "de": "srv",
+            "vers": "ext",
+            "etape": 6,
+            "texte": "Envoi des données exportées"
+          }
+        ]
+      },
+      "limites": "L'article ne mentionne pas de chiffrement et ne confirme pas la réussite complète de l'exfiltration [1].",
+      "cves": [
+        {
+          "id": "CVE-2021-4034",
+          "explication": "Faille d'escalade de privilèges locale (PwnKit), exploitée ici pour obtenir root [1]."
+        },
+        {
+          "id": "CVE-2025-55182",
+          "explication": "React Server Components : désérialisation non sécurisée permettant d'exécuter du code sans authentification, gravité 10 sur 10 [2]. Cible d'un scanner des attaquants [1]."
+        }
+      ],
+      "mitre": [
+        "T1070.006 Timestomping : falsification des dates de fichiers avec touch -t [1]."
+      ],
+      "acteurs": [
+        "CL-UNK-1211, affiliation non déterminée par Unit 42 [1]"
+      ],
+      "cibles": [
+        "Entités gouvernementales et infrastructures affiliées à des États ; pays non précisés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "PHP",
+          "definition": "Langage de programmation de sites web côté serveur"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Protocole d'accès distant sécurisé à un serveur"
+        },
+        {
+          "sigle": "MSSQL",
+          "definition": "Microsoft SQL Server, serveur de bases de données"
+        },
+        {
+          "sigle": "CSV",
+          "definition": "Format de fichier de tableau en texte brut"
+        },
+        {
+          "sigle": "LinPEAS",
+          "definition": "Script qui recherche des voies d'élévation de privilèges sous Linux"
+        },
+        {
+          "sigle": "xp_cmdshell",
+          "definition": "Fonction de SQL Server exécutant des commandes système"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "AI-Powered Espionage Campaign Targets Government Linux Infrastructure",
+          "site": "Unit 42 (Palo Alto Networks)",
+          "url": "https://unit42.paloaltonetworks.com/ai-campaign-targets-linux-infrastructure/",
+          "date": "2026-10-15",
+          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/10/AdobeStock_637057734.jpg"
+        },
+        {
+          "titre": "Fiche NVD CVE-2025-55182",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55182"
+        }
+      ]
     }
   ]
 }

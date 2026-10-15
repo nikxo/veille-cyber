@@ -10824,21 +10824,21 @@
       "id": "2026-10-14-nextcloud-collabora-webshell",
       "title": "Nextcloud : web shells déposés via l'application Collabora Online intégrée",
       "created": "2026-10-14T19:08:13+00:00",
-      "updated": "2026-10-14T19:08:13+00:00",
-      "version": 1,
-      "resume": "Des attaquants ont déposé des web shells sur des serveurs Nextcloud en exploitant l'application optionnelle Collabora Online intégrée. La première attaque journalisée date du 10 septembre [1].",
+      "updated": "2026-10-15T21:20:00+00:00",
+      "version": 2,
+      "resume": "Des attaquants ont déposé des web shells sur des serveurs Nextcloud en exploitant l'application optionnelle Collabora Online intégrée. Des administrateurs signalent des attaques dès le 10 septembre [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Requête non authentifiée vers proxy.php avec commande shell cachée dans le chemin, serveur de documents local arrêté → commande exécutée avec le compte du serveur web [1]."
+          "texte": "Requête non authentifiée vers proxy.php avec commande shell cachée dans le chemin, serveur de documents local arrêté → commande exécutée avec le compte du serveur web [1, 2]."
         },
         {
           "etape": "Persistance",
-          "texte": "La commande décode un web shell PHP d'une ligne et tente d'envoyer la sortie de uname -a à webhook.site → commandes arbitraires par requête web [1]."
+          "texte": "Dépôt de web shells PHP, dont un d'une ligne qui tente d'envoyer la sortie de uname -a à webhook.site → commandes arbitraires par requête web [1, 2]."
         },
         {
           "etape": "Recherche de secrets",
-          "texte": "Sur un serveur, recherche de coffres de mots de passe et de portefeuilles de cryptomonnaies → exfiltration non confirmée [1]."
+          "texte": "Recherche de coffres de mots de passe et de portefeuilles de cryptomonnaies → exfiltration non confirmée [1, 2]."
         }
       ],
       "parcours": {
@@ -10886,17 +10886,17 @@
           }
         ]
       },
-      "limites": "Acteur et nombre de victimes non précisés. L'exfiltration n'est pas confirmée et aucune élévation de privilèges n'est observée [1].",
+      "limites": "Acteur et nombre de victimes non précisés. Des utilisateurs évoquent un rançongiciel, que BleepingComputer n'a pas pu confirmer. Nextcloud dit ne pas voir d'exploitation généralisée [2].",
       "cves": [
         {
           "id": "CVE-2026-110447",
-          "explication": "Application Collabora Online intégrée de Nextcloud : exécution de commande sans authentification quand le serveur de documents local est arrêté ; exploitée en septembre et octobre 2026 [1]."
+          "explication": "Application Collabora Online intégrée de Nextcloud, versions antérieures à 26.4.303 : injection de commandes sans authentification, gravité critique ; exploitée en septembre et octobre 2026 [1, 2]."
         }
       ],
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Serveurs Nextcloud utilisant l'application Collabora Online intégrée ; trois administrateurs ont signalé l'incident [1]"
+        "Serveurs Nextcloud utilisant l'application Collabora Online intégrée ; plusieurs administrateurs ont signalé des attaques [1, 2]"
       ],
       "abreviations": [
         {
@@ -10911,6 +10911,13 @@
           "url": "https://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html",
           "date": "2026-10-14",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkZLcjmZtzt6NpWa8x4Wz7EdcOQEW6xYv6DA_mBnwy1ctZZeRAyeSYLES-H_mkr1QOBv72WNuGKwKQ-NN179Rw8BRTcYO38sYwxcbDkg1ISW_qWrCRJ9JfUXh3102OmwrF0HQq6dbSc58VXACXoi_EoI8ysPuSlzB_nBcHuFl9r3QakOsGG9GUm6UVOU8/s1700-nu-rw-lo-l85-e365/nextcloud.jpg"
+        },
+        {
+          "titre": "Hackers exploit Collabora RCE flaw to backdoor Nextcloud servers",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-collabora-rce-flaw-to-backdoor-nextcloud-servers/",
+          "date": "2026-10-15",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/15/nextcloud.jpg"
         }
       ]
     },
@@ -13558,6 +13565,86 @@
           "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-d-link-ubiquiti-devices-to-resell-your-stolen-bandwidth/",
           "date": "2026-10-15",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/15/intrernet.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-15-bae-systems-tribunaux-faillite",
+      "title": "Tribunaux de faillite américains : cyberattaque contre le prestataire BAE Systems",
+      "created": "2026-10-15T21:20:00+00:00",
+      "updated": "2026-10-15T21:20:00+00:00",
+      "version": 1,
+      "resume": "Une cyberattaque contre le prestataire BAE Systems a interrompu le système Bankruptcy Noticing Center, qui produit les notifications de tous les tribunaux fédéraux de faillite américains [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Interruption du service",
+          "texte": "Cyberattaque chez le prestataire → accès au système et à ses sites indisponibles, production des notifications arrêtée [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "bnc",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Système Noticing Center (BAE)",
+            "note": "Hors service"
+          },
+          {
+            "id": "tr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Tribunaux fédéraux de faillite",
+            "note": "Plus de notifications"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "bnc",
+            "etape": 1,
+            "texte": "Mode d'accès non précisé"
+          },
+          {
+            "de": "bnc",
+            "vers": "tr",
+            "etape": 2,
+            "texte": "Production des notifications arrêtée"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur, ni l'acteur, ni la date, ni un éventuel vol de données. BAE affirme que l'incident est isolé à ce système [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "BAE Systems (Bankruptcy Noticing Center) et les tribunaux fédéraux de faillite américains [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "BAE",
+          "definition": "Nom du prestataire cité par la source (BAE Systems)"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Federal bankruptcy courts dealing with outages after contractor cyberattack",
+          "site": "The Record",
+          "url": "https://therecord.media/federal-bankruptcy-courts-dealing-with-cyberattack-outage",
+          "date": "2026-10-15",
+          "image": "https://cms.therecord.media/uploads/pexels_sora_shimazaki_5668481_fedd1032f0.jpg"
         }
       ]
     }

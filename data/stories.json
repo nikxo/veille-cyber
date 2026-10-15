@@ -11317,8 +11317,8 @@
       "id": "2026-10-13-ivanti-connect-secure-uta0576",
       "title": "Ivanti Connect Secure : chaîne de failles zero-day exploitée par UTA0576",
       "created": "2026-10-13T16:09:31+00:00",
-      "updated": "2026-10-14T22:10:00+00:00",
-      "version": 6,
+      "updated": "2026-10-15T18:20:00+00:00",
+      "version": 7,
       "resume": "Un acteur suivi sous le nom UTA0576 a exploité une chaîne de failles zero-day sur une passerelle VPN Ivanti Connect Secure d'un client de Volexity [1]. La CISA demande une mise à jour immédiate [6, 7, 8] ; le CERT-FR conseille d'isoler l'appareil [9].",
       "chaine": [
         {
@@ -11331,7 +11331,7 @@
         },
         {
           "etape": "Effacement des traces",
-          "texte": "Suppression d'entrées dans les journaux debuglog et audit.log et nettoyage de fichiers temporaires [1]."
+          "texte": "Suppression d'entrées dans les journaux debuglog et audit.log et nettoyage de fichiers temporaires [1, 11]."
         },
         {
           "etape": "Vol d'identifiants",
@@ -11339,7 +11339,7 @@
         },
         {
           "etape": "Attaques sur les comptes",
-          "texte": "Kerberoasting et password spraying [1] ; recherche de mots de passe LAPS et de clés de récupération BitLocker dans l'annuaire [5, 6]."
+          "texte": "Kerberoasting et password spraying [1] ; recherche de mots de passe LAPS et de clés de récupération BitLocker dans l'annuaire [5, 6, 11]."
         },
         {
           "etape": "Vol de données",
@@ -11506,6 +11506,13 @@
           "site": "Dark Reading",
           "url": "https://www.darkreading.com/vulnerabilities-threats/ivanti-ics-zero-day-attacks-vendor-patching",
           "date": "2026-10-14"
+        },
+        {
+          "titre": "Ivanti Connect Secure : avancez à la case patch",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366652314/Ivanti-Connect-Secure-avancez-a-la-case-patch",
+          "date": "2026-10-15",
+          "image": "https://www.lemagit.fr/visuals/German/article/HERO-Netzwerk-Tawanboonnak-Adobe-Stock-05.jpg"
         }
       ]
     },
@@ -13310,6 +13317,101 @@
           "url": "https://thehackernews.com/2026/10/citizen-lab-traces-zero-click-candiru.html",
           "date": "2026-10-15",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgE0PuxlZklu67SsXNfh_vZefiytkMx159npHL_6Ln3dNT0yxzyYE55zZU5SMOFGk39ZqhfWzXpYQfXdoZB0gGYdkoPu3cNactAPL9ZuCWdb_v4Hp4ZkoBLtEnzBovntpudGiQZvIwTucBgDRwNzfVR5SNybyZvTANvdqsDPjHVoUQcV3hrBNm0-YMvZK0/s1700-nu-rw-lo-l85-e365/spyware-ads.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-15-arch-aur-yay-paru",
+      "title": "Arch Linux : faux paquets yay et paru dans l'AUR exécutant un script en root",
+      "created": "2026-10-15T18:20:00+00:00",
+      "updated": "2026-10-15T18:20:00+00:00",
+      "version": 1,
+      "resume": "Un utilisateur nommé marchos1as a déposé dans l'AUR des paquets imitant les outils yay et paru. Leur script d'installation exécute un script distant avec les droits root [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Paquets AUR aux noms imitant yay et paru, installés par des utilisateurs → script d'installation malveillant exécuté [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Le script d'installation lance un script shell distant, récupéré via une adresse Wayback Machine pointant vers GitFlic → exécution avec les droits root [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (marchos1as)",
+            "note": ""
+          },
+          {
+            "id": "aur",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Dépôt communautaire AUR",
+            "note": "Paquets imités"
+          },
+          {
+            "id": "git",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Dépôt GitFlic",
+            "note": "Script distant"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines Arch Linux",
+            "note": "Exécution en root"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "aur",
+            "etape": 1,
+            "texte": "Dépôt de paquets imitant yay et paru"
+          },
+          {
+            "de": "aur",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Installation du paquet par l'utilisateur"
+          },
+          {
+            "de": "git",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Script shell récupéré et exécuté en root"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le comportement du script après son exécution, ni le nombre de victimes. Un lien avec la campagne DirtyBlanket n'est pas confirmé [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Compte marchos1as, sans autre attribution [1]"
+      ],
+      "cibles": [
+        "Utilisateurs d'Arch Linux ayant installé les paquets [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "AUR",
+          "definition": "Arch User Repository : dépôt de paquets proposés par la communauté Arch Linux"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Fake Arch Linux packages push malware with root privileges",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fake-arch-linux-packages-push-malware-with-root-privileges/",
+          "date": "2026-10-15",
+          "image": "https://www.bleepstatic.com/content/hl-images/2025/07/18/arch-linux-white.jpg"
         }
       ]
     }

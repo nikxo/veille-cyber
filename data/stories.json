@@ -12868,6 +12868,136 @@
           "image": "https://www.securityweek.com/wp-content/uploads/2024/11/android-banking-malware.png"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-15-cikabika-bot-discord",
+      "title": "CikaBika Bot : un RAT en Rust piloté via Discord et diffusé par hameçonnage",
+      "created": "2026-10-15T12:06:50+00:00",
+      "updated": "2026-10-15T12:06:50+00:00",
+      "version": 1,
+      "resume": "Darktrace décrit CikaBika Bot, un RAT écrit en Rust livré par hameçonnage, qui utilise Discord comme canal de commande et permet reconnaissance, exécution à distance et vol de données [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Hameçonnage : PDF contenant une image disque avec un raccourci Windows déguisé en document Word → affichage d'un leurre et lancement caché de PowerShell [1]."
+        },
+        {
+          "etape": "Chargement du malware",
+          "texte": "PowerShell décode un exécutable intégré contenant une DLL Rust et un script de déploiement → fichiers écrits dans des dossiers temporaires [1]."
+        },
+        {
+          "etape": "Déploiement de la DLL",
+          "texte": "Le script tente de déplacer la DLL dans le répertoire protégé d'Edge [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Le RAT s'enregistre auprès de Discord → l'opérateur exécute des commandes, gère processus et fichiers, et active écran, caméra et diffusion [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Collecte d'informations système et capture d'écran, puis répertoires compressés en ZIP et envoyés via Ngrok, avec demande de documents précis [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de la victime",
+            "note": "RAT installé"
+          },
+          {
+            "id": "dc",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Discord",
+            "note": "Canal de commande"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "PDF piégé reçu par hameçonnage"
+          },
+          {
+            "de": "pc",
+            "vers": "dc",
+            "etape": 4,
+            "texte": "Le RAT s'enregistre auprès de Discord"
+          },
+          {
+            "de": "dc",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Commandes et surveillance à distance"
+          },
+          {
+            "de": "pc",
+            "vers": "att",
+            "etape": 5,
+            "texte": "Archives ZIP envoyées via Ngrok"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment aucun acteur, aucune victime ni aucune date d'attaque [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non nommé par les sources [1]"
+      ],
+      "cibles": [
+        "Non précisées par les sources [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "RAT",
+          "definition": "Remote Access Trojan : logiciel malveillant donnant le contrôle à distance d'une machine"
+        },
+        {
+          "sigle": "PDF",
+          "definition": "Format de document portable"
+        },
+        {
+          "sigle": "DLL",
+          "definition": "Bibliothèque de code Windows chargée par des programmes"
+        },
+        {
+          "sigle": "ZIP",
+          "definition": "Format d'archive compressée"
+        },
+        {
+          "sigle": "PowerShell",
+          "definition": "Interpréteur de commandes et de scripts de Windows"
+        },
+        {
+          "sigle": "Ngrok",
+          "definition": "Service de tunnel réseau reliant une machine à Internet"
+        },
+        {
+          "sigle": "Discord",
+          "definition": "Service de messagerie en ligne"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CikaBika Bot RAT Uses Discord for C&C",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/cikabika-bot-rat-uses-discord-for-cc/",
+          "date": "2026-10-15",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/11/malware.jpeg"
+        }
+      ]
     }
   ]
 }

@@ -12764,6 +12764,110 @@
           "image": "https://www.securityweek.com/wp-content/uploads/2026/09/CenterPoint-Energy.jpeg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-15-hirudo-android-banque-indonesie",
+      "title": "Hirudo : cheval de Troie Android qui remplace des applications bancaires indonésiennes par des copies modifiées",
+      "created": "2026-10-15T11:07:17+00:00",
+      "updated": "2026-10-15T11:07:17+00:00",
+      "version": 1,
+      "resume": "Le logiciel malveillant Hirudo, analysé par ThreatFabric, combine cheval de Troie bancaire et contrôle à distance du téléphone Android. Il cible huit applications bancaires indonésiennes [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Un dropper caché dans une fausse application (shopping, vidéos pour adultes ou courts métrages) annoncée sur les réseaux sociaux → installation de Hirudo [1]."
+        },
+        {
+          "etape": "Remplacement de l'application bancaire",
+          "texte": "Fausse invite de mise à jour, désinstallation de la vraie application, téléchargement d'une version modifiée → contrôles de sécurité de l'application contournés [1]."
+        },
+        {
+          "etape": "Neutralisation des contrôles",
+          "texte": "Un moteur de hooking falsifie la vérification de signature, masque les services d'accessibilité et contourne les contrôles de capture d'écran et de Play Integrity [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Identifiants saisis dans l'application bancaire dérobés, messages SMS des 90 derniers jours analysés, expéditeurs de banques et portefeuilles électroniques collectés [1]."
+        },
+        {
+          "etape": "Contrôle à distance",
+          "texte": "Via WebRTC : écran visible en direct, accès aux caméras, interaction à distance par les services d'accessibilité Android [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "tel",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Téléphone Android de la victime",
+            "note": "Application modifiée"
+          },
+          {
+            "id": "bk",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Application bancaire indonésienne",
+            "note": "Remplacée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "tel",
+            "etape": 1,
+            "texte": "Dropper dans une fausse application"
+          },
+          {
+            "de": "tel",
+            "vers": "bk",
+            "etape": 2,
+            "texte": "Vraie application remplacée par une copie modifiée"
+          },
+          {
+            "de": "att",
+            "vers": "tel",
+            "etape": 5,
+            "texte": "Écran et caméras contrôlés à distance"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment aucun acteur et ne donnent pas de date de première détection ni le nombre de victimes [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non nommé par la source [1]"
+      ],
+      "cibles": [
+        "Utilisateurs de huit applications bancaires indonésiennes ; banques de Chine, Inde, Mexique, Maroc et Thaïlande visées dans le code [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "WebRTC",
+          "definition": "Technologie de communication en temps réel (flux vidéo) utilisée pour voir l'écran à distance"
+        },
+        {
+          "sigle": "SMS",
+          "definition": "Message texte envoyé par le réseau téléphonique"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Novel Android RAT ‘Hirudo’ Replaces Banking Apps With Trojanized Copies",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/novel-android-banking-rat-hirudo-replaces-banking-apps-with-trojanized-copies/",
+          "date": "2026-10-15",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/11/android-banking-malware.png"
+        }
+      ]
     }
   ]
 }

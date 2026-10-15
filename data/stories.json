@@ -7928,185 +7928,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-10-09-ahsaycbs-webshell-xmrig",
-      "title": "Failles AhsayCBS exploitées pour déposer un webshell et un mineur XMRig",
-      "created": "2026-10-09T08:20:00+00:00",
-      "updated": "2026-10-15T09:08:16+00:00",
-      "version": 5,
-      "resume": "Des attaquants exploitent deux failles du logiciel de sauvegarde AhsayCBS exposé sur Internet pour exécuter du code, déposer un webshell et installer un mineur de Monero. Au moins cinq organisations sont touchées [1, 2, 3, 4].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Enchaînement de CVE-2026-105133 et CVE-2026-105134 sur AhsayCBS exposé sur Internet → exécution de code à distance sans authentification, avec les privilèges SYSTEM [1, 2]."
-        },
-        {
-          "etape": "Persistance",
-          "texte": "Récepteur de réplication malveillant et webshell JSP déposé dans le répertoire de l'application → accès maintenu au serveur [1]."
-        },
-        {
-          "etape": "Téléchargement d'outils",
-          "texte": "Utilisation de curl et certutil depuis un stockage Alibaba Cloud → récupération du mineur, d'un script et d'un pilote dans le dossier Temp [1]."
-        },
-        {
-          "etape": "Persistance du mineur",
-          "texte": "Service Windows MicrosoftEdgeUpdateSvc lançant une copie modifiée de NSSM → mineur relancé après un crash ou un redémarrage [1, 4]."
-        },
-        {
-          "etape": "Minage de cryptomonnaie",
-          "texte": "XMRig déguisé en Edge, connecté à un pool Monero sur le port 8029 [1]."
-        },
-        {
-          "etape": "Dissimulation",
-          "texte": "Un script arrête le minage quand le Gestionnaire des tâches est ouvert → mineur moins visible [1, 3, 4]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "ahsay",
-            "type": "serveur",
-            "zone": "expose",
-            "nom": "Serveur AhsayCBS",
-            "note": "Webshell JSP"
-          },
-          {
-            "id": "stock",
-            "type": "cloud",
-            "zone": "internet",
-            "nom": "Stockage Alibaba Cloud",
-            "note": "Outils hébergés"
-          },
-          {
-            "id": "pool",
-            "type": "cloud",
-            "zone": "internet",
-            "nom": "Pool Monero",
-            "note": "Port 8029"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "ahsay",
-            "etape": 1,
-            "texte": "Exploitation des deux failles AhsayCBS"
-          },
-          {
-            "de": "att",
-            "vers": "ahsay",
-            "etape": 2,
-            "texte": "Webshell et récepteur de réplication déposés"
-          },
-          {
-            "de": "stock",
-            "vers": "ahsay",
-            "etape": 3,
-            "texte": "Mineur, script et pilote téléchargés"
-          },
-          {
-            "de": "ahsay",
-            "vers": "pool",
-            "etape": 5,
-            "texte": "Mineur XMRig connecté au pool"
-          }
-        ]
-      },
-      "limites": "Aucun acteur nommé, ni mouvement latéral, exfiltration ou chiffrement [1, 2]. Ahsay dit que les correctifs d'août 2026 étaient incomplets ; hotfix 10.3.4.45 et 9.15.2.70 publiés [5].",
-      "cves": [
-        {
-          "id": "CVE-2026-105133",
-          "explication": "AhsayCBS jusqu'à 10.3.4 : authentification impropre dans la fonction checkSysPwd, gravité moyenne [1]."
-        },
-        {
-          "id": "CVE-2026-105134",
-          "explication": "AhsayCBS jusqu'à 10.3.4 : contournement d'authentification du récepteur de réplication menant à l'exécution de code sans authentification, gravité critique [1]."
-        }
-      ],
-      "mitre": [
-        "T1190 : exploitation d'une application exposée sur Internet [1]",
-        "T1505.003 : webshell [1]",
-        "T1543.003 : service Windows [1]",
-        "T1496.001 : détournement de ressources de calcul [1]"
-      ],
-      "acteurs": [
-        "Non mentionné [1]"
-      ],
-      "cibles": [
-        "Cinq organisations, secteur non précisé ; AhsayCBS est surtout utilisé par des MSP et intégrateurs [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "JSP",
-          "definition": "JavaServer Pages : pages web dynamiques exécutées côté serveur"
-        },
-        {
-          "sigle": "NSSM",
-          "definition": "Non-Sucking Service Manager : outil lançant un programme comme service Windows"
-        },
-        {
-          "sigle": "XMRig",
-          "definition": "Logiciel libre de minage de la cryptomonnaie Monero"
-        },
-        {
-          "sigle": "MSP",
-          "definition": "Prestataires qui gèrent à distance l'informatique de leurs clients"
-        },
-        {
-          "sigle": "SYSTEM",
-          "definition": "Compte Windows aux privilèges les plus élevés"
-        },
-        {
-          "sigle": "NVD",
-          "definition": "National Vulnerability Database : base américaine publique des failles"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Threat Actors Exploit Critical AhsayCBS Flaws to Drop Webshells and XMRig Cryptominer",
-          "site": "Huntress",
-          "url": "https://www.huntress.com/blog/ahsaycbs-flaws-exploit",
-          "date": "2026-10-08",
-          "image": "https://cdn.builder.io/api/v1/image/assets%2F3eb6f92aedf74f109c7b4b0897ec39a8%2F266936e4b61b4dd6821599adf741b9db"
-        },
-        {
-          "titre": "Unpatched AhsayCBS Vulnerabilities Exploited in the Wild",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/unpatched-ahsaycbs-vulnerabilities-exploited-in-the-wild/",
-          "date": "2026-10-09",
-          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-        },
-        {
-          "titre": "Attackers Exploit AhsayCBS Flaws to Deploy XMRig Miners Disguised as Microsoft Edge",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/attackers-exploit-ahsaycbs-flaws-to.html",
-          "date": "2026-10-09",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMpbMY9pFBnt6TekKFIlEqpeqQoPBjBuhu8rYuYtU7ce5P3LTFKwlv_F_BUDzfuuMu0gRU645YStocoUQnNtS11MoEIRrfxrgPZtShsFgr8YH1VYTtjPr2l6aHPFDBYPHJKLT-fa-KqaHGSJHeiDPKzUgA12IJH5zhAHpMnoGZc5Qsz9sJhCOB_3gYHQar/s1700-nu-rw-lo-l85-e365/edge.jpg"
-        },
-        {
-          "titre": "Unpatched AhsayCBS flaws exploited to deploy webshells, mine crypto",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/unpatched-ahsaycbs-flaws-exploited-to-deploy-webshells-mine-crypto/",
-          "date": "2026-10-09",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/hacker-box.jpg"
-        },
-        {
-          "titre": "AhsayCBS Flaws Exploited to Deploy Web Shells Get New Fixes After Incomplete Patches",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/ahsaycbs-flaws-exploited-to-deploy-web.html",
-          "date": "2026-10-15",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhH_5A4EPZ4VVdF4dve5fMe4BwreUmtWCJQrgMiBdiZyoFInoZK_nO6ouOwLMCyyQPrXWE4_n3NE39b4C2UQi-G4uE3ufyv7A9IEYEp9O3ggTu7AyDRzOqwVqhLjISLvOTasPiAcdFafFtL7B5uoKtm8GPeFFxrKDupGCoqZJ2o88sUmaGbjKk6E3sJgIKD/s1700-nu-rw-lo-l85-e365/backup.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-10-09-papercut-ng-contournement-auth",
       "title": "PaperCut NG : chaîne de failles exploitée et contournements de correctifs",
       "created": "2026-10-09T18:30:00+00:00",
@@ -8202,159 +8023,6 @@
           "url": "https://labs.watchtowr.com/death-by-a-thousand-papercuts-papercut-pre-auth-rce-chain-and-patch-bypasses-wt-2026-0141-0144-cve-2026-82077-cve-2026-82078-cve-2026-81578/",
           "date": "2026-10-09",
           "image": "https://storage.ghost.io/c/a0/dc/a0dcbbe4-0ae7-4d7e-90f7-ebbc3a0f5a84/content/images/size/w1200/2026/10/papercut.png"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-09-ghostaction-772-depots",
-      "title": "GhostAction : un workflow malveillant vole des secrets dans 772 dépôts GitHub",
-      "created": "2026-10-09T12:30:00+00:00",
-      "updated": "2026-10-15T09:08:16+00:00",
-      "version": 3,
-      "resume": "GhostAction a injecté un workflow voleur de secrets dans des dépôts GitHub : 772 dépôts selon les premières sources [1, 2], plus de 30 000 dépôts visés les 8 et 9 octobre selon GitGuardian [3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Jetons d'accès personnels volés ou identifiants issus d'infostealers → accès en écriture aux dépôts, puis ajout d'un workflow déguisé en audit de sécurité [3]."
-        },
-        {
-          "etape": "Vol de secrets",
-          "texte": "Recherche d'identifiants dans les fichiers et l'historique git → 2 577 secrets visés dans 772 dépôts [1, 2] ; 3 174 secrets visés dans les dépôts publics [3]."
-        },
-        {
-          "etape": "Exfiltration",
-          "texte": "Envoi des identifiants par curl vers une adresse IP codée en dur, en HTTP non chiffré [2]."
-        },
-        {
-          "etape": "Nouvelle vague d'octobre",
-          "texte": "Le 7 octobre, un compte pousse le workflow dans 27 dépôts, un autre dans 318 dépôts en 16 minutes [2]."
-        },
-        {
-          "etape": "Pic d'octobre",
-          "texte": "Déploiement en deux phases : 160 victimes déjà connues, puis environ 28 000 nouveaux dépôts 20 minutes plus tard [3]. GitHub bloque le workflow dès le 9 octobre [3]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (GhostAction)",
-            "note": ""
-          },
-          {
-            "id": "cpt",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Comptes GitHub de mainteneurs",
-            "note": "Compromis"
-          },
-          {
-            "id": "dep",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Dépôts GitHub publics",
-            "note": "Workflow malveillant"
-          },
-          {
-            "id": "exf",
-            "type": "serveur",
-            "zone": "internet",
-            "nom": "Serveur d'exfiltration",
-            "note": "Adresse IP fixe"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "cpt",
-            "etape": 1,
-            "texte": "Prise de contrôle des comptes"
-          },
-          {
-            "de": "cpt",
-            "vers": "dep",
-            "etape": 1,
-            "texte": "Ajout du workflow malveillant"
-          },
-          {
-            "de": "dep",
-            "vers": "exf",
-            "etape": 3,
-            "texte": "Secrets envoyés par curl en HTTP"
-          },
-          {
-            "de": "cpt",
-            "vers": "dep",
-            "etape": 5,
-            "texte": "Workflow poussé vers environ 28 000 dépôts"
-          }
-        ]
-      },
-      "limites": "Les chiffres diffèrent selon les sources (772 dépôts contre plus de 30 000) [1, 3]. Aucun acteur n'est nommé [1, 2, 3].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non nommé par les sources [1, 2, 3]"
-      ],
-      "cibles": [
-        "373 utilisateurs et organisations, entre le 31 août et le 30 septembre [1, 2]",
-        "Mainteneurs open source dont l'auteur de pyxel et celui d'athenadriver [2]",
-        "Plus de 30 000 dépôts et 3 000 utilisateurs ou organisations, les 8 et 9 octobre [3]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "GitHub Actions",
-          "definition": "Service d'automatisation de GitHub qui exécute des workflows dans les dépôts"
-        },
-        {
-          "sigle": "SSH",
-          "definition": "Protocole d'accès distant sécurisé à une machine"
-        },
-        {
-          "sigle": "AWS",
-          "definition": "Amazon Web Services : services de cloud d'Amazon"
-        },
-        {
-          "sigle": "curl",
-          "definition": "Outil en ligne de commande pour envoyer ou récupérer des données par le réseau"
-        },
-        {
-          "sigle": "HTTP",
-          "definition": "Protocole d'échange web, ici sans chiffrement"
-        },
-        {
-          "sigle": "IP",
-          "definition": "Adresse numérique qui identifie une machine sur le réseau"
-        },
-        {
-          "sigle": "infostealer",
-          "definition": "Logiciel malveillant qui vole identifiants et mots de passe sur un poste"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "In Other News: AI Used in Korean Bank Breaches, Poem-Guided Botnet, Empire Admin Gets 40 Years",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/in-other-news-ai-used-in-korean-bank-breaches-poem-guided-botnet-empire-admin-gets-40-years/",
-          "date": "2026-10-09",
-          "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
-        },
-        {
-          "titre": "Credential-Stealing GitHub Actions Workflows Planted in Tens of Thousands of Repositories",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/credential-stealing-github-actions.html",
-          "date": "2026-10-09",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoJXBEAVVijhwsYs32WSejvp0sG3ej-Qoi7Z6qHDp8rY5IZENkKOpexrbbU1BNyiCbbB0ZXHjEDL-UYqu7CDpPpoYLiGXkuLCZJTItgP5XeLD_Sb1galPzOGtrFZigEM5CGUbwi9gcL_-XCYY6NKu9j5FiakIWn5s66DZE-OjrLZO3sMGka3YNFvGUecJT/s1700-nu-rw-lo-l85-e365/gitworm.jpg"
-        },
-        {
-          "titre": "GhostAction Compromises About 1,900 GitHub Accounts, Targets Over 30,000 Repositories",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/ghostaction-compromises-about-1900.html",
-          "date": "2026-10-15",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiddFchlm_nV3vywI0BM2-8IaZb-wHXwE8DplGqZYkRmcYkeXiSLfVmnVAU-jM4yikWW7SWokanh_S4hq88cVHjAnaWDGkl3VVAtPdv9SHWp0MNb0CIOAA-I73EuwwUSE-wNMnXEzbIdDYorJn2hIuBZQ5Jh_5I2IntiXuUYZz3sKax-wfRoaxy_pD9kGx0/s1700-nu-rw-lo-l85-e365/ghost-git.jpg"
         }
       ]
     },
@@ -10106,121 +9774,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-10-12-ledger-cryptobilis-implant",
-      "title": "Ledger : implant matériel trouvé dans un portefeuille vendu par CryptoBilis, fonds volés",
-      "created": "2026-10-12T13:20:00+00:00",
-      "updated": "2026-10-14T18:15:00+00:00",
-      "version": 5,
-      "resume": "Ledger a trouvé un implant matériel non autorisé dans l'appareil d'un utilisateur touché, vendu via CryptoBilis. Des fonds ont été volés, plus de 86 millions de dollars selon un enquêteur [1]. Ledger fait suspendre les ventes en Asie [5].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Implant matériel sur des appareils altérés chez le revendeur CryptoBilis ; l'article indique qu'une personne de la chaîne de distribution l'a apparemment soudé [1, 2, 3, 5]."
-        },
-        {
-          "etape": "Capture des secrets",
-          "texte": "Le microcontrôleur de l'implant décode la phrase de récupération de 24 mots → transmission par réseau mobile avec une eSIM, sans toucher à l'élément sécurisé ni aux signatures [2, 3, 4, 5]."
-        },
-        {
-          "etape": "Vol de fonds",
-          "texte": "Fonds vidés le 9 octobre [4] chez des acheteurs de CryptoBilis → pertes de plus de 86 millions de dollars selon l'enquêteur Specter [1, 3]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (non identifié)",
-            "note": ""
-          },
-          {
-            "id": "hw",
-            "type": "poste",
-            "zone": "victime",
-            "nom": "Portefeuille matériel Ledger",
-            "note": "Implant matériel"
-          },
-          {
-            "id": "fonds",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Fonds des utilisateurs",
-            "note": "Plus de 86 M$"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "hw",
-            "etape": 1,
-            "texte": "Implant matériel, méthode non précisée"
-          },
-          {
-            "de": "hw",
-            "vers": "att",
-            "etape": 2,
-            "texte": "Phrase de récupération transmise par réseau mobile"
-          },
-          {
-            "de": "att",
-            "vers": "fonds",
-            "etape": 3,
-            "texte": "Fonds volés chez des acheteurs CryptoBilis"
-          }
-        ]
-      },
-      "limites": "Les sources ne disent ni quand l'implant a été installé ni qui en est l'auteur [1, 2, 4]. Ledger n'a confirmé ni le nombre de victimes ni le montant total [3, 4].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non identifié ; Ledger dit collaborer avec les autorités [2]"
-      ],
-      "cibles": [
-        "Utilisateurs d'Asie du Sud-Est ayant acheté des appareils Ledger chez CryptoBilis [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Ledger Finds Unauthorized Hardware Implant in CryptoBilis-Sold Wallet Amid Fund Theft Reports",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/ledger-finds-unauthorized-hardware.html",
-          "date": "2026-10-12",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4nzJQQovkKtR-dl3ihW4VRAfIxiKwNwwVEHyH06we8iIkQbaxVqhryWIwB9MflLHfBYAd_opklCfnkLxg-GKqB2yt4CisdNcf2lRvOoaYHo9Pa6m1OWatzNsFHmY1ICBH_0P2XX4ykgFE7Gqviz0C0_8J0Qqz36_3gygDyHbot9z5obuYEHunIFsZmPQV/s1700-nu-rw-lo-l85-e365/ledgers.jpg"
-        },
-        {
-          "titre": "Ledger confirms spy chip implant behind wallet crypto thefts",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/ledger-confirms-hardware-wallet-spy-implant-behind-crypto-thefts/",
-          "date": "2026-10-12",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/Ledger.jpg"
-        },
-        {
-          "titre": "$86 Million Crypto Heist Linked to Ledger Signer Hardware Implant",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/86-million-crypto-heist-linked-to-ledger-signer-hardware-implant/",
-          "date": "2026-10-13",
-          "image": "https://www.securityweek.com/wp-content/uploads/2024/01/cryptocurrency.jpeg"
-        },
-        {
-          "titre": "Ledger says hardware implant in cryptocurrency wallets stole recovery phrases",
-          "site": "The Record",
-          "url": "https://therecord.media/ledger-cryptocurrency-wallet-implant-theft",
-          "date": "2026-10-13",
-          "image": "https://cms.therecord.media/uploads/LEDGER_240515_EJEANNE_040_WIDE_ANGLE_WOMAN_HAND_013_952ccd372b.jpg"
-        },
-        {
-          "titre": "Ledger asks sellers across Asia to halt sales after supply-chain attack",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/ledger-asks-sellers-across-asia-to-halt-sales-after-supply-chain-attack/",
-          "date": "2026-10-14",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/ledger.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-10-13-bo-team-skynet-saint-petersbourg",
       "title": "BO Team revendique des attaques contre le fournisseur d'accès russe SkyNet",
       "created": "2026-10-13T14:30:00+00:00",
@@ -11153,32 +10706,24 @@
     },
     {
       "schema": 3,
-      "id": "2026-10-14-uat-6275-gouvernements-cei",
-      "title": "UAT-6275 vise des organisations gouvernementales de la CEI",
-      "created": "2026-10-14T14:08:31+00:00",
-      "updated": "2026-10-15T14:20:00+00:00",
-      "version": 2,
-      "resume": "Cisco Talos et Recorded Future décrivent l'activité de UAT-6275 contre des organisations gouvernementales de la Communauté des États indépendants [1]. The Record compte au moins huit campagnes depuis janvier 2025 dans neuf pays [2].",
+      "id": "2026-10-12-ledger-cryptobilis-implant",
+      "title": "Ledger : implant matériel trouvé dans un portefeuille vendu par CryptoBilis, fonds volés",
+      "created": "2026-10-12T13:20:00+00:00",
+      "updated": "2026-10-14T18:15:00+00:00",
+      "version": 5,
+      "resume": "Ledger a trouvé un implant matériel non autorisé dans l'appareil d'un utilisateur touché, vendu via CryptoBilis. Des fonds ont été volés, plus de 86 millions de dollars selon un enquêteur [1]. Ledger fait suspendre les ventes en Asie [5].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Selon la période : documents Word à macros, raccourci malveillant [1], courriels piégés parfois envoyés depuis des comptes gouvernementaux compromis [2], puis archive RAR exploitant CVE-2025-8088 en avril 2026 [1, 2]."
+          "texte": "Implant matériel sur des appareils altérés chez le revendeur CryptoBilis ; l'article indique qu'une personne de la chaîne de distribution l'a apparemment soudé [1, 2, 3, 5]."
         },
         {
-          "etape": "Téléchargement de code",
-          "texte": "Les macros téléchargent et exécutent un binaire de second étage ; un script hébergé sur GitHub fournit un accès shell distant [1]."
+          "etape": "Capture des secrets",
+          "texte": "Le microcontrôleur de l'implant décode la phrase de récupération de 24 mots → transmission par réseau mobile avec une eSIM, sans toucher à l'élément sécurisé ni aux signatures [2, 3, 4, 5]."
         },
         {
-          "etape": "Persistance",
-          "texte": "Tâches planifiées (juillet 2025) ; PickleShell dans le dossier Démarrage (avril 2026) → exécution à la prochaine ouverture de session [1, 2]."
-        },
-        {
-          "etape": "Accès distant",
-          "texte": "Reverse shells Chvost, Laplas et PickleShell → exécution de commandes [1]."
-        },
-        {
-          "etape": "Collecte d'identifiants",
-          "texte": "Site imitant l'Agence d'État azerbaïdjanaise pour les services publics, utilisé dans une campagne de collecte d'identifiants [1]."
+          "etape": "Vol de fonds",
+          "texte": "Fonds vidés le 9 octobre [4] chez des acheteurs de CryptoBilis → pertes de plus de 86 millions de dollars selon l'enquêteur Specter [1, 3]."
         }
       ],
       "parcours": {
@@ -11187,127 +10732,113 @@
             "id": "att",
             "type": "attaquant",
             "zone": "internet",
-            "nom": "Attaquant (UAT-6275)",
+            "nom": "Attaquant (non identifié)",
             "note": ""
           },
           {
-            "id": "gh",
-            "type": "cloud",
-            "zone": "internet",
-            "nom": "Script hébergé sur GitHub",
-            "note": ""
-          },
-          {
-            "id": "pc",
-            "type": "postes",
+            "id": "hw",
+            "type": "poste",
             "zone": "victime",
-            "nom": "Postes d'organisations publiques",
-            "note": "PickleShell, Démarrage"
+            "nom": "Portefeuille matériel Ledger",
+            "note": "Implant matériel"
           },
           {
-            "id": "fk",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Faux site d'agence azerbaïdjanaise",
-            "note": ""
+            "id": "fonds",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Fonds des utilisateurs",
+            "note": "Plus de 86 M$"
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "pc",
+            "vers": "hw",
             "etape": 1,
-            "texte": "Documents Word, raccourci, archive RAR piégés"
+            "texte": "Implant matériel, méthode non précisée"
           },
           {
-            "de": "gh",
-            "vers": "pc",
+            "de": "hw",
+            "vers": "att",
             "etape": 2,
-            "texte": "Script fournissant un accès shell distant"
+            "texte": "Phrase de récupération transmise par réseau mobile"
           },
           {
             "de": "att",
-            "vers": "pc",
-            "etape": 4,
-            "texte": "Reverse shells : exécution de commandes"
-          },
-          {
-            "de": "att",
-            "vers": "fk",
-            "etape": 5,
-            "texte": "Site imitant une agence, collecte d'identifiants"
+            "vers": "fonds",
+            "etape": 3,
+            "texte": "Fonds volés chez des acheteurs CryptoBilis"
           }
         ]
       },
-      "limites": "Mouvement latéral, élévation de privilèges et exfiltration non mentionnés [1, 2]. Une preuve de concept pour FortiWeb (CVE-2025-25257) a été retrouvée, sans exploitation décrite [1].",
-      "cves": [
-        {
-          "id": "CVE-2025-8088",
-          "explication": "WinRAR : faille exploitée via une archive RAR pour placer PickleShell dans le dossier Démarrage, première exploitation de vulnérabilité observée chez cet acteur [1, 2]."
-        },
-        {
-          "id": "CVE-2025-25257",
-          "explication": "FortiWeb : preuve de concept retrouvée dans l'infrastructure de l'acteur, utilisation dans une attaque non mentionnée [1]."
-        }
-      ],
+      "limites": "Les sources ne disent ni quand l'implant a été installé ni qui en est l'auteur [1, 2, 4]. Ledger n'a confirmé ni le nombre de victimes ni le montant total [3, 4].",
+      "cves": [],
       "mitre": [],
       "acteurs": [
-        "UAT-6275 (Cisco Talos), aussi TAG-193 (Recorded Future), lien avec le Kazakhstan évalué avec confiance moyenne [1, 2]"
+        "Non identifié ; Ledger dit collaborer avec les autorités [2]"
       ],
       "cibles": [
-        "Organisations gouvernementales de neuf pays de la Communauté des États indépendants, dont Russie, Biélorussie, Arménie, Ouzbékistan, Tadjikistan ; eau et énergie [1, 2]"
+        "Utilisateurs d'Asie du Sud-Est ayant acheté des appareils Ledger chez CryptoBilis [1]"
       ],
-      "abreviations": [
-        {
-          "sigle": "RAR",
-          "definition": "Format d'archive compressée"
-        },
-        {
-          "sigle": "CEI",
-          "definition": "Communauté des États indépendants, regroupement d'anciennes républiques soviétiques"
-        }
-      ],
+      "abreviations": [],
       "sources": [
         {
-          "titre": "Break the silence: Kazakhstan-nexus UAT-6275 targets CIS government organizations",
-          "site": "Cisco Talos",
-          "url": "https://blog.talosintelligence.com/break-the-silence-kazakhstan-nexus-uat-6275-targets-cis-government-organizations/",
-          "date": "2026-10-14",
-          "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/UAT-6275-Header.jpg"
+          "titre": "Ledger Finds Unauthorized Hardware Implant in CryptoBilis-Sold Wallet Amid Fund Theft Reports",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/ledger-finds-unauthorized-hardware.html",
+          "date": "2026-10-12",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4nzJQQovkKtR-dl3ihW4VRAfIxiKwNwwVEHyH06we8iIkQbaxVqhryWIwB9MflLHfBYAd_opklCfnkLxg-GKqB2yt4CisdNcf2lRvOoaYHo9Pa6m1OWatzNsFHmY1ICBH_0P2XX4ykgFE7Gqviz0C0_8J0Qqz36_3gygDyHbot9z5obuYEHunIFsZmPQV/s1700-nu-rw-lo-l85-e365/ledgers.jpg"
         },
         {
-          "titre": "Suspected Kazakhstan-linked hackers target governments across former Soviet states",
+          "titre": "Ledger confirms spy chip implant behind wallet crypto thefts",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/ledger-confirms-hardware-wallet-spy-implant-behind-crypto-thefts/",
+          "date": "2026-10-12",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/Ledger.jpg"
+        },
+        {
+          "titre": "$86 Million Crypto Heist Linked to Ledger Signer Hardware Implant",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/86-million-crypto-heist-linked-to-ledger-signer-hardware-implant/",
+          "date": "2026-10-13",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/01/cryptocurrency.jpeg"
+        },
+        {
+          "titre": "Ledger says hardware implant in cryptocurrency wallets stole recovery phrases",
           "site": "The Record",
-          "url": "https://therecord.media/suspected-kazakhstan-phishing-central-asia-espionage",
-          "date": "2026-10-15",
-          "image": "https://cms.therecord.media/uploads/Baiterek_paws_and_prints_unsplash_67789aeb4f.jpg"
+          "url": "https://therecord.media/ledger-cryptocurrency-wallet-implant-theft",
+          "date": "2026-10-13",
+          "image": "https://cms.therecord.media/uploads/LEDGER_240515_EJEANNE_040_WIDE_ANGLE_WOMAN_HAND_013_952ccd372b.jpg"
+        },
+        {
+          "titre": "Ledger asks sellers across Asia to halt sales after supply-chain attack",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/ledger-asks-sellers-across-asia-to-halt-sales-after-supply-chain-attack/",
+          "date": "2026-10-14",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/ledger.jpg"
         }
       ]
     },
     {
       "schema": 3,
-      "id": "2026-10-12-danfoss-froid-supermarches",
-      "title": "Régulation frigorifique Danfoss détournée : stocks détruits dans des supermarchés",
-      "created": "2026-10-12T12:30:00+00:00",
-      "updated": "2026-10-15T13:07:50+00:00",
-      "version": 8,
-      "resume": "Des installations frigorifiques de supermarchés auraient été détournées à distance dans la nuit du 11 au 12 octobre, et des produits jetés [1, 5]. Le CERT-FR connaît de nombreuses compromissions de contrôleurs Danfoss AK-SM et AK-SC [4].",
+      "id": "2026-10-14-nextcloud-collabora-webshell",
+      "title": "Nextcloud : web shells déposés via l'application Collabora Online intégrée",
+      "created": "2026-10-14T19:08:13+00:00",
+      "updated": "2026-10-14T19:08:13+00:00",
+      "version": 1,
+      "resume": "Des attaquants ont déposé des web shells sur des serveurs Nextcloud en exploitant l'application optionnelle Collabora Online intégrée. La première attaque journalisée date du 10 septembre [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 2, 4, 5, 7, 10]. Consoles web accessibles sur Internet [2] ; appareils touchés surtout anciens, en fin de vie et non corrigés [10]."
+          "texte": "Requête non authentifiée vers proxy.php avec commande shell cachée dans le chemin, serveur de documents local arrêté → commande exécutée avec le compte du serveur web [1]."
         },
         {
-          "etape": "Détournement de la régulation",
-          "texte": "Dégivrage automatique remplacé par une activation forcée et continue, consigne jusqu'à 50 °C [1, 7], déclenché à distance [5] → hausse des températures des réfrigérateurs [3]."
+          "etape": "Persistance",
+          "texte": "La commande décode un web shell PHP d'une ligne et tente d'envoyer la sortie de uname -a à webhook.site → commandes arbitraires par requête web [1]."
         },
         {
-          "etape": "Impact",
-          "texte": "Températures incompatibles avec la conservation [2], en hausse pendant environ six heures sur certains équipements [6] → produits jetés, 270 000 euros de pertes pour deux magasins alsaciens [1]."
-        },
-        {
-          "etape": "Extension à Dixell",
-          "texte": "Alerte du CERT-FR étendue aux systèmes Copeland XWEB et Dixell XWEB [10] ; Dixell touché dans un supermarché Leclerc du Tarn → magasin privé de froid [8]."
+          "etape": "Recherche de secrets",
+          "texte": "Sur un serveur, recherche de coffres de mots de passe et de portefeuilles de cryptomonnaies → exfiltration non confirmée [1]."
         }
       ],
       "parcours": {
@@ -11320,140 +10851,282 @@
             "note": ""
           },
           {
-            "id": "inc",
-            "type": "inconnu",
+            "id": "nc",
+            "type": "serveur",
             "zone": "victime",
-            "nom": "Point d'entrée inconnu",
-            "note": ""
+            "nom": "Serveur Nextcloud",
+            "note": "Web shell PHP"
           },
           {
-            "id": "frg",
-            "type": "serveur",
-            "zone": "expose",
-            "nom": "Régulation frigorifique Danfoss",
-            "note": "Magasins"
+            "id": "dn",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Coffres et portefeuilles",
+            "note": ""
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "inc",
+            "vers": "nc",
             "etape": 1,
-            "texte": "Accès initial non précisé"
+            "texte": "Requête vers proxy.php, commande cachée"
           },
           {
-            "de": "inc",
-            "vers": "frg",
+            "de": "att",
+            "vers": "nc",
             "etape": 2,
-            "texte": "Dégivrage forcé, consigne jusqu'à 50 °C"
+            "texte": "Web shell PHP, commandes par requête web"
+          },
+          {
+            "de": "nc",
+            "vers": "dn",
+            "etape": 3,
+            "texte": "Recherche de coffres et portefeuilles"
           }
         ]
       },
-      "limites": "Les sources ne précisent ni la faille exploitée ni l'acteur [1, 2, 4, 5, 7, 8] ; on ignore si les failles divulguées par Claroty ont servi [6] ; LeMagIT ne confirme pas le vecteur d'accès [9].",
+      "limites": "Acteur et nombre de victimes non précisés. L'exfiltration n'est pas confirmée et aucune élévation de privilèges n'est observée [1].",
       "cves": [
         {
-          "id": "CVE-2025-41450",
-          "explication": "Contrôleurs AK-SM800A antérieurs à la version 4.2 : contournement de l'authentification. L'article ne dit pas qu'elle a été exploitée ici [2]."
-        },
-        {
-          "id": "CVE-2025-41451",
-          "explication": "Exécution de code à distance sur ces contrôleurs, découverte par Claroty. L'article ne dit pas qu'elle a été exploitée ici [2]."
-        },
-        {
-          "id": "CVE-2025-41452",
-          "explication": "Injection de données de configuration arbitraires dans le serveur web Nginx embarqué. L'article ne dit pas qu'elle a été exploitée ici [2]."
+          "id": "CVE-2026-110447",
+          "explication": "Application Collabora Online intégrée de Nextcloud : exécution de commande sans authentification quand le serveur de documents local est arrêté ; exploitée en septembre et octobre 2026 [1]."
         }
       ],
       "mitre": [],
-      "acteurs": [
-        "Non identifié, aucune revendication [1, 10]"
-      ],
+      "acteurs": [],
       "cibles": [
-        "Intermarché : environ 150 magasins selon une source du secteur [1], environ 300 avec Netto selon un média [5] ; Coopérative U [5] ; Leclerc [1] ; Monoprix [2]",
-        "Magasins en France, Belgique, Allemagne, Pays-Bas, Pologne, Portugal et Espagne [6]",
-        "Carrefour : environ 80 supermarchés [7]",
-        "Supermarché Leclerc de Lescure-d'Albigeois (Tarn), équipé de supervision Dixell [8]",
-        "Enseignes confirmées : Carrefour, Coopérative U, E.Leclerc, Intermarché, Monoprix [10]"
+        "Serveurs Nextcloud utilisant l'application Collabora Online intégrée ; trois administrateurs ont signalé l'incident [1]"
       ],
       "abreviations": [
         {
-          "sigle": "API",
-          "definition": "Interface permettant à un programme de piloter un autre logiciel"
-        },
-        {
-          "sigle": "XWEB",
-          "definition": "Gamme de systèmes de supervision de froid Copeland et Dixell"
+          "sigle": "PHP",
+          "definition": "Langage de programmation courant pour les sites web"
         }
       ],
       "sources": [
         {
-          "titre": "Une cyberattaque dérègle le froid des supermarchés",
-          "site": "ZATAZ",
-          "url": "https://www.zataz.com/une-cyberattaque-deregle-le-froid-des-supermarches/",
-          "date": "2026-10-12",
-          "image": "https://www.zataz.com/wp-content/uploads/froid_hack.jpg"
-        },
-        {
-          "titre": "Cyberattaque Danfoss : quand la distribution alimentaire découvre l'hygiène numérique",
-          "site": "LeMagIT",
-          "url": "https://www.lemagit.fr/actualites/366652072/Cyberattaque-Danfoss-quand-la-distribution-alimentaire-decouvre-lhygiene-numerique",
-          "date": "2026-10-12",
-          "image": "https://www.lemagit.fr/rms/computerweekly/food-waste-social-problem-adobe.jpeg"
-        },
-        {
-          "titre": "Cyberattack shuts down refrigerators at French supermarkets",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/cyberattack-shuts-down-refrigerators-at-french-supermarkets/",
-          "date": "2026-10-12",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/supermarket-empty-fridges.jpg"
-        },
-        {
-          "titre": "Incident de sécurité ciblant les Danfoss série AK-SM et AK-SC (12 octobre 2026)",
-          "site": "CERT-FR (alertes)",
-          "url": "https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-012/",
-          "date": "2026-10-12"
-        },
-        {
-          "titre": "Cyberattack disrupts refrigeration at hundreds of French supermarkets",
-          "site": "The Record",
-          "url": "https://therecord.media/cyberattack-disrupts-refridgeration-in-france",
-          "date": "2026-10-11",
-          "image": "https://cms.therecord.media/uploads/CC_BY_2_0_11a0e3277d.png"
-        },
-        {
-          "titre": "Refrigeration Controller Hack Spoils Food Across European Supermarkets",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/refrigeration-controller-hack-spoils-food-across-european-supermarkets/",
-          "date": "2026-10-13",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supermarket-refrigerators.jpeg"
-        },
-        {
-          "titre": "Attackers Heat French Supermarket Fridges Up to 50°C by Hijacking Danfoss Controllers",
+          "titre": "Hackers Backdoor Nextcloud Servers Through Critical Flaw in Collabora’s Built-in CODE App",
           "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/attackers-heat-french-supermarket.html",
-          "date": "2026-10-13",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh64tQNgn3aqDhyphenhyphengoK8NxQG3DPvWWi0fP185meJUr14eUmcX18mKJdkUz6QsMU6bTxmwAtHrd8I0J5FQjvTENA1-N1F60zsR1x2iDzaJNhPbg_6iGYTELpBOwiTbBiaMWLmWQ4naaMfCLCcThNEfC302zF-YCjlev6138DvUrXfr5noGCpZaT9JnGd7hUw/s1700-nu-rw-lo-l85-e365/supermarket.jpg"
-        },
-        {
-          "titre": "Coup de chaud sur la chaîne du froid : au tour de Dixell",
-          "site": "LeMagIT",
-          "url": "https://www.lemagit.fr/actualites/366651818/Coup-de-chaud-sur-la-chaine-du-froid-au-tour-de-Dixell",
-          "date": "2026-10-13",
-          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/HeroImages/heating-radiator-clrcrmck-hero.jpg"
-        },
-        {
-          "titre": "Piratage de systèmes de gestion du froid : ce n'est pas une fatalité",
-          "site": "LeMagIT",
-          "url": "https://www.lemagit.fr/actualites/366652137/Piratage-de-systemes-de-gestion-du-froid-ce-nest-pas-une-fatalite",
+          "url": "https://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html",
           "date": "2026-10-14",
-          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/HeroImages/warm-jumper-hot-drink-cold-weather-StefaNikolic-Getty-RF.jpg"
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkZLcjmZtzt6NpWa8x4Wz7EdcOQEW6xYv6DA_mBnwy1ctZZeRAyeSYLES-H_mkr1QOBv72WNuGKwKQ-NN179Rw8BRTcYO38sYwxcbDkg1ISW_qWrCRJ9JfUXh3102OmwrF0HQq6dbSc58VXACXoi_EoI8ysPuSlzB_nBcHuFl9r3QakOsGG9GUm6UVOU8/s1700-nu-rw-lo-l85-e365/nextcloud.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-14-coree-nord-fermes-ordinateurs-it",
+      "title": "Corée du Nord : faux informaticiens employés par des entreprises américaines via des fermes d'ordinateurs portables",
+      "created": "2026-10-14T17:30:00+00:00",
+      "updated": "2026-10-14T20:30:00+00:00",
+      "version": 2,
+      "resume": "Des travailleurs informatiques nord-coréens se sont fait embaucher par plus de 70 employeurs américains sous de fausses identités. Le ministère de la Justice a inculpé 14 personnes et saisi environ 187 ordinateurs [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Embauche par des entreprises américaines avec des identités volées, louées ou fabriquées → salaires réguliers, dont une partie est reversée au régime [1, 2]."
         },
         {
-          "titre": "Supermarket Refrigeration Attack Widens to Copeland, Dixell Controllers",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/supermarket-refrigeration-attack-widens-to-copeland-dixell-controllers/",
-          "date": "2026-10-15",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supermarket-refrigerators.jpeg"
+          "etape": "Hébergement du matériel",
+          "texte": "Des facilitateurs américains hébergent les ordinateurs et installent un accès à distance, avec VPN et proxys → les travailleurs paraissent basés aux États-Unis [1, 2]."
+        },
+        {
+          "etape": "Détournement d'équipements",
+          "texte": "Faux rapports de vol, changements d'adresse et abus de rôles informatiques pour détourner les envois → ordinateurs de remplacement envoyés à une ferme [1, 2]."
+        },
+        {
+          "etape": "Sous-traitance du travail",
+          "texte": "Travail confié à des freelances d'Asie du Sud ou d'Afrique de l'Ouest qui passent les entretiens à leur place, selon le FBI [1]."
+        },
+        {
+          "etape": "Transfert des revenus",
+          "texte": "Les facilitateurs envoient les salaires vers des comptes contrôlés par la Corée du Nord [2]."
+        },
+        {
+          "etape": "Menaces",
+          "texte": "Menaces de violence physique contre d'anciens managers et leurs familles, pour exiger des paiements ou contraindre d'autres personnes [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Travailleurs nord-coréens",
+            "note": ""
+          },
+          {
+            "id": "ent",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Employeurs américains",
+            "note": "Plus de 70"
+          },
+          {
+            "id": "fer",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Ordinateurs chez facilitateurs",
+            "note": "Fermes"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ent",
+            "etape": 1,
+            "texte": "Embauche avec de fausses identités"
+          },
+          {
+            "de": "att",
+            "vers": "fer",
+            "etape": 2,
+            "texte": "Accès à distance aux ordinateurs fournis"
+          },
+          {
+            "de": "att",
+            "vers": "ent",
+            "etape": 6,
+            "texte": "Menaces contre d'anciens managers"
+          }
+        ]
+      },
+      "limites": "L'article de BleepingComputer ne mentionne ni technique MITRE ni CVE ; The Hacker News ne mentionne ni malware, ni vulnérabilité, ni vol de données [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Corée du Nord, suivie sous les noms Famous Chollima, purpledelta et Wagemole [1, 2]"
+      ],
+      "cibles": [
+        "Plus de 70 employeurs américains : santé, communications, cybersécurité, commerce, industrie [1, 2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "FBI",
+          "definition": "Police fédérale américaine"
+        },
+        {
+          "sigle": "VPN",
+          "definition": "Réseau privé virtuel qui masque l'adresse réelle d'une connexion"
+        },
+        {
+          "sigle": "proxy",
+          "definition": "Serveur relais qui fait passer la connexion par une autre adresse"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "U.S. Shuts Down Over 40 Laptop Farms, Charges 14 in North Korean IT Worker Fraud",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/us-shuts-down-over-40-laptop-farms.html",
+          "date": "2026-10-14",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRRY0Y0x4bBS7xZHNvUUjosK6tuvOhbBbE9XvaoyiONRttpSxhIwBaCgDpNKo9kMR37n1_8wKUXzpzL6KhmNC0OJsGZapzAaAteSFlbasNFzCM6XZXsSU99yOk6e2oR7tzG_3p_1-V04tnDyhhtGaBUJSviR-xaJh6mg4E-KT5gwR7_x3JmO-DDfM6-7ic/s1700-nu-rw-lo-l85-e365/laptop-farm.jpg"
+        },
+        {
+          "titre": "FBI raids DPRK IT worker laptop farms in Texas, US nationals arrested",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fbi-raids-dprk-it-worker-laptop-farms-in-texas-us-nationals-arrested/",
+          "date": "2026-10-14",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/14/doj.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-14-brooklyn-arnaque-crypto-russophones",
+      "title": "Arnaque aux cryptomonnaies visant les russophones de Brooklyn : serveurs et domaines saisis",
+      "created": "2026-10-14T21:30:00+00:00",
+      "updated": "2026-10-14T21:30:00+00:00",
+      "version": 1,
+      "resume": "Des criminels ont escroqué des russophones de Brooklyn avec de faux placements en cryptomonnaies. Le bureau du procureur de Brooklyn a perturbé 241 domaines et 112 serveurs [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Publicités Facebook en russe proposant des placements → prise de contact avec les victimes, sans intrusion technique décrite [1]."
+        },
+        {
+          "etape": "Guidage de la victime",
+          "texte": "Un faux conseiller appelle la victime → elle crée des comptes de cryptomonnaies et transfère des fonds vers des plateformes d'investissement [1]."
+        },
+        {
+          "etape": "Blocage des retraits",
+          "texte": "Retrait demandé → victimes bloquées hors de leurs comptes et sommées de payer frais et taxes [1]."
+        },
+        {
+          "etape": "Seconde escroquerie",
+          "texte": "Des semaines plus tard, offre de récupérer les cryptomonnaies volées contre paiement [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux sites d'investissement",
+            "note": "Europe de l'Est"
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Victimes russophones de Brooklyn",
+            "note": "Fonds transférés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 1,
+            "texte": "Publicités Facebook en russe"
+          },
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 2,
+            "texte": "Appel d'un faux conseiller"
+          },
+          {
+            "de": "usr",
+            "vers": "web",
+            "etape": 2,
+            "texte": "Fonds transférés vers les plateformes"
+          },
+          {
+            "de": "web",
+            "vers": "usr",
+            "etape": 3,
+            "texte": "Accès aux comptes bloqué, frais exigés"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment aucun groupe ni le nombre de victimes [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié : l'article parle de criminels [1]"
+      ],
+      "cibles": [
+        "Résidents russophones de Brooklyn [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Brooklyn DA’s office disrupts crypto scam targeting Russian community",
+          "site": "The Record",
+          "url": "https://therecord.media/brooklyn-da-server-takedowns-crypto-scam-russian-speakers",
+          "date": "2026-10-14",
+          "image": "https://cms.therecord.media/uploads/eric_gonzalez_brooklyn_da_1a04b6e52f.jpg"
         }
       ]
     },
@@ -11838,505 +11511,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-10-14-coree-nord-fermes-ordinateurs-it",
-      "title": "Corée du Nord : faux informaticiens employés par des entreprises américaines via des fermes d'ordinateurs portables",
-      "created": "2026-10-14T17:30:00+00:00",
-      "updated": "2026-10-14T20:30:00+00:00",
-      "version": 2,
-      "resume": "Des travailleurs informatiques nord-coréens se sont fait embaucher par plus de 70 employeurs américains sous de fausses identités. Le ministère de la Justice a inculpé 14 personnes et saisi environ 187 ordinateurs [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Embauche par des entreprises américaines avec des identités volées, louées ou fabriquées → salaires réguliers, dont une partie est reversée au régime [1, 2]."
-        },
-        {
-          "etape": "Hébergement du matériel",
-          "texte": "Des facilitateurs américains hébergent les ordinateurs et installent un accès à distance, avec VPN et proxys → les travailleurs paraissent basés aux États-Unis [1, 2]."
-        },
-        {
-          "etape": "Détournement d'équipements",
-          "texte": "Faux rapports de vol, changements d'adresse et abus de rôles informatiques pour détourner les envois → ordinateurs de remplacement envoyés à une ferme [1, 2]."
-        },
-        {
-          "etape": "Sous-traitance du travail",
-          "texte": "Travail confié à des freelances d'Asie du Sud ou d'Afrique de l'Ouest qui passent les entretiens à leur place, selon le FBI [1]."
-        },
-        {
-          "etape": "Transfert des revenus",
-          "texte": "Les facilitateurs envoient les salaires vers des comptes contrôlés par la Corée du Nord [2]."
-        },
-        {
-          "etape": "Menaces",
-          "texte": "Menaces de violence physique contre d'anciens managers et leurs familles, pour exiger des paiements ou contraindre d'autres personnes [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Travailleurs nord-coréens",
-            "note": ""
-          },
-          {
-            "id": "ent",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Employeurs américains",
-            "note": "Plus de 70"
-          },
-          {
-            "id": "fer",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Ordinateurs chez facilitateurs",
-            "note": "Fermes"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "ent",
-            "etape": 1,
-            "texte": "Embauche avec de fausses identités"
-          },
-          {
-            "de": "att",
-            "vers": "fer",
-            "etape": 2,
-            "texte": "Accès à distance aux ordinateurs fournis"
-          },
-          {
-            "de": "att",
-            "vers": "ent",
-            "etape": 6,
-            "texte": "Menaces contre d'anciens managers"
-          }
-        ]
-      },
-      "limites": "L'article de BleepingComputer ne mentionne ni technique MITRE ni CVE ; The Hacker News ne mentionne ni malware, ni vulnérabilité, ni vol de données [1, 2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Corée du Nord, suivie sous les noms Famous Chollima, purpledelta et Wagemole [1, 2]"
-      ],
-      "cibles": [
-        "Plus de 70 employeurs américains : santé, communications, cybersécurité, commerce, industrie [1, 2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "FBI",
-          "definition": "Police fédérale américaine"
-        },
-        {
-          "sigle": "VPN",
-          "definition": "Réseau privé virtuel qui masque l'adresse réelle d'une connexion"
-        },
-        {
-          "sigle": "proxy",
-          "definition": "Serveur relais qui fait passer la connexion par une autre adresse"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "U.S. Shuts Down Over 40 Laptop Farms, Charges 14 in North Korean IT Worker Fraud",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/us-shuts-down-over-40-laptop-farms.html",
-          "date": "2026-10-14",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRRY0Y0x4bBS7xZHNvUUjosK6tuvOhbBbE9XvaoyiONRttpSxhIwBaCgDpNKo9kMR37n1_8wKUXzpzL6KhmNC0OJsGZapzAaAteSFlbasNFzCM6XZXsSU99yOk6e2oR7tzG_3p_1-V04tnDyhhtGaBUJSviR-xaJh6mg4E-KT5gwR7_x3JmO-DDfM6-7ic/s1700-nu-rw-lo-l85-e365/laptop-farm.jpg"
-        },
-        {
-          "titre": "FBI raids DPRK IT worker laptop farms in Texas, US nationals arrested",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/fbi-raids-dprk-it-worker-laptop-farms-in-texas-us-nationals-arrested/",
-          "date": "2026-10-14",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/14/doj.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-14-cisco-secure-email-gateway-zero-day",
-      "title": "Cisco Secure Email Gateway : faille zero-day exploitée pour exécuter des commandes root",
-      "created": "2026-10-14T18:15:00+00:00",
-      "updated": "2026-10-15T07:20:00+00:00",
-      "version": 3,
-      "resume": "Des attaquants exploitent une faille de Cisco Secure Email Gateway pour écrire des fichiers sur l'appareil, puis exécuter des commandes root, sans authentification, au moyen d'un e-mail piégé. Cisco a publié un correctif le 14 octobre [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "E-mail avec pièce jointe spécialement conçue, traité par un appareil avec service de réputation de fichiers activé et Content Scanner Tools antérieur à 25.3.0.5525 → faille déclenchée [1, 2, 3]."
-        },
-        {
-          "etape": "Écriture de fichiers",
-          "texte": "Faille de traversée de chemin relatif dans Advanced Malware Protection → écriture de fichiers arbitraires sur le système sous-jacent [1, 2]."
-        },
-        {
-          "etape": "Exécution de commandes root",
-          "texte": "Exploitation de la faille sans authentification → exécution de commandes avec privilèges root sur le système d'exploitation [1, 2]."
-        },
-        {
-          "etape": "Effacement des traces",
-          "texte": "Cisco indique que les attaquants peuvent supprimer ou masquer les preuves après l'exécution root ; il s'agit d'un risque signalé, non d'une étape observée [1, 3]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "gw",
-            "type": "passerelle",
-            "zone": "expose",
-            "nom": "Cisco Secure Email Gateway",
-            "note": "Non corrigé"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "gw",
-            "etape": 1,
-            "texte": "E-mail avec pièce jointe piégée"
-          },
-          {
-            "de": "att",
-            "vers": "gw",
-            "etape": 3,
-            "texte": "Commandes root, traces effaçables"
-          }
-        ]
-      },
-      "limites": "Acteur, nombre d'appareils touchés et suites de l'exécution root non précisés [1, 3]. La source 2 ne dit pas si root a été obtenu [2]. La source 3 date des correctifs du 14 septembre [3].",
-      "cves": [
-        {
-          "id": "CVE-2026-76519",
-          "explication": "Cisco Secure Email Gateway, Advanced Malware Protection : traversée de chemin permettant à un attaquant distant non authentifié d'exécuter des commandes root, gravité 9,8 sur 10 [1, 2, 3]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Cisco Secure Email Gateway ; Shadowserver suit près de 300 instances exposées en ligne [1]",
-        "Clients Secure Email Cloud contactés pour des indicateurs de compromission possibles [2]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Cisco patches new Secure Email Gateway zero-day exploited in attacks",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/cisco-patches-actively-exploited-secure-email-gateway-zero-day/",
-          "date": "2026-10-14",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/14/Cisco.jpg"
-        },
-        {
-          "titre": "Cisco Warns of Active Attacks Exploiting New Critical Secure Email Gateway Vulnerability",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/cisco-warns-of-active-attacks.html",
-          "date": "2026-10-14",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhh__fSqm3p4u0HNpmeikU6Mo4abprP417Zb3pPW3-6IGrTHwqkbz1CqiuqxL2D0O1PH8J4Ho3_ZpNdJ5VFluIj_KHX6qT0WqZYfHQzyu0cVzGee9EmAZ9pNzsZJZx40UxuKjuz9eNHvuzlMANKOkDr6aRdKWxs8SpJqSi6vDBQTP5ZFgpgqn3Yj2TYNJU/s1700-nu-rw-lo-l85-e365/cisco-0day.jpg"
-        },
-        {
-          "titre": "Cisco Warns of Exploited Secure Email Gateway Vulnerability",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/cisco-warns-of-exploited-secure-email-gateway-vulnerability/",
-          "date": "2026-10-15",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Cisco-network-switch-exploit.webp"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-14-nextcloud-collabora-webshell",
-      "title": "Nextcloud : web shells déposés via l'application Collabora Online intégrée",
-      "created": "2026-10-14T19:08:13+00:00",
-      "updated": "2026-10-14T19:08:13+00:00",
-      "version": 1,
-      "resume": "Des attaquants ont déposé des web shells sur des serveurs Nextcloud en exploitant l'application optionnelle Collabora Online intégrée. La première attaque journalisée date du 10 septembre [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Requête non authentifiée vers proxy.php avec commande shell cachée dans le chemin, serveur de documents local arrêté → commande exécutée avec le compte du serveur web [1]."
-        },
-        {
-          "etape": "Persistance",
-          "texte": "La commande décode un web shell PHP d'une ligne et tente d'envoyer la sortie de uname -a à webhook.site → commandes arbitraires par requête web [1]."
-        },
-        {
-          "etape": "Recherche de secrets",
-          "texte": "Sur un serveur, recherche de coffres de mots de passe et de portefeuilles de cryptomonnaies → exfiltration non confirmée [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "nc",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur Nextcloud",
-            "note": "Web shell PHP"
-          },
-          {
-            "id": "dn",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Coffres et portefeuilles",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "nc",
-            "etape": 1,
-            "texte": "Requête vers proxy.php, commande cachée"
-          },
-          {
-            "de": "att",
-            "vers": "nc",
-            "etape": 2,
-            "texte": "Web shell PHP, commandes par requête web"
-          },
-          {
-            "de": "nc",
-            "vers": "dn",
-            "etape": 3,
-            "texte": "Recherche de coffres et portefeuilles"
-          }
-        ]
-      },
-      "limites": "Acteur et nombre de victimes non précisés. L'exfiltration n'est pas confirmée et aucune élévation de privilèges n'est observée [1].",
-      "cves": [
-        {
-          "id": "CVE-2026-110447",
-          "explication": "Application Collabora Online intégrée de Nextcloud : exécution de commande sans authentification quand le serveur de documents local est arrêté ; exploitée en septembre et octobre 2026 [1]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Serveurs Nextcloud utilisant l'application Collabora Online intégrée ; trois administrateurs ont signalé l'incident [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "PHP",
-          "definition": "Langage de programmation courant pour les sites web"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Hackers Backdoor Nextcloud Servers Through Critical Flaw in Collabora’s Built-in CODE App",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html",
-          "date": "2026-10-14",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkZLcjmZtzt6NpWa8x4Wz7EdcOQEW6xYv6DA_mBnwy1ctZZeRAyeSYLES-H_mkr1QOBv72WNuGKwKQ-NN179Rw8BRTcYO38sYwxcbDkg1ISW_qWrCRJ9JfUXh3102OmwrF0HQq6dbSc58VXACXoi_EoI8ysPuSlzB_nBcHuFl9r3QakOsGG9GUm6UVOU8/s1700-nu-rw-lo-l85-e365/nextcloud.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-14-brooklyn-arnaque-crypto-russophones",
-      "title": "Arnaque aux cryptomonnaies visant les russophones de Brooklyn : serveurs et domaines saisis",
-      "created": "2026-10-14T21:30:00+00:00",
-      "updated": "2026-10-14T21:30:00+00:00",
-      "version": 1,
-      "resume": "Des criminels ont escroqué des russophones de Brooklyn avec de faux placements en cryptomonnaies. Le bureau du procureur de Brooklyn a perturbé 241 domaines et 112 serveurs [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Publicités Facebook en russe proposant des placements → prise de contact avec les victimes, sans intrusion technique décrite [1]."
-        },
-        {
-          "etape": "Guidage de la victime",
-          "texte": "Un faux conseiller appelle la victime → elle crée des comptes de cryptomonnaies et transfère des fonds vers des plateformes d'investissement [1]."
-        },
-        {
-          "etape": "Blocage des retraits",
-          "texte": "Retrait demandé → victimes bloquées hors de leurs comptes et sommées de payer frais et taxes [1]."
-        },
-        {
-          "etape": "Seconde escroquerie",
-          "texte": "Des semaines plus tard, offre de récupérer les cryptomonnaies volées contre paiement [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "web",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Faux sites d'investissement",
-            "note": "Europe de l'Est"
-          },
-          {
-            "id": "usr",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Victimes russophones de Brooklyn",
-            "note": "Fonds transférés"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "usr",
-            "etape": 1,
-            "texte": "Publicités Facebook en russe"
-          },
-          {
-            "de": "att",
-            "vers": "usr",
-            "etape": 2,
-            "texte": "Appel d'un faux conseiller"
-          },
-          {
-            "de": "usr",
-            "vers": "web",
-            "etape": 2,
-            "texte": "Fonds transférés vers les plateformes"
-          },
-          {
-            "de": "web",
-            "vers": "usr",
-            "etape": 3,
-            "texte": "Accès aux comptes bloqué, frais exigés"
-          }
-        ]
-      },
-      "limites": "Les sources ne nomment aucun groupe ni le nombre de victimes [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non identifié : l'article parle de criminels [1]"
-      ],
-      "cibles": [
-        "Résidents russophones de Brooklyn [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Brooklyn DA’s office disrupts crypto scam targeting Russian community",
-          "site": "The Record",
-          "url": "https://therecord.media/brooklyn-da-server-takedowns-crypto-scam-russian-speakers",
-          "date": "2026-10-14",
-          "image": "https://cms.therecord.media/uploads/eric_gonzalez_brooklyn_da_1a04b6e52f.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-14-palo-alto-pan-os-zero-day",
-      "title": "PAN-OS de Palo Alto Networks : faille zero-day exploitée sur l'interface de gestion des pare-feu",
-      "created": "2026-10-14T23:07:48+00:00",
-      "updated": "2026-10-15T07:20:00+00:00",
-      "version": 2,
-      "resume": "Palo Alto Networks a corrigé la faille zero-day CVE-2026-0322 de PAN-OS, exploitée de façon « très limitée » contre l'interface de gestion de pare-feu [1, 2, 3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Attaquant authentifié disposant d'un accès réseau à l'interface de gestion de PAN-OS ; l'origine de l'authentification n'est pas mentionnée [1, 2, 3]."
-        },
-        {
-          "etape": "Exploitation de la faille",
-          "texte": "Exploitation de CVE-2026-0322 dans l'interface de gestion → exécution de code en tant que root sur le pare-feu, sans configuration particulière requise [1, 2, 3]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "fw",
-            "type": "passerelle",
-            "zone": "victime",
-            "nom": "Pare-feu PAN-OS",
-            "note": "Interface de gestion"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "fw",
-            "etape": 1,
-            "texte": "Identifiants existants, accès à l'interface de gestion"
-          },
-          {
-            "de": "att",
-            "vers": "fw",
-            "etape": 2,
-            "texte": "Exploitation de CVE-2026-0322, code exécuté en root"
-          }
-        ]
-      },
-      "limites": "Les sources ne disent ni qui est l'acteur, ni quelles victimes sont touchées, ni ce que les attaquants ont fait après la prise de contrôle [1, 2, 3]. Des adresses liées aux tentatives sont publiées [2].",
-      "cves": [
-        {
-          "id": "CVE-2026-0322",
-          "explication": "PAN-OS, interface de gestion : exécution de code à distance par un attaquant authentifié, zero-day exploité, gravité élevée (score 8,6) [1, 2, 3]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Pare-feu PA-Series et VM-Series, appareils Panorama virtuels et M-Series [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "PAN-OS",
-          "definition": "Système d'exploitation des pare-feu de Palo Alto Networks"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Palo Alto Networks warns of PAN-OS RCE flaw exploited in attacks",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/palo-alto-networks-warns-of-pan-os-rce-flaw-exploited-in-attacks/",
-          "date": "2026-10-14",
-          "image": "https://www.bleepstatic.com/content/hl-images/2024/10/09/Palo-Alto-Networks.jpg"
-        },
-        {
-          "titre": "Palo Alto Networks Patches PAN-OS Authenticated RCE Flaw Amid Active Exploitation",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/palo-alto-networks-patches-pan-os.html",
-          "date": "2026-10-15",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4G5JAIF-hCnKf9QyWLzWIWxTrUIjqshujDHf0-_9m84O9f4S0Z-IQ4Jg-T11Ph_rwZvzsFU8Z-pI3uRsnvPSE-FK_VtrUx0pNZgHKf3PuMJCQmwopiE5hyMRSObeV7_VSrF7WC_iiG9T8wMNivOOBC12F7bLK8WI-MNjCffolAJnnhk-X-v1ecxwYtrQz/s1700-nu-rw-lo-l85-e365/palo.jpg"
-        },
-        {
-          "titre": "Palo Alto Networks Patches PAN-OS Zero-Day Exploited for Remote Code Execution",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/palo-alto-networks-patches-pan-os-zero-day-exploited-for-remote-code-execution/",
-          "date": "2026-10-15",
-          "image": "https://www.securityweek.com/wp-content/uploads/2024/11/Palo-Alto-Networks-zero-day.jpeg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-10-14-peerstitch-fortimanager-fortigate",
       "title": "PEERSTITCH : implant dans des FortiGate après l'exploitation de FortiManager (CVE-2024-47575)",
       "created": "2026-10-14T23:07:48+00:00",
@@ -12482,24 +11656,28 @@
     },
     {
       "schema": 3,
-      "id": "2026-10-15-laa-royaume-uni-donnees-1978",
-      "title": "Legal Aid Agency britannique : données volées remontant à 1978",
-      "created": "2026-10-15T09:08:16+00:00",
-      "updated": "2026-10-15T09:08:16+00:00",
-      "version": 1,
-      "resume": "Des attaquants ayant pénétré en avril 2025 les systèmes de la Legal Aid Agency britannique ont volé des données personnelles, dont des enregistrements remontant à 1978 [1].",
+      "id": "2026-10-14-cisco-secure-email-gateway-zero-day",
+      "title": "Cisco Secure Email Gateway : faille zero-day exploitée pour exécuter des commandes root",
+      "created": "2026-10-14T18:15:00+00:00",
+      "updated": "2026-10-15T07:20:00+00:00",
+      "version": 3,
+      "resume": "Des attaquants exploitent une faille de Cisco Secure Email Gateway pour écrire des fichiers sur l'appareil, puis exécuter des commandes root, sans authentification, au moyen d'un e-mail piégé. Cisco a publié un correctif le 14 octobre [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "E-mail avec pièce jointe spécialement conçue, traité par un appareil avec service de réputation de fichiers activé et Content Scanner Tools antérieur à 25.3.0.5525 → faille déclenchée [1, 2, 3]."
         },
         {
-          "etape": "Vol de données",
-          "texte": "Intrusion dans les systèmes informatiques en avril 2025 → vol de données de demandeurs, de prestataires et d'identifiants du portail en ligne [1]."
+          "etape": "Écriture de fichiers",
+          "texte": "Faille de traversée de chemin relatif dans Advanced Malware Protection → écriture de fichiers arbitraires sur le système sous-jacent [1, 2]."
         },
         {
-          "etape": "Ampleur confirmée",
-          "texte": "Mise à jour d'octobre 2026 : environ 250 000 enregistrements antérieurs à 2007 confirmés, le plus ancien datant de 1978 [1]."
+          "etape": "Exécution de commandes root",
+          "texte": "Exploitation de la faille sans authentification → exécution de commandes avec privilèges root sur le système d'exploitation [1, 2]."
+        },
+        {
+          "etape": "Effacement des traces",
+          "texte": "Cisco indique que les attaquants peuvent supprimer ou masquer les preuves après l'exécution root ; il s'agit d'un risque signalé, non d'une étape observée [1, 3]."
         }
       ],
       "parcours": {
@@ -12512,52 +11690,487 @@
             "note": ""
           },
           {
-            "id": "sys",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Systèmes informatiques de l'agence",
-            "note": ""
-          },
-          {
-            "id": "don",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Dossiers d'aide juridique",
-            "note": "Depuis 1978"
+            "id": "gw",
+            "type": "passerelle",
+            "zone": "expose",
+            "nom": "Cisco Secure Email Gateway",
+            "note": "Non corrigé"
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "sys",
+            "vers": "gw",
             "etape": 1,
-            "texte": "Intrusion, vecteur non précisé"
+            "texte": "E-mail avec pièce jointe piégée"
           },
           {
-            "de": "sys",
-            "vers": "don",
-            "etape": 2,
-            "texte": "Données personnelles et de prestataires volées"
+            "de": "att",
+            "vers": "gw",
+            "etape": 3,
+            "texte": "Commandes root, traces effaçables"
           }
         ]
       },
-      "limites": "Ni l'acteur ni le vecteur d'accès ne sont précisés. Le ministère de la Justice dit n'avoir aucune preuve de publication des données volées [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non mentionné [1]"
+      "limites": "Acteur, nombre d'appareils touchés et suites de l'exécution root non précisés [1, 3]. La source 2 ne dit pas si root a été obtenu [2]. La source 3 date des correctifs du 14 septembre [3].",
+      "cves": [
+        {
+          "id": "CVE-2026-76519",
+          "explication": "Cisco Secure Email Gateway, Advanced Malware Protection : traversée de chemin permettant à un attaquant distant non authentifié d'exécuter des commandes root, gravité 9,8 sur 10 [1, 2, 3]."
+        }
       ],
+      "mitre": [],
+      "acteurs": [],
       "cibles": [
-        "Legal Aid Agency (ministère de la Justice britannique), demandeurs et bénéficiaires d'aide juridique, prestataires [1]"
+        "Cisco Secure Email Gateway ; Shadowserver suit près de 300 instances exposées en ligne [1]",
+        "Clients Secure Email Cloud contactés pour des indicateurs de compromission possibles [2]"
       ],
       "abreviations": [],
       "sources": [
         {
-          "titre": "UK Legal Aid Agency: Hackers stole records dating back to 1978",
+          "titre": "Cisco patches new Secure Email Gateway zero-day exploited in attacks",
           "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/uk-legal-aid-agency-hackers-stole-records-dating-back-to-1978/",
+          "url": "https://www.bleepingcomputer.com/news/security/cisco-patches-actively-exploited-secure-email-gateway-zero-day/",
+          "date": "2026-10-14",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/14/Cisco.jpg"
+        },
+        {
+          "titre": "Cisco Warns of Active Attacks Exploiting New Critical Secure Email Gateway Vulnerability",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/cisco-warns-of-active-attacks.html",
+          "date": "2026-10-14",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhh__fSqm3p4u0HNpmeikU6Mo4abprP417Zb3pPW3-6IGrTHwqkbz1CqiuqxL2D0O1PH8J4Ho3_ZpNdJ5VFluIj_KHX6qT0WqZYfHQzyu0cVzGee9EmAZ9pNzsZJZx40UxuKjuz9eNHvuzlMANKOkDr6aRdKWxs8SpJqSi6vDBQTP5ZFgpgqn3Yj2TYNJU/s1700-nu-rw-lo-l85-e365/cisco-0day.jpg"
+        },
+        {
+          "titre": "Cisco Warns of Exploited Secure Email Gateway Vulnerability",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/cisco-warns-of-exploited-secure-email-gateway-vulnerability/",
           "date": "2026-10-15",
-          "image": "https://www.bleepstatic.com/content/hl-images/2024/09/02/just-uk.jpg"
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Cisco-network-switch-exploit.webp"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-14-palo-alto-pan-os-zero-day",
+      "title": "PAN-OS de Palo Alto Networks : faille zero-day exploitée sur l'interface de gestion des pare-feu",
+      "created": "2026-10-14T23:07:48+00:00",
+      "updated": "2026-10-15T07:20:00+00:00",
+      "version": 2,
+      "resume": "Palo Alto Networks a corrigé la faille zero-day CVE-2026-0322 de PAN-OS, exploitée de façon « très limitée » contre l'interface de gestion de pare-feu [1, 2, 3].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Attaquant authentifié disposant d'un accès réseau à l'interface de gestion de PAN-OS ; l'origine de l'authentification n'est pas mentionnée [1, 2, 3]."
+        },
+        {
+          "etape": "Exploitation de la faille",
+          "texte": "Exploitation de CVE-2026-0322 dans l'interface de gestion → exécution de code en tant que root sur le pare-feu, sans configuration particulière requise [1, 2, 3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "fw",
+            "type": "passerelle",
+            "zone": "victime",
+            "nom": "Pare-feu PAN-OS",
+            "note": "Interface de gestion"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "fw",
+            "etape": 1,
+            "texte": "Identifiants existants, accès à l'interface de gestion"
+          },
+          {
+            "de": "att",
+            "vers": "fw",
+            "etape": 2,
+            "texte": "Exploitation de CVE-2026-0322, code exécuté en root"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent ni qui est l'acteur, ni quelles victimes sont touchées, ni ce que les attaquants ont fait après la prise de contrôle [1, 2, 3]. Des adresses liées aux tentatives sont publiées [2].",
+      "cves": [
+        {
+          "id": "CVE-2026-0322",
+          "explication": "PAN-OS, interface de gestion : exécution de code à distance par un attaquant authentifié, zero-day exploité, gravité élevée (score 8,6) [1, 2, 3]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Pare-feu PA-Series et VM-Series, appareils Panorama virtuels et M-Series [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "PAN-OS",
+          "definition": "Système d'exploitation des pare-feu de Palo Alto Networks"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Palo Alto Networks warns of PAN-OS RCE flaw exploited in attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/palo-alto-networks-warns-of-pan-os-rce-flaw-exploited-in-attacks/",
+          "date": "2026-10-14",
+          "image": "https://www.bleepstatic.com/content/hl-images/2024/10/09/Palo-Alto-Networks.jpg"
+        },
+        {
+          "titre": "Palo Alto Networks Patches PAN-OS Authenticated RCE Flaw Amid Active Exploitation",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/palo-alto-networks-patches-pan-os.html",
+          "date": "2026-10-15",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4G5JAIF-hCnKf9QyWLzWIWxTrUIjqshujDHf0-_9m84O9f4S0Z-IQ4Jg-T11Ph_rwZvzsFU8Z-pI3uRsnvPSE-FK_VtrUx0pNZgHKf3PuMJCQmwopiE5hyMRSObeV7_VSrF7WC_iiG9T8wMNivOOBC12F7bLK8WI-MNjCffolAJnnhk-X-v1ecxwYtrQz/s1700-nu-rw-lo-l85-e365/palo.jpg"
+        },
+        {
+          "titre": "Palo Alto Networks Patches PAN-OS Zero-Day Exploited for Remote Code Execution",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/palo-alto-networks-patches-pan-os-zero-day-exploited-for-remote-code-execution/",
+          "date": "2026-10-15",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/11/Palo-Alto-Networks-zero-day.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-09-ahsaycbs-webshell-xmrig",
+      "title": "Failles AhsayCBS exploitées pour déposer un webshell et un mineur XMRig",
+      "created": "2026-10-09T08:20:00+00:00",
+      "updated": "2026-10-15T09:08:16+00:00",
+      "version": 5,
+      "resume": "Des attaquants exploitent deux failles du logiciel de sauvegarde AhsayCBS exposé sur Internet pour exécuter du code, déposer un webshell et installer un mineur de Monero. Au moins cinq organisations sont touchées [1, 2, 3, 4].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Enchaînement de CVE-2026-105133 et CVE-2026-105134 sur AhsayCBS exposé sur Internet → exécution de code à distance sans authentification, avec les privilèges SYSTEM [1, 2]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Récepteur de réplication malveillant et webshell JSP déposé dans le répertoire de l'application → accès maintenu au serveur [1]."
+        },
+        {
+          "etape": "Téléchargement d'outils",
+          "texte": "Utilisation de curl et certutil depuis un stockage Alibaba Cloud → récupération du mineur, d'un script et d'un pilote dans le dossier Temp [1]."
+        },
+        {
+          "etape": "Persistance du mineur",
+          "texte": "Service Windows MicrosoftEdgeUpdateSvc lançant une copie modifiée de NSSM → mineur relancé après un crash ou un redémarrage [1, 4]."
+        },
+        {
+          "etape": "Minage de cryptomonnaie",
+          "texte": "XMRig déguisé en Edge, connecté à un pool Monero sur le port 8029 [1]."
+        },
+        {
+          "etape": "Dissimulation",
+          "texte": "Un script arrête le minage quand le Gestionnaire des tâches est ouvert → mineur moins visible [1, 3, 4]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "ahsay",
+            "type": "serveur",
+            "zone": "expose",
+            "nom": "Serveur AhsayCBS",
+            "note": "Webshell JSP"
+          },
+          {
+            "id": "stock",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Stockage Alibaba Cloud",
+            "note": "Outils hébergés"
+          },
+          {
+            "id": "pool",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Pool Monero",
+            "note": "Port 8029"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ahsay",
+            "etape": 1,
+            "texte": "Exploitation des deux failles AhsayCBS"
+          },
+          {
+            "de": "att",
+            "vers": "ahsay",
+            "etape": 2,
+            "texte": "Webshell et récepteur de réplication déposés"
+          },
+          {
+            "de": "stock",
+            "vers": "ahsay",
+            "etape": 3,
+            "texte": "Mineur, script et pilote téléchargés"
+          },
+          {
+            "de": "ahsay",
+            "vers": "pool",
+            "etape": 5,
+            "texte": "Mineur XMRig connecté au pool"
+          }
+        ]
+      },
+      "limites": "Aucun acteur nommé, ni mouvement latéral, exfiltration ou chiffrement [1, 2]. Ahsay dit que les correctifs d'août 2026 étaient incomplets ; hotfix 10.3.4.45 et 9.15.2.70 publiés [5].",
+      "cves": [
+        {
+          "id": "CVE-2026-105133",
+          "explication": "AhsayCBS jusqu'à 10.3.4 : authentification impropre dans la fonction checkSysPwd, gravité moyenne [1]."
+        },
+        {
+          "id": "CVE-2026-105134",
+          "explication": "AhsayCBS jusqu'à 10.3.4 : contournement d'authentification du récepteur de réplication menant à l'exécution de code sans authentification, gravité critique [1]."
+        }
+      ],
+      "mitre": [
+        "T1190 : exploitation d'une application exposée sur Internet [1]",
+        "T1505.003 : webshell [1]",
+        "T1543.003 : service Windows [1]",
+        "T1496.001 : détournement de ressources de calcul [1]"
+      ],
+      "acteurs": [
+        "Non mentionné [1]"
+      ],
+      "cibles": [
+        "Cinq organisations, secteur non précisé ; AhsayCBS est surtout utilisé par des MSP et intégrateurs [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "JSP",
+          "definition": "JavaServer Pages : pages web dynamiques exécutées côté serveur"
+        },
+        {
+          "sigle": "NSSM",
+          "definition": "Non-Sucking Service Manager : outil lançant un programme comme service Windows"
+        },
+        {
+          "sigle": "XMRig",
+          "definition": "Logiciel libre de minage de la cryptomonnaie Monero"
+        },
+        {
+          "sigle": "MSP",
+          "definition": "Prestataires qui gèrent à distance l'informatique de leurs clients"
+        },
+        {
+          "sigle": "SYSTEM",
+          "definition": "Compte Windows aux privilèges les plus élevés"
+        },
+        {
+          "sigle": "NVD",
+          "definition": "National Vulnerability Database : base américaine publique des failles"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Threat Actors Exploit Critical AhsayCBS Flaws to Drop Webshells and XMRig Cryptominer",
+          "site": "Huntress",
+          "url": "https://www.huntress.com/blog/ahsaycbs-flaws-exploit",
+          "date": "2026-10-08",
+          "image": "https://cdn.builder.io/api/v1/image/assets%2F3eb6f92aedf74f109c7b4b0897ec39a8%2F266936e4b61b4dd6821599adf741b9db"
+        },
+        {
+          "titre": "Unpatched AhsayCBS Vulnerabilities Exploited in the Wild",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/unpatched-ahsaycbs-vulnerabilities-exploited-in-the-wild/",
+          "date": "2026-10-09",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+        },
+        {
+          "titre": "Attackers Exploit AhsayCBS Flaws to Deploy XMRig Miners Disguised as Microsoft Edge",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/attackers-exploit-ahsaycbs-flaws-to.html",
+          "date": "2026-10-09",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMpbMY9pFBnt6TekKFIlEqpeqQoPBjBuhu8rYuYtU7ce5P3LTFKwlv_F_BUDzfuuMu0gRU645YStocoUQnNtS11MoEIRrfxrgPZtShsFgr8YH1VYTtjPr2l6aHPFDBYPHJKLT-fa-KqaHGSJHeiDPKzUgA12IJH5zhAHpMnoGZc5Qsz9sJhCOB_3gYHQar/s1700-nu-rw-lo-l85-e365/edge.jpg"
+        },
+        {
+          "titre": "Unpatched AhsayCBS flaws exploited to deploy webshells, mine crypto",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/unpatched-ahsaycbs-flaws-exploited-to-deploy-webshells-mine-crypto/",
+          "date": "2026-10-09",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/hacker-box.jpg"
+        },
+        {
+          "titre": "AhsayCBS Flaws Exploited to Deploy Web Shells Get New Fixes After Incomplete Patches",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/ahsaycbs-flaws-exploited-to-deploy-web.html",
+          "date": "2026-10-15",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhH_5A4EPZ4VVdF4dve5fMe4BwreUmtWCJQrgMiBdiZyoFInoZK_nO6ouOwLMCyyQPrXWE4_n3NE39b4C2UQi-G4uE3ufyv7A9IEYEp9O3ggTu7AyDRzOqwVqhLjISLvOTasPiAcdFafFtL7B5uoKtm8GPeFFxrKDupGCoqZJ2o88sUmaGbjKk6E3sJgIKD/s1700-nu-rw-lo-l85-e365/backup.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-09-ghostaction-772-depots",
+      "title": "GhostAction : un workflow malveillant vole des secrets dans 772 dépôts GitHub",
+      "created": "2026-10-09T12:30:00+00:00",
+      "updated": "2026-10-15T09:08:16+00:00",
+      "version": 3,
+      "resume": "GhostAction a injecté un workflow voleur de secrets dans des dépôts GitHub : 772 dépôts selon les premières sources [1, 2], plus de 30 000 dépôts visés les 8 et 9 octobre selon GitGuardian [3].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Jetons d'accès personnels volés ou identifiants issus d'infostealers → accès en écriture aux dépôts, puis ajout d'un workflow déguisé en audit de sécurité [3]."
+        },
+        {
+          "etape": "Vol de secrets",
+          "texte": "Recherche d'identifiants dans les fichiers et l'historique git → 2 577 secrets visés dans 772 dépôts [1, 2] ; 3 174 secrets visés dans les dépôts publics [3]."
+        },
+        {
+          "etape": "Exfiltration",
+          "texte": "Envoi des identifiants par curl vers une adresse IP codée en dur, en HTTP non chiffré [2]."
+        },
+        {
+          "etape": "Nouvelle vague d'octobre",
+          "texte": "Le 7 octobre, un compte pousse le workflow dans 27 dépôts, un autre dans 318 dépôts en 16 minutes [2]."
+        },
+        {
+          "etape": "Pic d'octobre",
+          "texte": "Déploiement en deux phases : 160 victimes déjà connues, puis environ 28 000 nouveaux dépôts 20 minutes plus tard [3]. GitHub bloque le workflow dès le 9 octobre [3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (GhostAction)",
+            "note": ""
+          },
+          {
+            "id": "cpt",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Comptes GitHub de mainteneurs",
+            "note": "Compromis"
+          },
+          {
+            "id": "dep",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Dépôts GitHub publics",
+            "note": "Workflow malveillant"
+          },
+          {
+            "id": "exf",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur d'exfiltration",
+            "note": "Adresse IP fixe"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cpt",
+            "etape": 1,
+            "texte": "Prise de contrôle des comptes"
+          },
+          {
+            "de": "cpt",
+            "vers": "dep",
+            "etape": 1,
+            "texte": "Ajout du workflow malveillant"
+          },
+          {
+            "de": "dep",
+            "vers": "exf",
+            "etape": 3,
+            "texte": "Secrets envoyés par curl en HTTP"
+          },
+          {
+            "de": "cpt",
+            "vers": "dep",
+            "etape": 5,
+            "texte": "Workflow poussé vers environ 28 000 dépôts"
+          }
+        ]
+      },
+      "limites": "Les chiffres diffèrent selon les sources (772 dépôts contre plus de 30 000) [1, 3]. Aucun acteur n'est nommé [1, 2, 3].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non nommé par les sources [1, 2, 3]"
+      ],
+      "cibles": [
+        "373 utilisateurs et organisations, entre le 31 août et le 30 septembre [1, 2]",
+        "Mainteneurs open source dont l'auteur de pyxel et celui d'athenadriver [2]",
+        "Plus de 30 000 dépôts et 3 000 utilisateurs ou organisations, les 8 et 9 octobre [3]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "GitHub Actions",
+          "definition": "Service d'automatisation de GitHub qui exécute des workflows dans les dépôts"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Protocole d'accès distant sécurisé à une machine"
+        },
+        {
+          "sigle": "AWS",
+          "definition": "Amazon Web Services : services de cloud d'Amazon"
+        },
+        {
+          "sigle": "curl",
+          "definition": "Outil en ligne de commande pour envoyer ou récupérer des données par le réseau"
+        },
+        {
+          "sigle": "HTTP",
+          "definition": "Protocole d'échange web, ici sans chiffrement"
+        },
+        {
+          "sigle": "IP",
+          "definition": "Adresse numérique qui identifie une machine sur le réseau"
+        },
+        {
+          "sigle": "infostealer",
+          "definition": "Logiciel malveillant qui vole identifiants et mots de passe sur un poste"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "In Other News: AI Used in Korean Bank Breaches, Poem-Guided Botnet, Empire Admin Gets 40 Years",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/in-other-news-ai-used-in-korean-bank-breaches-poem-guided-botnet-empire-admin-gets-40-years/",
+          "date": "2026-10-09",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
+        },
+        {
+          "titre": "Credential-Stealing GitHub Actions Workflows Planted in Tens of Thousands of Repositories",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/credential-stealing-github-actions.html",
+          "date": "2026-10-09",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoJXBEAVVijhwsYs32WSejvp0sG3ej-Qoi7Z6qHDp8rY5IZENkKOpexrbbU1BNyiCbbB0ZXHjEDL-UYqu7CDpPpoYLiGXkuLCZJTItgP5XeLD_Sb1galPzOGtrFZigEM5CGUbwi9gcL_-XCYY6NKu9j5FiakIWn5s66DZE-OjrLZO3sMGka3YNFvGUecJT/s1700-nu-rw-lo-l85-e365/gitworm.jpg"
+        },
+        {
+          "titre": "GhostAction Compromises About 1,900 GitHub Accounts, Targets Over 30,000 Repositories",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/ghostaction-compromises-about-1900.html",
+          "date": "2026-10-15",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiddFchlm_nV3vywI0BM2-8IaZb-wHXwE8DplGqZYkRmcYkeXiSLfVmnVAU-jM4yikWW7SWokanh_S4hq88cVHjAnaWDGkl3VVAtPdv9SHWp0MNb0CIOAA-I73EuwwUSE-wNMnXEzbIdDYorJn2hIuBZQ5Jh_5I2IntiXuUYZz3sKax-wfRoaxy_pD9kGx0/s1700-nu-rw-lo-l85-e365/ghost-git.jpg"
         }
       ]
     },
@@ -13015,6 +12628,551 @@
           "url": "https://www.securityweek.com/cikabika-bot-rat-uses-discord-for-cc/",
           "date": "2026-10-15",
           "image": "https://www.securityweek.com/wp-content/uploads/2025/11/malware.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-12-danfoss-froid-supermarches",
+      "title": "Régulation frigorifique Danfoss détournée : stocks détruits dans des supermarchés",
+      "created": "2026-10-12T12:30:00+00:00",
+      "updated": "2026-10-15T13:07:50+00:00",
+      "version": 8,
+      "resume": "Des installations frigorifiques de supermarchés auraient été détournées à distance dans la nuit du 11 au 12 octobre, et des produits jetés [1, 5]. Le CERT-FR connaît de nombreuses compromissions de contrôleurs Danfoss AK-SM et AK-SC [4].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1, 2, 4, 5, 7, 10]. Consoles web accessibles sur Internet [2] ; appareils touchés surtout anciens, en fin de vie et non corrigés [10]."
+        },
+        {
+          "etape": "Détournement de la régulation",
+          "texte": "Dégivrage automatique remplacé par une activation forcée et continue, consigne jusqu'à 50 °C [1, 7], déclenché à distance [5] → hausse des températures des réfrigérateurs [3]."
+        },
+        {
+          "etape": "Impact",
+          "texte": "Températures incompatibles avec la conservation [2], en hausse pendant environ six heures sur certains équipements [6] → produits jetés, 270 000 euros de pertes pour deux magasins alsaciens [1]."
+        },
+        {
+          "etape": "Extension à Dixell",
+          "texte": "Alerte du CERT-FR étendue aux systèmes Copeland XWEB et Dixell XWEB [10] ; Dixell touché dans un supermarché Leclerc du Tarn → magasin privé de froid [8]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "frg",
+            "type": "serveur",
+            "zone": "expose",
+            "nom": "Régulation frigorifique Danfoss",
+            "note": "Magasins"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "frg",
+            "etape": 2,
+            "texte": "Dégivrage forcé, consigne jusqu'à 50 °C"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni la faille exploitée ni l'acteur [1, 2, 4, 5, 7, 8] ; on ignore si les failles divulguées par Claroty ont servi [6] ; LeMagIT ne confirme pas le vecteur d'accès [9].",
+      "cves": [
+        {
+          "id": "CVE-2025-41450",
+          "explication": "Contrôleurs AK-SM800A antérieurs à la version 4.2 : contournement de l'authentification. L'article ne dit pas qu'elle a été exploitée ici [2]."
+        },
+        {
+          "id": "CVE-2025-41451",
+          "explication": "Exécution de code à distance sur ces contrôleurs, découverte par Claroty. L'article ne dit pas qu'elle a été exploitée ici [2]."
+        },
+        {
+          "id": "CVE-2025-41452",
+          "explication": "Injection de données de configuration arbitraires dans le serveur web Nginx embarqué. L'article ne dit pas qu'elle a été exploitée ici [2]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié, aucune revendication [1, 10]"
+      ],
+      "cibles": [
+        "Intermarché : environ 150 magasins selon une source du secteur [1], environ 300 avec Netto selon un média [5] ; Coopérative U [5] ; Leclerc [1] ; Monoprix [2]",
+        "Magasins en France, Belgique, Allemagne, Pays-Bas, Pologne, Portugal et Espagne [6]",
+        "Carrefour : environ 80 supermarchés [7]",
+        "Supermarché Leclerc de Lescure-d'Albigeois (Tarn), équipé de supervision Dixell [8]",
+        "Enseignes confirmées : Carrefour, Coopérative U, E.Leclerc, Intermarché, Monoprix [10]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Interface permettant à un programme de piloter un autre logiciel"
+        },
+        {
+          "sigle": "XWEB",
+          "definition": "Gamme de systèmes de supervision de froid Copeland et Dixell"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Une cyberattaque dérègle le froid des supermarchés",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/une-cyberattaque-deregle-le-froid-des-supermarches/",
+          "date": "2026-10-12",
+          "image": "https://www.zataz.com/wp-content/uploads/froid_hack.jpg"
+        },
+        {
+          "titre": "Cyberattaque Danfoss : quand la distribution alimentaire découvre l'hygiène numérique",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366652072/Cyberattaque-Danfoss-quand-la-distribution-alimentaire-decouvre-lhygiene-numerique",
+          "date": "2026-10-12",
+          "image": "https://www.lemagit.fr/rms/computerweekly/food-waste-social-problem-adobe.jpeg"
+        },
+        {
+          "titre": "Cyberattack shuts down refrigerators at French supermarkets",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cyberattack-shuts-down-refrigerators-at-french-supermarkets/",
+          "date": "2026-10-12",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/supermarket-empty-fridges.jpg"
+        },
+        {
+          "titre": "Incident de sécurité ciblant les Danfoss série AK-SM et AK-SC (12 octobre 2026)",
+          "site": "CERT-FR (alertes)",
+          "url": "https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-012/",
+          "date": "2026-10-12"
+        },
+        {
+          "titre": "Cyberattack disrupts refrigeration at hundreds of French supermarkets",
+          "site": "The Record",
+          "url": "https://therecord.media/cyberattack-disrupts-refridgeration-in-france",
+          "date": "2026-10-11",
+          "image": "https://cms.therecord.media/uploads/CC_BY_2_0_11a0e3277d.png"
+        },
+        {
+          "titre": "Refrigeration Controller Hack Spoils Food Across European Supermarkets",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/refrigeration-controller-hack-spoils-food-across-european-supermarkets/",
+          "date": "2026-10-13",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supermarket-refrigerators.jpeg"
+        },
+        {
+          "titre": "Attackers Heat French Supermarket Fridges Up to 50°C by Hijacking Danfoss Controllers",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/attackers-heat-french-supermarket.html",
+          "date": "2026-10-13",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh64tQNgn3aqDhyphenhyphengoK8NxQG3DPvWWi0fP185meJUr14eUmcX18mKJdkUz6QsMU6bTxmwAtHrd8I0J5FQjvTENA1-N1F60zsR1x2iDzaJNhPbg_6iGYTELpBOwiTbBiaMWLmWQ4naaMfCLCcThNEfC302zF-YCjlev6138DvUrXfr5noGCpZaT9JnGd7hUw/s1700-nu-rw-lo-l85-e365/supermarket.jpg"
+        },
+        {
+          "titre": "Coup de chaud sur la chaîne du froid : au tour de Dixell",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366651818/Coup-de-chaud-sur-la-chaine-du-froid-au-tour-de-Dixell",
+          "date": "2026-10-13",
+          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/HeroImages/heating-radiator-clrcrmck-hero.jpg"
+        },
+        {
+          "titre": "Piratage de systèmes de gestion du froid : ce n'est pas une fatalité",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366652137/Piratage-de-systemes-de-gestion-du-froid-ce-nest-pas-une-fatalite",
+          "date": "2026-10-14",
+          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/HeroImages/warm-jumper-hot-drink-cold-weather-StefaNikolic-Getty-RF.jpg"
+        },
+        {
+          "titre": "Supermarket Refrigeration Attack Widens to Copeland, Dixell Controllers",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/supermarket-refrigeration-attack-widens-to-copeland-dixell-controllers/",
+          "date": "2026-10-15",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supermarket-refrigerators.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-14-uat-6275-gouvernements-cei",
+      "title": "UAT-6275 vise des organisations gouvernementales de la CEI",
+      "created": "2026-10-14T14:08:31+00:00",
+      "updated": "2026-10-15T14:20:00+00:00",
+      "version": 2,
+      "resume": "Cisco Talos et Recorded Future décrivent l'activité de UAT-6275 contre des organisations gouvernementales de la Communauté des États indépendants [1]. The Record compte au moins huit campagnes depuis janvier 2025 dans neuf pays [2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Selon la période : documents Word à macros, raccourci malveillant [1], courriels piégés parfois envoyés depuis des comptes gouvernementaux compromis [2], puis archive RAR exploitant CVE-2025-8088 en avril 2026 [1, 2]."
+        },
+        {
+          "etape": "Téléchargement de code",
+          "texte": "Les macros téléchargent et exécutent un binaire de second étage ; un script hébergé sur GitHub fournit un accès shell distant [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Tâches planifiées (juillet 2025) ; PickleShell dans le dossier Démarrage (avril 2026) → exécution à la prochaine ouverture de session [1, 2]."
+        },
+        {
+          "etape": "Accès distant",
+          "texte": "Reverse shells Chvost, Laplas et PickleShell → exécution de commandes [1]."
+        },
+        {
+          "etape": "Collecte d'identifiants",
+          "texte": "Site imitant l'Agence d'État azerbaïdjanaise pour les services publics, utilisé dans une campagne de collecte d'identifiants [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (UAT-6275)",
+            "note": ""
+          },
+          {
+            "id": "gh",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Script hébergé sur GitHub",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes d'organisations publiques",
+            "note": "PickleShell, Démarrage"
+          },
+          {
+            "id": "fk",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux site d'agence azerbaïdjanaise",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Documents Word, raccourci, archive RAR piégés"
+          },
+          {
+            "de": "gh",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Script fournissant un accès shell distant"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Reverse shells : exécution de commandes"
+          },
+          {
+            "de": "att",
+            "vers": "fk",
+            "etape": 5,
+            "texte": "Site imitant une agence, collecte d'identifiants"
+          }
+        ]
+      },
+      "limites": "Mouvement latéral, élévation de privilèges et exfiltration non mentionnés [1, 2]. Une preuve de concept pour FortiWeb (CVE-2025-25257) a été retrouvée, sans exploitation décrite [1].",
+      "cves": [
+        {
+          "id": "CVE-2025-8088",
+          "explication": "WinRAR : faille exploitée via une archive RAR pour placer PickleShell dans le dossier Démarrage, première exploitation de vulnérabilité observée chez cet acteur [1, 2]."
+        },
+        {
+          "id": "CVE-2025-25257",
+          "explication": "FortiWeb : preuve de concept retrouvée dans l'infrastructure de l'acteur, utilisation dans une attaque non mentionnée [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "UAT-6275 (Cisco Talos), aussi TAG-193 (Recorded Future), lien avec le Kazakhstan évalué avec confiance moyenne [1, 2]"
+      ],
+      "cibles": [
+        "Organisations gouvernementales de neuf pays de la Communauté des États indépendants, dont Russie, Biélorussie, Arménie, Ouzbékistan, Tadjikistan ; eau et énergie [1, 2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "RAR",
+          "definition": "Format d'archive compressée"
+        },
+        {
+          "sigle": "CEI",
+          "definition": "Communauté des États indépendants, regroupement d'anciennes républiques soviétiques"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Break the silence: Kazakhstan-nexus UAT-6275 targets CIS government organizations",
+          "site": "Cisco Talos",
+          "url": "https://blog.talosintelligence.com/break-the-silence-kazakhstan-nexus-uat-6275-targets-cis-government-organizations/",
+          "date": "2026-10-14",
+          "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/UAT-6275-Header.jpg"
+        },
+        {
+          "titre": "Suspected Kazakhstan-linked hackers target governments across former Soviet states",
+          "site": "The Record",
+          "url": "https://therecord.media/suspected-kazakhstan-phishing-central-asia-espionage",
+          "date": "2026-10-15",
+          "image": "https://cms.therecord.media/uploads/Baiterek_paws_and_prints_unsplash_67789aeb4f.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-15-laa-royaume-uni-donnees-1978",
+      "title": "Legal Aid Agency britannique : données volées remontant à 1978",
+      "created": "2026-10-15T09:08:16+00:00",
+      "updated": "2026-10-15T15:08:30+00:00",
+      "version": 2,
+      "resume": "Des attaquants ont pénétré les systèmes de la Legal Aid Agency britannique et volé des données personnelles ; une mise à jour forensique confirme des enregistrements remontant à 1978 [1, 2, 3].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Vulnérabilités des systèmes informatiques exploitées, vecteur précis non précisé [2]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Intrusion en avril 2025 → vol de données de demandeurs, de prestataires et d'identifiants du portail en ligne [1]."
+        },
+        {
+          "etape": "Ampleur confirmée",
+          "texte": "Mise à jour forensique récente : environ 250 000 enregistrements antérieurs à 2007, le plus ancien de 1978, et données de probation consultées [1, 2, 3]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Les données auraient été volées par des extorqueurs ; aucun indice de publication ou de partage selon le ministre de la Justice [2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Systèmes informatiques de l'agence",
+            "note": ""
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Dossiers d'aide juridique",
+            "note": "Depuis 1978"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Intrusion, vecteur non précisé"
+          },
+          {
+            "de": "sys",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Données personnelles et de prestataires volées"
+          },
+          {
+            "de": "don",
+            "vers": "att",
+            "etape": 4,
+            "texte": "Données détenues par des extorqueurs"
+          }
+        ]
+      },
+      "limites": "Ni l'acteur ni le vecteur d'accès ne sont précisés [1, 2, 3]. Aucune preuve de publication des données volées n'est avancée [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Groupe d'extorqueurs, nom non précisé [2]"
+      ],
+      "cibles": [
+        "Legal Aid Agency (ministère de la Justice britannique), demandeurs d'aide juridique, prestataires, juges, personnes suivies par la probation [1, 2, 3]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "UK Legal Aid Agency: Hackers stole records dating back to 1978",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/uk-legal-aid-agency-hackers-stole-records-dating-back-to-1978/",
+          "date": "2026-10-15",
+          "image": "https://www.bleepstatic.com/content/hl-images/2024/09/02/just-uk.jpg"
+        },
+        {
+          "titre": "UK Legal Aid Agency hack worse than thought, with stolen records dating back to 1978",
+          "site": "The Record",
+          "url": "https://therecord.media/uk-legal-aid-cyberattack-data",
+          "date": "2026-10-15",
+          "image": "https://cms.therecord.media/uploads/Justice_Ministry_UK_44000bf15a.jpg"
+        },
+        {
+          "titre": "UK Legal Aid Agency Hack Scope Widens After Forensic Review",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/uk-legal-aid-agency-hack-scope-widens-after-forensic-review/",
+          "date": "2026-10-15",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/06/UK_Cyberwarfare.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-15-help-tds-hotejka",
+      "title": "Help TDS et Hotejka : faux supports techniques via des sites compromis",
+      "created": "2026-10-15T15:08:30+00:00",
+      "updated": "2026-10-15T15:08:30+00:00",
+      "version": 1,
+      "resume": "Le système de redirection Help TDS, lié au programme d'affiliation Hotejka, dirige les visiteurs de sites compromis vers de fausses alertes Windows et des faux supports techniques ; plus de 20 000 domaines Cloudflare Pages ont été détectés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Affiliés injectant un plugin ou un bloc HTML malveillant dans des sites compromis, notamment WordPress → trafic redirigé vers Help TDS [1]."
+        },
+        {
+          "etape": "Tri du trafic",
+          "texte": "Analyse de l'empreinte du navigateur, de la localisation et de la réputation IP → victime dirigée vers une arnaque, un verrouillage de navigateur ou un malware [1]."
+        },
+        {
+          "etape": "Leurre",
+          "texte": "Fausse mise à jour Windows puis faux message Microsoft de machine désactivée, en plein écran → page difficile à quitter [1]."
+        },
+        {
+          "etape": "Faux support technique",
+          "texte": "La victime appelle un faux support Windows → installation d'un outil de bureau à distance, contrôle total de la machine [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (affiliés Hotejka)",
+            "note": ""
+          },
+          {
+            "id": "site",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Sites compromis",
+            "note": "WordPress notamment"
+          },
+          {
+            "id": "tds",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Système Help TDS",
+            "note": "Tri du trafic"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de la victime",
+            "note": ""
+          },
+          {
+            "id": "sup",
+            "type": "inconnu",
+            "zone": "internet",
+            "nom": "Faux support technique",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "site",
+            "etape": 1,
+            "texte": "Plugin ou bloc HTML malveillant injecté"
+          },
+          {
+            "de": "site",
+            "vers": "tds",
+            "etape": 2,
+            "texte": "Visiteur envoyé au système de tri"
+          },
+          {
+            "de": "tds",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Fausses alertes Windows affichées"
+          },
+          {
+            "de": "pc",
+            "vers": "sup",
+            "etape": 4,
+            "texte": "La victime appelle le faux support"
+          },
+          {
+            "de": "sup",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Outil de bureau à distance installé"
+          }
+        ]
+      },
+      "limites": "Le nombre de victimes réelles et d'appels n'est pas précisé [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Hotejka, programme d'affiliation russophone présenté comme une évolution de ROI777 ; environ 20 affiliés envoient du trafic [1]"
+      ],
+      "cibles": [
+        "Utilisateurs Windows redirigés depuis des sites compromis, notamment WordPress [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "TDS",
+          "definition": "Traffic Distribution System : système qui répartit les visiteurs vers différentes destinations"
+        },
+        {
+          "sigle": "HTML",
+          "definition": "Langage de description des pages web"
+        },
+        {
+          "sigle": "IP",
+          "definition": "Adresse réseau d'une machine sur Internet"
+        },
+        {
+          "sigle": "ROI777",
+          "definition": "Opération de monétisation de trafic dont Hotejka serait une évolution"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Help TDS Linked to Hotejka as 20,000+ Cloudflare Pages Domains Host Tech Support Scams",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/help-tds-linked-to-hotejka-as-20000.html",
+          "date": "2026-10-15",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgp2enQeK-5xZuEo_rLQje9W_odynVLALJCEvTyaMSolIfwVonZGMceQWA8yq9xPMD-C_RkIp-V03EqEBVTM5yMq9IHWRRfSHxWWDS6kCJVcVAsmlFXt5wD2pK7Bk-A6iBIDFS2o811n8e48B1Psni_qvrkJ0HMXtJlhaLwx7jkxEG-e0XDgtcAMUMLiNFV/s1700-nu-rw-lo-l85-e365/hot.jpg"
         }
       ]
     }

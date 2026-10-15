@@ -11282,13 +11282,13 @@
       "id": "2026-10-12-danfoss-froid-supermarches",
       "title": "Régulation frigorifique Danfoss détournée : stocks détruits dans des supermarchés",
       "created": "2026-10-12T12:30:00+00:00",
-      "updated": "2026-10-14T15:30:00+00:00",
-      "version": 7,
+      "updated": "2026-10-15T13:07:50+00:00",
+      "version": 8,
       "resume": "Des installations frigorifiques de supermarchés auraient été détournées à distance dans la nuit du 11 au 12 octobre, et des produits jetés [1, 5]. Le CERT-FR connaît de nombreuses compromissions de contrôleurs Danfoss AK-SM et AK-SC [4].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 2, 4, 5, 7]. Consoles web accessibles sur Internet [2] ; une API d'intégration sur le même port est une piste non confirmée [9]."
+          "texte": "Non précisé par les sources [1, 2, 4, 5, 7, 10]. Consoles web accessibles sur Internet [2] ; appareils touchés surtout anciens, en fin de vie et non corrigés [10]."
         },
         {
           "etape": "Détournement de la régulation",
@@ -11300,7 +11300,7 @@
         },
         {
           "etape": "Extension à Dixell",
-          "texte": "Supervision d'un second fournisseur, Dixell, touchée dans un supermarché Leclerc du Tarn → magasin privé de froid [8]."
+          "texte": "Alerte du CERT-FR étendue aux systèmes Copeland XWEB et Dixell XWEB [10] ; Dixell touché dans un supermarché Leclerc du Tarn → magasin privé de froid [8]."
         }
       ],
       "parcours": {
@@ -11359,18 +11359,23 @@
       ],
       "mitre": [],
       "acteurs": [
-        "Non identifié [1]"
+        "Non identifié, aucune revendication [1, 10]"
       ],
       "cibles": [
         "Intermarché : environ 150 magasins selon une source du secteur [1], environ 300 avec Netto selon un média [5] ; Coopérative U [5] ; Leclerc [1] ; Monoprix [2]",
         "Magasins en France, Belgique, Allemagne, Pays-Bas, Pologne, Portugal et Espagne [6]",
         "Carrefour : environ 80 supermarchés [7]",
-        "Supermarché Leclerc de Lescure-d'Albigeois (Tarn), équipé de supervision Dixell [8]"
+        "Supermarché Leclerc de Lescure-d'Albigeois (Tarn), équipé de supervision Dixell [8]",
+        "Enseignes confirmées : Carrefour, Coopérative U, E.Leclerc, Intermarché, Monoprix [10]"
       ],
       "abreviations": [
         {
           "sigle": "API",
           "definition": "Interface permettant à un programme de piloter un autre logiciel"
+        },
+        {
+          "sigle": "XWEB",
+          "definition": "Gamme de systèmes de supervision de froid Copeland et Dixell"
         }
       ],
       "sources": [
@@ -11435,6 +11440,13 @@
           "url": "https://www.lemagit.fr/actualites/366652137/Piratage-de-systemes-de-gestion-du-froid-ce-nest-pas-une-fatalite",
           "date": "2026-10-14",
           "image": "https://www.lemagit.fr/visuals/ComputerWeekly/HeroImages/warm-jumper-hot-drink-cold-weather-StefaNikolic-Getty-RF.jpg"
+        },
+        {
+          "titre": "Supermarket Refrigeration Attack Widens to Copeland, Dixell Controllers",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/supermarket-refrigeration-attack-widens-to-copeland-dixell-controllers/",
+          "date": "2026-10-15",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supermarket-refrigerators.jpeg"
         }
       ]
     },

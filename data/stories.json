@@ -12683,6 +12683,87 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1tlAL_zc7Hg-gD5PRFa08hoOp2KRDu9kNSJk8nhZ91us8q-K7qGfnoasa6gONBjZoEtGJqPEZY3rKMy4Uqozk89X-L7IQBV8IrDqnJYdtAsCC4d08mmQUI4r_zACmvDVdey82w7FC4lTIoYfqdwYYu2Bp_Ql0AwOB54KRYrHk9ixjo27rKLWEK0dwsfw3/s1700-nu-rw-lo-l85-e365/langflow.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-15-centerpoint-energy-fuite-donnees",
+      "title": "CenterPoint Energy : fuite de données de plus d'un million de personnes au Texas",
+      "created": "2026-10-15T10:07:57+00:00",
+      "updated": "2026-10-15T10:07:57+00:00",
+      "version": 1,
+      "resume": "Un pirate a revendiqué sur un forum cybercriminel des enregistrements d'utilisateurs de CenterPoint Energy. L'entreprise déclare plus d'un million de personnes touchées au Texas [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Un pirate revendique environ 7,5 millions d'enregistrements d'utilisateurs sur un forum cybercriminel → l'entreprise apprend la fuite par ce message public [1]."
+        },
+        {
+          "etape": "Publication des données",
+          "texte": "Mise en ligne le 12 septembre d'une archive de 2,5 Go présentée comme des données volées → données téléchargeables publiquement [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Système d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données clients",
+            "note": "Noms, adresses, identifiants"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Enregistrements clients revendiqués sur un forum"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'accès, ni l'identité du pirate, ni la date de l'intrusion [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Pirate non identifié, sans nom ni groupe [1]"
+      ],
+      "cibles": [
+        "CenterPoint Energy, fournisseur d'électricité et de gaz de Houston : 1 062 060 résidents du Texas [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "CenterPoint Energy Data Breach Impacts 1 Million Texans",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/centerpoint-energy-data-breach-impacts-1-million-texans/",
+          "date": "2026-10-15",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/09/CenterPoint-Energy.jpeg"
+        }
+      ]
     }
   ]
 }

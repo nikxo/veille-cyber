@@ -11156,13 +11156,13 @@
       "id": "2026-10-14-uat-6275-gouvernements-cei",
       "title": "UAT-6275 vise des organisations gouvernementales de la CEI",
       "created": "2026-10-14T14:08:31+00:00",
-      "updated": "2026-10-14T14:08:31+00:00",
-      "version": 1,
-      "resume": "Cisco Talos et Recorded Future décrivent l'activité de UAT-6275 contre des organisations gouvernementales de la Communauté des États indépendants, avec un intérêt pour l'eau et l'énergie [1].",
+      "updated": "2026-10-15T14:20:00+00:00",
+      "version": 2,
+      "resume": "Cisco Talos et Recorded Future décrivent l'activité de UAT-6275 contre des organisations gouvernementales de la Communauté des États indépendants [1]. The Record compte au moins huit campagnes depuis janvier 2025 dans neuf pays [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Selon la période : documents Word à macros, raccourci malveillant, puis archive RAR exploitant CVE-2025-8088 en avril 2026 [1]."
+          "texte": "Selon la période : documents Word à macros, raccourci malveillant [1], courriels piégés parfois envoyés depuis des comptes gouvernementaux compromis [2], puis archive RAR exploitant CVE-2025-8088 en avril 2026 [1, 2]."
         },
         {
           "etape": "Téléchargement de code",
@@ -11170,7 +11170,7 @@
         },
         {
           "etape": "Persistance",
-          "texte": "Tâches planifiées (juillet 2025) ; PickleShell dans le dossier Démarrage (avril 2026) → exécution à la prochaine ouverture de session [1]."
+          "texte": "Tâches planifiées (juillet 2025) ; PickleShell dans le dossier Démarrage (avril 2026) → exécution à la prochaine ouverture de session [1, 2]."
         },
         {
           "etape": "Accès distant",
@@ -11239,11 +11239,11 @@
           }
         ]
       },
-      "limites": "Mouvement latéral, élévation de privilèges et exfiltration non mentionnés. Une preuve de concept pour FortiWeb (CVE-2025-25257) a été retrouvée, sans exploitation décrite [1].",
+      "limites": "Mouvement latéral, élévation de privilèges et exfiltration non mentionnés [1, 2]. Une preuve de concept pour FortiWeb (CVE-2025-25257) a été retrouvée, sans exploitation décrite [1].",
       "cves": [
         {
           "id": "CVE-2025-8088",
-          "explication": "WinRAR : faille exploitée via une archive RAR pour placer PickleShell dans le dossier Démarrage, première exploitation de vulnérabilité observée chez cet acteur [1]."
+          "explication": "WinRAR : faille exploitée via une archive RAR pour placer PickleShell dans le dossier Démarrage, première exploitation de vulnérabilité observée chez cet acteur [1, 2]."
         },
         {
           "id": "CVE-2025-25257",
@@ -11252,10 +11252,10 @@
       ],
       "mitre": [],
       "acteurs": [
-        "UAT-6275 (Cisco Talos), aussi TAG-193 (Recorded Future), lien avec le Kazakhstan évalué avec confiance moyenne [1]"
+        "UAT-6275 (Cisco Talos), aussi TAG-193 (Recorded Future), lien avec le Kazakhstan évalué avec confiance moyenne [1, 2]"
       ],
       "cibles": [
-        "Organisations gouvernementales de la Communauté des États indépendants, avec un intérêt pour l'eau et l'énergie [1]"
+        "Organisations gouvernementales de neuf pays de la Communauté des États indépendants, dont Russie, Biélorussie, Arménie, Ouzbékistan, Tadjikistan ; eau et énergie [1, 2]"
       ],
       "abreviations": [
         {
@@ -11274,6 +11274,13 @@
           "url": "https://blog.talosintelligence.com/break-the-silence-kazakhstan-nexus-uat-6275-targets-cis-government-organizations/",
           "date": "2026-10-14",
           "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/UAT-6275-Header.jpg"
+        },
+        {
+          "titre": "Suspected Kazakhstan-linked hackers target governments across former Soviet states",
+          "site": "The Record",
+          "url": "https://therecord.media/suspected-kazakhstan-phishing-central-asia-espionage",
+          "date": "2026-10-15",
+          "image": "https://cms.therecord.media/uploads/Baiterek_paws_and_prints_unsplash_67789aeb4f.jpg"
         }
       ]
     },

@@ -12809,21 +12809,21 @@
       "id": "2026-10-14-uat-6275-gouvernements-cei",
       "title": "UAT-6275 vise des organisations gouvernementales de la CEI",
       "created": "2026-10-14T14:08:31+00:00",
-      "updated": "2026-10-15T14:20:00+00:00",
-      "version": 2,
-      "resume": "Cisco Talos et Recorded Future décrivent l'activité de UAT-6275 contre des organisations gouvernementales de la Communauté des États indépendants [1]. The Record compte au moins huit campagnes depuis janvier 2025 dans neuf pays [2].",
+      "updated": "2026-10-15T17:20:00+00:00",
+      "version": 3,
+      "resume": "Cisco Talos et Recorded Future décrivent l'activité de UAT-6275 contre des organisations gouvernementales de la Communauté des États indépendants [1, 3]. The Record compte au moins huit campagnes depuis janvier 2025 dans neuf pays [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Selon la période : documents Word à macros, raccourci malveillant [1], courriels piégés parfois envoyés depuis des comptes gouvernementaux compromis [2], puis archive RAR exploitant CVE-2025-8088 en avril 2026 [1, 2]."
+          "texte": "Selon la période : documents Word à macros, téléchargeurs PS2EXE, raccourci dans archive RAR [1, 3], courriels piégés de comptes gouvernementaux compromis [2, 3], puis archive RAR exploitant CVE-2025-8088 [1, 2, 3]."
         },
         {
           "etape": "Téléchargement de code",
-          "texte": "Les macros téléchargent et exécutent un binaire de second étage ; un script hébergé sur GitHub fournit un accès shell distant [1]."
+          "texte": "Les macros téléchargent et exécutent un binaire de second étage ; un script hébergé sur GitHub fournit un accès shell distant [1, 3]."
         },
         {
           "etape": "Persistance",
-          "texte": "Tâches planifiées (juillet 2025) ; PickleShell dans le dossier Démarrage (avril 2026) → exécution à la prochaine ouverture de session [1, 2]."
+          "texte": "Tâches planifiées (juillet 2025) ; PickleShell dans le dossier Démarrage (avril 2026) → exécution à la prochaine ouverture de session [1, 2, 3]."
         },
         {
           "etape": "Accès distant",
@@ -12896,11 +12896,11 @@
       "cves": [
         {
           "id": "CVE-2025-8088",
-          "explication": "WinRAR : faille exploitée via une archive RAR pour placer PickleShell dans le dossier Démarrage, première exploitation de vulnérabilité observée chez cet acteur [1, 2]."
+          "explication": "WinRAR : faille exploitée via une archive RAR pour placer PickleShell dans le dossier Démarrage, première exploitation de vulnérabilité observée chez cet acteur [1, 2, 3]."
         },
         {
           "id": "CVE-2025-25257",
-          "explication": "FortiWeb : preuve de concept retrouvée dans l'infrastructure de l'acteur, utilisation dans une attaque non mentionnée [1]."
+          "explication": "FortiWeb : injection SQL, preuve de concept retrouvée dans l'infrastructure de l'acteur, utilisation dans une attaque non mentionnée [1, 3]."
         }
       ],
       "mitre": [],
@@ -12918,6 +12918,14 @@
         {
           "sigle": "CEI",
           "definition": "Communauté des États indépendants, regroupement d'anciennes républiques soviétiques"
+        },
+        {
+          "sigle": "PS2EXE",
+          "definition": "Outil qui empaquette un script PowerShell en exécutable Windows"
+        },
+        {
+          "sigle": "SQL",
+          "definition": "Structured Query Language : langage d'interrogation des bases de données"
         }
       ],
       "sources": [
@@ -12934,6 +12942,13 @@
           "url": "https://therecord.media/suspected-kazakhstan-phishing-central-asia-espionage",
           "date": "2026-10-15",
           "image": "https://cms.therecord.media/uploads/Baiterek_paws_and_prints_unsplash_67789aeb4f.jpg"
+        },
+        {
+          "titre": "Silent Lynx Exploits WinRAR Flaw to Deploy Reverse Shell in CIS Government Attacks",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/silent-lynx-exploits-winrar-flaw-to.html",
+          "date": "2026-10-15",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjX-Vi04Qyk2-RKyXrnolcZ8TTBRKY43kIB_B7l-1Na3Xta_ed00DJtXclvIdp65s6Sdf3ksabzWKXmYTmKwx9xAlROi6eas704naXFtyx93xru04krAQ9kViM9rjKSgKhdMR0weIs4xOd7htm_gI_7CLg-N16wjCKt59vAoC-3UpMFJf8QawlMkfpRh745/s1700-nu-rw-lo-l85-e365/winrar-hacker.jpg"
         }
       ]
     },
@@ -13173,6 +13188,128 @@
           "url": "https://thehackernews.com/2026/10/help-tds-linked-to-hotejka-as-20000.html",
           "date": "2026-10-15",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgp2enQeK-5xZuEo_rLQje9W_odynVLALJCEvTyaMSolIfwVonZGMceQWA8yq9xPMD-C_RkIp-V03EqEBVTM5yMq9IHWRRfSHxWWDS6kCJVcVAsmlFXt5wD2pK7Bk-A6iBIDFS2o811n8e48B1Psni_qvrkJ0HMXtJlhaLwx7jkxEG-e0XDgtcAMUMLiNFV/s1700-nu-rw-lo-l85-e365/hot.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-15-candiru-al-jazeera-publicites",
+      "title": "Candiru : un spyware livré par des publicités en ligne à des appareils d'Al Jazeera",
+      "created": "2026-10-15T17:20:00+00:00",
+      "updated": "2026-10-15T17:20:00+00:00",
+      "version": 1,
+      "resume": "Citizen Lab indique que le spyware Candiru a infecté des appareils d'Al Jazeera via des publicités en ligne, sans clic de l'utilisateur. Au moins 45 appareils de la chaîne ont été ciblés en 2024 et 2025 [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Publicité chargée sur l'appareil, parfois hors écran → code exécuté dès l'affichage, sans aucune action de l'utilisateur [1]."
+        },
+        {
+          "etape": "Tri des cibles",
+          "texte": "Le code envoie l'identifiant publicitaire et l'adresse IP à un serveur de Discover-Tech → le code d'attaque n'est renvoyé que si l'appareil est ciblé [1]."
+        },
+        {
+          "etape": "Exploitation",
+          "texte": "Le serveur renvoie du code d'attaque pour le navigateur ou l'application → exploit non récupéré, mécanisme non détaillé [1]."
+        },
+        {
+          "etape": "Installation du spyware",
+          "texte": "Un serveur de commande et de contrôle exécute le spyware, récupéré sur un appareil [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Candiru)",
+            "note": ""
+          },
+          {
+            "id": "pub",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Publicité en ligne",
+            "note": "Placée par Discover-Tech"
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de Discover-Tech",
+            "note": "Tri des cibles"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Appareils d'Al Jazeera",
+            "note": "Spyware installé"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de commande et contrôle",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pub",
+            "etape": 1,
+            "texte": "Publicité piégée diffusée via une agence publicitaire"
+          },
+          {
+            "de": "pub",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Code exécuté à l'affichage, sans clic"
+          },
+          {
+            "de": "pc",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Envoi de l'identifiant publicitaire et de l'adresse IP"
+          },
+          {
+            "de": "srv",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Code d'attaque renvoyé aux cibles"
+          },
+          {
+            "de": "c2",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Exécution du spyware"
+          }
+        ]
+      },
+      "limites": "L'exploit initial n'a pas été récupéré ; persistance et données volées ne sont pas mentionnées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Candiru, fabricant israélien de spyware vendu à des gouvernements ; Discover-Tech, agence publicitaire intermédiaire [1]"
+      ],
+      "cibles": [
+        "Al Jazeera : au moins 45 appareils ciblés en 2024 et 2025 [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IP",
+          "definition": "Internet Protocol : adresse réseau d'un appareil"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Citizen Lab Traces Zero-Click Candiru Spyware Infections at Al Jazeera to Targeted Online Ads",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/citizen-lab-traces-zero-click-candiru.html",
+          "date": "2026-10-15",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgE0PuxlZklu67SsXNfh_vZefiytkMx159npHL_6Ln3dNT0yxzyYE55zZU5SMOFGk39ZqhfWzXpYQfXdoZB0gGYdkoPu3cNactAPL9ZuCWdb_v4Hp4ZkoBLtEnzBovntpudGiQZvIwTucBgDRwNzfVR5SNybyZvTANvdqsDPjHVoUQcV3hrBNm0-YMvZK0/s1700-nu-rw-lo-l85-e365/spyware-ads.jpg"
         }
       ]
     }

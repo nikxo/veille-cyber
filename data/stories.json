@@ -7931,8 +7931,8 @@
       "id": "2026-10-09-ahsaycbs-webshell-xmrig",
       "title": "Failles AhsayCBS exploitées pour déposer un webshell et un mineur XMRig",
       "created": "2026-10-09T08:20:00+00:00",
-      "updated": "2026-10-09T18:30:00+00:00",
-      "version": 4,
+      "updated": "2026-10-15T09:08:16+00:00",
+      "version": 5,
       "resume": "Des attaquants exploitent deux failles du logiciel de sauvegarde AhsayCBS exposé sur Internet pour exécuter du code, déposer un webshell et installer un mineur de Monero. Au moins cinq organisations sont touchées [1, 2, 3, 4].",
       "chaine": [
         {
@@ -8018,7 +8018,7 @@
           }
         ]
       },
-      "limites": "Aucun acteur nommé, ni mouvement latéral, exfiltration ou chiffrement [1, 2]. Les avis NVD donnent la version 10.3.4 comme corrigée, Huntress la dit aussi touchée [3].",
+      "limites": "Aucun acteur nommé, ni mouvement latéral, exfiltration ou chiffrement [1, 2]. Ahsay dit que les correctifs d'août 2026 étaient incomplets ; hotfix 10.3.4.45 et 9.15.2.70 publiés [5].",
       "cves": [
         {
           "id": "CVE-2026-105133",
@@ -8095,6 +8095,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/unpatched-ahsaycbs-flaws-exploited-to-deploy-webshells-mine-crypto/",
           "date": "2026-10-09",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/hacker-box.jpg"
+        },
+        {
+          "titre": "AhsayCBS Flaws Exploited to Deploy Web Shells Get New Fixes After Incomplete Patches",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/ahsaycbs-flaws-exploited-to-deploy-web.html",
+          "date": "2026-10-15",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhH_5A4EPZ4VVdF4dve5fMe4BwreUmtWCJQrgMiBdiZyoFInoZK_nO6ouOwLMCyyQPrXWE4_n3NE39b4C2UQi-G4uE3ufyv7A9IEYEp9O3ggTu7AyDRzOqwVqhLjISLvOTasPiAcdFafFtL7B5uoKtm8GPeFFxrKDupGCoqZJ2o88sUmaGbjKk6E3sJgIKD/s1700-nu-rw-lo-l85-e365/backup.jpg"
         }
       ]
     },
@@ -8203,17 +8210,17 @@
       "id": "2026-10-09-ghostaction-772-depots",
       "title": "GhostAction : un workflow malveillant vole des secrets dans 772 dépôts GitHub",
       "created": "2026-10-09T12:30:00+00:00",
-      "updated": "2026-10-09T21:30:00+00:00",
-      "version": 2,
-      "resume": "Selon GitGuardian, GhostAction a ajouté un workflow voleur de secrets à 772 dépôts publics [1, 2]. Selon la seconde source, des comptes de mainteneurs ont servi en octobre à le diffuser dans des centaines de dépôts [2].",
+      "updated": "2026-10-15T09:08:16+00:00",
+      "version": 3,
+      "resume": "GhostAction a injecté un workflow voleur de secrets dans des dépôts GitHub : 772 dépôts selon les premières sources [1, 2], plus de 30 000 dépôts visés les 8 et 9 octobre selon GitGuardian [3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Prise de contrôle de comptes GitHub de mainteneurs → ajout d'un workflow déguisé en audit de sécurité dans leurs dépôts [2]."
+          "texte": "Jetons d'accès personnels volés ou identifiants issus d'infostealers → accès en écriture aux dépôts, puis ajout d'un workflow déguisé en audit de sécurité [3]."
         },
         {
           "etape": "Vol de secrets",
-          "texte": "Le workflow cherche des identifiants dans les fichiers et l'historique git → 2 577 secrets visés dans 772 dépôts [1, 2]."
+          "texte": "Recherche d'identifiants dans les fichiers et l'historique git → 2 577 secrets visés dans 772 dépôts [1, 2] ; 3 174 secrets visés dans les dépôts publics [3]."
         },
         {
           "etape": "Exfiltration",
@@ -8222,6 +8229,10 @@
         {
           "etape": "Nouvelle vague d'octobre",
           "texte": "Le 7 octobre, un compte pousse le workflow dans 27 dépôts, un autre dans 318 dépôts en 16 minutes [2]."
+        },
+        {
+          "etape": "Pic d'octobre",
+          "texte": "Déploiement en deux phases : 160 victimes déjà connues, puis environ 28 000 nouveaux dépôts 20 minutes plus tard [3]. GitHub bloque le workflow dès le 9 octobre [3]."
         }
       ],
       "parcours": {
@@ -8273,18 +8284,25 @@
             "vers": "exf",
             "etape": 3,
             "texte": "Secrets envoyés par curl en HTTP"
+          },
+          {
+            "de": "cpt",
+            "vers": "dep",
+            "etape": 5,
+            "texte": "Workflow poussé vers environ 28 000 dépôts"
           }
         ]
       },
-      "limites": "La source 1 ne dit pas comment les workflows ont été ajoutés. La source 2 évoque un jeton d'accès personnel divulgué comme hypothèse, sans l'établir [1, 2].",
+      "limites": "Les chiffres diffèrent selon les sources (772 dépôts contre plus de 30 000) [1, 3]. Aucun acteur n'est nommé [1, 2, 3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non nommé par les sources [1, 2]"
+        "Non nommé par les sources [1, 2, 3]"
       ],
       "cibles": [
         "373 utilisateurs et organisations, entre le 31 août et le 30 septembre [1, 2]",
-        "Mainteneurs open source dont l'auteur de pyxel et celui d'athenadriver [2]"
+        "Mainteneurs open source dont l'auteur de pyxel et celui d'athenadriver [2]",
+        "Plus de 30 000 dépôts et 3 000 utilisateurs ou organisations, les 8 et 9 octobre [3]"
       ],
       "abreviations": [
         {
@@ -8310,6 +8328,10 @@
         {
           "sigle": "IP",
           "definition": "Adresse numérique qui identifie une machine sur le réseau"
+        },
+        {
+          "sigle": "infostealer",
+          "definition": "Logiciel malveillant qui vole identifiants et mots de passe sur un poste"
         }
       ],
       "sources": [
@@ -8326,6 +8348,13 @@
           "url": "https://thehackernews.com/2026/10/credential-stealing-github-actions.html",
           "date": "2026-10-09",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoJXBEAVVijhwsYs32WSejvp0sG3ej-Qoi7Z6qHDp8rY5IZENkKOpexrbbU1BNyiCbbB0ZXHjEDL-UYqu7CDpPpoYLiGXkuLCZJTItgP5XeLD_Sb1galPzOGtrFZigEM5CGUbwi9gcL_-XCYY6NKu9j5FiakIWn5s66DZE-OjrLZO3sMGka3YNFvGUecJT/s1700-nu-rw-lo-l85-e365/gitworm.jpg"
+        },
+        {
+          "titre": "GhostAction Compromises About 1,900 GitHub Accounts, Targets Over 30,000 Repositories",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/ghostaction-compromises-about-1900.html",
+          "date": "2026-10-15",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiddFchlm_nV3vywI0BM2-8IaZb-wHXwE8DplGqZYkRmcYkeXiSLfVmnVAU-jM4yikWW7SWokanh_S4hq88cVHjAnaWDGkl3VVAtPdv9SHWp0MNb0CIOAA-I73EuwwUSE-wNMnXEzbIdDYorJn2hIuBZQ5Jh_5I2IntiXuUYZz3sKax-wfRoaxy_pD9kGx0/s1700-nu-rw-lo-l85-e365/ghost-git.jpg"
         }
       ]
     },
@@ -12429,6 +12458,229 @@
           "url": "https://unit42.paloaltonetworks.com/fortimanager-cve-2024-47575-peerstitch-malware/",
           "date": "2026-10-14",
           "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/10/09_Vulnerabilities_1920x900.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-15-laa-royaume-uni-donnees-1978",
+      "title": "Legal Aid Agency britannique : données volées remontant à 1978",
+      "created": "2026-10-15T09:08:16+00:00",
+      "updated": "2026-10-15T09:08:16+00:00",
+      "version": 1,
+      "resume": "Des attaquants ayant pénétré en avril 2025 les systèmes de la Legal Aid Agency britannique ont volé des données personnelles, dont des enregistrements remontant à 1978 [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Intrusion dans les systèmes informatiques en avril 2025 → vol de données de demandeurs, de prestataires et d'identifiants du portail en ligne [1]."
+        },
+        {
+          "etape": "Ampleur confirmée",
+          "texte": "Mise à jour d'octobre 2026 : environ 250 000 enregistrements antérieurs à 2007 confirmés, le plus ancien datant de 1978 [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Systèmes informatiques de l'agence",
+            "note": ""
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Dossiers d'aide juridique",
+            "note": "Depuis 1978"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Intrusion, vecteur non précisé"
+          },
+          {
+            "de": "sys",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Données personnelles et de prestataires volées"
+          }
+        ]
+      },
+      "limites": "Ni l'acteur ni le vecteur d'accès ne sont précisés. Le ministère de la Justice dit n'avoir aucune preuve de publication des données volées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non mentionné [1]"
+      ],
+      "cibles": [
+        "Legal Aid Agency (ministère de la Justice britannique), demandeurs et bénéficiaires d'aide juridique, prestataires [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "UK Legal Aid Agency: Hackers stole records dating back to 1978",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/uk-legal-aid-agency-hackers-stole-records-dating-back-to-1978/",
+          "date": "2026-10-15",
+          "image": "https://www.bleepstatic.com/content/hl-images/2024/09/02/just-uk.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-15-langflow-cve-2026-105740",
+      "title": "Langflow : faille d'exécution de code exploitée sur des honeypots",
+      "created": "2026-10-15T09:08:16+00:00",
+      "updated": "2026-10-15T09:08:16+00:00",
+      "version": 1,
+      "resume": "Des attaquants exploitent CVE-2026-105740, une faille d'exécution de code de Langflow : Previdian a enregistré 1 423 tentatives sur ses honeypots depuis le 19 septembre 2026 [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Tentative d'auto-connexion refusée, puis connexion avec un identifiant et un mot de passe courants → jeton d'accès à la configuration MCP [1]."
+        },
+        {
+          "etape": "Injection de commande",
+          "texte": "Ajout d'un serveur MCP en mode stdio dont le champ command contient la charge → commande stockée sans validation [1]."
+        },
+        {
+          "etape": "Exécution de code",
+          "texte": "Récupération de la liste des serveurs → exécution de la commande avec les privilèges du processus Langflow [1]."
+        },
+        {
+          "etape": "Vol de variables",
+          "texte": "Variables d'environnement, dont la clé secrète et le mot de passe superutilisateur de Langflow, envoyées vers une adresse IP externe [1]."
+        },
+        {
+          "etape": "Exploration de l'hôte",
+          "texte": "Commandes Docker vers le système de fichiers de l'hôte, lecture de /etc/passwd, commandes id et whoami [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "lf",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Honeypot Langflow",
+            "note": "Serveur MCP malveillant"
+          },
+          {
+            "id": "ext",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Adresse IP externe",
+            "note": "Variables reçues"
+          },
+          {
+            "id": "host",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Système hôte",
+            "note": "Docker, /etc/passwd"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "lf",
+            "etape": 1,
+            "texte": "Connexion avec identifiants courants"
+          },
+          {
+            "de": "att",
+            "vers": "lf",
+            "etape": 2,
+            "texte": "Serveur MCP à commande malveillante ajouté"
+          },
+          {
+            "de": "lf",
+            "vers": "ext",
+            "etape": 4,
+            "texte": "Variables d'environnement envoyées"
+          },
+          {
+            "de": "lf",
+            "vers": "host",
+            "etape": 5,
+            "texte": "Commandes Docker et lecture de fichiers"
+          }
+        ]
+      },
+      "limites": "L'article ne nomme aucun acteur ni victime réelle ; seuls des honeypots sont cités [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-105740",
+          "explication": "Langflow avant 1.9.0 : un utilisateur authentifié exécute du code via un serveur MCP stdio, commande non validée ; gravité 9,9 sur 10 [1]."
+        },
+        {
+          "id": "CVE-2026-105697",
+          "explication": "Injection de commandes système via la configuration des serveurs MCP stdio, gravité 9,9 sur 10, corrigée le mois précédent [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non mentionné [1]"
+      ],
+      "cibles": [
+        "Instances Langflow ; seuls des honeypots sont cités, aucune victime réelle [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "Langflow",
+          "definition": "Plateforme libre pour créer des applications d'intelligence artificielle"
+        },
+        {
+          "sigle": "MCP",
+          "definition": "Model Context Protocol : protocole reliant une IA à des outils externes"
+        },
+        {
+          "sigle": "stdio",
+          "definition": "Mode où le serveur MCP est lancé comme commande locale"
+        },
+        {
+          "sigle": "honeypot",
+          "definition": "Serveur piège qui imite une cible pour observer les attaques"
+        },
+        {
+          "sigle": "Docker",
+          "definition": "Outil qui exécute des applications dans des conteneurs isolés"
+        },
+        {
+          "sigle": "IP",
+          "definition": "Adresse numérique qui identifie une machine sur le réseau"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Langflow's Critical Authenticated RCE Flaw Targeted in 1,423 Honeypot Exploit Attempts",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/langflows-critical-authenticated-rce.html",
+          "date": "2026-10-15",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1tlAL_zc7Hg-gD5PRFa08hoOp2KRDu9kNSJk8nhZ91us8q-K7qGfnoasa6gONBjZoEtGJqPEZY3rKMy4Uqozk89X-L7IQBV8IrDqnJYdtAsCC4d08mmQUI4r_zACmvDVdey82w7FC4lTIoYfqdwYYu2Bp_Ql0AwOB54KRYrHk9ixjo27rKLWEK0dwsfw3/s1700-nu-rw-lo-l85-e365/langflow.jpg"
         }
       ]
     }

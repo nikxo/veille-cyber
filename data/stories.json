@@ -11912,13 +11912,13 @@
       "id": "2026-10-14-cisco-secure-email-gateway-zero-day",
       "title": "Cisco Secure Email Gateway : faille zero-day exploitée pour exécuter des commandes root",
       "created": "2026-10-14T18:15:00+00:00",
-      "updated": "2026-10-14T19:08:13+00:00",
-      "version": 2,
+      "updated": "2026-10-15T07:20:00+00:00",
+      "version": 3,
       "resume": "Des attaquants exploitent une faille de Cisco Secure Email Gateway pour écrire des fichiers sur l'appareil, puis exécuter des commandes root, sans authentification, au moyen d'un e-mail piégé. Cisco a publié un correctif le 14 octobre [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "E-mail avec pièce jointe spécialement conçue, reçu par un appareil non corrigé → déclenchement de la faille dans le traitement des pièces jointes [1, 2]."
+          "texte": "E-mail avec pièce jointe spécialement conçue, traité par un appareil avec service de réputation de fichiers activé et Content Scanner Tools antérieur à 25.3.0.5525 → faille déclenchée [1, 2, 3]."
         },
         {
           "etape": "Écriture de fichiers",
@@ -11930,7 +11930,7 @@
         },
         {
           "etape": "Effacement des traces",
-          "texte": "Cisco indique que les attaquants peuvent supprimer les preuves après avoir obtenu l'exécution root [1]."
+          "texte": "Cisco indique que les attaquants peuvent supprimer ou masquer les preuves après l'exécution root ; il s'agit d'un risque signalé, non d'une étape observée [1, 3]."
         }
       ],
       "parcours": {
@@ -11965,11 +11965,11 @@
           }
         ]
       },
-      "limites": "L'acteur, le nombre d'appareils touchés et les étapes après l'exécution root ne sont pas précisés, hormis l'effacement des traces [1]. La source 2 ne dit pas si root a été obtenu sur un appareil [2].",
+      "limites": "Acteur, nombre d'appareils touchés et suites de l'exécution root non précisés [1, 3]. La source 2 ne dit pas si root a été obtenu [2]. La source 3 date des correctifs du 14 septembre [3].",
       "cves": [
         {
           "id": "CVE-2026-76519",
-          "explication": "Cisco Secure Email Gateway, Advanced Malware Protection : traversée de chemin relatif permettant à un attaquant distant non authentifié d'exécuter des commandes root, gravité 9,8 sur 10 [1, 2]."
+          "explication": "Cisco Secure Email Gateway, Advanced Malware Protection : traversée de chemin permettant à un attaquant distant non authentifié d'exécuter des commandes root, gravité 9,8 sur 10 [1, 2, 3]."
         }
       ],
       "mitre": [],
@@ -11993,6 +11993,13 @@
           "url": "https://thehackernews.com/2026/10/cisco-warns-of-active-attacks.html",
           "date": "2026-10-14",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhh__fSqm3p4u0HNpmeikU6Mo4abprP417Zb3pPW3-6IGrTHwqkbz1CqiuqxL2D0O1PH8J4Ho3_ZpNdJ5VFluIj_KHX6qT0WqZYfHQzyu0cVzGee9EmAZ9pNzsZJZx40UxuKjuz9eNHvuzlMANKOkDr6aRdKWxs8SpJqSi6vDBQTP5ZFgpgqn3Yj2TYNJU/s1700-nu-rw-lo-l85-e365/cisco-0day.jpg"
+        },
+        {
+          "titre": "Cisco Warns of Exploited Secure Email Gateway Vulnerability",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/cisco-warns-of-exploited-secure-email-gateway-vulnerability/",
+          "date": "2026-10-15",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Cisco-network-switch-exploit.webp"
         }
       ]
     },
@@ -12193,17 +12200,17 @@
       "id": "2026-10-14-palo-alto-pan-os-zero-day",
       "title": "PAN-OS de Palo Alto Networks : faille zero-day exploitée sur l'interface de gestion des pare-feu",
       "created": "2026-10-14T23:07:48+00:00",
-      "updated": "2026-10-14T23:07:48+00:00",
-      "version": 1,
-      "resume": "Palo Alto Networks a corrigé la faille zero-day CVE-2026-0322 de PAN-OS, exploitée de façon « très limitée » contre l'interface de gestion de pare-feu [1].",
+      "updated": "2026-10-15T07:20:00+00:00",
+      "version": 2,
+      "resume": "Palo Alto Networks a corrigé la faille zero-day CVE-2026-0322 de PAN-OS, exploitée de façon « très limitée » contre l'interface de gestion de pare-feu [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Identifiants existants et accès réseau à l'interface de gestion de PAN-OS nécessaires ; l'origine des identifiants n'est pas mentionnée [1]."
+          "texte": "Attaquant authentifié disposant d'un accès réseau à l'interface de gestion de PAN-OS ; l'origine de l'authentification n'est pas mentionnée [1, 2, 3]."
         },
         {
           "etape": "Exploitation de la faille",
-          "texte": "Exploitation de CVE-2026-0322 dans l'interface de gestion → exécution de code en tant que root sur les appareils vulnérables [1]."
+          "texte": "Exploitation de CVE-2026-0322 dans l'interface de gestion → exécution de code en tant que root sur le pare-feu, sans configuration particulière requise [1, 2, 3]."
         }
       ],
       "parcours": {
@@ -12238,11 +12245,11 @@
           }
         ]
       },
-      "limites": "Les sources ne disent ni qui est l'acteur, ni quelles victimes sont touchées, ni ce que les attaquants ont fait après la prise de contrôle [1].",
+      "limites": "Les sources ne disent ni qui est l'acteur, ni quelles victimes sont touchées, ni ce que les attaquants ont fait après la prise de contrôle [1, 2, 3]. Des adresses liées aux tentatives sont publiées [2].",
       "cves": [
         {
           "id": "CVE-2026-0322",
-          "explication": "PAN-OS, interface de gestion des pare-feu : exécution de code à distance, zero-day exploité, gravité élevée (score 8,6), sans contournement connu [1]."
+          "explication": "PAN-OS, interface de gestion : exécution de code à distance par un attaquant authentifié, zero-day exploité, gravité élevée (score 8,6) [1, 2, 3]."
         }
       ],
       "mitre": [],
@@ -12263,6 +12270,20 @@
           "url": "https://www.bleepingcomputer.com/news/security/palo-alto-networks-warns-of-pan-os-rce-flaw-exploited-in-attacks/",
           "date": "2026-10-14",
           "image": "https://www.bleepstatic.com/content/hl-images/2024/10/09/Palo-Alto-Networks.jpg"
+        },
+        {
+          "titre": "Palo Alto Networks Patches PAN-OS Authenticated RCE Flaw Amid Active Exploitation",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/palo-alto-networks-patches-pan-os.html",
+          "date": "2026-10-15",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4G5JAIF-hCnKf9QyWLzWIWxTrUIjqshujDHf0-_9m84O9f4S0Z-IQ4Jg-T11Ph_rwZvzsFU8Z-pI3uRsnvPSE-FK_VtrUx0pNZgHKf3PuMJCQmwopiE5hyMRSObeV7_VSrF7WC_iiG9T8wMNivOOBC12F7bLK8WI-MNjCffolAJnnhk-X-v1ecxwYtrQz/s1700-nu-rw-lo-l85-e365/palo.jpg"
+        },
+        {
+          "titre": "Palo Alto Networks Patches PAN-OS Zero-Day Exploited for Remote Code Execution",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/palo-alto-networks-patches-pan-os-zero-day-exploited-for-remote-code-execution/",
+          "date": "2026-10-15",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/11/Palo-Alto-Networks-zero-day.jpeg"
         }
       ]
     },

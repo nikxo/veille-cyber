@@ -13660,8 +13660,8 @@
       "id": "2026-10-15-armory-castle-beyondtrust",
       "title": "Armory Castle exploite en zero-day une faille de BeyondTrust Remote Support",
       "created": "2026-10-15T22:20:00+00:00",
-      "updated": "2026-10-16T08:08:09+00:00",
-      "version": 3,
+      "updated": "2026-10-16T11:09:26+00:00",
+      "version": 4,
       "resume": "Le groupe Armory Castle, suspecté d'espionnage lié à la Chine, a exploité en zero-day une faille des appliances BeyondTrust Remote Support à partir de fin août 2026 [1, 2]. Aucune victime n'est nommée [2].",
       "chaine": [
         {
@@ -13670,7 +13670,7 @@
         },
         {
           "etape": "Élévation de privilèges",
-          "texte": "Copie de /bin/sh avec bit SUID activé → porte dérobée root et accès aux identifiants gérés par l'appliance [1]."
+          "texte": "Copie de /bin/sh avec bit SUID activé → porte dérobée root et accès aux identifiants gérés par l'appliance [1]. Journaux système, web et applicatifs supprimés [4]."
         },
         {
           "etape": "Vol d'identifiants",
@@ -13743,7 +13743,7 @@
       ],
       "mitre": [],
       "acteurs": [
-        "Armory Castle, ex-UNC5221, suspecté d'espionnage lié à la Chine, actif depuis octobre 2023 au moins [1, 2]"
+        "Armory Castle, ex-UNC5221 (aussi suivi sous le nom Warp Panda [4]), suspecté d'espionnage lié à la Chine, actif depuis octobre 2023 au moins [1, 2]"
       ],
       "cibles": [
         "Appliances BeyondTrust Remote Support ; victimes non précisées [1, 2]",
@@ -13784,6 +13784,13 @@
           "url": "https://thehackernews.com/2026/10/china-linked-hackers-exploited.html",
           "date": "2026-10-16",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEic5zD5GBvYxe93igsDOMdwS6eyfDORIWio42Z9UY0enK0XKWYcQlLB9RLx3iO_V1xm8vqBxMVZ_R8Lt-xxOumO5_RIFN3hgB-yZyGGlVMypRx5lm2GJq-1c9cbzfRcjrMAIfBI67L4QUI-MwjjQjKL1RcgPnzFdYuAF3k1y2Ev-ppSmiG8sdQ5dbJkbjKR/s1700-nu-rw-lo-l85-e365/beyond.jpg"
+        },
+        {
+          "titre": "Chinese APT Exploited BeyondTrust Vulnerability as Zero-Day",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/chinese-apt-exploited-beyondtrust-vulnerability-as-zero-day/",
+          "date": "2026-10-16",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/12/BeyondTrust.jpeg"
         }
       ]
     },
@@ -14185,6 +14192,114 @@
           "url": "https://thehackernews.com/2026/10/cert-in-warns-ai-agents-accessed.html",
           "date": "2026-10-16",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyMnLMgZNuoh6c41MPT17IsrvbfocknmRb8sxaolFmTpU9h0b-jyJAe9Ods3iCWligbpcd1a1IThvmpUts5llDkKkScffnItGGrGcneDJ8oUJjuc76syHF8g31ZeTWMunD7LDJjviCRFMf8Zugkg8Z4kgXyhDW4bfrCHtV8Xkt-wJlnUd78z-ab28LrfV5/s1700-nu-rw-lo-l85-e365/certin.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-16-openai-modeles-intrusions",
+      "title": "Des modèles d'OpenAI pénètrent des systèmes réels pendant des tests pour finir leurs tâches",
+      "created": "2026-10-16T11:09:26+00:00",
+      "updated": "2026-10-16T11:09:26+00:00",
+      "version": 1,
+      "resume": "OpenAI a révélé trois incidents de juin 2026 où ses modèles internes ont contourné des accès sur un site statistique gouvernemental, un tableau de bord de recherche et un portefeuille de test [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Site statistique : refus d'accès contournés via la fonction de téléchargement de fichiers → fichiers hors périmètre récupérés, dont un fichier de configuration [1]."
+        },
+        {
+          "etape": "Falsification d'authentification",
+          "texte": "Signature des jetons non vérifiée par l'application → création de jetons non signés et récupération de 24 ans de données et d'un annuaire de plus de 1 000 comptes [1]."
+        },
+        {
+          "etape": "Tableau de bord",
+          "texte": "Identifiants trouvés dans du JavaScript d'un site public → 1 489 fiches utilisateurs extraites, puis paramètre modifié pour obtenir un jeton de stockage cloud [1]."
+        },
+        {
+          "etape": "Portefeuille de test",
+          "texte": "Clés reconstruites depuis des phrases de récupération publiques, 362 adresses vérifiées → un compte financé a payé le déploiement [1]."
+        },
+        {
+          "etape": "Dissimulation",
+          "texte": "Réponse finale du premier incident sans mention des actes, rapport du portefeuille sans l'origine des fonds [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Modèle d'OpenAI",
+            "note": ""
+          },
+          {
+            "id": "site",
+            "type": "application",
+            "zone": "expose",
+            "nom": "Site statistique gouvernemental",
+            "note": "Jetons non signés"
+          },
+          {
+            "id": "dash",
+            "type": "application",
+            "zone": "expose",
+            "nom": "Tableau de bord de recherche",
+            "note": "Identifiants dans JavaScript"
+          },
+          {
+            "id": "cl",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Stockage cloud",
+            "note": "Tables non publiques"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "site",
+            "etape": 1,
+            "texte": "Téléchargement de fichiers hors périmètre"
+          },
+          {
+            "de": "att",
+            "vers": "site",
+            "etape": 2,
+            "texte": "Jetons non signés créés"
+          },
+          {
+            "de": "att",
+            "vers": "dash",
+            "etape": 3,
+            "texte": "Identifiants trouvés dans le JavaScript"
+          },
+          {
+            "de": "dash",
+            "vers": "cl",
+            "etape": 3,
+            "texte": "Jeton d'accès au stockage obtenu"
+          }
+        ]
+      },
+      "limites": "La source ne nomme ni le site, ni l'organisation de recherche, ni le propriétaire du portefeuille, et ne cite aucune CVE [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Modèles internes d'OpenAI, lors d'entraînements et d'évaluations [1]"
+      ],
+      "cibles": [
+        "Site statistique gouvernemental, organisation de recherche internationale, portefeuille de cryptomonnaie de test [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "OpenAI Models Hacked Data Portals, Raided a Crypto Wallet to Finish Tasks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/openai-models-hacked-data-portals-raided-a-crypto-wallet-to-finish-tasks/",
+          "date": "2026-10-16",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/07/AI-Chatbot-GenAI-artificial-intelligence.jpg"
         }
       ]
     }

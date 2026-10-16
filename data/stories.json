@@ -13653,9 +13653,9 @@
       "id": "2026-10-15-armory-castle-beyondtrust",
       "title": "Armory Castle exploite en zero-day une faille de BeyondTrust Remote Support",
       "created": "2026-10-15T22:20:00+00:00",
-      "updated": "2026-10-15T22:20:00+00:00",
-      "version": 1,
-      "resume": "Le groupe Armory Castle, suspecté d'espionnage lié à la Chine, a exploité en zero-day une faille des appliances BeyondTrust Remote Support à partir de fin août 2026, selon Mandiant [1].",
+      "updated": "2026-10-16T07:30:00+00:00",
+      "version": 2,
+      "resume": "Le groupe Armory Castle, suspecté d'espionnage lié à la Chine, a exploité en zero-day une faille des appliances BeyondTrust Remote Support à partir de fin août 2026 [1, 2]. Aucune victime n'est nommée [2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -13727,19 +13727,20 @@
           }
         ]
       },
-      "limites": "La source ne nomme ni victimes ni secteurs touchés, ne cite aucune technique MITRE ATT&CK et ne donne pas de gravité pour la faille [1].",
+      "limites": "Les sources ne nomment ni victimes ni secteurs touchés, ne citent aucune technique MITRE ATT&CK et ne donnent pas de gravité pour la faille [1, 2].",
       "cves": [
         {
           "id": "CVE-2026-102764",
-          "explication": "BeyondTrust Remote Support : envoi arbitraire de fichiers par un attaquant distant non authentifié, menant au contrôle de l'hôte ; versions jusqu'à 26.2.3 touchées [1]."
+          "explication": "BeyondTrust Remote Support : envoi arbitraire de fichiers par un attaquant distant non authentifié, menant au contrôle de l'hôte ; versions jusqu'à 26.2.3 touchées [1, 2]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "Armory Castle, ex-UNC5221, suspecté d'espionnage lié à la Chine, actif depuis octobre 2023 au moins [1]"
+        "Armory Castle, ex-UNC5221, suspecté d'espionnage lié à la Chine, actif depuis octobre 2023 au moins [1, 2]"
       ],
       "cibles": [
-        "Appliances BeyondTrust Remote Support ; victimes non précisées [1]"
+        "Appliances BeyondTrust Remote Support ; victimes non précisées [1, 2]",
+        "Plus de 1 400 instances Remote Support accessibles en ligne selon Shadowserver [2]"
       ],
       "abreviations": [
         {
@@ -13762,6 +13763,13 @@
           "url": "https://cloud.google.com/blog/topics/threat-intelligence/armory-castle-exploits-beyondtrust/",
           "date": "2026-10-15",
           "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
+        },
+        {
+          "titre": "BeyondTrust patches zero-day exploited in attacks since August",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/beyondtrust-patches-zero-day-exploited-in-attacks-since-august/",
+          "date": "2026-10-16",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/16/BeyondTrust.jpg"
         }
       ]
     },
@@ -13922,6 +13930,157 @@
           "titre": "Fiche NVD CVE-2025-55182",
           "site": "NVD (NIST)",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55182"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-16-peerstitch-fortios",
+      "title": "PEERSTITCH : logiciel en mémoire déployé sur FortiOS après l'intrusion d'un fournisseur de télécoms",
+      "created": "2026-10-16T07:30:00+00:00",
+      "updated": "2026-10-16T07:30:00+00:00",
+      "version": 1,
+      "resume": "Un acteur avancé suspecté, suivi sous le nom CL-STA-0954, a compromis un fournisseur de services gérés de télécommunications puis déployé le logiciel PEERSTITCH sur des équipements FortiOS, selon Unit 42 [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de CVE-2024-47575 (FortiJump) sur FortiManager, à partir de septembre 2024 → accès à l'appareil [1]."
+        },
+        {
+          "etape": "Vol de configurations",
+          "texte": "Archive exfiltrée avec les configurations de plus de 500 pare-feux FortiGate, identifiants chiffrés, certificats et clés privées [1]."
+        },
+        {
+          "etape": "Déploiement de PEERSTITCH",
+          "texte": "Exploitation de CVE-2025-61624 → élévation de privilèges et déploiement de PEERSTITCH, logiciel résidant en mémoire, sans binaire sur le disque [1]."
+        },
+        {
+          "etape": "Contournement des contrôles",
+          "texte": "Injection dans les processus miglogd et iked → sessions VPN marquées traitées en contournant les validations de sécurité de FortiOS [1]."
+        },
+        {
+          "etape": "Contrôle des pare-feux",
+          "texte": "Sessions SSL/VPN non autorisées, reverse shell SSH via mod_md, usurpation de FortiManager → récupération de données auprès de pare-feux gérés [1]."
+        },
+        {
+          "etape": "Effacement des traces",
+          "texte": "Arrêt des journaux syslog, effacement des crash logs, suppression des comptes administrateurs malveillants [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (CL-STA-0954)",
+            "note": ""
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur 23.240.77.233",
+            "note": "Cinq composants"
+          },
+          {
+            "id": "fm",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "FortiManager du fournisseur",
+            "note": "Configurations volées"
+          },
+          {
+            "id": "fw",
+            "type": "passerelle",
+            "zone": "victime",
+            "nom": "Pare-feux FortiGate gérés",
+            "note": "PEERSTITCH"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "fm",
+            "etape": 1,
+            "texte": "Exploitation de CVE-2024-47575"
+          },
+          {
+            "de": "fm",
+            "vers": "att",
+            "etape": 2,
+            "texte": "Archive de configurations exfiltrée"
+          },
+          {
+            "de": "c2",
+            "vers": "fw",
+            "etape": 3,
+            "texte": "Téléchargement des composants de PEERSTITCH"
+          },
+          {
+            "de": "att",
+            "vers": "fw",
+            "etape": 5,
+            "texte": "Sessions SSL/VPN non autorisées"
+          }
+        ]
+      },
+      "limites": "Les sources ne donnent pas les dates de l'exfiltration ni du déploiement de PEERSTITCH, ni le nom de la victime. Deux autres CVE sont soupçonnées sans confirmation [1].",
+      "cves": [
+        {
+          "id": "CVE-2025-61624",
+          "explication": "FortiOS, FortiPAM, FortiProxy, FortiSwitchManager : traversée de chemin dans l'interpréteur de commandes, écriture ou suppression de fichiers par un attaquant privilégié, gravité 5,4 sur 10 [1]."
+        },
+        {
+          "id": "CVE-2024-47575",
+          "explication": "FortiManager : absence de vérification d'authentification sur une fonction critique, exécution de code par requêtes forgées, gravité critique 9,8 sur 10 [2]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "CL-STA-0954, aussi suivi sous le nom UNC5820, acteur avancé suspecté [1]"
+      ],
+      "cibles": [
+        "Fournisseur de services gérés de télécommunications, plus de 500 pare-feux FortiGate exposés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "VPN",
+          "definition": "Réseau privé virtuel : liaison chiffrée vers un réseau distant"
+        },
+        {
+          "sigle": "SSL/VPN",
+          "definition": "VPN accessible par navigateur ou client, chiffré par SSL"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Protocole de connexion chiffrée à distance à une machine"
+        },
+        {
+          "sigle": "ARM64",
+          "definition": "Architecture de processeur 64 bits utilisée par certains équipements"
+        },
+        {
+          "sigle": "PEERSTITCH",
+          "definition": "Nom donné par Unit 42 au logiciel malveillant ARM64 de cette attaque"
+        },
+        {
+          "sigle": "UNC5820",
+          "definition": "Identifiant de suivi du même acteur par un autre nom"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "PEERSTITCH Malware Deployed via FortiOS Flaw Bypasses Checks on Tagged VPN Sessions",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/attackers-exploit-fortios-flaw-to.html",
+          "date": "2026-10-16",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMvdc6m999SfUEEWC89wHnBiUX9WAMCSdWtbFP_lrH4DuREHfOJL7G29LkM4uAvittg3XsHxnq6dq_VEX1zB_jCGi5RJDbQZlrq37gHSCXpRrn11FEN-hezQn0Dt4Xcw4DcanklKW_8iLEnQN6JpzkQ7JHBOS1_dMzDAs2h_jJcWDqOGjbkMoeabOCkSFK/s1700-nu-rw-lo-l85-e365/f.jpg"
+        },
+        {
+          "titre": "Fiche NVD CVE-2024-47575",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-47575"
         }
       ]
     }

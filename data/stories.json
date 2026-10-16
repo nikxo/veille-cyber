@@ -13667,8 +13667,8 @@
       "id": "2026-10-15-armory-castle-beyondtrust",
       "title": "Armory Castle exploite en zero-day une faille de BeyondTrust Remote Support",
       "created": "2026-10-15T22:20:00+00:00",
-      "updated": "2026-10-16T11:09:26+00:00",
-      "version": 4,
+      "updated": "2026-10-16T13:13:53+00:00",
+      "version": 5,
       "resume": "Le groupe Armory Castle, suspecté d'espionnage lié à la Chine, a exploité en zero-day une faille des appliances BeyondTrust Remote Support à partir de fin août 2026 [1, 2]. Aucune victime n'est nommée [2].",
       "chaine": [
         {
@@ -13750,11 +13750,13 @@
       ],
       "mitre": [],
       "acteurs": [
-        "Armory Castle, ex-UNC5221 (aussi suivi sous le nom Warp Panda [4]), suspecté d'espionnage lié à la Chine, actif depuis octobre 2023 au moins [1, 2]"
+        "Armory Castle, ex-UNC5221 (aussi suivi sous le nom Warp Panda [4]), suspecté d'espionnage lié à la Chine, actif depuis octobre 2023 au moins [1, 2]",
+        "Objectif du groupe : renseignement à long terme [5]"
       ],
       "cibles": [
         "Appliances BeyondTrust Remote Support ; victimes non précisées [1, 2]",
-        "Plus de 1 400 instances Remote Support accessibles en ligne selon Shadowserver [2]"
+        "Plus de 1 400 instances Remote Support accessibles en ligne selon Shadowserver [2]",
+        "Services juridiques, fournisseurs SaaS, sous-traitants de processus métier, entreprises technologiques, gouvernements (cibles du groupe) [5]"
       ],
       "abreviations": [
         {
@@ -13798,6 +13800,13 @@
           "url": "https://www.securityweek.com/chinese-apt-exploited-beyondtrust-vulnerability-as-zero-day/",
           "date": "2026-10-16",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/12/BeyondTrust.jpeg"
+        },
+        {
+          "titre": "Suspected Chinese espionage attackers abusing BeyondTrust IT support zero-day",
+          "site": "The Record",
+          "url": "https://therecord.media/beyond-trust-cyberattack-china",
+          "date": "2026-10-16",
+          "image": "https://cms.therecord.media/uploads/BT_1_e667ba6c47.jpg"
         }
       ]
     },

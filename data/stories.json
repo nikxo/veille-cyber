@@ -13573,8 +13573,8 @@
       "id": "2026-10-15-bae-systems-tribunaux-faillite",
       "title": "Tribunaux de faillite américains : cyberattaque contre le prestataire BAE Systems",
       "created": "2026-10-15T21:20:00+00:00",
-      "updated": "2026-10-16T08:08:09+00:00",
-      "version": 2,
+      "updated": "2026-10-16T12:08:16+00:00",
+      "version": 3,
       "resume": "Une cyberattaque contre le prestataire BAE Systems a interrompu le système Bankruptcy Noticing Center, qui produit les notifications de tous les tribunaux fédéraux de faillite américains [1].",
       "chaine": [
         {
@@ -13583,7 +13583,7 @@
         },
         {
           "etape": "Interruption du service",
-          "texte": "Cyberattaque chez le prestataire → système de notification et sites associés inaccessibles, production des avis interrompue [1, 2]."
+          "texte": "Cyberattaque chez le prestataire → système de notification et sites associés inaccessibles, production des avis interrompue depuis environ une semaine [1, 2, 3]."
         }
       ],
       "parcours": {
@@ -13625,7 +13625,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni le vecteur, ni l'acteur, ni la date, ni un éventuel vol de données [1, 2]. BAE affirme que l'incident est isolé à ce système [1].",
+      "limites": "Les sources ne précisent ni le vecteur, ni l'acteur, ni la date de début, ni un vol de données [1, 2, 3]. BAE affirme l'incident isolé à ce système [3].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
@@ -13652,6 +13652,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/bae-systems-cyberattack-disrupts-us-federal-court-operations/",
           "date": "2026-10-16",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/16/court-gavel.jpg"
+        },
+        {
+          "titre": "BAE Systems Security Incident Stalls Notices From US Bankruptcy Courts",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/bae-systems-security-incident-stalls-notices-from-us-bankruptcy-courts/",
+          "date": "2026-10-16",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/04/law-court-order-lawsuit-e1782819788980.jpg"
         }
       ]
     },
@@ -14300,6 +14307,85 @@
           "url": "https://www.securityweek.com/openai-models-hacked-data-portals-raided-a-crypto-wallet-to-finish-tasks/",
           "date": "2026-10-16",
           "image": "https://www.securityweek.com/wp-content/uploads/2025/07/AI-Chatbot-GenAI-artificial-intelligence.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-16-burger-king-japon-fuite",
+      "title": "Burger King Japon : fuite de 11 millions d'enregistrements clients",
+      "created": "2026-10-16T12:08:16+00:00",
+      "updated": "2026-10-16T12:08:16+00:00",
+      "version": 1,
+      "resume": "Des attaquants ont accédé sans autorisation à un serveur de comptes de l'application de Burger King Japon : environ 11,18 millions d'enregistrements clients sont concernés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Accès au serveur",
+          "texte": "Accès non autorisé entre le 2 et le 7 octobre 2026 → serveur gérant les comptes de l'application atteint [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Données de 11,18 millions de clients (noms, e-mails, téléphones, historique de commandes) → diffusées en ligne [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur des comptes de l'application",
+            "note": "Accès non autorisé"
+          },
+          {
+            "id": "dat",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Enregistrements clients",
+            "note": "11,18 millions"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Accès non autorisé, méthode non précisée"
+          },
+          {
+            "de": "srv",
+            "vers": "dat",
+            "etape": 3,
+            "texte": "Données clients volées puis divulguées"
+          }
+        ]
+      },
+      "limites": "L'enquête sur la manière dont les attaquants ont accédé au serveur est en cours ; acteur non mentionné [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Burger King Japon, environ 11,18 millions de clients de l'application [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Burger King Japan data breach exposes 11 million customer records",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/burger-king-japan-data-breach-exposes-11-million-customer-records/",
+          "date": "2026-10-16",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/16/Burger-King-Japan.jpg"
         }
       ]
     }

@@ -13217,13 +13217,13 @@
       "id": "2026-10-15-candiru-al-jazeera-publicites",
       "title": "Candiru : un spyware livré par des publicités en ligne à des appareils d'Al Jazeera",
       "created": "2026-10-15T17:20:00+00:00",
-      "updated": "2026-10-15T19:20:00+00:00",
-      "version": 2,
-      "resume": "Citizen Lab indique que le spyware Candiru a infecté des appareils d'Al Jazeera via des publicités en ligne, sans clic de l'utilisateur. Au moins 45 appareils de la chaîne ont été ciblés en 2024 et 2025 [1].",
+      "updated": "2026-10-16T18:07:53+00:00",
+      "version": 3,
+      "resume": "Citizen Lab indique que le spyware Candiru a infecté des appareils d'Al Jazeera via des publicités en ligne, sans clic de l'utilisateur. Au moins 45 appareils de la chaîne ont été ciblés en 2024 et 2025 [1, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Publicité diffusée par Discover-Tech et affichée sur l'appareil → code JavaScript exécuté dès l'affichage, sans action de l'utilisateur [1, 2]."
+          "texte": "Publicité diffusée par Discover-Tech et affichée sur l'appareil → code JavaScript exécuté dès l'affichage, sans action de l'utilisateur [1, 2, 3]."
         },
         {
           "etape": "Tri des cibles",
@@ -13235,7 +13235,7 @@
         },
         {
           "etape": "Installation du spyware",
-          "texte": "Un serveur de commande et de contrôle exécute le spyware, récupéré sur un appareil [1]."
+          "texte": "Serveur de commande et de contrôle qui exécute le spyware [1] ; une DLL récupérée sur un système Windows est attribuée à Candiru [3]."
         },
         {
           "etape": "Surveillance",
@@ -13319,7 +13319,7 @@
           }
         ]
       },
-      "limites": "L'exploit initial n'a pas été récupéré ; persistance et données volées ne sont pas détaillées par [1]. Les publicités se seraient affichées sur près de 200 000 sites [2].",
+      "limites": "Exploit initial non récupéré [1] et non détaillé [3]. Les publicités auraient touché près de 200 000 sites [2], contre 120 768 sites et 75 373 applications [3], ce qui n'est pas un nombre d'infections [3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -13332,6 +13332,10 @@
         {
           "sigle": "IP",
           "definition": "Internet Protocol : adresse réseau d'un appareil"
+        },
+        {
+          "sigle": "DLL",
+          "definition": "Bibliothèque de code Windows chargée par un programme"
         }
       ],
       "sources": [
@@ -13348,6 +13352,13 @@
           "url": "https://therecord.media/spyware-citizen-lab-advertising",
           "date": "2026-10-15",
           "image": "https://cms.therecord.media/uploads/Citizen_lab_spyware_67df3ddf70.jpg"
+        },
+        {
+          "titre": "Zero-click attacks used targeted ads to deliver Candiru spyware",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/zero-click-attacks-used-targeted-ads-to-deliver-candiru-spyware/",
+          "date": "2026-10-16",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/16/spywareads.jpg"
         }
       ]
     },
@@ -14607,29 +14618,29 @@
       "id": "2026-10-15-unc7017-aomei-mises-a-jour",
       "title": "UNC7017 : serveurs de mise à jour d'AOMEI modifiés pendant quelques minutes pour diffuser des logiciels malveillants",
       "created": "2026-10-16T15:20:00+00:00",
-      "updated": "2026-10-16T15:20:00+00:00",
-      "version": 1,
-      "resume": "Entre avril et juillet 2026, UNC7017 a modifié à plusieurs reprises, pendant 5 à 10 minutes, les fichiers de configuration des serveurs de mise à jour d'AOMEI pour livrer des logiciels malveillants aux clients [1].",
+      "updated": "2026-10-16T18:07:53+00:00",
+      "version": 2,
+      "resume": "UNC7017 a modifié à plusieurs reprises, pendant 5 à 10 minutes, les fichiers des serveurs de mise à jour d'AOMEI pour livrer des logiciels malveillants aux clients, entre avril et juillet 2026 [1] ou entre mai et juillet 2026 [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Modification brève des fichiers de configuration des serveurs de mise à jour d'AOMEI → les clients qui interrogent le serveur téléchargent une archive malveillante [1]."
+          "texte": "Modification brève des fichiers de configuration des serveurs de mise à jour d'AOMEI → les clients qui interrogent le serveur téléchargent une archive malveillante [1, 2]."
         },
         {
           "etape": "Exécution du chargeur",
-          "texte": "Le fichier Notifycfg.ini fait lancer le chargeur CROSSROAD par le service de notification → téléchargement des composants suivants et restauration des fichiers de configuration [1]."
+          "texte": "Le fichier Notifycfg.ini fait lancer le chargeur CROSSROAD par le service de notification → téléchargement des composants suivants et restauration des fichiers de configuration [1, 2]."
         },
         {
           "etape": "Persistance",
-          "texte": "Tâche planifiée RadminComponentRuntime, exécutée toutes les trois heures, et Radmin Server modifié installé en silence → accès distant durable [1]."
+          "texte": "Tâche planifiée RadminComponentRuntime, exécutée toutes les trois heures, et Radmin Server modifié installé en silence → accès distant durable [1, 2]."
         },
         {
           "etape": "Porte dérobée",
-          "texte": "SHINYROAD chargé via un binaire signé légitime → exécution de code Python et connexion à un serveur de contrôle [1]."
+          "texte": "SHINYROAD chargé via un binaire signé légitime → shell distant, exécution de code Python et connexion à un serveur de contrôle [1, 2]."
         },
         {
           "etape": "Vol d'identifiants",
-          "texte": "Fenêtre contenant une fenêtre de 1 pixel qui force l'envoi de condensats NetNTLMv2 vers un serveur de l'attaquant, le 20 juillet [1]."
+          "texte": "Notification invisible pointant vers un fichier WebDAV distant (20 juillet) → peut transmettre l'authentification NetNTLMv2 de l'utilisateur [1, 2]."
         }
       ],
       "parcours": {
@@ -14677,7 +14688,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent pas comment les serveurs d'AOMEI ont été atteints, ni le nombre de victimes [1].",
+      "limites": "Les sources ne précisent pas comment les serveurs d'AOMEI ont été atteints, ni le nombre de victimes [1, 2]. Elles divergent sur le début : avril [1], mai [2].",
       "cves": [],
       "mitre": [
         "T1195.002 : compromission de la chaîne d'approvisionnement logicielle, accès initial par les serveurs de mise à jour [1]"
@@ -14686,7 +14697,7 @@
         "UNC7017, groupe suivi par Google Threat Intelligence et Mandiant, origine non mentionnée [1]"
       ],
       "cibles": [
-        "Utilisateurs d'AOMEI Backupper et AnyViewer : informatique, télécoms, enseignement supérieur, 11 pays [1]"
+        "Utilisateurs d'AOMEI Backupper et AnyViewer : informatique, télécoms, enseignement supérieur, 11 pays [1, 2]"
       ],
       "abreviations": [
         {
@@ -14708,6 +14719,10 @@
         {
           "sigle": "SHINYROAD",
           "definition": "Nom donné par Google à la porte dérobée modulaire"
+        },
+        {
+          "sigle": "WebDAV",
+          "definition": "Protocole d'accès à des fichiers distants via le web"
         }
       ],
       "sources": [
@@ -14717,6 +14732,13 @@
           "url": "https://cloud.google.com/blog/topics/threat-intelligence/investigating-ephemeral-supply-chain-tampering/",
           "date": "2026-10-15",
           "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
+        },
+        {
+          "titre": "Attackers Tampered with AOMEI Backupper's Update Servers for Minutes to Deliver a Backdoor",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/attackers-tampered-with-aomei.html",
+          "date": "2026-10-16",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhuPumyjeBRpQZo5_3mvqZ2_kXuPiOK02cH-ARofYrny0mQ2-rv55w7yBxMTBe3ymCW7c77quZ4xlkdDG9FcEhBYFr7GWmbyPE_1K1xqU0mvT-h51Z8hLg-LnWl32MeOy-aumsGO9-j8VSOSOfVUDB2k1vWOpEdyGEWV9ipF4kf3HVP1Au2ClbkYtAJrc/s1700-nu-rw-lo-l85-e365/backup-hacked.jpg"
         }
       ]
     }

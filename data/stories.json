@@ -4961,21 +4961,21 @@
       "id": "2026-10-08-uat-11985-taiwan-google-aitm",
       "title": "UAT-11985 : courriels d'événements piégés pour voler des comptes Google de chercheurs taïwanais",
       "created": "2026-10-08T11:30:00+00:00",
-      "updated": "2026-10-08T11:30:00+00:00",
-      "version": 1,
-      "resume": "Le groupe UAT-11985, décrit comme un APT, a envoyé des courriels sur le thème d'événements à des personnes liées à des organismes de recherche taïwanais pour voler leurs comptes Google [1].",
+      "updated": "2026-10-16T17:08:50+00:00",
+      "version": 2,
+      "resume": "Le groupe UAT-11985, décrit comme un APT, a envoyé des courriels sur le thème d'événements à des personnes liées à des organismes de recherche taïwanais pour voler leurs comptes Google [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Courriels d'invitation à des événements (parfois avec affiche à code QR modifié) contenant un lien déguisé en formulaire Google → fausse page de connexion Google [1]."
+          "texte": "Courriels d'invitation à des événements (parfois avec affiche à code QR modifié) contenant un lien déguisé en formulaire Google → fausse page de connexion Google [1, 2]."
         },
         {
           "etape": "Relais en temps réel",
-          "texte": "Identifiant relayé à Google par le serveur de l'acteur, puis mot de passe transmis à ce serveur → type d'authentification multifacteur demandé renvoyé en temps réel [1]."
+          "texte": "Infos du navigateur envoyées au serveur de l'acteur, puis identifiants relayés à Google → page adaptée et état d'authentification renvoyé en temps réel [1, 2]."
         },
         {
           "etape": "Contournement multifacteur",
-          "texte": "Authentification multifacteur relayée par le serveur → jetons de session authentifiés et prise de contrôle complète du compte [1]."
+          "texte": "Authentification multifacteur relayée par le serveur, codes transmis par WebSocket → jetons de session authentifiés et prise de contrôle complète du compte [1, 2]."
         }
       ],
       "parcours": {
@@ -5043,7 +5043,7 @@
           }
         ]
       },
-      "limites": "Le rattachement à un État n'est pas confirmé par Talos, et aucune victime ni aucun nombre de victimes n'est donné [1].",
+      "limites": "Le rattachement à un État n'est pas confirmé par Talos, et aucune victime ni aucun nombre de victimes n'est donné [1, 2].",
       "cves": [],
       "mitre": [
         "T1557 : Adversary-in-the-Middle, interception de l'authentification entre la victime et le service [1]"
@@ -5079,6 +5079,13 @@
           "url": "https://blog.talosintelligence.com/uat-11985/",
           "date": "2026-10-08",
           "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/threat_spotlight.jpg"
+        },
+        {
+          "titre": "UAT-11985 Uses Fake Event Invites to Target Taiwan Research Affiliates With Google AitM Phishing",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/uat-11985-uses-fake-event-invites-to.html",
+          "date": "2026-10-16",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPclyw7bJ19im5Qmzj9jgFlsM4XJqPK6hyphenhyphenRDCcQ0bnpWrteeTWgPNlip5T0P_oj_AC6V3osZ2xIpYipKjXWQw3BfFEQ1n28dleNCLRi7difLnPLY8Yc-oJ6BCVZ1V0VBpF_ZNu36qM_yCvyvbgBsSfh2AXq-IBIk7QjnBSR_T7s8ajMCOkIEhA5YGeYWg4/s1700-nu-rw-lo-l85-e365/google-phish.jpg"
         }
       ]
     },

@@ -14397,6 +14397,196 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/16/Burger-King-Japan.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-16-anne-arundel-rhysida",
+      "title": "Comté d'Anne Arundel (Maryland) : fichiers volés, extorsion revendiquée par Rhysida",
+      "created": "2026-10-16T14:10:00+00:00",
+      "updated": "2026-10-16T14:10:00+00:00",
+      "version": 1,
+      "resume": "Un acteur non autorisé a copié des fichiers de systèmes du comté d'Anne Arundel en août 2026. Le groupe Rhysida a revendiqué l'attaque et menace de publier des documents [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de fichiers",
+          "texte": "Accès non autorisé à un nombre limité de systèmes du comté en août → fichiers copiés [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Rhysida menace de publier 2,6 téraoctets de documents → rançon de 2 millions de dollars exigée [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Rhysida revendique)",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Systèmes du comté",
+            "note": "Nombre limité"
+          },
+          {
+            "id": "dat",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Fichiers du comté",
+            "note": "Copiés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Accès non autorisé, méthode non précisée"
+          },
+          {
+            "de": "sys",
+            "vers": "dat",
+            "etape": 2,
+            "texte": "Fichiers copiés"
+          },
+          {
+            "de": "att",
+            "vers": "dat",
+            "etape": 3,
+            "texte": "Menace de publication contre rançon"
+          }
+        ]
+      },
+      "limites": "Date d'accès initial, vecteur et nature des données volées non précisés ; le comté évalue encore si des informations de résidents sont touchées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Groupe de rançongiciel Rhysida, qui a revendiqué l'attaque [1]"
+      ],
+      "cibles": [
+        "Comté d'Anne Arundel, Maryland, plus de 600 000 habitants [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Baltimore suburb confirms August data breach after ransomware claims",
+          "site": "The Record",
+          "url": "https://therecord.media/anne-arundel-county-maryland-confirms-data-breach",
+          "date": "2026-10-16",
+          "image": "https://cms.therecord.media/uploads/Arundel_Center_6199da95a1.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-16-datasuckers-dodo-pizza",
+      "title": "DataSuckers : vol de données chez Dodo Pizza et extorsions, suspects arrêtés à Moscou",
+      "created": "2026-10-16T14:10:00+00:00",
+      "updated": "2026-10-16T14:10:00+00:00",
+      "version": 1,
+      "resume": "Le groupe DataSuckers a volé des données clients de Dodo Pizza grâce à des identifiants exposés sur GitHub, puis visé Tez Tour et ATB. Des suspects ont été arrêtés le 16 octobre 2026 [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Identifiants d'entreprise de Dodo Pizza exposés sur GitHub → accès à des systèmes interconnectés [1]."
+        },
+        {
+          "etape": "Accès aux données",
+          "texte": "Utilisation des identifiants → accès au stockage cloud, aux bases de données et aux mots de passe enregistrés [1]."
+        },
+        {
+          "etape": "Revente",
+          "texte": "Base de données mise en vente sur le dark web pour 100 000 dollars [1]."
+        },
+        {
+          "etape": "Autres victimes",
+          "texte": "Tez Tour en septembre (site défiguré) puis ATB début octobre → rançon de 400 000 dollars réclamée à ATB, contestée par les deux entreprises [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (DataSuckers)",
+            "note": ""
+          },
+          {
+            "id": "gh",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Dépôt GitHub",
+            "note": "Identifiants exposés"
+          },
+          {
+            "id": "sys",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Systèmes de Dodo Pizza",
+            "note": "Stockage, bases"
+          },
+          {
+            "id": "dat",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données clients",
+            "note": "Mises en vente"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gh",
+            "etape": 1,
+            "texte": "Récupération d'identifiants exposés"
+          },
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Accès avec les identifiants"
+          },
+          {
+            "de": "sys",
+            "vers": "dat",
+            "etape": 3,
+            "texte": "Base de données mise en vente"
+          }
+        ]
+      },
+      "limites": "Date de l'attaque contre Dodo Pizza non précisée ; Tez Tour et ATB contestent toute compromission de données, et le volume revendiqué n'est pas vérifié [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "DataSuckers, groupe à motivation financière, quatre membres présumés dont un en fuite [1]"
+      ],
+      "cibles": [
+        "Dodo Pizza, Tez Tour (opérateur touristique russe), ATB (chaîne d'épiceries ukrainienne) [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ATB",
+          "definition": "Nom de la plus grande chaîne d'épiceries d'Ukraine"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Moscow police detain suspected DataSuckers hackers linked to breaches in Ukraine and Russia",
+          "site": "The Record",
+          "url": "https://therecord.media/russia-datasuckers-hackers-arrested",
+          "date": "2026-10-16",
+          "image": "https://cms.therecord.media/uploads/Datasuckers_f214f20b32.jpg"
+        }
+      ]
     }
   ]
 }

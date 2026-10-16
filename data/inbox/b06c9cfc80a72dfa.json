@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-10-16T15:08:27+00:00",
+  "feed_summary": "Written by: Tyler McLellan Introduction Google Threat Intelligence Group (GTIG) and Mandiant investigated a software supply chain compromise campaign targeting the update infrastructure belonging to AOMEI Technology between April 2026 and July 2026. The threat actor conducted repeated, short-burst configuration tampering against AOMEI origin servers. Each tampering window remained active for only five to ten minutes before reverting to authentic versions. This is the first time that we have encountered a software supply chain compromise that was implemented with these very short windows, effectively evading traditional point-in-time triage and automated file scanning. The campaign delivered a multi-stage payload chain involving the newly tracked CROSSROAD downloader and SHINYROAD backdoor.",
+  "id": "b06c9cfc80a72dfa",
+  "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png",
+  "lang": "en",
+  "link": "https://cloud.google.com/blog/topics/threat-intelligence/investigating-ephemeral-supply-chain-tampering/",
+  "published": "2026-10-15T11:00:00+00:00",
+  "source": "Google Threat Intelligence (Mandiant)",
+  "source_type": "analyse",
+  "title": "Investigating Ephemeral Supply Chain Tampering"
+}

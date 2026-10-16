@@ -14587,6 +14587,124 @@
           "image": "https://cms.therecord.media/uploads/Datasuckers_f214f20b32.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-15-unc7017-aomei-mises-a-jour",
+      "title": "UNC7017 : serveurs de mise à jour d'AOMEI modifiés pendant quelques minutes pour diffuser des logiciels malveillants",
+      "created": "2026-10-16T15:20:00+00:00",
+      "updated": "2026-10-16T15:20:00+00:00",
+      "version": 1,
+      "resume": "Entre avril et juillet 2026, UNC7017 a modifié à plusieurs reprises, pendant 5 à 10 minutes, les fichiers de configuration des serveurs de mise à jour d'AOMEI pour livrer des logiciels malveillants aux clients [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Modification brève des fichiers de configuration des serveurs de mise à jour d'AOMEI → les clients qui interrogent le serveur téléchargent une archive malveillante [1]."
+        },
+        {
+          "etape": "Exécution du chargeur",
+          "texte": "Le fichier Notifycfg.ini fait lancer le chargeur CROSSROAD par le service de notification → téléchargement des composants suivants et restauration des fichiers de configuration [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Tâche planifiée RadminComponentRuntime, exécutée toutes les trois heures, et Radmin Server modifié installé en silence → accès distant durable [1]."
+        },
+        {
+          "etape": "Porte dérobée",
+          "texte": "SHINYROAD chargé via un binaire signé légitime → exécution de code Python et connexion à un serveur de contrôle [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Fenêtre contenant une fenêtre de 1 pixel qui force l'envoi de condensats NetNTLMv2 vers un serveur de l'attaquant, le 20 juillet [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (UNC7017)",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveurs de mise à jour",
+            "note": "Configuration modifiée"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes clients AOMEI",
+            "note": "Chargeur et porte dérobée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 1,
+            "texte": "Modification de la configuration, 5 à 10 minutes"
+          },
+          {
+            "de": "srv",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Archive malveillante téléchargée par les clients"
+          },
+          {
+            "de": "pc",
+            "vers": "att",
+            "etape": 4,
+            "texte": "Connexion de la porte dérobée au serveur de contrôle"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent pas comment les serveurs d'AOMEI ont été atteints, ni le nombre de victimes [1].",
+      "cves": [],
+      "mitre": [
+        "T1195.002 : compromission de la chaîne d'approvisionnement logicielle, accès initial par les serveurs de mise à jour [1]"
+      ],
+      "acteurs": [
+        "UNC7017, groupe suivi par Google Threat Intelligence et Mandiant, origine non mentionnée [1]"
+      ],
+      "cibles": [
+        "Utilisateurs d'AOMEI Backupper et AnyViewer : informatique, télécoms, enseignement supérieur, 11 pays [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "UNC7017",
+          "definition": "Nom provisoire donné par Mandiant à un groupe non encore attribué"
+        },
+        {
+          "sigle": "NetNTLMv2",
+          "definition": "Protocole d'authentification Windows dont les condensats peuvent être volés"
+        },
+        {
+          "sigle": "AOMEI",
+          "definition": "Éditeur de logiciels de sauvegarde et d'accès à distance"
+        },
+        {
+          "sigle": "CROSSROAD",
+          "definition": "Nom donné par Google au chargeur qui télécharge les autres composants"
+        },
+        {
+          "sigle": "SHINYROAD",
+          "definition": "Nom donné par Google à la porte dérobée modulaire"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Investigating Ephemeral Supply Chain Tampering",
+          "site": "Google Threat Intelligence (Mandiant)",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/investigating-ephemeral-supply-chain-tampering/",
+          "date": "2026-10-15",
+          "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
+        }
+      ]
     }
   ]
 }

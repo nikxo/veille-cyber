@@ -14741,6 +14741,127 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhuPumyjeBRpQZo5_3mvqZ2_kXuPiOK02cH-ARofYrny0mQ2-rv55w7yBxMTBe3ymCW7c77quZ4xlkdDG9FcEhBYFr7GWmbyPE_1K1xqU0mvT-h51Z8hLg-LnWl32MeOy-aumsGO9-j8VSOSOfVUDB2k1vWOpEdyGEWV9ipF4kf3HVP1Au2ClbkYtAJrc/s1700-nu-rw-lo-l85-e365/backup-hacked.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-17-connectwise-cloud-backup-microsoft-365",
+      "title": "Identifiant ConnectWise Cloud Backup compromis : accès à 173 environnements Microsoft 365",
+      "created": "2026-10-17T07:30:00+00:00",
+      "updated": "2026-10-17T07:30:00+00:00",
+      "version": 1,
+      "resume": "Des acteurs inconnus ont utilisé un identifiant Microsoft 365 compromis de ConnectWise Cloud Backup pour obtenir des jetons d'accès dans 173 environnements de partenaires et clients [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Identifiant Microsoft 365 de l'application ConnectWise Cloud Backup compromis, méthode non précisée → authentification à l'application avec les propres outils de l'acteur [1]."
+        },
+        {
+          "etape": "Mots de passe testés",
+          "texte": "Les 13 et 14 octobre, essais de mots de passe sur quatre environnements de cabinets d'avocats → aucune connexion réussie détectée par Huntress [1]."
+        },
+        {
+          "etape": "Obtention de jetons",
+          "texte": "Le 15 octobre, parcours des environnements clients dans l'ordre des identifiants, à quelques secondes d'intervalle → jetons Microsoft Graph dans 173 environnements [1]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Dans au moins un environnement, l'application s'ajoute au rôle Global Administrator puis exécute un script Python [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Ajout de nouveaux secrets client à une application de gestion et à la plateforme Huntress → voie vers d'autres applications privilégiées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (acteur inconnu)",
+            "note": ""
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "ConnectWise Cloud Backup",
+            "note": "Identifiant compromis"
+          },
+          {
+            "id": "law",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Quatre cabinets d'avocats",
+            "note": "Sans succès détecté"
+          },
+          {
+            "id": "ten",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "173 environnements Microsoft 365",
+            "note": "Jetons obtenus"
+          },
+          {
+            "id": "mgt",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Application de gestion, Huntress",
+            "note": "Nouveaux secrets"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 1,
+            "texte": "Authentification avec l'identifiant compromis"
+          },
+          {
+            "de": "att",
+            "vers": "law",
+            "etape": 2,
+            "texte": "Essais de mots de passe"
+          },
+          {
+            "de": "app",
+            "vers": "ten",
+            "etape": 3,
+            "texte": "Jetons Microsoft Graph obtenus"
+          },
+          {
+            "de": "app",
+            "vers": "ten",
+            "etape": 4,
+            "texte": "Ajout au rôle Global Administrator"
+          },
+          {
+            "de": "ten",
+            "vers": "mgt",
+            "etape": 5,
+            "texte": "Ajout de secrets client"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni comment l'identifiant a été compromis, ni l'acteur, ni si des données ont été exfiltrées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Acteurs inconnus, sans attribution [1]"
+      ],
+      "cibles": [
+        "173 environnements Microsoft 365 de partenaires et clients de ConnectWise Cloud Backup, dont quatre cabinets d'avocats visés par des essais de mots de passe [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Hackers Use Compromised ConnectWise Credential to Sign In to 173 Microsoft 365 Tenants",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/hackers-use-compromised-connectwise.html",
+          "date": "2026-10-17",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgel6whr7-1_Lf62w6AJwYfEyic0x1lJ0c-qOfOprMUdm83xpM7rqXbJzplx7BPBUBDD4yUcLWoPvFBhF6HIDORPNNXYj7NfDOTf7YN5lT7p80jxtN6VrTxMjWT0OplFNx0BdjoMmFzk3ssVlbapm7Qfl0Z9_1T7jA_zwz2tbjrxzRircL28mr0zcsci98x/s1700-nu-rw-lo-l85-e365/connectwise.jpg"
+        }
+      ]
     }
   ]
 }

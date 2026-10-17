@@ -3748,9 +3748,9 @@
       "id": "2026-10-06-malfex-npm-paquets-malveillants",
       "title": "Campagne MALFEX : paquets npm malveillants publiés depuis août 2023",
       "created": "2026-10-06T11:30:00+00:00",
-      "updated": "2026-10-07T18:30:00+00:00",
-      "version": 2,
-      "resume": "Depuis août 2023, un même acteur a publié des paquets npm malveillants dans la campagne MALFEX ; huit ont été téléchargés 40 767 fois, dont 37 419 pour function-flag [1, 2].",
+      "updated": "2026-10-17T12:30:00+00:00",
+      "version": 3,
+      "resume": "Dans la campagne MALFEX, des paquets npm malveillants sont publiés depuis août 2023 ; huit ont été téléchargés 40 767 fois [1, 2]. Le paquet imgdecode déploie un voleur Node.js [3].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -3761,12 +3761,20 @@
           "texte": "Scripts lancés après l'installation des paquets → téléchargement et exécution des charges, dont le chargeur du cheval de Troie Overlord dans trois paquets [1, 2]."
         },
         {
-          "etape": "Vol de données",
-          "texte": "Le code malveillant déploie le voleur movinlike → ciblage de Discord, navigateurs et portefeuilles de cryptomonnaies [1]."
-        },
-        {
           "etape": "Charge externe",
           "texte": "Chaque version de function-flag contient un téléchargeur → récupération d'une charge utile externe [1]."
+        },
+        {
+          "etape": "Chargement du shellcode",
+          "texte": "Le module natif (DLL) d'imgdecode télécharge et déchiffre une charge utile → injection dans dllhost.exe [3]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Voleur movinlike → ciblage de Discord, navigateurs et portefeuilles [1] ; voleur Node.js → vol de phrases de récupération et de données de navigateurs [3]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Le voleur Node.js crée une clé de registre Run et une tâche planifiée « MicrosoftEdgeUpdateService » [3]."
         }
       ],
       "parcours": {
@@ -3809,8 +3817,8 @@
           {
             "de": "pc",
             "vers": "att",
-            "etape": 3,
-            "texte": "Voleur movinlike : Discord, navigateurs, portefeuilles"
+            "etape": 5,
+            "texte": "Voleurs : Discord, navigateurs, portefeuilles"
           }
         ]
       },
@@ -3833,6 +3841,14 @@
         {
           "sigle": "MALFEX",
           "definition": "Nom donné à la campagne de paquets npm malveillants"
+        },
+        {
+          "sigle": "DLL",
+          "definition": "Bibliothèque de code Windows chargée par un programme"
+        },
+        {
+          "sigle": "Node.js",
+          "definition": "Environnement d'exécution de JavaScript hors navigateur"
         }
       ],
       "sources": [
@@ -3849,6 +3865,13 @@
           "url": "https://thehackernews.com/2026/10/eight-malicious-npm-packages-downloaded.html",
           "date": "2026-10-07",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgopANe3MXyNNOXog__x1pF53wYoQxinI47tN9gLrZSzJfumz-Dg05ZfyjiGsqF47Pugj71iZ1buX7OEiupWYa09xVQdu7DKOMX5NO-uGKCF0UjNila0x5fNiYw5NWEX1TUQTPidjT5NnGmPwM_6mGfKcOxqcjZuPAZLdzRX5u_TXJM76GQ6mQOkikw_kxo/s1700-nu-rw-lo-l85-e365/npm-malware.jpg"
+        },
+        {
+          "titre": "MALFEX npm Package 'imgdecode' Hides Shellcode Loader in Windows Native Addon",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/malfex-npm-package-imgdecode-hides.html",
+          "date": "2026-10-17",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8fNb_yEvP6C_CENfQMUx3EDGofY1ejEHusnumTjCLnX3s8pevEbl_cgrtFHhzeEUhyphenhyphenyKe_X41OzQOGL5zlXeLLBnj_ZrLqH1IUag1QWm4QS9V2hgc5ucEzEZKjhstvtde8CFs8anPSZv9w3op67F8Q_MHVC_demESnH8lpAYLLpIRizCyvF5gsi5PDKzm/s1700-nu-rw-lo-l85-e365/npm-dll.jpg"
         }
       ]
     },
@@ -14879,6 +14902,101 @@
           "url": "https://www.huntress.com/blog/vendor-credential-enables-unauthorized-access",
           "date": "2026-10-16",
           "image": "https://cdn.builder.io/api/v1/image/assets%2F3eb6f92aedf74f109c7b4b0897ec39a8%2F266936e4b61b4dd6821599adf741b9db"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-17-phishing-cogui-coacev",
+      "title": "Kits de phishing CoGUI, CoAceV et CoFish_Ws : opération judiciaire et saisies de domaines",
+      "created": "2026-10-17T12:30:00+00:00",
+      "updated": "2026-10-17T12:30:00+00:00",
+      "version": 1,
+      "resume": "Un écosystème de phishing en chinois, dont trois kits, a visé plus de 75 000 organisations depuis janvier 2026 ; une action judiciaire et des saisies de domaines l'ont ciblé [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Courriel se faisant passer pour un service connu (paiement, livraison, points de fidélité) → la victime suit un lien [1]."
+        },
+        {
+          "etape": "Fausse connexion",
+          "texte": "Lien, éventuel CAPTCHA, puis fausse page de connexion → collecte des identifiants [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Page réclamant les données de paiement → récupération des informations de carte bancaire [1]."
+        },
+        {
+          "etape": "Dissimulation",
+          "texte": "Depuis février 2026, CoGUI redirige certains visiteurs vers des sites de diversion → pages masquées aux analyses automatisées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (kits CoGUI, CoAceV)",
+            "note": ""
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Victimes",
+            "note": "Courriel reçu"
+          },
+          {
+            "id": "site",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Fausse page de connexion",
+            "note": "CAPTCHA possible"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 1,
+            "texte": "Courriel usurpant un service connu"
+          },
+          {
+            "de": "usr",
+            "vers": "site",
+            "etape": 2,
+            "texte": "Lien vers la fausse page de connexion"
+          },
+          {
+            "de": "site",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Identifiants et données de carte récupérés"
+          }
+        ]
+      },
+      "limites": "L'article ne donne ni la date de la procédure judiciaire ni le bilan chiffré de l'intervention ; un opérateur unique n'est pas démontré [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Kits CoGUI, CoAceV et CoFish_Ws, origines communes jugées probables [1]"
+      ],
+      "cibles": [
+        "Japon en priorité, aussi États-Unis, Australie, Italie ; finance et santé en tête [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CAPTCHA",
+          "definition": "Test pour distinguer un humain d'un robot"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Phishing : une opération frappe trois kits pirate",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/phishing-une-operation-frappe-trois-kits-pirate/",
+          "date": "2026-10-17"
         }
       ]
     }

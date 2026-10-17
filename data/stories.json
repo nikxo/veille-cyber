@@ -14999,6 +14999,86 @@
           "date": "2026-10-17"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-17-ddos-sites-francais-cybertroll-dark-storm",
+      "title": "Attaques DDoS revendiquées contre des sites français par CyberTroll Team et Dark Storm",
+      "created": "2026-10-17T13:30:00+00:00",
+      "updated": "2026-10-17T13:30:00+00:00",
+      "version": 1,
+      "resume": "Du 15 au 17 octobre 2026, plusieurs groupes ont revendiqué des attaques par déni de service contre des sites français (administrations, défense, énergie, transport). ZATAZ a constaté des indisponibilités ponctuelles, sans en établir la cause [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Attaques DDoS revendiquées",
+          "texte": "Revendications de DDoS contre des sites cités → liens Check-Host publiés, indisponibilités ponctuelles constatées par ZATAZ sans cause établie [1]."
+        },
+        {
+          "etape": "Offre commerciale",
+          "texte": "Dark Storm propose cinq formules de DDoS et une extraction de bases de données dès 50 $ → services offensifs vendus à la demande [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (CyberTroll Team, Dark Storm)",
+            "note": ""
+          },
+          {
+            "id": "sites",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Sites français ciblés",
+            "note": "Indisponibilités ponctuelles"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sites",
+            "etape": 2,
+            "texte": "Attaques DDoS revendiquées"
+          }
+        ]
+      },
+      "limites": "L'article ne décrit aucun vecteur d'accès et ne relie pas les indisponibilités aux revendications. Il ne dit pas que ThingsBoard a été exploité [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "CyberTroll Team, apparu début octobre 2026 et affilié à NoName057(16) [1]",
+        "Dark Storm, qui revendique des attaques et vend des services offensifs [1]",
+        "NoName057(16), qui relaie des revendications [1]"
+      ],
+      "cibles": [
+        "SGDSN, départements, villes, Business France, Alliance Police Nationale [1]",
+        "Eurenco, Renault Trucks, ports et compagnies maritimes, interfaces présentées comme liées à EDF [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "DDoS",
+          "definition": "Déni de service distribué : saturer un site de trafic pour le rendre inaccessible"
+        },
+        {
+          "sigle": "EDF", "definition": "Électricité de France, fournisseur d'électricité"},
+      {"sigle": "SGDSN",
+          "definition": "Secrétariat général de la défense et de la sécurité nationale"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Cyberattaques : des sites français ciblés par des pirates",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/cyberattaques-des-sites-francais-cibles-par-des-pirates/",
+          "date": "2026-10-17"
+        }
+      ]
     }
   ]
 }

@@ -14778,13 +14778,13 @@
       "id": "2026-10-17-connectwise-cloud-backup-microsoft-365",
       "title": "Identifiant ConnectWise Cloud Backup compromis : accès à plus de 160 environnements Microsoft 365",
       "created": "2026-10-17T07:30:00+00:00",
-      "updated": "2026-10-17T08:30:00+00:00",
-      "version": 2,
-      "resume": "Des acteurs inconnus ont utilisé un identifiant Microsoft 365 compromis de ConnectWise Cloud Backup pour obtenir des jetons d'accès : 173 environnements selon [1], 162 confirmés au 16 octobre selon Huntress [2].",
+      "updated": "2026-10-17T16:07:27+00:00",
+      "version": 3,
+      "resume": "Un identifiant Microsoft 365 compromis de ConnectWise Cloud Backup a servi à obtenir des jetons : 173 environnements selon [1], 162 selon Huntress [2, 3]. ConnectWise a suspendu l'accès au service le 17 octobre [3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Identifiant d'application Microsoft 365 de ConnectWise Cloud Backup compromis, méthode non précisée → authentification à l'application avec cet identifiant [1, 2]."
+          "texte": "Authentification directe à Microsoft 365 avec le secret de l'application Cloud Backup, méthode d'obtention non précisée → aucune connexion utilisateur, donc authentification multifacteur sans effet [1, 2, 3]."
         },
         {
           "etape": "Mots de passe testés",
@@ -14796,7 +14796,7 @@
         },
         {
           "etape": "Élévation de privilèges",
-          "texte": "Dans un environnement, l'application s'ajoute au rôle Global Administrator → un script Python modifie ensuite d'autres applications [1, 2]."
+          "texte": "Dans un environnement, l'application s'ajoute au rôle Global Administrator → un script Python modifie ensuite d'autres applications [1, 2]. Ailleurs, rôle Exchange Administrator auto-attribué [3]."
         },
         {
           "etape": "Persistance",
@@ -14874,7 +14874,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni comment l'identifiant a été compromis, ni l'acteur, ni l'accès aux boîtes mail ou aux fichiers [1, 2]. Les décomptes diffèrent : 173 [1], 162 [2].",
+      "limites": "Les sources ne précisent ni comment l'identifiant a été compromis, ni l'acteur [1, 2, 3]. Étendue du vol de données non déterminée [3]. Décomptes : 173 [1], 162 [2, 3].",
       "cves": [],
       "mitre": [
         "T1078.004 : Valid Cloud Accounts, utilisation de l'identifiant du fournisseur [2]",
@@ -14885,7 +14885,7 @@
         "Acteurs inconnus, sans attribution [1, 2]"
       ],
       "cibles": [
-        "Environnements Microsoft 365 de partenaires et clients de ConnectWise Cloud Backup, dont quatre cabinets d'avocats visés par des essais de mots de passe [1, 2]"
+        "Environnements Microsoft 365 de partenaires et clients de ConnectWise Cloud Backup, dont quatre cabinets d'avocats visés par des essais de mots de passe [1, 2, 3]"
       ],
       "abreviations": [],
       "sources": [
@@ -14902,6 +14902,13 @@
           "url": "https://www.huntress.com/blog/vendor-credential-enables-unauthorized-access",
           "date": "2026-10-16",
           "image": "https://cdn.builder.io/api/v1/image/assets%2F3eb6f92aedf74f109c7b4b0897ec39a8%2F266936e4b61b4dd6821599adf741b9db"
+        },
+        {
+          "titre": "Hackers breach Microsoft 365 tenants via ConnectWise supply-chain attack",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-breach-microsoft-365-tenants-via-connectwise-supply-chain-attack/",
+          "date": "2026-10-17",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/09/07/ConnectWise.jpg"
         }
       ]
     },
@@ -15066,8 +15073,11 @@
           "definition": "Déni de service distribué : saturer un site de trafic pour le rendre inaccessible"
         },
         {
-          "sigle": "EDF", "definition": "Électricité de France, fournisseur d'électricité"},
-      {"sigle": "SGDSN",
+          "sigle": "EDF",
+          "definition": "Électricité de France, fournisseur d'électricité"
+        },
+        {
+          "sigle": "SGDSN",
           "definition": "Secrétariat général de la défense et de la sécurité nationale"
         }
       ],

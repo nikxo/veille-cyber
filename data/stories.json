@@ -15100,6 +15100,82 @@
           "date": "2026-10-17"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-18-fftir-chimeraz-fuite",
+      "title": "Fédération française de tir : ChimeraZ met en vente 40 Go de données de licenciés",
+      "created": "2026-10-18T10:30:00+00:00",
+      "updated": "2026-10-18T10:30:00+00:00",
+      "version": 1,
+      "resume": "Le pirate ChimeraZ propose sur un forum cybercriminel une archive de 40 Go liée à la Fédération française de tir, concernant 586 854 personnes selon l'annonce. L'authenticité n'est pas confirmée [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Mise en vente",
+          "texte": "Annonce d'une archive de 40 Go sur un forum cybercriminel → photos d'identité, certificats médicaux et justificatifs de licence proposés à l'achat [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (ChimeraZ)",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Système source non précisé",
+            "note": ""
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "internet",
+            "nom": "Archive de 40 Go",
+            "note": "En vente"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès non précisé par les sources"
+          },
+          {
+            "de": "att",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Mise en vente sur un forum cybercriminel"
+          }
+        ]
+      },
+      "limites": "L'article ne donne ni le vecteur d'accès ni l'endroit d'où viennent les données, et ne confirme pas l'authenticité ni l'exhaustivité de l'archive [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "ChimeraZ, pirate à l'origine de l'annonce du 17 octobre 2026 [1]"
+      ],
+      "cibles": [
+        "Fédération française de tir : 586 854 personnes revendiquées dans l'annonce [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Fuite de données : la FFTir de nouveau ciblée",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/fuite-de-donnees-la-fftir-de-nouveau-ciblee/",
+          "date": "2026-10-18"
+        }
+      ]
     }
   ]
 }

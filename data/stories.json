@@ -14778,9 +14778,9 @@
       "id": "2026-10-17-connectwise-cloud-backup-microsoft-365",
       "title": "Identifiant ConnectWise Cloud Backup compromis : accès à plus de 160 environnements Microsoft 365",
       "created": "2026-10-17T07:30:00+00:00",
-      "updated": "2026-10-17T16:07:27+00:00",
-      "version": 3,
-      "resume": "Un identifiant Microsoft 365 compromis de ConnectWise Cloud Backup a servi à obtenir des jetons : 173 environnements selon [1], 162 selon Huntress [2, 3]. ConnectWise a suspendu l'accès au service le 17 octobre [3].",
+      "updated": "2026-10-18T09:07:37+00:00",
+      "version": 4,
+      "resume": "Un identifiant Microsoft 365 compromis de ConnectWise Cloud Backup a servi à obtenir des jetons : 173 environnements selon [1], 162 selon Huntress [2, 3]. ConnectWise a suspendu l'accès au service le 17 octobre [3, 4].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -14801,6 +14801,10 @@
         {
           "etape": "Persistance",
           "texte": "Ajout de nouveaux secrets client à une application de gestion et à la plateforme Huntress → voie vers d'autres applications privilégiées [1, 2]."
+        },
+        {
+          "etape": "Réponse du fournisseur",
+          "texte": "Sept identités d'application désactivées le 17 octobre et Cloud Backup suspendu → les modifications déjà faites dans les tenants ne sont pas annulées [4]."
         }
       ],
       "parcours": {
@@ -14874,7 +14878,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni comment l'identifiant a été compromis, ni l'acteur [1, 2, 3]. Étendue du vol de données non déterminée [3]. Décomptes : 173 [1], 162 [2, 3].",
+      "limites": "Compromission de l'identifiant et acteur non précisés [1, 2, 3, 4]. Étendue du vol de données non déterminée [3]. Décomptes : 173 [1], 162 [2, 3], environ 300 connexions réussies [4].",
       "cves": [],
       "mitre": [
         "T1078.004 : Valid Cloud Accounts, utilisation de l'identifiant du fournisseur [2]",
@@ -14882,7 +14886,7 @@
         "T1098.001 : Additional Cloud Credentials, secrets ajoutés à d'autres applications [2]"
       ],
       "acteurs": [
-        "Acteurs inconnus, sans attribution [1, 2]"
+        "Acteurs inconnus, sans attribution [1, 2, 4]"
       ],
       "cibles": [
         "Environnements Microsoft 365 de partenaires et clients de ConnectWise Cloud Backup, dont quatre cabinets d'avocats visés par des essais de mots de passe [1, 2, 3]"
@@ -14909,6 +14913,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/hackers-breach-microsoft-365-tenants-via-connectwise-supply-chain-attack/",
           "date": "2026-10-17",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/09/07/ConnectWise.jpg"
+        },
+        {
+          "titre": "ConnectWise Suspends Cloud Backup After Attackers Compromise Microsoft 365 Tenants",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/connectwise-suspends-cloud-backup-after.html",
+          "date": "2026-10-18",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxTJ5xsWsmrBmF1q18Gi5uaokNeC6-M0VbSf0T5X3KMQH7QGMhC7mz4XB6TUJuE7P9tjknMAqaGQ-Iz_7UuQ-NdKKXJTgqLhHMipRcd57VUOpwfJ2xxO8Hq_PX8hotdp_KZddNDzfQFw3bLHbYYLasThNbqGlidzhZ485ApBIKh2KUgn4g6PeBbhMwhc0T/s1700-nu-rw-lo-l85-e365/ms-connect.jpg"
         }
       ]
     },

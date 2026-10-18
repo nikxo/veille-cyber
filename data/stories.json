@@ -15176,6 +15176,88 @@
           "date": "2026-10-18"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-18-siteguard-waf-injection-commandes",
+      "title": "SiteGuard Server Edition : faille exploitée pour exécuter des commandes avec les droits les plus élevés",
+      "created": "2026-10-18T15:30:00+00:00",
+      "updated": "2026-10-18T15:30:00+00:00",
+      "version": 1,
+      "resume": "Des attaquants exploitent la faille CVE-2026-106931 de SiteGuard Server Edition, un pare-feu applicatif web, pour exécuter des commandes en root ou SYSTEM sur les serveurs touchés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Exécution de commandes",
+          "texte": "Injection de commandes dans la fonction de statistiques, active par défaut → exécution de commandes avec les privilèges root ou SYSTEM [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "waf",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur SiteGuard Server Edition",
+            "note": "Droits root ou SYSTEM"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "waf",
+            "etape": 2,
+            "texte": "Injection de commandes via la fonction de statistiques"
+          }
+        ]
+      },
+      "limites": "L'article ne précise ni l'identité des attaquants, ni les victimes, ni les actions menées après l'exécution de commandes [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-106931",
+          "explication": "SiteGuard Server Edition : injection de commandes dans la fonction de statistiques, exécution avec droits root ou SYSTEM, gravité critique selon l'éditeur, exploitation constatée [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Identité des attaquants inconnue [1]"
+      ],
+      "cibles": [
+        "Serveurs utilisant SiteGuard Server Edition avec Apache httpd, Nginx ou IIS [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "WAF",
+          "definition": "Web Application Firewall : pare-feu qui filtre le trafic vers les sites web"
+        },
+        {
+          "sigle": "IIS",
+          "definition": "Internet Information Services : serveur web de Microsoft"
+        },
+        {
+          "sigle": "SYSTEM",
+          "definition": "Compte Windows aux privilèges les plus élevés sur la machine"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers exploit SiteGuard WAF flaw to run commands as SYSTEM, root",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-siteguard-waf-flaw-to-run-commands-as-system-root/",
+          "date": "2026-10-18",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/05/05/hacker.jpg"
+        }
+      ]
     }
   ]
 }

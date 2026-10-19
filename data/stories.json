@@ -15710,17 +15710,21 @@
       "id": "2026-10-19-plex2shell-plex-media-server",
       "title": "Plex2Shell : serveurs Plex Media Server exploités pour installer un mineur et un proxy",
       "created": "2026-10-19T13:12:00+00:00",
-      "updated": "2026-10-19T13:12:00+00:00",
-      "version": 1,
-      "resume": "Une chaîne de quatre failles de Plex Media Server a été exploitée sur un serveur piège exposé sur Internet, un jour après la publication d'une preuve de concept [1].",
+      "updated": "2026-10-19T19:08:15+00:00",
+      "version": 2,
+      "resume": "Une chaîne de quatre failles de Plex Media Server a été exploitée pour installer un mineur de cryptomonnaie et un proxy, un jour après la publication d'une preuve de concept [1, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
           "texte": "Exploitation d'une chaîne de quatre failles d'un serveur Plex exposé, sans identifiants valides → exécution de code avec les privilèges du service Plex [1]."
         },
         {
+          "etape": "Enchaînement des failles",
+          "texte": "Requête forcée du serveur, récupération du jeton administrateur du propriétaire, puis dépôt d'un fichier ELF dans le dossier des codecs → exécution du fichier [3]."
+        },
+        {
           "etape": "Déploiement de logiciels",
-          "texte": "Installation d'un mineur de cryptomonnaie basé sur XMRig et d'un proxy nommé myawesomeproxy → trafic Internet du serveur potentiellement utilisable par des tiers [1]."
+          "texte": "Installation d'un mineur de cryptomonnaie basé sur XMRig et d'un proxy nommé myawesomeproxy → trafic Internet du serveur potentiellement utilisable par des tiers [1, 3]."
         }
       ],
       "parcours": {
@@ -15749,23 +15753,23 @@
           }
         ]
       },
-      "limites": "Seul le serveur piège d'un chercheur est cité comme touché ; l'acteur et d'éventuelles victimes réelles ne sont pas indiqués [1].",
+      "limites": "Seul un serveur piège est cité comme touché [1] ; des messages Reddit évoquent d'autres utilisateurs compromis par le même mineur, sans lien confirmé [3]. Aucun acteur n'est désigné [1, 3].",
       "cves": [
         {
           "id": "CVE-2026-96652",
-          "explication": "Plex Media Server avant 1.43.3.10861 : un jeton valide permet de forcer le serveur à envoyer une requête vers une destination choisie, gravité moyenne 5,3 sur 10 [2]."
+          "explication": "Plex Media Server avant 1.43.3.10861 : serveur forcé à envoyer une requête vers une destination choisie, gravité 5,3 sur 10 [2] ; l'article la dit exploitable sans authentification [3]."
         },
         {
           "id": "CVE-2026-96654",
-          "explication": "Plex Media Server : une des quatre failles dont la combinaison permet l'exécution de code à distance sans identifiants [1]."
+          "explication": "Plex Media Server : neutralisation incorrecte des adresses du point d'accès searchOne, qui permet d'obtenir le jeton administrateur du propriétaire, gravité 6,9 sur 10 [3]."
         },
         {
           "id": "CVE-2026-96655",
-          "explication": "Plex Media Server : une des quatre failles dont la combinaison permet l'exécution de code à distance sans identifiants [1]."
+          "explication": "Plex Media Server : requête forcée par un utilisateur authentifié via la route de transcodage, par exemple vers une vidéo malveillante de l'attaquant, gravité 5,3 sur 10 [3]."
         },
         {
           "id": "CVE-2026-96656",
-          "explication": "Plex Media Server : une des quatre failles dont la combinaison permet l'exécution de code à distance sans identifiants [1]."
+          "explication": "Plex Media Server : contrôle externe du chemin de fichier, qui permet de placer un fichier ELF dans le dossier des codecs puis de l'exécuter, gravité 8,6 sur 10 [3]."
         }
       ],
       "mitre": [],
@@ -15773,7 +15777,12 @@
       "cibles": [
         "Serveurs Plex Media Server exposés sur Internet, dont le serveur piège d'un chercheur [1]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "ELF",
+          "definition": "Format des fichiers exécutables sous Linux"
+        }
+      ],
       "sources": [
         {
           "titre": "Plex2Shell Exploit Chain Weaponized Against Plex Servers Hours After Disclosure",
@@ -15786,6 +15795,13 @@
           "titre": "Fiche NVD CVE-2026-96652",
           "site": "NVD (NIST)",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96652"
+        },
+        {
+          "titre": "Hackers Exploit Plex2Shell Flaws to Install Crypto Miners and Linux Proxy Backdoor",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/hackers-exploit-plex2shell-flaws-to.html",
+          "date": "2026-10-19",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjF_Xo8mH5AxIDYx4hFrS1_uhblD0IoGUTo6bioM38mwy-whZAbcq1aaGeH1iZrS8nmk5Ow25NfX67HRXKiWFfzLc8C1A2zs2n948DwyW_NSSkowFDnEzxUofGxhNV72vTEWkgPmbO6XJyDUPwBR-lzSekj5_m8tY3JHjozUXETGEBg6GrLZrekhilW9W_R/s1700-nu-rw-lo-l85-e365/plex-hack.jpg"
         }
       ]
     },
@@ -16292,6 +16308,159 @@
           "url": "https://therecord.media/ahold-delhaize-cyberattack-grocery",
           "date": "2026-10-19",
           "image": "https://cms.therecord.media/uploads/Albert_Heijn_2b91114780.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-19-bullhorn-plateforme-hors-ligne",
+      "title": "Bullhorn coupe sa plateforme de recrutement après une cyberattaque",
+      "created": "2026-10-19T19:08:15+00:00",
+      "updated": "2026-10-19T19:08:15+00:00",
+      "version": 1,
+      "resume": "Bullhorn, éditeur de logiciels pour agences de recrutement, a désactivé l'accès à sa plateforme pour contenir une cyberattaque ayant causé une panne généralisée [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Impact sur la plateforme",
+          "texte": "Activité malveillante détectée → accès aux systèmes désactivé par Bullhorn pour la contenir, panne généralisée des services [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "bh",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateforme Bullhorn",
+            "note": "Accès désactivé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "bh",
+            "etape": 1,
+            "texte": "Cyberattaque, accès non précisé"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'accès, ni l'auteur, ni si des données de clients ont été exfiltrées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Bullhorn, éditeur de logiciels de recrutement, et ses clients [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Bullhorn takes staffing platform offline to contain cyberattack",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/bullhorn-takes-staffing-platform-offline-to-contain-cyberattack/",
+          "date": "2026-10-19",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/19/bullhorn.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-19-siemens-software-center-clickfix",
+      "title": "Siemens Software Center détourné par chargement de DLL dans des attaques ClickFix",
+      "created": "2026-10-19T19:08:15+00:00",
+      "updated": "2026-10-19T19:08:15+00:00",
+      "version": 1,
+      "resume": "Des attaquants ont associé une copie signée de Siemens Software Center à des DLL malveillantes pour infecter des ordinateurs Windows, via des leurres ClickFix [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Leurres ClickFix → distribution d'un paquet malveillant contenant une copie signée de Siemens Software Center, depuis un serveur lié à Romulus [1]."
+        },
+        {
+          "etape": "Chargement de DLL malveillantes",
+          "texte": "Au démarrage, Software Center charge sans validation les DLL de son dossier (version 3.5.8.7) → code malveillant exécuté avec ses privilèges [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Romulus)",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de distribution Romulus",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Ordinateurs Windows",
+            "note": "DLL malveillantes chargées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Leurres ClickFix"
+          },
+          {
+            "de": "srv",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Paquet malveillant distribué"
+          }
+        ]
+      },
+      "limites": "Le nombre de victimes n'est pas donné ; le lien avec les campagnes de Huntress et Forescout repose sur une infrastructure et une approche similaires [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-110936",
+          "explication": "Siemens Software Center : emplacements de recherche des DLL mal restreints, un attaquant local authentifié exécute du code avec les privilèges du logiciel, score 8,4 sur 10 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Romulus, plateforme de livraison ClickFix ; Forescout ne peut pas dire qui l'exploite [1]"
+      ],
+      "cibles": [
+        "Ordinateurs Windows, nombre de victimes non précisé [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "DLL",
+          "definition": "Bibliothèque de code que Windows charge dans un programme"
+        },
+        {
+          "sigle": "ClickFix",
+          "definition": "Leurre qui pousse l'utilisateur à exécuter lui-même une commande"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Siemens Software Center Vulnerability Exploited in ClickFix Malware Attacks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/siemens-software-center-vulnerability-exploited-in-clickfix-malware-attacks/",
+          "date": "2026-10-19",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/04/Siemens.jpeg"
         }
       ]
     }

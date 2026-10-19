@@ -15659,6 +15659,90 @@
           "image": "https://cms.therecord.media/uploads/mohammad_mardani_MC_Pqw_Z_Exfx_M_unsplash_b240343335.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-19-plex2shell-plex-media-server",
+      "title": "Plex2Shell : serveurs Plex Media Server exploités pour installer un mineur et un proxy",
+      "created": "2026-10-19T13:12:00+00:00",
+      "updated": "2026-10-19T13:12:00+00:00",
+      "version": 1,
+      "resume": "Une chaîne de quatre failles de Plex Media Server a été exploitée sur un serveur piège exposé sur Internet, un jour après la publication d'une preuve de concept [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation d'une chaîne de quatre failles d'un serveur Plex exposé, sans identifiants valides → exécution de code avec les privilèges du service Plex [1]."
+        },
+        {
+          "etape": "Déploiement de logiciels",
+          "texte": "Installation d'un mineur de cryptomonnaie basé sur XMRig et d'un proxy nommé myawesomeproxy → trafic Internet du serveur potentiellement utilisable par des tiers [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "plex",
+            "type": "serveur",
+            "zone": "expose",
+            "nom": "Serveur Plex Media Server",
+            "note": "Mineur et proxy installés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "plex",
+            "etape": 1,
+            "texte": "Exploitation de la chaîne de quatre failles"
+          }
+        ]
+      },
+      "limites": "Seul le serveur piège d'un chercheur est cité comme touché ; l'acteur et d'éventuelles victimes réelles ne sont pas indiqués [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-96652",
+          "explication": "Plex Media Server avant 1.43.3.10861 : un jeton valide permet de forcer le serveur à envoyer une requête vers une destination choisie, gravité moyenne 5,3 sur 10 [2]."
+        },
+        {
+          "id": "CVE-2026-96654",
+          "explication": "Plex Media Server : une des quatre failles dont la combinaison permet l'exécution de code à distance sans identifiants [1]."
+        },
+        {
+          "id": "CVE-2026-96655",
+          "explication": "Plex Media Server : une des quatre failles dont la combinaison permet l'exécution de code à distance sans identifiants [1]."
+        },
+        {
+          "id": "CVE-2026-96656",
+          "explication": "Plex Media Server : une des quatre failles dont la combinaison permet l'exécution de code à distance sans identifiants [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Serveurs Plex Media Server exposés sur Internet, dont le serveur piège d'un chercheur [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Plex2Shell Exploit Chain Weaponized Against Plex Servers Hours After Disclosure",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/plex2shell-exploit-chain-weaponized-against-plex-servers-hours-after-disclosure/",
+          "date": "2026-10-19",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/04/streaming-services.jpeg"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-96652",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96652"
+        }
+      ]
     }
   ]
 }

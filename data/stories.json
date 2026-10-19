@@ -14967,8 +14967,8 @@
       "id": "2026-10-17-connectwise-cloud-backup-microsoft-365",
       "title": "Identifiant ConnectWise Cloud Backup compromis : accès à plus de 160 environnements Microsoft 365",
       "created": "2026-10-17T07:30:00+00:00",
-      "updated": "2026-10-18T09:07:37+00:00",
-      "version": 4,
+      "updated": "2026-10-19T14:20:00+00:00",
+      "version": 5,
       "resume": "Un identifiant Microsoft 365 compromis de ConnectWise Cloud Backup a servi à obtenir des jetons : 173 environnements selon [1], 162 selon Huntress [2, 3]. ConnectWise a suspendu l'accès au service le 17 octobre [3, 4].",
       "chaine": [
         {
@@ -14993,7 +14993,7 @@
         },
         {
           "etape": "Réponse du fournisseur",
-          "texte": "Sept identités d'application désactivées le 17 octobre et Cloud Backup suspendu → les modifications déjà faites dans les tenants ne sont pas annulées [4]."
+          "texte": "Sept identités d'application désactivées et Cloud Backup suspendu le 17 octobre [4], puis SaaS Security et Cloud Management le 18 octobre → services indisponibles [5]."
         }
       ],
       "parcours": {
@@ -15109,6 +15109,13 @@
           "url": "https://thehackernews.com/2026/10/connectwise-suspends-cloud-backup-after.html",
           "date": "2026-10-18",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxTJ5xsWsmrBmF1q18Gi5uaokNeC6-M0VbSf0T5X3KMQH7QGMhC7mz4XB6TUJuE7P9tjknMAqaGQ-Iz_7UuQ-NdKKXJTgqLhHMipRcd57VUOpwfJ2xxO8Hq_PX8hotdp_KZddNDzfQFw3bLHbYYLasThNbqGlidzhZ485ApBIKh2KUgn4g6PeBbhMwhc0T/s1700-nu-rw-lo-l85-e365/ms-connect.jpg"
+        },
+        {
+          "titre": "ConnectWise Suspends Cloud Services in Response to Cyberattack",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/connectwise-suspends-cloud-services-in-response-to-cyberattack/",
+          "date": "2026-10-19",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
         }
       ]
     },
@@ -15741,6 +15748,151 @@
           "titre": "Fiche NVD CVE-2026-96652",
           "site": "NVD (NIST)",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96652"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-19-ghostaction-faux-fichier-police",
+      "title": "GhostAction : hameçonnage de développeurs et voleur déguisé en fichier de police dans 94 dépôts GitHub",
+      "created": "2026-10-19T14:20:00+00:00",
+      "updated": "2026-10-19T14:20:00+00:00",
+      "version": 1,
+      "resume": "L'acteur de GhostAction hameçonne des développeurs open source pour obtenir un jeton GitHub, puis piège leurs dépôts avec un voleur d'identifiants caché dans un faux fichier de police. 94 dépôts de 66 propriétaires sont touchés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Courriel imitant une alerte de sécurité GitHub → page de connexion factice qui récolte mot de passe et code de double authentification [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Autorisation silencieuse d'un flux OAuth par un script de la page → jeton réutilisable pour lister les dépôts et y injecter des workflows [1]."
+        },
+        {
+          "etape": "Vol de secrets",
+          "texte": "Workflow GhostAction injecté dans les dépôts → secrets envoyés vers une adresse IP de l'attaquant ; aucun secret extrait lors des vagues des 10 et 12 octobre [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Ajout d'un tasks.json de VS Code, d'un faux fichier de police et d'un second workflow → voleur lancé à l'ouverture du dossier [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Le voleur collecte clés AWS, jetons npm et PyPI, clés SSH, accès Kubernetes → envoi vers le serveur de l'attaquant et tâche cron toutes les cinq minutes [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (acteur GhostAction)",
+            "note": ""
+          },
+          {
+            "id": "dev",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Développeurs open source",
+            "note": "Cibles du phishing"
+          },
+          {
+            "id": "gh",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Dépôts GitHub",
+            "note": "94 dépôts piégés"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes des développeurs",
+            "note": "Voleur lancé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "dev",
+            "etape": 1,
+            "texte": "Faux courriel d'alerte GitHub, page de connexion factice"
+          },
+          {
+            "de": "att",
+            "vers": "gh",
+            "etape": 2,
+            "texte": "Jeton OAuth, injection de workflows"
+          },
+          {
+            "de": "gh",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Voleur lancé à l'ouverture du dossier"
+          },
+          {
+            "de": "pc",
+            "vers": "att",
+            "etape": 5,
+            "texte": "Secrets envoyés au serveur de l'attaquant"
+          }
+        ]
+      },
+      "limites": "L'opérateur n'est pas identifié, et la source ne dit pas si les deux domaines de phishing sont liés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Opérateur non identifié ; le nom du faux fichier de police sert aussi à PolinRider, attribuée à la Corée du Nord, sans attribution confirmée [1]"
+      ],
+      "cibles": [
+        "Développeurs open source : 94 dépôts, 66 propriétaires [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "OAuth",
+          "definition": "Protocole d'autorisation qui délivre un jeton d'accès sans mot de passe"
+        },
+        {
+          "sigle": "VS Code",
+          "definition": "Visual Studio Code : éditeur de code pouvant lancer des tâches à l'ouverture d'un dossier"
+        },
+        {
+          "sigle": "AWS",
+          "definition": "Amazon Web Services : service de cloud d'Amazon"
+        },
+        {
+          "sigle": "npm",
+          "definition": "Gestionnaire de paquets JavaScript"
+        },
+        {
+          "sigle": "PyPI",
+          "definition": "Dépôt public de paquets Python"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole de connexion distante sécurisée par clés"
+        },
+        {
+          "sigle": "Kubernetes",
+          "definition": "Système d'orchestration de conteneurs"
+        },
+        {
+          "sigle": "cron",
+          "definition": "Planificateur de tâches des systèmes Unix"
+        },
+        {
+          "sigle": "IP",
+          "definition": "Internet Protocol : adresse d'une machine sur le réseau"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "GhostAction Attackers Plant Credential Stealer Disguised as Font in 94 GitHub Repositories",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/ghostaction-attackers-plant-credential.html",
+          "date": "2026-10-19",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtAKfaW5dHhlv9lpzzAju1Cm_EjO4wOkhGQEMspSKCVFUCA_eaanAXGHkb-Dv3c9zSXWHW45I50Fp_bqX6ydaNlPWixkd39bl4IOeYv8xQ0oviE4d6SZcQmQ27ztf-tVV7BozEDeFYi2Fde0LpJAJ9gTHUGSOvc46MtgawesAd5-wljApeBpLyUYnczZnR/s1700-nu-rw-lo-l85-e365/git-font.jpg"
         }
       ]
     }

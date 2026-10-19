@@ -14377,13 +14377,13 @@
       "id": "2026-10-15-unc7017-aomei-mises-a-jour",
       "title": "UNC7017 : serveurs de mise à jour d'AOMEI modifiés pendant quelques minutes pour diffuser des logiciels malveillants",
       "created": "2026-10-16T15:20:00+00:00",
-      "updated": "2026-10-16T18:07:53+00:00",
-      "version": 2,
-      "resume": "UNC7017 a modifié à plusieurs reprises, pendant 5 à 10 minutes, les fichiers des serveurs de mise à jour d'AOMEI pour livrer des logiciels malveillants aux clients, entre avril et juillet 2026 [1] ou entre mai et juillet 2026 [2].",
+      "updated": "2026-10-19T20:08:07+00:00",
+      "version": 3,
+      "resume": "UNC7017 a modifié à plusieurs reprises, pendant 5 à 10 minutes, les fichiers des serveurs de mise à jour d'AOMEI pour livrer des logiciels malveillants aux clients, entre avril et juillet 2026 [1, 3] ou entre mai et juillet 2026 [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Modification brève des fichiers de configuration des serveurs de mise à jour d'AOMEI → les clients qui interrogent le serveur téléchargent une archive malveillante [1, 2]."
+          "texte": "Modification brève des fichiers de configuration des serveurs de mise à jour → archive malveillante téléchargée par les clients [1, 2], somme de contrôle attendue modifiée aussi [3]."
         },
         {
           "etape": "Exécution du chargeur",
@@ -14447,7 +14447,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent pas comment les serveurs d'AOMEI ont été atteints, ni le nombre de victimes [1, 2]. Elles divergent sur le début : avril [1], mai [2].",
+      "limites": "Les sources ne précisent pas comment les serveurs d'AOMEI ont été atteints, ni le nombre de victimes [1, 2, 3]. Elles divergent sur le début : avril [1, 3], mai [2].",
       "cves": [],
       "mitre": [
         "T1195.002 : compromission de la chaîne d'approvisionnement logicielle, accès initial par les serveurs de mise à jour [1]"
@@ -14456,7 +14456,8 @@
         "UNC7017, groupe suivi par Google Threat Intelligence et Mandiant, origine non mentionnée [1]"
       ],
       "cibles": [
-        "Utilisateurs d'AOMEI Backupper et AnyViewer : informatique, télécoms, enseignement supérieur, 11 pays [1, 2]"
+        "Utilisateurs d'AOMEI Backupper et AnyViewer : informatique, télécoms, enseignement supérieur, 11 pays [1, 2]",
+        "Pays cités : États-Unis, Australie, Inde, Singapour, Espagne, Suisse [3]"
       ],
       "abreviations": [
         {
@@ -14498,6 +14499,13 @@
           "url": "https://thehackernews.com/2026/10/attackers-tampered-with-aomei.html",
           "date": "2026-10-16",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhuPumyjeBRpQZo5_3mvqZ2_kXuPiOK02cH-ARofYrny0mQ2-rv55w7yBxMTBe3ymCW7c77quZ4xlkdDG9FcEhBYFr7GWmbyPE_1K1xqU0mvT-h51Z8hLg-LnWl32MeOy-aumsGO9-j8VSOSOfVUDB2k1vWOpEdyGEWV9ipF4kf3HVP1Au2ClbkYtAJrc/s1700-nu-rw-lo-l85-e365/backup-hacked.jpg"
+        },
+        {
+          "titre": "Hackers hijack AOMEI update servers to secretly spread malware",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-aomei-update-servers-to-secretly-spread-malware/",
+          "date": "2026-10-19",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/19/backupper-supply-chain-attack.jpg"
         }
       ]
     },
@@ -14974,9 +14982,9 @@
       "id": "2026-10-17-connectwise-cloud-backup-microsoft-365",
       "title": "Identifiant ConnectWise Cloud Backup compromis : accès à plus de 160 environnements Microsoft 365",
       "created": "2026-10-17T07:30:00+00:00",
-      "updated": "2026-10-19T17:08:15+00:00",
-      "version": 6,
-      "resume": "Un identifiant Microsoft 365 compromis de ConnectWise Cloud Backup a servi à obtenir des jetons : 173 environnements selon [1], 162 selon Huntress [2, 3]. ConnectWise a suspendu l'accès au service le 17 octobre [3, 4].",
+      "updated": "2026-10-19T20:08:07+00:00",
+      "version": 7,
+      "resume": "Un identifiant Microsoft 365 compromis de ConnectWise Cloud Backup a servi à obtenir des jetons : 173 environnements selon [1], 162 selon Huntress [2, 3, 7]. ConnectWise a suspendu l'accès au service le 17 octobre [3, 4].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -15000,7 +15008,7 @@
         },
         {
           "etape": "Réponse du fournisseur",
-          "texte": "Sept identités d'application désactivées et Cloud Backup suspendu le 17 octobre [4], puis SaaS Security et Cloud Management le 18 octobre → services indisponibles [5]."
+          "texte": "Sept identités d'application désactivées et Cloud Backup suspendu le 17 octobre [4], puis SaaS Security et Cloud Management le 18 octobre [5] ; certificats de connexion révoqués [7]."
         }
       ],
       "parcours": {
@@ -15085,7 +15093,8 @@
         "Acteurs inconnus, sans attribution [1, 2, 4]"
       ],
       "cibles": [
-        "Environnements Microsoft 365 de partenaires et clients de ConnectWise Cloud Backup, dont quatre cabinets d'avocats visés par des essais de mots de passe [1, 2, 3]"
+        "Environnements Microsoft 365 de partenaires et clients de ConnectWise Cloud Backup, dont quatre cabinets d'avocats visés par des essais de mots de passe [1, 2, 3]",
+        "Seconde vague, largement infructueuse : politique, sécurité nationale, commerce, minerais critiques [7]"
       ],
       "abreviations": [],
       "sources": [
@@ -15130,6 +15139,13 @@
           "url": "https://www.lemagit.fr/actualites/366652535/Des-pirates-compromettent-des-environnements-Microsoft-365-via-ConnectWise",
           "date": "2026-10-19",
           "image": "https://www.lemagit.fr/visuals/German/article/HERO-Data-Center-monsitj-Adobe-08.jpg"
+        },
+        {
+          "titre": "ConnectWise suspends Cloud Backup service after supply chain attack",
+          "site": "The Record",
+          "url": "https://therecord.media/connectwise-suspends-cloud-backup-service-supply-chain-attack",
+          "date": "2026-10-19",
+          "image": "https://cms.therecord.media/uploads/fernand_de_canne_Apfy_Uz5c5_Q0_unsplash_0367b9f48a.jpg"
         }
       ]
     },
@@ -16461,6 +16477,177 @@
           "url": "https://www.securityweek.com/siemens-software-center-vulnerability-exploited-in-clickfix-malware-attacks/",
           "date": "2026-10-19",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/04/Siemens.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-19-sophos-vishing-identite-saas",
+      "title": "Appel d'hameçonnage vocal : compte Microsoft 365 pris, puis messagerie, SharePoint, Salesforce et ServiceNow",
+      "created": "2026-10-19T20:08:07+00:00",
+      "updated": "2026-10-19T20:08:07+00:00",
+      "version": 1,
+      "resume": "Un attaquant a pris le compte Microsoft 365 d'un employé grâce à un appel frauduleux, puis accédé à la messagerie, à SharePoint, à Salesforce et à ServiceNow d'une organisation non nommée [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Appel se faisant passer pour le support informatique → code reçu par SMS obtenu, puis mot de passe changé via la réinitialisation en libre-service [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Nouvel appareil Windows enregistré dans Entra ID, avec jeton d'actualisation principal (PRT) → présence durable en quelques minutes [1]."
+        },
+        {
+          "etape": "Reconnaissance",
+          "texte": "Requêtes Microsoft Graph → rôles, applications, domaines et utilisateurs énumérés [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Consultation de plus de 100 éléments de messagerie et téléchargement d'environ 100 000 fichiers SharePoint, avec recherches de mots-clés sur les identifiants [1]."
+        },
+        {
+          "etape": "Accès à d'autres services",
+          "texte": "Connexion fédérée à Salesforce, compte gelé par Salesforce ; à ServiceNow, export d'environ 2 500 enregistrements d'utilisateurs [1]."
+        },
+        {
+          "etape": "Effacement de traces",
+          "texte": "Suppression de l'avertissement interne sur le vishing → l'utilisateur ne peut plus le voir [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Employé compromis",
+            "note": "Appel frauduleux"
+          },
+          {
+            "id": "ent",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Microsoft 365, Entra ID",
+            "note": "Appareil enregistré"
+          },
+          {
+            "id": "dat",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Messagerie et SharePoint",
+            "note": "100 000 fichiers"
+          },
+          {
+            "id": "sf",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Salesforce",
+            "note": "Compte gelé"
+          },
+          {
+            "id": "sn",
+            "type": "application",
+            "zone": "victime",
+            "nom": "ServiceNow",
+            "note": "Utilisateurs exportés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 1,
+            "texte": "Appel se faisant passer pour le support"
+          },
+          {
+            "de": "att",
+            "vers": "ent",
+            "etape": 2,
+            "texte": "Nouvel appareil enregistré avec le jeton"
+          },
+          {
+            "de": "att",
+            "vers": "ent",
+            "etape": 3,
+            "texte": "Requêtes Microsoft Graph"
+          },
+          {
+            "de": "ent",
+            "vers": "dat",
+            "etape": 4,
+            "texte": "Messagerie consultée, fichiers téléchargés"
+          },
+          {
+            "de": "ent",
+            "vers": "sf",
+            "etape": 5,
+            "texte": "Connexion fédérée"
+          },
+          {
+            "de": "ent",
+            "vers": "sn",
+            "etape": 5,
+            "texte": "Connexion fédérée, export d'utilisateurs"
+          }
+        ]
+      },
+      "limites": "L'organisation, le secteur, l'acteur et les dates absolues ne sont pas précisés ; le lien avec la tentative de réinitialisation de la veille reste incertain [1].",
+      "cves": [],
+      "mitre": [
+        "T1656 : Impersonation, usurpation du support informatique [1]",
+        "T1098.005 : Device Registration, enregistrement d'un appareil [1]",
+        "T1087.004 : Cloud Account Discovery, énumération de comptes cloud [1]",
+        "T1213.002 : Data from SharePoint, données prises sur SharePoint [1]",
+        "T1114.002 : Remote Email Collection, collecte de courriels [1]",
+        "T1567 : Exfiltration Over Web Service, exfiltration via service web [1]",
+        "T1070.008 : Email Deletion, suppression de courriel [1]"
+      ],
+      "acteurs": [
+        "Non nommé ; un rapport Mandiant sur GOLD CRYSTAL (ShinyHunters) est cité sans attribution directe [1]"
+      ],
+      "cibles": [
+        "Organisation non nommée, secteur non mentionné [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "Entra ID",
+          "definition": "Service d'identités de Microsoft pour comptes et appareils"
+        },
+        {
+          "sigle": "PRT",
+          "definition": "Primary Refresh Token : jeton qui maintient la session de l'utilisateur ouverte"
+        },
+        {
+          "sigle": "Microsoft Graph",
+          "definition": "Interface de Microsoft pour interroger comptes, rôles et applications"
+        },
+        {
+          "sigle": "SMS",
+          "definition": "Message texte envoyé sur téléphone"
+        },
+        {
+          "sigle": "GOLD CRYSTAL",
+          "definition": "Nom de suivi d'un groupe de menace utilisé par Mandiant"
+        },
+        {
+          "sigle": "ShinyHunters",
+          "definition": "Nom d'un groupe de menace cité par la source"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Graph reconnaissance and ServiceNow user enumeration in a modern identity intrusion",
+          "site": "Sophos Threat Research",
+          "url": "https://www.sophos.com/en-us/blog/graph-reconnaissance-and-servicenow-user-enumeration-in-a-modern-identity-intrusion",
+          "date": "2026-10-19",
+          "image": "https://images.contentstack.io/v3/assets/blt38f1f401b66100ad/bltb4b6c0750dc5846c/6aad5e6160452d9f5056a4ef/logo.png"
         }
       ]
     }

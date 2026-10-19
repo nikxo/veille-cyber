@@ -13359,8 +13359,8 @@
       "id": "2026-10-16-peerstitch-fortios",
       "title": "PEERSTITCH : logiciel en mémoire déployé sur FortiOS après l'intrusion d'un fournisseur de télécoms",
       "created": "2026-10-16T07:30:00+00:00",
-      "updated": "2026-10-16T07:30:00+00:00",
-      "version": 1,
+      "updated": "2026-10-19T12:19:22+00:00",
+      "version": 2,
       "resume": "Un acteur avancé suspecté, suivi sous le nom CL-STA-0954, a compromis un fournisseur de services gérés de télécommunications puis déployé le logiciel PEERSTITCH sur des équipements FortiOS, selon Unit 42 [1].",
       "chaine": [
         {
@@ -13381,7 +13381,7 @@
         },
         {
           "etape": "Contrôle des pare-feux",
-          "texte": "Sessions SSL/VPN non autorisées, reverse shell SSH via mod_md, usurpation de FortiManager → récupération de données auprès de pare-feux gérés [1]."
+          "texte": "Sessions SSL/VPN non autorisées, reverse shell SSH via mod_md [1] ; usurpation de FortiManager (CVE-2024-26008 ou secrets exfiltrés) pour envoyer des commandes [3]."
         },
         {
           "etape": "Effacement des traces",
@@ -13454,7 +13454,11 @@
         },
         {
           "id": "CVE-2024-47575",
-          "explication": "FortiManager : absence de vérification d'authentification sur une fonction critique, exécution de code par requêtes forgées, gravité critique 9,8 sur 10 [2]."
+          "explication": "FortiManager : absence de vérification d'authentification sur une fonction critique, exécution de code par requêtes forgées, gravité critique 9,8 sur 10 [2] ; corrigée en octobre 2024 [3]."
+        },
+        {
+          "id": "CVE-2024-26008",
+          "explication": "FortiManager : utilisée pour mettre fin à la session du vrai FortiManager lors de l'usurpation ; aucune description détaillée n'est donnée [3]."
         }
       ],
       "mitre": [],
@@ -13502,6 +13506,13 @@
           "titre": "Fiche NVD CVE-2024-47575",
           "site": "NVD (NIST)",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-47575"
+        },
+        {
+          "titre": "Exploited Fortinet Bug Linked to Stealthy FortiGate Implant in Telecom Hack",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/exploited-fortinet-bug-linked-to-stealthy-fortigate-implant-in-telecom-hack/",
+          "date": "2026-10-19",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/06/fortinet.jpg"
         }
       ]
     },
@@ -15344,6 +15355,308 @@
           "url": "https://thehackernews.com/2026/10/opencode-console-breach-may-have.html",
           "date": "2026-10-19",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzRSuvywT7bfHRl45krYywOIqL__Cw1hXchChbx5ylDNZaHxVDEf8O1pmzajCnItG1rwxKq0k2GHdMeDW_DvQP8Wk5MEiwlE2dZXn9grvDpAOpViWonNWsFMkTXoKpcFj8lk0UuMrGx-xVHRU_KufidsDcY7e0RUSG62aapDC9y9opt8V_rmgxkCG9v6A/s1700-nu-rw-lo-l85-e365/opencode.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-19-ets-sftp-eleves-californie",
+      "title": "ETS : données d'élèves californiens copiées sur un site SFTP avec un identifiant compromis",
+      "created": "2026-10-19T12:19:22+00:00",
+      "updated": "2026-10-19T12:19:22+00:00",
+      "version": 1,
+      "resume": "Un tiers a copié des fichiers contenant des informations sur des élèves californiens depuis un site de transfert de fichiers d'ETS, en utilisant un identifiant de connexion compromis [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Identifiant de connexion compromis, mode de compromission non précisé → accès répétés au site SFTP d'ETS de fin mai au 18 septembre 2026 [1]."
+        },
+        {
+          "etape": "Copie de données",
+          "texte": "Copie de fichiers contenant des informations sur des élèves californiens, de base et sensibles [1]."
+        },
+        {
+          "etape": "Détection et réponse",
+          "texte": "Activité non autorisée détectée le 25 septembre 2026 → compte désactivé et site SFTP mis hors ligne [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sftp",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Site SFTP d'ETS",
+            "note": "Identifiant compromis"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sftp",
+            "etape": 1,
+            "texte": "Connexions avec un identifiant compromis"
+          },
+          {
+            "de": "sftp",
+            "vers": "att",
+            "etape": 2,
+            "texte": "Fichiers d'élèves copiés"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent pas comment l'identifiant a été compromis, qui est l'acteur, ni le nombre d'élèves touchés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Élèves actuels et anciens des écoles publiques californiennes, données transmises par ETS au California Department of Education [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SFTP",
+          "definition": "Protocole de transfert de fichiers chiffré, utilisé ici pour échanger des données"
+        },
+        {
+          "sigle": "ETS",
+          "definition": "Educational Testing Service : organisme qui gérait les données d'évaluation des élèves"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "One Compromised Login Exposed Millions of California Students’ Records",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/one-compromised-login-exposed-millions-of-california-students-records/",
+          "date": "2026-10-19",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/03/school-education.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-19-apex-accelerator-npm-ref8801",
+      "title": "REF8801 : faux accélérateur Web3 diffusant des logiciels malveillants par paquets npm",
+      "created": "2026-10-19T12:19:22+00:00",
+      "updated": "2026-10-19T12:19:22+00:00",
+      "version": 1,
+      "resume": "Un faux accélérateur Web3, suivi par Elastic sous le nom REF8801, a diffusé des voleurs d'informations et des portes dérobées sur Windows et macOS par des paquets npm malveillants [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Développeurs et fondateurs crypto contactés sur X avec des offres d'investissement → installation de l'outil npm @apexacc/cli [1]."
+        },
+        {
+          "etape": "Chargeur",
+          "texte": "Le paquet dépose un chargeur déguisé en application Apple, puis une requête de vérification indique le système → étape suivante selon Windows ou macOS [1]."
+        },
+        {
+          "etape": "Chaîne Windows",
+          "texte": "PowerShell encodé puis exécutables téléchargés, AMSI et ETW modifiés → voleur d'informations exfiltrant via Telegram [1]."
+        },
+        {
+          "etape": "Chaîne macOS",
+          "texte": "Dropper CloudSyncD avec fausse invite d'autorisation → mot de passe de session volé, lancement avec sudo [1]."
+        },
+        {
+          "etape": "Détournement d'agents",
+          "texte": "Trafic OpenRouter redirigé et serveur MCP de l'attaquant ajouté à la configuration → accès aux prompts, historiques et extraits de code [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (REF8801)",
+            "note": ""
+          },
+          {
+            "id": "npm",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Paquets npm @apexacc",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes Windows et macOS",
+            "note": "Voleurs installés"
+          },
+          {
+            "id": "ag",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Agents d'intelligence artificielle",
+            "note": "Trafic détourné"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Contact sur X, installation du paquet npm"
+          },
+          {
+            "de": "npm",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Chargeur déposé par le paquet"
+          },
+          {
+            "de": "pc",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Données volées envoyées via Telegram"
+          },
+          {
+            "de": "att",
+            "vers": "ag",
+            "etape": 5,
+            "texte": "Trafic redirigé, serveur MCP ajouté"
+          }
+        ]
+      },
+      "limites": "Le nombre de victimes effectives n'est pas indiqué [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "REF8801, opération présentée sous les noms Apex Accelerator et Apex Foundation [1]"
+      ],
+      "cibles": [
+        "Startups et fondateurs crypto, développeurs de portefeuilles et d'outils d'analyse de marché [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "npm",
+          "definition": "Gestionnaire de paquets du langage JavaScript"
+        },
+        {
+          "sigle": "AMSI",
+          "definition": "Antimalware Scan Interface : interface d'analyse antivirus de Windows"
+        },
+        {
+          "sigle": "ETW",
+          "definition": "Event Tracing for Windows : journalisation d'événements de Windows"
+        },
+        {
+          "sigle": "MCP",
+          "definition": "Model Context Protocol : protocole reliant un agent d'intelligence artificielle à des outils"
+        },
+        {
+          "sigle": "REF8801",
+          "definition": "Nom donné par Elastic à cette opération"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Fake Web3 Accelerator Uses npm Packages to Spread Malware and Hijack AI Agent Traffic",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/fake-web3-accelerator-uses-npm-packages.html",
+          "date": "2026-10-19",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAw5A6yrE0NkMreq5lBZaS4ndrFrorAZaVrjJ218aS1RcJoQVYOJOVejIn8rBH5RHIIZ_cpvtzHnQMwMMWVOFbpfcs01tolLCmlYAY3qy-onWaOUQhzB6H2VjlWaUgBCL_0vAjRB7VmumClnaiIxDds6j9wD3lt9vD-kptWl6bUft29O6Z0cTNgBQV6t76/s1700-nu-rw-lo-l85-e365/npm-apex.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-19-firstvds-vmmanager",
+      "title": "FirstVDS : données de clients volées après l'exploitation de VMmanager 6",
+      "created": "2026-10-19T12:19:22+00:00",
+      "updated": "2026-10-19T12:19:22+00:00",
+      "version": 1,
+      "resume": "Des attaquants ont volé des mots de passe et identifiants de clients de l'hébergeur russe FirstVDS après avoir exploité une faille du logiciel VMmanager 6 [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation d'une faille de VMmanager 6, plateforme de gestion de machines virtuelles d'ISPsystem ; méthode précise non indiquée [1]."
+        },
+        {
+          "etape": "Déploiement de malware",
+          "texte": "Malware montant les disques des serveurs virtuels des clients en lecture seule → copie des données sans modifier les fichiers [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Mots de passe, identifiants cloud, fichiers de configuration et portefeuilles crypto transférés vers un serveur des attaquants [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "vm",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "VMmanager 6",
+            "note": "Faille exploitée"
+          },
+          {
+            "id": "vs",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveurs virtuels des clients",
+            "note": "Disques en lecture seule"
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur des attaquants",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "vm",
+            "etape": 1,
+            "texte": "Exploitation d'une faille de VMmanager 6"
+          },
+          {
+            "de": "vm",
+            "vers": "vs",
+            "etape": 2,
+            "texte": "Malware montant les disques en lecture seule"
+          },
+          {
+            "de": "vs",
+            "vers": "srv",
+            "etape": 3,
+            "texte": "Données transférées"
+          }
+        ]
+      },
+      "limites": "FirstVDS dit n'avoir trouvé aucune trace de l'attaque sur les serveurs ; l'acteur et le nombre de clients touchés ne sont pas indiqués [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Clients de l'hébergeur russe FirstVDS [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Hackers steal customer data from major Russian hosting provider FirstVDS",
+          "site": "The Record",
+          "url": "https://therecord.media/russia-cyberattack-firstvds-cloud",
+          "date": "2026-10-19",
+          "image": "https://cms.therecord.media/uploads/mohammad_mardani_MC_Pqw_Z_Exfx_M_unsplash_b240343335.jpg"
         }
       ]
     }

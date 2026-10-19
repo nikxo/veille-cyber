@@ -14982,13 +14982,13 @@
       "id": "2026-10-17-connectwise-cloud-backup-microsoft-365",
       "title": "Identifiant ConnectWise Cloud Backup compromis : accès à plus de 160 environnements Microsoft 365",
       "created": "2026-10-17T07:30:00+00:00",
-      "updated": "2026-10-19T20:08:07+00:00",
-      "version": 7,
+      "updated": "2026-10-19T21:08:42+00:00",
+      "version": 8,
       "resume": "Un identifiant Microsoft 365 compromis de ConnectWise Cloud Backup a servi à obtenir des jetons : 173 environnements selon [1], 162 selon Huntress [2, 3, 7]. ConnectWise a suspendu l'accès au service le 17 octobre [3, 4].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Authentification directe à Microsoft 365 avec le secret de l'application Cloud Backup, méthode d'obtention non précisée → aucune connexion utilisateur, donc authentification multifacteur sans effet [1, 2, 3]."
+          "texte": "Authentification directe à Microsoft 365 avec le secret de l'application Cloud Backup, méthode d'obtention non précisée → aucune connexion utilisateur, donc authentification multifacteur sans effet [1, 2, 3, 8]."
         },
         {
           "etape": "Mots de passe testés",
@@ -14996,7 +14996,7 @@
         },
         {
           "etape": "Obtention de jetons",
-          "texte": "Le 15 octobre, parcours des environnements dans l'ordre des identifiants triés → jetons Microsoft Graph obtenus [1, 2]. Microsoft : application OAuth compromise, jetons obtenus chez les clients [6]."
+          "texte": "Le 15 octobre, balayage des environnements dans l'ordre croissant des identifiants, depuis un seul serveur privé virtuel, pendant environ 96 minutes → jetons Microsoft Graph obtenus [1, 2, 8]."
         },
         {
           "etape": "Élévation de privilèges",
@@ -15082,7 +15082,7 @@
           }
         ]
       },
-      "limites": "Compromission de l'identifiant et acteur non précisés [1, 2, 3, 4]. Décomptes : 173 [1], 162 [2, 3], environ 300 connexions réussies [4], plus de 300 environnements [6].",
+      "limites": "Origine de la compromission et acteur non précisés [1, 2, 3, 4, 8]. Décomptes : 173 [1], 162 [2, 3], environ 300 [4], plus de 300 [6]. Sophos : aucun secret ni rôle ajouté dans ses tenants examinés [8].",
       "cves": [],
       "mitre": [
         "T1078.004 : Valid Cloud Accounts, utilisation de l'identifiant du fournisseur [2]",
@@ -15146,6 +15146,13 @@
           "url": "https://therecord.media/connectwise-suspends-cloud-backup-service-supply-chain-attack",
           "date": "2026-10-19",
           "image": "https://cms.therecord.media/uploads/fernand_de_canne_Apfy_Uz5c5_Q0_unsplash_0367b9f48a.jpg"
+        },
+        {
+          "titre": "ConnectWise Cloud Backup application abused in cross-tenant token sweep",
+          "site": "Sophos Threat Research",
+          "url": "https://www.sophos.com/en-us/blog/connectwise-cloud-backup-application-abused-in-token-sweep",
+          "date": "2026-10-19",
+          "image": "https://images.contentstack.io/v3/assets/blt38f1f401b66100ad/bltb4b6c0750dc5846c/6aad5e6160452d9f5056a4ef/logo.png"
         }
       ]
     },

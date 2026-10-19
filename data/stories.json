@@ -15902,6 +15902,265 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtAKfaW5dHhlv9lpzzAju1Cm_EjO4wOkhGQEMspSKCVFUCA_eaanAXGHkb-Dv3c9zSXWHW45I50Fp_bqX6ydaNlPWixkd39bl4IOeYv8xQ0oviE4d6SZcQmQ27ztf-tVV7BozEDeFYi2Fde0LpJAJ9gTHUGSOvc46MtgawesAd5-wljApeBpLyUYnczZnR/s1700-nu-rw-lo-l85-e365/git-font.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-19-netscaler-cve-2026-88771",
+      "title": "Appliance Citrix NetScaler ADC compromise via deux failles : accès root, web shells et vol de configuration",
+      "created": "2026-10-19T16:09:17+00:00",
+      "updated": "2026-10-19T16:09:17+00:00",
+      "version": 1,
+      "resume": "Rapid7 a enquêté sur la compromission d'une appliance Citrix NetScaler ADC exposée à l'exploitation active : exécution de code en root, web shells, tunnels, puis vol de la configuration et de matériel de clés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Requête d'authentification avec commande injectée dans le nom d'utilisateur, liée à des plantages répétés de nsaaad → redémarrages de Pitboss [1]."
+        },
+        {
+          "etape": "Exécution en root",
+          "texte": "Le gestionnaire de crash call-home traite le texte conservé → charge utile exécutée en root, de façon différée et répétable [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Tâches cron, rc.netscaler, agent inverse et trois web shells PHP dans le répertoire web LogonPoint → accès durable à l'appliance [1]."
+        },
+        {
+          "etape": "Tunnels et pivot",
+          "texte": "Gestionnaire de sessions TCP en Perl et tunnel HTTP en Python → connexions vers des hôtes et ports arbitraires depuis l'appliance [1]."
+        },
+        {
+          "etape": "Reconnaissance interne",
+          "texte": "Binaire de scan en Go → cartographie des routes, du DNS, de l'annuaire LDAP, des services de gestion et de VMware vCenter, résultats envoyés à l'opérateur [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Copie de la configuration et des sauvegardes dans une archive placée dans la racine web et téléchargée → identifiants chiffrés et clés privées SSL potentiellement exposés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "ns",
+            "type": "passerelle",
+            "zone": "expose",
+            "nom": "Appliance NetScaler ADC",
+            "note": "Web shells, tunnels"
+          },
+          {
+            "id": "int",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Infrastructure interne ciblée",
+            "note": "DNS, LDAP, vCenter"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ns",
+            "etape": 1,
+            "texte": "Commande injectée dans l'authentification"
+          },
+          {
+            "de": "ns",
+            "vers": "int",
+            "etape": 5,
+            "texte": "Scan du DNS, de l'annuaire et de vCenter"
+          },
+          {
+            "de": "ns",
+            "vers": "att",
+            "etape": 6,
+            "texte": "Configuration et clés exfiltrées"
+          }
+        ]
+      },
+      "limites": "L'article ne nomme pas l'acteur (chevauchement avec une campagne publique) ni la victime, et ne décrit aucun chiffrement de données [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-88771",
+          "explication": "NetScaler ADC : empoisonnement des journaux avant authentification, utilisé pour exécuter du code [1]."
+        },
+        {
+          "id": "CVE-2026-88779",
+          "explication": "NetScaler ADC : plantage lors de l'analyse SAML, qui fournit la condition de plantage et de redémarrage [1]."
+        }
+      ],
+      "mitre": [
+        "T1190 : Exploit Public-Facing Application : exploitation d'un service exposé [1].",
+        "T1505.003 : Web Shell : accès par web shell [1].",
+        "T1548.001 : Setuid and Setgid : shell rendu setuid pour obtenir les droits root [1].",
+        "T1053.003 : Cron : persistance par tâches planifiées [1].",
+        "T1572 : Protocol Tunneling : tunnels de communication [1].",
+        "T1046 : Network Service Scanning : scan des services du réseau [1].",
+        "T1041 : Exfiltration Over C2 Channel : exfiltration par le canal de commande [1]."
+      ],
+      "acteurs": [
+        "Non attribué ; chevauchement avec une campagne publique sur NetScaler [1]"
+      ],
+      "cibles": [
+        "Appliance Citrix NetScaler ADC en build 14.1 exposée sur Internet [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ADC",
+          "definition": "Application Delivery Controller : équipement qui répartit et sécurise le trafic des applications"
+        },
+        {
+          "sigle": "PHP",
+          "definition": "Langage de script utilisé pour les pages web"
+        },
+        {
+          "sigle": "TCP",
+          "definition": "Protocole de transport des données sur un réseau"
+        },
+        {
+          "sigle": "HTTP",
+          "definition": "Protocole de communication des sites web"
+        },
+        {
+          "sigle": "DNS",
+          "definition": "Système qui traduit les noms de domaine en adresses"
+        },
+        {
+          "sigle": "LDAP",
+          "definition": "Protocole d'interrogation d'un annuaire d'identités"
+        },
+        {
+          "sigle": "SSL",
+          "definition": "Protocole de chiffrement des échanges, utilisé avec des clés privées"
+        },
+        {
+          "sigle": "SAML",
+          "definition": "Format d'échange d'authentification unique entre systèmes"
+        },
+        {
+          "sigle": "C2",
+          "definition": "Serveur de commande et contrôle utilisé par l'attaquant"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "NetScaler intrusions chaining CVE-2026-88771 and CVE-2026-88779",
+          "site": "Rapid7",
+          "url": "https://www.rapid7.com/blog/post/ra-netscaler-intrusions-chaining-cve-2026-88771-and-cve-2026-88779",
+          "date": "2026-10-19",
+          "image": "https://www.rapid7.com/cdn/images/bltcbf09ec3af35e28e/6a15c63f08221ed5144dbf77/webinar-rapid7-logo.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-19-rank-math-pro-supply-chain",
+      "title": "Extension WordPress Rank Math PRO 3.0.123 compromise par une attaque sur la chaîne d'approvisionnement",
+      "created": "2026-10-19T16:09:17+00:00",
+      "updated": "2026-10-19T16:09:17+00:00",
+      "version": 1,
+      "resume": "Des pirates ont injecté un malware dans les paquets de Rank Math PRO 3.0.123, extension WordPress, distribués du 15 au 16 octobre ; il peut permettre la prise de contrôle des sites [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Paquets 3.0.123 compromis, méthode non précisée → distribués du 15 octobre 20 h 02 UTC au 16 octobre 7 h 12 UTC [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Activation de l'extension sur le site → malware pouvant donner la prise de contrôle du site [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Porte dérobée cachée recréée à chaque visite de page, règles .htaccess exécutant des fichiers .cache comme PHP → nettoyage manuel compliqué [1]."
+        },
+        {
+          "etape": "Accès et vol",
+          "texte": "Accès persistant, tâches planifiées, modification d'autres extensions et thèmes → exposition possible d'identifiants, de clés API et d'autres secrets [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "ed",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Paquets Rank Math PRO 3.0.123",
+            "note": "Malware injecté"
+          },
+          {
+            "id": "site",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Sites WordPress",
+            "note": "Extension activée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ed",
+            "etape": 1,
+            "texte": "Paquets compromis puis distribués"
+          },
+          {
+            "de": "ed",
+            "vers": "site",
+            "etape": 2,
+            "texte": "Extension activée, malware actif"
+          },
+          {
+            "de": "att",
+            "vers": "site",
+            "etape": 3,
+            "texte": "Porte dérobée recréée à chaque visite"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent pas comment les paquets ont été compromis, qui est l'auteur ni combien de sites sont touchés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Utilisateurs ayant installé Rank Math PRO 3.0.123 pendant la fenêtre de distribution [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "PHP",
+          "definition": "Langage de script utilisé pour les pages web"
+        },
+        {
+          "sigle": "API",
+          "definition": "Interface permettant à des programmes de communiquer entre eux"
+        },
+        {
+          "sigle": "UTC",
+          "definition": "Temps universel coordonné, référence horaire mondiale"
+        },
+        {
+          "sigle": "PRO",
+          "definition": "Mention de l'édition PRO de l'extension Rank Math"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Rank Math PRO WordPress Plugin Compromised in Supply Chain Attack",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/rank-math-pro-wordpress-plugin-compromised-in-supply-chain-attack/",
+          "date": "2026-10-19",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/08/WordPress.jpeg"
+        }
+      ]
     }
   ]
 }

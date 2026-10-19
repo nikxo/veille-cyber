@@ -13784,9 +13784,9 @@
       "id": "2026-10-15-armory-castle-beyondtrust",
       "title": "Armory Castle exploite en zero-day une faille de BeyondTrust Remote Support",
       "created": "2026-10-15T22:20:00+00:00",
-      "updated": "2026-10-16T13:13:53+00:00",
-      "version": 5,
-      "resume": "Le groupe Armory Castle, suspecté d'espionnage lié à la Chine, a exploité en zero-day une faille des appliances BeyondTrust Remote Support à partir de fin août 2026 [1, 2]. Aucune victime n'est nommée [2].",
+      "updated": "2026-10-19T15:10:47+00:00",
+      "version": 6,
+      "resume": "Le groupe Armory Castle, suspecté d'espionnage lié à la Chine, a exploité en zero-day une faille des appliances BeyondTrust Remote Support à partir de fin août 2026 [1, 2]. Aucune victime n'est nommée [2, 6].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -13858,11 +13858,11 @@
           }
         ]
       },
-      "limites": "Les sources ne nomment ni victimes ni secteurs touchés, ne citent aucune technique MITRE ATT&CK et ne donnent pas de gravité pour la faille [1, 2]. Un seul appareil est cité pour août [3].",
+      "limites": "Les sources ne citent aucune technique MITRE ATT&CK [1, 2, 6]. Pour août, [3] cite un appareil auto-hébergé, [6] deux compromissions au 29 août (une hébergée, une auto-hébergée).",
       "cves": [
         {
           "id": "CVE-2026-102764",
-          "explication": "BeyondTrust Remote Support : envoi arbitraire de fichiers par un attaquant distant non authentifié, menant au contrôle de l'hôte ; versions jusqu'à 26.2.3 touchées [1, 2]. Gravité 9,3 sur 10 [3]."
+          "explication": "BeyondTrust Remote Support : envoi arbitraire de fichiers par un attaquant distant non authentifié ; versions jusqu'à 26.2.3 touchées sauf correctif BT26-05-RS [1, 2, 6]. Gravité 9,3 sur 10 [3, 6]."
         }
       ],
       "mitre": [],
@@ -13924,6 +13924,13 @@
           "url": "https://therecord.media/beyond-trust-cyberattack-china",
           "date": "2026-10-16",
           "image": "https://cms.therecord.media/uploads/BT_1_e667ba6c47.jpg"
+        },
+        {
+          "titre": "CVE-2026-102764: Critical BeyondTrust Remote Support Authentication Bypass Exploited in the Wild",
+          "site": "Rapid7",
+          "url": "https://www.rapid7.com/blog/post/etr-cve-2026-102764-critical-beyondtrust-remote-support-authentication-bypass-exploited-in-the-wild",
+          "date": "2026-10-19",
+          "image": "https://www.rapid7.com/cdn/images/blt65a432ba319f4043/6846abddaf18306debe6cf4d/ETR.webp"
         }
       ]
     },

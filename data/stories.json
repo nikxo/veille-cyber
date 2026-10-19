@@ -15296,9 +15296,9 @@
       "id": "2026-10-19-opencode-console-cles-api",
       "title": "OpenCode : intrusion dans un ancien système, clés d'API de fournisseurs d'IA possiblement exposées",
       "created": "2026-10-19T08:07:44+00:00",
-      "updated": "2026-10-19T08:07:44+00:00",
-      "version": 1,
-      "resume": "Un intrus a atteint un ancien système d'OpenCode dans la nuit du 16 octobre. Les clés de fournisseurs d'IA enregistrées dans OpenCode Console ont pu être exposées [1].",
+      "updated": "2026-10-19T18:10:00+00:00",
+      "version": 2,
+      "resume": "Un intrus a atteint un ancien système d'OpenCode dans la nuit du 16 octobre ; des clés de fournisseurs d'IA liées à Console ont pu être exposées, avec des frais non autorisés signalés [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -15306,11 +15306,15 @@
         },
         {
           "etape": "Exposition des clés",
-          "texte": "Accès à l'ancien système → clés OpenAI, Anthropic ou Google enregistrées dans Console possiblement exposées, sans confirmation de copie ni d'usage [1]."
+          "texte": "Accès à l'ancien système → clés OpenAI, Anthropic ou Google enregistrées dans Console possiblement exposées, sans confirmation de copie ni d'usage [1] ; 1,4 % des utilisateurs de Console touchés [2]."
         },
         {
           "etape": "Usages signalés",
-          "texte": "Des utilisateurs affirment avoir subi des frais non autorisés chez des fournisseurs d'IA, affirmations non vérifiées [1]."
+          "texte": "Des utilisateurs signalent des frais non autorisés allant jusqu'à 1 700 $ et Google suspend des projets pour ressources détournées [2] ; affirmations non vérifiées [1]."
+        },
+        {
+          "etape": "Distillation",
+          "texte": "Attaque par distillation à grande échelle, requêtes non autorisées servant à entraîner des modèles ; lien avec l'exposition des clés non précisé [2]."
         }
       ],
       "parcours": {
@@ -15335,6 +15339,13 @@
             "zone": "victime",
             "nom": "Clés des fournisseurs d'IA",
             "note": "Dans Console"
+          },
+          {
+            "id": "ia",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Fournisseurs d'IA",
+            "note": "Frais non autorisés"
           }
         ],
         "liens": [
@@ -15349,15 +15360,21 @@
             "vers": "cles",
             "etape": 2,
             "texte": "Clés possiblement exposées"
+          },
+          {
+            "de": "cles",
+            "vers": "ia",
+            "etape": 3,
+            "texte": "Frais non autorisés et projets suspendus signalés"
           }
         ]
       },
-      "limites": "Les sources ne précisent ni le vecteur d'accès, ni le nombre de clés touchées, ni si une clé a été copiée ou utilisée [1].",
+      "limites": "Les sources ne précisent ni le vecteur d'accès, ni le lien entre l'attaque par distillation et l'exposition des clés [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "OpenCode Console : 1,4 % des utilisateurs, ayant un fournisseur externe lié [1]"
+        "OpenCode Console : 1,4 % des utilisateurs, ayant un fournisseur externe lié [1, 2]"
       ],
       "abreviations": [
         {
@@ -15376,6 +15393,13 @@
           "url": "https://thehackernews.com/2026/10/opencode-console-breach-may-have.html",
           "date": "2026-10-19",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzRSuvywT7bfHRl45krYywOIqL__Cw1hXchChbx5ylDNZaHxVDEf8O1pmzajCnItG1rwxKq0k2GHdMeDW_DvQP8Wk5MEiwlE2dZXn9grvDpAOpViWonNWsFMkTXoKpcFj8lk0UuMrGx-xVHRU_KufidsDcY7e0RUSG62aapDC9y9opt8V_rmgxkCG9v6A/s1700-nu-rw-lo-l85-e365/opencode.jpg"
+        },
+        {
+          "titre": "OpenCode hack exposes API keys amid AI distillation attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/opencode-hack-exposes-api-keys-amid-ai-distillation-attacks/",
+          "date": "2026-10-19",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/19/key.jpg"
         }
       ]
     },
@@ -16068,13 +16092,13 @@
       "id": "2026-10-19-rank-math-pro-supply-chain",
       "title": "Extension WordPress Rank Math PRO 3.0.123 compromise par une attaque sur la chaîne d'approvisionnement",
       "created": "2026-10-19T16:09:17+00:00",
-      "updated": "2026-10-19T16:09:17+00:00",
-      "version": 1,
-      "resume": "Des pirates ont injecté un malware dans les paquets de Rank Math PRO 3.0.123, extension WordPress, distribués du 15 au 16 octobre ; il peut permettre la prise de contrôle des sites [1].",
+      "updated": "2026-10-19T18:10:00+00:00",
+      "version": 2,
+      "resume": "Des pirates ont injecté un malware dans les paquets de Rank Math PRO 3.0.123, extension WordPress, distribués du 15 au 16 octobre ; tout site l'ayant activée est à considérer comme compromis [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Paquets 3.0.123 compromis, méthode non précisée → distribués du 15 octobre 20 h 02 UTC au 16 octobre 7 h 12 UTC [1]."
+          "texte": "Fichiers malveillants dans le système de téléchargement, méthode non précisée → copies piégées distribuées du 15 octobre 20 h 02 au 16 octobre 7 h 12 UTC [1, 2]."
         },
         {
           "etape": "Prise de contrôle",
@@ -16082,11 +16106,11 @@
         },
         {
           "etape": "Persistance",
-          "texte": "Porte dérobée cachée recréée à chaque visite de page, règles .htaccess exécutant des fichiers .cache comme PHP → nettoyage manuel compliqué [1]."
+          "texte": "Porte dérobée cachée recréée à chaque visite de page, règles .htaccess exécutant des fichiers .cache comme PHP → nettoyage manuel compliqué [1, 2]."
         },
         {
           "etape": "Accès et vol",
-          "texte": "Accès persistant, tâches planifiées, modification d'autres extensions et thèmes → exposition possible d'identifiants, de clés API et d'autres secrets [1]."
+          "texte": "Accès persistant, tâches planifiées, modification d'autres extensions et thèmes [1] ; comptes administrateurs et clés SSH possiblement ajoutés [2] → identifiants et clés API possiblement exposés [1, 2]."
         }
       ],
       "parcours": {
@@ -16134,8 +16158,13 @@
           }
         ]
       },
-      "limites": "Les sources ne disent pas comment les paquets ont été compromis, qui est l'auteur ni combien de sites sont touchés [1].",
-      "cves": [],
+      "limites": "Les sources ne disent pas comment les paquets ont été compromis, qui est l'auteur ni combien de sites sont touchés [1, 2].",
+      "cves": [
+        {
+          "id": "CVE-2026-111862",
+          "explication": "Rank Math PRO 3.0.123 : code malveillant introduit dans la chaîne d'approvisionnement, accès persistant et secrets exposés, gravité critique 9,8 sur 10 [2, 3]."
+        }
+      ],
       "mitre": [],
       "acteurs": [],
       "cibles": [
@@ -16157,6 +16186,10 @@
         {
           "sigle": "PRO",
           "definition": "Mention de l'édition PRO de l'extension Rank Math"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Protocole d'accès distant sécurisé à un serveur, authentifié par clés"
         }
       ],
       "sources": [
@@ -16166,6 +16199,18 @@
           "url": "https://www.securityweek.com/rank-math-pro-wordpress-plugin-compromised-in-supply-chain-attack/",
           "date": "2026-10-19",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/08/WordPress.jpeg"
+        },
+        {
+          "titre": "Popular WordPress SEO Plugin Rank Math PRO Hijacked to Deliver Self-Restoring Backdoor",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/popular-wordpress-seo-plugin-rank-math.html",
+          "date": "2026-10-19",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEja-6AhEjL8YvRsoNjXIIDEnsVd8gMMW_cUqMvLNcRukJXjatSuo-phLfYxt2A76gSCk-uZFmo4EbJjQuMr8_k8Pxl2ho1TnUL_50Q_VknkR8JqnTiVOqZ48i5W6Mv6HB0cQfJoAjs8xHUu6urkucsPClURVP3aWM0aivfngCFZLykMYzJITwenYfSb9Sk/s1700-nu-rw-lo-l85-e365/wordpress-rank.jpg"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-111862",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111862"
         }
       ]
     },

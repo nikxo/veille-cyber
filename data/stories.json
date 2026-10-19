@@ -16743,6 +16743,168 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/19/nikkei.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-19-pan-os-globalprotect-cve-2026-0257",
+      "title": "Faille PAN-OS GlobalProtect (CVE-2026-0257) exploitée, des groupes de rançongiciel s'en servent",
+      "created": "2026-10-19T23:30:00+00:00",
+      "updated": "2026-10-19T23:30:00+00:00",
+      "version": 1,
+      "resume": "Unit 42 décrit l'exploitation de la faille CVE-2026-0257 de PAN-OS GlobalProtect pour ouvrir des sessions VPN. Les groupes Qilin et Inc exploitent la faille, dans de nombreux secteurs [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de CVE-2026-0257 sur GlobalProtect → contournement de l'authentification et de la MFA, session VPN établie [1]."
+        },
+        {
+          "etape": "Reconnaissance et déplacement",
+          "texte": "Outils d'administration à distance à double usage, puis RDP et SMB → déplacement dans le réseau interne [1]."
+        },
+        {
+          "etape": "Pivot vers la virtualisation",
+          "texte": "Passage de la passerelle VPN compromise au vCenter, contrôles de sécurité des hyperviseurs ESXi désactivés [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Dump hors ligne du disque virtuel d'un contrôleur de domaine → identifiants du domaine, sans passer par l'EDR de l'invité [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "gp",
+            "type": "passerelle",
+            "zone": "expose",
+            "nom": "Passerelle VPN GlobalProtect",
+            "note": "CVE-2026-0257"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines du réseau interne",
+            "note": "RDP, SMB"
+          },
+          {
+            "id": "vc",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "vCenter et hyperviseurs ESXi",
+            "note": "Contrôles désactivés"
+          },
+          {
+            "id": "dc",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Contrôleur de domaine",
+            "note": "Disque virtuel"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gp",
+            "etape": 1,
+            "texte": "Contournement d'authentification et de MFA"
+          },
+          {
+            "de": "gp",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Session VPN, puis RDP et SMB"
+          },
+          {
+            "de": "gp",
+            "vers": "vc",
+            "etape": 3,
+            "texte": "Passage de la passerelle au vCenter"
+          },
+          {
+            "de": "vc",
+            "vers": "dc",
+            "etape": 4,
+            "texte": "Dump hors ligne du disque virtuel"
+          }
+        ]
+      },
+      "limites": "Unit 42 ne détaille pas la réalisation effective du vol de données et du déploiement de rançongiciel, ni la persistance. Aucune victime individuelle n'est nommée [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-0257",
+          "explication": "PAN-OS, portail et passerelle GlobalProtect : contournement d'authentification permettant d'initier des connexions VPN. Ajoutée au catalogue KEV de la CISA le 13 mai 2026 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Spikey Scorpius (alias Qilin) et Tarnished Scorpius (alias Inc), groupes de rançongiciel observés par Unit 42 [1]",
+        "Exploitation initiale par un acteur non identifié selon Unit 42 [1]"
+      ],
+      "cibles": [
+        "Éducation, finance, santé, haute technologie, industrie, administrations, transport, énergie, commerce et autres secteurs [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "MFA",
+          "definition": "Authentification multifacteur : plusieurs preuves d'identité à la connexion"
+        },
+        {
+          "sigle": "VPN",
+          "definition": "Réseau privé virtuel : accès chiffré au réseau interne depuis Internet"
+        },
+        {
+          "sigle": "RDP",
+          "definition": "Remote Desktop Protocol : prise de contrôle d'un poste Windows à distance"
+        },
+        {
+          "sigle": "SMB",
+          "definition": "Protocole Windows de partage de fichiers en réseau"
+        },
+        {
+          "sigle": "vCenter",
+          "definition": "Console VMware qui administre les serveurs de virtualisation"
+        },
+        {
+          "sigle": "ESXi",
+          "definition": "Hyperviseur VMware qui fait tourner les machines virtuelles"
+        },
+        {
+          "sigle": "EDR",
+          "definition": "Outil de détection et réponse sur les postes et serveurs"
+        },
+        {
+          "sigle": "PAN-OS",
+          "definition": "Système d'exploitation des pare-feu Palo Alto Networks"
+        },
+        {
+          "sigle": "GlobalProtect",
+          "definition": "Fonction VPN des pare-feu Palo Alto Networks"
+        },
+        {
+          "sigle": "KEV",
+          "definition": "Catalogue américain des failles connues comme exploitées"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Threat Brief: Active Exploitation of PAN-OS CVE-2026-0257 (Updated October 19)",
+          "site": "Unit 42 (Palo Alto Networks)",
+          "url": "https://unit42.paloaltonetworks.com/active-exploitation-of-pan-os-cve-2026-0257/",
+          "date": "2026-10-19",
+          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/06/07_Vulnerabilities_1920x900.jpg"
+        }
+      ]
     }
   ]
 }

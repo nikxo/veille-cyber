@@ -16131,9 +16131,9 @@
       "id": "2026-10-19-rank-math-pro-supply-chain",
       "title": "Extension WordPress Rank Math PRO 3.0.123 compromise par une attaque sur la chaîne d'approvisionnement",
       "created": "2026-10-19T16:09:17+00:00",
-      "updated": "2026-10-19T18:10:00+00:00",
-      "version": 2,
-      "resume": "Des pirates ont injecté un malware dans les paquets de Rank Math PRO 3.0.123, extension WordPress, distribués du 15 au 16 octobre ; tout site l'ayant activée est à considérer comme compromis [1, 2].",
+      "updated": "2026-10-19T22:30:00+00:00",
+      "version": 3,
+      "resume": "Des pirates ont injecté un malware dans les paquets de Rank Math PRO 3.0.123, extension WordPress, distribués du 15 au 16 octobre ; tout site l'ayant activée est à considérer comme compromis [1, 2, 4].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -16145,11 +16145,11 @@
         },
         {
           "etape": "Persistance",
-          "texte": "Porte dérobée cachée recréée à chaque visite de page, règles .htaccess exécutant des fichiers .cache comme PHP → nettoyage manuel compliqué [1, 2]."
+          "texte": "Porte dérobée cachée recréée à chaque visite de page, règles .htaccess exécutant des fichiers .cache comme PHP → nettoyage manuel compliqué [1, 2] ; supprimer l'extension ne suffit pas [4]."
         },
         {
           "etape": "Accès et vol",
-          "texte": "Accès persistant, tâches planifiées, modification d'autres extensions et thèmes [1] ; comptes administrateurs et clés SSH possiblement ajoutés [2] → identifiants et clés API possiblement exposés [1, 2]."
+          "texte": "Accès persistant, tâches planifiées, modification d'autres extensions [1] ; comptes administrateurs et clés SSH possiblement ajoutés [2] ; domaine rank1cdn[.]com contacté → identifiants et clés API exposés [4]."
         }
       ],
       "parcours": {
@@ -16197,7 +16197,7 @@
           }
         ]
       },
-      "limites": "Les sources ne disent pas comment les paquets ont été compromis, qui est l'auteur ni combien de sites sont touchés [1, 2].",
+      "limites": "Les sources ne disent pas comment les paquets ont été compromis, qui est l'auteur ni combien de sites sont touchés ; BleepingComputer parle d'un nombre limité d'utilisateurs [1, 2, 4].",
       "cves": [
         {
           "id": "CVE-2026-111862",
@@ -16207,7 +16207,7 @@
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Utilisateurs ayant installé Rank Math PRO 3.0.123 pendant la fenêtre de distribution [1]"
+        "Utilisateurs ayant installé Rank Math PRO 3.0.123 pendant la fenêtre de distribution ; la version gratuite n'est pas concernée [1, 4]"
       ],
       "abreviations": [
         {
@@ -16250,6 +16250,13 @@
           "titre": "Fiche NVD CVE-2026-111862",
           "site": "NVD (NIST)",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111862"
+        },
+        {
+          "titre": "WordPress SEO plugin Rank Math compromised to backdoor websites",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/wordpress-seo-plugin-rank-math-compromised-to-backdoor-websites/",
+          "date": "2026-10-19",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/06/18/WordPress.jpg"
         }
       ]
     },
@@ -16655,6 +16662,85 @@
           "url": "https://www.sophos.com/en-us/blog/graph-reconnaissance-and-servicenow-user-enumeration-in-a-modern-identity-intrusion",
           "date": "2026-10-19",
           "image": "https://images.contentstack.io/v3/assets/blt38f1f401b66100ad/bltb4b6c0750dc5846c/6aad5e6160452d9f5056a4ef/logo.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-19-nikkei-fuites-identifiants",
+      "title": "Nikkei : troisième fuite de données en un mois, 1,83 million d'enregistrements exposés",
+      "created": "2026-10-19T22:30:00+00:00",
+      "updated": "2026-10-19T22:30:00+00:00",
+      "version": 1,
+      "resume": "Des pirates ont utilisé des identifiants volés pour accéder à un système de développement de Nikkei le 7 octobre : 1,83 million d'enregistrements exposés, troisième fuite en environ un mois [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Identifiants volés, mode de vol non précisé → accès à un système de développement du réseau le 7 octobre [1]."
+        },
+        {
+          "etape": "Accès aux données",
+          "texte": "Accès au système de développement → informations personnelles stockées dans le cloud exposées, soit 1,83 million d'enregistrements [1]."
+        },
+        {
+          "etape": "Réponse de Nikkei",
+          "texte": "Le 11 octobre, identifiants abusés révoqués et autorité de protection des données notifiée [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "dev",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Système de développement",
+            "note": "Identifiants volés"
+          },
+          {
+            "id": "cl",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données personnelles dans le cloud",
+            "note": "1,83 million"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "dev",
+            "etape": 1,
+            "texte": "Connexion avec des identifiants volés"
+          },
+          {
+            "de": "dev",
+            "vers": "cl",
+            "etape": 2,
+            "texte": "Accès aux informations personnelles"
+          }
+        ]
+      },
+      "limites": "Les deux fuites précédentes (compte Google Workspace en juillet, compte Microsoft 365 en septembre) n'ont pas de méthode d'accès précisée [1]. Aucun usage abusif des données constaté au 16 octobre [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Nikkei, groupe japonais de presse ; 150 000 enregistrements avec nom, e-mail, adresse, téléphone ou date de naissance, aucune carte bancaire [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Nikkei discloses third data breach in a month, 1.8M records exposed",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/nikkei-discloses-third-data-breach-in-a-month-18m-records-exposed/",
+          "date": "2026-10-19",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/19/nikkei.jpg"
         }
       ]
     }

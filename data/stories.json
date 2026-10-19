@@ -14974,8 +14974,8 @@
       "id": "2026-10-17-connectwise-cloud-backup-microsoft-365",
       "title": "Identifiant ConnectWise Cloud Backup compromis : accès à plus de 160 environnements Microsoft 365",
       "created": "2026-10-17T07:30:00+00:00",
-      "updated": "2026-10-19T14:20:00+00:00",
-      "version": 5,
+      "updated": "2026-10-19T17:08:15+00:00",
+      "version": 6,
       "resume": "Un identifiant Microsoft 365 compromis de ConnectWise Cloud Backup a servi à obtenir des jetons : 173 environnements selon [1], 162 selon Huntress [2, 3]. ConnectWise a suspendu l'accès au service le 17 octobre [3, 4].",
       "chaine": [
         {
@@ -14988,7 +14988,7 @@
         },
         {
           "etape": "Obtention de jetons",
-          "texte": "Le 15 octobre, parcours des environnements dans l'ordre des identifiants triés, à quelques secondes d'intervalle → jetons Microsoft Graph obtenus [1, 2]."
+          "texte": "Le 15 octobre, parcours des environnements dans l'ordre des identifiants triés → jetons Microsoft Graph obtenus [1, 2]. Microsoft : application OAuth compromise, jetons obtenus chez les clients [6]."
         },
         {
           "etape": "Élévation de privilèges",
@@ -15074,7 +15074,7 @@
           }
         ]
       },
-      "limites": "Compromission de l'identifiant et acteur non précisés [1, 2, 3, 4]. Étendue du vol de données non déterminée [3]. Décomptes : 173 [1], 162 [2, 3], environ 300 connexions réussies [4].",
+      "limites": "Compromission de l'identifiant et acteur non précisés [1, 2, 3, 4]. Décomptes : 173 [1], 162 [2, 3], environ 300 connexions réussies [4], plus de 300 environnements [6].",
       "cves": [],
       "mitre": [
         "T1078.004 : Valid Cloud Accounts, utilisation de l'identifiant du fournisseur [2]",
@@ -15123,6 +15123,13 @@
           "url": "https://www.securityweek.com/connectwise-suspends-cloud-services-in-response-to-cyberattack/",
           "date": "2026-10-19",
           "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+        },
+        {
+          "titre": "Des pirates compromettent des environnements Microsoft 365 via ConnectWise",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366652535/Des-pirates-compromettent-des-environnements-Microsoft-365-via-ConnectWise",
+          "date": "2026-10-19",
+          "image": "https://www.lemagit.fr/visuals/German/article/HERO-Data-Center-monsitj-Adobe-08.jpg"
         }
       ]
     },
@@ -16159,6 +16166,87 @@
           "url": "https://www.securityweek.com/rank-math-pro-wordpress-plugin-compromised-in-supply-chain-attack/",
           "date": "2026-10-19",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/08/WordPress.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-19-ahold-delhaize-cyberattaque",
+      "title": "Ahold Delhaize : cyberattaque et systèmes mis hors ligne dans la plupart des enseignes",
+      "created": "2026-10-19T17:08:15+00:00",
+      "updated": "2026-10-19T17:08:15+00:00",
+      "version": 1,
+      "resume": "Ahold Delhaize a mis hors ligne ses systèmes dans la plupart de ses enseignes américaines et européennes après une activité suspecte, puis a confirmé des « actions malveillantes » le 19 octobre [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Mise hors ligne",
+          "texte": "Activité suspecte détectée dans les systèmes informatiques → systèmes mis hors ligne dans la plupart des enseignes américaines et européennes [1]."
+        },
+        {
+          "etape": "Confirmation",
+          "texte": "Le 19 octobre, l'entreprise parle d'actions malveillantes → plainte déposée aux Pays-Bas, aucune preuve de vol de données sensibles à ce stade [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (non identifié)",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes informatiques Ahold Delhaize",
+            "note": "Mis hors ligne"
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Sites et applications des enseignes",
+            "note": "Rétablis par phases"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "sys",
+            "vers": "web",
+            "etape": 2,
+            "texte": "Systèmes mis hors ligne par précaution"
+          }
+        ]
+      },
+      "limites": "L'entreprise n'a pas décrit la nature de l'attaque ni le vecteur d'accès, et aucun acteur n'est nommé [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non nommés, l'entreprise évoque des acteurs malveillants [1]"
+      ],
+      "cibles": [
+        "Ahold Delhaize, distribution alimentaire : Food Lion, Stop & Shop, Albert Heijn, Etos, Gall & Gall [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Ahold Delhaize confirms 'malicious actions' behind cyber outages affecting grocery brands",
+          "site": "The Record",
+          "url": "https://therecord.media/ahold-delhaize-cyberattack-grocery",
+          "date": "2026-10-19",
+          "image": "https://cms.therecord.media/uploads/Albert_Heijn_2b91114780.jpg"
         }
       ]
     }

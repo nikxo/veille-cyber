@@ -2,6 +2,280 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-10-20-apt28-hookedge-defense",
+      "title": "APT28 : espionnage de sous-traitants de défense et d'une police dans deux pays de l'OTAN",
+      "created": "2026-10-20T10:30:00+00:00",
+      "updated": "2026-10-20T10:30:00+00:00",
+      "version": 1,
+      "resume": "Des pirates liés au renseignement militaire russe, identifiés comme APT28, ont visé un chantier naval, un fabricant de moteurs d'avions militaires et une agence de police dans deux pays de l'OTAN [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Un employé du chantier naval ouvre un document Word malveillant reçu en pièce jointe d'un e-mail → accès au réseau [1]."
+        },
+        {
+          "etape": "Exploration du réseau",
+          "texte": "Exploration du réseau interne et tentatives de vol d'identifiants, dans la semaine suivante → résultat inconnu [1]."
+        },
+        {
+          "etape": "Retours et nouvel outil",
+          "texte": "Retours répétés sur un ordinateur compromis, avec un outil non documenté qui déchiffre et exécute du code en mémoire → finalité inconnue [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (APT28)",
+            "note": ""
+          },
+          {
+            "id": "emp",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Employé du chantier naval",
+            "note": "Document Word ouvert"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Ordinateur compromis",
+            "note": "Outil non documenté"
+          },
+          {
+            "id": "res",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Réseau interne",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "emp",
+            "etape": 1,
+            "texte": "E-mail avec document Word malveillant"
+          },
+          {
+            "de": "emp",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Document ouvert, accès au réseau"
+          },
+          {
+            "de": "pc",
+            "vers": "res",
+            "etape": 2,
+            "texte": "Exploration et tentatives de vol d'identifiants"
+          }
+        ]
+      },
+      "limites": "Les chercheurs n'ont pas identifié les pays ni les organisations. L'exfiltration de données n'est pas établie et la finalité de l'outil reste inconnue [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "APT28, lié au renseignement militaire russe, aussi appelé Fancy Bear, BlueDelta ou Forest Blizzard [1]"
+      ],
+      "cibles": [
+        "Chantier naval, fabricant de moteurs d'avions militaires, agence de police, dans deux pays de l'OTAN [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "OTAN",
+          "definition": "Organisation du traité de l'Atlantique Nord, alliance militaire"
+        },
+        {
+          "sigle": "APT28",
+          "definition": "Groupe d'espionnage lié au renseignement militaire russe"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Defense contractors in two NATO allies hacked in recent Russia-linked campaign",
+          "site": "The Record",
+          "url": "https://therecord.media/european-defense-contractors-fancy-bear-espionage",
+          "date": "2026-10-20",
+          "image": "https://cms.therecord.media/uploads/nato_flag_4bb3aadd53.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-20-ovhcloud-cli-releases-compte-detourne",
+      "title": "Archives de l'outil en ligne de commande d'OVHcloud remplacées après le détournement d'un compte GitHub",
+      "created": "2026-10-20T10:30:00+00:00",
+      "updated": "2026-10-20T10:30:00+00:00",
+      "version": 1,
+      "resume": "Le 19 octobre, un attaquant a remplacé les archives de cinq versions de l'outil en ligne de commande d'OVHcloud sur GitHub par un build conçu pour voler les secrets du disque [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Compromission du compte GitHub d'un contributeur → droits d'écriture sur les releases du dépôt [1]."
+        },
+        {
+          "etape": "Remplacement des archives",
+          "texte": "Archives de cinq versions et fichier de sommes de contrôle remplacés, sans passer par le pipeline de release → build malveillant en ligne pendant 94 minutes au plus [1]."
+        },
+        {
+          "etape": "Vol de secrets",
+          "texte": "Le build est conçu pour voler les secrets stockés sur le disque de la machine qui l'exécute [1]."
+        },
+        {
+          "etape": "Détection et correctif",
+          "texte": "Un client dont le build échoue signale le problème → OVHcloud supprime les archives à 14:21 UTC [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "gh",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Releases GitHub d'OVHcloud",
+            "note": "Archives remplacées"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines des utilisateurs",
+            "note": "Secrets visés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gh",
+            "etape": 2,
+            "texte": "Compte du contributeur utilisé pour remplacer les archives"
+          },
+          {
+            "de": "gh",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Installation ou mise à jour exécute le build malveillant"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent pas comment les identifiants du compte ont été obtenus, quels fichiers étaient lus, où les données partaient, ni combien de victimes [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié ; OpenSourceMalware relie le compte à GlassWorm, ce que l'article présente comme une inférence [1]"
+      ],
+      "cibles": [
+        "Utilisateurs ayant installé ou mis à jour l'outil sur macOS, Linux ou Windows pendant la fenêtre [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "UTC",
+          "definition": "Temps universel coordonné, heure de référence"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers Hijack Five OVHcloud CLI Releases to Distribute Secret-Stealing Malware",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/hackers-hijack-five-ovhcloud-cli.html",
+          "date": "2026-10-20",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSRX5Jjz6vqh8EcVVYoXU8S9qh0rFzQ3DDnjNIlkRrBq97brmk6hUw0u2pbLqyTAG1_mYfG9bGHCnMkgSMEPFu6fIR67F1jZMmS7G7-DFe6i7PtG_LzdTgHLCTXSwE5hCa2EApQeAIYGIMYATwbLEp-2FcPmV9aAHVqrRRBYk_wY7ZTuES0frFAPGjhnU/s1700-nu-rw-lo-l85-e365/ovhcloud.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-20-paradigm-healthcare-medi-cal",
+      "title": "Paradigm Healthcare Services : accès non autorisé touchant 970 000 membres Medi-Cal",
+      "created": "2026-10-20T10:30:00+00:00",
+      "updated": "2026-10-20T10:30:00+00:00",
+      "version": 1,
+      "resume": "Paradigm Healthcare Services a détecté en octobre 2025 un accès non autorisé à son réseau local ; plus de 970 000 personnes sont concernées, notifiées environ onze mois plus tard [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Accès aux fichiers",
+          "texte": "Accès non autorisé au réseau local du 8 au 15 octobre 2025 → fichiers de santé potentiellement consultés [1]."
+        },
+        {
+          "etape": "Réponse",
+          "texte": "Systèmes mis hors ligne, forces de l'ordre prévenues, experts externes mobilisés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "res",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Réseau local de Paradigm",
+            "note": ""
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Fichiers de santé Medi-Cal",
+            "note": "Noms, naissance, identifiants"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "res",
+            "etape": 1,
+            "texte": "Accès non autorisé, méthode non précisée"
+          },
+          {
+            "de": "res",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Fichiers potentiellement consultés"
+          }
+        ]
+      },
+      "limites": "Vecteur d'accès, type d'attaque et exfiltration ne sont pas précisés ; aucun groupe n'a revendiqué l'attaque [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié, aucune revendication [1]"
+      ],
+      "cibles": [
+        "Paradigm Healthcare Services, facturation Medi-Cal, plus de 970 000 personnes [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "970,000 Medi-Cal Members Affected by Paradigm Healthcare Data Breach",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/970000-medi-cal-members-affected-by-paradigm-healthcare-data-breach/",
+          "date": "2026-10-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/07/data-breach-healthcare-medical.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-10-03-warlock-ransomware-sharepoint",
       "title": "Warlock (Storm-2603) exploite SharePoint contre une compagnie d'eau, un opérateur télécom, une administration, une université",
       "created": "2026-10-03T16:02:48+00:00",

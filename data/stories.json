@@ -5,21 +5,25 @@
       "id": "2026-10-20-apt28-hookedge-defense",
       "title": "APT28 : espionnage de sous-traitants de défense et d'une police dans deux pays de l'OTAN",
       "created": "2026-10-20T10:30:00+00:00",
-      "updated": "2026-10-20T10:30:00+00:00",
-      "version": 1,
-      "resume": "Des pirates liés au renseignement militaire russe, identifiés comme APT28, ont visé un chantier naval, un fabricant de moteurs d'avions militaires et une agence de police dans deux pays de l'OTAN [1].",
+      "updated": "2026-10-20T13:09:22+00:00",
+      "version": 2,
+      "resume": "Le groupe APT28, lié à la Russie, a visé une agence de police, un chantier naval et un fabricant de moteurs d'avions militaires dans deux pays de l'OTAN [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Un employé du chantier naval ouvre un document Word malveillant reçu en pièce jointe d'un e-mail → accès au réseau [1]."
+          "texte": "Selon [1], un employé du chantier naval ouvre un document Word reçu par e-mail → accès au réseau ; [2] indique que l'accès initial n'est pas précisé."
         },
         {
-          "etape": "Exploration du réseau",
-          "texte": "Exploration du réseau interne et tentatives de vol d'identifiants, dans la semaine suivante → résultat inconnu [1]."
+          "etape": "Retours manuels",
+          "texte": "Retours sur un même ordinateur pendant une semaine, activité manuelle, HOOKEDGE piloté depuis un serveur dédié [2]."
         },
         {
-          "etape": "Retours et nouvel outil",
-          "texte": "Retours répétés sur un ordinateur compromis, avec un outil non documenté qui déchiffre et exécute du code en mémoire → finalité inconnue [1]."
+          "etape": "Vol d'identifiants",
+          "texte": "Clé SSH déposée puis connexion vers leur serveur → tunnel vers le réseau interne ; script PowerShell → capture d'un échange NTLM [2]."
+        },
+        {
+          "etape": "Chargeur réfléchissant",
+          "texte": "Dépôt de ld.exe via une commande curl lancée par SSH → déchiffrement et lancement d'un composant de second stade, nature inconnue [2]."
         }
       ],
       "parcours": {
@@ -36,21 +40,21 @@
             "type": "utilisateur",
             "zone": "victime",
             "nom": "Employé du chantier naval",
-            "note": "Document Word ouvert"
+            "note": "Selon [1]"
           },
           {
             "id": "pc",
             "type": "poste",
             "zone": "victime",
             "nom": "Ordinateur compromis",
-            "note": "Outil non documenté"
+            "note": "HOOKEDGE, ld.exe"
           },
           {
             "id": "res",
             "type": "serveur",
             "zone": "victime",
             "nom": "Réseau interne",
-            "note": ""
+            "note": "Tunnel SSH"
           }
         ],
         "liens": [
@@ -67,18 +71,25 @@
             "texte": "Document ouvert, accès au réseau"
           },
           {
+            "de": "att",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Retours manuels pendant une semaine"
+          },
+          {
             "de": "pc",
             "vers": "res",
-            "etape": 2,
-            "texte": "Exploration et tentatives de vol d'identifiants"
+            "etape": 3,
+            "texte": "Tunnel SSH et capture NTLM"
           }
         ]
       },
-      "limites": "Les chercheurs n'ont pas identifié les pays ni les organisations. L'exfiltration de données n'est pas établie et la finalité de l'outil reste inconnue [1].",
+      "limites": "Les sources divergent sur l'accès initial [1, 2]. Pays et organisations non identifiés [1]. Un éventuel vol de données est incertain [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "APT28, lié au renseignement militaire russe, aussi appelé Fancy Bear, BlueDelta ou Forest Blizzard [1]"
+        "APT28, lié au renseignement militaire russe, aussi appelé Fancy Bear, BlueDelta ou Forest Blizzard [1]",
+        "Cluster suivi par Symantec sous le nom Swallowtail [2]"
       ],
       "cibles": [
         "Chantier naval, fabricant de moteurs d'avions militaires, agence de police, dans deux pays de l'OTAN [1]"
@@ -91,6 +102,22 @@
         {
           "sigle": "APT28",
           "definition": "Groupe d'espionnage lié au renseignement militaire russe"
+        },
+        {
+          "sigle": "HOOKEDGE",
+          "definition": "Porte dérobée sous forme de script batch Windows"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : connexion distante chiffrée à une machine"
+        },
+        {
+          "sigle": "NTLM",
+          "definition": "Protocole d'authentification Windows par échange de défi"
+        },
+        {
+          "sigle": "PowerShell",
+          "definition": "Langage de script et interpréteur de commandes de Windows"
         }
       ],
       "sources": [
@@ -100,6 +127,13 @@
           "url": "https://therecord.media/european-defense-contractors-fancy-bear-espionage",
           "date": "2026-10-20",
           "image": "https://cms.therecord.media/uploads/nato_flag_4bb3aadd53.jpg"
+        },
+        {
+          "titre": "Russian APT28 Breaches NATO Naval Shipbuilder in NATO Country, Deploys New Reflective Loader",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/russian-apt28-breaches-nato-naval.html",
+          "date": "2026-10-20",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNLZ-1vEmoCyztDVMziqJlhZPTZfW4mOe-qDn6OxDQ-K2LVZTvqhoOe3MIip5bDJfiJd7e3HLcq4S-0xb2SlfWbEqp4vlvbOnQDSP5edsQIxHFtYSCt1qM7XZksq0NPZ9AGesx0YzqHsTeWUuPUTysC5dbuDOvKIjQW0DJvkg1UG9KLH2Doglq7WtgyiRM/s1700-nu-rw-lo-l85-e365/russia-nato.jpg"
         }
       ]
     },
@@ -15263,8 +15297,8 @@
       "id": "2026-10-17-connectwise-cloud-backup-microsoft-365",
       "title": "Identifiant ConnectWise Cloud Backup compromis : accès à plus de 160 environnements Microsoft 365",
       "created": "2026-10-17T07:30:00+00:00",
-      "updated": "2026-10-19T21:08:42+00:00",
-      "version": 8,
+      "updated": "2026-10-20T13:09:22+00:00",
+      "version": 9,
       "resume": "Un identifiant Microsoft 365 compromis de ConnectWise Cloud Backup a servi à obtenir des jetons : 173 environnements selon [1], 162 selon Huntress [2, 3, 7]. ConnectWise a suspendu l'accès au service le 17 octobre [3, 4].",
       "chaine": [
         {
@@ -15289,7 +15323,7 @@
         },
         {
           "etape": "Réponse du fournisseur",
-          "texte": "Sept identités d'application désactivées et Cloud Backup suspendu le 17 octobre [4], puis SaaS Security et Cloud Management le 18 octobre [5] ; certificats de connexion révoqués [7]."
+          "texte": "Cloud Backup suspendu le 17 octobre [4], SaaS Security et Cloud Management le 18 octobre [5] ; comptes réinitialisés et identifiants d'application remplacés [9]."
         }
       ],
       "parcours": {
@@ -15434,6 +15468,13 @@
           "url": "https://www.sophos.com/en-us/blog/connectwise-cloud-backup-application-abused-in-token-sweep",
           "date": "2026-10-19",
           "image": "https://images.contentstack.io/v3/assets/blt38f1f401b66100ad/bltb4b6c0750dc5846c/6aad5e6160452d9f5056a4ef/logo.png"
+        },
+        {
+          "titre": "ConnectWise Resets Credentials as Cloud Backup Remains Offline After Security Incident",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/connectwise-resets-credentials-as-cloud.html",
+          "date": "2026-10-20",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgN8mboHojdAmthr-jUWvIgg5BgmRsrAFJRQFz-nEuPEAIGTqwVKwnf9c7E8jGzdpHfWZuDENURbDFFADIJ76Tf7h5lamLTOUoY5ui438ugfOJYw-2vkAuITMBMxt-0CWFxj43bdgDY19exYceRvJEScmPpWoYXBjkIHLOilUSF1wWmSta5o9ocPpLywQn/s1700-nu-rw-lo-l85-e365/connect.jpg"
         }
       ]
     },
@@ -17435,6 +17476,194 @@
           "url": "https://www.zataz.com/arnaque-netflix-a-1-e-le-cadeau-qui-piege-vos-donnees/",
           "date": "2026-10-20",
           "image": "https://www.zataz.com/wp-content/uploads/N3tflix_alerte.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-20-cairn-agents-ia-detournes",
+      "title": "Cairn : plateforme d'agents IA détournée par trois groupes contre des sites e-commerce",
+      "created": "2026-10-20T13:09:22+00:00",
+      "updated": "2026-10-20T13:09:22+00:00",
+      "version": 1,
+      "resume": "Au moins trois groupes ont détourné Cairn, plateforme libre qui coordonne des agents IA, contre des sites e-commerce ; Reuters évoque plus de 100 entreprises compromises [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Sélection des cibles",
+          "texte": "Pour le plus grand groupe, cibles classées par trafic, validées automatiquement, puis testées avec Playwright [1]."
+        },
+        {
+          "etape": "Attaque automatisée",
+          "texte": "Agents IA qui avancent pas à pas d'un point d'origine vers un but, en partageant leurs résultats sur un tableau commun [1]."
+        },
+        {
+          "etape": "Objectifs des groupes",
+          "texte": "Webshells pour un accès durable, vol de cartes bancaires et de cryptomonnaies, ou accès shell, panneaux d'administration et bases de données [1]."
+        },
+        {
+          "etape": "Secrets collectés",
+          "texte": "Centaines de secrets trouvés dans les panneaux de contrôle laissés accessibles → 11 % validés comme valides [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (trois groupes)",
+            "note": ""
+          },
+          {
+            "id": "cai",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Plateforme Cairn (agents IA)",
+            "note": "Panneaux accessibles"
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Sites e-commerce et paiement",
+            "note": "Webshells"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Bases de données, cartes",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cai",
+            "etape": 2,
+            "texte": "Cibles classées, validées, testées"
+          },
+          {
+            "de": "cai",
+            "vers": "web",
+            "etape": 3,
+            "texte": "Agents IA attaquent pas à pas"
+          },
+          {
+            "de": "web",
+            "vers": "don",
+            "etape": 4,
+            "texte": "Accès aux bases, vol de cartes et cryptomonnaies"
+          }
+        ]
+      },
+      "limites": "Vecteur d'accès initial, dates et identité des groupes non précisés. Norforge n'a nommé aucune victime ; les 100 entreprises viennent de Reuters [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Trois groupes sans nom : le plus grand écrit en chinois, un deuxième en anglais [1]"
+      ],
+      "cibles": [
+        "E-commerce et paiement aux États-Unis, au Japon, en Australie ; sites de paiement, plateformes pharmaceutiques [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "AI Platform Cairn Abused to Hack Over 100 Organizations",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/ai-platform-cairn-abused-to-hack-over-100-organizations/",
+          "date": "2026-10-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/08/AI-assistant-chatbot-artificial-intelligence.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-20-cameras-surveillance-prorusses",
+      "title": "Caméras de surveillance : images d'entreprises françaises publiées par des groupes prorusses",
+      "created": "2026-10-20T13:09:22+00:00",
+      "updated": "2026-10-20T13:09:22+00:00",
+      "version": 1,
+      "resume": "Des groupes prorusses, dont NoName057(16), ont publié des images de vidéosurveillance d'entreprises françaises ; ZATAZ recense une cinquantaine de cas [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Accès aux flux vidéo",
+          "texte": "Accès à des flux de caméras de surveillance → visionnage de certaines images [1]."
+        },
+        {
+          "etape": "Diffusion publique",
+          "texte": "Relais de messages liés aux événements du 17 octobre, puis publication des images de vidéosurveillance [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (groupes prorusses)",
+            "note": ""
+          },
+          {
+            "id": "cam",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Caméras de surveillance",
+            "note": "Mode d'accès inconnu"
+          },
+          {
+            "id": "pub",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Messages et images publiés",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cam",
+            "etape": 2,
+            "texte": "Accès aux flux vidéo"
+          },
+          {
+            "de": "att",
+            "vers": "pub",
+            "etape": 3,
+            "texte": "Publication des images"
+          }
+        ]
+      },
+      "limites": "Méthode d'accès, durée et privilèges non établis ; intrusion dans les serveurs non prouvée. Les milliers de caméras revendiquées ne sont pas vérifiés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Groupes hacktivistes prorusses, dont NoName057(16) [1]"
+      ],
+      "cibles": [
+        "Entreprises françaises : entrepôts, supermarchés, salons de coiffure [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Caméras de surveillance : contrôlez qui vous regarde",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/cameras-de-surveillance-controlez-qui-vous-regarde/",
+          "date": "2026-10-20",
+          "image": "https://www.zataz.com/wp-content/uploads/camera_titre_cw.jpg"
         }
       ]
     }

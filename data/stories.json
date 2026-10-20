@@ -14692,13 +14692,13 @@
       "id": "2026-10-15-unc7017-aomei-mises-a-jour",
       "title": "UNC7017 : serveurs de mise à jour d'AOMEI modifiés pendant quelques minutes pour diffuser des logiciels malveillants",
       "created": "2026-10-16T15:20:00+00:00",
-      "updated": "2026-10-19T20:08:07+00:00",
-      "version": 3,
+      "updated": "2026-10-20T14:30:00+00:00",
+      "version": 4,
       "resume": "UNC7017 a modifié à plusieurs reprises, pendant 5 à 10 minutes, les fichiers des serveurs de mise à jour d'AOMEI pour livrer des logiciels malveillants aux clients, entre avril et juillet 2026 [1, 3] ou entre mai et juillet 2026 [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Modification brève des fichiers de configuration des serveurs de mise à jour → archive malveillante téléchargée par les clients [1, 2], somme de contrôle attendue modifiée aussi [3]."
+          "texte": "Modification brève de la configuration des serveurs de mise à jour, 5 à 10 minutes → archive malveillante téléchargée par les clients [1, 2, 4], somme de contrôle modifiée aussi [3]."
         },
         {
           "etape": "Exécution du chargeur",
@@ -14710,7 +14710,7 @@
         },
         {
           "etape": "Porte dérobée",
-          "texte": "SHINYROAD chargé via un binaire signé légitime → shell distant, exécution de code Python et connexion à un serveur de contrôle [1, 2]."
+          "texte": "SHINYROAD chargé via un binaire signé légitime → shell distant, code Python et connexion au serveur de contrôle [1, 2] ; Adaptix déployé ensuite en juillet [4]."
         },
         {
           "etape": "Vol d'identifiants",
@@ -14762,7 +14762,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent pas comment les serveurs d'AOMEI ont été atteints, ni le nombre de victimes [1, 2, 3]. Elles divergent sur le début : avril [1, 3], mai [2].",
+      "limites": "Les sources ne précisent pas comment les serveurs d'AOMEI ont été atteints, ni le nombre de victimes [1, 2, 3, 4]. Elles divergent sur le début : avril [1, 3, 4], mai [2].",
       "cves": [],
       "mitre": [
         "T1195.002 : compromission de la chaîne d'approvisionnement logicielle, accès initial par les serveurs de mise à jour [1]"
@@ -14772,7 +14772,8 @@
       ],
       "cibles": [
         "Utilisateurs d'AOMEI Backupper et AnyViewer : informatique, télécoms, enseignement supérieur, 11 pays [1, 2]",
-        "Pays cités : États-Unis, Australie, Inde, Singapour, Espagne, Suisse [3]"
+        "Pays cités : États-Unis, Australie, Inde, Singapour, Espagne, Suisse [3]",
+        "Enseignement supérieur, services informatiques et télécommunications ; pays cités : Australie, Brésil, Inde, Pakistan, Portugal, Singapour, Afrique du Sud, Espagne, Suisse, Türkiye, États-Unis [4]"
       ],
       "abreviations": [
         {
@@ -14798,6 +14799,10 @@
         {
           "sigle": "WebDAV",
           "definition": "Protocole d'accès à des fichiers distants via le web"
+        },
+        {
+          "sigle": "Adaptix",
+          "definition": "Cadre de post-exploitation utilisé par les attaquants pour piloter les machines infectées"
         }
       ],
       "sources": [
@@ -14821,6 +14826,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-aomei-update-servers-to-secretly-spread-malware/",
           "date": "2026-10-19",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/19/backupper-supply-chain-attack.jpg"
+        },
+        {
+          "titre": "AOMEI Backupper Compromised in Short-Burst Supply Chain Campaign",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/aomei-backupper-compromised-in-short-burst-supply-chain-campaign/",
+          "date": "2026-10-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/01/Supply-Chain-Software-Attack.jpg"
         }
       ]
     },
@@ -16587,8 +16599,8 @@
       "id": "2026-10-19-ahold-delhaize-cyberattaque",
       "title": "Ahold Delhaize : cyberattaque et systèmes mis hors ligne dans la plupart des enseignes",
       "created": "2026-10-19T17:08:15+00:00",
-      "updated": "2026-10-20T12:30:00+00:00",
-      "version": 2,
+      "updated": "2026-10-20T14:30:00+00:00",
+      "version": 3,
       "resume": "Ahold Delhaize a mis hors ligne ses systèmes dans la plupart de ses enseignes américaines et européennes après une activité suspecte, puis a confirmé des « actions malveillantes » le 19 octobre [1, 2].",
       "chaine": [
         {
@@ -16601,11 +16613,11 @@
         },
         {
           "etape": "Confirmation",
-          "texte": "Actions malveillantes confirmées le 19 octobre → plainte déposée aux Pays-Bas, aucune preuve de vol de données sensibles à ce stade [1, 2]."
+          "texte": "Actions malveillantes confirmées le 19 octobre → plainte aux Pays-Bas, aucune preuve de vol de données [1, 2] ; autorités néerlandaises prévenues [3]."
         },
         {
           "etape": "Rétablissement partiel",
-          "texte": "Sites et applications rétablis par phases, dont Albert Heijn → certains systèmes européens et américains restent hors service [2]."
+          "texte": "Sites et applications rétablis par phases, dont Albert Heijn → certains systèmes restent hors service [2] ; boutiques américaines attendues sous quelques jours [3]."
         }
       ],
       "parcours": {
@@ -16671,6 +16683,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/ahold-delhaize-cyberattack-affects-services-across-us-and-europe/",
           "date": "2026-10-20",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/20/Ahold-Delhaize_headpic.jpg"
+        },
+        {
+          "titre": "Ahold Delhaize Restoring Services Disrupted by Cyberattack",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/ahold-delhaize-restoring-services-disrupted-by-cyberattack/",
+          "date": "2026-10-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/11/Ahold-Delhaize-cyberattack.jpeg"
         }
       ]
     },
@@ -17664,6 +17683,75 @@
           "url": "https://www.zataz.com/cameras-de-surveillance-controlez-qui-vous-regarde/",
           "date": "2026-10-20",
           "image": "https://www.zataz.com/wp-content/uploads/camera_titre_cw.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-20-pegasus-recteur-belgrade",
+      "title": "Pegasus : iPhone du recteur de l'université de Belgrade infecté sans clic",
+      "created": "2026-10-20T14:30:00+00:00",
+      "updated": "2026-10-20T14:30:00+00:00",
+      "version": 1,
+      "resume": "Le Citizen Lab a confirmé le 19 octobre que l'iPhone de Vladan Đokić, recteur de l'université de Belgrade, a été infecté en 2026 par le logiciel espion Pegasus de NSO Group, via un exploit sans clic [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploit sans clic : la victime n'a pas eu à toucher un lien ni à ouvrir un fichier → infection de l'iPhone par Pegasus [1]."
+        },
+        {
+          "etape": "Accès au téléphone",
+          "texte": "Le Citizen Lab indique que Pegasus peut donner accès aux messages chiffrés et activer micro et caméra, sans l'avoir confirmé sur ce téléphone [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (non identifié)",
+            "note": ""
+          },
+          {
+            "id": "tel",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "iPhone du recteur",
+            "note": "Pegasus installé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "tel",
+            "etape": 1,
+            "texte": "Exploit sans clic, Pegasus installé"
+          }
+        ]
+      },
+      "limites": "La faille exploitée, la date de l'infection et l'acteur qui l'a menée ne sont pas précisés ; le Citizen Lab ne désigne aucun client de NSO Group [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié par le Citizen Lab ; logiciel édité par NSO Group [1]"
+      ],
+      "cibles": [
+        "Vladan Đokić, recteur de l'université de Belgrade, infection confirmée ; au moins 16 personnes de la société civile serbe ciblées ou infectées en 2026 [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "NSO",
+          "definition": "NSO Group, éditeur israélien du logiciel espion Pegasus"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Pegasus Spyware Infection Confirmed on Serbian University Rector's iPhone Days Before Election",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/pegasus-spyware-infection-confirmed-on.html",
+          "date": "2026-10-20",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_cQrX8zsqCvWd9Pl1mfmh8oQBwRAG_IcrKQB-EpiVEn2GXf5UJBh0UrLXCKzAmJo2Z-Di9G7-16n5hV-gmtfMi-JtB9sOd9neC-b1-6CpErVOYE7CUjBmZhunV45nzsFcDr03rK5RA8q7gFZXIuJZ4c6ND0VSQHYuppDkdTqq04MI7nVCz-10-K-xmc0/s1700-nu-rw-lo-l85-e365/iphone-spyware.jpg"
         }
       ]
     }

@@ -18264,6 +18264,131 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/20/zeabur.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-20-safepay-rancongiciel-avertissement",
+      "title": "SafePay : avertissement du FBI et d'agences britannique et allemande sur un rançongiciel à plus de 600 victimes",
+      "created": "2026-10-20T21:30:00+00:00",
+      "updated": "2026-10-20T21:30:00+00:00",
+      "version": 1,
+      "resume": "Le FBI et des agences britannique et allemande alertent sur le rançongiciel SafePay, actif depuis août 2024, qui a touché au moins 600 organisations aux États-Unis et en Europe [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Devinette de mots de passe, exploitation de vulnérabilités ou hameçonnage, sans précision de la méthode utilisée pour chaque victime [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Création de nouveaux comptes ou reprise de comptes existants → contrôle du réseau, parfois mots de passe système changés pour bloquer l'accès [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Désactivation des protections de sécurité → détection évitée [1]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "Outils système légitimes → déplacement dans le réseau et repérage des fichiers de valeur [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Compression des fichiers avec des outils légitimes → exfiltration avant le déploiement du rançongiciel [1]."
+        },
+        {
+          "etape": "Chiffrement",
+          "texte": "Rançongiciel transféré via AnyDesk ou TeamViewer → données chiffrées, rançon demandée en cryptomonnaie [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (SafePay)",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Système d'entrée non précisé",
+            "note": ""
+          },
+          {
+            "id": "res",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Réseau de la victime",
+            "note": "Fichiers chiffrés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Mots de passe devinés, vulnérabilités ou hameçonnage"
+          },
+          {
+            "de": "sys",
+            "vers": "res",
+            "etape": 4,
+            "texte": "Déplacement avec des outils système légitimes"
+          },
+          {
+            "de": "att",
+            "vers": "res",
+            "etape": 6,
+            "texte": "Rançongiciel transféré par AnyDesk ou TeamViewer"
+          }
+        ]
+      },
+      "limites": "La source ne précise pas à quelle étape chaque vulnérabilité citée intervient ni l'accès utilisé pour chaque victime [1].",
+      "cves": [
+        {
+          "id": "CVE-2020-3259",
+          "explication": "Citée par la source parmi les vulnérabilités utilisées par SafePay, sans description de la faille [1]."
+        },
+        {
+          "id": "CVE-2023-20269",
+          "explication": "Citée par la source parmi les vulnérabilités utilisées par SafePay, sans description de la faille [1]."
+        },
+        {
+          "id": "CVE-2023-27532",
+          "explication": "Citée par la source parmi les vulnérabilités utilisées par SafePay, sans description de la faille [1]."
+        },
+        {
+          "id": "CVE-2024-40711",
+          "explication": "Citée par la source parmi les vulnérabilités utilisées par SafePay, sans description de la faille [1]."
+        },
+        {
+          "id": "CVE-2024-40766",
+          "explication": "Citée par la source parmi les vulnérabilités utilisées par SafePay, sans description de la faille [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "SafePay, parmi les groupes de rançongiciel les plus actifs en 2026 selon le FBI et les agences allemande et britannique [1]"
+      ],
+      "cibles": [
+        "Entreprises et infrastructures critiques ; victimes citées : Ingram Micro, Microlise, Conduent [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "FBI",
+          "definition": "Police fédérale américaine chargée des enquêtes criminelles"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "FBI says SafePay ransomware gang ‘among most active’ with more than 600 victims since 2024",
+          "site": "The Record",
+          "url": "https://therecord.media/fbi-says-safepay-ransomware-gang-among-most-active-600-victims",
+          "date": "2026-10-20",
+          "image": "https://cms.therecord.media/uploads/cryptocurrency_da3a5bc326.png"
+        }
+      ]
     }
   ]
 }

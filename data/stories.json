@@ -15780,21 +15780,21 @@
       "id": "2026-10-19-ets-sftp-eleves-californie",
       "title": "ETS : données d'élèves californiens copiées sur un site SFTP avec un identifiant compromis",
       "created": "2026-10-19T12:19:22+00:00",
-      "updated": "2026-10-19T12:19:22+00:00",
-      "version": 1,
-      "resume": "Un tiers a copié des fichiers contenant des informations sur des élèves californiens depuis un site de transfert de fichiers d'ETS, en utilisant un identifiant de connexion compromis [1].",
+      "updated": "2026-10-20T20:30:00+00:00",
+      "version": 2,
+      "resume": "Un tiers a copié des données d'élèves californiens depuis un site de transfert de fichiers d'ETS, sous-traitant du département de l'Éducation de Californie, avec un identifiant de connexion compromis [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Identifiant de connexion compromis, mode de compromission non précisé → accès répétés au site SFTP d'ETS de fin mai au 18 septembre 2026 [1]."
+          "texte": "Identifiant de connexion compromis, mode de compromission non précisé → accès au site SFTP d'ETS du 22 mai au 18 septembre 2026 [1, 2]."
         },
         {
           "etape": "Copie de données",
-          "texte": "Copie de fichiers contenant des informations sur des élèves californiens, de base et sensibles [1]."
+          "texte": "Copie de fichiers contenant des informations sur des élèves californiens, de base et sensibles (handicap, évaluations) [1, 2]."
         },
         {
           "etape": "Détection et réponse",
-          "texte": "Activité non autorisée détectée le 25 septembre 2026 → compte désactivé et site SFTP mis hors ligne [1]."
+          "texte": "Brèche découverte le 25 septembre 2026 → compte désactivé, site SFTP mis hors ligne, nouvelle plateforme construite [1, 2]."
         }
       ],
       "parcours": {
@@ -15829,12 +15829,12 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent pas comment l'identifiant a été compromis, qui est l'acteur, ni le nombre d'élèves touchés [1].",
+      "limites": "Les sources ne précisent pas comment l'identifiant a été compromis, ni le nombre d'élèves touchés. Aucune preuve de publication des données n'a été trouvée à ce jour [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Élèves actuels et anciens des écoles publiques californiennes, données transmises par ETS au California Department of Education [1]"
+        "Élèves actuels et anciens des écoles publiques californiennes, données transmises par ETS au California Department of Education [1, 2]"
       ],
       "abreviations": [
         {
@@ -15853,6 +15853,13 @@
           "url": "https://www.securityweek.com/one-compromised-login-exposed-millions-of-california-students-records/",
           "date": "2026-10-19",
           "image": "https://www.securityweek.com/wp-content/uploads/2025/03/school-education.jpeg"
+        },
+        {
+          "titre": "California warns all public school students of data stolen in contractor breach",
+          "site": "The Record",
+          "url": "https://therecord.media/california-warns-all-public-school-students-of-data-breach",
+          "date": "2026-10-20",
+          "image": "https://cms.therecord.media/uploads/school_lockers_da9ee8e61b.jpg"
         }
       ]
     },
@@ -18148,6 +18155,113 @@
           "url": "https://www.lemagit.fr/actualites/366652424/Une-vulnerabilite-BeyondTrust-exploitee-depuis-aout",
           "date": "2026-10-20",
           "image": "https://www.lemagit.fr/visuals/German/article/patch-management-squares-adobe.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-20-zeabur-identifiants-en-clair",
+      "title": "Zeabur : identifiants internes en clair utilisés pour voler 3,2 millions de variables d'environnement",
+      "created": "2026-10-20T20:30:00+00:00",
+      "updated": "2026-10-20T20:30:00+00:00",
+      "version": 1,
+      "resume": "Un attaquant a utilisé des identifiants internes de Zeabur stockés en clair pour compromettre son infrastructure et voler plus de 3,2 millions de variables d'environnement et les informations de 321 810 comptes [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Identifiants internes divulgués, stockés en clair → accès au cluster partagé, à des serveurs dédiés et aux systèmes internes [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Identifiants d'administrateur et clés d'accès cloud volés → compromission de l'hébergement partagé et des serveurs dédiés [1]."
+        },
+        {
+          "etape": "Accès aux serveurs",
+          "texte": "Connexions root sur 101 serveurs Google Cloud, clés SSH ajoutées sur 50 serveurs, 16 copies de disques clients rattachées à des machines des attaquants [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Lecture de la base de données de la plateforme → vol de plus de 3,2 millions d'enregistrements de variables d'environnement et de 321 810 comptes [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Cluster partagé et systèmes internes",
+            "note": "Identifiants en clair"
+          },
+          {
+            "id": "cloud",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Serveurs Google Cloud",
+            "note": "Root, clés SSH"
+          },
+          {
+            "id": "db",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Base de données de la plateforme",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Connexion avec des identifiants internes en clair"
+          },
+          {
+            "de": "sys",
+            "vers": "cloud",
+            "etape": 2,
+            "texte": "Identifiants d'administrateur et clés cloud volés"
+          },
+          {
+            "de": "att",
+            "vers": "cloud",
+            "etape": 3,
+            "texte": "Connexions root et clés SSH ajoutées"
+          },
+          {
+            "de": "db",
+            "vers": "att",
+            "etape": 4,
+            "texte": "Variables d'environnement et comptes volés"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent pas comment les identifiants ont fuité ni qui est l'acteur. Un incident antérieur, en août, est aussi décrit [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Plateforme de développement Zeabur et ses clients, 321 810 comptes concernés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole de connexion distante sécurisée à un serveur"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Zeabur shutting down after second security breach in two months",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/zeabur-shutting-down-after-second-security-breach-in-two-months/",
+          "date": "2026-10-20",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/20/zeabur.jpg"
         }
       ]
     }

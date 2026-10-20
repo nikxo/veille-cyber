@@ -17891,6 +17891,116 @@
           "image": "https://cms.therecord.media/uploads/putin_55362835827_4a1a1c1cc9_o_43c1d7475b.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-20-bronze-sandcastle-meterpreter",
+      "title": "Bronze Sandcastle : porte dérobée Meterpreter modifiée chargée par sideloading de DLL",
+      "created": "2026-10-20T16:30:00+00:00",
+      "updated": "2026-10-20T16:30:00+00:00",
+      "version": 1,
+      "resume": "Sophos attribue au groupe Bronze Sandcastle, lié à la Chine, plusieurs intrusions en Asie et en Afrique utilisant une porte dérobée dérivée de Meterpreter [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Exécution",
+          "texte": "Programme légitime (Sandboxie, Krita…) placé avec une DLL malveillante → le programme de confiance charge le code des attaquants [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Porte dérobée basée sur Meterpreter → envoi au serveur C2 d'un profil de la machine (système, adresses IP, processus) [1]."
+        },
+        {
+          "etape": "Reconnaissance",
+          "texte": "Commandes Windows « net » → énumération du réseau et des comptes utilisateurs [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Copies shadow créées avec vssadmin.exe, puis copie du fichier ntds.dit → base d'identifiants de l'Active Directory [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Bronze Sandcastle)",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines compromises",
+            "note": "DLL malveillante"
+          },
+          {
+            "id": "ad",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Active Directory",
+            "note": "Fichier ntds.dit"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Sideloading de DLL via programme légitime"
+          },
+          {
+            "de": "pc",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Profil de la machine envoyé au serveur C2"
+          },
+          {
+            "de": "pc",
+            "vers": "ad",
+            "etape": 5,
+            "texte": "Copie du fichier ntds.dit"
+          }
+        ]
+      },
+      "limites": "L'article ne précise ni le vecteur d'accès initial, ni la persistance, ni le déplacement dans le réseau, ni l'exfiltration [1].",
+      "cves": [],
+      "mitre": [
+        "T1574.001 DLL Side-Loading : un programme légitime charge une DLL malveillante placée à côté [1]."
+      ],
+      "acteurs": [
+        "Bronze Sandcastle, groupe lié à la Chine selon Sophos [1]"
+      ],
+      "cibles": [
+        "Philippines, Taïwan, Afghanistan, Namibie, incidents d'août 2025 à août 2026 [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "DLL",
+          "definition": "Dynamic-Link Library : bibliothèque de code chargée par un programme Windows"
+        },
+        {
+          "sigle": "C2",
+          "definition": "Serveur de commande et contrôle pilotant le logiciel malveillant à distance"
+        },
+        {
+          "sigle": "IP",
+          "definition": "Internet Protocol : adresse identifiant une machine sur un réseau"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "BRONZE SANDCASTLE deploys modified Meterpreter shells",
+          "site": "Sophos Threat Research",
+          "url": "https://www.sophos.com/en-us/blog/bronze-sandcastle-deploys-modified-meterpreter-shells",
+          "date": "2026-10-20",
+          "image": "https://images.contentstack.io/v3/assets/blt38f1f401b66100ad/bltb4b6c0750dc5846c/6aad5e6160452d9f5056a4ef/logo.png"
+        }
+      ]
     }
   ]
 }

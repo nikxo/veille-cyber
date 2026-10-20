@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-10-20T13:07:09+00:00",
+  "feed_summary": "Go 1.27.3 and Go 1.26.10, released on October 20, make Go's certificate verifier reject any certificate chain that passes through one of eight intermediate certificate authority keys. Programs built on the new release will refuse connections to sites and services whose certificates were issued under those keys. The Go team says the keys belong to one certificate authority it has not",
+  "id": "f0509be43eab3850",
+  "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgh12Jum-ReZMOyqaMubiLlMwx4-uDVxEJkD6-CJabWhHfCKV-Csw7P4MoeRX85Ag-3rxZMftHE6KGcdh059DoOPvF1Mirv05BQsflmg8RroWBt_t00BGTHsdhqkmVWVuRHKAs56AhNfdsq_YH0QWrMJ1z4dFT3I3xOK7Dwqu7aPp_P7tFSxQ-bzqyz8e4/s1700-nu-rw-lo-l85-e365/go-certs.jpg",
+  "lang": "en",
+  "link": "https://thehackernews.com/2026/10/go-issues-emergency-update-blocking.html",
+  "published": "2026-10-20T17:02:59+05:30",
+  "source": "The Hacker News",
+  "source_type": "actu",
+  "title": "Go Issues Emergency Update Blocking Eight CA Keys Over Undisclosed Security Concerns"
+}

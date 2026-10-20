@@ -16967,17 +16967,17 @@
       "id": "2026-10-19-nikkei-fuites-identifiants",
       "title": "Nikkei : troisième fuite de données en un mois, 1,83 million d'enregistrements exposés",
       "created": "2026-10-19T22:30:00+00:00",
-      "updated": "2026-10-19T22:30:00+00:00",
-      "version": 1,
-      "resume": "Des pirates ont utilisé des identifiants volés pour accéder à un système de développement de Nikkei le 7 octobre : 1,83 million d'enregistrements exposés, troisième fuite en environ un mois [1].",
+      "updated": "2026-10-20T11:15:00+00:00",
+      "version": 2,
+      "resume": "Des pirates ont utilisé des identifiants déjà compromis pour accéder le 7 octobre à un système de développement de Nikkei : 1,83 million d'enregistrements exposés, troisième fuite en environ un mois [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Identifiants volés, mode de vol non précisé → accès à un système de développement du réseau le 7 octobre [1]."
+          "texte": "Identifiants déjà compromis, mode de compromission non précisé → accès le 7 octobre à un service cloud utilisé pour le développement des systèmes [1, 2]."
         },
         {
           "etape": "Accès aux données",
-          "texte": "Accès au système de développement → informations personnelles stockées dans le cloud exposées, soit 1,83 million d'enregistrements [1]."
+          "texte": "Accès au service → 1,83 million d'enregistrements exposés, dont 150 000 avec informations personnelles et 120 000 avec seulement des e-mails [1, 2]."
         },
         {
           "etape": "Réponse de Nikkei",
@@ -17023,7 +17023,7 @@
           }
         ]
       },
-      "limites": "Les deux fuites précédentes (compte Google Workspace en juillet, compte Microsoft 365 en septembre) n'ont pas de méthode d'accès précisée [1]. Aucun usage abusif des données constaté au 16 octobre [1].",
+      "limites": "Les deux fuites précédentes (Google Workspace en juillet, Microsoft 365 en septembre) n'ont pas de méthode d'accès précisée [1]. [2] mentionne à la place un compte Slack piraté. Aucun usage abusif au 16 octobre [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
@@ -17038,6 +17038,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/nikkei-discloses-third-data-breach-in-a-month-18m-records-exposed/",
           "date": "2026-10-19",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/19/nikkei.jpg"
+        },
+        {
+          "titre": "Hackers Steal 1.8 Million Records From Nikkei",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/hackers-steal-1-8-million-records-from-nikkei/",
+          "date": "2026-10-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/02/news-newspaper-cyberattack.jpeg"
         }
       ]
     },

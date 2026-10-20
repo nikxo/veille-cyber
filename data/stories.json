@@ -108,25 +108,25 @@
       "id": "2026-10-20-ovhcloud-cli-releases-compte-detourne",
       "title": "Archives de l'outil en ligne de commande d'OVHcloud remplacées après le détournement d'un compte GitHub",
       "created": "2026-10-20T10:30:00+00:00",
-      "updated": "2026-10-20T10:30:00+00:00",
-      "version": 1,
-      "resume": "Le 19 octobre, un attaquant a remplacé les archives de cinq versions de l'outil en ligne de commande d'OVHcloud sur GitHub par un build conçu pour voler les secrets du disque [1].",
+      "updated": "2026-10-20T12:30:00+00:00",
+      "version": 2,
+      "resume": "Le 19 octobre, un attaquant a remplacé les archives de cinq versions de l'outil en ligne de commande d'OVHcloud sur GitHub par un build conçu pour voler les secrets du disque [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Compromission du compte GitHub d'un contributeur → droits d'écriture sur les releases du dépôt [1]."
+          "texte": "Compromission du compte GitHub d'un développeur → accès au dépôt de l'outil et droits d'écriture sur les releases [1, 2]."
         },
         {
           "etape": "Remplacement des archives",
-          "texte": "Archives de cinq versions et fichier de sommes de contrôle remplacés, sans passer par le pipeline de release → build malveillant en ligne pendant 94 minutes au plus [1]."
+          "texte": "Versions 0.11.0 à 0.15.0 modifiées, immutabilité des releases désactivée → modification sans passer par le pipeline, build en ligne 94 minutes au plus [1, 2]."
         },
         {
           "etape": "Vol de secrets",
-          "texte": "Le build est conçu pour voler les secrets stockés sur le disque de la machine qui l'exécute [1]."
+          "texte": "Selon OpenSourceMalware, un fichier preinstall.js décode un second étage non analysé → build conçu pour voler les secrets du disque [1, 2]."
         },
         {
           "etape": "Détection et correctif",
-          "texte": "Un client dont le build échoue signale le problème → OVHcloud supprime les archives à 14:21 UTC [1]."
+          "texte": "Signalement d'un client → archives supprimées à 14:21 UTC [1], blocage à 16:21 [2], puis immutabilité des releases activée [2]."
         }
       ],
       "parcours": {
@@ -168,14 +168,14 @@
           }
         ]
       },
-      "limites": "Les sources ne disent pas comment les identifiants du compte ont été obtenus, quels fichiers étaient lus, où les données partaient, ni combien de victimes [1].",
+      "limites": "Les sources ne disent pas comment le compte a été compromis, ni le nombre de victimes [1, 2]. Les heures divergent : 14:21 UTC [1], 16:21 [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non identifié ; OpenSourceMalware relie le compte à GlassWorm, ce que l'article présente comme une inférence [1]"
+        "Non identifié ; OpenSourceMalware évoque GlassWorm, présenté comme une inférence [1] et sans attribution confirmée [2]"
       ],
       "cibles": [
-        "Utilisateurs ayant installé ou mis à jour l'outil sur macOS, Linux ou Windows pendant la fenêtre [1]"
+        "Utilisateurs ayant installé ou mis à jour l'outil sur macOS, Linux ou Windows pendant la fenêtre [1, 2]"
       ],
       "abreviations": [
         {
@@ -190,6 +190,13 @@
           "url": "https://thehackernews.com/2026/10/hackers-hijack-five-ovhcloud-cli.html",
           "date": "2026-10-20",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSRX5Jjz6vqh8EcVVYoXU8S9qh0rFzQ3DDnjNIlkRrBq97brmk6hUw0u2pbLqyTAG1_mYfG9bGHCnMkgSMEPFu6fIR67F1jZMmS7G7-DFe6i7PtG_LzdTgHLCTXSwE5hCa2EApQeAIYGIMYATwbLEp-2FcPmV9aAHVqrRRBYk_wY7ZTuES0frFAPGjhnU/s1700-nu-rw-lo-l85-e365/ovhcloud.jpg"
+        },
+        {
+          "titre": "OVHcloud CLI releases backdoored on GitHub to steal developer secrets",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/ovhcloud-cli-releases-backdoored-on-github-to-steal-developer-secrets/",
+          "date": "2026-10-20",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/20/ovhcloud.jpg"
         }
       ]
     },
@@ -16539,21 +16546,25 @@
       "id": "2026-10-19-ahold-delhaize-cyberattaque",
       "title": "Ahold Delhaize : cyberattaque et systèmes mis hors ligne dans la plupart des enseignes",
       "created": "2026-10-19T17:08:15+00:00",
-      "updated": "2026-10-19T17:08:15+00:00",
-      "version": 1,
-      "resume": "Ahold Delhaize a mis hors ligne ses systèmes dans la plupart de ses enseignes américaines et européennes après une activité suspecte, puis a confirmé des « actions malveillantes » le 19 octobre [1].",
+      "updated": "2026-10-20T12:30:00+00:00",
+      "version": 2,
+      "resume": "Ahold Delhaize a mis hors ligne ses systèmes dans la plupart de ses enseignes américaines et européennes après une activité suspecte, puis a confirmé des « actions malveillantes » le 19 octobre [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé par les sources [1, 2]."
         },
         {
           "etape": "Mise hors ligne",
-          "texte": "Activité suspecte détectée dans les systèmes informatiques → systèmes mis hors ligne dans la plupart des enseignes américaines et européennes [1]."
+          "texte": "Activité suspecte détectée → systèmes mis hors ligne dans la plupart des enseignes [1] ; sites et applications indisponibles, magasins ouverts [2]."
         },
         {
           "etape": "Confirmation",
-          "texte": "Le 19 octobre, l'entreprise parle d'actions malveillantes → plainte déposée aux Pays-Bas, aucune preuve de vol de données sensibles à ce stade [1]."
+          "texte": "Actions malveillantes confirmées le 19 octobre → plainte déposée aux Pays-Bas, aucune preuve de vol de données sensibles à ce stade [1, 2]."
+        },
+        {
+          "etape": "Rétablissement partiel",
+          "texte": "Sites et applications rétablis par phases, dont Albert Heijn → certains systèmes européens et américains restent hors service [2]."
         }
       ],
       "parcours": {
@@ -16595,14 +16606,14 @@
           }
         ]
       },
-      "limites": "L'entreprise n'a pas décrit la nature de l'attaque ni le vecteur d'accès, et aucun acteur n'est nommé [1].",
+      "limites": "L'entreprise n'a pas décrit la nature de l'attaque ni le vecteur d'accès ; aucun acteur nommé, chiffrement non confirmé [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non nommés, l'entreprise évoque des acteurs malveillants [1]"
+        "Non nommés, l'entreprise évoque des acteurs malveillants [1, 2]"
       ],
       "cibles": [
-        "Ahold Delhaize, distribution alimentaire : Food Lion, Stop & Shop, Albert Heijn, Etos, Gall & Gall [1]"
+        "Ahold Delhaize, distribution alimentaire : Food Lion, Stop & Shop, Albert Heijn, Etos, Gall & Gall, Delhaize [1, 2]"
       ],
       "abreviations": [],
       "sources": [
@@ -16612,6 +16623,13 @@
           "url": "https://therecord.media/ahold-delhaize-cyberattack-grocery",
           "date": "2026-10-19",
           "image": "https://cms.therecord.media/uploads/Albert_Heijn_2b91114780.jpg"
+        },
+        {
+          "titre": "Ahold Delhaize: Cyberattack affects services across US and Europe",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/ahold-delhaize-cyberattack-affects-services-across-us-and-europe/",
+          "date": "2026-10-20",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/20/Ahold-Delhaize_headpic.jpg"
         }
       ]
     },
@@ -17316,6 +17334,107 @@
           "url": "https://thehackernews.com/2026/10/romulus-clickfix-platform-tricks-users.html",
           "date": "2026-10-20",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8zydF3pRz3L86iRbEdX23esEuSWg0nt4Zq-6jV1oJy7HCuQ0oxZThFma1tspyuxRo0VG0kkCA_GZNobZkykxlZIKUb22Iq7DSwRepN3yIEk5Lfn7EeYUX52_Gkbz0GmerEPMuRP2EZTGegoGZd-p_8zvZKen5n8IZ9bm3_533b1aMXzdRKCNICkYzYJ7z/s1700-nu-rw-lo-l85-e365/romulus.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-20-arnaque-netflix-tiktok",
+      "title": "Fausse offre Netflix à 1 € diffusée sur TikTok pour collecter des données personnelles",
+      "created": "2026-10-20T12:30:00+00:00",
+      "updated": "2026-10-20T12:30:00+00:00",
+      "version": 1,
+      "resume": "Une vidéo TikTok promet six mois de Netflix Premium pour 1 € et mène à une fausse page qui collecte des données personnelles avant une étape de paiement [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Vidéo TikTok promettant six mois de Netflix pour 1 €, avec l'image d'Omar Sy et Vincent Cassel → visiteur attiré vers une page [1]."
+        },
+        {
+          "etape": "Fausse page",
+          "texte": "Page imitant Netflix, à une adresse qui n'est pas celle de Netflix, annonçant une opération Halloween → bouton « Obtenir ma carte » [1]."
+        },
+        {
+          "etape": "Collecte et paiement",
+          "texte": "Formulaire en deux étapes demandant nom, adresse et courriel, hébergé sur un autre domaine → chaîne menant à un système de paiement usurpateur [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "tt",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Vidéo TikTok",
+            "note": "Offre à 1 €"
+          },
+          {
+            "id": "user",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Visiteur",
+            "note": ""
+          },
+          {
+            "id": "page",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Fausse page Netflix",
+            "note": "Formulaire"
+          },
+          {
+            "id": "pay",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Système de paiement usurpateur",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "tt",
+            "etape": 1,
+            "texte": "Publicité vidéo diffusée"
+          },
+          {
+            "de": "user",
+            "vers": "page",
+            "etape": 2,
+            "texte": "Clic sur l'offre, page imitant Netflix"
+          },
+          {
+            "de": "page",
+            "vers": "pay",
+            "etape": 3,
+            "texte": "Formulaire puis paiement sur un autre domaine"
+          }
+        ]
+      },
+      "limites": "L'article ne nomme pas l'auteur et ne dit pas si Omar Sy et Vincent Cassel participent ; aucune victime n'est identifiée [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non mentionné [1]"
+      ],
+      "cibles": [
+        "Visiteurs de la fausse offre ; aucune victime identifiée ni chiffrée [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Arnaque Netflix à 1 € : le cadeau qui piège vos données",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/arnaque-netflix-a-1-e-le-cadeau-qui-piege-vos-donnees/",
+          "date": "2026-10-20",
+          "image": "https://www.zataz.com/wp-content/uploads/N3tflix_alerte.jpg"
         }
       ]
     }

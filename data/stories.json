@@ -16905,6 +16905,115 @@
           "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/06/07_Vulnerabilities_1920x900.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-20-romulus-clickfix-legionloader",
+      "title": "ROMULUS : plateforme ClickFix qui livre Legion Loader et d'autres malwares",
+      "created": "2026-10-20T05:30:00+00:00",
+      "updated": "2026-10-20T05:30:00+00:00",
+      "version": 1,
+      "resume": "Forescout décrit ROMULUS, une plateforme de livraison de malwares fondée sur des leurres ClickFix, qui sert notamment à distribuer Legion Loader. Son auteur n'est pas connu [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Fausses pages de destination avec leurre ClickFix → la victime exécute elle-même une commande malveillante [1]."
+        },
+        {
+          "etape": "Script de préparation",
+          "texte": "Deux points de terminaison de la plateforme servent un script PowerShell → ce script choisit la charge suivante [1]."
+        },
+        {
+          "etape": "Livraison du loader",
+          "texte": "Installateur MSI piégé contenant un loader, ou archive chiffrée contenant Legion Loader → le loader arrive sur le poste [1]."
+        },
+        {
+          "etape": "Charges supplémentaires",
+          "texte": "Legion Loader contacte un serveur distant → récupération et exécution de charges utiles supplémentaires [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (ROMULUS)",
+            "note": ""
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Fausses pages ClickFix",
+            "note": "Plateforme ROMULUS"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de la victime",
+            "note": "Legion Loader"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 2,
+            "texte": "Points de terminaison servant le script PowerShell"
+          },
+          {
+            "de": "web",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Leurre ClickFix, commande exécutée par l'utilisateur"
+          },
+          {
+            "de": "web",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Installateur MSI piégé ou archive chiffrée"
+          }
+        ]
+      },
+      "limites": "L'article ne cite ni victime, ni secteur, ni date des campagnes. Selon Forescout, ROMULUS peut être un panneau privé, un service commercial ou un cadre d'affiliation [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Auteur de ROMULUS inconnu ; aucun recoupement avec RomulusLoader ni Silver Fox [1]",
+        "Legion Loader, aussi appelé Satacom downloader, CurlyGate et RobotDropper [1]"
+      ],
+      "cibles": [
+        "Utilisateurs en général, sans victime ni secteur précisés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ClickFix",
+          "definition": "Leurre qui pousse l'utilisateur à lancer lui-même une commande malveillante"
+        },
+        {
+          "sigle": "PowerShell",
+          "definition": "Interpréteur de commandes et de scripts de Windows"
+        },
+        {
+          "sigle": "MSI",
+          "definition": "Format d'installateur Windows"
+        },
+        {
+          "sigle": "ROMULUS",
+          "definition": "Nom donné par Forescout à la plateforme de livraison de malwares ClickFix"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers Use New ROMULUS ClickFix Platform to Deliver LegionLoader and Other Malware",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/romulus-clickfix-platform-tricks-users.html",
+          "date": "2026-10-20",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8zydF3pRz3L86iRbEdX23esEuSWg0nt4Zq-6jV1oJy7HCuQ0oxZThFma1tspyuxRo0VG0kkCA_GZNobZkykxlZIKUb22Iq7DSwRepN3yIEk5Lfn7EeYUX52_Gkbz0GmerEPMuRP2EZTGegoGZd-p_8zvZKen5n8IZ9bm3_533b1aMXzdRKCNICkYzYJ7z/s1700-nu-rw-lo-l85-e365/romulus.jpg"
+        }
+      ]
     }
   ]
 }

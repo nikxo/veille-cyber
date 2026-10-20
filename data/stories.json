@@ -12424,13 +12424,13 @@
       "id": "2026-10-12-danfoss-froid-supermarches",
       "title": "Régulation frigorifique Danfoss détournée : stocks détruits dans des supermarchés",
       "created": "2026-10-12T12:30:00+00:00",
-      "updated": "2026-10-15T13:07:50+00:00",
-      "version": 8,
+      "updated": "2026-10-20T15:30:00+00:00",
+      "version": 9,
       "resume": "Des installations frigorifiques de supermarchés auraient été détournées à distance dans la nuit du 11 au 12 octobre, et des produits jetés [1, 5]. Le CERT-FR connaît de nombreuses compromissions de contrôleurs Danfoss AK-SM et AK-SC [4].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 2, 4, 5, 7, 10]. Consoles web accessibles sur Internet [2] ; appareils touchés surtout anciens, en fin de vie et non corrigés [10]."
+          "texte": "Non précisé par les sources [1, 2, 4, 5, 7, 10]. Consoles web accessibles sur Internet [2, 11] ; appareils touchés surtout anciens, en fin de vie et non corrigés [10]."
         },
         {
           "etape": "Détournement de la régulation",
@@ -12484,7 +12484,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni la faille exploitée ni l'acteur [1, 2, 4, 5, 7, 8] ; on ignore si les failles divulguées par Claroty ont servi [6] ; LeMagIT ne confirme pas le vecteur d'accès [9].",
+      "limites": "Les sources ne précisent ni la faille exploitée ni l'acteur [1, 2, 4, 5, 7, 8] ; Copeland reconnaît une vulnérabilité sur une génération de contrôleurs en fin de vie, sans la nommer [11] ; vecteur non confirmé [9].",
       "cves": [
         {
           "id": "CVE-2025-41450",
@@ -12508,7 +12508,8 @@
         "Magasins en France, Belgique, Allemagne, Pays-Bas, Pologne, Portugal et Espagne [6]",
         "Carrefour : environ 80 supermarchés [7]",
         "Supermarché Leclerc de Lescure-d'Albigeois (Tarn), équipé de supervision Dixell [8]",
-        "Enseignes confirmées : Carrefour, Coopérative U, E.Leclerc, Intermarché, Monoprix [10]"
+        "Enseignes confirmées : Carrefour, Coopérative U, E.Leclerc, Intermarché, Monoprix [10]",
+        "Parquet de Paris : une dizaine de plaintes, environ 700 victimes estimées ; pertes de plusieurs dizaines de millions d'euros [11]"
       ],
       "abreviations": [
         {
@@ -12589,6 +12590,13 @@
           "url": "https://www.securityweek.com/supermarket-refrigeration-attack-widens-to-copeland-dixell-controllers/",
           "date": "2026-10-15",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supermarket-refrigerators.jpeg"
+        },
+        {
+          "titre": "EU cyber law won't force fixes for fridge controllers hit in French attack",
+          "site": "The Record",
+          "url": "https://therecord.media/eu-cyber-law-wont-force-fixes-for-fridges-in-french-attack",
+          "date": "2026-10-20",
+          "image": "https://cms.therecord.media/uploads/grocery_dbc6758a29.jpg"
         }
       ]
     },
@@ -14692,13 +14700,13 @@
       "id": "2026-10-15-unc7017-aomei-mises-a-jour",
       "title": "UNC7017 : serveurs de mise à jour d'AOMEI modifiés pendant quelques minutes pour diffuser des logiciels malveillants",
       "created": "2026-10-16T15:20:00+00:00",
-      "updated": "2026-10-20T14:30:00+00:00",
-      "version": 4,
+      "updated": "2026-10-20T15:30:00+00:00",
+      "version": 5,
       "resume": "UNC7017 a modifié à plusieurs reprises, pendant 5 à 10 minutes, les fichiers des serveurs de mise à jour d'AOMEI pour livrer des logiciels malveillants aux clients, entre avril et juillet 2026 [1, 3] ou entre mai et juillet 2026 [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Modification brève de la configuration des serveurs de mise à jour, 5 à 10 minutes → archive malveillante téléchargée par les clients [1, 2, 4], somme de contrôle modifiée aussi [3]."
+          "texte": "Fichiers de configuration modifiés 5 à 10 minutes, canal des fenêtres promotionnelles sans authentification [5] → archive malveillante téléchargée [1, 2, 4], somme de contrôle modifiée [3]."
         },
         {
           "etape": "Exécution du chargeur",
@@ -14762,7 +14770,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent pas comment les serveurs d'AOMEI ont été atteints, ni le nombre de victimes [1, 2, 3, 4]. Elles divergent sur le début : avril [1, 3, 4], mai [2].",
+      "limites": "Les sources ne précisent pas comment les serveurs ont été atteints, ni le nombre de victimes [1, 2, 3, 4, 5]. Début : avril [1, 3, 4, 5], mai [2]. AOMEI n'a pas encore prévenu les clients touchés [5].",
       "cves": [],
       "mitre": [
         "T1195.002 : compromission de la chaîne d'approvisionnement logicielle, accès initial par les serveurs de mise à jour [1]"
@@ -14833,6 +14841,13 @@
           "url": "https://www.securityweek.com/aomei-backupper-compromised-in-short-burst-supply-chain-campaign/",
           "date": "2026-10-20",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/01/Supply-Chain-Software-Attack.jpg"
+        },
+        {
+          "titre": "AOMEI yet to notify customers after hackers hijacked its software updates",
+          "site": "The Record",
+          "url": "https://therecord.media/aomei-yet-to-notify-customers-hijack-software",
+          "date": "2026-10-20",
+          "image": "https://cms.therecord.media/uploads/cloud_backup_e577ae7321.jpg"
         }
       ]
     },
@@ -17503,21 +17518,21 @@
       "id": "2026-10-20-cairn-agents-ia-detournes",
       "title": "Cairn : plateforme d'agents IA détournée par trois groupes contre des sites e-commerce",
       "created": "2026-10-20T13:09:22+00:00",
-      "updated": "2026-10-20T13:09:22+00:00",
-      "version": 1,
-      "resume": "Au moins trois groupes ont détourné Cairn, plateforme libre qui coordonne des agents IA, contre des sites e-commerce ; Reuters évoque plus de 100 entreprises compromises [1].",
+      "updated": "2026-10-20T15:30:00+00:00",
+      "version": 2,
+      "resume": "Au moins trois groupes ont détourné Cairn, plateforme libre qui coordonne des agents IA, contre des sites e-commerce ; plus de 100 entreprises compromises selon Reuters [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé par les sources [1, 2]."
         },
         {
           "etape": "Sélection des cibles",
-          "texte": "Pour le plus grand groupe, cibles classées par trafic, validées automatiquement, puis testées avec Playwright [1]."
+          "texte": "Plus de 1 200 sites visés [2] ; pour le plus grand groupe, cibles classées par trafic, validées automatiquement, puis testées avec Playwright [1]."
         },
         {
           "etape": "Attaque automatisée",
-          "texte": "Agents IA qui avancent pas à pas d'un point d'origine vers un but, en partageant leurs résultats sur un tableau commun [1]."
+          "texte": "Agents IA qui avancent pas à pas d'un point de départ vers un objectif, en partageant leurs résultats sur un tableau commun [1, 2]."
         },
         {
           "etape": "Objectifs des groupes",
@@ -17525,7 +17540,11 @@
         },
         {
           "etape": "Secrets collectés",
-          "texte": "Centaines de secrets trouvés dans les panneaux de contrôle laissés accessibles → 11 % validés comme valides [1]."
+          "texte": "Centaines de secrets trouvés dans les panneaux de contrôle laissés accessibles → 11 % validés comme valides [1, 2]."
+        },
+        {
+          "etape": "Exemple de chaîne documentée",
+          "texte": "Écriture non autorisée dans un magasin de sessions memcached, objets PHP sérialisés mal traités, ancien code Zend Framework [2]."
         }
       ],
       "parcours": {
@@ -17580,19 +17599,29 @@
           }
         ]
       },
-      "limites": "Vecteur d'accès initial, dates et identité des groupes non précisés. Norforge n'a nommé aucune victime ; les 100 entreprises viennent de Reuters [1].",
-      "cves": [],
+      "limites": "Identité des groupes et vecteur initial général non précisés [1, 2]. Aucune source ne relie cette opération à la campagne de septembre [2]. Quantité de données volées inconnue [2].",
+      "cves": [
+        {
+          "id": "CVE-2026-75650",
+          "explication": "Adobe Commerce et Magento Open Source : neutralisation insuffisante dans un moteur de templates, exécution de code, gravité critique 10,0 [4]. Aucune preuve d'usage dans ces intrusions [2]."
+        }
+      ],
       "mitre": [],
       "acteurs": [
-        "Trois groupes sans nom : le plus grand écrit en chinois, un deuxième en anglais [1]"
+        "Trois groupes sans nom : le plus grand écrit en chinois, un deuxième en anglais [1] ; Reuters évoque un criminel parlant chinois [2]"
       ],
       "cibles": [
-        "E-commerce et paiement aux États-Unis, au Japon, en Australie ; sites de paiement, plateformes pharmaceutiques [1]"
+        "E-commerce et paiement aux États-Unis, au Japon, en Australie ; sites de paiement, plateformes pharmaceutiques [1]",
+        "Deere, SharkNinja et Cummins nommés [2, 3] ; un fournisseur de pièces matérielles et un grand détaillant américain [2]"
       ],
       "abreviations": [
         {
           "sigle": "IA",
           "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "PHP",
+          "definition": "Langage de programmation courant pour les sites web"
         }
       ],
       "sources": [
@@ -17602,6 +17631,24 @@
           "url": "https://www.securityweek.com/ai-platform-cairn-abused-to-hack-over-100-organizations/",
           "date": "2026-10-20",
           "image": "https://www.securityweek.com/wp-content/uploads/2025/08/AI-assistant-chatbot-artificial-intelligence.jpg"
+        },
+        {
+          "titre": "Hackers Use Autonomous AI Agents to Breach 100+ Companies",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/hackers-use-autonomous-ai-agents-to.html",
+          "date": "2026-10-20",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYic0qXjDFjrKdw3Ed58Uv28Xt2G7GTuEZhXrAiV07Xnn_I9DPNeQuntZ-TNMi_4i0JdPOyLj4geWCj8K_Zv2OBO4qaujmlDFzBDljcRvvbDx-3r1hSDDaDN-mI3u61F2gJW6zhShFGLZBKrLM0k0Y9yl5-VOVXFHiJaEg3V65-yfT1yXWc5FSfaYLCKg/s1700-nu-rw-lo-l85-e365/bot-attack.jpg"
+        },
+        {
+          "titre": "Hackers Abuse AI Pen-Test Tool Cairn to Automate Massive Attack Spree",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/cyberattacks-data-breaches/hackers-abuse-ai-pen-test-tool-cairn",
+          "date": "2026-10-20"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-75650",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75650"
         }
       ]
     },
@@ -17752,6 +17799,96 @@
           "url": "https://thehackernews.com/2026/10/pegasus-spyware-infection-confirmed-on.html",
           "date": "2026-10-20",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_cQrX8zsqCvWd9Pl1mfmh8oQBwRAG_IcrKQB-EpiVEn2GXf5UJBh0UrLXCKzAmJo2Z-Di9G7-16n5hV-gmtfMi-JtB9sOd9neC-b1-6CpErVOYE7CUjBmZhunV45nzsFcDr03rK5RA8q7gFZXIuJZ4c6ND0VSQHYuppDkdTqq04MI7nVCz-10-K-xmc0/s1700-nu-rw-lo-l85-e365/iphone-spyware.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-20-black-spark-edutest-russie",
+      "title": "Black Spark : messages anti-Putin sur la plateforme d'évaluations scolaires Edutest en Russie",
+      "created": "2026-10-20T15:30:00+00:00",
+      "updated": "2026-10-20T15:30:00+00:00",
+      "version": 1,
+      "resume": "Le groupe pro-ukrainien Black Spark revendique l'attaque contre Rosobrnadzor et FIOKO : des élèves ont vu des messages antigouvernementaux au lieu des questions et les évaluations ont été suspendues [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Attaque des systèmes",
+          "texte": "Cyberattaque contre les systèmes en ligne de Rosobrnadzor et de FIOKO → évaluations suspendues dans les écoles et établissements de formation [1]."
+        },
+        {
+          "etape": "Messages affichés",
+          "texte": "Sur la plateforme Edutest, messages antigouvernementaux à la place des questions → même image reçue par des élèves de la région de Moscou [1]."
+        },
+        {
+          "etape": "Rétablissement",
+          "texte": "Rosobrnadzor annonce que ses systèmes en ligne sont rétablis [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Black Spark)",
+            "note": ""
+          },
+          {
+            "id": "edu",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateforme Edutest",
+            "note": "Messages affichés"
+          },
+          {
+            "id": "el",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Élèves en évaluation",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "edu",
+            "etape": 2,
+            "texte": "Cyberattaque des systèmes en ligne"
+          },
+          {
+            "de": "edu",
+            "vers": "el",
+            "etape": 3,
+            "texte": "Messages antigouvernementaux affichés aux élèves"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent pas comment les attaquants ont accédé à la plateforme, ni si des données ont été volées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Black Spark, groupe pro-ukrainien qui se dit résistance clandestine en Russie [1]"
+      ],
+      "cibles": [
+        "Rosobrnadzor, FIOKO et élèves de 9e année en cours d'évaluation [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "FIOKO",
+          "definition": "Organisme russe cité avec Rosobrnadzor, visé par l'attaque"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Anti-Putin messages disrupt nationwide school assessments in Russia",
+          "site": "The Record",
+          "url": "https://therecord.media/anti-putin-messages-disrupt-russian-education-platform",
+          "date": "2026-10-20",
+          "image": "https://cms.therecord.media/uploads/putin_55362835827_4a1a1c1cc9_o_43c1d7475b.jpg"
         }
       ]
     }

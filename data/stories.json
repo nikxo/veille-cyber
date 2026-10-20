@@ -16408,17 +16408,25 @@
       "id": "2026-10-19-siemens-software-center-clickfix",
       "title": "Siemens Software Center détourné par chargement de DLL dans des attaques ClickFix",
       "created": "2026-10-19T19:08:15+00:00",
-      "updated": "2026-10-19T19:08:15+00:00",
-      "version": 1,
-      "resume": "Des attaquants ont associé une copie signée de Siemens Software Center à des DLL malveillantes pour infecter des ordinateurs Windows, via des leurres ClickFix [1].",
+      "updated": "2026-10-20T08:08:36+00:00",
+      "version": 2,
+      "resume": "Des attaquants ont associé une copie signée de Siemens Software Center à des DLL malveillantes pour infecter des ordinateurs Windows, via des leurres ClickFix [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Leurres ClickFix → distribution d'un paquet malveillant contenant une copie signée de Siemens Software Center, depuis un serveur lié à Romulus [1]."
+          "texte": "Fausse adresse web ClickFix, parfois via des assistants ChatGPT personnalisés malveillants → la victime exécute un texte qui lance PowerShell [2]."
+        },
+        {
+          "etape": "Dépôt du paquet",
+          "texte": "PowerShell dépose un installeur MSI → lancement de la copie signée de Software Center, paquet distribué depuis un serveur lié à Romulus [1, 2]."
         },
         {
           "etape": "Chargement de DLL malveillantes",
-          "texte": "Au démarrage, Software Center charge sans validation les DLL de son dossier (version 3.5.8.7) → code malveillant exécuté avec ses privilèges [1]."
+          "texte": "Software Center (version 3.5.8.7) charge sans validation les DLL de son dossier, dont archive.dll → code malveillant exécuté avec ses privilèges [1, 2]."
+        },
+        {
+          "etape": "Charge finale",
+          "texte": "Les campagnes déploient un cheval de Troie d'accès à distance [2]."
         }
       ],
       "parcours": {
@@ -16450,21 +16458,21 @@
             "de": "att",
             "vers": "pc",
             "etape": 1,
-            "texte": "Leurres ClickFix"
+            "texte": "Leurre ClickFix, PowerShell exécuté par la victime"
           },
           {
             "de": "srv",
             "vers": "pc",
-            "etape": 1,
-            "texte": "Paquet malveillant distribué"
+            "etape": 2,
+            "texte": "Installeur MSI et copie signée distribués"
           }
         ]
       },
-      "limites": "Le nombre de victimes n'est pas donné ; le lien avec les campagnes de Huntress et Forescout repose sur une infrastructure et une approche similaires [1].",
+      "limites": "Nombre de victimes non donné ; le lien entre la faille, qui exige un attaquant local authentifié, et l'accès initial n'est pas établi [2].",
       "cves": [
         {
           "id": "CVE-2026-110936",
-          "explication": "Siemens Software Center : emplacements de recherche des DLL mal restreints, un attaquant local authentifié exécute du code avec les privilèges du logiciel, score 8,4 sur 10 [1]."
+          "explication": "Siemens Software Center : recherche des DLL mal restreinte, un attaquant local authentifié exécute du code avec les privilèges du logiciel, score 8,4 sur 10, corrigé en 4.0.9.8 [1, 2]."
         }
       ],
       "mitre": [],
@@ -16482,6 +16490,14 @@
         {
           "sigle": "ClickFix",
           "definition": "Leurre qui pousse l'utilisateur à exécuter lui-même une commande"
+        },
+        {
+          "sigle": "PowerShell",
+          "definition": "Interpréteur de commandes et de scripts de Windows"
+        },
+        {
+          "sigle": "MSI",
+          "definition": "Format d'installateur Windows"
         }
       ],
       "sources": [
@@ -16491,6 +16507,13 @@
           "url": "https://www.securityweek.com/siemens-software-center-vulnerability-exploited-in-clickfix-malware-attacks/",
           "date": "2026-10-19",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/04/Siemens.jpeg"
+        },
+        {
+          "titre": "ClickFix Attackers Exploit Siemens Software Center Flaw to Deploy Remote Access Trojan",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/clickfix-attackers-exploit-siemens.html",
+          "date": "2026-10-20",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUJqb8f_ibR_O_dPoJqAVHZOVmgi23TsxhFzv19_3uzAbEqH6L6QMJUWdelmEKmDe6U9wj6KKyDpPKi_1a93IK1KJa-Ql0kFRtfqVe9sKQpVFj0dA65dCfRKCN7H0LQYgMdzqdJoLgSb6rRFBA4bfmf4oUqItqe6pVCsyxmEzCnHx02h_m1WsK6sJu7jy2/s1700-nu-rw-lo-l85-e365/siemens.jpg"
         }
       ]
     },

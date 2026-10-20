@@ -17146,9 +17146,9 @@
       "id": "2026-10-19-pan-os-globalprotect-cve-2026-0257",
       "title": "Faille PAN-OS GlobalProtect (CVE-2026-0257) exploitée, des groupes de rançongiciel s'en servent",
       "created": "2026-10-19T23:30:00+00:00",
-      "updated": "2026-10-19T23:30:00+00:00",
-      "version": 1,
-      "resume": "Unit 42 décrit l'exploitation de la faille CVE-2026-0257 de PAN-OS GlobalProtect pour ouvrir des sessions VPN. Les groupes Qilin et Inc exploitent la faille, dans de nombreux secteurs [1].",
+      "updated": "2026-10-20T17:30:00+00:00",
+      "version": 2,
+      "resume": "Unit 42 décrit l'exploitation de la faille CVE-2026-0257 de PAN-OS GlobalProtect pour ouvrir des sessions VPN. Les groupes Qilin et Inc l'exploitent dans de nombreux secteurs [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -17156,7 +17156,7 @@
         },
         {
           "etape": "Reconnaissance et déplacement",
-          "texte": "Outils d'administration à distance à double usage, puis RDP et SMB → déplacement dans le réseau interne [1]."
+          "texte": "Outils d'administration à distance à double usage, puis RDP et SMB → déplacement dans le réseau interne [1, 2]."
         },
         {
           "etape": "Pivot vers la virtualisation",
@@ -17165,6 +17165,10 @@
         {
           "etape": "Vol d'identifiants",
           "texte": "Dump hors ligne du disque virtuel d'un contrôleur de domaine → identifiants du domaine, sans passer par l'EDR de l'invité [1]."
+        },
+        {
+          "etape": "Ciblage des sauvegardes",
+          "texte": "Exploitation de la faille Veeam CVE-2023-27532 → ciblage de l'infrastructure de sauvegarde pour maximiser les dégâts [2]."
         }
       ],
       "parcours": {
@@ -17203,6 +17207,13 @@
             "zone": "victime",
             "nom": "Contrôleur de domaine",
             "note": "Disque virtuel"
+          },
+          {
+            "id": "bk",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Infrastructure de sauvegarde Veeam",
+            "note": "CVE-2023-27532"
           }
         ],
         "liens": [
@@ -17229,20 +17240,31 @@
             "vers": "dc",
             "etape": 4,
             "texte": "Dump hors ligne du disque virtuel"
+          },
+          {
+            "de": "gp",
+            "vers": "bk",
+            "etape": 5,
+            "texte": "Exploitation de la faille Veeam"
           }
         ]
       },
-      "limites": "Unit 42 ne détaille pas la réalisation effective du vol de données et du déploiement de rançongiciel, ni la persistance. Aucune victime individuelle n'est nommée [1].",
+      "limites": "Unit 42 ne détaille pas la réalisation effective du vol de données et du déploiement de rançongiciel, ni la persistance. Aucune victime individuelle n'est nommée [1, 2].",
       "cves": [
         {
           "id": "CVE-2026-0257",
-          "explication": "PAN-OS, portail et passerelle GlobalProtect : contournement d'authentification permettant d'initier des connexions VPN. Ajoutée au catalogue KEV de la CISA le 13 mai 2026 [1]."
+          "explication": "PAN-OS, portail et passerelle GlobalProtect : contournement d'authentification permettant d'initier des connexions VPN. Ajoutée au catalogue KEV de la CISA le 13 mai 2026 [1, 2]."
+        },
+        {
+          "id": "CVE-2023-27532",
+          "explication": "Faille de Veeam citée comme exploitée contre l'infrastructure de sauvegarde ; l'article ne la décrit pas davantage [2]."
         }
       ],
       "mitre": [],
       "acteurs": [
         "Spikey Scorpius (alias Qilin) et Tarnished Scorpius (alias Inc), groupes de rançongiciel observés par Unit 42 [1]",
-        "Exploitation initiale par un acteur non identifié selon Unit 42 [1]"
+        "Exploitation initiale par un acteur non identifié selon Unit 42 [1]",
+        "Le groupe Settra est aussi cité par ReliaQuest, qui a détecté l'exploitation par Qilin et Settra [2]"
       ],
       "cibles": [
         "Éducation, finance, santé, haute technologie, industrie, administrations, transport, énergie, commerce et autres secteurs [1]"
@@ -17300,6 +17322,13 @@
           "url": "https://unit42.paloaltonetworks.com/active-exploitation-of-pan-os-cve-2026-0257/",
           "date": "2026-10-19",
           "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/06/07_Vulnerabilities_1920x900.jpg"
+        },
+        {
+          "titre": "Qilin and INC Ransomware Groups Exploit Palo Alto Networks Flaw to Bypass MFA",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/qilin-and-inc-ransomware-groups-exploit.html",
+          "date": "2026-10-20",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgd71tvun8MRT5muo9ZiruSzkyqhGkeh-_5dP4QardwiC54o4wW3PtC7I1jtP_vVX1rPujN_YdrmILFSZw_Ikl6v8Gn2w75v-90aSHpnngi2WE-Ezv6OAO37YY4pJpNwe_DcGWRMgIOUxAEPyVisI3SxXnV30HejoGfGtlXDfAgGkdqrdFJjAI7x6jjFFj-/s1700-nu-rw-lo-l85-e365/palo-ransomware.jpg"
         }
       ]
     },
@@ -17999,6 +18028,126 @@
           "url": "https://www.sophos.com/en-us/blog/bronze-sandcastle-deploys-modified-meterpreter-shells",
           "date": "2026-10-20",
           "image": "https://images.contentstack.io/v3/assets/blt38f1f401b66100ad/bltb4b6c0750dc5846c/6aad5e6160452d9f5056a4ef/logo.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-20-beyondtrust-remote-support-armory-castle",
+      "title": "Faille BeyondTrust Remote Support exploitée depuis août par Armory Castle",
+      "created": "2026-10-20T17:30:00+00:00",
+      "updated": "2026-10-20T17:30:00+00:00",
+      "version": 1,
+      "resume": "Une faille de BeyondTrust Remote Support (CVE-2026-102764) a été exploitée dès le 29 août par Armory Castle, groupe d'espionnage lié à la Chine, avant le correctif du 8 octobre [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de CVE-2026-102764 sur les appliances → contournement de l'authentification, tête de pont dans le réseau [1]."
+        },
+        {
+          "etape": "Privilèges et propagation",
+          "texte": "Obtention de droits supérieurs, puis propagation dans le réseau [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Déploiement du webshell Sawfly → contrôle maintenu [1]."
+        },
+        {
+          "etape": "Dissimulation du trafic",
+          "texte": "Déploiement de Bareclaw, outil d'encapsulation du trafic réseau [1]."
+        },
+        {
+          "etape": "Effacement des traces",
+          "texte": "Effacement régulier des journaux et artefacts → maintien de l'accès [1]."
+        },
+        {
+          "etape": "Vol de secrets",
+          "texte": "Tentative de collecte des secrets stockés dans la base de données de l'appliance [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Armory Castle)",
+            "note": ""
+          },
+          {
+            "id": "ap",
+            "type": "passerelle",
+            "zone": "expose",
+            "nom": "Appliance BeyondTrust Remote Support",
+            "note": "CVE-2026-102764"
+          },
+          {
+            "id": "res",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines du réseau",
+            "note": ""
+          },
+          {
+            "id": "db",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Base de données de l'appliance",
+            "note": "Secrets"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ap",
+            "etape": 1,
+            "texte": "Contournement d'authentification"
+          },
+          {
+            "de": "ap",
+            "vers": "res",
+            "etape": 2,
+            "texte": "Propagation dans le réseau"
+          },
+          {
+            "de": "ap",
+            "vers": "db",
+            "etape": 6,
+            "texte": "Collecte des secrets stockés"
+          }
+        ]
+      },
+      "limites": "L'article ne précise pas la méthode exacte d'accès initial, ni les victimes. Mandiant juge compromise toute appliance vulnérable accessible depuis Internet pendant la fenêtre [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-102764",
+          "explication": "BeyondTrust Remote Support jusqu'à la version 26.2.3 : contournement d'authentification permettant des opérations de lecture et d'écriture de fichiers [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Armory Castle, aussi appelé Warp Panda et UNC5221, groupe d'espionnage lié à la Chine [1]"
+      ],
+      "cibles": [
+        "Appliances BeyondTrust Remote Support ; victimes non précisées [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "Webshell",
+          "definition": "Interface web malveillante déposée sur un serveur pour le commander à distance"
+        },
+        {
+          "sigle": "UNC5221",
+          "definition": "Identifiant attribué par Mandiant à un groupe d'attaquants"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Une vulnérabilité BeyondTrust exploitée depuis août",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366652424/Une-vulnerabilite-BeyondTrust-exploitee-depuis-aout",
+          "date": "2026-10-20",
+          "image": "https://www.lemagit.fr/visuals/German/article/patch-management-squares-adobe.jpg"
         }
       ]
     }

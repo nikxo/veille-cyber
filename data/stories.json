@@ -15479,9 +15479,9 @@
       "id": "2026-10-17-connectwise-cloud-backup-microsoft-365",
       "title": "Identifiant ConnectWise Cloud Backup compromis : accès à plus de 160 environnements Microsoft 365",
       "created": "2026-10-17T07:30:00+00:00",
-      "updated": "2026-10-20T13:09:22+00:00",
-      "version": 9,
-      "resume": "Un identifiant Microsoft 365 compromis de ConnectWise Cloud Backup a servi à obtenir des jetons : 173 environnements selon [1], 162 selon Huntress [2, 3, 7]. ConnectWise a suspendu l'accès au service le 17 octobre [3, 4].",
+      "updated": "2026-10-21T19:07:43+00:00",
+      "version": 10,
+      "resume": "Un identifiant Microsoft 365 compromis de ConnectWise Cloud Backup a servi à obtenir des jetons : 173 environnements selon [1], 162 selon Huntress [2, 3, 7]. Microsoft attribue la campagne à Storm-0940 [10].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -15489,7 +15489,7 @@
         },
         {
           "etape": "Mots de passe testés",
-          "texte": "Les 13 et 14 octobre, essais de mots de passe sur quatre cabinets d'avocats → deux comptes verrouillés, aucune connexion réussie observée [2]."
+          "texte": "Essais de mots de passe : quatre cabinets les 13-14 octobre [2] ; 327 comptes de 8 organisations du 10 au 14 octobre [10] → aucune connexion réussie [2, 10]."
         },
         {
           "etape": "Obtention de jetons",
@@ -15579,21 +15579,33 @@
           }
         ]
       },
-      "limites": "Origine de la compromission et acteur non précisés [1, 2, 3, 4, 8]. Décomptes : 173 [1], 162 [2, 3], environ 300 [4], plus de 300 [6]. Sophos : aucun secret ni rôle ajouté dans ses tenants examinés [8].",
+      "limites": "Origine de la compromission non précisée [1, 2, 3, 4, 8]. Décomptes : 173 [1], 162 [2, 3], plus de 300 [6], plus de 2 250 [10]. Sophos : aucun secret ni rôle ajouté dans ses tenants examinés [8].",
       "cves": [],
       "mitre": [
         "T1078.004 : Valid Cloud Accounts, utilisation de l'identifiant du fournisseur [2]",
         "T1098.003 : Additional Cloud Roles, rôles d'administrateur auto-attribués [2]",
-        "T1098.001 : Additional Cloud Credentials, secrets ajoutés à d'autres applications [2]"
+        "T1098.001 : Additional Cloud Credentials, secrets ajoutés à d'autres applications [2]",
+        "T1595 : Active Scanning, reconnaissance et scan des organisations [10]",
+        "T1195 : Supply Chain Compromise, compromission via l'application multi-locataires [10]",
+        "T1528 : Steal Application Access Token, vol d'identités d'applications [10]",
+        "T1087.004 : Cloud Account Discovery, découverte de comptes cloud [10]",
+        "T1580 : Cloud Infrastructure Discovery, découverte de l'infrastructure cloud [10]"
       ],
       "acteurs": [
-        "Acteurs inconnus, sans attribution [1, 2, 4]"
+        "Non attribué par les sources [1, 2, 4]",
+        "Storm-0940, acteur aligné sur l'État chinois selon Microsoft, qui utilise l'outil ARTEX [10]"
       ],
       "cibles": [
         "Environnements Microsoft 365 de partenaires et clients de ConnectWise Cloud Backup, dont quatre cabinets d'avocats visés par des essais de mots de passe [1, 2, 3]",
-        "Seconde vague, largement infructueuse : politique, sécurité nationale, commerce, minerais critiques [7]"
+        "Seconde vague, largement infructueuse : politique, sécurité nationale, commerce, minerais critiques [7]",
+        "Selon Microsoft : défense, énergie, services financiers, gouvernement, juridique, technologie, entre autres [10]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "ARTEX",
+          "definition": "Outil open source de test d'intrusion multi-agents automatisant les attaques"
+        }
+      ],
       "sources": [
         {
           "titre": "Hackers Use Compromised ConnectWise Credential to Sign In to 173 Microsoft 365 Tenants",
@@ -15657,6 +15669,13 @@
           "url": "https://thehackernews.com/2026/10/connectwise-resets-credentials-as-cloud.html",
           "date": "2026-10-20",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgN8mboHojdAmthr-jUWvIgg5BgmRsrAFJRQFz-nEuPEAIGTqwVKwnf9c7E8jGzdpHfWZuDENURbDFFADIJ76Tf7h5lamLTOUoY5ui438ugfOJYw-2vkAuITMBMxt-0CWFxj43bdgDY19exYceRvJEScmPpWoYXBjkIHLOilUSF1wWmSta5o9ocPpLywQn/s1700-nu-rw-lo-l85-e365/connect.jpg"
+        },
+        {
+          "titre": "AI-driven, large-scale nation-state campaign using ARTEX enables supply chain compromise",
+          "site": "Microsoft Threat Intelligence",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
+          "date": "2026-10-21",
+          "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/05/MS_Actional-Insights_Storm.jpg"
         }
       ]
     },
@@ -16244,8 +16263,8 @@
       "id": "2026-10-19-plex2shell-plex-media-server",
       "title": "Plex2Shell : serveurs Plex Media Server exploités pour installer un mineur et un proxy",
       "created": "2026-10-19T13:12:00+00:00",
-      "updated": "2026-10-21T08:30:00+00:00",
-      "version": 3,
+      "updated": "2026-10-21T19:07:43+00:00",
+      "version": 4,
       "resume": "Une chaîne de quatre failles de Plex Media Server a été exploitée pour installer un mineur de cryptomonnaie et un proxy, un jour après la publication d'une preuve de concept [1, 3].",
       "chaine": [
         {
@@ -16287,7 +16306,7 @@
           }
         ]
       },
-      "limites": "Seul un serveur piège est cité comme touché [1]. La CISA a ajouté les quatre failles à son catalogue des failles exploitées [4]. Aucun acteur n'est désigné [1, 3, 4].",
+      "limites": "Seul un serveur piège est cité comme touché [1]. La CISA a ajouté les quatre failles à son catalogue [4]. Aucun acteur n'est désigné [1, 3, 4, 5]. Correctifs exigés avant le 23 octobre [5].",
       "cves": [
         {
           "id": "CVE-2026-96652",
@@ -16347,6 +16366,13 @@
           "url": "https://thehackernews.com/2026/10/cisa-orders-federal-agencies-to-patch.html",
           "date": "2026-10-21",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfRmqQZkpAkJjV5n1-UxHellgRgKaXXwJgUPM899Ifw0xOVJpKIO2Av8Pa921ZhOWlTLxP-5dxNrEhM62cTOmKS9gOXIZUyVSbJf9FirgDs1MzI_metTj-G_TsMzH80Y1yRdf7g5-0yhhwGAO7e6A_J-M-hAojy6JWVyYlti-98f0lVlM0QXgpT3blIJEu/s1700-nu-rw-lo-l85-e365/cisa-plex.jpg"
+        },
+        {
+          "titre": "CISA: Hackers chain Plex flaws in Plex2Shell attacks to breach servers",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cisa-hackers-chain-plex-flaws-in-plex2shell-attacks-to-breach-servers/",
+          "date": "2026-10-21",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/21/CISA.jpg"
         }
       ]
     },

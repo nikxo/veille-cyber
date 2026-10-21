@@ -2,6 +2,154 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-10-21-tor-relais-sortie-ssh",
+      "title": "Plus de 300 relais de sortie Tor détournés pour voler des mots de passe SSH",
+      "created": "2026-10-21T12:20:00+00:00",
+      "updated": "2026-10-21T12:20:00+00:00",
+      "version": 1,
+      "resume": "Des attaquants ont pris le contrôle de plus de 300 relais de sortie Tor début octobre pour rediriger des connexions SSH vers des serveurs qui volaient les mots de passe [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Connexion au serveur de gestion d'un opérateur avec le mot de passe du compte, SSH par mot de passe activé → droits root en moins de cinq minutes [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Installation de la porte dérobée Ebury 1.8.3 sur ce serveur, puis sur un second serveur atteint un peu plus d'une heure après [1]."
+        },
+        {
+          "etape": "Détournement des relais",
+          "texte": "Modification de la politique de sortie des relais pour autoriser le port 22 → 333 sorties redirigeant SSH vers 12 serveurs d'interception, au 2 octobre [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Le serveur d'interception présente sa propre clé d'hôte → le mot de passe saisi par l'utilisateur est transmis à l'attaquant [1]."
+        },
+        {
+          "etape": "Accès au serveur visé",
+          "texte": "Connexion au vrai serveur avec ce mot de passe → observation des commandes et exécution d'un installateur Perl encodé en base64 [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "gest",
+            "type": "serveur",
+            "zone": "expose",
+            "nom": "Serveur de gestion de l'opérateur",
+            "note": "Ebury installé"
+          },
+          {
+            "id": "rel",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Relais de sortie Tor",
+            "note": "Port 22 autorisé"
+          },
+          {
+            "id": "int",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveurs d'interception",
+            "note": "Fausse clé d'hôte"
+          },
+          {
+            "id": "cib",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur SSH visé",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gest",
+            "etape": 1,
+            "texte": "Connexion avec le mot de passe du compte"
+          },
+          {
+            "de": "att",
+            "vers": "gest",
+            "etape": 2,
+            "texte": "Porte dérobée Ebury installée"
+          },
+          {
+            "de": "att",
+            "vers": "rel",
+            "etape": 3,
+            "texte": "Politique de sortie modifiée"
+          },
+          {
+            "de": "rel",
+            "vers": "int",
+            "etape": 3,
+            "texte": "Connexions SSH redirigées"
+          },
+          {
+            "de": "int",
+            "vers": "att",
+            "etape": 4,
+            "texte": "Mot de passe transmis"
+          },
+          {
+            "de": "att",
+            "vers": "cib",
+            "etape": 5,
+            "texte": "Connexion avec le mot de passe volé"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent pas l'origine du mot de passe, l'auteur de la campagne ni le nombre d'utilisateurs ayant saisi un mot de passe [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1]"
+      ],
+      "cibles": [
+        "Relais de sortie Tor, dont ceux de l'opérateur Zimmer, et utilisateurs de SSH par mot de passe via Tor [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole de connexion à distance sécurisée à un serveur"
+        },
+        {
+          "sigle": "Tor",
+          "definition": "Réseau d'anonymisation dont les relais de sortie transmettent le trafic vers sa destination"
+        },
+        {
+          "sigle": "Perl",
+          "definition": "Langage de script utilisé ici pour un installateur"
+        },
+        {
+          "sigle": "base64",
+          "definition": "Encodage qui transforme des données en texte"
+        },
+        {
+          "sigle": "Ebury",
+          "definition": "Porte dérobée et voleur d'identifiants pour OpenSSH"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Attackers Hijacked Over 300 Tor Exit Relays to Intercept SSH Connections",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/attackers-hijacked-over-300-tor-exit.html",
+          "date": "2026-10-21",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-PokIxnQKc5RkxwrgRCR7Aaw8sjbkT1F4TQWCIG2V_rhQVKp8CJgtivgF5Zns45rObi0Tf-e9FDBXdX0L7OUshol00GvpiQhAi3SUAa72DV-bjeDu2oNzET9uV_cIQV2U9jSXGC2qiWWOr00M1ZYPAtcaWJNSn2_IH_BwPWVaUEqqjpmUSgfhIvRUdbY/s1700-nu-rw-lo-l85-e365/tor-ssh.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-10-20-apt28-hookedge-defense",
       "title": "APT28 : espionnage de sous-traitants de défense et d'une police dans deux pays de l'OTAN",
       "created": "2026-10-20T10:30:00+00:00",

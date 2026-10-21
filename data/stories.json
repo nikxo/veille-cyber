@@ -18451,8 +18451,8 @@
       "id": "2026-10-20-safepay-rancongiciel-avertissement",
       "title": "SafePay : avertissement du FBI et d'agences britannique et allemande sur un rançongiciel à plus de 600 victimes",
       "created": "2026-10-20T21:30:00+00:00",
-      "updated": "2026-10-21T09:30:00+00:00",
-      "version": 2,
+      "updated": "2026-10-21T16:20:00+00:00",
+      "version": 3,
       "resume": "Le FBI et des agences britannique et allemande alertent sur le rançongiciel SafePay, actif depuis août 2024, qui a touché au moins 600 organisations aux États-Unis et en Europe [1], dont des infrastructures critiques dans le monde [2].",
       "chaine": [
         {
@@ -18473,7 +18473,7 @@
         },
         {
           "etape": "Vol de données",
-          "texte": "Compression des fichiers avec des outils légitimes → exfiltration avant le déploiement du rançongiciel, puis menace de publication si la rançon n'est pas payée [1, 2]."
+          "texte": "Compression des fichiers avec des outils légitimes → exfiltration avant le rançongiciel [1, 2], parfois via OneDrive [3] ; menace de publication sans paiement [1, 2]."
         },
         {
           "etape": "Chiffrement",
@@ -18551,10 +18551,12 @@
       "mitre": [],
       "acteurs": [
         "SafePay, parmi les groupes de rançongiciel les plus actifs en 2026 selon le FBI et les agences allemande et britannique [1]",
-        "Groupe privé qui ne travaille pas avec des affiliés, selon l'article [2]"
+        "Groupe privé qui ne travaille pas avec des affiliés, selon l'article [2]",
+        "Liens avec d'anciens membres de Nokoyawa et avec d'autres groupes, selon un chercheur de RedSense [3]"
       ],
       "cibles": [
-        "Entreprises et infrastructures critiques ; victimes citées : Ingram Micro, Microlise, Conduent [1]"
+        "Entreprises et infrastructures critiques ; victimes citées : Ingram Micro, Microlise, Conduent [1]",
+        "Nisa (Royaume-Uni), touchée le 31 octobre 2025 par des affidés de SafePay [3]"
       ],
       "abreviations": [
         {
@@ -18580,6 +18582,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/cisa-and-fbi-safepay-ransomware-has-hit-over-600-critical-infrastructure-organizations/",
           "date": "2026-10-21",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/08/11/Hacker.jpg"
+        },
+        {
+          "titre": "SafePay, une enseigne plus redoutable qu'il n'y paraît ?",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366652391/SafePay-une-enseigne-bien-plus-redoutable-quil-ny-parait",
+          "date": "2026-10-21",
+          "image": "https://www.lemagit.fr/rms/LeMagIT/safepay.jpg"
         }
       ]
     },
@@ -19304,21 +19313,29 @@
       "id": "2026-10-21-php2shell-cve-2026-109618",
       "title": "PHP2Shell : deux failles critiques de PHP, tentatives d'exploitation avant les correctifs",
       "created": "2026-10-21T13:30:00+00:00",
-      "updated": "2026-10-21T14:10:43+00:00",
-      "version": 2,
-      "resume": "Deux failles critiques de PHP (PHP2Shell) permettent d'exécuter du code via une requête web sans authentification ; des correctifs d'urgence sont sortis [5]. Cloudflare dit observer des attaques avant les correctifs [5].",
+      "updated": "2026-10-21T16:20:00+00:00",
+      "version": 3,
+      "resume": "Deux failles critiques du cœur de PHP (PHP2Shell) permettent d'exécuter du code via une requête web sans authentification [6, 11]. Des correctifs d'urgence sont sortis le 21 octobre [9] ; des centaines de sites ont été mis hors ligne [8].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Requête web sans authentification vers un serveur PHP → déclenchement de l'attaque avant tout code applicatif [5]."
+          "texte": "Requête web sans authentification vers un serveur PHP → déclenchement de l'attaque avant tout code applicatif [5, 6, 11]."
         },
         {
           "etape": "Corruption de mémoire",
-          "texte": "Une requête qui se termine anormalement laisse la mémoire de PHP corrompue → exécution de code avec les droits du processus web [4, 5]."
+          "texte": "Requête multipart épuisant la mémoire → données internes partiellement initialisées, puis exécution de code au nettoyage [11] ; seconde faille : état périmé réutilisé [6, 11]."
+        },
+        {
+          "etape": "Lecture de mémoire",
+          "texte": "Une faille permet de lire la mémoire du processus PHP → mots de passe, jetons, clés API et certificats d'autres requêtes exposés [9]."
         },
         {
           "etape": "Exploitation observée",
-          "texte": "Un démonstrateur d'exploitation public circule [1, 4] ; le directeur technique de Cloudflare confirme des attaques précoces sur les deux failles [3, 5]."
+          "texte": "Un démonstrateur d'exploitation public circule [1, 4, 10] ; Cloudflare constate des attaques précoces [3, 5, 9] et Kaspersky des tentatives [10]."
+        },
+        {
+          "etape": "Mises hors ligne",
+          "texte": "Sites coupés par précaution → centaines de sites hors ligne [8] ; BambooHR suspendu et services publics néerlandais retirés [9]."
         }
       ],
       "parcours": {
@@ -19349,28 +19366,39 @@
             "de": "att",
             "vers": "srv",
             "etape": 3,
+            "texte": "Lecture de la mémoire du processus PHP"
+          },
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 4,
             "texte": "Attaques précoces observées par Cloudflare"
           }
         ]
       },
-      "limites": "Sophos indique qu'aucune exploitation active n'est signalée [1] ; LeMagIT et BleepingComputer rapportent des tentatives [3, 5], ZATAZ aucune attaque active [2]. Unit 42 ne mentionne pas d'exploitation [4].",
+      "limites": "Sophos, ZATAZ, Talos, Elastic et watchTowr ne constatent aucune exploitation active [1, 2, 6, 7, 9] ; LeMagIT, BleepingComputer, The Record, Krebs et Kaspersky rapportent des attaques ou tentatives [3, 5, 8, 10, 12].",
       "cves": [
         {
           "id": "CVE-2026-109618",
-          "explication": "PHP : chaîne de faiblesses liée à un manque de mémoire, corruption de mémoire et exécution de code, gravité critique 9,2 sur 10 [4, 5]."
+          "explication": "PHP : manque de mémoire laissant des données de requête partiellement initialisées, puis exécution de code, gravité critique 9,2 sur 10 [4, 5, 6, 11]."
         },
         {
           "id": "CVE-2026-109619",
-          "explication": "PHP : pointeurs vers de la mémoire libérée après une erreur fatale, exécution de code sans authentification, gravité critique 9,2 sur 10 [4, 5]."
+          "explication": "PHP : état interne réutilisé après libération de sa mémoire, exécution de code sans authentification, gravité critique 9,2 sur 10 [4, 5, 6, 11]."
         }
       ],
-      "mitre": [],
+      "mitre": [
+        "T1190 : Exploit Public-Facing Application, cité par Elastic comme correspondance attendue, sans activité observée [7]",
+        "T1059 : Command and Scripting Interpreter, cité par Elastic comme correspondance attendue, sans activité observée [7]",
+        "T1505.003 : Server Software Component: Web Shell, cité par Elastic comme correspondance attendue, sans activité observée [7]"
+      ],
       "acteurs": [
-        "Non identifié : les sources ne nomment pas ceux qui tentent l'exploitation [1, 2, 3]"
+        "Non identifié : les sources ne nomment pas ceux qui tentent l'exploitation [1, 2, 3, 6, 11]"
       ],
       "cibles": [
         "Serveurs web sous PHP ; 22,6 millions d'instances exposées selon Unit 42, 5,1 millions d'hôtes selon VirusTotal [4, 5]",
-        "Un gouvernement européen a mis son site hors ligne par précaution [4]"
+        "Un gouvernement européen a mis son site hors ligne par précaution [4]",
+        "Hors ligne : BambooHR, services publics néerlandais, plusieurs gouvernements [8, 9]"
       ],
       "abreviations": [
         {
@@ -19380,6 +19408,10 @@
         {
           "sigle": "CVSS",
           "definition": "Common Vulnerability Scoring System : note de gravité d'une faille de 0 à 10"
+        },
+        {
+          "sigle": "API",
+          "definition": "Interface permettant à des programmes de communiquer entre eux"
         }
       ],
       "sources": [
@@ -19417,6 +19449,54 @@
           "url": "https://www.bleepingcomputer.com/news/security/php-ships-emergency-patches-for-critical-php2shell-flaws/",
           "date": "2026-10-21",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/21/PHP.jpg"
+        },
+        {
+          "titre": "Two critical RCEs in PHP core",
+          "site": "Cisco Talos",
+          "url": "https://blog.talosintelligence.com/two-critical-rces-in-php-core/",
+          "date": "2026-10-21",
+          "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/threat_advisory.jpg"
+        },
+        {
+          "titre": "php2shell: Assessing Elastic detection coverage relevant to CVE-2026-109618 and CVE-2026-109619",
+          "site": "Elastic Security Labs",
+          "url": "https://www.elastic.co/security-labs/threat-command/php2shell-php-rce-detection",
+          "date": "2026-10-21",
+          "image": "https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/blte46ab96342b9d9fc/6ad8b873b537019b6b7be681/php2shell.jpg"
+        },
+        {
+          "titre": "Hundreds of websites taken offline as concern grows over two PHP vulnerabilities",
+          "site": "The Record",
+          "url": "https://therecord.media/php-script-vulnerabilities-warnings",
+          "date": "2026-10-21",
+          "image": "https://cms.therecord.media/uploads/pexels_pixabay_270557_b1a99bb16a.jpg"
+        },
+        {
+          "titre": "PHP Issues Emergency Patches for Two Critical PHP2Shell RCE Flaws as Exploit Attempts Emerge",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/php-issues-emergency-patches-for-two.html",
+          "date": "2026-10-21",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhz8MKP95jyzesxy1eZd6zQDCb3dr-9m-bRE9W0PYnomN3z8lodXmM_0Oo4AAiP_nt2QMNpLxsUNPKueH4TW6FnvXl7ijDGDwxnXcfiyAII6sUDd8cfKoB7Z3MgLOvcAWDeplnUdixy-zfpgVqCuAVZmqH-Orn4S-QhYREVcY1ew7_6kIG8LBsdLZC8Ofs/s1700-nu-rw-lo-l85-e365/PHP2SHELL.gif"
+        },
+        {
+          "titre": "Critical RCE vulnerabilities in PHP (CVE-2026-109618, CVE-2026-109619)",
+          "site": "Securelist (Kaspersky)",
+          "url": "https://securelist.com/tr/php2shell-critical-vulnerabilities-in-php/121596/",
+          "date": "2026-10-21",
+          "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/10/21122913/php2shell-featured-image.jpg"
+        },
+        {
+          "titre": "CVE-2026-109618 and CVE-2026-109619: Critical Unauthenticated Remote Code Execution in PHP",
+          "site": "Rapid7",
+          "url": "https://www.rapid7.com/blog/post/etr-cve-2026-109618-and-cve-2026-109619-critical-unauthenticated-remote-code-execution-in-php",
+          "date": "2026-10-21",
+          "image": "https://www.rapid7.com/cdn/images/blt65a432ba319f4043/6846abddaf18306debe6cf4d/ETR.webp"
+        },
+        {
+          "titre": "Widespread PHP Flaw May Cause Many Site Outages Today",
+          "site": "Krebs on Security",
+          "url": "https://krebsonsecurity.com/2026/10/widespread-php-flaw-may-cause-many-site-outages-today/",
+          "date": "2026-10-21"
         }
       ]
     },

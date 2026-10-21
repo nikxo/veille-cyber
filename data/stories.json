@@ -16096,8 +16096,8 @@
       "id": "2026-10-19-plex2shell-plex-media-server",
       "title": "Plex2Shell : serveurs Plex Media Server exploités pour installer un mineur et un proxy",
       "created": "2026-10-19T13:12:00+00:00",
-      "updated": "2026-10-19T19:08:15+00:00",
-      "version": 2,
+      "updated": "2026-10-21T08:30:00+00:00",
+      "version": 3,
       "resume": "Une chaîne de quatre failles de Plex Media Server a été exploitée pour installer un mineur de cryptomonnaie et un proxy, un jour après la publication d'une preuve de concept [1, 3].",
       "chaine": [
         {
@@ -16139,7 +16139,7 @@
           }
         ]
       },
-      "limites": "Seul un serveur piège est cité comme touché [1] ; des messages Reddit évoquent d'autres utilisateurs compromis par le même mineur, sans lien confirmé [3]. Aucun acteur n'est désigné [1, 3].",
+      "limites": "Seul un serveur piège est cité comme touché [1]. La CISA a ajouté les quatre failles à son catalogue des failles exploitées [4]. Aucun acteur n'est désigné [1, 3, 4].",
       "cves": [
         {
           "id": "CVE-2026-96652",
@@ -16167,6 +16167,10 @@
         {
           "sigle": "ELF",
           "definition": "Format des fichiers exécutables sous Linux"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité des infrastructures"
         }
       ],
       "sources": [
@@ -16188,6 +16192,13 @@
           "url": "https://thehackernews.com/2026/10/hackers-exploit-plex2shell-flaws-to.html",
           "date": "2026-10-19",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjF_Xo8mH5AxIDYx4hFrS1_uhblD0IoGUTo6bioM38mwy-whZAbcq1aaGeH1iZrS8nmk5Ow25NfX67HRXKiWFfzLc8C1A2zs2n948DwyW_NSSkowFDnEzxUofGxhNV72vTEWkgPmbO6XJyDUPwBR-lzSekj5_m8tY3JHjozUXETGEBg6GrLZrekhilW9W_R/s1700-nu-rw-lo-l85-e365/plex-hack.jpg"
+        },
+        {
+          "titre": "CISA Orders Federal Agencies to Patch Exploited Plex2Shell, Siemens, and SiteGuard Flaws",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/cisa-orders-federal-agencies-to-patch.html",
+          "date": "2026-10-21",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfRmqQZkpAkJjV5n1-UxHellgRgKaXXwJgUPM899Ifw0xOVJpKIO2Av8Pa921ZhOWlTLxP-5dxNrEhM62cTOmKS9gOXIZUyVSbJf9FirgDs1MzI_metTj-G_TsMzH80Y1yRdf7g5-0yhhwGAO7e6A_J-M-hAojy6JWVyYlti-98f0lVlM0QXgpT3blIJEu/s1700-nu-rw-lo-l85-e365/cisa-plex.jpg"
         }
       ]
     },
@@ -18579,6 +18590,104 @@
           "url": "https://securelist.com/lazarus-operation-flashhole/121541/",
           "date": "2026-10-21",
           "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/10/20205657/sas-lazarus-3_securelist-featured_1200x600.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-21-partisan-zmiy-vasilek-sante-russe",
+      "title": "Partisan Zmiy : deux ans dans le réseau d'un établissement de santé russe via la porte dérobée Vasilek",
+      "created": "2026-10-21T08:30:00+00:00",
+      "updated": "2026-10-21T08:30:00+00:00",
+      "version": 1,
+      "resume": "Le groupe hacktiviste Partisan Zmiy est resté près de deux ans dans le réseau d'une organisation de santé russe, grâce à une porte dérobée dissimulée dans VMware Tools. Aucune action destructrice n'a été observée [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Service imitant un composant VMware et dépôt de fichiers dans le répertoire VMware Tools, dont un vmtools.dll remplacé → porte dérobée Vasilek maintenue sur les machines [1]."
+        },
+        {
+          "etape": "Contrôle à distance",
+          "texte": "Vasilek pilotée via Telegram → exécution de commandes, transfert de fichiers, captures d'écran et enregistrement des frappes [1]."
+        },
+        {
+          "etape": "Découverte",
+          "texte": "Intrusion découverte par Solar en décembre 2025, après des premiers indices début 2024 [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Partisan Zmiy)",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines avec VMware Tools",
+            "note": "Vasilek installée"
+          },
+          {
+            "id": "tg",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Telegram (commande)",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Faux composant VMware, vmtools.dll remplacé"
+          },
+          {
+            "de": "tg",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Commandes envoyées à la porte dérobée via Telegram"
+          }
+        ]
+      },
+      "limites": "Le vecteur d'accès initial n'est pas précisé. L'article indique que Telegram est bloqué en Russie, ce qui a rendu la communication instable [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Partisan Zmiy, aussi appelé Cyber Partisans, groupe hacktiviste aligné sur la Biélorussie, actif depuis au moins 2020 [1]"
+      ],
+      "cibles": [
+        "Organisation de santé russe non identifiée, avec de nombreux établissements médicaux filiales [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Hackers Hid Vasilek Backdoor in VMware Tools During 2-Year Russian Healthcare Intrusion",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/hackers-hid-vasilek-backdoor-in-vmware.html",
+          "date": "2026-10-21",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwNHgVe_6hmXG-V6Nx8pk56jDEW1WRCKtvvG9RHugoj65LqTTVGLvgl1Eh1E7ClmyMDn9k4RrF7Yp1kteZvZ_r7v9IxQPG_Eif3nk_13gz_MSddPcBtJdLKFwYAPa4BKMN5FdZLvvTIjahr4aTdiiLeQMuVzrj8Ff9wvgmUCW_6_OyfXPSGIEEIxZgdtQ-/s1700-nu-rw-lo-l85-e365/vmware-healthcare.jpg"
         }
       ]
     }

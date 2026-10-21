@@ -19313,8 +19313,8 @@
       "id": "2026-10-21-php2shell-cve-2026-109618",
       "title": "PHP2Shell : deux failles critiques de PHP, tentatives d'exploitation avant les correctifs",
       "created": "2026-10-21T13:30:00+00:00",
-      "updated": "2026-10-21T16:20:00+00:00",
-      "version": 3,
+      "updated": "2026-10-21T17:09:34+00:00",
+      "version": 4,
       "resume": "Deux failles critiques du cœur de PHP (PHP2Shell) permettent d'exécuter du code via une requête web sans authentification [6, 11]. Des correctifs d'urgence sont sortis le 21 octobre [9] ; des centaines de sites ont été mis hors ligne [8].",
       "chaine": [
         {
@@ -19331,7 +19331,7 @@
         },
         {
           "etape": "Exploitation observée",
-          "texte": "Un démonstrateur d'exploitation public circule [1, 4, 10] ; Cloudflare constate des attaques précoces [3, 5, 9] et Kaspersky des tentatives [10]."
+          "texte": "Démonstrateur public → tentatives d'exploitation signalées par Cloudflare, Patchstack, watchTowr et Vega, sans réussite constatée par watchTowr [13] ; Hadrian affirme une exploitation à grande échelle [13]."
         },
         {
           "etape": "Mises hors ligne",
@@ -19376,7 +19376,7 @@
           }
         ]
       },
-      "limites": "Sophos, ZATAZ, Talos, Elastic et watchTowr ne constatent aucune exploitation active [1, 2, 6, 7, 9] ; LeMagIT, BleepingComputer, The Record, Krebs et Kaspersky rapportent des attaques ou tentatives [3, 5, 8, 10, 12].",
+      "limites": "Sophos, ZATAZ, Talos, Elastic et watchTowr ne constatent aucune exploitation active [1, 2, 6, 7, 9] ; d'autres sources rapportent des attaques ou tentatives [3, 5, 8, 10, 12, 13].",
       "cves": [
         {
           "id": "CVE-2026-109618",
@@ -19497,6 +19497,13 @@
           "site": "Krebs on Security",
           "url": "https://krebsonsecurity.com/2026/10/widespread-php-flaw-may-cause-many-site-outages-today/",
           "date": "2026-10-21"
+        },
+        {
+          "titre": "PHP2Shell Patches Land as First Exploitation Attempts Hit Sensors",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/php2shell-patches-land-as-first-exploitation-attempts-hit-sensors/",
+          "date": "2026-10-21",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/php-exploit-code.webp"
         }
       ]
     },

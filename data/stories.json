@@ -18099,8 +18099,8 @@
       "id": "2026-10-20-bronze-sandcastle-meterpreter",
       "title": "Bronze Sandcastle : porte dérobée Meterpreter modifiée chargée par sideloading de DLL",
       "created": "2026-10-20T16:30:00+00:00",
-      "updated": "2026-10-20T16:30:00+00:00",
-      "version": 1,
+      "updated": "2026-10-21T13:30:00+00:00",
+      "version": 2,
       "resume": "Sophos attribue au groupe Bronze Sandcastle, lié à la Chine, plusieurs intrusions en Asie et en Afrique utilisant une porte dérobée dérivée de Meterpreter [1].",
       "chaine": [
         {
@@ -18109,15 +18109,19 @@
         },
         {
           "etape": "Exécution",
-          "texte": "Programme légitime (Sandboxie, Krita…) placé avec une DLL malveillante → le programme de confiance charge le code des attaquants [1]."
+          "texte": "Exécutable Sandboxie légitime placé avec une fausse DLL → le code des attaquants s'exécute sous un processus de confiance [1, 2]."
         },
         {
           "etape": "Prise de contrôle",
-          "texte": "Porte dérobée basée sur Meterpreter → envoi au serveur C2 d'un profil de la machine (système, adresses IP, processus) [1]."
+          "texte": "La DLL lit un fichier config.ini chiffré et l'exécute en mémoire → porte dérobée qui envoie au serveur C2 un profil de la machine [1, 2]."
         },
         {
           "etape": "Reconnaissance",
-          "texte": "Commandes Windows « net » → énumération du réseau et des comptes utilisateurs [1]."
+          "texte": "Commandes Windows « net » ; la porte dérobée énumère aussi le réseau local et les comptes → cartographie de la victime [1, 2]."
+        },
+        {
+          "etape": "Communication avec les attaquants",
+          "texte": "Version 1.1.5 : contact de file.io, gofile.io et ably ; version 1.1.7 : API GitHub pour récupérer des configurations chiffrées [2]."
         },
         {
           "etape": "Vol d'identifiants",
@@ -18164,21 +18168,21 @@
           {
             "de": "pc",
             "vers": "ad",
-            "etape": 5,
+            "etape": 6,
             "texte": "Copie du fichier ntds.dit"
           }
         ]
       },
-      "limites": "L'article ne précise ni le vecteur d'accès initial, ni la persistance, ni le déplacement dans le réseau, ni l'exfiltration [1].",
+      "limites": "Les sources ne précisent ni le vecteur d'accès initial, ni la persistance de cette campagne, ni l'exfiltration [1, 2].",
       "cves": [],
       "mitre": [
-        "T1574.001 DLL Side-Loading : un programme légitime charge une DLL malveillante placée à côté [1]."
+        "T1574.001 DLL Side-Loading : un programme légitime charge une DLL malveillante placée à côté [1, 2]."
       ],
       "acteurs": [
-        "Bronze Sandcastle, groupe lié à la Chine selon Sophos [1]"
+        "Bronze Sandcastle, groupe lié à la Chine selon Sophos [1, 2]"
       ],
       "cibles": [
-        "Philippines, Taïwan, Afghanistan, Namibie, incidents d'août 2025 à août 2026 [1]"
+        "Philippines, Taïwan, Afghanistan, Namibie, incidents d'août 2025 à août 2026 [1] ; Asie et Afrique depuis mi-2025 [2]"
       ],
       "abreviations": [
         {
@@ -18192,6 +18196,10 @@
         {
           "sigle": "IP",
           "definition": "Internet Protocol : adresse identifiant une machine sur un réseau"
+        },
+        {
+          "sigle": "API",
+          "definition": "Application Programming Interface : interface permettant à un programme d'en interroger un autre"
         }
       ],
       "sources": [
@@ -18201,6 +18209,13 @@
           "url": "https://www.sophos.com/en-us/blog/bronze-sandcastle-deploys-modified-meterpreter-shells",
           "date": "2026-10-20",
           "image": "https://images.contentstack.io/v3/assets/blt38f1f401b66100ad/bltb4b6c0750dc5846c/6aad5e6160452d9f5056a4ef/logo.png"
+        },
+        {
+          "titre": "China-Aligned Bronze Sandcastle Abuses Sandboxie DLL Sideloading to Deploy Backdoors",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/china-aligned-bronze-sandcastle-abuses.html",
+          "date": "2026-10-21",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgq2iUs3zJHHrrskI-icX8x-nBeJxjr_O9uRE2lvcLQkaOhVUHFjTQYLItaZPVskt39VgI2ZYoMDuIhqkAAqEl1bYHLv5ctEfQvPe9UmLyzVEo46YS4xOEz7HcoYKSiNtT_g2bqfKLPFis98BVTTjSR9gafpKRceKKcj0rUf3pb89zBXVt_PequHoA-ta3t/s1700-nu-rw-lo-l85-e365/sandboxie.png"
         }
       ]
     },
@@ -19149,6 +19164,238 @@
           "url": "https://www.zataz.com/quatre-arrestations-autour-dun-sms-blaster/",
           "date": "2026-10-21",
           "image": "https://www.zataz.com/wp-content/uploads/sms_blaster.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-21-amazon-clickfix-finger",
+      "title": "Fausse page Amazon Business : ClickFix via la commande finger, voleur Lumma et accès à distance",
+      "created": "2026-10-21T13:30:00+00:00",
+      "updated": "2026-10-21T13:30:00+00:00",
+      "version": 1,
+      "resume": "Une annonce Google sponsorisée pour « amazon business » a mené des victimes vers un leurre ClickFix qui utilise l'utilitaire Windows finger et installe notamment le voleur Lumma et un outil NetSupport détourné [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Annonce Google sponsorisée « amazon business » → fausse page de connexion Amazon sur Google Sites, puis fausse CAPTCHA qui copie une commande dans le presse-papiers [1]."
+        },
+        {
+          "etape": "Exécution",
+          "texte": "La victime lance la commande dans la boîte Exécuter → finger.exe interroge un serveur de l'attaquant dont le fichier .plan contient un script caché [1, 2]."
+        },
+        {
+          "etape": "Chargement du code",
+          "texte": "Le script récupère IronPython sur GitHub et exécute un script encodé → programme chargé en mémoire qui télécharge ensuite un Node.js portable [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Voleur Lumma injecté par process hollowing → données des navigateurs, portefeuilles crypto, gestionnaires de mots de passe et clients mail ciblés [1, 2]."
+        },
+        {
+          "etape": "Accès durable",
+          "texte": "NetSupport Client piraté installé dans C:\\ProgramData\\Prodclear → contrôle à distance de la machine [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Fausse page Amazon",
+            "note": "Google Sites, fausse CAPTCHA"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de la victime",
+            "note": "Lumma, NetSupport"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Annonce Google sponsorisée vers la fausse page"
+          },
+          {
+            "de": "web",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Commande copiée puis lancée dans Exécuter"
+          },
+          {
+            "de": "pc",
+            "vers": "att",
+            "etape": 4,
+            "texte": "Données volées envoyées par HTTPS"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 5,
+            "texte": "Contrôle à distance via NetSupport"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment pas l'acteur et ne disent pas combien de victimes ont été touchées au total ; Huntress cite au moins trois clients [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié : Huntress parle d'un acteur de la menace sans le nommer [1]"
+      ],
+      "cibles": [
+        "Au moins trois clients de Huntress, utilisateurs cherchant « amazon business » sur Google [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "NetSupport",
+          "definition": "Logiciel légitime d'administration à distance, ici détourné pour contrôler la machine"
+        },
+        {
+          "sigle": "Lumma",
+          "definition": "Voleur d'informations qui récupère identifiants et données des navigateurs"
+        },
+        {
+          "sigle": "finger",
+          "definition": "Vieil utilitaire Windows qui interroge un compte sur un serveur distant"
+        },
+        {
+          "sigle": "ClickFix",
+          "definition": "Leurre qui pousse l'utilisateur à lancer lui-même une commande malveillante"
+        },
+        {
+          "sigle": "CAPTCHA",
+          "definition": "Test censé distinguer un humain d'un robot, ici faux et utilisé comme leurre"
+        },
+        {
+          "sigle": "HTTPS",
+          "definition": "Protocole web chiffré, utilisé ici pour envoyer les données volées"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Amazon-Themed ClickFix Campaign Serves Up Finger-Licking Malware",
+          "site": "Huntress",
+          "url": "https://www.huntress.com/blog/amazon-clickfix-finger",
+          "date": "2026-10-21",
+          "image": "https://cdn.builder.io/api/v1/image/assets%2F3eb6f92aedf74f109c7b4b0897ec39a8%2F21a5f95ccf344856ac40492920da5d63"
+        },
+        {
+          "titre": "Decades-Old Windows Utility Powers Modern ClickFix Attack",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/cyberattacks-data-breaches/decades-old-windows-utility-modern-clickfix-attack",
+          "date": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-21-php2shell-cve-2026-109618",
+      "title": "PHP2Shell : deux failles critiques de PHP, tentatives d'exploitation avant les correctifs",
+      "created": "2026-10-21T13:30:00+00:00",
+      "updated": "2026-10-21T13:30:00+00:00",
+      "version": 1,
+      "resume": "La fondation PHP a annoncé des correctifs pour deux failles critiques, CVE-2026-109618 et CVE-2026-109619, alors que des tentatives d'exploitation sont signalées [1, 3]. Les sources divergent sur l'état de l'exploitation [1, 2, 3].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources : la nature des failles n'est pas détaillée [1, 2, 3]."
+        },
+        {
+          "etape": "Exploitation",
+          "texte": "Un démonstrateur d'exploitation public circule → des utilisateurs disent observer des tentatives d'exploitation, confirmées par le directeur technique de Cloudflare [3]."
+        },
+        {
+          "etape": "Impact possible",
+          "texte": "Exécution de code à distance sans authentification, selon le CERT-EU → lecture de fichiers, vol d'identifiants, porte dérobée, rebond vers d'autres ressources [1, 2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "expose",
+            "nom": "Serveur web sous PHP",
+            "note": "Failles PHP2Shell"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Tentatives d'exploitation signalées"
+          }
+        ]
+      },
+      "limites": "Sophos indique qu'aucune exploitation active n'est signalée [1] ; LeMagIT rapporte des tentatives [3] et ZATAZ ne signale ni attaque active ni démonstration publique [2]. Le type de faille n'est pas détaillé.",
+      "cves": [
+        {
+          "id": "CVE-2026-109618",
+          "explication": "PHP, plusieurs branches concernées : exécution de code à distance, gravité critique 9,2 sur 10 selon l'échelle CVSS ; correctif annoncé pour le 21 octobre [1, 2, 3]."
+        },
+        {
+          "id": "CVE-2026-109619",
+          "explication": "PHP, seconde faille du même ensemble : même gravité critique 9,2 sur 10 ; une mesure provisoire ne réduit la surface d'attaque que pour l'une des deux [1, 2, 3]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié : les sources ne nomment pas ceux qui tentent l'exploitation [1, 2, 3]"
+      ],
+      "cibles": [
+        "Applications web sous PHP, dont WordPress, Drupal et Joomla cités par ZATAZ [2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "PHP",
+          "definition": "Langage de programmation très utilisé pour les sites web côté serveur"
+        },
+        {
+          "sigle": "CVSS",
+          "definition": "Common Vulnerability Scoring System : note de gravité d'une faille de 0 à 10"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Proof-of-concept exploit released for PHP vulnerabilities (CVE-2026-109618, CVE-2026-109619)",
+          "site": "Sophos Threat Research",
+          "url": "https://www.sophos.com/en-us/blog/proof-of-concept-exploit-released-for-php-vulnerabilities-109618-109619",
+          "date": "2026-10-21",
+          "image": "https://images.contentstack.io/v3/assets/blt38f1f401b66100ad/bltb4b6c0750dc5846c/6aad5e6160452d9f5056a4ef/logo.png"
+        },
+        {
+          "titre": "PHP2Shell : deux failles critiques menacent les serveurs web",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/php2shell-deux-failles-critiques-menacent-les-serveurs-web/",
+          "date": "2026-10-21",
+          "image": "https://www.zataz.com/wp-content/uploads/php2shell.jpg"
+        },
+        {
+          "titre": "PHP : deux vulnérabilités critiques déjà exploitées en cours de correction",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366652404/PHP-deux-vulnerabilites-critiques-deja-exploitees-en-cours-de-correction",
+          "date": "2026-10-21",
+          "image": "https://www.lemagit.fr/visuals/German/article/patches-patch-management-plasters-bandaid-adobe.jpg"
         }
       ]
     }

@@ -142,17 +142,17 @@
       "id": "2026-10-20-ovhcloud-cli-releases-compte-detourne",
       "title": "Archives de l'outil en ligne de commande d'OVHcloud remplacées après le détournement d'un compte GitHub",
       "created": "2026-10-20T10:30:00+00:00",
-      "updated": "2026-10-20T12:30:00+00:00",
-      "version": 2,
-      "resume": "Le 19 octobre, un attaquant a remplacé les archives de cinq versions de l'outil en ligne de commande d'OVHcloud sur GitHub par un build conçu pour voler les secrets du disque [1, 2].",
+      "updated": "2026-10-21T06:20:00+00:00",
+      "version": 3,
+      "resume": "Le 19 octobre, un attaquant a remplacé les archives de cinq versions de l'outil en ligne de commande d'OVHcloud sur GitHub par un build conçu pour voler les secrets du disque [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Compromission du compte GitHub d'un développeur → accès au dépôt de l'outil et droits d'écriture sur les releases [1, 2]."
+          "texte": "Compte GitHub d'un développeur compromis en mars, avec un loader caché dans ses dépôts → accès au dépôt de l'outil et droits d'écriture sur les releases [1, 2, 3]."
         },
         {
           "etape": "Remplacement des archives",
-          "texte": "Versions 0.11.0 à 0.15.0 modifiées, immutabilité des releases désactivée → modification sans passer par le pipeline, build en ligne 94 minutes au plus [1, 2]."
+          "texte": "Versions 0.11.0 à 0.15.0 modifiées le 19 octobre, immutabilité des releases désactivée → modification sans passer par le pipeline, build en ligne 94 minutes au plus [1, 2, 3]."
         },
         {
           "etape": "Vol de secrets",
@@ -160,7 +160,7 @@
         },
         {
           "etape": "Détection et correctif",
-          "texte": "Signalement d'un client → archives supprimées à 14:21 UTC [1], blocage à 16:21 [2], puis immutabilité des releases activée [2]."
+          "texte": "Échec d'une vérification de hash et signalement d'un client [3] → archives supprimées à 14:21 UTC [1], blocage à 16:21 [2], puis immutabilité des releases activée [2, 3]."
         }
       ],
       "parcours": {
@@ -202,11 +202,11 @@
           }
         ]
       },
-      "limites": "Les sources ne disent pas comment le compte a été compromis, ni le nombre de victimes [1, 2]. Les heures divergent : 14:21 UTC [1], 16:21 [2].",
+      "limites": "Les sources ne disent pas comment le compte a été compromis, ni le nombre de victimes [1, 2, 3]. Les heures divergent : 14:21 UTC [1], 16:21 [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non identifié ; OpenSourceMalware évoque GlassWorm, présenté comme une inférence [1] et sans attribution confirmée [2]"
+        "Non identifié ; GlassWorm évoqué comme inférence [1], sans attribution confirmée [2] ; le même acteur en mars et octobre n'est pas confirmé [3]"
       ],
       "cibles": [
         "Utilisateurs ayant installé ou mis à jour l'outil sur macOS, Linux ou Windows pendant la fenêtre [1, 2]"
@@ -231,6 +231,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/ovhcloud-cli-releases-backdoored-on-github-to-steal-developer-secrets/",
           "date": "2026-10-20",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/20/ovhcloud.jpg"
+        },
+        {
+          "titre": "Hijacked Developer Account Used to Plant Stealer in OVHcloud CLI",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/hijacked-developer-account-used-to-plant-stealer-in-ovhcloud-cli/",
+          "date": "2026-10-21",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Low-Code-No-Code-Security.jpg"
         }
       ]
     },

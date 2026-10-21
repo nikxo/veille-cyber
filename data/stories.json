@@ -18288,13 +18288,13 @@
       "id": "2026-10-20-safepay-rancongiciel-avertissement",
       "title": "SafePay : avertissement du FBI et d'agences britannique et allemande sur un rançongiciel à plus de 600 victimes",
       "created": "2026-10-20T21:30:00+00:00",
-      "updated": "2026-10-20T21:30:00+00:00",
-      "version": 1,
-      "resume": "Le FBI et des agences britannique et allemande alertent sur le rançongiciel SafePay, actif depuis août 2024, qui a touché au moins 600 organisations aux États-Unis et en Europe [1].",
+      "updated": "2026-10-21T09:30:00+00:00",
+      "version": 2,
+      "resume": "Le FBI et des agences britannique et allemande alertent sur le rançongiciel SafePay, actif depuis août 2024, qui a touché au moins 600 organisations aux États-Unis et en Europe [1], dont des infrastructures critiques dans le monde [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Devinette de mots de passe, exploitation de vulnérabilités ou hameçonnage, sans précision de la méthode utilisée pour chaque victime [1]."
+          "texte": "Identifiants exposés, mots de passe devinés, accès VPN exploités, hameçonnage ou failles d'équipements exposés → entrée dans le réseau [1, 2]."
         },
         {
           "etape": "Prise de contrôle",
@@ -18310,11 +18310,11 @@
         },
         {
           "etape": "Vol de données",
-          "texte": "Compression des fichiers avec des outils légitimes → exfiltration avant le déploiement du rançongiciel [1]."
+          "texte": "Compression des fichiers avec des outils légitimes → exfiltration avant le déploiement du rançongiciel, puis menace de publication si la rançon n'est pas payée [1, 2]."
         },
         {
           "etape": "Chiffrement",
-          "texte": "Rançongiciel transféré via AnyDesk ou TeamViewer → données chiffrées, rançon demandée en cryptomonnaie [1]."
+          "texte": "Rançongiciel transféré via AnyDesk ou TeamViewer → données chiffrées, rançon en cryptomonnaie [1] ; copies instantanées supprimées, stockages réseau de sauvegarde réinitialisés [2]."
         }
       ],
       "parcours": {
@@ -18362,7 +18362,7 @@
           }
         ]
       },
-      "limites": "La source ne précise pas à quelle étape chaque vulnérabilité citée intervient ni l'accès utilisé pour chaque victime [1].",
+      "limites": "Les sources ne précisent pas l'accès utilisé pour chaque victime [1], ni l'ordre strict des étapes ni le détail du déplacement dans le réseau [2].",
       "cves": [
         {
           "id": "CVE-2020-3259",
@@ -18387,7 +18387,8 @@
       ],
       "mitre": [],
       "acteurs": [
-        "SafePay, parmi les groupes de rançongiciel les plus actifs en 2026 selon le FBI et les agences allemande et britannique [1]"
+        "SafePay, parmi les groupes de rançongiciel les plus actifs en 2026 selon le FBI et les agences allemande et britannique [1]",
+        "Groupe privé qui ne travaille pas avec des affiliés, selon l'article [2]"
       ],
       "cibles": [
         "Entreprises et infrastructures critiques ; victimes citées : Ingram Micro, Microlise, Conduent [1]"
@@ -18396,6 +18397,10 @@
         {
           "sigle": "FBI",
           "definition": "Police fédérale américaine chargée des enquêtes criminelles"
+        },
+        {
+          "sigle": "VPN",
+          "definition": "Réseau privé virtuel : accès distant chiffré au réseau d'une organisation"
         }
       ],
       "sources": [
@@ -18405,6 +18410,13 @@
           "url": "https://therecord.media/fbi-says-safepay-ransomware-gang-among-most-active-600-victims",
           "date": "2026-10-20",
           "image": "https://cms.therecord.media/uploads/cryptocurrency_da3a5bc326.png"
+        },
+        {
+          "titre": "CISA: SafePay ransomware hit over 600 critical infrastructure orgs",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cisa-and-fbi-safepay-ransomware-has-hit-over-600-critical-infrastructure-organizations/",
+          "date": "2026-10-21",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/08/11/Hacker.jpg"
         }
       ]
     },
@@ -18688,6 +18700,102 @@
           "url": "https://thehackernews.com/2026/10/hackers-hid-vasilek-backdoor-in-vmware.html",
           "date": "2026-10-21",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwNHgVe_6hmXG-V6Nx8pk56jDEW1WRCKtvvG9RHugoj65LqTTVGLvgl1Eh1E7ClmyMDn9k4RrF7Yp1kteZvZ_r7v9IxQPG_Eif3nk_13gz_MSddPcBtJdLKFwYAPa4BKMN5FdZLvvTIjahr4aTdiiLeQMuVzrj8Ff9wvgmUCW_6_OyfXPSGIEEIxZgdtQ-/s1700-nu-rw-lo-l85-e365/vmware-healthcare.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-21-ledger-implants-lte",
+      "title": "Portefeuilles Ledger piégés : un implant envoie les phrases de récupération",
+      "created": "2026-10-21T09:30:00+00:00",
+      "updated": "2026-10-21T09:30:00+00:00",
+      "version": 1,
+      "resume": "Des portefeuilles Ledger modifiés auraient intercepté les phrases de récupération de leurs propriétaires pour voler des cryptomonnaies ; le fabricant confirme des vols liés à des appareils distribués en Asie du Sud-Est [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Électronique clandestine insérée dans le boîtier, auteur et moment non précisés → composant espion non détecté par le contrôle d'authenticité Genuine Check [1]."
+        },
+        {
+          "etape": "Interception des mots",
+          "texte": "Un microcontrôleur reconnaît les 24 mots de récupération à leur affichage → accès au secret de récupération [1]."
+        },
+        {
+          "etape": "Exfiltration",
+          "texte": "Envoi des mots par connexion LTE via eSIM → vol des cryptomonnaies [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "dev",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Portefeuille Ledger modifié",
+            "note": "Électronique ajoutée"
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Propriétaire du portefeuille",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "dev",
+            "etape": 1,
+            "texte": "Électronique clandestine insérée dans le boîtier"
+          },
+          {
+            "de": "usr",
+            "vers": "dev",
+            "etape": 2,
+            "texte": "Affichage des 24 mots, reconnus par le microcontrôleur"
+          },
+          {
+            "de": "dev",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Mots envoyés par connexion LTE via eSIM"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni l'auteur, ni l'étape où l'électronique a été ajoutée, ni le montant volé ; le lien avec les autres cas signalés n'est pas établi [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Auteurs non identifiés [1]"
+      ],
+      "cibles": [
+        "Clients ayant acheté des appareils chez le revendeur CryptoBilis en Asie du Sud-Est [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "LTE",
+          "definition": "Norme de réseau mobile haut débit (4G)"
+        },
+        {
+          "sigle": "eSIM",
+          "definition": "Carte SIM intégrée à l'appareil pour la connexion mobile"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Ledger piégés : l’enquête examine plusieurs circuits de distribution",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/ledger-pieges-lenquete-examine-plusieurs-circuits-de-distribution/",
+          "date": "2026-10-21",
+          "image": "https://www.zataz.com/wp-content/uploads/ledger_spy.jpg"
         }
       ]
     }

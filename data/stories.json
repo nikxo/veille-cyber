@@ -18389,6 +18389,87 @@
           "image": "https://cms.therecord.media/uploads/cryptocurrency_da3a5bc326.png"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-21-updraftcentral-cles-volees",
+      "title": "TeamUpdraft piraté : clés UpdraftCentral volées pour piéger des sites WordPress",
+      "created": "2026-10-21T02:00:00+00:00",
+      "updated": "2026-10-21T02:00:00+00:00",
+      "version": 1,
+      "resume": "Un attaquant a pénétré le site de TeamUpdraft, éditeur d'extensions WordPress, puis des clés de connexion UpdraftCentral ont servi à déposer des extensions malveillantes sur des sites clients [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Accès non autorisé au site de l'éditeur TeamUpdraft, mode d'intrusion non précisé → l'éditeur pense que des clés de connexion UpdraftCentral ont été atteintes [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Commandes signées avec des clés valides via le canal UpdraftCentral, sans faille serveur exploitée → exécution de code arbitraire et création de comptes administrateur [1]."
+        },
+        {
+          "etape": "Extensions malveillantes",
+          "texte": "Déploiement d'au moins 99 extensions porte dérobée, aux noms déguisés en outils de maintenance comme « Site Health Cache » [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "ed",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Site de TeamUpdraft",
+            "note": "Clés de connexion"
+          },
+          {
+            "id": "wp",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Sites WordPress clients",
+            "note": "Extensions malveillantes"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ed",
+            "etape": 1,
+            "texte": "Accès non autorisé, clés de connexion atteintes"
+          },
+          {
+            "de": "att",
+            "vers": "wp",
+            "etape": 2,
+            "texte": "Commandes signées via UpdraftCentral"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni l'identité de l'attaquant, ni la façon dont le site de TeamUpdraft a été compromis, ni le nombre total de sites compromis [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Attaquant non nommé [1]"
+      ],
+      "cibles": [
+        "TeamUpdraft ; sites WordPress utilisant UpdraftCentral, environ 400 000 potentiellement exposés [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Stolen UpdraftCentral keys used to backdoor WordPress sites",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/stolen-updraftcentral-keys-used-to-backdoor-wordpress-sites/",
+          "date": "2026-10-20",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/09/03/wordpress.jpg"
+        }
+      ]
     }
   ]
 }

@@ -19313,8 +19313,8 @@
       "id": "2026-10-21-php2shell-cve-2026-109618",
       "title": "PHP2Shell : deux failles critiques de PHP, tentatives d'exploitation avant les correctifs",
       "created": "2026-10-21T13:30:00+00:00",
-      "updated": "2026-10-21T17:09:34+00:00",
-      "version": 4,
+      "updated": "2026-10-21T18:08:17+00:00",
+      "version": 5,
       "resume": "Deux failles critiques du cœur de PHP (PHP2Shell) permettent d'exécuter du code via une requête web sans authentification [6, 11]. Des correctifs d'urgence sont sortis le 21 octobre [9] ; des centaines de sites ont été mis hors ligne [8].",
       "chaine": [
         {
@@ -19393,7 +19393,9 @@
         "T1505.003 : Server Software Component: Web Shell, cité par Elastic comme correspondance attendue, sans activité observée [7]"
       ],
       "acteurs": [
-        "Non identifié : les sources ne nomment pas ceux qui tentent l'exploitation [1, 2, 3, 6, 11]"
+        "Non identifié : les sources ne nomment pas ceux qui tentent l'exploitation [1, 2, 3, 6, 11]",
+        "Calif a signalé les bogues à la PHP Foundation le 11 août [14]",
+        "Chainguard a publié des images corrigées avant la fin de l'embargo [14]"
       ],
       "cibles": [
         "Serveurs web sous PHP ; 22,6 millions d'instances exposées selon Unit 42, 5,1 millions d'hôtes selon VirusTotal [4, 5]",
@@ -19504,6 +19506,13 @@
           "url": "https://www.securityweek.com/php2shell-patches-land-as-first-exploitation-attempts-hit-sensors/",
           "date": "2026-10-21",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/10/php-exploit-code.webp"
+        },
+        {
+          "titre": "PHP says AI review of critical bugs first sparked alarm in August, but signs surfaced in 2024",
+          "site": "The Record",
+          "url": "https://therecord.media/php-foundation-statement-critical-vulnerabilities",
+          "date": "2026-10-21",
+          "image": "https://cms.therecord.media/uploads/php_logo_pexels_steve_a_johnson_132b80cbee.jpg"
         }
       ]
     },
@@ -19614,6 +19623,231 @@
           "url": "https://unit42.paloaltonetworks.com/ai-assisted-cybercrime-analysis/",
           "date": "2026-10-21",
           "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/10/AdobeStock_1246251272-2-1.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-21-litellm-chaine-approvisionnement",
+      "title": "LiteLLM 1.107.0 compromis : voleur d'identifiants et porte dérobée via PyPI et Docker",
+      "created": "2026-10-21T18:08:17+00:00",
+      "updated": "2026-10-21T18:08:17+00:00",
+      "version": 1,
+      "resume": "La version 1.107.0 du paquet Python LiteLLM, diffusée par PyPI et Docker, contenait un voleur d'identifiants et une porte dérobée, après un détournement apparent de jetons GitHub CLI de trois ingénieurs [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Jetons OAuth GitHub CLI de trois ingénieurs apparemment volés → publication via leurs comptes, l'un lançant le project-releaser et l'autre l'approuvant [1]."
+        },
+        {
+          "etape": "Diffusion",
+          "texte": "Version 1.107.0 publiée en wheels PyPI et images Docker → code malveillant distribué aux utilisateurs [1]."
+        },
+        {
+          "etape": "Exécution automatique",
+          "texte": "Fichier cook.pth contenant « import cook » → exécution dès le lancement de Python, avant l'import de LiteLLM [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Voleur « privcollect » → collecte de jetons cloud, clés privées, données de navigateurs et variables d'environnement, envoyées en POST vers litellm[.]dev [1]."
+        },
+        {
+          "etape": "Porte dérobée",
+          "texte": "Démon lisant chaque heure un fichier domain.txt sur GitHub → si un domaine y figure, exécution du code Python qu'il sert [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "gh",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Comptes GitHub des ingénieurs",
+            "note": "Jetons volés"
+          },
+          {
+            "id": "reg",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "PyPI et images Docker",
+            "note": "Version 1.107.0"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines des utilisateurs",
+            "note": "cook.pth exécuté"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur litellm[.]dev",
+            "note": "Réception du vol"
+          },
+          {
+            "id": "dd",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Dépôt GitHub domain.txt",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gh",
+            "etape": 1,
+            "texte": "Jetons GitHub CLI apparemment volés"
+          },
+          {
+            "de": "gh",
+            "vers": "reg",
+            "etape": 2,
+            "texte": "Publication de la version 1.107.0"
+          },
+          {
+            "de": "reg",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Installation puis exécution de cook.pth"
+          },
+          {
+            "de": "pc",
+            "vers": "c2",
+            "etape": 4,
+            "texte": "Identifiants envoyés en POST"
+          },
+          {
+            "de": "pc",
+            "vers": "dd",
+            "etape": 5,
+            "texte": "Lecture horaire du domaine à contacter"
+          }
+        ]
+      },
+      "limites": "Le mode d'obtention des jetons n'est pas identifié ; la source ne donne ni acteur ni nombre de victimes [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié : la source n'attribue pas l'attaque [1]"
+      ],
+      "cibles": [
+        "Utilisateurs ayant téléchargé LiteLLM 1.107.0 [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "PyPI",
+          "definition": "Python Package Index : dépôt public de paquets Python"
+        },
+        {
+          "sigle": "OAuth",
+          "definition": "Protocole d'autorisation fondé sur des jetons d'accès"
+        },
+        {
+          "sigle": "CLI",
+          "definition": "Command Line Interface : outil utilisé en ligne de commande"
+        },
+        {
+          "sigle": "POST",
+          "definition": "Méthode HTTP servant à envoyer des données à un serveur"
+        },
+        {
+          "sigle": "Docker",
+          "definition": "Technologie de conteneurs qui empaquette une application"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "LiteLLM Compromised in Supply Chain Attack Delivering Credential Stealer and Backdoor",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/litellm-compromised-in-supply-chain.html",
+          "date": "2026-10-21",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-f1TsJE93kcT5Cp1wvKlnR-bCWFP9ZUZofd0PXryxRBt0B1q0-t0BaHnEJcNhy3IhRZq2fBU9fmILshSvlY-qk28TOO-f1JoBcGSRtwiC3MIV4gDxdXYzTS_ZMirtPka7UaG9Shie7kgWKzauZOwKgPvk8hHXUTFly2YXpzBuxUD20MdxBfKeXrRsIG-W/s1700-nu-rw-lo-l85-e365/litellm-hack.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-21-ovhcloud-github-glassworm",
+      "title": "OVHcloud : compte GitHub d'un développeur compromis, lié à GlassWorm",
+      "created": "2026-10-21T18:08:17+00:00",
+      "updated": "2026-10-21T18:08:17+00:00",
+      "version": 1,
+      "resume": "Le compte GitHub d'un développeur, compromis plusieurs mois plus tôt, a servi à pousser du code malveillant à des utilisateurs non avertis ; le titre de l'article lie l'affaire à OVHcloud et à GlassWorm [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Diffusion de code",
+          "texte": "Compte GitHub compromis plusieurs mois plus tôt → code malveillant poussé à des utilisateurs non avertis [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (GlassWorm)",
+            "note": ""
+          },
+          {
+            "id": "gh",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Compte GitHub du développeur",
+            "note": "Compromis"
+          },
+          {
+            "id": "us",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Utilisateurs du code",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gh",
+            "etape": 1,
+            "texte": "Compte compromis, vecteur non précisé"
+          },
+          {
+            "de": "gh",
+            "vers": "us",
+            "etape": 2,
+            "texte": "Code malveillant poussé aux utilisateurs"
+          }
+        ]
+      },
+      "limites": "Seul le résumé du flux a pu être lu : vecteur d'accès, code malveillant et victimes ne sont pas précisés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Acteurs liés à GlassWorm selon le titre de l'article [1]"
+      ],
+      "cibles": [
+        "Utilisateurs du code poussé depuis le compte d'un développeur ; lien avec OVHcloud indiqué dans le titre [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "OVHcloud GitHub Compromise Tied to GlassWorm Threat Actors",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/cyberattacks-data-breaches/ovhcloud-github-compromise-glassworm-threat-actors",
+          "date": "2026-10-21"
         }
       ]
     }

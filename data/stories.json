@@ -18721,9 +18721,9 @@
       "id": "2026-10-21-lazarus-flashhole",
       "title": "Lazarus, opération FlashHole : un logiciel de sécurité financière détourné contre des entreprises sud-coréennes",
       "created": "2026-10-21T03:30:00+00:00",
-      "updated": "2026-10-21T03:30:00+00:00",
-      "version": 1,
-      "resume": "Le groupe Lazarus mène l'opération FlashHole contre au moins trois entreprises sud-coréennes, en passant par le logiciel de sécurité financière CrossWeb EX, dans un but d'espionnage [1].",
+      "updated": "2026-10-21T21:20:00+00:00",
+      "version": 2,
+      "resume": "Le groupe Lazarus mène l'opération FlashHole contre au moins trois entreprises sud-coréennes, en passant par le logiciel de sécurité financière CrossWeb EX, dans un but d'espionnage [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -18742,8 +18742,12 @@
           "texte": "Modification de la protection mémoire de MD4Update et désactivation d'un hook de surveillance des appels système [1]."
         },
         {
+          "etape": "Livraison chiffrée des charges",
+          "texte": "LPEClient reçoit du serveur de commande des clés publiques ML-KEM-1024 → secrets partagés qui déchiffrent la réponse contenant paramètres et exécutable [2]."
+        },
+        {
           "etape": "Espionnage",
-          "texte": "Orchestrateur Cubridge chargé en mémoire → requêtes sur Active Directory, vol de données de navigateurs, captures d'écran, résultats envoyés au serveur de commande [1]."
+          "texte": "Orchestrateur Cubridge chargé en mémoire → requêtes sur Active Directory, vol de données de navigateurs, captures d'écran, résultats envoyés au serveur de commande [1, 2]."
         }
       ],
       "parcours": {
@@ -18795,10 +18799,10 @@
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Groupe Lazarus, attribution avec confiance moyenne à élevée selon l'avis conjoint [1]"
+        "Groupe Lazarus, attribution avec confiance moyenne à élevée selon l'avis conjoint [1] ; attribution par Kaspersky [2]"
       ],
       "cibles": [
-        "Au moins trois entreprises sud-coréennes : logiciel, construction, équipements de communication filaire [1]"
+        "Au moins trois entreprises sud-coréennes : logiciel, construction, équipements de communication filaire [1, 2]"
       ],
       "abreviations": [
         {
@@ -18808,6 +18812,10 @@
         {
           "sigle": "EX",
           "definition": "Fin du nom CrossWeb EX, logiciel de sécurité financière sud-coréen"
+        },
+        {
+          "sigle": "ML-KEM",
+          "definition": "Mécanisme d'échange de clés résistant aux ordinateurs quantiques"
         }
       ],
       "sources": [
@@ -18817,6 +18825,13 @@
           "url": "https://securelist.com/lazarus-operation-flashhole/121541/",
           "date": "2026-10-21",
           "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/10/20205657/sas-lazarus-3_securelist-featured_1200x600.jpg"
+        },
+        {
+          "titre": "Lazarus hackers use post-quantum cryptography for malware delivery",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/lazarus-hackers-use-post-quantum-cryptography-for-malware-delivery/",
+          "date": "2026-10-21",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/21/DPRK.jpg"
         }
       ]
     },

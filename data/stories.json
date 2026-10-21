@@ -19304,21 +19304,21 @@
       "id": "2026-10-21-php2shell-cve-2026-109618",
       "title": "PHP2Shell : deux failles critiques de PHP, tentatives d'exploitation avant les correctifs",
       "created": "2026-10-21T13:30:00+00:00",
-      "updated": "2026-10-21T13:30:00+00:00",
-      "version": 1,
-      "resume": "La fondation PHP a annoncé des correctifs pour deux failles critiques, CVE-2026-109618 et CVE-2026-109619, alors que des tentatives d'exploitation sont signalées [1, 3]. Les sources divergent sur l'état de l'exploitation [1, 2, 3].",
+      "updated": "2026-10-21T14:10:43+00:00",
+      "version": 2,
+      "resume": "Deux failles critiques de PHP (PHP2Shell) permettent d'exécuter du code via une requête web sans authentification ; des correctifs d'urgence sont sortis [5]. Cloudflare dit observer des attaques avant les correctifs [5].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources : la nature des failles n'est pas détaillée [1, 2, 3]."
+          "texte": "Requête web sans authentification vers un serveur PHP → déclenchement de l'attaque avant tout code applicatif [5]."
         },
         {
-          "etape": "Exploitation",
-          "texte": "Un démonstrateur d'exploitation public circule → des utilisateurs disent observer des tentatives d'exploitation, confirmées par le directeur technique de Cloudflare [3]."
+          "etape": "Corruption de mémoire",
+          "texte": "Une requête qui se termine anormalement laisse la mémoire de PHP corrompue → exécution de code avec les droits du processus web [4, 5]."
         },
         {
-          "etape": "Impact possible",
-          "texte": "Exécution de code à distance sans authentification, selon le CERT-EU → lecture de fichiers, vol d'identifiants, porte dérobée, rebond vers d'autres ressources [1, 2]."
+          "etape": "Exploitation observée",
+          "texte": "Un démonstrateur d'exploitation public circule [1, 4] ; le directeur technique de Cloudflare confirme des attaques précoces sur les deux failles [3, 5]."
         }
       ],
       "parcours": {
@@ -19335,27 +19335,33 @@
             "type": "serveur",
             "zone": "expose",
             "nom": "Serveur web sous PHP",
-            "note": "Failles PHP2Shell"
+            "note": "Mémoire corrompue"
           }
         ],
         "liens": [
           {
             "de": "att",
             "vers": "srv",
-            "etape": 2,
-            "texte": "Tentatives d'exploitation signalées"
+            "etape": 1,
+            "texte": "Requête web sans authentification"
+          },
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 3,
+            "texte": "Attaques précoces observées par Cloudflare"
           }
         ]
       },
-      "limites": "Sophos indique qu'aucune exploitation active n'est signalée [1] ; LeMagIT rapporte des tentatives [3] et ZATAZ ne signale ni attaque active ni démonstration publique [2]. Le type de faille n'est pas détaillé.",
+      "limites": "Sophos indique qu'aucune exploitation active n'est signalée [1] ; LeMagIT et BleepingComputer rapportent des tentatives [3, 5], ZATAZ aucune attaque active [2]. Unit 42 ne mentionne pas d'exploitation [4].",
       "cves": [
         {
           "id": "CVE-2026-109618",
-          "explication": "PHP, plusieurs branches concernées : exécution de code à distance, gravité critique 9,2 sur 10 selon l'échelle CVSS ; correctif annoncé pour le 21 octobre [1, 2, 3]."
+          "explication": "PHP : chaîne de faiblesses liée à un manque de mémoire, corruption de mémoire et exécution de code, gravité critique 9,2 sur 10 [4, 5]."
         },
         {
           "id": "CVE-2026-109619",
-          "explication": "PHP, seconde faille du même ensemble : même gravité critique 9,2 sur 10 ; une mesure provisoire ne réduit la surface d'attaque que pour l'une des deux [1, 2, 3]."
+          "explication": "PHP : pointeurs vers de la mémoire libérée après une erreur fatale, exécution de code sans authentification, gravité critique 9,2 sur 10 [4, 5]."
         }
       ],
       "mitre": [],
@@ -19363,7 +19369,8 @@
         "Non identifié : les sources ne nomment pas ceux qui tentent l'exploitation [1, 2, 3]"
       ],
       "cibles": [
-        "Applications web sous PHP, dont WordPress, Drupal et Joomla cités par ZATAZ [2]"
+        "Serveurs web sous PHP ; 22,6 millions d'instances exposées selon Unit 42, 5,1 millions d'hôtes selon VirusTotal [4, 5]",
+        "Un gouvernement européen a mis son site hors ligne par précaution [4]"
       ],
       "abreviations": [
         {
@@ -19396,6 +19403,130 @@
           "url": "https://www.lemagit.fr/actualites/366652404/PHP-deux-vulnerabilites-critiques-deja-exploitees-en-cours-de-correction",
           "date": "2026-10-21",
           "image": "https://www.lemagit.fr/visuals/German/article/patches-patch-management-plasters-bandaid-adobe.jpg"
+        },
+        {
+          "titre": "Threat Brief: Critical Vulnerabilities in PHP: CVE-2026-109618, CVE-2026-109619",
+          "site": "Unit 42 (Palo Alto Networks)",
+          "url": "https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/",
+          "date": "2026-10-21",
+          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/10/03_Vulnerabilities_1920x900.jpg"
+        },
+        {
+          "titre": "PHP ships emergency patches for critical PHP2Shell flaws",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/php-ships-emergency-patches-for-critical-php2shell-flaws/",
+          "date": "2026-10-21",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/21/PHP.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-21-bugster-ia-cybercriminalite",
+      "title": "BUGSTER : un acteur utilise des assistants IA pour mener plusieurs types de cybercriminalité",
+      "created": "2026-10-21T14:10:43+00:00",
+      "updated": "2026-10-21T14:10:43+00:00",
+      "version": 1,
+      "resume": "Un acteur nommé BUGSTER a utilisé des assistants d'intelligence artificielle sans garde-fous pour planifier et mener des attaques, surtout contre des cibles indiennes dont des universités [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Énumération de l'interface REST d'un site WordPress et force brute des connexions → un identifiant valide signalé [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Compte administrateur à mot de passe faible sur une université → exfiltration d'une base MongoDB de plus de 5 200 enregistrements [1]."
+        },
+        {
+          "etape": "Préparation d'autres fraudes",
+          "texte": "Planification d'une fraude VoIP, serveur de contrôle pour reverse shells Windows, craquage de mots de passe Wi-Fi → outils prêts pour de futures actions [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (BUGSTER)",
+            "note": ""
+          },
+          {
+            "id": "wp",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Site WordPress d'université",
+            "note": "Connexion valide"
+          },
+          {
+            "id": "db",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Base MongoDB d'université",
+            "note": "5 200 enregistrements"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "wp",
+            "etape": 1,
+            "texte": "Énumération et force brute de la connexion"
+          },
+          {
+            "de": "att",
+            "vers": "db",
+            "etape": 2,
+            "texte": "Compte administrateur à mot de passe faible"
+          }
+        ]
+      },
+      "limites": "L'article ne donne pas d'ordre chronologique explicite des étapes ni les dates de l'activité [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "BUGSTER, opérateur criminel multi-domaines motivé par le gain financier selon Unit 42 [1]"
+      ],
+      "cibles": [
+        "Deux universités publiques indiennes, un site e-commerce indien [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "VoIP",
+          "definition": "Voix sur IP : téléphonie passant par Internet"
+        },
+        {
+          "sigle": "REST",
+          "definition": "Interface de programmation web interrogeable par requêtes HTTP"
+        },
+        {
+          "sigle": "WordPress",
+          "definition": "Système de gestion de sites web très répandu"
+        },
+        {
+          "sigle": "MongoDB",
+          "definition": "Système de base de données"
+        },
+        {
+          "sigle": "Wi-Fi",
+          "definition": "Réseau sans fil local"
+        },
+        {
+          "sigle": "BUGSTER",
+          "definition": "Pseudonyme de l'acteur criminel suivi par Unit 42"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "“Next Exploit Opportunities”: How a Threat Actor Used AI to Help Plan and Execute Multiple Types of Cybercrime Activities",
+          "site": "Unit 42 (Palo Alto Networks)",
+          "url": "https://unit42.paloaltonetworks.com/ai-assisted-cybercrime-analysis/",
+          "date": "2026-10-21",
+          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/10/AdobeStock_1246251272-2-1.jpg"
         }
       ]
     }

@@ -18425,13 +18425,13 @@
       "id": "2026-10-21-updraftcentral-cles-volees",
       "title": "TeamUpdraft piraté : clés UpdraftCentral volées pour piéger des sites WordPress",
       "created": "2026-10-21T02:00:00+00:00",
-      "updated": "2026-10-21T02:00:00+00:00",
-      "version": 1,
-      "resume": "Un attaquant a pénétré le site de TeamUpdraft, éditeur d'extensions WordPress, puis des clés de connexion UpdraftCentral ont servi à déposer des extensions malveillantes sur des sites clients [1].",
+      "updated": "2026-10-21T10:30:00+00:00",
+      "version": 2,
+      "resume": "Un attaquant a pénétré le site de TeamUpdraft, éditeur d'extensions WordPress, puis des clés de connexion UpdraftCentral ont servi à installer des extensions malveillantes sur des sites clients [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Accès non autorisé au site de l'éditeur TeamUpdraft, mode d'intrusion non précisé → l'éditeur pense que des clés de connexion UpdraftCentral ont été atteintes [1]."
+          "texte": "Accès non autorisé au site teamupdraft.com les 17 et 18 octobre, mode d'intrusion non mentionné → clés de connexion UpdraftCentral, UpdraftVault et UpdraftClone potentiellement exposées [1, 2]."
         },
         {
           "etape": "Prise de contrôle",
@@ -18439,7 +18439,11 @@
         },
         {
           "etape": "Extensions malveillantes",
-          "texte": "Déploiement d'au moins 99 extensions porte dérobée, aux noms déguisés en outils de maintenance comme « Site Health Cache » [1]."
+          "texte": "Commande d'envoi d'extension → WordPress installe et active une porte dérobée ; au moins 99 noms d'extensions distincts recensés, dont « Site Health Cache » [1, 2]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Création d'un compte « data-ops43 » par la porte dérobée → le compte reste après suppression de l'extension [2]."
         }
       ],
       "parcours": {
@@ -18478,14 +18482,20 @@
             "vers": "wp",
             "etape": 2,
             "texte": "Commandes signées via UpdraftCentral"
+          },
+          {
+            "de": "att",
+            "vers": "wp",
+            "etape": 4,
+            "texte": "Compte créé, conservé après suppression de l'extension"
           }
         ]
       },
-      "limites": "Les sources ne précisent ni l'identité de l'attaquant, ni la façon dont le site de TeamUpdraft a été compromis, ni le nombre total de sites compromis [1].",
+      "limites": "Les sources ne précisent ni l'identité de l'attaquant, ni la façon dont le site de TeamUpdraft a été compromis, ni le nombre de sites compromis [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Attaquant non nommé [1]"
+        "Attaquant non nommé [1, 2]"
       ],
       "cibles": [
         "TeamUpdraft ; sites WordPress utilisant UpdraftCentral, environ 400 000 potentiellement exposés [1]"
@@ -18498,6 +18508,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/stolen-updraftcentral-keys-used-to-backdoor-wordpress-sites/",
           "date": "2026-10-20",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/09/03/wordpress.jpg"
+        },
+        {
+          "titre": "Attackers Abuse UpdraftCentral Keys to Plant Backdoors on WordPress Sites",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/attackers-abuse-updraftcentral-keys-to.html",
+          "date": "2026-10-21",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdsSYB_dpfRL3wD0MeCT_VyPyFJS8HjQAW0VuBHSTviFY4WBOQfa8MCP79qyJR3zYyMBesIXiCtL8XwwtjjLGm9Stxdv_qoIkf3_Rpc7YGFwZuzVS974TbuDfF5GkLRJX2DxFaDudlMlXSDyiZ8fvoVGaKaA-tpCr_eAvvEsfQr1uyfdBk-8KyK4aisYgC/s1700-nu-rw-lo-l85-e365/wp-backdoor.jpg"
         }
       ]
     },
@@ -18796,6 +18813,194 @@
           "url": "https://www.zataz.com/ledger-pieges-lenquete-examine-plusieurs-circuits-de-distribution/",
           "date": "2026-10-21",
           "image": "https://www.zataz.com/wp-content/uploads/ledger_spy.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-21-talos-plateformes-legitimes",
+      "title": "Cisco Talos : des plateformes légitimes détournées pour envoyer des leurres",
+      "created": "2026-10-21T10:30:00+00:00",
+      "updated": "2026-10-21T10:30:00+00:00",
+      "version": 1,
+      "resume": "Cisco Talos décrit l'abus de plus de 25 plateformes légitimes pour livrer des leurres : emails de commande, formulaires d'inscription et messages d'échec de livraison [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Contenu hostile glissé dans les champs d'emails de commande Staples et Dell → messages légitimes annonçant une commande coûteuse, avec un numéro à appeler [1]."
+        },
+        {
+          "etape": "Inscriptions détournées",
+          "texte": "Adresse de la victime soumise à des formulaires, avec une chaîne hostile dans le nom → emails automatiques reflétant le leurre [1]."
+        },
+        {
+          "etape": "Abus de rebonds",
+          "texte": "Adresse de la victime utilisée comme expéditeur forgé → message d'échec de livraison contenant un leurre de partage de fichiers type WeTransfer [1]."
+        },
+        {
+          "etape": "Suite possible",
+          "texte": "Ingénierie sociale, manipulation de paiement, vol d'identifiants ou fraude à l'assistance à distance, selon l'article [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "plat",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Plateformes légitimes",
+            "note": "Commande, inscription"
+          },
+          {
+            "id": "mail",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Boîte mail de la victime",
+            "note": ""
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Victime",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "plat",
+            "etape": 1,
+            "texte": "Contenu hostile inséré dans les champs"
+          },
+          {
+            "de": "plat",
+            "vers": "mail",
+            "etape": 2,
+            "texte": "Emails automatiques reflétant le leurre"
+          },
+          {
+            "de": "att",
+            "vers": "mail",
+            "etape": 3,
+            "texte": "Adresse forgée, message d'échec avec leurre"
+          },
+          {
+            "de": "mail",
+            "vers": "usr",
+            "etape": 4,
+            "texte": "Suite possible : ingénierie sociale, vol d'identifiants"
+          }
+        ]
+      },
+      "limites": "L'article ne nomme ni acteur ni victime et ne donne pas de dates de campagne [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Destinataires de messages, aucune organisation victime identifiée [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Parasitizing trust: How legitimate infrastructure becomes a delivery pipeline for attackers",
+          "site": "Cisco Talos",
+          "url": "https://blog.talosintelligence.com/parasitizing-trust-how-legitimate-infrastructure-becomes-a-delivery-pipeline-for-attackers/",
+          "date": "2026-10-21",
+          "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/parasitizingtrust.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-21-sms-blaster-philippines",
+      "title": "Philippines : arrestations autour d'un appareil d'envoi de faux SMS bancaires",
+      "created": "2026-10-21T10:30:00+00:00",
+      "updated": "2026-10-21T10:30:00+00:00",
+      "version": 1,
+      "resume": "Aux Philippines, quatre personnes ont été arrêtées dans une enquête sur un appareil d'envoi de SMS lié à des messages frauduleux imitant une banque [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Diffusion des messages",
+          "texte": "Appareil transporté en voiture de location dans des secteurs fréquentés de Manille [1]."
+        },
+        {
+          "etape": "Hameçonnage",
+          "texte": "Messages imitant une banque → liens destinés à recueillir des informations d'accès aux comptes financiers [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Suspects arrêtés",
+            "note": ""
+          },
+          {
+            "id": "dev",
+            "type": "poste",
+            "zone": "internet",
+            "nom": "Appareil d'envoi de SMS",
+            "note": "Voiture de location"
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Destinataires des SMS",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "dev",
+            "etape": 2,
+            "texte": "Transport dans les zones fréquentées de Manille"
+          },
+          {
+            "de": "dev",
+            "vers": "usr",
+            "etape": 3,
+            "texte": "SMS imitant une banque avec liens"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni comment les destinataires ont été atteints, ni le nombre de victimes [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Quatre personnes arrêtées : deux Philippins et deux ressortissants chinois [1]"
+      ],
+      "cibles": [
+        "Destinataires de SMS imitant une banque [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SMS",
+          "definition": "Short Message Service : message texte envoyé sur un téléphone mobile"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Quatre arrestations autour d'un SMS blaster",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/quatre-arrestations-autour-dun-sms-blaster/",
+          "date": "2026-10-21",
+          "image": "https://www.zataz.com/wp-content/uploads/sms_blaster.jpg"
         }
       ]
     }

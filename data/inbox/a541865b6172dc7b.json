@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-10-21T15:22:05+00:00",
+  "feed_summary": "Cisco Talos is tracking the disclosure of two unauthenticated remote code execution (RCE) flaws in PHP core, dubbed “php2shell”, triggered by a plain HTTP request and exploitable before any application code runs, affecting every PHP build since 5.4. Based on the entities involved in the disclosure, artificial",
+  "id": "a541865b6172dc7b",
+  "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/threat_advisory.jpg",
+  "lang": "en",
+  "link": "https://blog.talosintelligence.com/two-critical-rces-in-php-core/",
+  "published": "2026-10-21T15:10:53+00:00",
+  "source": "Cisco Talos",
+  "source_type": "analyse",
+  "title": "Two critical RCEs in PHP core"
+}

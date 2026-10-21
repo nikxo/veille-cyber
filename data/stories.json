@@ -19891,6 +19891,87 @@
           "date": "2026-10-21"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-21-onamae-desktop-cloud",
+      "title": "Onamae Desktop Cloud : logiciels malveillants installés sur des serveurs clients",
+      "created": "2026-10-21T22:20:00+00:00",
+      "updated": "2026-10-21T22:20:00+00:00",
+      "version": 1,
+      "resume": "Un tiers non autorisé a installé des programmes malveillants dans des environnements clients du service de serveurs virtuels japonais Onamae Desktop Cloud, jusqu'à 26 739 serveurs étant touchés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Installation de malwares",
+          "texte": "Accès non autorisé à l'infrastructure → programmes malveillants installés sur jusqu'à 26 739 serveurs clients [1]."
+        },
+        {
+          "etape": "Réponse de l'hébergeur",
+          "texte": "Intrusion détectée → arrêt progressif des serveurs clients à partir de 4h le 21 octobre, interruption touchant tous les forfaits [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (tiers non identifié)",
+            "note": ""
+          },
+          {
+            "id": "inf",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Infrastructure Desktop Cloud",
+            "note": "Vecteur non précisé"
+          },
+          {
+            "id": "srv",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Serveurs clients",
+            "note": "Malwares installés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inf",
+            "etape": 1,
+            "texte": "Accès non autorisé, moyen non précisé"
+          },
+          {
+            "de": "inf",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Programmes malveillants installés"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'accès, ni le type de malware, ni la date de l'intrusion, ni l'auteur. Aucune fuite ni usage abusif n'est confirmé [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Tiers non autorisé, non identifié [1]"
+      ],
+      "cibles": [
+        "Clients d'Onamae Desktop Cloud, service de serveurs virtuels de Onamae.com, jusqu'à 26 739 serveurs [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Japan's Onamae Desktop Cloud hacked, up to 27,000 servers affected",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/japans-onamae-desktop-cloud-hacked-up-to-27-000-servers-affected/",
+          "date": "2026-10-21",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/21/cloud-servers.jpg"
+        }
+      ]
     }
   ]
 }

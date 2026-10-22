@@ -20781,6 +20781,180 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEio5jLAiZnSHOwYGjf-F6s4HR4ileDOwAkHiX9NyW30mGUqSzgdwGVdTzCTYkgmeoGtTRaSVm-h2IBwvJ9xd84OU2t3YXd8hf5PwlGdjh6VlcYZoCNkx6Yt0FY_JlVcM3AtXI4LQyidnOE86NMVwOGcztaFtV2Qq21X1pRQi6jxiITnQIoO14XLiOWaufI/s1700-nu-rw-lo-l85-e365/velo.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-22-capcom-id-fuite",
+      "title": "Capcom : fuite de données sur le service CAPCOM ID",
+      "created": "2026-10-22T21:20:00+00:00",
+      "updated": "2026-10-22T21:20:00+00:00",
+      "version": 1,
+      "resume": "Capcom a confirmé qu'une intrusion dans son service d'adhésion CAPCOM ID a exposé les données de plus de 11,7 millions de comptes clients [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Accès au service CAPCOM ID → exposition d'adresses e-mail et de données de connexion pour plus de 11,7 millions de comptes [1]."
+        },
+        {
+          "etape": "Verrouillage de comptes",
+          "texte": "Mots de passe modifiés sur 196 comptes → propriétaires bloqués, puis mots de passe réinitialisés par Capcom [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "id",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Service CAPCOM ID",
+            "note": "Comptes clients"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données des comptes clients",
+            "note": "11,7 millions"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "id",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "id",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Adresses e-mail et données de connexion exposées"
+          }
+        ]
+      },
+      "limites": "La date de l'intrusion, l'accès initial et l'auteur ne sont pas communiqués [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Service d'adhésion CAPCOM ID, plus de 11,7 millions de comptes [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CAPCOM",
+          "definition": "Nom de l'éditeur japonais de jeux vidéo"
+        },
+        {
+          "sigle": "ID",
+          "definition": "Identifiant : compte d'un utilisateur"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Capcom confirms data breach affecting 11.7 million accounts",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/capcom-confirms-data-breach-affecting-117-million-accounts/",
+          "date": "2026-10-22",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/22/capcom.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-22-crime-stoppers-toronto-navigate360",
+      "title": "Crime Stoppers : fuite de signalements chez le fournisseur Navigate360",
+      "created": "2026-10-22T21:20:00+00:00",
+      "updated": "2026-10-22T21:20:00+00:00",
+      "version": 1,
+      "resume": "Le collectif Internet Yiff Machine a revendiqué une brèche touchant les signalements de Crime Stoppers chez Navigate360 et P3 Global Intel. Toronto Crime Stoppers suspend ses opérations [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Brèche revendiquée en mars 2026 chez Navigate360 et sa filiale P3 Global Intel → données de signalements rendues disponibles [1]."
+        },
+        {
+          "etape": "Exposition des signalements",
+          "texte": "Plus de 1,5 million de signalements touchés, dont 176 859 à Toronto → environ la moitié des signalements analysés contiennent des informations personnelles [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Internet Yiff Machine)",
+            "note": ""
+          },
+          {
+            "id": "p3",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Navigate360 et P3 Global Intel",
+            "note": "Fournisseur"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Signalements de Crime Stoppers",
+            "note": "1,5 million"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "p3",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "p3",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Données de signalements rendues disponibles"
+          }
+        ]
+      },
+      "limites": "Le moment exact du vol et la méthode d'intrusion ne sont pas mentionnés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Collectif hacktiviste Internet Yiff Machine, qui revendique la brèche [1]"
+      ],
+      "cibles": [
+        "Crime Stoppers (Canada et Toronto), fournisseur Navigate360 et sa filiale P3 Global Intel [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "P3",
+          "definition": "Nom de la plateforme de P3 Global Intel, filiale de Navigate360"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Toronto crime tips org freezes operations after details of data breach come to light",
+          "site": "The Record",
+          "url": "https://therecord.media/toronto-crime-tips-org-freezes-ops-after-breach",
+          "date": "2026-10-22",
+          "image": "https://cms.therecord.media/uploads/Toronto_Police_PP_13cea6d12f.jpg"
+        }
+      ]
     }
   ]
 }

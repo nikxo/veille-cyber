@@ -19361,8 +19361,8 @@
       "id": "2026-10-21-php2shell-cve-2026-109618",
       "title": "PHP2Shell : deux failles critiques de PHP, tentatives d'exploitation avant les correctifs",
       "created": "2026-10-21T13:30:00+00:00",
-      "updated": "2026-10-22T10:30:00+00:00",
-      "version": 6,
+      "updated": "2026-10-22T13:40:00+00:00",
+      "version": 7,
       "resume": "Deux failles critiques du cœur de PHP (PHP2Shell) permettent d'exécuter du code via une requête web sans authentification [6, 11]. Des correctifs d'urgence sont sortis le 21 octobre [9] ; des centaines de sites ont été mis hors ligne [8].",
       "chaine": [
         {
@@ -19379,11 +19379,11 @@
         },
         {
           "etape": "Exploitation observée",
-          "texte": "Première tentative le 17 octobre contre un honeypot d'Amazon, avant la divulgation [15, 16] ; exploitation de masse après les correctifs, sans compromission réussie rapportée [16]."
+          "texte": "Première tentative le 17 octobre contre un honeypot d'Amazon [15, 16, 19] ; exploitation en masse après les correctifs [16, 17], par plusieurs acteurs selon Amazon [19]."
         },
         {
           "etape": "Mises hors ligne",
-          "texte": "Sites coupés par précaution → centaines de sites hors ligne [8] ; BambooHR suspendu et services publics néerlandais retirés [9]."
+          "texte": "Sites coupés par précaution → centaines de sites hors ligne [8] ; BambooHR suspendu et services publics néerlandais retirés [9] ; Orange, préfectures et CNIL en France [18]."
         }
       ],
       "parcours": {
@@ -19424,7 +19424,7 @@
           }
         ]
       },
-      "limites": "Sophos, ZATAZ, Talos, Elastic et watchTowr ne constatent aucune exploitation active [1, 2, 6, 7, 9] ; d'autres sources rapportent des attaques ou tentatives [3, 5, 8, 10, 12, 13, 15, 16].",
+      "limites": "Sophos, ZATAZ, Talos, Elastic et watchTowr ne constatent aucune exploitation active [1, 2, 6, 7, 9] ; d'autres rapportent des attaques ou tentatives [3, 5, 8, 10, 12, 13, 15, 16, 17, 19]. Amazon ignore si elles auraient réussi [19].",
       "cves": [
         {
           "id": "CVE-2026-109618",
@@ -19462,6 +19462,10 @@
         {
           "sigle": "API",
           "definition": "Interface permettant à des programmes de communiquer entre eux"
+        },
+        {
+          "sigle": "CNIL",
+          "definition": "Commission nationale de l'informatique et des libertés, autorité française"
         }
       ],
       "sources": [
@@ -19575,6 +19579,27 @@
           "url": "https://www.securityweek.com/php2shell-exploitation-started-days-before-patches/",
           "date": "2026-10-22",
           "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Low-Code-No-Code-Security.jpg"
+        },
+        {
+          "titre": "Tech and Security Companies Respond to PHP2Shell Vulnerabilities",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/tech-and-security-companies-respond-to-php2shell-vulnerabilities/",
+          "date": "2026-10-22",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/05/firewall.jpeg"
+        },
+        {
+          "titre": "Vulnérabilités PHP : de nombreux sites Web déconnectés par précaution",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366652371/Vulnerabilites-PHP-de-nombreux-sites-Web-deconnectes-par-precaution",
+          "date": "2026-10-22",
+          "image": "https://www.lemagit.fr/visuals/LeMagIT/hero_article/DataCenter_19_HeroImage_AdobeStock_306432800.jpg"
+        },
+        {
+          "titre": "Amazon says PHP2Shell exploitation began 4 days before patches",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/amazon-says-php2shell-exploitation-began-4-days-before-patches/",
+          "date": "2026-10-22",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/22/PHP-attack.jpg"
         }
       ]
     },
@@ -20316,6 +20341,221 @@
           "url": "https://thehackernews.com/2026/10/railway-says-intruder-may-have-accessed.html",
           "date": "2026-10-22",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLi5yuPoipCkAL6joBpDL5htNkHWi_rU5i5dAyspyjSrdDORYgV_LRNO4pVG_c1P0S7bnZFWHft8recxLiFRSiLsPxx3ZL-v8fzlYRuzxxG_P_ocKdJbGWzXFtoEjPszyKNUOS86HCylk0LPV1YZS7U9qZcfonBVeLEuRKioCXVbbzUySEvWGI0IaBJ8U/s1700-nu-rw-lo-l85-e365/rail.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-22-huntress-m365-token-replay",
+      "title": "Campagne de rejeu de jetons Microsoft 365 : 79 organisations, comptes de messagerie compromis",
+      "created": "2026-10-22T13:40:00+00:00",
+      "updated": "2026-10-22T13:40:00+00:00",
+      "version": 1,
+      "resume": "Entre le 14 juillet et le 22 septembre 2026, des sessions Microsoft 365 volées ont été rejouées : 497 connexions réussies pour 79 organisations [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Relais d'interception (AiTM) derrière de fausses pages de connexion, ou phishing par code d'appareil → jetons de session obtenus après l'authentification multifacteur (MFA) [1]."
+        },
+        {
+          "etape": "Rejeu des jetons",
+          "texte": "Jetons volés rejoués depuis un bloc d'adresses loué à un hébergeur allemand → 497 connexions réussies pour 79 organisations [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Faux poste enregistré dans Entra, méthodes MFA effacées puis remplacées par un nouvel authentificateur → persistance [1]."
+        },
+        {
+          "etape": "Dissimulation et fraude",
+          "texte": "Règles de messagerie cachant des messages (paie, banques) → spam sortant, et courriel de paie envoyé à un expert-comptable externe [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Utilisateurs des organisations",
+            "note": "Jetons volés"
+          },
+          {
+            "id": "ent",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Entra (identités)",
+            "note": "Faux poste, MFA remplacé"
+          },
+          {
+            "id": "mail",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Boîtes Microsoft 365",
+            "note": "Règles cachées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 1,
+            "texte": "Faux pages de connexion, jetons capturés"
+          },
+          {
+            "de": "att",
+            "vers": "mail",
+            "etape": 2,
+            "texte": "Rejeu des jetons de session"
+          },
+          {
+            "de": "att",
+            "vers": "ent",
+            "etape": 3,
+            "texte": "Faux poste et nouveau MFA enregistrés"
+          },
+          {
+            "de": "att",
+            "vers": "mail",
+            "etape": 4,
+            "texte": "Règles de messagerie cachées"
+          }
+        ]
+      },
+      "limites": "L'article donne deux chiffres pour la troisième phase : 303 connexions dans 29 organisations, et 232 dans 28 [1]. Aucun groupe n'est nommé [1].",
+      "cves": [],
+      "mitre": [
+        "T1557 : Adversary-in-the-Middle, relais capturant des sessions après MFA [1]",
+        "T1566.002 : Spearphishing Link, fausses pages de connexion et phishing par code d'appareil [1]",
+        "T1550.001 : Application Access Token, rejeu de jetons [1]",
+        "T1098.005 : Device Registration, faux appareils enregistrés dans Entra [1]",
+        "T1556.006 : Modify Authentication Process: MFA, méthodes remplacées [1]",
+        "T1564.008 : Email Hiding Rules, règles de messagerie cachées [1]",
+        "T1090.003 : Multi-hop Proxy, tunnels loués et VPN grand public [1]"
+      ],
+      "acteurs": [
+        "Non identifié : l'article ne nomme pas de groupe ; infrastructure chez 1337 Services GmbH [1]"
+      ],
+      "cibles": [
+        "79 organisations utilisant Microsoft 365, secteurs non précisés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "AiTM",
+          "definition": "Adversary-in-the-Middle : relais placé entre la victime et le vrai site de connexion"
+        },
+        {
+          "sigle": "MFA",
+          "definition": "Authentification multifacteur : second contrôle en plus du mot de passe"
+        },
+        {
+          "sigle": "Entra",
+          "definition": "Service d'identités et d'annuaire de Microsoft dans le cloud"
+        },
+        {
+          "sigle": "VPN",
+          "definition": "Réseau privé virtuel : tunnel chiffré masquant l'origine d'une connexion"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "M365 Token Spray and Replay Campaign Compromises Business Email Accounts",
+          "site": "Huntress",
+          "url": "https://www.huntress.com/blog/token-replay-spray",
+          "date": "2026-10-22",
+          "image": "https://cdn.builder.io/api/v1/image/assets%2F3eb6f92aedf74f109c7b4b0897ec39a8%2Fd7bfc55cc3554ad5993622aadc0cfc5d"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-22-columbia-caroline-du-sud-cyberattaque",
+      "title": "Columbia (Caroline du Sud) : cyberattaque contre les systèmes de la ville",
+      "created": "2026-10-22T13:40:00+00:00",
+      "updated": "2026-10-22T13:40:00+00:00",
+      "version": 1,
+      "resume": "La ville de Columbia a arrêté plusieurs systèmes après une activité suspecte, dont la plateforme MyColaSC [1]. Aucun groupe n'avait revendiqué l'attaque [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Détection",
+          "texte": "Le service informatique repère une activité suspecte → la police d'État (SLED) dirige l'enquête [1]."
+        },
+        {
+          "etape": "Arrêt des systèmes",
+          "texte": "Plateforme MyColaSC, système d'information géographique et services aux animaux arrêtés → habitants invités à téléphoner pour leurs signalements [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateforme MyColaSC",
+            "note": "Arrêtée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès non précisé par les sources"
+          },
+          {
+            "de": "inc",
+            "vers": "app",
+            "etape": 3,
+            "texte": "Systèmes municipaux arrêtés"
+          }
+        ]
+      },
+      "limites": "La ville n'a pas dit s'il s'agit d'un rançongiciel [1]. Police, pompiers, 911, réseau d'eau et centre de paiement restent opérationnels [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié : aucune revendication à la date de l'article [1]"
+      ],
+      "cibles": [
+        "Ville de Columbia : paiement des factures, signalements, services aux animaux [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SLED",
+          "definition": "Division des forces de l'ordre de Caroline du Sud (police d'État)"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "South Carolina officials offer assistance after state capital hit with cyberattack",
+          "site": "The Record",
+          "url": "https://therecord.media/south-carolina-officials-offer-assistance-cyber-incident",
+          "date": "2026-10-22",
+          "image": "https://cms.therecord.media/uploads/South_Carolina_State_House_1_1d9c7d092d.jpg"
         }
       ]
     }

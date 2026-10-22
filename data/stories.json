@@ -20558,6 +20558,110 @@
           "image": "https://cms.therecord.media/uploads/South_Carolina_State_House_1_1d9c7d092d.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-22-huntress-kits-phishing-jetons",
+      "title": "Trois kits de phishing visant les jetons Microsoft 365 (EvilTokens, Knight Office, Kali365)",
+      "created": "2026-10-22T15:20:00+00:00",
+      "updated": "2026-10-22T15:20:00+00:00",
+      "version": 1,
+      "resume": "Huntress a analysé trois kits de phishing qui volent des jetons Microsoft 365 : EvilTokens, Knight Office et Kali365. Les attaquants obtiennent une session authentifiée sans mot de passe [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Hameçonnage par kit : code d'appareil ou relais d'interception (AiTM) → l'attaquant capture l'autorisation de la victime sans obtenir directement le mot de passe [1]."
+        },
+        {
+          "etape": "Capture de session",
+          "texte": "La victime valide l'authentification ou la MFA → l'attaquant capture une session authentifiée exploitable sans mot de passe [1]."
+        },
+        {
+          "etape": "Rejeu du jeton",
+          "texte": "Jeton réinjecté dans une session active → accès aux ressources cloud et aux boîtes mail [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Enregistrement d'un appareil non autorisé → accès maintenu ; environ un incident sur six traités par l'équipe ITDR de Huntress en impliquait un [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (kit de phishing)",
+            "note": ""
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Utilisateur Microsoft 365",
+            "note": "Session capturée"
+          },
+          {
+            "id": "cloud",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Ressources cloud et boîtes mail",
+            "note": "Jeton rejoué"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 1,
+            "texte": "Phishing par code d'appareil ou relais AiTM"
+          },
+          {
+            "de": "att",
+            "vers": "cloud",
+            "etape": 3,
+            "texte": "Rejeu du jeton volé"
+          },
+          {
+            "de": "att",
+            "vers": "cloud",
+            "etape": 4,
+            "texte": "Appareil non autorisé enregistré"
+          }
+        ]
+      },
+      "limites": "L'article ne nomme aucune victime ni aucune date précise d'attaque et ne cite aucune technique MITRE [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Opérateurs des kits EvilTokens, Knight Office et Kali365 ; un opérateur présumé d'EvilTokens a été arrêté, nom non mentionné [1]"
+      ],
+      "cibles": [
+        "Environnements Microsoft 365, secteurs non précisés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "AiTM",
+          "definition": "Adversary-in-the-Middle : relais placé entre la victime et le vrai site de connexion"
+        },
+        {
+          "sigle": "MFA",
+          "definition": "Authentification multifacteur : second contrôle en plus du mot de passe"
+        },
+        {
+          "sigle": "ITDR",
+          "definition": "Identity Threat Detection and Response : détection et réponse aux menaces sur les identités"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Unboxing Phishing Kits: Huntress Examines 3 Real Kits",
+          "site": "Huntress",
+          "url": "https://www.huntress.com/blog/unboxing-phishing-kits",
+          "date": "2026-10-22",
+          "image": "https://cdn.builder.io/api/v1/image/assets%2F3eb6f92aedf74f109c7b4b0897ec39a8%2Fdca76d702afd4b8fb78824a5b8651986"
+        }
+      ]
     }
   ]
 }

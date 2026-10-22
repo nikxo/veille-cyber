@@ -19727,8 +19727,8 @@
       "id": "2026-10-21-litellm-chaine-approvisionnement",
       "title": "LiteLLM 1.107.0 compromis : voleur d'identifiants et porte dérobée via PyPI et Docker",
       "created": "2026-10-21T18:08:17+00:00",
-      "updated": "2026-10-22T10:30:00+00:00",
-      "version": 2,
+      "updated": "2026-10-22T20:30:00+00:00",
+      "version": 3,
       "resume": "La version 1.107.0 du paquet Python LiteLLM, diffusée par PyPI et Docker, contenait un voleur d'identifiants et une porte dérobée, après le détournement de jetons GitHub CLI de développeurs [1, 2].",
       "chaine": [
         {
@@ -19741,15 +19741,15 @@
         },
         {
           "etape": "Diffusion",
-          "texte": "Version 1.107.0 publiée sur PyPI et Docker Hub → code malveillant distribué aux utilisateurs [1, 2]."
+          "texte": "Version 1.107.0 publiée sur PyPI, Docker Hub et GHCR → code malveillant distribué aux utilisateurs [1, 2, 3]."
         },
         {
           "etape": "Vol d'identifiants",
-          "texte": "Fichier cook.pth lancé au démarrage de Python → voleur « privcollect » envoyant jetons cloud, clés privées et variables d'environnement en POST vers litellm[.]dev [1]."
+          "texte": "Fichier cook.pth lancé au démarrage de Python → voleur « privcollect » envoyant jetons cloud, clés privées et variables d'environnement en POST vers litellm[.]dev [1, 3]."
         },
         {
           "etape": "Porte dérobée",
-          "texte": "Démon lisant chaque heure un domaine hébergé sur GitHub → exécution du code Python distant qu'il sert [1, 2]."
+          "texte": "Démon lisant chaque heure un domaine hébergé sur GitHub → exécution du code Python distant qu'il sert [1, 2, 3]."
         },
         {
           "etape": "Réutilisation des identifiants",
@@ -19847,7 +19847,7 @@
           }
         ]
       },
-      "limites": "Le mode d'obtention des jetons n'est pas confirmé : la fuite via les logs reste une hypothèse de LiteLLM. Aucun acteur ni nombre de victimes n'est donné [1, 2].",
+      "limites": "Le mode d'obtention des jetons n'est pas confirmé : la fuite via les logs reste une hypothèse de LiteLLM. Aucun acteur ni nombre de victimes n'est donné [1, 2, 3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -19880,6 +19880,10 @@
         {
           "sigle": "AWS",
           "definition": "Amazon Web Services : services cloud d'Amazon"
+        },
+        {
+          "sigle": "GHCR",
+          "definition": "GitHub Container Registry : registre d'images de conteneurs de GitHub"
         }
       ],
       "sources": [
@@ -19896,6 +19900,13 @@
           "url": "https://thehackernews.com/2026/10/litellm-suspects-github-token-leak-in.html",
           "date": "2026-10-22",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgiEKKMESHBCMBHXA8Yf_clmAeFQXSdaKTEz0t_6RDzj1zXcwiPxA4gy2MPmftM6vyCkoG7OsCZJ2a8t7xJe1qbn3tEWRZfVgStzQVJy0ZfwEkjhg6-A34iT3XnQG7nYku04cWbIaHwkQmuDVghCeJBx5xJcbtozsyD3Genw4wyxFtgWIVD-rRGRLMBKoq2/s1700-nu-rw-lo-l85-e365/litellm-breach.jpg"
+        },
+        {
+          "titre": "LiteLLM release pipeline hacked to distribute info-stealer malware",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/litellm-release-pipeline-hacked-to-distribute-info-stealer-malware/",
+          "date": "2026-10-22",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/22/LiteLLM.jpg"
         }
       ]
     },
@@ -20677,17 +20688,17 @@
       "id": "2026-10-22-arista-velocloud-orchestrator",
       "title": "Arista VeloCloud Orchestrator : faille d'injection SQL exploitée avant correctif",
       "created": "2026-10-22T18:30:00+00:00",
-      "updated": "2026-10-22T18:30:00+00:00",
-      "version": 1,
+      "updated": "2026-10-22T20:30:00+00:00",
+      "version": 2,
       "resume": "Arista a corrigé une faille d'injection SQL exploitée dans des attaques contre VeloCloud Orchestrator installé en local. Elle permet à un utilisateur authentifié d'élever ses privilèges [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Session authentifiée valide sur l'interface web de VeloCloud Orchestrator ; la manière de l'obtenir n'est pas précisée [1]."
+          "texte": "Accès réseau à l'interface web et identifiant valide, même du rôle client le plus bas (Enterprise Read Only) ; l'obtention de l'identifiant n'est pas précisée [1, 2]."
         },
         {
           "etape": "Élévation de privilèges",
-          "texte": "Injection SQL de faible complexité → privilèges d'opérateur, avec usurpation de l'utilisateur local « superuser operator » [1]."
+          "texte": "Injection SQL de faible complexité → privilèges d'opérateur, niveau le plus élevé, avec usurpation de l'utilisateur local « superuser operator » [1, 2]."
         },
         {
           "etape": "Accès aux fonctions internes",
@@ -20732,11 +20743,11 @@
           }
         ]
       },
-      "limites": "La source ne dit ni qui est l'attaquant, ni quelles victimes, ni depuis quand les attaques ont lieu, ni ce qu'il a fait concrètement [1].",
+      "limites": "Les sources ne disent ni qui est l'attaquant, ni quelles victimes, ni depuis quand, ni ce qu'il a fait après l'exploitation. Arista cite deux adresses réseau à l’origine des attaques [2].",
       "cves": [
         {
           "id": "CVE-2026-114625",
-          "explication": "VeloCloud Orchestrator installé en local : injection SQL permettant à un utilisateur authentifié d'élever ses privilèges, gravité critique [1]."
+          "explication": "VeloCloud Orchestrator installé en local : injection SQL permettant à un utilisateur authentifié d'élever ses privilèges, gravité critique 9,9 sur 10 [1, 2]."
         }
       ],
       "mitre": [],
@@ -20761,6 +20772,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/arista-patches-new-velocloud-orchestrator-zero-day-exploited-in-attacks/",
           "date": "2026-10-22",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/22/Arista.jpg"
+        },
+        {
+          "titre": "Arista Warns of Critical VeloCloud SQL Injection Zero-Day Exploited in Attacks",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/arista-warns-of-critical-velocloud-sql.html",
+          "date": "2026-10-22",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEio5jLAiZnSHOwYGjf-F6s4HR4ileDOwAkHiX9NyW30mGUqSzgdwGVdTzCTYkgmeoGtTRaSVm-h2IBwvJ9xd84OU2t3YXd8hf5PwlGdjh6VlcYZoCNkx6Yt0FY_JlVcM3AtXI4LQyidnOE86NMVwOGcztaFtV2Qq21X1pRQi6jxiITnQIoO14XLiOWaufI/s1700-nu-rw-lo-l85-e365/velo.jpg"
         }
       ]
     }

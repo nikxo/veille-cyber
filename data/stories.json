@@ -15479,8 +15479,8 @@
       "id": "2026-10-17-connectwise-cloud-backup-microsoft-365",
       "title": "Identifiant ConnectWise Cloud Backup compromis : accès à plus de 160 environnements Microsoft 365",
       "created": "2026-10-17T07:30:00+00:00",
-      "updated": "2026-10-21T19:07:43+00:00",
-      "version": 10,
+      "updated": "2026-10-22T06:20:00+00:00",
+      "version": 11,
       "resume": "Un identifiant Microsoft 365 compromis de ConnectWise Cloud Backup a servi à obtenir des jetons : 173 environnements selon [1], 162 selon Huntress [2, 3, 7]. Microsoft attribue la campagne à Storm-0940 [10].",
       "chaine": [
         {
@@ -15505,7 +15505,7 @@
         },
         {
           "etape": "Réponse du fournisseur",
-          "texte": "Cloud Backup suspendu le 17 octobre [4], SaaS Security et Cloud Management le 18 octobre [5] ; comptes réinitialisés et identifiants d'application remplacés [9]."
+          "texte": "Cloud Backup suspendu le 17 octobre [4], SaaS Security et Cloud Management le 18 [5] ; identifiants remplacés [9] ; services rétablis par phases sur plusieurs jours [11]."
         }
       ],
       "parcours": {
@@ -15593,7 +15593,7 @@
       ],
       "acteurs": [
         "Non attribué par les sources [1, 2, 4]",
-        "Storm-0940, acteur aligné sur l'État chinois selon Microsoft, qui utilise l'outil ARTEX [10]"
+        "Storm-0940, acteur aligné sur l'État chinois selon Microsoft, utilisant l'outil ARTEX [10, 11] ; déjà lié au botnet Quad7 en 2024 [11]"
       ],
       "cibles": [
         "Environnements Microsoft 365 de partenaires et clients de ConnectWise Cloud Backup, dont quatre cabinets d'avocats visés par des essais de mots de passe [1, 2, 3]",
@@ -15603,7 +15603,7 @@
       "abreviations": [
         {
           "sigle": "ARTEX",
-          "definition": "Outil open source de test d'intrusion multi-agents automatisant les attaques"
+          "definition": "Outil de test d'intrusion piloté par agents IA, devenu à code fermé"
         }
       ],
       "sources": [
@@ -15676,6 +15676,13 @@
           "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
           "date": "2026-10-21",
           "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/05/MS_Actional-Insights_Storm.jpg"
+        },
+        {
+          "titre": "China-Linked Hackers Use ARTEX AI Agents in ConnectWise Supply Chain Attack",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html",
+          "date": "2026-10-22",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBGpr0x4Dn4VV8YVCO_s3CzzGvwmVUceHbt0llcvrzvBmWFaJcu9E9v3WntJGdez3PZ-53GAVSRiYc5FdSOgmyeCSXvpL2t5nCjhzJC50kTLhQygW8cCeFHqtZtDYHsG7Vx2uf1vVdobBbKJ5fcCKSNZDKpV00GRQKVlD444srM9L4rcPnTe28nABZ3pon/s1700-nu-rw-lo-l85-e365/chinese-ai.jpg"
         }
       ]
     },
@@ -19970,6 +19977,130 @@
           "url": "https://www.bleepingcomputer.com/news/security/japans-onamae-desktop-cloud-hacked-up-to-27-000-servers-affected/",
           "date": "2026-10-21",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/21/cloud-servers.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-22-apt41-blackx-bootkit",
+      "title": "APT41 : le bootkit UEFI BlackX contre des agences diplomatiques d'Asie centrale",
+      "created": "2026-10-22T06:20:00+00:00",
+      "updated": "2026-10-22T06:20:00+00:00",
+      "version": 1,
+      "resume": "Le bootkit UEFI BlackX, attribué à APT41 avec une confiance moyenne, a visé des agences diplomatiques d'Asie centrale. Les machines ciblées étaient entièrement corrigées [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Installation du bootkit",
+          "texte": "Réseau compromis et droits administrateur obtenus → lancement de inst.exe, qui déchiffre les composants et les dépose sur les partitions système et UEFI [1]."
+        },
+        {
+          "etape": "Contournement de Secure Boot",
+          "texte": "Exploit Baton Drop (CVE-2022-21894) → installation de clés personnalisées et chargement de fichiers EFI arbitraires [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Le code UEFI injecte un pilote malveillant dans le noyau Windows, signé avec un certificat révoqué depuis → persistance au niveau UEFI [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Le pilote désactive des rappels de processus, de threads et de registre → procédures visant Kaspersky et Avast, en échec face aux produits Kaspersky [1]."
+        },
+        {
+          "etape": "Outils d'accès à distance",
+          "texte": "Un outil d'accès à distance communique via Google Drive, OneDrive ou Yandex.Disk ; une bibliothèque chargée par googleupdate.exe exécute un payload Rust contactant archivetj[.]com [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (APT41)",
+            "note": ""
+          },
+          {
+            "id": "ph",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines des agences diplomatiques",
+            "note": "Bootkit installé"
+          },
+          {
+            "id": "cl",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Google Drive, OneDrive, Yandex.Disk",
+            "note": ""
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Domaine archivetj[.]com",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ph",
+            "etape": 1,
+            "texte": "Compromission du réseau, moyen non précisé"
+          },
+          {
+            "de": "ph",
+            "vers": "cl",
+            "etape": 6,
+            "texte": "Communication via stockage en ligne"
+          },
+          {
+            "de": "ph",
+            "vers": "c2",
+            "etape": 6,
+            "texte": "Le payload Rust contacte le domaine"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent pas comment le réseau a été compromis. Les ressemblances avec BlackLotus ne prouvent pas une reprise du code [1].",
+      "cves": [
+        {
+          "id": "CVE-2022-21894",
+          "explication": "Baton Drop : contournement de Secure Boot permettant d'installer des clés personnalisées et de charger des fichiers EFI arbitraires [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "APT41, avec une confiance moyenne [1]"
+      ],
+      "cibles": [
+        "Agences diplomatiques du Tadjikistan, d'Ouzbékistan et du Turkménistan [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "UEFI",
+          "definition": "Micrologiciel qui démarre l'ordinateur avant Windows"
+        },
+        {
+          "sigle": "EFI",
+          "definition": "Format des programmes de démarrage exécutés par le micrologiciel UEFI"
+        },
+        {
+          "sigle": "APT41",
+          "definition": "Nom de suivi d'un groupe d'attaquants"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "How APT41 revived the BlackLotus bootkit to attack diplomatic organizations in Central Asia",
+          "site": "Securelist (Kaspersky)",
+          "url": "https://securelist.com/uefi-bootkit-blackx/121539/",
+          "date": "2026-10-22",
+          "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/10/22043554/sas-uefi-blackx-featured-image.jpg"
         }
       ]
     }

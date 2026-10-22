@@ -20103,6 +20103,107 @@
           "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/10/22043554/sas-uefi-blackx-featured-image.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-22-sandworm-uac-0099-cereales",
+      "title": "Sandworm et UAC-0099 : destruction de données chez un logisticien céréalier ukrainien",
+      "created": "2026-10-22T09:30:00+00:00",
+      "updated": "2026-10-22T09:30:00+00:00",
+      "version": 1,
+      "resume": "Selon ESET, le groupe Sandworm a collaboré avec UAC-0099 pour mener une attaque destructrice contre une entreprise ukrainienne de logistique céréalière [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Courriel d'hameçonnage avec pièce jointe malveillante, utilisé par UAC-0099 en juillet 2025 → accès au réseau de l'entreprise [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Installation de la porte dérobée MatchWok → maintien de l'accès [1]."
+        },
+        {
+          "etape": "Contrôle à distance",
+          "texte": "Déploiement de MythicRatatoskr → exécution de commandes, vol de fichiers et captures d'écran, via le réseau décentralisé Yggdrasil [1]."
+        },
+        {
+          "etape": "Passage à Sandworm",
+          "texte": "UAC-0099 aurait transmis l'accès à Sandworm [1]."
+        },
+        {
+          "etape": "Destruction de données",
+          "texte": "Attaque destructrice menée par Sandworm en septembre 2025 [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (UAC-0099, Sandworm)",
+            "note": ""
+          },
+          {
+            "id": "mail",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Messagerie de l'entreprise",
+            "note": "Pièce jointe piégée"
+          },
+          {
+            "id": "res",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Réseau de l'entreprise",
+            "note": "Portes dérobées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "mail",
+            "etape": 1,
+            "texte": "Courriel d'hameçonnage"
+          },
+          {
+            "de": "mail",
+            "vers": "res",
+            "etape": 2,
+            "texte": "Porte dérobée MatchWok installée"
+          },
+          {
+            "de": "att",
+            "vers": "res",
+            "etape": 5,
+            "texte": "Attaque destructrice par Sandworm"
+          }
+        ]
+      },
+      "limites": "ESET ne peut pas déterminer lequel des deux groupes a principalement utilisé la porte dérobée, et l'article ne détaille pas les effets précis de l'attaque destructrice [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Sandworm, groupe lié au renseignement militaire russe [1]",
+        "UAC-0099, groupe d'espionnage aligné sur la Russie [1]"
+      ],
+      "cibles": [
+        "Entreprise ukrainienne de logistique céréalière, non nommée [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ESET",
+          "definition": "Éditeur slovaque de solutions de sécurité informatique"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Russian hackers teamed up to wipe data at Ukrainian grain firm",
+          "site": "The Record",
+          "url": "https://therecord.media/ukraine-hackers-russia-grain-sandworm",
+          "date": "2026-10-21",
+          "image": "https://cms.therecord.media/uploads/Grain_wilting_f75cfaf4d4.jpg"
+        }
+      ]
     }
   ]
 }

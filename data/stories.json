@@ -20671,6 +20671,98 @@
           "image": "https://cdn.builder.io/api/v1/image/assets%2F3eb6f92aedf74f109c7b4b0897ec39a8%2Fdca76d702afd4b8fb78824a5b8651986"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-22-arista-velocloud-orchestrator",
+      "title": "Arista VeloCloud Orchestrator : faille d'injection SQL exploitée avant correctif",
+      "created": "2026-10-22T18:30:00+00:00",
+      "updated": "2026-10-22T18:30:00+00:00",
+      "version": 1,
+      "resume": "Arista a corrigé une faille d'injection SQL exploitée dans des attaques contre VeloCloud Orchestrator installé en local. Elle permet à un utilisateur authentifié d'élever ses privilèges [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Session authentifiée valide sur l'interface web de VeloCloud Orchestrator ; la manière de l'obtenir n'est pas précisée [1]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Injection SQL de faible complexité → privilèges d'opérateur, avec usurpation de l'utilisateur local « superuser operator » [1]."
+        },
+        {
+          "etape": "Accès aux fonctions internes",
+          "texte": "Utilisation de fonctions réservées à un usage interne → atteinte possible à la confidentialité, l'intégrité et la disponibilité de l'orchestrateur [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "vco",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Interface web VeloCloud Orchestrator",
+            "note": "Installation locale"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "vco",
+            "etape": 1,
+            "texte": "Session authentifiée sur l'interface web"
+          },
+          {
+            "de": "att",
+            "vers": "vco",
+            "etape": 2,
+            "texte": "Injection SQL, privilèges d'opérateur"
+          },
+          {
+            "de": "att",
+            "vers": "vco",
+            "etape": 3,
+            "texte": "Accès aux fonctions internes"
+          }
+        ]
+      },
+      "limites": "La source ne dit ni qui est l'attaquant, ni quelles victimes, ni depuis quand les attaques ont lieu, ni ce qu'il a fait concrètement [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-114625",
+          "explication": "VeloCloud Orchestrator installé en local : injection SQL permettant à un utilisateur authentifié d'élever ses privilèges, gravité critique [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Déploiements locaux de VeloCloud Orchestrator, portail de gestion des SD-WAN VeloCloud [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SD-WAN",
+          "definition": "Réseau étendu défini par logiciel, qui relie des sites distants"
+        },
+        {
+          "sigle": "SQL",
+          "definition": "Langage d'interrogation des bases de données"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Arista patches new VeloCloud Orchestrator zero-day exploited in attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/arista-patches-new-velocloud-orchestrator-zero-day-exploited-in-attacks/",
+          "date": "2026-10-22",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/22/Arista.jpg"
+        }
+      ]
     }
   ]
 }

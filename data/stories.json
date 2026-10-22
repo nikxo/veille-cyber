@@ -20246,6 +20246,78 @@
           "image": "https://cms.therecord.media/uploads/Grain_wilting_f75cfaf4d4.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-22-railway-variables-environnement",
+      "title": "Railway : un tiers a pu accéder aux variables d'environnement de clients",
+      "created": "2026-10-22T12:30:00+00:00",
+      "updated": "2026-10-22T12:30:00+00:00",
+      "version": 1,
+      "resume": "Railway a signalé une activité anormale sur les systèmes qui stockent les variables d'environnement de ses clients. Un tiers a pu accéder à des variables chiffrées et parfois à leur contenu déchiffré [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Accès aux secrets",
+          "texte": "Intrusion dans les systèmes de stockage des variables d'environnement → accès à des variables chiffrées et, dans certains cas, à leur contenu déchiffré [1]."
+        },
+        {
+          "etape": "Vol de cryptomonnaies",
+          "texte": "Selon la chercheuse Taylor Monahan, des portefeuilles dont les clés privées étaient stockées chez Railway ont été vidés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "stock",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Stockage des variables d'environnement",
+            "note": "Contenu parfois déchiffré"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "stock",
+            "etape": 2,
+            "texte": "Accès non autorisé aux variables d'environnement"
+          },
+          {
+            "de": "stock",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Clés privées de portefeuilles utilisées pour vider des fonds"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'accès initial, ni l'acteur, ni le nombre de clients touchés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Sous-ensemble de clients de la plateforme Railway [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Railway Says Intruder May Have Accessed Customer Secrets, Urges Credential Rotation",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/railway-says-intruder-may-have-accessed.html",
+          "date": "2026-10-22",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLi5yuPoipCkAL6joBpDL5htNkHWi_rU5i5dAyspyjSrdDORYgV_LRNO4pVG_c1P0S7bnZFWHft8recxLiFRSiLsPxx3ZL-v8fzlYRuzxxG_P_ocKdJbGWzXFtoEjPszyKNUOS86HCylk0LPV1YZS7U9qZcfonBVeLEuRKioCXVbbzUySEvWGI0IaBJ8U/s1700-nu-rw-lo-l85-e365/rail.jpg"
+        }
+      ]
     }
   ]
 }

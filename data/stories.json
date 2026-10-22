@@ -15479,8 +15479,8 @@
       "id": "2026-10-17-connectwise-cloud-backup-microsoft-365",
       "title": "Identifiant ConnectWise Cloud Backup compromis : accès à plus de 160 environnements Microsoft 365",
       "created": "2026-10-17T07:30:00+00:00",
-      "updated": "2026-10-22T06:20:00+00:00",
-      "version": 11,
+      "updated": "2026-10-22T17:07:08+00:00",
+      "version": 12,
       "resume": "Un identifiant Microsoft 365 compromis de ConnectWise Cloud Backup a servi à obtenir des jetons : 173 environnements selon [1], 162 selon Huntress [2, 3, 7]. Microsoft attribue la campagne à Storm-0940 [10].",
       "chaine": [
         {
@@ -15593,12 +15593,14 @@
       ],
       "acteurs": [
         "Non attribué par les sources [1, 2, 4]",
-        "Storm-0940, acteur aligné sur l'État chinois selon Microsoft, utilisant l'outil ARTEX [10, 11] ; déjà lié au botnet Quad7 en 2024 [11]"
+        "Storm-0940, acteur aligné sur l'État chinois selon Microsoft, utilisant l'outil ARTEX [10, 11] ; déjà lié au botnet Quad7 en 2024 [11]",
+        "Microsoft relie Storm-0940, actif depuis 2021, à la campagne grâce à des adresses signalées par ConnectWise [12]"
       ],
       "cibles": [
         "Environnements Microsoft 365 de partenaires et clients de ConnectWise Cloud Backup, dont quatre cabinets d'avocats visés par des essais de mots de passe [1, 2, 3]",
         "Seconde vague, largement infructueuse : politique, sécurité nationale, commerce, minerais critiques [7]",
-        "Selon Microsoft : défense, énergie, services financiers, gouvernement, juridique, technologie, entre autres [10]"
+        "Selon Microsoft : défense, énergie, services financiers, gouvernement, juridique, technologie, entre autres [10]",
+        "Selon The Record : gouvernement, aérospatial, défense, finance, industrie, technologie, énergie, depuis septembre [12]"
       ],
       "abreviations": [
         {
@@ -15683,6 +15685,13 @@
           "url": "https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html",
           "date": "2026-10-22",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBGpr0x4Dn4VV8YVCO_s3CzzGvwmVUceHbt0llcvrzvBmWFaJcu9E9v3WntJGdez3PZ-53GAVSRiYc5FdSOgmyeCSXvpL2t5nCjhzJC50kTLhQygW8cCeFHqtZtDYHsG7Vx2uf1vVdobBbKJ5fcCKSNZDKpV00GRQKVlD444srM9L4rcPnTe28nABZ3pon/s1700-nu-rw-lo-l85-e365/chinese-ai.jpg"
+        },
+        {
+          "titre": "Microsoft blames ConnectWise attacks on Chinese state hacker using ARTEX AI agents",
+          "site": "The Record",
+          "url": "https://therecord.media/china-cyber-connectwise-ai",
+          "date": "2026-10-22",
+          "image": "https://cms.therecord.media/uploads/AI_agents_1_e0b6353553.jpg"
         }
       ]
     },

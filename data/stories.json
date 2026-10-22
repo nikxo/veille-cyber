@@ -19361,8 +19361,8 @@
       "id": "2026-10-21-php2shell-cve-2026-109618",
       "title": "PHP2Shell : deux failles critiques de PHP, tentatives d'exploitation avant les correctifs",
       "created": "2026-10-21T13:30:00+00:00",
-      "updated": "2026-10-21T18:08:17+00:00",
-      "version": 5,
+      "updated": "2026-10-22T10:30:00+00:00",
+      "version": 6,
       "resume": "Deux failles critiques du cœur de PHP (PHP2Shell) permettent d'exécuter du code via une requête web sans authentification [6, 11]. Des correctifs d'urgence sont sortis le 21 octobre [9] ; des centaines de sites ont été mis hors ligne [8].",
       "chaine": [
         {
@@ -19379,7 +19379,7 @@
         },
         {
           "etape": "Exploitation observée",
-          "texte": "Démonstrateur public → tentatives d'exploitation signalées par Cloudflare, Patchstack, watchTowr et Vega, sans réussite constatée par watchTowr [13] ; Hadrian affirme une exploitation à grande échelle [13]."
+          "texte": "Première tentative le 17 octobre contre un honeypot d'Amazon, avant la divulgation [15, 16] ; exploitation de masse après les correctifs, sans compromission réussie rapportée [16]."
         },
         {
           "etape": "Mises hors ligne",
@@ -19424,7 +19424,7 @@
           }
         ]
       },
-      "limites": "Sophos, ZATAZ, Talos, Elastic et watchTowr ne constatent aucune exploitation active [1, 2, 6, 7, 9] ; d'autres sources rapportent des attaques ou tentatives [3, 5, 8, 10, 12, 13].",
+      "limites": "Sophos, ZATAZ, Talos, Elastic et watchTowr ne constatent aucune exploitation active [1, 2, 6, 7, 9] ; d'autres sources rapportent des attaques ou tentatives [3, 5, 8, 10, 12, 13, 15, 16].",
       "cves": [
         {
           "id": "CVE-2026-109618",
@@ -19441,7 +19441,7 @@
         "T1505.003 : Server Software Component: Web Shell, cité par Elastic comme correspondance attendue, sans activité observée [7]"
       ],
       "acteurs": [
-        "Non identifié : les sources ne nomment pas ceux qui tentent l'exploitation [1, 2, 3, 6, 11]",
+        "Non identifié : les sources ne nomment pas ceux qui tentent l'exploitation [1, 2, 3, 6, 11, 15, 16]",
         "Calif a signalé les bogues à la PHP Foundation le 11 août [14]",
         "Chainguard a publié des images corrigées avant la fin de l'embargo [14]"
       ],
@@ -19561,6 +19561,20 @@
           "url": "https://therecord.media/php-foundation-statement-critical-vulnerabilities",
           "date": "2026-10-21",
           "image": "https://cms.therecord.media/uploads/php_logo_pexels_steve_a_johnson_132b80cbee.jpg"
+        },
+        {
+          "titre": "Someone Tried to Exploit PHP2Shell 4 Days Before the Vulnerabilities Were Publicly Disclosed",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/someone-tried-to-exploit-php2shell-4.html",
+          "date": "2026-10-22",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZXm1gLzaKPP-QW888zIx_tXRCirkgZBsOOn0icTEOrFBf7w28955jH1zY8jxw2Cf-g2Qp9mPHgrBe7E5dux_L2XUzdaVZfvRgj_utCT-nTiU7haAkAr_F6eEeW5YJmtwbtJoIuumhnv5F9tFG_2BcLwnaqwkFGWEvFnWsUDHHuobMhZ_letCSD6I56Lw_/s1700-nu-rw-lo-l85-e365/php-hacks.jpg"
+        },
+        {
+          "titre": "PHP2Shell Exploitation Started Days Before Patches",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/php2shell-exploitation-started-days-before-patches/",
+          "date": "2026-10-22",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Low-Code-No-Code-Security.jpg"
         }
       ]
     },
@@ -19679,29 +19693,33 @@
       "id": "2026-10-21-litellm-chaine-approvisionnement",
       "title": "LiteLLM 1.107.0 compromis : voleur d'identifiants et porte dérobée via PyPI et Docker",
       "created": "2026-10-21T18:08:17+00:00",
-      "updated": "2026-10-21T18:08:17+00:00",
-      "version": 1,
-      "resume": "La version 1.107.0 du paquet Python LiteLLM, diffusée par PyPI et Docker, contenait un voleur d'identifiants et une porte dérobée, après un détournement apparent de jetons GitHub CLI de trois ingénieurs [1].",
+      "updated": "2026-10-22T10:30:00+00:00",
+      "version": 2,
+      "resume": "La version 1.107.0 du paquet Python LiteLLM, diffusée par PyPI et Docker, contenait un voleur d'identifiants et une porte dérobée, après le détournement de jetons GitHub CLI de développeurs [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Jetons OAuth GitHub CLI de trois ingénieurs apparemment volés → publication via leurs comptes, l'un lançant le project-releaser et l'autre l'approuvant [1]."
+          "texte": "Trois jeux d'identifiants GitHub CLI de développeurs aux mains de l'attaquant ; LiteLLM suspecte, sans confirmation, une fuite via les logs d'un déploiement interne exposé [1, 2]."
+        },
+        {
+          "etape": "Détournement de la publication",
+          "texte": "Jeton d'un propriétaire d'organisation GitHub → protections de branche désactivées, poussée forcée, workflow de release lancé sur un dépôt au nom proche [2]."
         },
         {
           "etape": "Diffusion",
-          "texte": "Version 1.107.0 publiée en wheels PyPI et images Docker → code malveillant distribué aux utilisateurs [1]."
-        },
-        {
-          "etape": "Exécution automatique",
-          "texte": "Fichier cook.pth contenant « import cook » → exécution dès le lancement de Python, avant l'import de LiteLLM [1]."
+          "texte": "Version 1.107.0 publiée sur PyPI et Docker Hub → code malveillant distribué aux utilisateurs [1, 2]."
         },
         {
           "etape": "Vol d'identifiants",
-          "texte": "Voleur « privcollect » → collecte de jetons cloud, clés privées, données de navigateurs et variables d'environnement, envoyées en POST vers litellm[.]dev [1]."
+          "texte": "Fichier cook.pth lancé au démarrage de Python → voleur « privcollect » envoyant jetons cloud, clés privées et variables d'environnement en POST vers litellm[.]dev [1]."
         },
         {
           "etape": "Porte dérobée",
-          "texte": "Démon lisant chaque heure un fichier domain.txt sur GitHub → si un domaine y figure, exécution du code Python qu'il sert [1]."
+          "texte": "Démon lisant chaque heure un domaine hébergé sur GitHub → exécution du code Python distant qu'il sert [1, 2]."
+        },
+        {
+          "etape": "Réutilisation des identifiants",
+          "texte": "Wiz observe, environ 4,5 heures après l'exfiltration, la validation d'identifiants de rôles AWS collectés sur des machines compromises [2]."
         }
       ],
       "parcours": {
@@ -19747,6 +19765,13 @@
             "zone": "internet",
             "nom": "Dépôt GitHub domain.txt",
             "note": ""
+          },
+          {
+            "id": "aws",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Rôles AWS",
+            "note": "Identifiants validés"
           }
         ],
         "liens": [
@@ -19754,19 +19779,19 @@
             "de": "att",
             "vers": "gh",
             "etape": 1,
-            "texte": "Jetons GitHub CLI apparemment volés"
+            "texte": "Jetons GitHub CLI aux mains de l'attaquant"
           },
           {
             "de": "gh",
             "vers": "reg",
             "etape": 2,
-            "texte": "Publication de la version 1.107.0"
+            "texte": "Release lancée, protections de branche désactivées"
           },
           {
             "de": "reg",
             "vers": "pc",
             "etape": 3,
-            "texte": "Installation puis exécution de cook.pth"
+            "texte": "Installation de la version 1.107.0"
           },
           {
             "de": "pc",
@@ -19779,17 +19804,23 @@
             "vers": "dd",
             "etape": 5,
             "texte": "Lecture horaire du domaine à contacter"
+          },
+          {
+            "de": "pc",
+            "vers": "aws",
+            "etape": 6,
+            "texte": "Identifiants de rôles validés"
           }
         ]
       },
-      "limites": "Le mode d'obtention des jetons n'est pas identifié ; la source ne donne ni acteur ni nombre de victimes [1].",
+      "limites": "Le mode d'obtention des jetons n'est pas confirmé : la fuite via les logs reste une hypothèse de LiteLLM. Aucun acteur ni nombre de victimes n'est donné [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non identifié : la source n'attribue pas l'attaque [1]"
+        "Non identifié : les sources n'attribuent pas l'attaque [1, 2]"
       ],
       "cibles": [
-        "Utilisateurs ayant téléchargé LiteLLM 1.107.0 [1]"
+        "Utilisateurs ayant téléchargé LiteLLM 1.107.0 ou ses images Docker [1, 2]"
       ],
       "abreviations": [
         {
@@ -19811,6 +19842,10 @@
         {
           "sigle": "Docker",
           "definition": "Technologie de conteneurs qui empaquette une application"
+        },
+        {
+          "sigle": "AWS",
+          "definition": "Amazon Web Services : services cloud d'Amazon"
         }
       ],
       "sources": [
@@ -19820,6 +19855,13 @@
           "url": "https://thehackernews.com/2026/10/litellm-compromised-in-supply-chain.html",
           "date": "2026-10-21",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-f1TsJE93kcT5Cp1wvKlnR-bCWFP9ZUZofd0PXryxRBt0B1q0-t0BaHnEJcNhy3IhRZq2fBU9fmILshSvlY-qk28TOO-f1JoBcGSRtwiC3MIV4gDxdXYzTS_ZMirtPka7UaG9Shie7kgWKzauZOwKgPvk8hHXUTFly2YXpzBuxUD20MdxBfKeXrRsIG-W/s1700-nu-rw-lo-l85-e365/litellm-hack.jpg"
+        },
+        {
+          "titre": "LiteLLM Suspects GitHub Token Leak in AI Gateway Logs Behind Malicious Package Release",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/litellm-suspects-github-token-leak-in.html",
+          "date": "2026-10-22",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgiEKKMESHBCMBHXA8Yf_clmAeFQXSdaKTEz0t_6RDzj1zXcwiPxA4gy2MPmftM6vyCkoG7OsCZJ2a8t7xJe1qbn3tEWRZfVgStzQVJy0ZfwEkjhg6-A34iT3XnQG7nYku04cWbIaHwkQmuDVghCeJBx5xJcbtozsyD3Genw4wyxFtgWIVD-rRGRLMBKoq2/s1700-nu-rw-lo-l85-e365/litellm-breach.jpg"
         }
       ]
     },

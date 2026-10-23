@@ -1,21 +1,5 @@
 [
   {
-    "id": "d19f7dd7df8ae6db",
-    "title": "ShinyHunters hacker reportedly detained in Jordan, aiding FBI",
-    "link": "https://www.bleepingcomputer.com/news/security/shinyhunters-hacker-reportedly-detained-in-jordan-aiding-fbi/",
-    "source": "BleepingComputer",
-    "raison": "actualité judiciaire (arrestation), méthode d'attaque non établie par l'article",
-    "date": "2026-10-03T19:30:00+00:00"
-  },
-  {
-    "id": "59741cfde7582d8e",
-    "title": "Google Gemini could soon get full access to your Mac’s files, apps and the web",
-    "link": "https://www.bleepingcomputer.com/news/google/google-gemini-could-soon-get-full-access-to-your-macs-files-apps-and-the-web/",
-    "source": "BleepingComputer",
-    "raison": "annonce produit",
-    "date": "2026-10-04T03:00:00+00:00"
-  },
-  {
     "id": "9e761cdf74292555",
     "title": "ShinyHunters Suspect Rey Reportedly Detained in Jordan, Helping FBI Identify Group Members",
     "link": "https://thehackernews.com/2026/10/shinyhunters-suspect-rey-reportedly.html",
@@ -3998,5 +3982,21 @@
     "source": "Dark Reading",
     "raison": "article général sur l'assurance cyber",
     "date": "2026-10-23T14:10:00+00:00"
+  },
+  {
+    "id": "6eef90347dd9985f",
+    "title": "How CVE-2026-73570 turns a Zimbra log file into remote code execution",
+    "link": "https://www.elastic.co/security-labs/threat-command/command-injection-zimbra-cve-2026-73570",
+    "source": "Elastic Security Labs",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-10-23T15:30:00+00:00"
+  },
+  {
+    "id": "7112636e7ae982b8",
+    "title": "In Other News: Tor Exit Relays Hijacked, Banks Spot Rogue AI Agents, Self-Rebuilding macOS Ransomware",
+    "link": "https://www.securityweek.com/in-other-news-tor-exit-relays-hijacked-banks-spot-rogue-ai-agents-self-rebuilding-macos-ransomware/",
+    "source": "SecurityWeek",
+    "raison": "brève multi-sujets sans chaîne d'attaque unique",
+    "date": "2026-10-23T15:30:00+00:00"
   }
 ]

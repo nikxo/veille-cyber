@@ -19960,9 +19960,9 @@
       "id": "2026-10-22-arista-velocloud-orchestrator",
       "title": "Arista VeloCloud Orchestrator : faille d'injection SQL exploitée avant correctif",
       "created": "2026-10-22T18:30:00+00:00",
-      "updated": "2026-10-23T10:20:00+00:00",
-      "version": 3,
-      "resume": "Arista a corrigé une faille d'injection SQL exploitée dans des attaques contre VeloCloud Orchestrator installé en local. Elle permet à un utilisateur authentifié d'élever ses privilèges [1].",
+      "updated": "2026-10-23T15:30:00+00:00",
+      "version": 4,
+      "resume": "Arista a corrigé une faille d'injection SQL exploitée dans des attaques contre VeloCloud Orchestrator installé en local. Elle permet à un utilisateur authentifié d'élever ses privilèges [1, 4].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -20015,11 +20015,11 @@
           }
         ]
       },
-      "limites": "Les sources ne disent ni qui attaque, ni les victimes, ni les actions après exploitation. Arista cite deux adresses réseau d'attaque [2, 3]. Deux autres failles du produit ont été exploitées en juillet et septembre [3].",
+      "limites": "Les sources ne disent ni qui attaque, ni les victimes, ni les actions après exploitation. Arista cite deux adresses réseau d'attaque [2, 3, 4]. Deux autres failles du produit ont été exploitées en juillet et septembre [3].",
       "cves": [
         {
           "id": "CVE-2026-114625",
-          "explication": "VeloCloud Orchestrator, versions antérieures à 5.2.3.18, 6.1.3.10 et 6.4.2.12 : injection SQL permettant à un utilisateur authentifié d'élever ses privilèges, gravité critique 9,9 sur 10 [1, 2, 3]."
+          "explication": "VeloCloud Orchestrator, versions antérieures à 5.2.3.18, 6.1.3.10 et 6.4.2.12 : injection SQL permettant à un utilisateur authentifié d'élever ses privilèges, gravité critique 9,9 sur 10 [1, 2, 3, 4]."
         }
       ],
       "mitre": [],
@@ -20059,6 +20059,13 @@
           "url": "https://www.securityweek.com/attackers-exploit-third-velocloud-orchestrator-zero-day-in-four-months/",
           "date": "2026-10-23",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/09/arista.jpeg"
+        },
+        {
+          "titre": "VeloCloud : Arista corrige une vulnérabilité déjà exploitée",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366652615/VeloCloud-Arista-corrige-une-vulnerabilite-deja-exploitee",
+          "date": "2026-10-23",
+          "image": "https://www.lemagit.fr/visuals/German/article/patch-management-fabric-adobe.jpg"
         }
       ]
     },
@@ -21585,6 +21592,140 @@
           "url": "https://research.checkpoint.com/2026/infostealer-riding-the-ai-train/",
           "date": "2026-10-23",
           "image": "https://research.checkpoint.com/wp-content/uploads/2026/10/bg_info.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-23-k0t-pare-feu-vpn-identifiants",
+      "title": "Acteur k0t : campagne contre pare-feu et passerelles VPN, plus de 70 000 identifiants exposés",
+      "created": "2026-10-23T15:30:00+00:00",
+      "updated": "2026-10-23T15:30:00+00:00",
+      "version": 1,
+      "resume": "Group-IB et NyxLab décrivent une campagne visant des pare-feu exposés (Fortinet FortiGate, Palo Alto Networks GlobalProtect), attribuée à l'acteur k0t. Plus de 70 000 identifiants sont exposés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Appareils repérés avec FOFA et ZoomEye, puis exploitation de CVE-2025-64446 et CVE-2026-0257, ou force brute avec des identifiants courants → accès à l'appareil [1]."
+        },
+        {
+          "etape": "Point d'ancrage",
+          "texte": "Connexion réseau privé virtuel OpenConnect établie → présence installée sur la cible [1]."
+        },
+        {
+          "etape": "Exploration du réseau",
+          "texte": "Énumération de l'annuaire Active Directory, des partages et de l'antivirus, vol d'identifiants supplémentaires → cartographie du réseau et accès étendu [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Outils d'accès à distance légitimes (MeshCentral, Atera, Teramind, AnyDesk) et framework AdaptixC2 → accès maintenu sur l'hôte [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Rclone vers des espaces Wasabi et MEGA → données collectées extraites [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (k0t)",
+            "note": ""
+          },
+          {
+            "id": "fw",
+            "type": "passerelle",
+            "zone": "expose",
+            "nom": "Pare-feu et VPN exposés",
+            "note": "FortiGate, GlobalProtect"
+          },
+          {
+            "id": "res",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Réseau interne et Active Directory",
+            "note": "Identifiants volés"
+          },
+          {
+            "id": "ext",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Wasabi et MEGA",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "fw",
+            "etape": 1,
+            "texte": "Failles ou force brute"
+          },
+          {
+            "de": "att",
+            "vers": "fw",
+            "etape": 2,
+            "texte": "Connexion OpenConnect"
+          },
+          {
+            "de": "fw",
+            "vers": "res",
+            "etape": 3,
+            "texte": "Énumération et vol d'identifiants"
+          },
+          {
+            "de": "res",
+            "vers": "ext",
+            "etape": 5,
+            "texte": "Exfiltration avec Rclone"
+          }
+        ]
+      },
+      "limites": "L'article ne cite ni technique MITRE, ni nombre de victimes, ni organisations touchées. Le lien de k0t avec les rançongiciels Qilin et The Gentlemen est jugé peu clair [1].",
+      "cves": [
+        {
+          "id": "CVE-2025-64446",
+          "explication": "Traversée de chemin dans FortiWeb, exploitée par un script de la campagne [1]."
+        },
+        {
+          "id": "CVE-2026-0257",
+          "explication": "Contournement d'authentification dans PAN-OS et Prisma Access, exploité par un script de la campagne [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "k0t, aussi appelé CryptoFeel, Member19 et QazWsxShop, observé depuis le 22 octobre 2025 [1]"
+      ],
+      "cibles": [
+        "Appareils de bordure exposés, dont Fortinet FortiGate et Palo Alto Networks GlobalProtect, dans le monde entier [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "VPN",
+          "definition": "Réseau privé virtuel : tunnel chiffré vers le réseau d'une organisation"
+        },
+        {
+          "sigle": "PAN-OS",
+          "definition": "Système d'exploitation des pare-feu Palo Alto Networks"
+        },
+        {
+          "sigle": "FOFA",
+          "definition": "Moteur de recherche d'appareils connectés à Internet"
+        },
+        {
+          "sigle": "MEGA",
+          "definition": "Service de stockage de fichiers en ligne"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers Breach Enterprise Firewalls and VPNs, Exposing Over 70,000 Credentials",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/hackers-breach-enterprise-firewalls-and.html",
+          "date": "2026-10-23",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSk-Q06Dd5YyYmXWMt9b860DzGRKbTae_QwvoZDKNICaEznAj2AUurJmv6vPnpcH7qqDjauFZWWx7GX1RN93BLaU9Rqgiqe9j1iQRg2Vqcz3HpSqgesA6oS-GrMTyx4CTzwOD7C_z205k57ZpT70Gv4RXi-65X-nyI04wpA3raJ5nh46pN5ox42cyLnHjv/s1700-nu-rw-lo-l85-e365/1000117358.jpg"
         }
       ]
     }

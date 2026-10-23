@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-10-23T16:06:41+00:00",
+  "feed_summary": "This release adds multiple new modules, and 6 of those modules point at a single target: Langflow , the open-source LLM workflow builder. Together they cover an authentication bypass (CVE-2026-93680), 3 unauthenticated remote code execution paths (CVE-2026-0768, CVE-2026-0769, and CVE-2026-10134), and 2 authenticated code execution flaws (CVE-2026-7873 and CVE-2026-93674), spanning Langflow releases from 1.0.0 through 1.11.4. Thanks to the work of rmhowe425 , with research credit to Peter Girnus and n0k0. Beyond Langflow, open source contributor kmkz contributed a pre-auth RCE chain against OpenCTI. MongoDB coverage has also been expanded with 3 new auxiliary modules plus an Apache Solr version scanner thanks to the work of community member h00die . New Module Content (11) 4gaBoards Mass U",
+  "id": "ffb49bed17e62c7f",
+  "image": "https://www.rapid7.com/cdn/images/blt0d50271a40a5f14f/6849ab419621d9f3824d5017/metasploit-sky.png",
+  "lang": "en",
+  "link": "https://www.rapid7.com/blog/post/pt-metasploit-wrap-up-langflow-mongodb-and-more",
+  "published": "2026-10-23T15:38:56+00:00",
+  "source": "Rapid7",
+  "source_type": "analyse",
+  "title": "Metasploit Wrap Up: Langflow, MongoDB, and More"
+}

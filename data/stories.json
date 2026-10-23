@@ -21136,8 +21136,8 @@
       "id": "2026-10-23-quest-diagnostics-quanum",
       "title": "Quest Diagnostics : accès non autorisé à la plateforme Quanum Lab Services Manager",
       "created": "2026-10-23T09:30:00+00:00",
-      "updated": "2026-10-23T13:25:00+00:00",
-      "version": 2,
+      "updated": "2026-10-23T17:07:46+00:00",
+      "version": 3,
       "resume": "Quest Diagnostics a signalé un accès non autorisé à sa plateforme Quanum Lab Services Manager, qui a permis la consultation de certains dossiers de patients [1].",
       "chaine": [
         {
@@ -21146,7 +21146,7 @@
         },
         {
           "etape": "Accès aux dossiers",
-          "texte": "Accès non autorisé découvert, système mis hors ligne → Quest pense que des données de patients ont été consultées [1, 2]."
+          "texte": "Accès non autorisé découvert le 21 octobre, système Quanum LSM arrêté → Quest pense que des données de patients ont été consultées [1, 2, 3]."
         }
       ],
       "parcours": {
@@ -21199,6 +21199,10 @@
         {
           "sigle": "PHP",
           "definition": "Langage de programmation très utilisé pour les sites web côté serveur"
+        },
+        {
+          "sigle": "LSM",
+          "definition": "Lab Services Manager : plateforme de commande de tests de Quest"
         }
       ],
       "sources": [
@@ -21215,6 +21219,13 @@
           "url": "https://therecord.media/quest-diagnostics-network-intrusion",
           "date": "2026-10-23",
           "image": "https://cms.therecord.media/uploads/DSC_05112_bf00638451.jpg"
+        },
+        {
+          "titre": "Quest Diagnostics confirms data breach exposed patient records",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/quest-diagnostics-confirms-data-breach-exposed-patient-records/",
+          "date": "2026-10-23",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/23/quest.jpg"
         }
       ]
     },

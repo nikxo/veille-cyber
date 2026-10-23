@@ -20153,8 +20153,8 @@
       "id": "2026-10-17-connectwise-cloud-backup-microsoft-365",
       "title": "Identifiant ConnectWise Cloud Backup compromis : accès à plus de 160 environnements Microsoft 365",
       "created": "2026-10-17T07:30:00+00:00",
-      "updated": "2026-10-22T22:15:00+00:00",
-      "version": 13,
+      "updated": "2026-10-23T11:30:00+00:00",
+      "version": 14,
       "resume": "Un identifiant Microsoft 365 compromis de ConnectWise Cloud Backup a servi à obtenir des jetons : 173 environnements selon [1], 162 selon Huntress [2, 3, 7]. Microsoft attribue la campagne à Storm-0940 [10].",
       "chaine": [
         {
@@ -20269,18 +20269,24 @@
         "Non attribué par les sources [1, 2, 4]",
         "Storm-0940, acteur aligné sur l'État chinois selon Microsoft, utilisant l'outil ARTEX [10, 11] ; déjà lié au botnet Quad7 en 2024 [11]",
         "Microsoft relie Storm-0940, actif depuis 2021, à la campagne grâce à des adresses signalées par ConnectWise [12]",
-        "Acteur lié à la Chine, outil de test d'intrusion assisté par intelligence artificielle pour automatiser l'attaque sur plus de 2 200 locataires [13]"
+        "Acteur lié à la Chine, outil de test d'intrusion assisté par intelligence artificielle pour automatiser l'attaque sur plus de 2 200 locataires [13]",
+        "Storm-0940, APT liée à la Chine, active depuis au moins 2021, connue pour le password spraying et l'exploitation d'applications exposées [14]"
       ],
       "cibles": [
         "Environnements Microsoft 365 de partenaires et clients de ConnectWise Cloud Backup, dont quatre cabinets d'avocats visés par des essais de mots de passe [1, 2, 3]",
         "Seconde vague, largement infructueuse : politique, sécurité nationale, commerce, minerais critiques [7]",
         "Selon Microsoft : défense, énergie, services financiers, gouvernement, juridique, technologie, entre autres [10]",
-        "Selon The Record : gouvernement, aérospatial, défense, finance, industrie, technologie, énergie, depuis septembre [12]"
+        "Selon The Record : gouvernement, aérospatial, défense, finance, industrie, technologie, énergie, depuis septembre [12]",
+        "Plus de 300 tenants Entra ; depuis septembre : aérospatial, automobile, chimie, défense, énergie, finance, gouvernement, entre autres [14]"
       ],
       "abreviations": [
         {
           "sigle": "ARTEX",
           "definition": "Outil de test d'intrusion piloté par agents IA, devenu à code fermé"
+        },
+        {
+          "sigle": "APT",
+          "definition": "Advanced Persistent Threat : groupe d'attaquants soutenu par un État, actif longtemps"
         }
       ],
       "sources": [
@@ -20373,6 +20379,13 @@
           "site": "Dark Reading",
           "url": "https://www.darkreading.com/cyberattacks-data-breaches/microsoft-storm-0940-connectwise-supply-chain-attack",
           "date": "2026-10-22"
+        },
+        {
+          "titre": "China APT Uses AI Pentest Tool Artex in ConnectWise Attacks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/china-apt-uses-ai-pentest-tool-artex-in-connectwise-attacks/",
+          "date": "2026-10-23",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/02/China-Surveillence-Threat.jpg"
         }
       ]
     },
@@ -21323,6 +21336,109 @@
           "url": "https://www.welivesecurity.com/en/eset-research/mythicratatoskr-yggdrasil-enabled-backdoor-deployed-uac0099-sandworm-collaboration/",
           "date": "2026-10-22",
           "image": "https://web-assets.esetstatic.com/wls/2026/10-26/mythicratatoskr/mythicratatoskr-yggdrasil-uac0099-sandworm.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-23-fftir-eden-identifiants",
+      "title": "FFTir : accès au portail des adhérents avec des identifiants de licenciés, 64 000 photos volées",
+      "created": "2026-10-23T11:30:00+00:00",
+      "updated": "2026-10-23T11:30:00+00:00",
+      "version": 1,
+      "resume": "Un pirate nommé ChimeraZ est entré dans EDEN, le portail des adhérents de la Fédération française de tir, avec des identifiants de licenciés, et a volé photos et documents personnels [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Connexion au portail EDEN avec des identifiants de licenciés « obtenus ou devinés » → consultation des informations d'autres utilisateurs [1]."
+        },
+        {
+          "etape": "Requêtes sur Cibles Couleurs",
+          "texte": "Multiplication des requêtes contre la vérification des licences de Cibles Couleurs le 12 octobre → adresse bloquée dans la soirée [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Copie d'environ 64 000 photos d'identité et de près de 19 000 documents personnels → archive de 40 Go proposée à la vente le 17 octobre [1]."
+        },
+        {
+          "etape": "Nouvelles tentatives",
+          "texte": "Nouvelle tentative visant des comptes Cibles Couleurs le 18 octobre → service fermé ; des dizaines de milliers d'accès bloqués sur EDEN [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (ChimeraZ)",
+            "note": ""
+          },
+          {
+            "id": "eden",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Portail EDEN des adhérents",
+            "note": "Comptes de licenciés"
+          },
+          {
+            "id": "cc",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Cibles Couleurs",
+            "note": "Vérification des licences"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Photos et documents",
+            "note": "64 000 photos"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "eden",
+            "etape": 1,
+            "texte": "Connexion avec des identifiants de licenciés"
+          },
+          {
+            "de": "att",
+            "vers": "cc",
+            "etape": 2,
+            "texte": "Requêtes multipliées sur la vérification des licences"
+          },
+          {
+            "de": "eden",
+            "vers": "don",
+            "etape": 3,
+            "texte": "Photos et documents copiés"
+          }
+        ]
+      },
+      "limites": "La source ne précise pas comment les identifiants ont été obtenus, ni la date exacte de la première intrusion [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "ChimeraZ, pseudonyme du vendeur de l'archive, qui a confirmé l'usage d'identifiants de licenciés [1]"
+      ],
+      "cibles": [
+        "Fédération française de tir (FFTir), adhérents et licenciés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "EDEN",
+          "definition": "Nom du portail des adhérents de la Fédération"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Piratage de la FFTir : la Fédération confirme le vol",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/piratage-de-la-fftir-la-federation-confirme-le-vol/",
+          "date": "2026-10-23",
+          "image": "https://www.zataz.com/wp-content/uploads/fuite_fftir2.jpg"
         }
       ]
     }

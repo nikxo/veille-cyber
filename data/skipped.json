@@ -1,29 +1,5 @@
 [
   {
-    "id": "dedd4fe42e2cc044",
-    "title": "Google halts open-source bug bounty program amid AI spam surge",
-    "link": "https://www.bleepingcomputer.com/news/google/google-halts-open-source-bug-bounty-program-amid-ai-spam-surge/",
-    "source": "BleepingComputer",
-    "raison": "annonce de programme de bug bounty, pas une attaque",
-    "date": "2026-10-05T09:10:00+00:00"
-  },
-  {
-    "id": "5b587e2212600fbc",
-    "title": "Behind the tags: How Elastic SIEM grades 1,781 detection rules on noise, speed, and threat coverage",
-    "link": "https://www.elastic.co/security-labs/threat-command/elastic-siem-detection-rule-tags",
-    "source": "Elastic Security Labs",
-    "raison": "annonce produit",
-    "date": "2026-10-05T18:14:12+00:00"
-  },
-  {
-    "id": "953f34da3ba3dd96",
-    "title": "5th October – Threat Intelligence Report",
-    "link": "https://research.checkpoint.com/2026/5th-october-threat-intelligence-report/",
-    "source": "Check Point Research",
-    "raison": "synthèse hebdomadaire sans détail de méthode d'attaque",
-    "date": "2026-10-05T18:14:12+00:00"
-  },
-  {
     "id": "39632667e9913739",
     "title": "IQVIA fined $7.8 million for failing to properly anonymize health data",
     "link": "https://www.bleepingcomputer.com/news/security/iqvia-fined-78-million-for-failing-to-properly-anonymize-health-data/",
@@ -3998,5 +3974,29 @@
     "source": "BleepingComputer",
     "raison": "fin de support, aucune attaque décrite",
     "date": "2026-10-23T17:07:46+00:00"
+  },
+  {
+    "id": "4645fb818a8e9e28",
+    "title": "Ruby Fixes Three Regex Engine Bugs Responsible for Four Critical GitLab RCE Flaws",
+    "link": "https://thehackernews.com/2026/10/ruby-fixes-three-regex-engine-bugs.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-10-23T18:30:00+00:00"
+  },
+  {
+    "id": "90f70db295897a33",
+    "title": "FCC bans two devices with surveillance chips linked to Huawei",
+    "link": "https://therecord.media/fcc-bans-devices-huawei-surveillance-chips",
+    "source": "The Record",
+    "raison": "actualité réglementaire, aucune attaque décrite",
+    "date": "2026-10-23T18:30:00+00:00"
+  },
+  {
+    "id": "b95d5610d15459c6",
+    "title": "AI Tools Are Generating Massive Attacks for Little Cost",
+    "link": "https://www.darkreading.com/cybersecurity-operations/ai-tools-massive-attacks-little-cost",
+    "source": "Dark Reading",
+    "raison": "page inaccessible (403), résumé du flux insuffisant",
+    "date": "2026-10-23T18:30:00+00:00"
   }
 ]

@@ -20573,8 +20573,8 @@
       "id": "2026-10-21-php2shell-cve-2026-109618",
       "title": "PHP2Shell : deux failles critiques de PHP, tentatives d'exploitation avant les correctifs",
       "created": "2026-10-21T13:30:00+00:00",
-      "updated": "2026-10-23T13:25:00+00:00",
-      "version": 9,
+      "updated": "2026-10-23T18:30:00+00:00",
+      "version": 10,
       "resume": "Deux failles critiques du cœur de PHP (PHP2Shell) permettent d'exécuter du code via une requête web sans authentification [6, 11]. Des correctifs d'urgence sont sortis le 21 octobre [9] ; des centaines de sites ont été mis hors ligne [8].",
       "chaine": [
         {
@@ -20599,7 +20599,7 @@
         },
         {
           "etape": "Tentatives de botnet",
-          "texte": "Un botnet de type Mirai tente d'installer le logiciel Potassium via les failles → aucune compromission confirmée [20, 21] ; exploit public contournant l'ASLR par fuite mémoire [21]."
+          "texte": "Tentatives liées au botnet Potassium selon Arctic Wolf, à Mirai selon Cobalt → aucune compromission réussie confirmée [20, 21, 22] ; exploit public contournant l'ASLR [21]."
         }
       ],
       "parcours": {
@@ -20640,7 +20640,7 @@
           }
         ]
       },
-      "limites": "Sophos, ZATAZ, Talos, Elastic et watchTowr ne constatent aucune exploitation active [1, 2, 6, 7, 9] ; d'autres rapportent des attaques ou tentatives [3, 5, 8, 10, 12, 13, 15, 16, 17, 19]. Amazon ignore si elles auraient réussi [19].",
+      "limites": "Sophos, ZATAZ, Talos, Elastic et watchTowr ne constatent aucune exploitation active [1, 2, 6, 7, 9] ; d'autres rapportent des tentatives [3, 5, 8, 10, 12, 13, 15, 16, 17, 19]. Des experts jugent beaucoup d'exploits publics non fonctionnels [22].",
       "cves": [
         {
           "id": "CVE-2026-109618",
@@ -20834,6 +20834,13 @@
           "url": "https://www.securityweek.com/mirai-botnet-operators-join-php2shell-attacks-as-aslr-bypass-exploits-emerge/",
           "date": "2026-10-23",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/06/PHP.jpeg"
+        },
+        {
+          "titre": "Reports of PHP bug exploitation attempts grow as experts downplay viability of exploits",
+          "site": "The Record",
+          "url": "https://therecord.media/php-php2shell-exploitation-attempts-pocs",
+          "date": "2026-10-23",
+          "image": "https://cms.therecord.media/uploads/php_shahadat_rahman_unsplash_14f00bee62.jpg"
         }
       ]
     },
@@ -21737,6 +21744,156 @@
           "url": "https://thehackernews.com/2026/10/hackers-breach-enterprise-firewalls-and.html",
           "date": "2026-10-23",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSk-Q06Dd5YyYmXWMt9b860DzGRKbTae_QwvoZDKNICaEznAj2AUurJmv6vPnpcH7qqDjauFZWWx7GX1RN93BLaU9Rqgiqe9j1iQRg2Vqcz3HpSqgesA6oS-GrMTyx4CTzwOD7C_z205k57ZpT70Gv4RXi-65X-nyI04wpA3raJ5nh46pN5ox42cyLnHjv/s1700-nu-rw-lo-l85-e365/1000117358.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-23-phantom-agents-ia-inc-gentlemen",
+      "title": "Phantom : des affiliés des rançongiciels INC et The Gentlemen pilotent leurs intrusions avec des agents d'intelligence artificielle",
+      "created": "2026-10-23T18:30:00+00:00",
+      "updated": "2026-10-23T18:30:00+00:00",
+      "version": 1,
+      "resume": "Des affiliés des rançongiciels INC et The Gentlemen ont mené des intrusions et des extorsions avec des agents d'intelligence artificielle ; environ 62 organisations visées, 4 publiées sur des sites de fuite [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation d'équipements de bordure et d'accès distant exposés sur Internet : FortiClient EMS, SimpleHelp, cPanel, passerelles VPN [1]."
+        },
+        {
+          "etape": "Pilotage par agents",
+          "texte": "Un opérateur humain fournit à l'agent un prompt propre à la victime et valide chaque étape ; en cas de refus du modèle, il reformule en test autorisé [1]."
+        },
+        {
+          "etape": "Contrôle du domaine",
+          "texte": "Énumération du domaine puis escalade vers administrateur ; dans un cas, un mot de passe réutilisé → accès au VPN, serveurs, sauvegardes [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Pilote vulnérable détourné (BYOVD) et évasion au niveau du chargeur → résultats mitigés face aux EDR d'entreprise [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Collecte des données de finance, ressources humaines, juridique et direction via des tunnels SOCKS inversés, puis exfiltration [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Montant fixé d'après les données volées, appels scriptés, menaces ; publication sur un site de fuite sans paiement sous 24 à 72 heures [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (affilié INC)",
+            "note": ""
+          },
+          {
+            "id": "edge",
+            "type": "passerelle",
+            "zone": "expose",
+            "nom": "Équipements exposés",
+            "note": "VPN, EMS, SimpleHelp"
+          },
+          {
+            "id": "res",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Domaine et serveurs",
+            "note": "Sauvegardes comprises"
+          },
+          {
+            "id": "data",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données sensibles",
+            "note": "Finance, juridique"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "edge",
+            "etape": 1,
+            "texte": "Exploitation d'équipements exposés"
+          },
+          {
+            "de": "att",
+            "vers": "res",
+            "etape": 3,
+            "texte": "Escalade administrateur, mot de passe réutilisé"
+          },
+          {
+            "de": "res",
+            "vers": "data",
+            "etape": 5,
+            "texte": "Collecte via tunnels SOCKS inversés"
+          },
+          {
+            "de": "att",
+            "vers": "data",
+            "etape": 6,
+            "texte": "Extorsion avec les données volées"
+          }
+        ]
+      },
+      "limites": "Les dates des intrusions, l'issue des demandes de rançon et l'impact réel hors 4 publications ne sont pas précisés [1].",
+      "cves": [
+        {
+          "id": "CVE-2024-57727",
+          "explication": "SimpleHelp : traversée de répertoires, exploitée activement [1]."
+        },
+        {
+          "id": "CVE-2026-35616",
+          "explication": "Fortinet FortiClient : contournement d'authentification, exploitée activement [1]."
+        },
+        {
+          "id": "CVE-2026-41940",
+          "explication": "cPanel : contournement d'authentification, exploitée activement [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Acteur supposé russophone, affilié à INC et The Gentlemen, analysé par SOCRadar [1]"
+      ],
+      "cibles": [
+        "62 organisations estimées, plus de la moitié aux États-Unis ; industrie, énergie, santé et pharmacie [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "BYOVD",
+          "definition": "Bring Your Own Vulnerable Driver : charger un pilote vulnérable pour couper les défenses"
+        },
+        {
+          "sigle": "EDR",
+          "definition": "Logiciel de détection et de réaction sur les postes et serveurs"
+        },
+        {
+          "sigle": "VPN",
+          "definition": "Réseau privé virtuel : accès distant chiffré au réseau de l'entreprise"
+        },
+        {
+          "sigle": "SOCKS",
+          "definition": "Protocole de relais réseau, ici inversé pour faire passer le trafic de l'attaquant"
+        },
+        {
+          "sigle": "EMS",
+          "definition": "Enterprise Management Server : serveur de gestion de FortiClient"
+        },
+        {
+          "sigle": "INC",
+          "definition": "Nom d'un groupe de rançongiciel"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Exposed Infrastructure Reveals How Ransomware Affiliates Used AI Agents to Execute Intrusions",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/exposed-infrastructure-reveals-how.html",
+          "date": "2026-10-23",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6gkXKzxUypnUKbTuo7Xq-8TSUpDD8TNF5XEG-bV6zcA7V3z_cO2pJeTiX1KIFi-rFNX5SOlMY93oGQpfQUuWOl0RJ35nM1XeIqu2ZV4aAIZXEd9RXQVQk0rMmeI67ysGsTJ1OXLIQg2LvGjMLHCQQ8dgqalHaBE9yCZKwIOVjHCD_lOTlsP1HdBziZ3Sb/s1700-nu-rw-lo-l85-e365/ai-hacker-kimi.jpg"
         }
       ]
     }

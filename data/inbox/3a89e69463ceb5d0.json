@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-10-23T11:12:51+00:00",
+  "feed_summary": "Pillow, the most widely used image library for Python, can be made to run operating system commands on a server by specifying the name of a file it is told to open. The flaw, CVE-2026-112900, is in the way Pillow handles EPS images, which it opens by passing the file's name to Ghostscript, a separate program it runs to turn the image into pixels, without checking the name first.",
+  "id": "3a89e69463ceb5d0",
+  "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGp9s38cCmrESabSZezAPkJaYoavpBM8Ehckei0ZrhKfBSoSXMyrWkzooakGExz1GBYVgi0izvW8wyKH2CEX7vpzLExRkK7uNW8wDdMzJ_k7NR8u6q-WA9e8Aoc19LNfJbFKgB6GkbAKbXW69_lOdM4sz4t5fmpKsLxHWKJPOugq5g_45Q5_WmCm_vA6U/s1700-nu-rw-lo-l85-e365/python-image.jpg",
+  "lang": "en",
+  "link": "https://thehackernews.com/2026/10/critical-flaw-in-pythons-popular-pillow.html",
+  "published": "2026-10-23T15:06:00+05:30",
+  "source": "The Hacker News",
+  "source_type": "actu",
+  "title": "Critical Flaw in Python’s Popular Pillow Image Library Allows Code Execution via a Crafted Image"
+}

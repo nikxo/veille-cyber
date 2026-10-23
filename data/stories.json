@@ -20969,6 +20969,99 @@
           "image": "https://cms.therecord.media/uploads/Toronto_Police_PP_13cea6d12f.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-23-prince-of-persia-serveur-us",
+      "title": "Prince of Persia : un serveur de commande hébergé aux États-Unis pour la première fois depuis 2016",
+      "created": "2026-10-23T07:30:00+00:00",
+      "updated": "2026-10-23T07:30:00+00:00",
+      "version": 1,
+      "resume": "Le groupe iranien Prince of Persia a repris ses opérations le 27 mai 2026 après trois mois de pause, puis a placé un serveur sur un hébergement mutualisé américain, une première depuis 2016 [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Déplacement de l'infrastructure",
+          "texte": "Rapport de SafeBreach publié en février → retrait d'un serveur de commande et déplacement du reste de l'infrastructure dans la semaine [1]."
+        },
+        {
+          "etape": "Reprise des vols",
+          "texte": "Nouveau serveur de commande déployé le 27 mai 2026 → vol de données relancé, plus de 1 800 fichiers exfiltrés d'une seule victime en sept jours [1]."
+        },
+        {
+          "etape": "Exfiltration par Telegram",
+          "texte": "Le logiciel malveillant Tornado emploie un bot Telegram → vol de fichiers [1]."
+        },
+        {
+          "etape": "Serveur aux États-Unis",
+          "texte": "Serveur de seconde étape de Tornado sur un hébergement mutualisé Namecheap aux États-Unis, première fois depuis 2016 [1]."
+        },
+        {
+          "etape": "Second serveur masqué",
+          "texte": "Le 24 août, préparation d'un autre serveur de seconde étape de Tornado, masqué derrière Cloudflare [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Prince of Persia)",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur hébergé aux États-Unis",
+            "note": "Hébergement mutualisé"
+          },
+          {
+            "id": "vic",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes d'une victime",
+            "note": "Non précisé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "vic",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Plus de 1 800 fichiers exfiltrés en sept jours"
+          },
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 5,
+            "texte": "Serveur de seconde étape de Tornado"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'accès initial, ni le secteur de la victime, ni le nombre de victimes récentes [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Prince of Persia, aussi appelé Infy, groupe soutenu par le gouvernement iranien [1]"
+      ],
+      "cibles": [
+        "Dissidents iraniens, entités gouvernementales et privées aux États-Unis, en Europe et au Moyen-Orient [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Iran’s Prince of Persia APT Hosts C&C in US for First Time Since 2016",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/irans-prince-of-persia-apt-hosts-cc-in-us-for-first-time-since-2016/",
+          "date": "2026-10-23",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/03/Irianian-cyberattacks-hacks.jpg"
+        }
+      ]
     }
   ]
 }

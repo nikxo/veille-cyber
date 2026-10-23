@@ -1,13 +1,5 @@
 [
   {
-    "id": "46f9ae7612dc6b4b",
-    "title": "GitLab Patches Critical 9.9 AI Gateway Flaw Allowing Command Execution on Self-Hosted Servers",
-    "link": "https://thehackernews.com/2026/10/gitlab-patches-critical-self-hosted-ai.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-03T16:02:48+00:00"
-  },
-  {
     "id": "676727015c51554c",
     "title": "GitLab warns of critical RCE vulnerability in AI Gateway service",
     "link": "https://www.bleepingcomputer.com/news/security/gitlab-warns-of-critical-rce-vulnerability-in-ai-gateway-service/",
@@ -3998,5 +3990,13 @@
     "source": "LeMagIT",
     "raison": "actualité politique sans attaque",
     "date": "2026-10-23T09:30:00+00:00"
+  },
+  {
+    "id": "6f084559d703b49d",
+    "title": "Critical x402 SDK Flaw Could Let Malicious APIs Drain AI Agents’ Token Balances",
+    "link": "https://thehackernews.com/2026/10/critical-x402-sdk-flaw-could-let.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-10-23T10:20:00+00:00"
   }
 ]

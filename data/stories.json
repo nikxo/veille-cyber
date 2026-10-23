@@ -19960,8 +19960,8 @@
       "id": "2026-10-22-arista-velocloud-orchestrator",
       "title": "Arista VeloCloud Orchestrator : faille d'injection SQL exploitée avant correctif",
       "created": "2026-10-22T18:30:00+00:00",
-      "updated": "2026-10-22T20:30:00+00:00",
-      "version": 2,
+      "updated": "2026-10-23T10:20:00+00:00",
+      "version": 3,
       "resume": "Arista a corrigé une faille d'injection SQL exploitée dans des attaques contre VeloCloud Orchestrator installé en local. Elle permet à un utilisateur authentifié d'élever ses privilèges [1].",
       "chaine": [
         {
@@ -20015,17 +20015,18 @@
           }
         ]
       },
-      "limites": "Les sources ne disent ni qui est l'attaquant, ni quelles victimes, ni depuis quand, ni ce qu'il a fait après l'exploitation. Arista cite deux adresses réseau à l’origine des attaques [2].",
+      "limites": "Les sources ne disent ni qui attaque, ni les victimes, ni les actions après exploitation. Arista cite deux adresses réseau d'attaque [2, 3]. Deux autres failles du produit ont été exploitées en juillet et septembre [3].",
       "cves": [
         {
           "id": "CVE-2026-114625",
-          "explication": "VeloCloud Orchestrator installé en local : injection SQL permettant à un utilisateur authentifié d'élever ses privilèges, gravité critique 9,9 sur 10 [1, 2]."
+          "explication": "VeloCloud Orchestrator, versions antérieures à 5.2.3.18, 6.1.3.10 et 6.4.2.12 : injection SQL permettant à un utilisateur authentifié d'élever ses privilèges, gravité critique 9,9 sur 10 [1, 2, 3]."
         }
       ],
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Déploiements locaux de VeloCloud Orchestrator, portail de gestion des SD-WAN VeloCloud [1]"
+        "Déploiements locaux de VeloCloud Orchestrator, portail de gestion des SD-WAN VeloCloud [1]",
+        "Déploiements hébergés par Arista, corrigés par l'éditeur [3]"
       ],
       "abreviations": [
         {
@@ -20051,6 +20052,13 @@
           "url": "https://thehackernews.com/2026/10/arista-warns-of-critical-velocloud-sql.html",
           "date": "2026-10-22",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEio5jLAiZnSHOwYGjf-F6s4HR4ileDOwAkHiX9NyW30mGUqSzgdwGVdTzCTYkgmeoGtTRaSVm-h2IBwvJ9xd84OU2t3YXd8hf5PwlGdjh6VlcYZoCNkx6Yt0FY_JlVcM3AtXI4LQyidnOE86NMVwOGcztaFtV2Qq21X1pRQi6jxiITnQIoO14XLiOWaufI/s1700-nu-rw-lo-l85-e365/velo.jpg"
+        },
+        {
+          "titre": "Attackers Exploit Third VeloCloud Orchestrator Zero-Day in Four Months",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/attackers-exploit-third-velocloud-orchestrator-zero-day-in-four-months/",
+          "date": "2026-10-23",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/09/arista.jpeg"
         }
       ]
     },
@@ -21164,6 +21172,157 @@
           "url": "https://www.securityweek.com/quest-diagnostics-reports-cyber-breach-affecting-certain-patient-records/",
           "date": "2026-10-23",
           "image": "https://www.securityweek.com/wp-content/uploads/2025/07/data-breach-healthcare-medical.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-22-mythicratatoskr-uac0099-sandworm",
+      "title": "MythicRatatoskr : porte dérobée via Yggdrasil puis attaque destructrice de Sandworm contre une entreprise ukrainienne de céréales",
+      "created": "2026-10-23T10:20:00+00:00",
+      "updated": "2026-10-23T10:20:00+00:00",
+      "version": 1,
+      "resume": "Une entreprise ukrainienne de logistique céréalière a reçu une porte dérobée cachant son serveur de commande dans le réseau Yggdrasil. Sandworm a ensuite détruit des données sur son réseau [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Hameçonnage ciblé avec pièce jointe malveillante → une tâche planifiée exécute une charge PowerShell sur une machine [1]."
+        },
+        {
+          "etape": "Installation porte dérobée",
+          "texte": "Un téléchargeur installe MATCHWOK, puis MythicRatatoskr devient un service Windows → contrôle à distance via le réseau maillé Yggdrasil [1]."
+        },
+        {
+          "etape": "Propagation",
+          "texte": "Déploiement d'autres échantillons de MythicRatatoskr sur d'autres machines via un serveur SFTP OpenSSH [1]."
+        },
+        {
+          "etape": "Collecte et exfiltration",
+          "texte": "Captures d'écran et recherche de fichiers → fichiers et captures envoyés au serveur de commande [1]."
+        },
+        {
+          "etape": "Destruction de données",
+          "texte": "Sandworm diffuse l'utilitaire SDelete par stratégie de groupe Active Directory → données détruites, le 17 septembre 2025 [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (UAC-0099, Sandworm)",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Première machine",
+            "note": "Tâche planifiée"
+          },
+          {
+            "id": "pcs",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Autres machines",
+            "note": "MythicRatatoskr"
+          },
+          {
+            "id": "ad",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Active Directory",
+            "note": "Stratégie de groupe"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de commande Yggdrasil",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Hameçonnage ciblé, charge PowerShell"
+          },
+          {
+            "de": "pc",
+            "vers": "c2",
+            "etape": 2,
+            "texte": "Porte dérobée, communication via Yggdrasil"
+          },
+          {
+            "de": "pc",
+            "vers": "pcs",
+            "etape": 3,
+            "texte": "Déploiement via serveur SFTP OpenSSH"
+          },
+          {
+            "de": "pcs",
+            "vers": "c2",
+            "etape": 4,
+            "texte": "Fichiers et captures envoyés"
+          },
+          {
+            "de": "ad",
+            "vers": "pcs",
+            "etape": 5,
+            "texte": "SDelete diffusé, données détruites"
+          }
+        ]
+      },
+      "limites": "L'article ne détermine pas si MythicRatatoskr était opéré par UAC-0099 ou par Sandworm. Il ne qualifie pas la propagation de mouvement latéral [1].",
+      "cves": [],
+      "mitre": [
+        "T1566.001 : hameçonnage avec pièce jointe [1]",
+        "T1543.003 : création d'un service Windows [1]",
+        "T1041 : exfiltration via le canal de commande [1]",
+        "T1485 : destruction de données [1]"
+      ],
+      "acteurs": [
+        "UAC-0099 pour l'accès initial, Sandworm (unité 74455 du GRU) pour la destruction [1]"
+      ],
+      "cibles": [
+        "Entreprise ukrainienne de logistique céréalière [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SFTP",
+          "definition": "Protocole de transfert de fichiers chiffré, fondé sur SSH"
+        },
+        {
+          "sigle": "OpenSSH",
+          "definition": "Logiciel libre de connexion distante chiffrée"
+        },
+        {
+          "sigle": "SDelete",
+          "definition": "Utilitaire Microsoft qui efface des fichiers de façon irrécupérable"
+        },
+        {
+          "sigle": "GRU",
+          "definition": "Service de renseignement militaire russe"
+        },
+        {
+          "sigle": "PowerShell",
+          "definition": "Langage de commandes et de scripts de Windows"
+        },
+        {
+          "sigle": "MATCHWOK",
+          "definition": "Porte dérobée installée par le téléchargeur MATCHBOIL"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "MythicRatatoskr: An Yggdrasil-enabled backdoor deployed in a UAC-0099-Sandworm collaboration",
+          "site": "WeLiveSecurity (ESET)",
+          "url": "https://www.welivesecurity.com/en/eset-research/mythicratatoskr-yggdrasil-enabled-backdoor-deployed-uac0099-sandworm-collaboration/",
+          "date": "2026-10-22",
+          "image": "https://web-assets.esetstatic.com/wls/2026/10-26/mythicratatoskr/mythicratatoskr-yggdrasil-uac0099-sandworm.jpg"
         }
       ]
     }

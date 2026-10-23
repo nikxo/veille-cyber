@@ -1,21 +1,5 @@
 [
   {
-    "id": "e1600284a9d945c2",
-    "title": "Anthropic Gives Vetted Defenders Fewer Claude Guardrails",
-    "link": "https://www.darkreading.com/vulnerabilities-threats/anthropic-vetted-defenders-claude-guardrails",
-    "source": "Dark Reading",
-    "raison": "annonce produit",
-    "date": "2026-10-07T22:30:00+00:00"
-  },
-  {
-    "id": "40e5d1b442a5ebcf",
-    "title": "Citizen Lab Slams Trump Administration, 'Techno-Fascist' Executives",
-    "link": "https://www.darkreading.com/cyber-risk/citizen-lab-slams-trump-administration-techno-fascist-executives",
-    "source": "Dark Reading",
-    "raison": "actualité politique sans méthode d'attaque",
-    "date": "2026-10-07T22:30:00+00:00"
-  },
-  {
     "id": "6d1223c7a39f4554",
     "title": "The First 24 Hours: What Happens When Ransomware Lands",
     "link": "https://www.huntress.com/blog/what-happens-during-a-ransomware-attack",
@@ -3998,5 +3982,21 @@
     "source": "Dark Reading",
     "raison": "aucun détail sur la méthode d'attaque (page inaccessible, résumé du flux seul)",
     "date": "2026-10-23T04:10:00+00:00"
+  },
+  {
+    "id": "51bf66095eaf96d2",
+    "title": "Atlassian Patches 75 Flaws in Data Center and Server Products",
+    "link": "https://www.securityweek.com/atlassian-patches-75-third-party-flaws-in-data-center-and-server-products/",
+    "source": "SecurityWeek",
+    "raison": "correctifs sans exploitation constatée",
+    "date": "2026-10-23T08:08:29+00:00"
+  },
+  {
+    "id": "a2a9e372db7b0e08",
+    "title": "Researchers Demonstrate Node2Shell RCE Exploit on Node.js Build Using Crafted Brotli Data",
+    "link": "https://thehackernews.com/2026/10/researchers-demonstrate-node2shell-rce.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-10-23T08:08:29+00:00"
   }
 ]

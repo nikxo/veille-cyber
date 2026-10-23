@@ -19377,8 +19377,8 @@
       "id": "2026-10-21-php2shell-cve-2026-109618",
       "title": "PHP2Shell : deux failles critiques de PHP, tentatives d'exploitation avant les correctifs",
       "created": "2026-10-21T13:30:00+00:00",
-      "updated": "2026-10-22T13:40:00+00:00",
-      "version": 7,
+      "updated": "2026-10-23T08:08:29+00:00",
+      "version": 8,
       "resume": "Deux failles critiques du cœur de PHP (PHP2Shell) permettent d'exécuter du code via une requête web sans authentification [6, 11]. Des correctifs d'urgence sont sortis le 21 octobre [9] ; des centaines de sites ont été mis hors ligne [8].",
       "chaine": [
         {
@@ -19400,6 +19400,10 @@
         {
           "etape": "Mises hors ligne",
           "texte": "Sites coupés par précaution → centaines de sites hors ligne [8] ; BambooHR suspendu et services publics néerlandais retirés [9] ; Orange, préfectures et CNIL en France [18]."
+        },
+        {
+          "etape": "Tentatives de botnet",
+          "texte": "Tentatives d'exploitation pour enrôler des systèmes dans un botnet Mirai nommé Potassium → aucune exécution de code réussie confirmée [20]."
         }
       ],
       "parcours": {
@@ -19616,6 +19620,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/amazon-says-php2shell-exploitation-began-4-days-before-patches/",
           "date": "2026-10-22",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/22/PHP-attack.jpg"
+        },
+        {
+          "titre": "PHP2Shell Exploit Attempts Hit Millions as Attackers Try to Deploy Mirai Malware",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/php2shell-exploit-attempts-hit-millions.html",
+          "date": "2026-10-23",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3SkRCDhjMsUS2FZ9ES40x39o7u2jdwMQDcq4NC75CsC2Xjji94ZZt_0Jgzdxmbf92n3razC07QvKJ-VT65axzIbXWoYrHytaQhNRBdYEMgmb1Fki-gR2NKY1TXuhpb9lcCemaPSqu8E0Q6KVczRNa97_7tj5Vyt0wngICj6GnWEHphW8fpaSybzKAa-pV/s1700-nu-rw-lo-l85-e365/phpshell.jpg"
         }
       ]
     },

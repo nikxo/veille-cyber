@@ -21896,6 +21896,126 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6gkXKzxUypnUKbTuo7Xq-8TSUpDD8TNF5XEG-bV6zcA7V3z_cO2pJeTiX1KIFi-rFNX5SOlMY93oGQpfQUuWOl0RJ35nM1XeIqu2ZV4aAIZXEd9RXQVQk0rMmeI67ysGsTJ1OXLIQg2LvGjMLHCQQ8dgqalHaBE9yCZKwIOVjHCD_lOTlsP1HdBziZ3Sb/s1700-nu-rw-lo-l85-e365/ai-hacker-kimi.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-24-blackx-bootkit-uefi-diplomates",
+      "title": "Bootkit UEFI BlackX contre des organisations diplomatiques d'Asie centrale",
+      "created": "2026-10-23T19:20:00+00:00",
+      "updated": "2026-10-23T19:20:00+00:00",
+      "version": 1,
+      "resume": "Des organisations diplomatiques du Tadjikistan, d'Ouzbékistan et du Turkménistan ont été visées début 2026 par le bootkit BlackX, attribué avec réserve à APT41 par Kaspersky [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Dépôt de l'installateur",
+          "texte": "Dépôt d'un installateur et d'un fichier chiffré après obtention de privilèges administrateur → préparation de l'installation du bootkit [1]."
+        },
+        {
+          "etape": "Contournement de Secure Boot",
+          "texte": "Exploitation de CVE-2022-21894 sur des systèmes corrigés mais sans révocation manuelle → contournement de Secure Boot [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Installation de clés MOK puis injection d'un pilote malveillant dans le noyau Windows → exécution au niveau noyau, logiciels de sécurité altérés [1]."
+        },
+        {
+          "etape": "Espionnage",
+          "texte": "Déploiement d'un outil d'accès à distance utilisant Google Drive, OneDrive et Yandex.Disk comme canal de commande → collecte et envoi de fichiers ciblés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (APT41 suspecté)",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Système d'entrée non précisé",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes des organisations diplomatiques",
+            "note": "Bootkit installé"
+          },
+          {
+            "id": "cl",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Google Drive, OneDrive, Yandex.Disk",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Méthode d'accès non précisée"
+          },
+          {
+            "de": "inc",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Installateur déposé avec privilèges administrateur"
+          },
+          {
+            "de": "pc",
+            "vers": "cl",
+            "etape": 5,
+            "texte": "Commande et envoi de fichiers via services cloud"
+          }
+        ]
+      },
+      "limites": "Le vecteur d'accès initial n'est pas précisé. L'attribution à APT41 est un soupçon de Kaspersky [1].",
+      "cves": [
+        {
+          "id": "CVE-2022-21894",
+          "explication": "Contournement de Secure Boot surnommé Baton Drop, gravité 4,4 sur 10, aujourd'hui corrigé mais exploité sur des systèmes sans les étapes manuelles de révocation [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "APT41, groupe lié à la Chine, soupçonné par Kaspersky [1]"
+      ],
+      "cibles": [
+        "Organisations diplomatiques au Tadjikistan, en Ouzbékistan et au Turkménistan [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "UEFI",
+          "definition": "Micrologiciel de démarrage qui lance le système avant Windows"
+        },
+        {
+          "sigle": "MOK",
+          "definition": "Machine Owner Key : clé de confiance permettant de charger des fichiers au démarrage"
+        },
+        {
+          "sigle": "APT41",
+          "definition": "Groupe de piratage lié à la Chine, suivi sous ce nom"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "BlackX UEFI Bootkit Bypasses Secure Boot on Patched Windows Systems Missing Revocations",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/blackx-uefi-bootkit-bypasses-secure.html",
+          "date": "2026-10-24",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0cTK7D5hQFR-3qGTicTlfi6_CbnMIgCJWIojDeXmZr91hrIPqhhxZ72mAsnB6kBOcCdscZOL_VN8RhAdYIxq3d128rkaDweIApSaV5w3IzB1YGN3XNnlarG0IKN5VuDJy_RnPBxXZoKQ1Yh950YFNz-b_pbvEY_QlQa5Tr-BP4366UgkGIg968J-QEN1M/s1700-nu-rw-lo-l85-e365/uefi.jpg"
+        }
+      ]
     }
   ]
 }

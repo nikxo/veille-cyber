@@ -20566,8 +20566,8 @@
       "id": "2026-10-21-php2shell-cve-2026-109618",
       "title": "PHP2Shell : deux failles critiques de PHP, tentatives d'exploitation avant les correctifs",
       "created": "2026-10-21T13:30:00+00:00",
-      "updated": "2026-10-23T08:08:29+00:00",
-      "version": 8,
+      "updated": "2026-10-23T13:25:00+00:00",
+      "version": 9,
       "resume": "Deux failles critiques du cœur de PHP (PHP2Shell) permettent d'exécuter du code via une requête web sans authentification [6, 11]. Des correctifs d'urgence sont sortis le 21 octobre [9] ; des centaines de sites ont été mis hors ligne [8].",
       "chaine": [
         {
@@ -20592,7 +20592,7 @@
         },
         {
           "etape": "Tentatives de botnet",
-          "texte": "Tentatives d'exploitation pour enrôler des systèmes dans un botnet Mirai nommé Potassium → aucune exécution de code réussie confirmée [20]."
+          "texte": "Un botnet de type Mirai tente d'installer le logiciel Potassium via les failles → aucune compromission confirmée [20, 21] ; exploit public contournant l'ASLR par fuite mémoire [21]."
         }
       ],
       "parcours": {
@@ -20675,6 +20675,10 @@
         {
           "sigle": "CNIL",
           "definition": "Commission nationale de l'informatique et des libertés, autorité française"
+        },
+        {
+          "sigle": "ASLR",
+          "definition": "Address Space Layout Randomization : randomisation des adresses mémoire pour gêner les exploits"
         }
       ],
       "sources": [
@@ -20816,6 +20820,13 @@
           "url": "https://thehackernews.com/2026/10/php2shell-exploit-attempts-hit-millions.html",
           "date": "2026-10-23",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3SkRCDhjMsUS2FZ9ES40x39o7u2jdwMQDcq4NC75CsC2Xjji94ZZt_0Jgzdxmbf92n3razC07QvKJ-VT65axzIbXWoYrHytaQhNRBdYEMgmb1Fki-gR2NKY1TXuhpb9lcCemaPSqu8E0Q6KVczRNa97_7tj5Vyt0wngICj6GnWEHphW8fpaSybzKAa-pV/s1700-nu-rw-lo-l85-e365/phpshell.jpg"
+        },
+        {
+          "titre": "Mirai Botnet Operators Join PHP2Shell Attacks as ASLR Bypass Exploits Emerge",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/mirai-botnet-operators-join-php2shell-attacks-as-aslr-bypass-exploits-emerge/",
+          "date": "2026-10-23",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/06/PHP.jpeg"
         }
       ]
     },
@@ -21118,8 +21129,8 @@
       "id": "2026-10-23-quest-diagnostics-quanum",
       "title": "Quest Diagnostics : accès non autorisé à la plateforme Quanum Lab Services Manager",
       "created": "2026-10-23T09:30:00+00:00",
-      "updated": "2026-10-23T09:30:00+00:00",
-      "version": 1,
+      "updated": "2026-10-23T13:25:00+00:00",
+      "version": 2,
       "resume": "Quest Diagnostics a signalé un accès non autorisé à sa plateforme Quanum Lab Services Manager, qui a permis la consultation de certains dossiers de patients [1].",
       "chaine": [
         {
@@ -21128,7 +21139,7 @@
         },
         {
           "etape": "Accès aux dossiers",
-          "texte": "Accès non autorisé à la plateforme de commande de tests de certains clients → consultation de certains dossiers de patients [1]."
+          "texte": "Accès non autorisé découvert, système mis hors ligne → Quest pense que des données de patients ont été consultées [1, 2]."
         }
       ],
       "parcours": {
@@ -21170,14 +21181,19 @@
           }
         ]
       },
-      "limites": "Le nombre de patients, les types de données, le vecteur d'accès et l'auteur ne sont pas connus ; l'enquête se poursuit [1].",
+      "limites": "Nombre de patients, types de données, vecteur d'accès et auteur inconnus ; aucune revendication jeudi. Quest dit que l'incident n'implique pas les failles PHP récentes [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
       "cibles": [
         "Quest Diagnostics, plateforme Quanum Lab Services Manager et certains dossiers de patients [1]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "PHP",
+          "definition": "Langage de programmation très utilisé pour les sites web côté serveur"
+        }
+      ],
       "sources": [
         {
           "titre": "Quest Diagnostics Reports Cyber Breach Affecting ‘Certain Patient Records’",
@@ -21185,6 +21201,13 @@
           "url": "https://www.securityweek.com/quest-diagnostics-reports-cyber-breach-affecting-certain-patient-records/",
           "date": "2026-10-23",
           "image": "https://www.securityweek.com/wp-content/uploads/2025/07/data-breach-healthcare-medical.jpg"
+        },
+        {
+          "titre": "Quest Diagnostics warns of potential data theft after attack on lab service system",
+          "site": "The Record",
+          "url": "https://therecord.media/quest-diagnostics-network-intrusion",
+          "date": "2026-10-23",
+          "image": "https://cms.therecord.media/uploads/DSC_05112_bf00638451.jpg"
         }
       ]
     },
@@ -21460,6 +21483,108 @@
           "url": "https://www.zataz.com/piratage-de-la-fftir-la-federation-confirme-le-vol/",
           "date": "2026-10-23",
           "image": "https://www.zataz.com/wp-content/uploads/fuite_fftir2.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-23-aokigahara-infostealer-ia",
+      "title": "Aokigahara : un voleur d'identifiants qui vise aussi les outils d'IA et de développement",
+      "created": "2026-10-23T13:25:00+00:00",
+      "updated": "2026-10-23T13:25:00+00:00",
+      "version": 1,
+      "resume": "Check Point Research décrit Aokigahara, un voleur d'identifiants observé dans la nature, qui collecte aussi les données d'outils d'IA et de développement, clés SSH et identifiants cloud [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Évitement de l'analyse",
+          "texte": "Contrôles de langue, de débogage, de machines virtuelles et de bacs à sable → arrêt de l'exécution si la langue est exclue ou l'environnement surveillé [1]."
+        },
+        {
+          "etape": "Collecte de données",
+          "texte": "Modules activés par la configuration chiffrée → vol des identifiants de navigateurs, portefeuilles crypto, outils d'IA, clés SSH, identifiants Git et cloud [1]."
+        },
+        {
+          "etape": "Exfiltration",
+          "texte": "Échange de clés avec le serveur de commande, puis envoi d'archives chiffrées par morceaux → données transmises ; le signal de fin ne confirme pas la réussite des envois [1]."
+        },
+        {
+          "etape": "Nettoyage local",
+          "texte": "Suppression de la session locale après l'envoi [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de la victime",
+            "note": "Identifiants collectés"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de commande",
+            "note": "Reçoit les archives"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "pc",
+            "vers": "c2",
+            "etape": 4,
+            "texte": "Envoi d'archives chiffrées par morceaux"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'infection, ni les victimes, ni l'acteur, ni la façon dont les données volées sont monétisées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié : la source ne nomme pas d'acteur [1]"
+      ],
+      "cibles": [
+        "Utilisateurs de navigateurs, portefeuilles crypto, outils d'IA et de développement, services cloud [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole de connexion sécurisée à distance à un serveur"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "Git",
+          "definition": "Logiciel de gestion de versions du code source"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Infostealer riding the AI Train",
+          "site": "Check Point Research",
+          "url": "https://research.checkpoint.com/2026/infostealer-riding-the-ai-train/",
+          "date": "2026-10-23",
+          "image": "https://research.checkpoint.com/wp-content/uploads/2026/10/bg_info.jpg"
         }
       ]
     }

@@ -21193,17 +21193,17 @@
       "id": "2026-10-22-mythicratatoskr-uac0099-sandworm",
       "title": "MythicRatatoskr : porte dérobée via Yggdrasil puis attaque destructrice de Sandworm contre une entreprise ukrainienne de céréales",
       "created": "2026-10-23T10:20:00+00:00",
-      "updated": "2026-10-23T10:20:00+00:00",
-      "version": 1,
-      "resume": "Une entreprise ukrainienne de logistique céréalière a reçu une porte dérobée cachant son serveur de commande dans le réseau Yggdrasil. Sandworm a ensuite détruit des données sur son réseau [1].",
+      "updated": "2026-10-23T12:20:00+00:00",
+      "version": 2,
+      "resume": "Une entreprise ukrainienne de logistique céréalière a reçu une porte dérobée cachant son serveur de commande dans le réseau Yggdrasil. Sandworm a ensuite détruit des données sur son réseau [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Hameçonnage ciblé avec pièce jointe malveillante → une tâche planifiée exécute une charge PowerShell sur une machine [1]."
+          "texte": "Hameçonnage ciblé avec pièce jointe malveillante, le 16 juillet 2025 → une tâche planifiée exécute une charge PowerShell sur une machine [1, 2]."
         },
         {
           "etape": "Installation porte dérobée",
-          "texte": "Un téléchargeur installe MATCHWOK, puis MythicRatatoskr devient un service Windows → contrôle à distance via le réseau maillé Yggdrasil [1]."
+          "texte": "Un téléchargeur installe MATCHWOK, puis MythicRatatoskr un jour après son exécution → contrôle à distance via le réseau maillé Yggdrasil [1, 2]."
         },
         {
           "etape": "Propagation",
@@ -21214,8 +21214,12 @@
           "texte": "Captures d'écran et recherche de fichiers → fichiers et captures envoyés au serveur de commande [1]."
         },
         {
+          "etape": "Passage à Sandworm",
+          "texte": "UAC-0099 transmet l'accès à Sandworm, qui met en place un serveur SOCKS5 → connexions routées à travers le réseau compromis [2]."
+        },
+        {
           "etape": "Destruction de données",
-          "texte": "Sandworm diffuse l'utilitaire SDelete par stratégie de groupe Active Directory → données détruites, le 17 septembre 2025 [1]."
+          "texte": "Sandworm diffuse l'utilitaire SDelete par stratégie de groupe Active Directory → données détruites le 17 septembre 2025, plus de deux mois après l'accès initial [1, 2]."
         }
       ],
       "parcours": {
@@ -21282,14 +21286,20 @@
             "texte": "Fichiers et captures envoyés"
           },
           {
-            "de": "ad",
+            "de": "att",
             "vers": "pcs",
             "etape": 5,
+            "texte": "Accès transmis à Sandworm, serveur SOCKS5"
+          },
+          {
+            "de": "ad",
+            "vers": "pcs",
+            "etape": 6,
             "texte": "SDelete diffusé, données détruites"
           }
         ]
       },
-      "limites": "L'article ne détermine pas si MythicRatatoskr était opéré par UAC-0099 ou par Sandworm. Il ne qualifie pas la propagation de mouvement latéral [1].",
+      "limites": "L'article d'ESET ne détermine pas si MythicRatatoskr était opéré par UAC-0099 ou par Sandworm, et ne qualifie pas la propagation de mouvement latéral [1]. La date du transfert à Sandworm n'est pas précisée [2].",
       "cves": [],
       "mitre": [
         "T1566.001 : hameçonnage avec pièce jointe [1]",
@@ -21298,7 +21308,7 @@
         "T1485 : destruction de données [1]"
       ],
       "acteurs": [
-        "UAC-0099 pour l'accès initial, Sandworm (unité 74455 du GRU) pour la destruction [1]"
+        "UAC-0099 (aussi nommé Earth Sirrush) pour l'accès initial, Sandworm (unité 74455 du GRU) pour la destruction [1, 2]"
       ],
       "cibles": [
         "Entreprise ukrainienne de logistique céréalière [1]"
@@ -21327,6 +21337,10 @@
         {
           "sigle": "MATCHWOK",
           "definition": "Porte dérobée installée par le téléchargeur MATCHBOIL"
+        },
+        {
+          "sigle": "SOCKS5",
+          "definition": "Protocole de relais réseau permettant de faire transiter des connexions par une machine"
         }
       ],
       "sources": [
@@ -21336,6 +21350,13 @@
           "url": "https://www.welivesecurity.com/en/eset-research/mythicratatoskr-yggdrasil-enabled-backdoor-deployed-uac0099-sandworm-collaboration/",
           "date": "2026-10-22",
           "image": "https://web-assets.esetstatic.com/wls/2026/10-26/mythicratatoskr/mythicratatoskr-yggdrasil-uac0099-sandworm.jpg"
+        },
+        {
+          "titre": "Russian-Linked Hackers Used New Mesh Network Backdoor in Destructive Ukraine Attack",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/russian-linked-hackers-used-new-mesh.html",
+          "date": "2026-10-23",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxH9YdfH7FHfSBJt7wrnd1P2hTQG6_2rpkp3YBqp2Yd49nYy4-a0zmvk5mqKlXH4DWfRO4Q4MmzLG4_t19me5rErcvoEpGJ5Q8LYty_GXXys63QC8HlO3G2jRC9f5vJd1BDiOp4APzxV4rSbFOZY80zIUmxvJ8V6isB-eDy9e9tVWaLR53fpPO80mzn_BH/s1700-nu-rw-lo-l85-e365/uk-russia.jpg"
         }
       ]
     },

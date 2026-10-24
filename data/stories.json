@@ -22038,6 +22038,91 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0cTK7D5hQFR-3qGTicTlfi6_CbnMIgCJWIojDeXmZr91hrIPqhhxZ72mAsnB6kBOcCdscZOL_VN8RhAdYIxq3d128rkaDweIApSaV5w3IzB1YGN3XNnlarG0IKN5VuDJy_RnPBxXZoKQ1Yh950YFNz-b_pbvEY_QlQa5Tr-BP4366UgkGIg968J-QEN1M/s1700-nu-rw-lo-l85-e365/uefi.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-24-point-vision-donnees-patients",
+      "title": "Point Vision : données de patients volées via la faille d'un prestataire de rendez-vous",
+      "created": "2026-10-24T10:30:00+00:00",
+      "updated": "2026-10-24T10:30:00+00:00",
+      "version": 1,
+      "resume": "Point Vision informe ses patients d'un vol de données après l'exploitation d'une vulnérabilité dans les outils d'un prestataire de gestion des rendez-vous [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation d'une vulnérabilité dans les outils du prestataire de gestion des rendez-vous → accès non autorisé à l'environnement de Point Vision [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Téléchargement de bases contenant des données personnelles depuis l'environnement de gestion des rendez-vous [1]."
+        },
+        {
+          "etape": "Effacement de traces",
+          "texte": "Suppression partielle de traces → impossible de savoir si mots de passe et motifs de rendez-vous ont été consultés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "pre",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Outils du prestataire de rendez-vous",
+            "note": "Faille exploitée"
+          },
+          {
+            "id": "env",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Environnement de Point Vision",
+            "note": "Bases téléchargées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pre",
+            "etape": 1,
+            "texte": "Exploitation d'une vulnérabilité"
+          },
+          {
+            "de": "pre",
+            "vers": "env",
+            "etape": 1,
+            "texte": "Accès non autorisé à l'environnement"
+          },
+          {
+            "de": "att",
+            "vers": "env",
+            "etape": 2,
+            "texte": "Téléchargement de bases de données"
+          }
+        ]
+      },
+      "limites": "Les sources ne donnent ni l'acteur, ni la vulnérabilité exacte, ni les dates de l'intrusion, ni le nombre de patients touchés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Patients de Point Vision : noms, dates de naissance, coordonnées [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Point Vision : des données de patients dérobées",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/point-vision-des-donnees-de-patients-derobees/",
+          "date": "2026-10-24",
+          "image": "https://www.zataz.com/wp-content/uploads/Point_vision_leak.jpg"
+        }
+      ]
     }
   ]
 }

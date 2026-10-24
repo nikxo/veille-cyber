@@ -21931,13 +21931,13 @@
       "id": "2026-10-24-blackx-bootkit-uefi-diplomates",
       "title": "Bootkit UEFI BlackX contre des organisations diplomatiques d'Asie centrale",
       "created": "2026-10-23T19:20:00+00:00",
-      "updated": "2026-10-23T19:20:00+00:00",
-      "version": 1,
-      "resume": "Des organisations diplomatiques du Tadjikistan, d'Ouzbékistan et du Turkménistan ont été visées début 2026 par le bootkit BlackX, attribué avec réserve à APT41 par Kaspersky [1].",
+      "updated": "2026-10-24T15:07:11+00:00",
+      "version": 2,
+      "resume": "Des organisations diplomatiques du Tadjikistan, d'Ouzbékistan et du Turkménistan ont été visées début 2026 par le bootkit BlackX, attribué avec réserve à APT41 [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé par les sources [1, 2]."
         },
         {
           "etape": "Dépôt de l'installateur",
@@ -21945,15 +21945,15 @@
         },
         {
           "etape": "Contournement de Secure Boot",
-          "texte": "Exploitation de CVE-2022-21894 sur des systèmes corrigés mais sans révocation manuelle → contournement de Secure Boot [1]."
+          "texte": "Exploitation de CVE-2022-21894 sur des systèmes Windows entièrement corrigés mais sans révocation manuelle → contournement de Secure Boot [1, 2]."
         },
         {
           "etape": "Neutralisation des défenses",
-          "texte": "Installation de clés MOK puis injection d'un pilote malveillant dans le noyau Windows → exécution au niveau noyau, logiciels de sécurité altérés [1]."
+          "texte": "Installation de clés MOK puis injection d'un pilote malveillant dans le noyau Windows → processus de sécurité désactivés, surveillance du système altérée, parfois seulement si Kaspersky ou Avast détectés [1, 2]."
         },
         {
           "etape": "Espionnage",
-          "texte": "Déploiement d'un outil d'accès à distance utilisant Google Drive, OneDrive et Yandex.Disk comme canal de commande → collecte et envoi de fichiers ciblés [1]."
+          "texte": "Déploiement d'un outil d'accès à distance utilisant Google Drive, OneDrive et Yandex.Disk comme canal de commande → collecte et envoi de fichiers ciblés [1, 2]."
         }
       ],
       "parcours": {
@@ -22008,19 +22008,19 @@
           }
         ]
       },
-      "limites": "Le vecteur d'accès initial n'est pas précisé. L'attribution à APT41 est un soupçon de Kaspersky [1].",
+      "limites": "Le vecteur d'accès initial n'est pas précisé [1, 2]. L'attribution à APT41 est un soupçon de Kaspersky [1], de confiance moyenne [2].",
       "cves": [
         {
           "id": "CVE-2022-21894",
-          "explication": "Contournement de Secure Boot surnommé Baton Drop, gravité 4,4 sur 10, aujourd'hui corrigé mais exploité sur des systèmes sans les étapes manuelles de révocation [1]."
+          "explication": "Contournement de Secure Boot surnommé Baton Drop, gravité 4,4 sur 10 [1], exploité car la révocation du certificat vulnérable doit être activée manuellement [1, 2]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "APT41, groupe lié à la Chine, soupçonné par Kaspersky [1]"
+        "APT41, aussi appelé Brass Typhoon, Wicked Panda ou Barium, soupçonné [1, 2]"
       ],
       "cibles": [
-        "Organisations diplomatiques au Tadjikistan, en Ouzbékistan et au Turkménistan [1]"
+        "Organisations diplomatiques au Tadjikistan, en Ouzbékistan et au Turkménistan [1, 2]"
       ],
       "abreviations": [
         {
@@ -22043,6 +22043,13 @@
           "url": "https://thehackernews.com/2026/10/blackx-uefi-bootkit-bypasses-secure.html",
           "date": "2026-10-24",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0cTK7D5hQFR-3qGTicTlfi6_CbnMIgCJWIojDeXmZr91hrIPqhhxZ72mAsnB6kBOcCdscZOL_VN8RhAdYIxq3d128rkaDweIApSaV5w3IzB1YGN3XNnlarG0IKN5VuDJy_RnPBxXZoKQ1Yh950YFNz-b_pbvEY_QlQa5Tr-BP4366UgkGIg968J-QEN1M/s1700-nu-rw-lo-l85-e365/uefi.jpg"
+        },
+        {
+          "titre": "BlackX UEFI bootkit exploits Baton Drop flaw to bypass Secure Boot",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/blackx-uefi-bootkit-exploits-baton-drop-flaw-to-bypass-secure-boot/",
+          "date": "2026-10-24",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/23/blackX.jpg"
         }
       ]
     },

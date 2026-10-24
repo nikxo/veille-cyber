@@ -12924,8 +12924,8 @@
       "id": "2026-10-14-nextcloud-collabora-webshell",
       "title": "Nextcloud : web shells déposés via l'application Collabora Online intégrée",
       "created": "2026-10-14T19:08:13+00:00",
-      "updated": "2026-10-15T21:20:00+00:00",
-      "version": 2,
+      "updated": "2026-10-24T08:30:00+00:00",
+      "version": 3,
       "resume": "Des attaquants ont déposé des web shells sur des serveurs Nextcloud en exploitant l'application optionnelle Collabora Online intégrée. Des administrateurs signalent des attaques dès le 10 septembre [1, 2].",
       "chaine": [
         {
@@ -12990,7 +12990,7 @@
       "cves": [
         {
           "id": "CVE-2026-110447",
-          "explication": "Application Collabora Online intégrée de Nextcloud, versions antérieures à 26.4.303 : injection de commandes sans authentification, gravité critique ; exploitée en septembre et octobre 2026 [1, 2]."
+          "explication": "Collabora Online intégrée à Nextcloud, avant 26.4.303 : injection de commandes sans authentification, critique ; exploitée, ajoutée au catalogue de la CISA [1, 2, 3]."
         }
       ],
       "mitre": [],
@@ -13002,6 +13002,10 @@
         {
           "sigle": "PHP",
           "definition": "Langage de programmation courant pour les sites web"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité"
         }
       ],
       "sources": [
@@ -13018,6 +13022,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-collabora-rce-flaw-to-backdoor-nextcloud-servers/",
           "date": "2026-10-15",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/15/nextcloud.jpg"
+        },
+        {
+          "titre": "CISA Flags Two Actively Exploited Critical Flaws in Collabora Online and Arista VeloCloud",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html",
+          "date": "2026-10-24",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmm0pKX3kbfMC2GKemUiMT8PH1uDJIHn4AcmoiQ5nUK4TWZl0Ni_-k6kjpAFUrFzEWSSq_G307YJXTXmn9FZ7q6oOr5OEMASP9mrXOXrk9lSOGzqPCAbkQqpHsMxFe1q5CnyDZnqeDq_FiiC7jEzp0ie1r_nnQOSKcbPcKBdoXI-ycAjCZA9AuxemUhE5k/s1700-nu-rw-lo-l85-e365/arista-cisa.jpg"
         }
       ]
     },
@@ -19960,8 +19971,8 @@
       "id": "2026-10-22-arista-velocloud-orchestrator",
       "title": "Arista VeloCloud Orchestrator : faille d'injection SQL exploitée avant correctif",
       "created": "2026-10-22T18:30:00+00:00",
-      "updated": "2026-10-23T15:30:00+00:00",
-      "version": 4,
+      "updated": "2026-10-24T08:30:00+00:00",
+      "version": 5,
       "resume": "Arista a corrigé une faille d'injection SQL exploitée dans des attaques contre VeloCloud Orchestrator installé en local. Elle permet à un utilisateur authentifié d'élever ses privilèges [1, 4].",
       "chaine": [
         {
@@ -20019,7 +20030,7 @@
       "cves": [
         {
           "id": "CVE-2026-114625",
-          "explication": "VeloCloud Orchestrator, versions antérieures à 5.2.3.18, 6.1.3.10 et 6.4.2.12 : injection SQL permettant à un utilisateur authentifié d'élever ses privilèges, gravité critique 9,9 sur 10 [1, 2, 3, 4]."
+          "explication": "VeloCloud Orchestrator, avant 5.2.3.18, 6.1.3.10 et 6.4.2.12 : injection SQL, élévation de privilèges, gravité 9,9 sur 10 ; ajoutée au catalogue de la CISA [1, 2, 3, 4, 5]."
         }
       ],
       "mitre": [],
@@ -20036,6 +20047,10 @@
         {
           "sigle": "SQL",
           "definition": "Langage d'interrogation des bases de données"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité"
         }
       ],
       "sources": [
@@ -20066,6 +20081,13 @@
           "url": "https://www.lemagit.fr/actualites/366652615/VeloCloud-Arista-corrige-une-vulnerabilite-deja-exploitee",
           "date": "2026-10-23",
           "image": "https://www.lemagit.fr/visuals/German/article/patch-management-fabric-adobe.jpg"
+        },
+        {
+          "titre": "CISA Flags Two Actively Exploited Critical Flaws in Collabora Online and Arista VeloCloud",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html",
+          "date": "2026-10-24",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmm0pKX3kbfMC2GKemUiMT8PH1uDJIHn4AcmoiQ5nUK4TWZl0Ni_-k6kjpAFUrFzEWSSq_G307YJXTXmn9FZ7q6oOr5OEMASP9mrXOXrk9lSOGzqPCAbkQqpHsMxFe1q5CnyDZnqeDq_FiiC7jEzp0ie1r_nnQOSKcbPcKBdoXI-ycAjCZA9AuxemUhE5k/s1700-nu-rw-lo-l85-e365/arista-cisa.jpg"
         }
       ]
     },

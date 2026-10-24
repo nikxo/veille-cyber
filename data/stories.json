@@ -20871,13 +20871,13 @@
       "id": "2026-10-21-litellm-chaine-approvisionnement",
       "title": "LiteLLM 1.107.0 compromis : voleur d'identifiants et porte dérobée via PyPI et Docker",
       "created": "2026-10-21T18:08:17+00:00",
-      "updated": "2026-10-23T09:30:00+00:00",
-      "version": 4,
+      "updated": "2026-10-24T12:20:00+00:00",
+      "version": 5,
       "resume": "La version 1.107.0 du paquet Python LiteLLM, diffusée par PyPI et Docker, contenait un voleur d'identifiants et une porte dérobée, après le détournement de jetons GitHub CLI de développeurs [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Trois jeux d'identifiants GitHub CLI de développeurs aux mains de l'attaquant ; LiteLLM suspecte, sans confirmation, une fuite via les logs d'un déploiement interne exposé [1, 2]."
+          "texte": "Jetons GitHub CLI de développeurs obtenus [1, 2] ; selon LiteLLM, une clé maître publiée par erreur dans un dépôt public, non révoquée, a permis d'extraire un jeton [5]."
         },
         {
           "etape": "Détournement de la publication",
@@ -20991,11 +20991,11 @@
           }
         ]
       },
-      "limites": "Le mode d'obtention des jetons n'est pas confirmé : la fuite via les logs reste une hypothèse de LiteLLM. Aucun acteur ni nombre de victimes n'est donné [1, 2, 3].",
+      "limites": "Les sources divergent sur l'origine des jetons : fuite via les logs [1, 2] ou clé maître publiée dans un dépôt public [5]. Aucun acteur n'est identifié [1, 2, 3, 5].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non identifié : les sources n'attribuent pas l'attaque [1, 2]"
+        "Non identifié : les sources n'attribuent pas l'attaque [1, 2, 5]"
       ],
       "cibles": [
         "Utilisateurs ayant téléchargé LiteLLM 1.107.0 ou ses images Docker [1, 2]"
@@ -21058,6 +21058,13 @@
           "url": "https://www.securityweek.com/litellm-compromised-in-fresh-supply-chain-attack/",
           "date": "2026-10-23",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supply-chain-attack.jpeg"
+        },
+        {
+          "titre": "Leaked LiteLLM Master Key Let Attackers Steal GitHub Tokens and Hijack Release Pipeline",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/leaked-litellm-master-key-let-attackers.html",
+          "date": "2026-10-24",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipiDo2Yur6TXZHLped9EQgORAH65rC4APGTaq_EZzlDnspAaULTQCKblBC0FeIah7nOCKTiQa2Oi8cyx-bbxHj042Km9oYAf2s78XmStFxzPBTSQ_oqv4ZcWGEkUP1wo5JfJ1UDrWQpAtz8ZHd9i3ZbGWWe8s6CMeUU_nObp5tCEywMWGovqFh9NA1H8Sv/s1700-nu-rw-lo-l85-e365/lite.jpg"
         }
       ]
     },

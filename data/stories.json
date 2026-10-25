@@ -22137,6 +22137,116 @@
           "image": "https://www.zataz.com/wp-content/uploads/Point_vision_leak.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-25-agents-md-downloads-agents-ia",
+      "title": "Agents de codage IA détournés par un fichier AGENTS.md déposé dans Téléchargements",
+      "created": "2026-10-25T16:30:00+00:00",
+      "updated": "2026-10-25T16:30:00+00:00",
+      "version": 1,
+      "resume": "Des chercheurs de Forever Security ont trouvé chez un client un fichier AGENTS.md malveillant qui a poussé un agent de codage IA à tenter d'installer un paquet npm malveillant [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Origine du fichier AGENTS.md dans le dossier Téléchargements non déterminée par les chercheurs ; ils supposent qu'une page web malveillante pourrait le déposer sans interaction [1]."
+        },
+        {
+          "etape": "Lancement de l'agent",
+          "texte": "L'utilisateur ouvre un agent IA dans ce dossier → le fichier d'instructions est chargé automatiquement [1]."
+        },
+        {
+          "etape": "Exécution d'instructions",
+          "texte": "L'agent suit les instructions malveillantes → tentative d'installation du paquet npm malveillant « function-color » [1]."
+        },
+        {
+          "etape": "Détournement de Claude Code",
+          "texte": "Un fichier CLAUDE.md malveillant redirige le trafic API vers un serveur de l'attaquant → jeton OAuth exposé et exécution de code dans environ 50 % des tests [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste du client",
+            "note": "Dossier Téléchargements"
+          },
+          {
+            "id": "npm",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Paquet npm malveillant",
+            "note": "function-color"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Fichier AGENTS.md présent dans Téléchargements"
+          },
+          {
+            "de": "pc",
+            "vers": "npm",
+            "etape": 3,
+            "texte": "L'agent tente d'installer le paquet"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent pas comment le fichier est arrivé chez le client, ni l'identité de l'acteur [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non mentionné [1]"
+      ],
+      "cibles": [
+        "Un client de Forever Security ; utilisateurs d'agents IA lancés depuis Téléchargements [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "npm",
+          "definition": "Gestionnaire de paquets du langage JavaScript"
+        },
+        {
+          "sigle": "OAuth",
+          "definition": "Protocole d'autorisation fondé sur des jetons d'accès"
+        },
+        {
+          "sigle": "API",
+          "definition": "Interface permettant à des programmes de communiquer entre eux"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "AGENTS",
+          "definition": "Fichier AGENTS.md : instructions lues par un agent de codage IA"
+        },
+        {
+          "sigle": "CLAUDE",
+          "definition": "Fichier CLAUDE.md : instructions lues par l'agent Claude Code"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "AI coding agents hijacked using AGENTS.md file in Downloads folder",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/",
+          "date": "2026-10-25",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/23/robot.jpg"
+        }
+      ]
     }
   ]
 }

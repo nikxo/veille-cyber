@@ -20595,8 +20595,8 @@
       "id": "2026-10-21-php2shell-cve-2026-109618",
       "title": "PHP2Shell : deux failles critiques de PHP, tentatives d'exploitation avant les correctifs",
       "created": "2026-10-21T13:30:00+00:00",
-      "updated": "2026-10-23T18:30:00+00:00",
-      "version": 10,
+      "updated": "2026-10-25T19:07:18+00:00",
+      "version": 11,
       "resume": "Deux failles critiques du cœur de PHP (PHP2Shell) permettent d'exécuter du code via une requête web sans authentification [6, 11]. Des correctifs d'urgence sont sortis le 21 octobre [9] ; des centaines de sites ont été mis hors ligne [8].",
       "chaine": [
         {
@@ -20613,15 +20613,15 @@
         },
         {
           "etape": "Exploitation observée",
-          "texte": "Première tentative le 17 octobre contre un honeypot d'Amazon [15, 16, 19] ; exploitation en masse après les correctifs [16, 17], par plusieurs acteurs selon Amazon [19]."
+          "texte": "Première tentative le 17 octobre contre un honeypot d'Amazon [15, 16, 19] ; exploitation en masse après les correctifs [16, 17] ; botnets Potassium et Mirai [20, 21, 22]."
         },
         {
           "etape": "Mises hors ligne",
           "texte": "Sites coupés par précaution → centaines de sites hors ligne [8] ; BambooHR suspendu et services publics néerlandais retirés [9] ; Orange, préfectures et CNIL en France [18]."
         },
         {
-          "etape": "Tentatives de botnet",
-          "texte": "Tentatives liées au botnet Potassium selon Arctic Wolf, à Mirai selon Cobalt → aucune compromission réussie confirmée [20, 21, 22] ; exploit public contournant l'ASLR [21]."
+          "etape": "Intrusion et intelligence artificielle",
+          "texte": "Exploitation de PHP2Shell contre une entité gouvernementale européenne → hachages de mots de passe et secrets de double authentification lus en moins de deux heures, relais NTLM vers l'annuaire [23]."
         }
       ],
       "parcours": {
@@ -20639,6 +20639,20 @@
             "zone": "expose",
             "nom": "Serveur web sous PHP",
             "note": "Mémoire corrompue"
+          },
+          {
+            "id": "gov",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur d'une entité gouvernementale européenne",
+            "note": "Secrets lus"
+          },
+          {
+            "id": "ad",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Annuaire de l'entité",
+            "note": "Cible du relais"
           }
         ],
         "liens": [
@@ -20659,6 +20673,18 @@
             "vers": "srv",
             "etape": 4,
             "texte": "Attaques précoces observées par Cloudflare"
+          },
+          {
+            "de": "att",
+            "vers": "gov",
+            "etape": 6,
+            "texte": "Exploitation PHP2Shell, secrets d'authentification lus"
+          },
+          {
+            "de": "gov",
+            "vers": "ad",
+            "etape": 6,
+            "texte": "Relais NTLM et requêtes vers l'annuaire"
           }
         ]
       },
@@ -20681,12 +20707,14 @@
       "acteurs": [
         "Non identifié : les sources ne nomment pas ceux qui tentent l'exploitation [1, 2, 3, 6, 11, 15, 16]",
         "Calif a signalé les bogues à la PHP Foundation le 11 août [14]",
-        "Chainguard a publié des images corrigées avant la fin de l'embargo [14]"
+        "Chainguard a publié des images corrigées avant la fin de l'embargo [14]",
+        "Scan lié à l'écosystème Lazarus, confiance modérée [23]"
       ],
       "cibles": [
         "Serveurs web sous PHP ; 22,6 millions d'instances exposées selon Unit 42, 5,1 millions d'hôtes selon VirusTotal [4, 5]",
         "Un gouvernement européen a mis son site hors ligne par précaution [4]",
-        "Hors ligne : BambooHR, services publics néerlandais, plusieurs gouvernements [8, 9]"
+        "Hors ligne : BambooHR, services publics néerlandais, plusieurs gouvernements [8, 9]",
+        "Entité gouvernementale européenne (intrusion), 216 hôtes visés par un scan [23]"
       ],
       "abreviations": [
         {
@@ -20708,6 +20736,10 @@
         {
           "sigle": "ASLR",
           "definition": "Address Space Layout Randomization : randomisation des adresses mémoire pour gêner les exploits"
+        },
+        {
+          "sigle": "NTLM",
+          "definition": "Protocole d'authentification Windows, dont l'échange peut être relayé vers un autre serveur"
         }
       ],
       "sources": [
@@ -20863,6 +20895,13 @@
           "url": "https://therecord.media/php-php2shell-exploitation-attempts-pocs",
           "date": "2026-10-23",
           "image": "https://cms.therecord.media/uploads/php_shahadat_rahman_unsplash_14f00bee62.jpg"
+        },
+        {
+          "titre": "PHP2Shell Exploitation Hits Government Entity Amid Global Scanning and Signs of AI-Assisted Hacking",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/php2shell-exploitation-hits-government.html",
+          "date": "2026-10-25",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzK2qokKedMIUzd876s0EWaLDb7qw-DMzlFWKvmfgCzMKZ2KVvdpZ-298SoEm1_PP6aoEBc6q1LAydnANGur1FbFNmXmhlo6zHtRFvgRcbx-LOoDoM_-JI-_7XkkM4r5q3LQH1SdfirarXTGeiu16d5YMDSeYs8tfJn5ITfRQ4DThbqkq66b4WdDQcOJqf/s1700-nu-rw-lo-l85-e365/php2shell-exploit.jpg"
         }
       ]
     },

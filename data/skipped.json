@@ -1,13 +1,5 @@
 [
   {
-    "id": "5f141970707163ff",
-    "title": "TGV prend le train du Data Mesh",
-    "link": "https://www.lemagit.fr/etude/TGV-Europe-prend-le-train-du-Data-Mesh",
-    "source": "LeMagIT",
-    "raison": "article d'architecture de données, hors attaque",
-    "date": "2026-10-05T19:07:11+00:00"
-  },
-  {
     "id": "9dc8b94c255c30c2",
     "title": "KillSec démantelé, son opérateur présumé a 16 ans",
     "link": "https://www.zataz.com/killsec-demantele-son-operateur-presume-a-16-ans/",
@@ -3998,5 +3990,13 @@
     "source": "SecurityWeek",
     "raison": "levée de fonds",
     "date": "2026-10-25T11:10:00+00:00"
+  },
+  {
+    "id": "4a8154151413dd37",
+    "title": "Unpatched Tailscale SSH Flaws Could Let a Hacked Device Reach Root on Other Servers",
+    "link": "https://thehackernews.com/2026/10/unpatched-tailscale-ssh-flaws-could-let.html",
+    "source": "The Hacker News",
+    "raison": "faille testée en laboratoire, aucune exploitation constatée",
+    "date": "2026-10-25T19:07:18+00:00"
   }
 ]

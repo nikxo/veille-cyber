@@ -1,21 +1,5 @@
 [
   {
-    "id": "32fa12f768afd40e",
-    "title": "Google Pauses OSS Product Bug Bounty Rewards After Surge in Invalid Automated Reports",
-    "link": "https://thehackernews.com/2026/10/google-pauses-oss-product-bug-bounty.html",
-    "source": "The Hacker News",
-    "raison": "annonce de programme de bug bounty, pas d'attaque",
-    "date": "2026-10-06T10:30:00+00:00"
-  },
-  {
-    "id": "23cd6bf04b83d033",
-    "title": "Cybersecurity M&A Roundup: 39 Deals Announced in September 2026",
-    "link": "https://www.securityweek.com/cybersecurity-ma-roundup-39-deals-announced-in-september-2026/",
-    "source": "SecurityWeek",
-    "raison": "actualité financière (fusions-acquisitions), sans attaque",
-    "date": "2026-10-06T11:30:00+00:00"
-  },
-  {
     "id": "893051a996ecd889",
     "title": "LibreOffice and OpenOffice Flaws Let Malicious Spreadsheets Run Code Without Macro Warnings",
     "link": "https://thehackernews.com/2026/10/libreoffice-and-openoffice-flaws-let.html",
@@ -3998,5 +3982,21 @@
     "source": "SecurityWeek",
     "raison": "recherche sans exploitation constatée",
     "date": "2026-10-26T15:17:10+00:00"
+  },
+  {
+    "id": "177485d16a0af08a",
+    "title": "Microsoft releases emergency .NET patches for critical Brotli flaw",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-emergency-net-patches-for-critical-brotli-flaw/",
+    "source": "BleepingComputer",
+    "raison": "vulnérabilité sans exploitation constatée dans la nature",
+    "date": "2026-10-26T16:15:00+00:00"
+  },
+  {
+    "id": "01c3bcbb08d462b8",
+    "title": "Covéa mise sur le Virtual Patching pour faire face à l’explosion des vulnérabilités",
+    "link": "https://www.lemagit.fr/etude/Covea-mise-sur-le-Virtual-Patching-pour-faire-face-a-lexplosion-des-vulnerabilites",
+    "source": "LeMagIT",
+    "raison": "retour d'expérience sur une stratégie de sécurité, sans détail sur la méthode d'attaque",
+    "date": "2026-10-26T16:15:00+00:00"
   }
 ]

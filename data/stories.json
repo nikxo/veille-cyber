@@ -23295,6 +23295,96 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/15/Arrest.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-26-universite-copenhague-environnement-test",
+      "title": "Université de Copenhague : des pirates accèdent à un environnement de test contenant les données de 525 000 personnes",
+      "created": "2026-10-26T23:15:00+00:00",
+      "updated": "2026-10-26T23:15:00+00:00",
+      "version": 1,
+      "resume": "Des pirates ont accédé à un environnement de test de l'Université de Copenhague, qui contenait des données personnelles de 525 000 personnes [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Accès aux données",
+          "texte": "Accès à un environnement de test de l'université → accès à des noms, numéros d'identité nationaux, téléphones et e-mails [1]."
+        },
+        {
+          "etape": "Exposition de codes PIN",
+          "texte": "Codes PIN de 20 000 membres du personnel et étudiants exposés → accès à certains lieux du campus restreint, puis rouvert avec de nouveaux codes [1]."
+        },
+        {
+          "etape": "Confinement",
+          "texte": "Blocage de l'accès de l'attaquant par l'université → aucun indice d'accès aux systèmes des opérations quotidiennes [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "test",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Environnement de test",
+            "note": "Université de Copenhague"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données personnelles",
+            "note": "525 000 personnes"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "test",
+            "etape": 2,
+            "texte": "Accès à un environnement de test"
+          },
+          {
+            "de": "test",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Données personnelles accessibles"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'accès initial, ni l'acteur, ni la manière dont les codes PIN ont été exposés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non précisé : l'article parle seulement de pirates [1]"
+      ],
+      "cibles": [
+        "Université de Copenhague, 525 000 personnes dont étudiants et personnel [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "PIN",
+          "definition": "Code personnel secret à chiffres servant à ouvrir un accès"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "University of Copenhagen data breach exposes data of 525,000 people",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/university-of-copenhagen-data-breach-exposes-data-of-525-000-people/",
+          "date": "2026-10-26",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/26/copenhagen.jpg"
+        }
+      ]
     }
   ]
 }

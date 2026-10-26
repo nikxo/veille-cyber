@@ -22756,6 +22756,110 @@
           "image": "https://www.securityweek.com/wp-content/uploads/2024/01/arrested-hacker-scaled-e1779788771312.jpeg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-26-magento-953-boutiques-chargeur",
+      "title": "953 boutiques en ligne, surtout Magento, infectées par un chargeur depuis juillet 2025",
+      "created": "2026-10-26T13:40:00+00:00",
+      "updated": "2026-10-26T13:40:00+00:00",
+      "version": 1,
+      "resume": "Un acteur non nommé a infecté 953 boutiques en ligne, surtout Magento, avec un petit chargeur JavaScript, dans une campagne active depuis juillet 2025 [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Faille PolyShell (CVE-2026-48356) → 471 boutiques Magento injectées en mars 2026 ; plus de 100 autres avec des fichiers déposés via PolyShell ou SessionReaper (CVE-2025-54236) [1]."
+        },
+        {
+          "etape": "Chargeur chez les visiteurs",
+          "texte": "Petit code chargeur injecté dans les boutiques → il sert une charge malveillante aux visiteurs ou ne fait rien, pour éviter la détection [1]."
+        },
+        {
+          "etape": "Changement de domaines",
+          "texte": "Anciens domaines expirés puis réenregistrés en mai 2026, bascule vers deepveindrilling.com en octobre → chargeur retrouvé sur 83 boutiques [1]."
+        },
+        {
+          "etape": "Accès durable",
+          "texte": "Compte administrateur illégitime puis porte dérobée GSocket trouvés sur une boutique touchée plus tard par le chargeur [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (non nommé)",
+            "note": ""
+          },
+          {
+            "id": "dom",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Domaines du chargeur",
+            "note": "deepveindrilling.com"
+          },
+          {
+            "id": "shop",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Boutiques en ligne Magento",
+            "note": "953 infectées"
+          },
+          {
+            "id": "vis",
+            "type": "utilisateur",
+            "zone": "internet",
+            "nom": "Visiteurs des boutiques",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "shop",
+            "etape": 1,
+            "texte": "Injection via PolyShell ou SessionReaper"
+          },
+          {
+            "de": "shop",
+            "vers": "vis",
+            "etape": 2,
+            "texte": "Chargeur sert une charge ou ne fait rien"
+          },
+          {
+            "de": "dom",
+            "vers": "shop",
+            "etape": 3,
+            "texte": "Chargeur bascule vers un nouveau domaine"
+          },
+          {
+            "de": "att",
+            "vers": "shop",
+            "etape": 4,
+            "texte": "Compte administrateur illégitime et porte dérobée"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent pas le vecteur d'accès de l'ensemble de la campagne, la charge livrée aux visiteurs, ni comment le compte administrateur a été créé [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Acteur de menace non nommé [1]"
+      ],
+      "cibles": [
+        "953 boutiques en ligne, surtout Magento, dont certaines à jour de leurs correctifs [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "953 Online Stores Infected in Long-Lasting Malware Campaign",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/953-online-stores-infected-in-long-lasting-malware-campaign/",
+          "date": "2026-10-26",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Magento.jpeg"
+        }
+      ]
     }
   ]
 }

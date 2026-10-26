@@ -1,21 +1,5 @@
 [
   {
-    "id": "f7e35c1706fea596",
-    "title": "Microsoft pousse SQL Server sur Azure Local",
-    "link": "https://www.lemagit.fr/actualites/366651559/Microsoft-pousse-SQL-Server-sur-Azure-Local",
-    "source": "LeMagIT",
-    "raison": "annonce produit",
-    "date": "2026-10-05T19:07:11+00:00"
-  },
-  {
-    "id": "76475e60209703d3",
-    "title": "Alleged ShinyHunters member reportedly detained in Jordan, assisting law enforcement",
-    "link": "https://therecord.media/alleged-shinyhunters-member-detained-jordan-fbi",
-    "source": "The Record",
-    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
-    "date": "2026-10-05T20:15:00+00:00"
-  },
-  {
     "id": "c8e732e17f968bf8",
     "title": "CAO et PLM : Schneider Electric s’apprête à racheter l’Américain PTC",
     "link": "https://www.lemagit.fr/actualites/366651562/CAO-et-PLM-Schneider-Electric-sapprete-a-racheter-lAmericain-PTC",
@@ -3998,5 +3982,21 @@
     "source": "Securelist (Kaspersky)",
     "raison": "conseils génériques",
     "date": "2026-10-26T10:30:00+00:00"
+  },
+  {
+    "id": "a89bd24578261a2e",
+    "title": "Kali Linux 2026.3 released with 6 new tools, desktop updates",
+    "link": "https://www.bleepingcomputer.com/news/linux/kali-linux-20263-released-with-6-new-tools-desktop-updates/",
+    "source": "BleepingComputer",
+    "raison": "annonce produit",
+    "date": "2026-10-26T11:09:36+00:00"
+  },
+  {
+    "id": "b7a2db295b2fbbf6",
+    "title": "Node2Shell: Brotli Flaw Triggers Patching Across Microsoft, Node.js, Python Packages",
+    "link": "https://www.securityweek.com/node2shell-brotli-flaw-triggers-patching-across-microsoft-node-js-python-packages/",
+    "source": "SecurityWeek",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-10-26T11:09:36+00:00"
   }
 ]

@@ -22524,6 +22524,124 @@
           "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Claude-Mythos.jpeg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-26-ucreator-spyware-android",
+      "title": "uCreator : un kit de spyware Android détourne des comptes Telegram et WeChat",
+      "created": "2026-10-26T11:09:36+00:00",
+      "updated": "2026-10-26T11:09:36+00:00",
+      "version": 1,
+      "resume": "Le kit de spyware Android uCreator, loué à des revendeurs, prend le contrôle de comptes Telegram et WeChat grâce à des copies piégées de ces applications, selon le chercheur Ovi [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Installation de copies piégées de Telegram ou de WeChat, diffusées hors des magasins officiels, ou WeChat lancé dans l'application conteneur des auteurs → code du kit dans l'application [1]."
+        },
+        {
+          "etape": "Exécution locale",
+          "texte": "Serveur de commandes embarqué dans l'application piégée → code exécuté avec les permissions de l'application et requêtes sur la base de messages [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Interception du mot de passe de double authentification de Telegram avant son hachage → mot de passe copié en clair [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Avec le mot de passe : réinitialisation des sessions, changement du numéro lié ou suppression du compte → session de l'attaquant masquable dans la liste des appareils [1]."
+        },
+        {
+          "etape": "Clonage WeChat",
+          "texte": "WeChat non modifié exécuté dans un conteneur → copie de l'identité de connexion, puis clonage du compte [1]."
+        },
+        {
+          "etape": "Exploitation des comptes",
+          "texte": "Ajout d'amis en masse et collecte de contacts avec plages horaires et quotas aléatoires → contrôles de risque des plateformes évités [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (kit uCreator)",
+            "note": ""
+          },
+          {
+            "id": "src",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Copies piégées hors magasins officiels",
+            "note": ""
+          },
+          {
+            "id": "tel",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Téléphone Android de la victime",
+            "note": "Serveur de commandes local"
+          },
+          {
+            "id": "cpt",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Comptes Telegram et WeChat",
+            "note": "Clonés ou verrouillés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "src",
+            "etape": 1,
+            "texte": "Diffusion de copies piégées de Telegram et WeChat"
+          },
+          {
+            "de": "src",
+            "vers": "tel",
+            "etape": 1,
+            "texte": "Installation de la copie piégée"
+          },
+          {
+            "de": "tel",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Mot de passe de double authentification copié"
+          },
+          {
+            "de": "att",
+            "vers": "cpt",
+            "etape": 4,
+            "texte": "Sessions réinitialisées, numéro changé ou compte supprimé"
+          },
+          {
+            "de": "tel",
+            "vers": "cpt",
+            "etape": 5,
+            "texte": "Identité de connexion WeChat copiée, compte cloné"
+          }
+        ]
+      },
+      "limites": "Le chercheur n'a pas pu confirmer comment chaque victime a été infectée, et le nombre de victimes d'uCreator n'est pas donné [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Auteurs du kit loué à des revendeurs, liés à trois sociétés du Hunan (Chine) ; propriétaire commun non prouvé [1]"
+      ],
+      "cibles": [
+        "Utilisateurs de Telegram et WeChat ayant installé une copie piégée [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "uCreator Android Spyware Can Steal Telegram 2FA Passwords and Clone WeChat Accounts",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/ucreator-android-spyware-can-steal.html",
+          "date": "2026-10-26",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdBBtFdo2KmBzapUDlLWoS0hh17lYfWUw0kOLWTfbgeNOTP5F5pEJPmWSzBHkjSv4HR-vwfJ-Ba38Tg_su11Zi4CDKXJ29BnlQdCrU-oU84jl7TAET_aPyWV2fRazSLy0hBz8sBP3EhFubGETPdPwpnAFAX0CSbEQfsA65JqQMob9R_4cPbbJRi91KAkY/s1700-nu-rw-lo-l85-e365/telegram-wechat.jpg"
+        }
+      ]
     }
   ]
 }

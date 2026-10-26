@@ -23195,6 +23195,106 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGj3R5UeJnb_pAG2XH5cEGUzKbzeRHLNAES48EgHC8ssOnuDbDOqJA9ydPHJqmxYONu2lCeu42YOv_e_XA2RtX5jVGsMkQY0QAGrzoqmY4qU6NnWrPTfX0V-U68B9Z80KHLJvZDtUeSm4dvkp06oJ9JmgJvr7CDYZ-48fwAOENt31Lrcpr4M6O_4x6ovLZ/s1700-nu-rw-lo-l85-e365/support.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-26-artex-ai-coree-pentester",
+      "title": "Corée du Sud : un ancien pentester et six complices piratent plus de 90 organisations avec ARTEX AI",
+      "created": "2026-10-26T22:08:47+00:00",
+      "updated": "2026-10-26T22:08:47+00:00",
+      "version": 1,
+      "resume": "Un groupe de sept suspects, dirigé par un ancien pentester, a compromis plus de 90 organisations en Corée du Sud, le plus souvent avec le framework ARTEX AI, et dérobé environ 8,2 millions d'enregistrements [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Intrusions",
+          "texte": "Utilisation du framework ARTEX AI dans la plupart des attaques → plus de 90 organisations compromises [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Vol de données chez les victimes → environ 8,2 millions d'enregistrements dérobés [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Rançon de 360 millions de wons exigée contre la non-divulgation des données volées → 38 incidents concernés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (groupe de sept suspects)",
+            "note": ""
+          },
+          {
+            "id": "org",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Plus de 90 organisations",
+            "note": "Compromises avec ARTEX AI"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données des victimes",
+            "note": "8,2 millions d'enregistrements"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "org",
+            "etape": 2,
+            "texte": "Intrusions avec le framework ARTEX AI"
+          },
+          {
+            "de": "org",
+            "vers": "don",
+            "etape": 3,
+            "texte": "Vol de données"
+          },
+          {
+            "de": "att",
+            "vers": "org",
+            "etape": 4,
+            "texte": "Rançon exigée contre la non-divulgation"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'accès initial ni les méthodes d'intrusion détaillées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Groupe de sept suspects dirigé par un ancien pentester de 32 ans, sans nom connu [1]"
+      ],
+      "cibles": [
+        "Établissements d'enseignement, hôpitaux, grandes entreprises, terrains de golf [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ARTEX",
+          "definition": "Nom du framework de test d'intrusion utilisé par les attaquants"
+        },
+        {
+          "sigle": "AI",
+          "definition": "Artificial Intelligence : intelligence artificielle, partie du nom ARTEX AI"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Former pentester used ARTEX AI to steal 8.2 million data records",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/former-pentester-used-artex-ai-to-steal-82-million-data-records/",
+          "date": "2026-10-26",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/15/Arrest.jpg"
+        }
+      ]
     }
   ]
 }

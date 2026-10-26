@@ -22182,25 +22182,25 @@
       "id": "2026-10-25-agents-md-downloads-agents-ia",
       "title": "Agents de codage IA détournés par un fichier AGENTS.md déposé dans Téléchargements",
       "created": "2026-10-25T16:30:00+00:00",
-      "updated": "2026-10-25T16:30:00+00:00",
-      "version": 1,
-      "resume": "Des chercheurs de Forever Security ont trouvé chez un client un fichier AGENTS.md malveillant qui a poussé un agent de codage IA à tenter d'installer un paquet npm malveillant [1].",
+      "updated": "2026-10-26T08:08:11+00:00",
+      "version": 2,
+      "resume": "Forever Security a trouvé chez un client un fichier AGENTS.md malveillant qui poussait un agent de codage IA à installer le paquet npm malveillant function-color ; l'agent a été arrêté avant toute exécution de code [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Origine du fichier AGENTS.md dans le dossier Téléchargements non déterminée par les chercheurs ; ils supposent qu'une page web malveillante pourrait le déposer sans interaction [1]."
+          "texte": "Fichier AGENTS.md présent dans Téléchargements, origine inconnue ; une page web pourrait le déposer sans clic, selon l'article [1, 2]."
         },
         {
-          "etape": "Lancement de l'agent",
-          "texte": "L'utilisateur ouvre un agent IA dans ce dossier → le fichier d'instructions est chargé automatiquement [1]."
+          "etape": "Lecture par l'agent",
+          "texte": "L'agent ouvert dans ce dossier lit AGENTS.md et suit ses consignes d'apparence banale → instructions malveillantes appliquées [1, 2]."
         },
         {
-          "etape": "Exécution d'instructions",
-          "texte": "L'agent suit les instructions malveillantes → tentative d'installation du paquet npm malveillant « function-color » [1]."
+          "etape": "Installation du paquet",
+          "texte": "L'agent enregistre un serveur dans sa configuration puis installe le paquet function-color → code malveillant à exécuter, mais agent arrêté avant [2]."
         },
         {
           "etape": "Détournement de Claude Code",
-          "texte": "Un fichier CLAUDE.md malveillant redirige le trafic API vers un serveur de l'attaquant → jeton OAuth exposé et exécution de code dans environ 50 % des tests [1]."
+          "texte": "En laboratoire, un CLAUDE.md piégé redirige le trafic API vers un serveur de Forever → jeton de connexion exposé, approbation humaine accordée environ une fois sur deux [1, 2]."
         }
       ],
       "parcours": {
@@ -22217,7 +22217,7 @@
             "type": "poste",
             "zone": "victime",
             "nom": "Poste du client",
-            "note": "Dossier Téléchargements"
+            "note": "AGENTS.md, agent arrêté"
           },
           {
             "id": "npm",
@@ -22242,14 +22242,14 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent pas comment le fichier est arrivé chez le client, ni l'identité de l'acteur [1].",
+      "limites": "Les sources ne précisent pas comment le fichier est arrivé chez le client, ni l'identité de l'acteur [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non mentionné [1]"
+        "Non mentionné [1, 2]"
       ],
       "cibles": [
-        "Un client de Forever Security ; utilisateurs d'agents IA lancés depuis Téléchargements [1]"
+        "Un client de Forever Security ; utilisateurs d'agents IA lancés depuis Téléchargements [1, 2]"
       ],
       "abreviations": [
         {
@@ -22284,6 +22284,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/",
           "date": "2026-10-25",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/23/robot.jpg"
+        },
+        {
+          "titre": "Malicious File in Downloads Folder Tries to Trick AI Coding Agent Into Installing Malware",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/malicious-file-in-downloads-folder.html",
+          "date": "2026-10-26",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6cUQufM8zcABLKEfGt5xpGX34mUnThXvptS6o1GfAv8Ak_FO__f-rsT0GPf1Nro1NSRQuUsEGJl1boXq5Rt-IMFOnHunESsqj4sfJ_ypu9qhRgva3V0OqPN04FAKvOw0Y0KeKUvgG_RzWvA7u6piuPvLIaTJG2mbeWRRgFJB2vziZdJbkU1dN2nfwBf8/s1700-nu-rw-lo-l85-e365/codex.png"
         }
       ]
     }

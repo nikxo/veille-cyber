@@ -21998,8 +21998,8 @@
       "id": "2026-10-21-php2shell-cve-2026-109618",
       "title": "PHP2Shell : deux failles critiques de PHP, tentatives d'exploitation avant les correctifs",
       "created": "2026-10-21T13:30:00+00:00",
-      "updated": "2026-10-26T14:12:46+00:00",
-      "version": 13,
+      "updated": "2026-10-26T15:17:10+00:00",
+      "version": 14,
       "resume": "Deux failles critiques du cœur de PHP (PHP2Shell) permettent d'exécuter du code via une requête web sans authentification [6, 11]. Des correctifs d'urgence sont sortis le 21 octobre [9] ; des centaines de sites ont été mis hors ligne [8].",
       "chaine": [
         {
@@ -22117,7 +22117,8 @@
         "Serveurs web sous PHP ; 22,6 millions d'instances exposées selon Unit 42, 5,1 millions d'hôtes selon VirusTotal [4, 5]",
         "Un gouvernement européen a mis son site hors ligne par précaution [4]",
         "Hors ligne : BambooHR, services publics néerlandais, plusieurs gouvernements [8, 9]",
-        "Entité gouvernementale européenne (intrusion), 216 hôtes visés par un scan [23]"
+        "Entité gouvernementale européenne (intrusion), 216 hôtes visés par un scan [23]",
+        "Éditeurs industriels (Siemens, Schneider Electric, ABB, Belden) : produits touchés confirmés, aucune compromission industrielle signalée [26]"
       ],
       "abreviations": [
         {
@@ -22147,6 +22148,10 @@
         {
           "sigle": "IP",
           "definition": "Internet Protocol : adresse identifiant une machine sur le réseau"
+        },
+        {
+          "sigle": "ABB",
+          "definition": "Groupe industriel suisse-suédois, éditeur de produits d'automatisation"
         }
       ],
       "sources": [
@@ -22323,6 +22328,13 @@
           "url": "https://www.securityweek.com/php2shell-exploitation-moves-from-probes-to-working-shells/",
           "date": "2026-10-26",
           "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+        },
+        {
+          "titre": "Industrial Vendors Check Products for PHP2Shell Vulnerabilities",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/industrial-vendors-check-products-for-php2shell-vulnerabilities/",
+          "date": "2026-10-26",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/06/PLC-HMI-SCADA-ICS-industrial.jpeg"
         }
       ]
     },
@@ -22869,6 +22881,181 @@
           "url": "https://www.securityweek.com/953-online-stores-infected-in-long-lasting-malware-campaign/",
           "date": "2026-10-26",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Magento.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-26-dahua-cert-ua-cameras",
+      "title": "Ukraine : des caméras et enregistreurs Dahua piratés via le service cloud Easy4IP",
+      "created": "2026-10-26T15:17:10+00:00",
+      "updated": "2026-10-26T15:17:10+00:00",
+      "version": 1,
+      "resume": "Le CERT-UA signale que des pirates ont pris le contrôle de caméras et d'enregistreurs vidéo Dahua, modifié leurs réglages et créé des comptes utilisateurs non autorisés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Abus de la fonction cloud Easy4IP et de numéros de série prévisibles devinés en nombre → appareils reliés au cloud identifiés [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Mots de passe faibles ou par défaut, ou failles d'un firmware obsolète contournant l'authentification → accès aux appareils [1]."
+        },
+        {
+          "etape": "Modification des appareils",
+          "texte": "Réglages modifiés et comptes non autorisés créés → exposition possible des flux vidéo et contrôle à distance [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "cl",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Service cloud Easy4IP du fabricant",
+            "note": "Numéros de série devinés"
+          },
+          {
+            "id": "cam",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Caméras et enregistreurs Dahua",
+            "note": "Comptes créés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cl",
+            "etape": 1,
+            "texte": "Numéros de série prévisibles devinés"
+          },
+          {
+            "de": "att",
+            "vers": "cam",
+            "etape": 2,
+            "texte": "Mots de passe faibles ou failles de firmware"
+          },
+          {
+            "de": "att",
+            "vers": "cam",
+            "etape": 3,
+            "texte": "Réglages modifiés, comptes non autorisés créés"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment aucun responsable, ni le nombre d'appareils touchés, ni les dates. Le lien avec les 14 500 appareils de Hunt.io n'est pas établi [1].",
+      "cves": [
+        {
+          "id": "CVE-2021-33044",
+          "explication": "Divulguée en 2021, touche certaines caméras et certains enregistreurs Dahua [1]."
+        },
+        {
+          "id": "CVE-2021-33045",
+          "explication": "Divulguée en 2021, touche certaines caméras et certains enregistreurs Dahua [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié : le CERT-UA ne précise pas les responsables [1]"
+      ],
+      "cibles": [
+        "Caméras et enregistreurs Dahua ; Hunt.io compte plus de 14 500 appareils compromis, surtout en Ukraine et en Russie [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CERT-UA",
+          "definition": "Équipe ukrainienne de réponse aux incidents informatiques"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Ukraine warns hackers are exploiting Chinese-made Dahua surveillance cameras",
+          "site": "The Record",
+          "url": "https://therecord.media/ukraine-cert-ua-warning-chinese-dahua-cameras-hacked",
+          "date": "2026-10-26",
+          "image": "https://cms.therecord.media/uploads/dahua_camera_pexels_thomas_veillon_34628c9764.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-26-genesys-donnees-clients",
+      "title": "Genesys : accès à des systèmes internes et données clients exposées",
+      "created": "2026-10-26T15:17:10+00:00",
+      "updated": "2026-10-26T15:17:10+00:00",
+      "version": 1,
+      "resume": "Des attaquants ont accédé à des systèmes métier internes de Genesys, dont une plateforme d'apprentissage et un environnement de gestion client ; Genesys indique que des informations clients ont été consultées et probablement téléchargées [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Accès aux systèmes internes",
+          "texte": "Accès à la plateforme de gestion de l'apprentissage et à l'environnement de gestion de la relation client → informations clients à portée [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Informations consultées et, selon Genesys, probablement téléchargées → noms, contacts professionnels et données de compte potentiellement compromis [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (ScarlettGroup)",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Systèmes métier internes de Genesys",
+            "note": "Apprentissage et gestion client"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Accès aux systèmes internes"
+          },
+          {
+            "de": "sys",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Informations probablement téléchargées"
+          }
+        ]
+      },
+      "limites": "Le vecteur d'accès, la date et la portée ne sont pas précisés ; l'enquête continue. Genesys Cloud, Engage et Engage Cloud ne sont pas touchés selon l'entreprise [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "ScarlettGroup, groupe récent, a revendiqué l'attaque sur son site de fuite ; Genesys n'a pas nommé l'attaquant [1]"
+      ],
+      "cibles": [
+        "Genesys ; nombre de clients concernés non précisé [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Genesys Hack Exposes Customer Data From Internal Systems",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/genesys-hack-exposes-customer-data-from-internal-systems/",
+          "date": "2026-10-26",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/10/bank-finance-lender-credit-union-hack.jpeg"
         }
       ]
     }

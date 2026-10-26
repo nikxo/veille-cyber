@@ -21998,8 +21998,8 @@
       "id": "2026-10-21-php2shell-cve-2026-109618",
       "title": "PHP2Shell : deux failles critiques de PHP, tentatives d'exploitation avant les correctifs",
       "created": "2026-10-21T13:30:00+00:00",
-      "updated": "2026-10-26T10:30:00+00:00",
-      "version": 12,
+      "updated": "2026-10-26T14:12:46+00:00",
+      "version": 13,
       "resume": "Deux failles critiques du cœur de PHP (PHP2Shell) permettent d'exécuter du code via une requête web sans authentification [6, 11]. Des correctifs d'urgence sont sortis le 21 octobre [9] ; des centaines de sites ont été mis hors ligne [8].",
       "chaine": [
         {
@@ -22016,7 +22016,7 @@
         },
         {
           "etape": "Exploitation observée",
-          "texte": "Tentative du 17 octobre sur un honeypot d'Amazon [15, 16, 19] ; botnets Mirai [20, 21, 22] ; exécution de commande confirmée sur un honeypot le 24 octobre [24]."
+          "texte": "Tentative du 17 octobre [15, 16, 19] ; botnets Mirai [20, 21, 22] ; commande exécutée sur un honeypot le 24 octobre [24] ; 35 shells lancés depuis deux adresses IP [25]."
         },
         {
           "etape": "Mises hors ligne",
@@ -22143,6 +22143,10 @@
         {
           "sigle": "NTLM",
           "definition": "Protocole d'authentification Windows, dont l'échange peut être relayé vers un autre serveur"
+        },
+        {
+          "sigle": "IP",
+          "definition": "Internet Protocol : adresse identifiant une machine sur le réseau"
         }
       ],
       "sources": [
@@ -22312,6 +22316,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/php2shell-security-flaws-now-sucessfully-exploited-in-the-wild/",
           "date": "2026-10-26",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/26/PHP-headpic.jpg"
+        },
+        {
+          "titre": "PHP2Shell Exploitation Moves From Probes to Working Shells",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/php2shell-exploitation-moves-from-probes-to-working-shells/",
+          "date": "2026-10-26",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
         }
       ]
     },

@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-10-26T18:10:19+00:00",
+  "feed_summary": "Overview On October 21, 2026, the Node.js Project published a security advisory for CVE-2026-111497 , an out-of-bounds write in the Brotli decoder bundled with Node.js. The vulnerability affects the Node.js 26.x , 24.x , and 22.x release lines. Node.js rates the issue High, while Google, the CVE Numbering Authority (CNA), gives it a critical CVSSv4 score of 9.2 . An attacker who can supply Brotli data that an application decompresses with node:zlib can corrupt process memory. According to Node.js, this corruption can lead to a process crash, disclosure of sensitive process memory, or remote code execution. Exposure therefore depends on whether an application passes attacker-controlled compressed data to the affected decoder. As of October 26, 2026, Rapid7 is not aware of exploitation in th",
+  "id": "5041b6d8e61e009a",
+  "image": "https://www.rapid7.com/cdn/images/blt65a432ba319f4043/6846abddaf18306debe6cf4d/ETR.webp",
+  "lang": "en",
+  "link": "https://www.rapid7.com/blog/post/etr-cve-2026-111497-critical-out-of-bounds-write-in-the-node-js-brotli-decoder",
+  "published": "2026-10-26T17:32:46+00:00",
+  "source": "Rapid7",
+  "source_type": "analyse",
+  "title": "CVE-2026-111497: Critical out-of-bounds write in the Node.js Brotli decoder"
+}

@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-10-26T17:06:35+00:00",
+  "feed_summary": "Microsoft wants EDR out of the Windows kernel, and the preview binaries show wesp.sys telling a user-mode client that a process is starting, with nothing in its imports to let that client block it.",
+  "id": "c1cd946841703855",
+  "image": "https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/blt28b3f8a172b9cb89/6adf78e3629a0812d6b2aad8/image3.png",
+  "lang": "en",
+  "link": "https://www.elastic.co/security-labs/blog/windows-endpoint-security-platform-wesp",
+  "published": "2026-10-26T00:00:00+00:00",
+  "source": "Elastic Security Labs",
+  "source_type": "analyse",
+  "title": "Kernel eviction notice: What wesp.sys reveals about the Windows Endpoint Security Platform"
+}

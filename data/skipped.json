@@ -1,61 +1,5 @@
 [
   {
-    "id": "893051a996ecd889",
-    "title": "LibreOffice and OpenOffice Flaws Let Malicious Spreadsheets Run Code Without Macro Warnings",
-    "link": "https://thehackernews.com/2026/10/libreoffice-and-openoffice-flaws-let.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée (preuve de concept)",
-    "date": "2026-10-06T12:20:00+00:00"
-  },
-  {
-    "id": "8de94aab53b77733",
-    "title": "Apple to Tighten Full Disk Access Controls in macOS Amid AI Risks",
-    "link": "https://www.securityweek.com/apple-to-tighten-full-disk-access-controls-in-macos-amid-ai-risks/",
-    "source": "SecurityWeek",
-    "raison": "annonce produit, pas d'attaque",
-    "date": "2026-10-06T12:20:00+00:00"
-  },
-  {
-    "id": "a47789abd95458c6",
-    "title": "Welcome to the Jungle: What We Found Inside 15,465 Public MCP Servers",
-    "link": "https://thehackernews.com/2026/10/welcome-to-jungle-what-we-found-inside.html",
-    "source": "The Hacker News",
-    "raison": "contenu sponsorisé, étude sans attaque observée",
-    "date": "2026-10-06T12:20:00+00:00"
-  },
-  {
-    "id": "9a104f253bde5f38",
-    "title": "FBI Arrests ‘Most Wanted’ Developer of Ploutus ATM Malware",
-    "link": "https://www.securityweek.com/fbi-arrests-most-wanted-developer-of-ploutus-atm-malware/",
-    "source": "SecurityWeek",
-    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
-    "date": "2026-10-06T13:20:00+00:00"
-  },
-  {
-    "id": "261f93c043c0e5e6",
-    "title": "Kolibri : Aleph Alpha lance un LLM dédié aux organisations allemandes",
-    "link": "https://www.lemagit.fr/actualites/366651714/Kolibri-Aleph-Alpha-lance-un-LLM-dedie-aux-organisations-allemandes",
-    "source": "LeMagIT",
-    "raison": "annonce produit",
-    "date": "2026-10-06T14:20:00+00:00"
-  },
-  {
-    "id": "94a349cbbc4c3a42",
-    "title": "Securing Agent-to-Agent Communication: The Next Identity Frontier",
-    "link": "https://www.rapid7.com/blog/post/ai-securing-agent-to-agent-communication-next-identity-frontier",
-    "source": "Rapid7",
-    "raison": "conseils génériques, aucune attaque décrite",
-    "date": "2026-10-06T15:07:50+00:00"
-  },
-  {
-    "id": "769d690a88b1d819",
-    "title": "Alleged ATM malware creator appears in Nebraska court after arrest",
-    "link": "https://therecord.media/atm-malware-creator-appears-in-nebraska-court",
-    "source": "The Record",
-    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
-    "date": "2026-10-06T16:30:00+00:00"
-  },
-  {
     "id": "87cb1d2df77d84ff",
     "title": "Ransomware Qilin : arrestation d'un membre clé au Japon",
     "link": "https://www.lemagit.fr/actualites/366651358/Ransomware-Qilin-arrestation-dun-membre-cle-au-Japon",
@@ -3998,5 +3942,61 @@
     "source": "LeMagIT",
     "raison": "retour d'expérience sur une stratégie de sécurité, sans détail sur la méthode d'attaque",
     "date": "2026-10-26T16:15:00+00:00"
+  },
+  {
+    "id": "5d6b2a0bb6b07bae",
+    "title": "Ukraine disputes Musk's claims of Starlink misuse as military connectivity restored",
+    "link": "https://therecord.media/ukraine-disputes-musk-claims-of-starlink-misuse",
+    "source": "The Record",
+    "raison": "actualité politique sans détail sur la méthode d'attaque",
+    "date": "2026-10-26T17:20:00+00:00"
+  },
+  {
+    "id": "3e53d355cefd8b95",
+    "title": "Dutch police extradite Chinese national accused of laundering Cambodian investment scam funds",
+    "link": "https://therecord.media/dutch-police-extradite-chinese-national-money-laundering-scams",
+    "source": "The Record",
+    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
+    "date": "2026-10-26T17:20:00+00:00"
+  },
+  {
+    "id": "c1cd946841703855",
+    "title": "Kernel eviction notice: What wesp.sys reveals about the Windows Endpoint Security Platform",
+    "link": "https://www.elastic.co/security-labs/blog/windows-endpoint-security-platform-wesp",
+    "source": "Elastic Security Labs",
+    "raison": "analyse technique de produit, sans attaque constatée",
+    "date": "2026-10-26T17:20:00+00:00"
+  },
+  {
+    "id": "bbe5764944a2c8ed",
+    "title": "DSX : Nvidia veut faire des data centers IA de « bons citoyens » sur le réseau électrique",
+    "link": "https://www.lemagit.fr/actualites/366652660/DSX-Nvidia-veut-faire-des-data-centers-IA-de-bons-citoyens-sur-le-reseau-electrique",
+    "source": "LeMagIT",
+    "raison": "annonce produit",
+    "date": "2026-10-26T17:20:00+00:00"
+  },
+  {
+    "id": "71bb18b2ea0d0728",
+    "title": "Les employés français plutôt optimistes face à l’IA, mais mal accompagnés par leurs employeurs",
+    "link": "https://www.lemagit.fr/actualites/366652682/Les-employes-francais-plutot-optimistes-face-a-lIA-mais-mal-accompagnes-par-leurs-employeurs",
+    "source": "LeMagIT",
+    "raison": "étude sur la formation à l'IA, sans attaque",
+    "date": "2026-10-26T17:20:00+00:00"
+  },
+  {
+    "id": "f8667875f85a0a49",
+    "title": "Critical 'HTTP2Shell' Brotli vulnerability triggers emergency patches",
+    "link": "https://www.bleepingcomputer.com/news/security/critical-http2shell-brotli-vulnerability-triggers-emergency-patches/",
+    "source": "BleepingComputer",
+    "raison": "vulnérabilité sans exploitation constatée dans la nature",
+    "date": "2026-10-26T17:20:00+00:00"
+  },
+  {
+    "id": "14c5df1bdc661289",
+    "title": "26th October – Threat Intelligence Report",
+    "link": "https://research.checkpoint.com/2026/26th-october-threat-intelligence-report/",
+    "source": "Check Point Research",
+    "raison": "bulletin hebdomadaire de synthèse, sans détail nouveau sur la méthode d'attaque (Onamae déjà traité)",
+    "date": "2026-10-26T17:20:00+00:00"
   }
 ]

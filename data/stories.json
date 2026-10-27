@@ -23435,21 +23435,25 @@
       "id": "2026-10-27-unm-health-new-mexico",
       "title": "Hôpital universitaire du Nouveau-Mexique : messages de vol de données et soins perturbés",
       "created": "2026-10-27T03:00:00+00:00",
-      "updated": "2026-10-27T03:00:00+00:00",
-      "version": 1,
-      "resume": "Le University of New Mexico Health System a détourné des patients et fermé plus de 30 cliniques après l'affichage de messages revendiquant un vol de données [1].",
+      "updated": "2026-10-27T15:50:00+00:00",
+      "version": 2,
+      "resume": "Le University of New Mexico Health System a détourné des patients et fermé plus de 30 cliniques [1]. Le groupe BYOD revendique l'attaque, revendication non vérifiée [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé par les sources [1, 2]."
         },
         {
           "etape": "Messages de revendication",
-          "texte": "Messages affichés sur les écrans des employés → affirmation d'un vol de données d'étudiants, d'employés et de patients, non confirmé [1]."
+          "texte": "Messages affichés sur les écrans des employés → affirmation d'un vol de données, non confirmé [1]. Le groupe BYOD dit avoir compromis 36 000 machines [2]."
         },
         {
           "etape": "Perturbation des soins",
-          "texte": "Hôpital principal fermé aux patients, plus de 30 cliniques sans rendez-vous, ambulances redirigées → reprise par phases en fin de journée [1]."
+          "texte": "Ambulances redirigées environ deux heures [2], hôpital principal fermé et plus de 30 cliniques sans rendez-vous [1] → reprise par phases en fin de journée [1, 2]."
+        },
+        {
+          "etape": "Suites",
+          "texte": "Le lendemain, cours annulés dans quatre facultés et unités de recherche fermées [2]."
         }
       ],
       "parcours": {
@@ -23491,16 +23495,21 @@
           }
         ]
       },
-      "limites": "L'article ne précise ni le vecteur d'accès, ni l'acteur, ni l'ampleur réelle du vol de données, que l'hôpital n'a pas confirmé [1].",
+      "limites": "Les sources ne précisent pas le vecteur d'accès. La revendication de BYOD n'est pas vérifiée et l'hôpital n'a pas confirmé de rançongiciel [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non mentionné par la source [1]"
+        "Groupe de rançongiciel BYOD, apparu le mois précédent, revendication non vérifiée [2]"
       ],
       "cibles": [
         "University of New Mexico Health System, hôpital principal d'Albuquerque et plus de 30 cliniques [1]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "BYOD",
+          "definition": "Nom du groupe de rançongiciel qui revendique l'attaque"
+        }
+      ],
       "sources": [
         {
           "titre": "Cybersecurity Issue Forces a Major New Mexico Hospital to Divert Patients and Close Clinics",
@@ -23508,6 +23517,13 @@
           "url": "https://www.securityweek.com/cybersecurity-issue-forces-a-major-new-mexico-hospital-to-divert-patients-and-close-clinics/",
           "date": "2026-10-27",
           "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+        },
+        {
+          "titre": "University of New Mexico hospital diverts ambulances after cyberattack",
+          "site": "The Record",
+          "url": "https://therecord.media/university-of-new-mexico-hospital-diverts-cyber-incident",
+          "date": "2026-10-27",
+          "image": "https://cms.therecord.media/uploads/Richardson_Pavilion_University_of_New_Mexico_1_775c9b82cd.jpg"
         }
       ]
     },
@@ -24221,6 +24237,92 @@
           "url": "https://therecord.media/malicious-apps-russian-anxiety-gas-prices-drone-strikes",
           "date": "2026-10-27",
           "image": "https://cms.therecord.media/uploads/moscow_traffic_aleksey_cherenkevich_unsplash_c078317e43.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-27-police-britannique-fournisseurs",
+      "title": "Police britannique : des fournisseurs informatiques piratés à répétition",
+      "created": "2026-10-27T15:50:00+00:00",
+      "updated": "2026-10-27T15:50:00+00:00",
+      "version": 1,
+      "resume": "Un rapport de l'inspection de la police britannique indique que des pirates ont à plusieurs reprises compromis des fournisseurs tiers détenant des données de la police [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Compromission de fournisseurs",
+          "texte": "Fournisseurs informatiques tiers piratés à plusieurs reprises depuis 2021 → données de la police britannique touchées [1]."
+        },
+        {
+          "etape": "Exemple de 2023",
+          "texte": "Rançongiciel chez Digital ID, fabricant de cartes d'identité → données d'agents de la Metropolitan Police exposées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "four",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Fournisseurs informatiques tiers",
+            "note": ""
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données de la police",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "four",
+            "etape": 2,
+            "texte": "Compromissions répétées de fournisseurs"
+          },
+          {
+            "de": "four",
+            "vers": "don",
+            "etape": 3,
+            "texte": "Données d'agents exposées chez Digital ID"
+          }
+        ]
+      },
+      "limites": "Le rapport ne précise ni le nombre de fournisseurs, ni les forces touchées, ni si des données ont été volées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié nommément par la source [1]"
+      ],
+      "cibles": [
+        "Police métropolitaine, police du Grand Manchester, fournisseurs informatiques de la police britannique [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ID",
+          "definition": "Identité : Digital ID est le nom du fabricant de cartes d'identité"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers repeatedly breached suppliers holding UK police data, watchdog finds",
+          "site": "The Record",
+          "url": "https://therecord.media/uk-police-data-breached-from-suppliers-watchdog-report",
+          "date": "2026-10-27",
+          "image": "https://cms.therecord.media/uploads/clovis_wood_q_Y_Xum_Q_Gmwa4_unsplash_519aedc326.jpg"
         }
       ]
     }

@@ -22570,8 +22570,8 @@
       "id": "2026-10-21-php2shell-cve-2026-109618",
       "title": "PHP2Shell : deux failles critiques de PHP, tentatives d'exploitation avant les correctifs",
       "created": "2026-10-21T13:30:00+00:00",
-      "updated": "2026-10-27T09:15:00+00:00",
-      "version": 16,
+      "updated": "2026-10-27T13:55:00+00:00",
+      "version": 17,
       "resume": "Deux failles critiques du cœur de PHP (PHP2Shell) permettent d'exécuter du code via une requête web sans authentification [6, 11]. Des correctifs d'urgence sont sortis le 21 octobre [9] ; des centaines de sites ont été mis hors ligne [8].",
       "chaine": [
         {
@@ -22588,7 +22588,7 @@
         },
         {
           "etape": "Exploitation observée",
-          "texte": "Tentative du 17 octobre [15, 16, 19] ; botnets Mirai [20, 21, 22] ; exécution de code confirmée [24, 27] ; 35 shells [25] ; ajout au catalogue KEV de la CISA [27, 28]."
+          "texte": "Tentative du 17 octobre [15, 16, 19] ; botnets Mirai [20, 21, 22] ; exécution de code [24, 27] ; 35 shells [25] ; ajout au KEV de la CISA, type d'exploitation non précisé [27, 28, 29]."
         },
         {
           "etape": "Mises hors ligne",
@@ -22929,6 +22929,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/cisa-confirms-php2shell-vulnerabilities-now-exploited-in-attacks/",
           "date": "2026-10-27",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/26/PHP.jpg"
+        },
+        {
+          "titre": "CISA warns of PHP bug exploitation attempts, gives federal agencies days to patch",
+          "site": "The Record",
+          "url": "https://therecord.media/php-vulnerabilities-cisa-kev",
+          "date": "2026-10-27",
+          "image": "https://cms.therecord.media/uploads/2021_11_CISA_6e0fea829e.png"
         }
       ]
     },
@@ -23974,6 +23981,143 @@
           "url": "https://thehackernews.com/2026/10/lazarus-abuses-south-korean-security.html",
           "date": "2026-10-27",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwoWz3Ex4w0TebsrzDSdna5WAjqoQx5EHWC1kY3db9VgMg6FrGK6VbncVA9b3tKdPnqlR6qmdwsq7CT1f-Cp57WpH6lpfoF-5zb_Xg-ahdsNxO4OUTsdDVeO_8s7SQFLp54SrsWlWrZn-37sAcqv1ZeG_7Yc62vQ5X9Tq-MlIEm6EOQOiTkQVlcy9F4VG4/s1700-nu-rw-lo-l85-e365/korean-malware.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-27-yoba-faux-github-ia",
+      "title": "Campagne Yoba : faux outils d'IA sur GitHub qui installent un mineur de cryptomonnaie",
+      "created": "2026-10-27T13:55:00+00:00",
+      "updated": "2026-10-27T13:55:00+00:00",
+      "version": 1,
+      "resume": "Une campagne appelée Yoba diffuse via de faux projets GitHub imitant des applications d'IA une chaîne de logiciels malveillants, dont la charge finale observée est un mineur de cryptomonnaie [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Faux projets GitHub imitant des applications d'IA, remontés dans Google → l'utilisateur télécharge une archive et lance l'installateur [1]."
+        },
+        {
+          "etape": "Exécution",
+          "texte": "Installateur signé OpenAI ou Anthropic chargeant une DLL malveillante (YobaDropper) → code malveillant exécuté via un binaire légitime [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Tâche planifiée au démarrage sous le compte SYSTEM et exécutable Windows copié dans ProgramData → chargement de YobaLoader [1]."
+        },
+        {
+          "etape": "Récupération de la charge",
+          "texte": "Photo de profil Telegram servant à générer un domaine, puis requête DNS chiffrée vers Google → configuration et téléchargement de la charge [1]."
+        },
+        {
+          "etape": "Minage",
+          "texte": "Injection de XMRig dans svchost.exe → minage de cryptomonnaie vers un point .onion via Tor [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (campagne Yoba)",
+            "note": ""
+          },
+          {
+            "id": "gh",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux projets GitHub",
+            "note": "Archives ZIP"
+          },
+          {
+            "id": "srv",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Telegram, DNS et hébergeur",
+            "note": "Configuration et charge"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de l'utilisateur",
+            "note": "Mineur injecté"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gh",
+            "etape": 1,
+            "texte": "Faux dépôts d'applications d'IA"
+          },
+          {
+            "de": "gh",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Archive téléchargée, installateur lancé"
+          },
+          {
+            "de": "pc",
+            "vers": "srv",
+            "etape": 4,
+            "texte": "Génération de domaine, requête DNS chiffrée"
+          },
+          {
+            "de": "srv",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Configuration et charge reçues"
+          }
+        ]
+      },
+      "limites": "Victimes, secteurs et nombre d'infections non mentionnés ; attribution non confirmée, des indices suggèrent une origine russe [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Campagne nommée Yoba ; attribution non confirmée [1]"
+      ],
+      "cibles": [
+        "Utilisateurs téléchargeant de faux outils d'IA ; secteurs non mentionnés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "DLL",
+          "definition": "Bibliothèque de code Windows chargée par un programme"
+        },
+        {
+          "sigle": "DNS",
+          "definition": "Système qui traduit un nom de domaine en adresse"
+        },
+        {
+          "sigle": "SYSTEM",
+          "definition": "Compte Windows aux privilèges les plus élevés"
+        },
+        {
+          "sigle": "XMRig",
+          "definition": "Logiciel de minage de la cryptomonnaie Monero"
+        },
+        {
+          "sigle": "Tor",
+          "definition": "Réseau anonymisant le trafic"
+        },
+        {
+          "sigle": "ZIP",
+          "definition": "Format d'archive compressée"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Tricks from the Past deployed via signed ChatGPT and Claude binaries",
+          "site": "Check Point Research",
+          "url": "https://research.checkpoint.com/2026/tricks-from-the-past-deployed-via-signed-chatgpt-and-claude-binaries/",
+          "date": "2026-10-27",
+          "image": "https://research.checkpoint.com/wp-content/uploads/2026/10/bg1.jpg"
         }
       ]
     }

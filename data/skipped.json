@@ -1,45 +1,5 @@
 [
   {
-    "id": "e7f805681f493b64",
-    "title": "SonicWall warns of max severity SSRF flaw in SMA1000 gateways",
-    "link": "https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-max-severity-ssrf-flaw-in-sma1000-gateways/",
-    "source": "BleepingComputer",
-    "raison": "vulnérabilité sans exploitation constatée (page inaccessible, résumé du flux seul)",
-    "date": "2026-10-07T12:15:00+00:00"
-  },
-  {
-    "id": "12e41dfb9e1f564b",
-    "title": "The Sixth Voice of the CISO Data Shows Cyber Risk Has Moved Inside the Workflow",
-    "link": "https://thehackernews.com/2026/10/the-sixth-voice-of-ciso-data-shows.html",
-    "source": "The Hacker News",
-    "raison": "étude sectorielle sans attaque décrite",
-    "date": "2026-10-07T13:30:00+00:00"
-  },
-  {
-    "id": "534bdd46e107253a",
-    "title": "Hadrian Raises $40 Million to Expand Autonomous Offensive Security Platform",
-    "link": "https://www.securityweek.com/hadrian-raises-40-million-to-expand-autonomous-offensive-security-platform/",
-    "source": "SecurityWeek",
-    "raison": "levée de fonds",
-    "date": "2026-10-07T13:30:00+00:00"
-  },
-  {
-    "id": "ecf0f242fd12abd3",
-    "title": "What Is Agentic Pentesting? What It Proves, and Where It Stops.",
-    "link": "https://thehackernews.com/2026/10/what-is-agentic-pentesting-what-it.html",
-    "source": "The Hacker News",
-    "raison": "contenu sponsorisé / générique",
-    "date": "2026-10-07T13:30:00+00:00"
-  },
-  {
-    "id": "783f7ddfc2bd2827",
-    "title": "Qilin : le Japon remet un suspect à l'Allemagne",
-    "link": "https://www.zataz.com/qilin-le-japon-remet-un-suspect-a-lallemagne/",
-    "source": "ZATAZ",
-    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
-    "date": "2026-10-07T13:30:00+00:00"
-  },
-  {
     "id": "152d70b7828f8c72",
     "title": "ShinyHunters Extorted Boeing Spin-off Prior to Arrests",
     "link": "https://krebsonsecurity.com/2026/10/shinyhunters-extorted-boeing-spin-off-prior-to-arrests/",
@@ -3998,5 +3958,45 @@
     "source": "SecurityWeek",
     "raison": "incident sans méthode d'attaque décrite",
     "date": "2026-10-27T12:40:00+00:00"
+  },
+  {
+    "id": "0d87d49d4803d5d5",
+    "title": "HPE Patches Dozens of Critical Flaws in Networking Products",
+    "link": "https://www.securityweek.com/hpe-patches-dozens-of-critical-flaws-in-networking-products/",
+    "source": "SecurityWeek",
+    "raison": "vulnérabilités sans exploitation constatée",
+    "date": "2026-10-27T13:55:00+00:00"
+  },
+  {
+    "id": "2fcc0979afd17eea",
+    "title": "Vendor Key Leak Puts Data of 238,000 Denver Health Plan Members at Risk",
+    "link": "https://www.securityweek.com/vendor-key-leak-puts-data-of-238000-denver-health-plan-members-at-risk/",
+    "source": "SecurityWeek",
+    "raison": "fuite de clé sans accès non autorisé constaté",
+    "date": "2026-10-27T13:55:00+00:00"
+  },
+  {
+    "id": "372f6f54af20e7cc",
+    "title": "Australia’s spies are sharing intelligence with hacking targets — and want them to share back",
+    "link": "https://therecord.media/australia-spies-share-intel-and-want-victims-to-share-back",
+    "source": "The Record",
+    "raison": "actualité institutionnelle sans détail sur une attaque",
+    "date": "2026-10-27T13:55:00+00:00"
+  },
+  {
+    "id": "933843ff30ab2404",
+    "title": "Moscow faces internet disruptions as foreign leaders gather for summits",
+    "link": "https://therecord.media/moscow-faces-internet-disruptions-as-foreign-leaders-gather",
+    "source": "The Record",
+    "raison": "actualité politique sans méthode d'attaque",
+    "date": "2026-10-27T13:55:00+00:00"
+  },
+  {
+    "id": "db99eb68d611dbae",
+    "title": "Simplify User Access Management with SCIM on Rapid7 Command Platform",
+    "link": "https://www.rapid7.com/blog/post/pt-scim-simplifies-user-access-management-uam-command-platform",
+    "source": "Rapid7",
+    "raison": "annonce produit",
+    "date": "2026-10-27T13:55:00+00:00"
   }
 ]

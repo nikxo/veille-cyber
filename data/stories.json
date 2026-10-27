@@ -24325,6 +24325,87 @@
           "image": "https://cms.therecord.media/uploads/clovis_wood_q_Y_Xum_Q_Gmwa4_unsplash_519aedc326.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-27-warp-fournisseur-tiers",
+      "title": "Warp : journaux d'agents et télémétrie exposés après l'exploitation d'un fournisseur tiers",
+      "created": "2026-10-27T16:40:00+00:00",
+      "updated": "2026-10-27T16:40:00+00:00",
+      "version": 1,
+      "resume": "Warp a divulgué une fuite de journaux de décisions d'agents et de données de télémétrie d'utilisateurs, due à l'exploitation d'un fournisseur de son infrastructure [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation ciblée d'un fournisseur tiers de l'infrastructure de Warp → accès aux données ; faille et méthode non décrites [1]."
+        },
+        {
+          "etape": "Intrusion",
+          "texte": "Attaque menée par un essaim d'agents d'intelligence artificielle, avec une technique de pénétration et d'escalade jugée très sophistiquée selon Warp [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Journaux de décisions d'agents et télémétrie d'utilisateurs exposés → environ 1 % des utilisateurs potentiellement touchés, selon le directeur général [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "four",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Fournisseur tiers de Warp",
+            "note": ""
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Journaux d'agents et télémétrie",
+            "note": "Exposés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "four",
+            "etape": 1,
+            "texte": "Exploitation du fournisseur"
+          },
+          {
+            "de": "four",
+            "vers": "don",
+            "etape": 3,
+            "texte": "Données des utilisateurs exposées"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni la faille, ni l'auteur, ni si le code source, les requêtes ou les identifiants sont touchés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non mentionné par la source [1]"
+      ],
+      "cibles": [
+        "Utilisateurs de l'environnement de développement Warp, environ 1 % selon le directeur général [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Warp discloses breach exposing AI agent logs, user telemetry data",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/warp-discloses-breach-exposing-ai-agent-logs-user-telemetry-data/",
+          "date": "2026-10-27",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/27/warp.jpg"
+        }
+      ]
     }
   ]
 }

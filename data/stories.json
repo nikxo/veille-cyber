@@ -24120,6 +24120,109 @@
           "image": "https://research.checkpoint.com/wp-content/uploads/2026/10/bg1.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-27-zloyrat-applis-android-russes",
+      "title": "Fausses applications Android pour automobilistes russes distribuant le trojan ZloyRAT",
+      "created": "2026-10-27T14:30:00+00:00",
+      "updated": "2026-10-27T14:30:00+00:00",
+      "version": 1,
+      "resume": "Des applications Android malveillantes, présentées comme des services sur les prix du carburant, la police routière ou les drones, visent des utilisateurs russes. Elles installent le trojan ZloyRAT [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Site web promouvant trois fausses applications Android, annoncées dans des communautés de routiers, taxis et livreurs → installation par la victime [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Le trojan se fait passer pour une application légitime et demande l'accès aux SMS, contacts et appels → collecte des SMS et notifications, envoi de messages, appels [1]."
+        },
+        {
+          "etape": "Vol d'informations",
+          "texte": "Ciblage de plus de 60 applications bancaires et financières russes, de places de marché, de services publics et de Telegram [1]."
+        },
+        {
+          "etape": "Dissimulation",
+          "texte": "ZloyRAT peut afficher un site légitime quand l'utilisateur interagit avec l'application → compromission plus difficile à repérer [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (inconnu)",
+            "note": ""
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Site de promotion des applications",
+            "note": ""
+          },
+          {
+            "id": "tel",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Téléphones Android d'utilisateurs russes",
+            "note": "ZloyRAT installé"
+          },
+          {
+            "id": "app",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Banques, Telegram, services publics",
+            "note": "Informations visées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Promotion de fausses applications"
+          },
+          {
+            "de": "web",
+            "vers": "tel",
+            "etape": 1,
+            "texte": "Installation par les victimes"
+          },
+          {
+            "de": "tel",
+            "vers": "app",
+            "etape": 3,
+            "texte": "Collecte d'informations liées à ces services"
+          }
+        ]
+      },
+      "limites": "L'acteur n'est pas identifié, la date de la campagne n'est pas précisée, le nombre de téléchargements et les pertes ne sont pas donnés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1]"
+      ],
+      "cibles": [
+        "Conducteurs russes, notamment routiers, taxis et livreurs [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SMS",
+          "definition": "Message texte envoyé entre téléphones"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Malicious apps prey on Russians’ anxiety about fuel prices, drone strikes",
+          "site": "The Record",
+          "url": "https://therecord.media/malicious-apps-russian-anxiety-gas-prices-drone-strikes",
+          "date": "2026-10-27",
+          "image": "https://cms.therecord.media/uploads/moscow_traffic_aleksey_cherenkevich_unsplash_c078317e43.jpg"
+        }
+      ]
     }
   ]
 }

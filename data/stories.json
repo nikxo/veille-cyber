@@ -24547,6 +24547,87 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiniSfVwM2b4RVouLhc_nIvm2CdQCg9jtQDBVQP6BjvEC2NBaLFqU0A8RyC_GA3PkI4jF87W3h0GJ4xzycp6LAd4I3eRh3JnhnM9yi7CZ9dX2Pfe3MdDaaUSyrDUy1ksA-fdq0bUVzWcFRmS-JWOy3z7xiWB70DzgXLst_YspRqbGIAyv85_D4H9sPT7Sq3/s1700-nu-rw-lo-l85-e365/cyberstrikeai.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-27-convertr-script-analytique",
+      "title": "Script d'analyse de Convertr détourné pour voler des cartes bancaires",
+      "created": "2026-10-27T22:15:00+00:00",
+      "updated": "2026-10-27T22:15:00+00:00",
+      "version": 1,
+      "resume": "Un groupe spécialisé dans le vol de cartes bancaires aurait compromis un script d'analyse partagé de la plateforme Convertr, pour voler les données de paiement des acheteurs [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Détournement du script",
+          "texte": "Compromission d'un script d'analyse partagé utilisé par la plateforme de commerce en ligne Convertr → code malveillant servi aux visiteurs [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Collecte des données de paiement saisies au moment du paiement → cartes bancaires des acheteurs volées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Groupe de vol de cartes",
+            "note": ""
+          },
+          {
+            "id": "scr",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Script d'analyse Convertr",
+            "note": "Script partagé"
+          },
+          {
+            "id": "ach",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Acheteurs en ligne",
+            "note": "Page de paiement"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "scr",
+            "etape": 2,
+            "texte": "Compromission du script partagé"
+          },
+          {
+            "de": "scr",
+            "vers": "ach",
+            "etape": 3,
+            "texte": "Vol des données de paiement au paiement"
+          }
+        ]
+      },
+      "limites": "Le détail de l'intrusion, le nombre de victimes et la période ne sont pas connus à partir du résumé de l'article [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Groupe de vol de cartes bancaires non nommé [1]"
+      ],
+      "cibles": [
+        "Acheteurs de la plateforme de commerce en ligne Convertr [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Hackers hijack Convertr analytics script to steal payment card data",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-convertr-analytics-script-to-steal-payment-card-data/",
+          "date": "2026-10-27",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/27/cart.jpg"
+        }
+      ]
     }
   ]
 }

@@ -1,13 +1,5 @@
 [
   {
-    "id": "1a551218231727a3",
-    "title": "Atlassian Patches Critical Vulnerability Affecting 8 Products",
-    "link": "https://www.securityweek.com/atlassian-patches-critical-vulnerability-affecting-8-products/",
-    "source": "SecurityWeek",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-07T07:20:00+00:00"
-  },
-  {
     "id": "4f7c6f0d6570ab4f",
     "title": "Android’s October 2026 Updates Patch 25 Vulnerabilities",
     "link": "https://www.securityweek.com/androids-october-2026-updates-patch-25-vulnerabilities/",
@@ -3998,5 +3990,13 @@
     "source": "SecurityWeek",
     "raison": "annonce produit (base de vulnérabilités), aucune attaque décrite",
     "date": "2026-10-27T08:10:00+00:00"
+  },
+  {
+    "id": "d6f7bf0eae14f17c",
+    "title": "OpenSearch, ce fork d’Elastic Search que la Linux Foundation met en avant",
+    "link": "https://www.lemagit.fr/actualites/366652773/OpenSearch-ce-fork-dElastic-Search-que-la-Linux-Foundation-met-en-avant",
+    "source": "LeMagIT",
+    "raison": "présentation de produit, pas d'attaque",
+    "date": "2026-10-27T09:15:00+00:00"
   }
 ]

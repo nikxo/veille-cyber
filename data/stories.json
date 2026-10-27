@@ -24419,6 +24419,134 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/27/warp.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-27-cyberstrikeai-agents-ia-japon",
+      "title": "CyberStrikeAI et deux autres opérations assistées par intelligence artificielle visant des organisations au Japon",
+      "created": "2026-10-27T19:30:00+00:00",
+      "updated": "2026-10-27T19:30:00+00:00",
+      "version": 1,
+      "resume": "TrendAI a analysé trois serveurs d'attaquants visant le Japon, où l'intelligence artificielle pilote l'attaque ou assiste un opérateur humain. Aucune preuve ne relie les trois cas à un même opérateur [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Cas 2 : serveur d'information géographique exposé et protégé par des identifiants par défaut → accès au réseau. Cas 1 : accès initial non mentionné [1]."
+        },
+        {
+          "etape": "Automatisation par agents",
+          "texte": "Cas 1 : CyberStrikeAI répartit le travail entre 44 agents (reconnaissance, exploitation, persistance) → au moins 19 organisations validées, dont 16 au Japon [1]."
+        },
+        {
+          "etape": "Assistance du modèle",
+          "texte": "Cas 2 et 3 : le modèle de langage accélère la planification et le développement d'outils et de scripts, l'opérateur restant humain [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Cas 2, sur 24 jours : registres cadastraux et commerciaux, identifiants Windows et données de messagerie volés [1]."
+        },
+        {
+          "etape": "Campagnes sur équipements",
+          "texte": "Cas 3 : failles publiées, fonctions de gestion exposées ou identifiants en configuration → au moins six campagnes contre équipements Cisco, Citrix, F5, Yamaha, VPN et WebLogic [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquants (trois cas)",
+            "note": ""
+          },
+          {
+            "id": "sig",
+            "type": "serveur",
+            "zone": "expose",
+            "nom": "Serveur d'information géographique",
+            "note": "Identifiants par défaut"
+          },
+          {
+            "id": "edge",
+            "type": "passerelle",
+            "zone": "expose",
+            "nom": "Équipements en bordure, VPN, WebLogic",
+            "note": ""
+          },
+          {
+            "id": "org",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Organisations au Japon",
+            "note": "Validées par agents"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Registres, identifiants, messagerie",
+            "note": "Volés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sig",
+            "etape": 1,
+            "texte": "Connexion avec identifiants par défaut"
+          },
+          {
+            "de": "sig",
+            "vers": "don",
+            "etape": 4,
+            "texte": "Vol de registres, identifiants et messagerie"
+          },
+          {
+            "de": "att",
+            "vers": "edge",
+            "etape": 5,
+            "texte": "Failles publiées, gestion exposée, identifiants en configuration"
+          },
+          {
+            "de": "att",
+            "vers": "org",
+            "etape": 2,
+            "texte": "44 agents : exploitation et exfiltration automatisées"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent pas l'accès initial du cas 1, ni le nombre de victimes des cas 2 et 3, ni les modèles utilisés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Aucun acteur nommé ; aucune preuve ne relie les trois cas à un même opérateur [1]"
+      ],
+      "cibles": [
+        "Organisations au Japon (au moins 16), Taïwan et Hong Kong ; cas 3 : Royaume-Uni, France, Italie, Qatar, Colombie [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "VPN",
+          "definition": "Réseau privé virtuel : accès distant chiffré au réseau d'une organisation"
+        },
+        {
+          "sigle": "WebLogic",
+          "definition": "Serveur d'applications d'entreprise d'Oracle"
+        },
+        {
+          "sigle": "F5",
+          "definition": "Éditeur d'équipements réseau (répartiteurs de charge, pare-feu)"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CyberStrikeAI Uses 44 AI Agents to Automate Hacking Operations Against Japan Targets",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/cyberstrikeai-uses-44-ai-agents-to.html",
+          "date": "2026-10-27",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiniSfVwM2b4RVouLhc_nIvm2CdQCg9jtQDBVQP6BjvEC2NBaLFqU0A8RyC_GA3PkI4jF87W3h0GJ4xzycp6LAd4I3eRh3JnhnM9yi7CZ9dX2Pfe3MdDaaUSyrDUy1ksA-fdq0bUVzWcFRmS-JWOy3z7xiWB70DzgXLst_YspRqbGIAyv85_D4H9sPT7Sq3/s1700-nu-rw-lo-l85-e365/cyberstrikeai.jpg"
+        }
+      ]
     }
   ]
 }

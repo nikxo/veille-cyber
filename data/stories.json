@@ -23685,6 +23685,73 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/27/ENGIE-headpic.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-27-apple-coregraphics-zero-day",
+      "title": "Apple étend aux anciens iPhone le correctif d'une faille CoreGraphics exploitée",
+      "created": "2026-10-27T11:20:00+00:00",
+      "updated": "2026-10-27T11:20:00+00:00",
+      "version": 1,
+      "resume": "Apple a rétroporté sur d'anciens iPhone et iPad le correctif d'une faille de CoreGraphics, qui aurait pu être exploitée dans une attaque très ciblée contre des individus précis [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Exploitation de la faille",
+          "texte": "Fichier spécialement conçu traité par CoreGraphics (écriture hors limites) → exécution de code arbitraire possible [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "tel",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "iPhone ou iPad ciblé",
+            "note": "CoreGraphics"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "tel",
+            "etape": 2,
+            "texte": "Fichier conçu, exécution de code possible"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent pas comment le fichier arrive sur l'appareil, ni qui est l'attaquant ni quelles personnes sont visées [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-86950",
+          "explication": "CoreGraphics (Apple) : écriture hors limites, plantage, corruption de données ou exécution de code ; découverte par Meta Product Security, corrigée par une vérification des limites [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Individus précis visés par une attaque très ciblée ; plusieurs modèles d'iPhone et d'iPad anciens concernés par le correctif [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Apple backports CoreGraphics zero-day patches to older iPhones",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/apple/apple-backports-coregraphics-zero-day-patches-to-older-iphones/",
+          "date": "2026-10-27",
+          "image": "https://www.bleepstatic.com/content/hl-images/2023/09/11/apple_triangle.jpg"
+        }
+      ]
     }
   ]
 }

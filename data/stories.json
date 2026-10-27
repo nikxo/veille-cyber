@@ -20615,9 +20615,9 @@
       "id": "2026-10-23-aokigahara-infostealer-ia",
       "title": "Aokigahara : un voleur d'identifiants qui vise aussi les outils d'IA et de développement",
       "created": "2026-10-23T13:25:00+00:00",
-      "updated": "2026-10-23T13:25:00+00:00",
-      "version": 1,
-      "resume": "Check Point Research décrit Aokigahara, un voleur d'identifiants observé dans la nature, qui collecte aussi les données d'outils d'IA et de développement, clés SSH et identifiants cloud [1].",
+      "updated": "2026-10-27T17:15:00+00:00",
+      "version": 2,
+      "resume": "Check Point Research décrit Aokigahara, un voleur d'identifiants observé dans la nature, qui collecte aussi les données d'outils d'IA et de développement, clés SSH et identifiants cloud [1]. Un seul poste compromis expose sessions d'IA, données d'entreprise et infrastructure de développement [2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -20709,6 +20709,12 @@
           "url": "https://research.checkpoint.com/2026/infostealer-riding-the-ai-train/",
           "date": "2026-10-23",
           "image": "https://research.checkpoint.com/wp-content/uploads/2026/10/bg_info.jpg"
+        },
+        {
+          "titre": "'Aokigahara' Stealer Targets 'Developer Keyrings' & AI Assistants",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/endpoint-security/aokigahara-stealer-developer-keyrings-ai-assistants",
+          "date": "2026-10-27"
         }
       ]
     },
@@ -23714,9 +23720,9 @@
       "id": "2026-10-27-apple-coregraphics-zero-day",
       "title": "Apple étend aux anciens iPhone le correctif d'une faille CoreGraphics exploitée",
       "created": "2026-10-27T11:20:00+00:00",
-      "updated": "2026-10-27T12:40:00+00:00",
-      "version": 2,
-      "resume": "Apple a rétroporté sur d'anciens iPhone et iPad le correctif d'une faille de CoreGraphics, qui aurait pu être exploitée dans une attaque très ciblée contre des individus précis [1]. Apple parle d'une attaque extrêmement sophistiquée [2].",
+      "updated": "2026-10-27T17:15:00+00:00",
+      "version": 3,
+      "resume": "Apple a rétroporté sur d'anciens iPhone et iPad le correctif d'une faille de CoreGraphics exploitée dans des attaques réelles [3], possiblement lors d'une attaque très ciblée contre des individus précis [1, 3]. Apple parle d'une attaque extrêmement sophistiquée [2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -23753,11 +23759,11 @@
           }
         ]
       },
-      "limites": "Les sources ne disent pas comment le fichier arrive sur l'appareil, ni qui est l'attaquant ni quelles personnes sont visées [1, 2].",
+      "limites": "Les sources ne disent pas comment le fichier arrive sur l'appareil, ni qui est l'attaquant ni quelles personnes sont visées [1, 2, 3].",
       "cves": [
         {
           "id": "CVE-2026-86950",
-          "explication": "CoreGraphics (Apple) : écriture hors limites, exécution de code possible ; découverte par Meta Product Security [1]. Rétroporté sur iOS et iPadOS 18.7.11 [2]."
+          "explication": "CoreGraphics (Apple) : écriture hors limites, exécution de code possible, gravité 8,8 sur 10 [3] ; découverte par Meta Product Security [1]. Corrigé dans iOS et iPadOS 18.7.11 [2]."
         }
       ],
       "mitre": [],
@@ -23780,6 +23786,13 @@
           "url": "https://www.securityweek.com/ios-macos-27-2-patch-286-bugs-fix-for-exploited-flaw-backported-to-ios-18/",
           "date": "2026-10-27",
           "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Apple-iOS-macOS-Patches.jpg"
+        },
+        {
+          "titre": "Apple Backports Fix for Exploited CoreGraphics Flaw to Older iPhones and iPads",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/apple-backports-fix-for-exploited.html",
+          "date": "2026-10-27",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqZx9ghfLBFufN5Q4s1dq2U1rXwenlfzU7UsqQfLWn3AEUe5CX3krGuvC6DM4mF2T9MmscvntBNxmgU7UjNOnfJQteKvuAs-4Nq0vJ3TnTkuFy1TRO3ibdh2Ekqi_WqiInvPkXjYlnvrCuYb5mb8neOOqBbmf_034wh8MPOLPKW2Nvvezpb2LFNXPbeUa6/s1700-nu-rw-lo-l85-e365/apple-patch.jpg"
         }
       ]
     },

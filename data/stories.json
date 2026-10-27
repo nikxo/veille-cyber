@@ -23385,6 +23385,87 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/26/copenhagen.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-27-unm-health-new-mexico",
+      "title": "Hôpital universitaire du Nouveau-Mexique : messages de vol de données et soins perturbés",
+      "created": "2026-10-27T03:00:00+00:00",
+      "updated": "2026-10-27T03:00:00+00:00",
+      "version": 1,
+      "resume": "Le University of New Mexico Health System a détourné des patients et fermé plus de 30 cliniques après l'affichage de messages revendiquant un vol de données [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Messages de revendication",
+          "texte": "Messages affichés sur les écrans des employés → affirmation d'un vol de données d'étudiants, d'employés et de patients, non confirmé [1]."
+        },
+        {
+          "etape": "Perturbation des soins",
+          "texte": "Hôpital principal fermé aux patients, plus de 30 cliniques sans rendez-vous, ambulances redirigées → reprise par phases en fin de journée [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Système d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Ordinateurs des employés",
+            "note": "Messages affichés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Messages de revendication affichés"
+          }
+        ]
+      },
+      "limites": "L'article ne précise ni le vecteur d'accès, ni l'acteur, ni l'ampleur réelle du vol de données, que l'hôpital n'a pas confirmé [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non mentionné par la source [1]"
+      ],
+      "cibles": [
+        "University of New Mexico Health System, hôpital principal d'Albuquerque et plus de 30 cliniques [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Cybersecurity Issue Forces a Major New Mexico Hospital to Divert Patients and Close Clinics",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/cybersecurity-issue-forces-a-major-new-mexico-hospital-to-divert-patients-and-close-clinics/",
+          "date": "2026-10-27",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+        }
+      ]
     }
   ]
 }

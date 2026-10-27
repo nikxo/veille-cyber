@@ -23441,8 +23441,8 @@
       "id": "2026-10-27-unm-health-new-mexico",
       "title": "Hôpital universitaire du Nouveau-Mexique : messages de vol de données et soins perturbés",
       "created": "2026-10-27T03:00:00+00:00",
-      "updated": "2026-10-27T15:50:00+00:00",
-      "version": 2,
+      "updated": "2026-10-27T23:10:00+00:00",
+      "version": 3,
       "resume": "Le University of New Mexico Health System a détourné des patients et fermé plus de 30 cliniques [1]. Le groupe BYOD revendique l'attaque, revendication non vérifiée [2].",
       "chaine": [
         {
@@ -23451,7 +23451,11 @@
         },
         {
           "etape": "Messages de revendication",
-          "texte": "Messages affichés sur les écrans des employés → affirmation d'un vol de données, non confirmé [1]. Le groupe BYOD dit avoir compromis 36 000 machines [2]."
+          "texte": "Messages affichés sur les écrans des employés → affirmation d'un vol de données, non confirmé [1]. Le groupe BYOD dit avoir compromis 36 000 machines [2, 3]."
+        },
+        {
+          "etape": "Revendications de BYOD",
+          "texte": "Le groupe affirme avoir compromis des forêts Active Directory, le tenant Microsoft Entra et deux bases Oracle, et volé des numéros de sécurité sociale, non vérifié [3]."
         },
         {
           "etape": "Perturbation des soins",
@@ -23460,6 +23464,10 @@
         {
           "etape": "Suites",
           "texte": "Le lendemain, cours annulés dans quatre facultés et unités de recherche fermées [2]."
+        },
+        {
+          "etape": "Position de l'hôpital",
+          "texte": "L'université du Nouveau-Mexique dit que des terminaux d'utilisateurs ont été touchés, sans pénétration des systèmes ou serveurs centraux [3]."
         }
       ],
       "parcours": {
@@ -23501,7 +23509,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent pas le vecteur d'accès. La revendication de BYOD n'est pas vérifiée et l'hôpital n'a pas confirmé de rançongiciel [2].",
+      "limites": "Les sources ne précisent pas le vecteur d'accès. La revendication de BYOD n'est pas vérifiée et l'hôpital n'a pas confirmé de rançongiciel [2, 3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -23530,6 +23538,13 @@
           "url": "https://therecord.media/university-of-new-mexico-hospital-diverts-cyber-incident",
           "date": "2026-10-27",
           "image": "https://cms.therecord.media/uploads/Richardson_Pavilion_University_of_New_Mexico_1_775c9b82cd.jpg"
+        },
+        {
+          "titre": "UNM Health ransomware attack disrupts patient care, surgeries",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/unm-health-ransomware-attack-disrupts-patient-care-surgeries/",
+          "date": "2026-10-27",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/27/UNM.jpg"
         }
       ]
     },

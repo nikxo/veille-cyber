@@ -23691,9 +23691,9 @@
       "id": "2026-10-27-apple-coregraphics-zero-day",
       "title": "Apple étend aux anciens iPhone le correctif d'une faille CoreGraphics exploitée",
       "created": "2026-10-27T11:20:00+00:00",
-      "updated": "2026-10-27T11:20:00+00:00",
-      "version": 1,
-      "resume": "Apple a rétroporté sur d'anciens iPhone et iPad le correctif d'une faille de CoreGraphics, qui aurait pu être exploitée dans une attaque très ciblée contre des individus précis [1].",
+      "updated": "2026-10-27T12:40:00+00:00",
+      "version": 2,
+      "resume": "Apple a rétroporté sur d'anciens iPhone et iPad le correctif d'une faille de CoreGraphics, qui aurait pu être exploitée dans une attaque très ciblée contre des individus précis [1]. Apple parle d'une attaque extrêmement sophistiquée [2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -23730,11 +23730,11 @@
           }
         ]
       },
-      "limites": "Les sources ne disent pas comment le fichier arrive sur l'appareil, ni qui est l'attaquant ni quelles personnes sont visées [1].",
+      "limites": "Les sources ne disent pas comment le fichier arrive sur l'appareil, ni qui est l'attaquant ni quelles personnes sont visées [1, 2].",
       "cves": [
         {
           "id": "CVE-2026-86950",
-          "explication": "CoreGraphics (Apple) : écriture hors limites, plantage, corruption de données ou exécution de code ; découverte par Meta Product Security, corrigée par une vérification des limites [1]."
+          "explication": "CoreGraphics (Apple) : écriture hors limites, exécution de code possible ; découverte par Meta Product Security [1]. Rétroporté sur iOS et iPadOS 18.7.11 [2]."
         }
       ],
       "mitre": [],
@@ -23750,6 +23750,230 @@
           "url": "https://www.bleepingcomputer.com/news/apple/apple-backports-coregraphics-zero-day-patches-to-older-iphones/",
           "date": "2026-10-27",
           "image": "https://www.bleepstatic.com/content/hl-images/2023/09/11/apple_triangle.jpg"
+        },
+        {
+          "titre": "iOS, macOS 27.2 Patch 286 Bugs; Fix for Exploited Flaw Backported to iOS 18",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/ios-macos-27-2-patch-286-bugs-fix-for-exploited-flaw-backported-to-ios-18/",
+          "date": "2026-10-27",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Apple-iOS-macOS-Patches.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-27-keystone-cle-verification",
+      "title": "Keystone : clé de vérification de portefeuilles matériels volée via son site web",
+      "created": "2026-10-27T12:40:00+00:00",
+      "updated": "2026-10-27T12:40:00+00:00",
+      "version": 1,
+      "resume": "Un attaquant entré sur le site de Keystone a obtenu la clé qui prouve l'authenticité de ses portefeuilles matériels, ainsi que des données clients. Keystone détruit 18 835 appareils invendus [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Accès au site web de Keystone, mode d'accès non précisé par la source [1]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Faille d'un outil tiers de surveillance des données du site → privilèges élevés, accès aux données clients et à la clé de vérification [1]."
+        },
+        {
+          "etape": "Risque de contrefaçon",
+          "texte": "Avec la clé, on pourrait fabriquer de faux appareils qui passent la vérification en ligne [1]."
+        },
+        {
+          "etape": "Fuite de données",
+          "texte": "25 964 enregistrements d'acheteurs exposés : noms, coordonnées, adresses, détails de commande [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Site web de Keystone",
+            "note": "Outil tiers vulnérable"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Clé et données clients",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Accès au site web"
+          },
+          {
+            "de": "web",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Privilèges élevés via un outil tiers"
+          },
+          {
+            "de": "don",
+            "vers": "att",
+            "etape": 4,
+            "texte": "Clé et données clients obtenues"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni le mode d'accès initial, ni la date d'entrée, ni l'identité de l'attaquant, ni l'outil tiers concerné [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Acheteurs sur le site de Keystone (25 964 enregistrements) et paniers non finalisés (12 873) [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Keystone to Destroy 18,835 Hardware Wallets After Hackers Steal Device Verification Key",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/keystone-to-destroy-18835-hardware.html",
+          "date": "2026-10-27",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkvGXPUhZZjWBsYYBAx8KeJ8WilsBMLE-JhqfNAEyCOPuxs6-4VIF1e77IHR5zVdGfRsjJkSOfUVE1JaEmKe0mSAVM-ha4SeROxEGAdkLY5n5rBqx1LBSm6UVxA167sJYZEJTRra7BSipFtdlw2S-kFCUOSa9n70NbfSka3zRNVHd0D69qbVpSGIOnuAU/s1700-nu-rw-lo-l85-e365/keystone.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-27-lazarus-flashhole-coree",
+      "title": "Lazarus : opération FlashHole contre des entreprises sud-coréennes",
+      "created": "2026-10-27T12:40:00+00:00",
+      "updated": "2026-10-27T12:40:00+00:00",
+      "version": 1,
+      "resume": "Kaspersky attribue au groupe Lazarus, lié à la Corée du Nord, l'opération d'espionnage FlashHole contre au moins trois organisations sud-coréennes, active depuis juillet 2025 au plus tôt [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Courriels de spear-phishing avec liens vers de faux sites de portfolio ou de CV, vecteur exact non confirmé [1]."
+        },
+        {
+          "etape": "Exécution",
+          "texte": "Visite du site → CrossWeb EX lance fsquirt.exe, qui charge la DLL malveillante TechHub par DLL sideloading [1]."
+        },
+        {
+          "etape": "Persistance et charges",
+          "texte": "TechHub télécharge TouchHub depuis GitHub, puis ClientHub charge LPEClient → relais vers Cubridge, qui télécharge plugins et modules [1]."
+        },
+        {
+          "etape": "Canal chiffré",
+          "texte": "Connexion chiffrée avec ML-KEM-1024 avant téléchargement et exécution de charges en mémoire [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Cubridge vole fichiers et données de navigateurs, ClientHub crée des archives ZIP ; une variante utilise l'API Dropbox [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Lazarus)",
+            "note": ""
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux sites portfolio ou CV",
+            "note": "GitHub Pages"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes des organisations",
+            "note": "Chargement en mémoire"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Courriels de spear-phishing vers de faux sites"
+          },
+          {
+            "de": "web",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "CrossWeb EX lance fsquirt.exe, TechHub chargé"
+          },
+          {
+            "de": "pc",
+            "vers": "att",
+            "etape": 5,
+            "texte": "Fichiers et données de navigateurs volés"
+          }
+        ]
+      },
+      "limites": "La source présente l'accès initial comme suspecté, sans le confirmer. Elle ne précise pas si CVE-2026-68820 ni la faille d'Innorix Agent ont servi dans FlashHole [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Lazarus Group, lié à la Corée du Nord, campagne attribuée par Kaspersky [1]"
+      ],
+      "cibles": [
+        "Au moins trois organisations sud-coréennes : construction, logiciels, équipements de communication filaire [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "DLL",
+          "definition": "Bibliothèque de code Windows chargée par un programme"
+        },
+        {
+          "sigle": "DLL sideloading",
+          "definition": "Faire charger une DLL malveillante par un programme légitime"
+        },
+        {
+          "sigle": "ML-KEM-1024",
+          "definition": "Algorithme d'échange de clés résistant aux ordinateurs quantiques"
+        },
+        {
+          "sigle": "API",
+          "definition": "Interface permettant à un programme d'utiliser un service"
+        },
+        {
+          "sigle": "ZIP",
+          "definition": "Format d'archive de fichiers compressés"
+        },
+        {
+          "sigle": "GitHub Pages",
+          "definition": "Service d'hébergement de sites web de GitHub"
+        },
+        {
+          "sigle": "CV",
+          "definition": "Curriculum vitæ, document de candidature"
+        },
+        {
+          "sigle": "EX",
+          "definition": "Suffixe du nom du logiciel CrossWeb EX"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Lazarus Abuses South Korean Security Software to Deploy Malware Using Post-Quantum Encryption",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/lazarus-abuses-south-korean-security.html",
+          "date": "2026-10-27",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwoWz3Ex4w0TebsrzDSdna5WAjqoQx5EHWC1kY3db9VgMg6FrGK6VbncVA9b3tKdPnqlR6qmdwsq7CT1f-Cp57WpH6lpfoF-5zb_Xg-ahdsNxO4OUTsdDVeO_8s7SQFLp54SrsWlWrZn-37sAcqv1ZeG_7Yc62vQ5X9Tq-MlIEm6EOQOiTkQVlcy9F4VG4/s1700-nu-rw-lo-l85-e365/korean-malware.jpg"
         }
       ]
     }

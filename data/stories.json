@@ -22930,21 +22930,21 @@
       "id": "2026-10-26-dahua-cert-ua-cameras",
       "title": "Ukraine : des caméras et enregistreurs Dahua piratés via le service cloud Easy4IP",
       "created": "2026-10-26T15:17:10+00:00",
-      "updated": "2026-10-26T15:17:10+00:00",
-      "version": 1,
+      "updated": "2026-10-27T07:20:00+00:00",
+      "version": 2,
       "resume": "Le CERT-UA signale que des pirates ont pris le contrôle de caméras et d'enregistreurs vidéo Dahua, modifié leurs réglages et créé des comptes utilisateurs non autorisés [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Abus de la fonction cloud Easy4IP et de numéros de série prévisibles devinés en nombre → appareils reliés au cloud identifiés [1]."
+          "texte": "Numéros de série prévisibles devinés en masse sur la plateforme P2P Easy4IP, sans limitation de débit → appareils reliés au cloud repérés [1, 2]."
         },
         {
           "etape": "Prise de contrôle",
-          "texte": "Mots de passe faibles ou par défaut, ou failles d'un firmware obsolète contournant l'authentification → accès aux appareils [1]."
+          "texte": "Mots de passe faibles ou connus, ou contournement d'authentification sur firmware obsolète (CVE-2021-33044 et CVE-2021-33045) → accès aux appareils [1, 2]."
         },
         {
           "etape": "Modification des appareils",
-          "texte": "Réglages modifiés et comptes non autorisés créés → exposition possible des flux vidéo et contrôle à distance [1]."
+          "texte": "Accès au flux vidéo, réglages modifiés, comptes tiers créés → contrôle à distance des appareils [1, 2]."
         }
       ],
       "parcours": {
@@ -22992,28 +22992,36 @@
           }
         ]
       },
-      "limites": "Les sources ne nomment aucun responsable, ni le nombre d'appareils touchés, ni les dates. Le lien avec les 14 500 appareils de Hunt.io n'est pas établi [1].",
+      "limites": "Les sources ne disent pas qui a mené l'activité signalée par le CERT-UA, ni combien d'appareils sont touchés [1, 2].",
       "cves": [
         {
           "id": "CVE-2021-33044",
-          "explication": "Divulguée en 2021, touche certaines caméras et certains enregistreurs Dahua [1]."
+          "explication": "Divulguée en 2021, touche certaines caméras et certains enregistreurs Dahua ; contournement d'authentification sur firmware obsolète [1, 2]."
         },
         {
           "id": "CVE-2021-33045",
-          "explication": "Divulguée en 2021, touche certaines caméras et certains enregistreurs Dahua [1]."
+          "explication": "Divulguée en 2021, touche certaines caméras et certains enregistreurs Dahua ; contournement d'authentification sur firmware obsolète [1, 2]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "Non identifié : le CERT-UA ne précise pas les responsables [1]"
+        "Non identifié pour l'alerte du CERT-UA [1, 2]"
       ],
       "cibles": [
-        "Caméras et enregistreurs Dahua ; Hunt.io compte plus de 14 500 appareils compromis, surtout en Ukraine et en Russie [1]"
+        "Caméras et enregistreurs Dahua en Ukraine [1, 2]"
       ],
       "abreviations": [
         {
           "sigle": "CERT-UA",
           "definition": "Équipe ukrainienne de réponse aux incidents informatiques"
+        },
+        {
+          "sigle": "P2P",
+          "definition": "Connexion directe à distance via un service cloud, sans accès direct depuis Internet"
+        },
+        {
+          "sigle": "DVR",
+          "definition": "Enregistreur vidéo numérique relié aux caméras"
         }
       ],
       "sources": [
@@ -23023,6 +23031,13 @@
           "url": "https://therecord.media/ukraine-cert-ua-warning-chinese-dahua-cameras-hacked",
           "date": "2026-10-26",
           "image": "https://cms.therecord.media/uploads/dahua_camera_pexels_thomas_veillon_34628c9764.jpg"
+        },
+        {
+          "titre": "Attackers Hijack Dahua IP Cameras in Ukraine Using P2P Access and Auth Weaknesses",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/attackers-hijack-dahua-ip-cameras-in.html",
+          "date": "2026-10-27",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjISG9SXb2aeE6Zy-bIbnuaqwUNmGof7xU8RQl0vGZIcxcgNE3YXpuvG7rJKSTn_q9J8d_2DEv6rU2zxoX615DIYePz9rMA2TiLT6Fo1q2leGoyH85hJuIUta8j8FEN2mY5AGaO6zH5o6MkCHZ9Sv7OpjrZ6LE1yZygl9R4hUgt7xWJMMeGXRI4UJziuPCW/s1700-nu-rw-lo-l85-e365/hackers-camera.jpg"
         }
       ]
     },

@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-10-28T08:08:36+00:00",
+  "feed_summary": "The critical Oracle PeopleSoft bug that ShinyHunters has exploited since May is not one flaw but three chained together, the researchers who reported it said this week. Oracle patched all three under a single identifier, CVE-2026-35273, in June. Its root is a server-side request forgery (SSRF) that reaches an internal management interface because PeopleSoft trusts its own loopback address",
+  "id": "f01e6eed4371d339",
+  "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgiU-iVEycp9z-2dprGJhgl046M9ZvG7kGGwaXNzgFJg7XDubOoWWLvEuKAOczIcGuXU04db46Xa6pRMKO36ZS7Fu8Xkv7mNuPjHUS0zLTHkGlNWNRD2DLCznPf6jqvqamZSZGMBXSzh9gMYm-9sR-y7OgN7i7n6x0dfYxyl9QftWlfuQw0mpTteHy57k/s1700-nu-rw-lo-l85-e365/sh.jpg",
+  "lang": "en",
+  "link": "https://thehackernews.com/2026/10/shinyhunters-exploited-oracle.html",
+  "published": "2026-10-28T11:34:58+05:30",
+  "source": "The Hacker News",
+  "source_type": "actu",
+  "title": "ShinyHunters-Exploited Oracle PeopleSoft Zero-Day Turns Out to Be Three Chained Flaws"
+}

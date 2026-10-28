@@ -25211,6 +25211,134 @@
           "image": "https://www.securityweek.com/wp-content/uploads/2025/10/Oracle-E-Business-Suite.jpeg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-28-php2shell-fragnesia-pare-feu",
+      "title": "PHP2Shell et Fragnesia : pare-feu rootés et intrusion chez une organisation liée au gouvernement américain",
+      "created": "2026-10-28T12:20:00+00:00",
+      "updated": "2026-10-28T12:20:00+00:00",
+      "version": 1,
+      "resume": "Des attaquants non identifiés, que Dream rattache à la Chine, ont enchaîné PHP2Shell et Fragnesia sur des pare-feu exposés et compromis deux serveurs d'une organisation liée au gouvernement américain [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Chaîne PHP2Shell et Fragnesia appliquée à 25 pare-feu exposés sur Internet → shell web PHP avec droits root déposé sur 24 d'entre eux [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Déploiement d'un tunnel SSH inverse [1]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "Même chaîne d'exploitation contre un serveur interne de gestion des pare-feu → accès aux configurations et identifiants de chaque pare-feu géré [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Déchiffrement du mot de passe d'un compte de service LDAP [1]."
+        },
+        {
+          "etape": "Découverte du domaine",
+          "texte": "Énumération des utilisateurs et groupes, pulvérisation de mots de passe et tentatives de création de comptes de porte dérobée dans Active Directory [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "fw",
+            "type": "passerelle",
+            "zone": "expose",
+            "nom": "Pare-feu exposés",
+            "note": "Shell web root"
+          },
+          {
+            "id": "gest",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur de gestion des pare-feu",
+            "note": ""
+          },
+          {
+            "id": "ad",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Active Directory",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "fw",
+            "etape": 1,
+            "texte": "Chaîne PHP2Shell et Fragnesia, shell web root"
+          },
+          {
+            "de": "fw",
+            "vers": "gest",
+            "etape": 3,
+            "texte": "Même chaîne d'exploitation contre le serveur de gestion"
+          },
+          {
+            "de": "att",
+            "vers": "ad",
+            "etape": 5,
+            "texte": "Énumération et pulvérisation de mots de passe"
+          }
+        ]
+      },
+      "limites": "L'acteur n'est pas nommé, l'exfiltration et l'impact sur les données ne sont pas mentionnés [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-109618",
+          "explication": "Faille de PHP faisant partie de PHP2Shell, sans autre description dans l'article [1]."
+        },
+        {
+          "id": "CVE-2026-109619",
+          "explication": "Faille de PHP faisant partie de PHP2Shell, sans autre description dans l'article [1]."
+        },
+        {
+          "id": "CVE-2026-46300",
+          "explication": "Fragnesia : faille d'élévation de privilèges du noyau Linux [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié nommément ; Dream évoque une opération liée à la Chine [1]"
+      ],
+      "cibles": [
+        "Deux serveurs d'une organisation liée au gouvernement américain ; pare-feu aux États-Unis, au Japon, à Taïwan et en Corée du Sud [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "PHP",
+          "definition": "Langage de programmation très utilisé pour les sites web côté serveur"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole d'accès distant chiffré à une machine"
+        },
+        {
+          "sigle": "LDAP",
+          "definition": "Protocole d'interrogation des annuaires d'identités"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "China-Linked Hackers Exploit PHP2Shell to Root Firewalls",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/china-linked-hackers-exploit-php2shell-to-root-firewalls/",
+          "date": "2026-10-28",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+        }
+      ]
     }
   ]
 }

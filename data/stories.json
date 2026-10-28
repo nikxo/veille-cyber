@@ -25126,6 +25126,84 @@
           "image": "https://www.securityweek.com/wp-content/uploads/2026/10/cyberattack-vulnerability-exploited.jpeg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-28-oracle-ebs-cve-2026-101767",
+      "title": "Oracle E-Business Suite : tentatives d'exploitation de la faille CVE-2026-101767",
+      "created": "2026-10-28T10:30:00+00:00",
+      "updated": "2026-10-28T10:30:00+00:00",
+      "version": 1,
+      "resume": "Des attaquants non identifiés ont tenté d'exploiter une injection SQL d'Oracle E-Business Suite, corrigée en octobre, sur les leurres de la société Defused [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Injection SQL envoyée à distance par HTTP, sans authentification, dans le composant Application Object Library → exploitation possible sans compte [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Une exploitation réussie pourrait donner une exécution de code à distance et la prise de contrôle complète du composant [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "ebs",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Oracle E-Business Suite",
+            "note": "Application Object Library"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ebs",
+            "etape": 1,
+            "texte": "Injection SQL sans authentification par HTTP"
+          }
+        ]
+      },
+      "limites": "Seules des tentatives exploratoires sur des leurres sont rapportées, sans autre exploitation signalée ni étape après l'intrusion [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-101767",
+          "explication": "Oracle E-Business Suite, composant Application Object Library : injection SQL sans authentification pouvant mener à une exécution de code, gravité critique 9,8 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non identifiés : l'article parle d'attaquants sans les nommer [1]"
+      ],
+      "cibles": [
+        "Oracle E-Business Suite, observé sur les leurres de Defused [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "HTTP",
+          "definition": "Protocole de communication des sites web"
+        },
+        {
+          "sigle": "SQL",
+          "definition": "Langage d'interrogation des bases de données"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers Start Probing Fresh Oracle EBS Vulnerability",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/hackers-start-probing-fresh-oracle-ebs-vulnerability/",
+          "date": "2026-10-28",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/10/Oracle-E-Business-Suite.jpeg"
+        }
+      ]
     }
   ]
 }

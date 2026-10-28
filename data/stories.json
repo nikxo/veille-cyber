@@ -25139,17 +25139,21 @@
       "id": "2026-10-28-oracle-ebs-cve-2026-101767",
       "title": "Oracle E-Business Suite : tentatives d'exploitation de la faille CVE-2026-101767",
       "created": "2026-10-28T10:30:00+00:00",
-      "updated": "2026-10-28T13:12:55+00:00",
-      "version": 2,
+      "updated": "2026-10-28T14:23:40+00:00",
+      "version": 3,
       "resume": "Des acteurs non identifiés scannent Internet et ont tenté d'exploiter une injection SQL d'Oracle E-Business Suite, corrigée le 20 octobre, sur les leurres de la société Defused [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Injection SQL envoyée par HTTP, sans authentification, dans la servlet Thin Client Framework du composant Application Object Library → exploitation possible sans compte [1, 2]."
+          "texte": "Requête non authentifiée vers la servlet Thin Client Framework (/OA_HTML/AppsTCFServer) → injection SQL sans compte [1, 2, 3]."
+        },
+        {
+          "etape": "Exécution SQL",
+          "texte": "Injection exploitée → SQL exécuté avec les privilèges du compte de base de données APPS [3]."
         },
         {
           "etape": "Prise de contrôle",
-          "texte": "Une exploitation réussie pourrait donner une exécution de code à distance et la prise de contrôle complète des systèmes vulnérables [1, 2]."
+          "texte": "Enchaînement vers une exécution de code à distance → commandes système avec les privilèges du compte applicatif EBS [3]."
         }
       ],
       "parcours": {
@@ -25178,11 +25182,11 @@
           }
         ]
       },
-      "limites": "Seules des tentatives exploratoires sur des leurres sont rapportées [1, 2]. Oracle ne l'a pas marquée exploitée dans la nature et aucune victime n'est confirmée [2].",
+      "limites": "Seules des tentatives exploratoires sur des leurres sont rapportées [1, 2, 3]. Oracle ne l'a pas marquée exploitée dans la nature et aucune victime n'est confirmée [2, 3].",
       "cves": [
         {
           "id": "CVE-2026-101767",
-          "explication": "Oracle E-Business Suite, Application Object Library : injection SQL sans authentification dans la servlet Thin Client Framework, chaînable vers une exécution de code, gravité critique 9,8 [1, 2]."
+          "explication": "Oracle E-Business Suite, Application Object Library : injection SQL sans authentification dans la servlet Thin Client Framework, chaînable vers une exécution de code, gravité critique 9,8 [1, 2, 3]."
         }
       ],
       "mitre": [],
@@ -25201,6 +25205,14 @@
         {
           "sigle": "SQL",
           "definition": "Langage d'interrogation des bases de données"
+        },
+        {
+          "sigle": "APPS",
+          "definition": "Compte de base de données utilisé par Oracle E-Business Suite"
+        },
+        {
+          "sigle": "EBS",
+          "definition": "E-Business Suite : suite d'applications de gestion d'Oracle"
         }
       ],
       "sources": [
@@ -25217,6 +25229,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/hackers-now-scanning-systems-for-recently-patched-oracle-flaw/",
           "date": "2026-10-28",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/28/Oracle-headpic.jpg"
+        },
+        {
+          "titre": "Hackers Target Critical Oracle E-Business Suite RCE Flaw Days After Security Patch",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/hackers-target-critical-oracle-e.html",
+          "date": "2026-10-28",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBB03AGS7veiAqQ7-xPeadzhhaRvDmhOlLgQcDN0y-r1na_us5yomWjBEXCbwbw8OW_o8SSGjjqk4VZFQ4ZxLiWKQPZxlcBkzJ5lv3OlEV0rOETUKyQzWoZ74LGpSjOjrScmk1rVf0OhRmDACHG3jwSDfBnnta75I_3s_nuoWGZmcfg7NZfHBp_PEIl8aj/s1700-nu-rw-lo-l85-e365/oracle-hack.jpg"
         }
       ]
     },
@@ -25225,8 +25244,8 @@
       "id": "2026-10-28-php2shell-fragnesia-pare-feu",
       "title": "PHP2Shell et Fragnesia : pare-feu rootés et intrusion chez une organisation liée au gouvernement américain",
       "created": "2026-10-28T12:20:00+00:00",
-      "updated": "2026-10-28T12:20:00+00:00",
-      "version": 1,
+      "updated": "2026-10-28T14:23:40+00:00",
+      "version": 2,
       "resume": "Des attaquants non identifiés, que Dream rattache à la Chine, ont enchaîné PHP2Shell et Fragnesia sur des pare-feu exposés et compromis deux serveurs d'une organisation liée au gouvernement américain [1].",
       "chaine": [
         {
@@ -25302,15 +25321,15 @@
           }
         ]
       },
-      "limites": "L'acteur n'est pas nommé, l'exfiltration et l'impact sur les données ne sont pas mentionnés [1].",
+      "limites": "L'acteur n'est pas nommé, l'exfiltration et l'impact sur les données ne sont pas mentionnés [1]. Le rapport InfraTrust ne décrit pas de séquence d'attaque PHP2Shell [2].",
       "cves": [
         {
           "id": "CVE-2026-109618",
-          "explication": "Faille de PHP faisant partie de PHP2Shell, sans autre description dans l'article [1]."
+          "explication": "Faille de PHP faisant partie de PHP2Shell : exécution de code à distance sans authentification, corrigée le 21 octobre [2]."
         },
         {
           "id": "CVE-2026-109619",
-          "explication": "Faille de PHP faisant partie de PHP2Shell, sans autre description dans l'article [1]."
+          "explication": "Faille de PHP faisant partie de PHP2Shell : exécution de code à distance sans authentification, corrigée le 21 octobre [2]."
         },
         {
           "id": "CVE-2026-46300",
@@ -25322,7 +25341,8 @@
         "Non identifié nommément ; Dream évoque une opération liée à la Chine [1]"
       ],
       "cibles": [
-        "Deux serveurs d'une organisation liée au gouvernement américain ; pare-feu aux États-Unis, au Japon, à Taïwan et en Corée du Sud [1]"
+        "Deux serveurs d'une organisation liée au gouvernement américain ; pare-feu aux États-Unis, au Japon, à Taïwan et en Corée du Sud [1]",
+        "Palo Alto Networks, F5, NetScaler, Check Point et QNAP ont confirmé que certains produits sont touchés par PHP2Shell [2]"
       ],
       "abreviations": [
         {
@@ -25336,6 +25356,14 @@
         {
           "sigle": "LDAP",
           "definition": "Protocole d'interrogation des annuaires d'identités"
+        },
+        {
+          "sigle": "F5",
+          "definition": "Éditeur d'équipements réseau (produit BIG-IP)"
+        },
+        {
+          "sigle": "QNAP",
+          "definition": "Fabricant de serveurs de stockage réseau"
         }
       ],
       "sources": [
@@ -25345,6 +25373,13 @@
           "url": "https://www.securityweek.com/china-linked-hackers-exploit-php2shell-to-root-firewalls/",
           "date": "2026-10-28",
           "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+        },
+        {
+          "titre": "InfraTrust report warns of exploited flaws in critical network infrastructure",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/infratrust-report-warns-of-exploited-flaws-in-critical-network-infrastructure/",
+          "date": "2026-10-28",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/07/21/infratrust.jpg"
         }
       ]
     },

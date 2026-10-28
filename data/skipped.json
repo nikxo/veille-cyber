@@ -1,53 +1,5 @@
 [
   {
-    "id": "9550197771a1007f",
-    "title": "Fake Decryption Tools Masked $11M Markup in Ransomware Recovery Scheme",
-    "link": "https://www.securityweek.com/fake-decryption-tools-masked-11m-markup-in-ransomware-recovery-scheme/",
-    "source": "SecurityWeek",
-    "raison": "actualité judiciaire (fraude), pas de méthode d'attaque",
-    "date": "2026-10-08T11:30:00+00:00"
-  },
-  {
-    "id": "fd7ba388bbadc06b",
-    "title": "Owner of Empire cybercrime market gets 40 years in prison",
-    "link": "https://www.bleepingcomputer.com/news/security/owner-of-empire-cybercrime-market-gets-40-years-in-prison/",
-    "source": "BleepingComputer",
-    "raison": "actualité judiciaire, pas de méthode d'attaque",
-    "date": "2026-10-08T11:30:00+00:00"
-  },
-  {
-    "id": "730868d2c9182e8c",
-    "title": "Writing the Next Chapter",
-    "link": "https://www.darkreading.com/cybersecurity-operations/writing-next-chapter",
-    "source": "Dark Reading",
-    "raison": "annonce éditoriale",
-    "date": "2026-10-08T12:07:53+00:00"
-  },
-  {
-    "id": "dcfd3d91da6d9b91",
-    "title": "Rein Security Raises $25 Million to Guard AI Agents at Runtime",
-    "link": "https://www.securityweek.com/rein-security-raises-25-million-to-guard-ai-agents-at-runtime/",
-    "source": "SecurityWeek",
-    "raison": "levée de fonds",
-    "date": "2026-10-08T12:07:53+00:00"
-  },
-  {
-    "id": "22b01429c493b818",
-    "title": "Introducing AlertZero: Inbox zero for your alert queue",
-    "link": "https://www.elastic.co/security-labs/blog/ai-soc-automation-alertzero",
-    "source": "Elastic Security Labs",
-    "raison": "annonce produit",
-    "date": "2026-10-08T13:30:00+00:00"
-  },
-  {
-    "id": "4d0615f47e6f0c64",
-    "title": "US Seeks Alleged Chinese Hafnium Hacker With $10 Million Reward",
-    "link": "https://www.securityweek.com/us-seeks-alleged-chinese-hafnium-hacker-with-10-million-reward/",
-    "source": "SecurityWeek",
-    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
-    "date": "2026-10-08T13:30:00+00:00"
-  },
-  {
     "id": "59574bf1bef7d5c9",
     "title": "SonicWall and Splunk Patch Critical Vulnerabilities",
     "link": "https://www.securityweek.com/sonicwall-and-splunk-patch-critical-vulnerabilities/",
@@ -3998,5 +3950,53 @@
     "source": "SentinelLABS",
     "raison": "conférence sans attaque décrite",
     "date": "2026-10-28T13:12:55+00:00"
+  },
+  {
+    "id": "13324a3fcbc0839d",
+    "title": "TLS Flaws Found in GoAhead Web Server Used in Hundreds of Millions of Devices",
+    "link": "https://www.securityweek.com/tls-flaws-found-in-goahead-web-server-used-in-hundreds-of-millions-of-devices/",
+    "source": "SecurityWeek",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-10-28T14:23:40+00:00"
+  },
+  {
+    "id": "1392040dc24ff8b5",
+    "title": "Chrome and Firefox Updates Patch Over 200 Vulnerabilities",
+    "link": "https://www.securityweek.com/chrome-and-firefox-updates-patch-over-200-vulnerabilities/",
+    "source": "SecurityWeek",
+    "raison": "mises à jour de correctifs sans attaque",
+    "date": "2026-10-28T14:23:40+00:00"
+  },
+  {
+    "id": "1e20ad9d24a5312a",
+    "title": "How Rapid7 InsightGovCloud Supports BOD 22-01 Compliance",
+    "link": "https://www.rapid7.com/blog/post/pt-insightgovcloud-supports-bod-22-01-compliance",
+    "source": "Rapid7",
+    "raison": "contenu commercial / conformité",
+    "date": "2026-10-28T14:23:40+00:00"
+  },
+  {
+    "id": "2fefc90ef91ef163",
+    "title": "Upwind Security Raises $400 Million at $3.8 Billion Valuation",
+    "link": "https://www.securityweek.com/upwind-security-raises-400-million-at-3-8-billion-valuation/",
+    "source": "SecurityWeek",
+    "raison": "levée de fonds",
+    "date": "2026-10-28T14:23:40+00:00"
+  },
+  {
+    "id": "ce5fe177d9dacc31",
+    "title": "Wazuh and AI for Enhanced SOC Workflows",
+    "link": "https://thehackernews.com/2026/10/wazuh-and-ai-for-enhanced-soc-workflows.html",
+    "source": "The Hacker News",
+    "raison": "contenu sponsorisé / produit",
+    "date": "2026-10-28T14:23:40+00:00"
+  },
+  {
+    "id": "eb93de238d98745b",
+    "title": "Critical 16-Year-Old UEFI Flaw Can Run Code Before Secure Boot on Network-Booting Servers",
+    "link": "https://thehackernews.com/2026/10/critical-16-year-old-uefi-flaw-can-run.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-10-28T14:23:40+00:00"
   }
 ]

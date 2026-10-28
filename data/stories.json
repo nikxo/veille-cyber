@@ -25012,13 +25012,13 @@
       "id": "2026-10-28-node2shell-brotli-cve-2026-111497",
       "title": "Node2Shell : faille du décodeur Brotli, tentatives d'exploitation relevées par des honeypots",
       "created": "2026-10-28T09:30:00+00:00",
-      "updated": "2026-10-28T09:30:00+00:00",
-      "version": 1,
-      "resume": "La faille Node2Shell du décodeur Brotli a été ajoutée au catalogue KEV de la CISA ; deux opérateurs de honeypots ont enregistré des tentatives d'exploitation [1].",
+      "updated": "2026-10-28T11:20:34+00:00",
+      "version": 2,
+      "resume": "La faille Node2Shell du décodeur Brotli a été ajoutée au catalogue KEV de la CISA, qui confirme son exploitation ; deux opérateurs de honeypots ont enregistré des tentatives [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé par les sources [1, 2]."
         },
         {
           "etape": "Reconnaissance",
@@ -25065,11 +25065,11 @@
           }
         ]
       },
-      "limites": "Les sources ne décrivent ni victime réelle ni acteur nommé ni accès initial ; aucun shell n'a été obtenu dans le cas testé [1].",
+      "limites": "Les sources ne décrivent ni victime réelle ni acteur nommé ni accès initial ; aucun shell n'a été obtenu dans le cas testé [1, 2].",
       "cves": [
         {
           "id": "CVE-2026-111497",
-          "explication": "Décodeur Brotli de Google : écriture hors limites, des données conçues peuvent faire planter l'application, exposer sa mémoire ou permettre l'exécution de code [1]."
+          "explication": "Décodeur Brotli de Google : écriture hors limites, des données conçues peuvent faire planter l'application, exposer sa mémoire ou permettre l'exécution de code ; gravité critique [1, 2]."
         }
       ],
       "mitre": [],
@@ -25124,6 +25124,13 @@
           "url": "https://www.securityweek.com/cisa-warns-of-node2shell-exploitation-as-honeypots-log-attack-attempts/",
           "date": "2026-10-28",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/10/cyberattack-vulnerability-exploited.jpeg"
+        },
+        {
+          "titre": "CISA warns of hackers now exploiting critical Node2Shell flaw",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-now-exploiting-critical-node2shell-flaw/",
+          "date": "2026-10-28",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/28/CISA.jpg"
         }
       ]
     },

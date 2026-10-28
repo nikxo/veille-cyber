@@ -25139,17 +25139,17 @@
       "id": "2026-10-28-oracle-ebs-cve-2026-101767",
       "title": "Oracle E-Business Suite : tentatives d'exploitation de la faille CVE-2026-101767",
       "created": "2026-10-28T10:30:00+00:00",
-      "updated": "2026-10-28T10:30:00+00:00",
-      "version": 1,
-      "resume": "Des attaquants non identifiés ont tenté d'exploiter une injection SQL d'Oracle E-Business Suite, corrigée en octobre, sur les leurres de la société Defused [1].",
+      "updated": "2026-10-28T13:12:55+00:00",
+      "version": 2,
+      "resume": "Des acteurs non identifiés scannent Internet et ont tenté d'exploiter une injection SQL d'Oracle E-Business Suite, corrigée le 20 octobre, sur les leurres de la société Defused [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Injection SQL envoyée à distance par HTTP, sans authentification, dans le composant Application Object Library → exploitation possible sans compte [1]."
+          "texte": "Injection SQL envoyée par HTTP, sans authentification, dans la servlet Thin Client Framework du composant Application Object Library → exploitation possible sans compte [1, 2]."
         },
         {
           "etape": "Prise de contrôle",
-          "texte": "Une exploitation réussie pourrait donner une exécution de code à distance et la prise de contrôle complète du composant [1]."
+          "texte": "Une exploitation réussie pourrait donner une exécution de code à distance et la prise de contrôle complète des systèmes vulnérables [1, 2]."
         }
       ],
       "parcours": {
@@ -25178,11 +25178,11 @@
           }
         ]
       },
-      "limites": "Seules des tentatives exploratoires sur des leurres sont rapportées, sans autre exploitation signalée ni étape après l'intrusion [1].",
+      "limites": "Seules des tentatives exploratoires sur des leurres sont rapportées [1, 2]. Oracle ne l'a pas marquée exploitée dans la nature et aucune victime n'est confirmée [2].",
       "cves": [
         {
           "id": "CVE-2026-101767",
-          "explication": "Oracle E-Business Suite, composant Application Object Library : injection SQL sans authentification pouvant mener à une exécution de code, gravité critique 9,8 [1]."
+          "explication": "Oracle E-Business Suite, Application Object Library : injection SQL sans authentification dans la servlet Thin Client Framework, chaînable vers une exécution de code, gravité critique 9,8 [1, 2]."
         }
       ],
       "mitre": [],
@@ -25190,7 +25190,8 @@
         "Non identifiés : l'article parle d'attaquants sans les nommer [1]"
       ],
       "cibles": [
-        "Oracle E-Business Suite, observé sur les leurres de Defused [1]"
+        "Oracle E-Business Suite, observé sur les leurres de Defused [1]",
+        "Plus de 670 instances exposées suivies par Shadowserver, surtout aux États-Unis [2]"
       ],
       "abreviations": [
         {
@@ -25209,6 +25210,13 @@
           "url": "https://www.securityweek.com/hackers-start-probing-fresh-oracle-ebs-vulnerability/",
           "date": "2026-10-28",
           "image": "https://www.securityweek.com/wp-content/uploads/2025/10/Oracle-E-Business-Suite.jpeg"
+        },
+        {
+          "titre": "Hackers now scanning systems for recently-patched Oracle flaw",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-now-scanning-systems-for-recently-patched-oracle-flaw/",
+          "date": "2026-10-28",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/28/Oracle-headpic.jpg"
         }
       ]
     },
@@ -25337,6 +25345,112 @@
           "url": "https://www.securityweek.com/china-linked-hackers-exploit-php2shell-to-root-firewalls/",
           "date": "2026-10-28",
           "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-28-mdm-hexnode-rippling-rmm",
+      "title": "Détournement de plateformes MDM (Hexnode, Rippling) pour installer un outil d'accès à distance",
+      "created": "2026-10-28T13:12:55+00:00",
+      "updated": "2026-10-28T13:12:55+00:00",
+      "version": 1,
+      "resume": "Des acteurs malveillants détournent les plateformes de gestion d'appareils Hexnode et Rippling pour installer ScreenConnect sur des postes et garder un accès à distance. Il ne s'agit pas de failles des produits [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Courriel ou message d'appât d'affaires contenant un lien vers un faux installateur DocuSign ou une fausse invitation Teams [1]."
+        },
+        {
+          "etape": "Agent de gestion",
+          "texte": "Le lien fait installer un agent de gestion légitime, Hexnode ou Rippling rattaché à un tenant contrôlé par l'attaquant [1]."
+        },
+        {
+          "etape": "Accès à distance",
+          "texte": "Installation de ScreenConnect relié à un relais de l'attaquant, déployé via Rippling avec les privilèges système → accès à distance au poste [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Cas Hexnode : après retrait de l'outil par un prestataire, ScreenConnect est réinstallé des heures plus tard et se reconnecte au même relais [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de la cible",
+            "note": "ScreenConnect installé"
+          },
+          {
+            "id": "mdm",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Plateforme MDM de l'attaquant",
+            "note": "Hexnode, Rippling"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Lien vers faux installateur ou fausse invitation"
+          },
+          {
+            "de": "pc",
+            "vers": "mdm",
+            "etape": 2,
+            "texte": "Agent de gestion installé sur le poste"
+          },
+          {
+            "de": "mdm",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "ScreenConnect déployé (cas Rippling)"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "ScreenConnect réinstallé, reconnecté au relais"
+          }
+        ]
+      },
+      "limites": "Les dates, les victimes et les acteurs ne sont pas mentionnés ; les cas Hexnode et Rippling sont décrits séparément [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifiés : l'article parle d'acteurs malveillants sans les nommer [1]"
+      ],
+      "cibles": [
+        "Postes de cibles visées par des appâts d'affaires, secteur non précisé [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "MDM",
+          "definition": "Mobile Device Management : plateforme de gestion à distance des appareils"
+        },
+        {
+          "sigle": "RMM",
+          "definition": "Remote Monitoring and Management : outil d'administration à distance de machines"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Managed for Malice: How Attackers Turn MDM into Remote Access",
+          "site": "Huntress",
+          "url": "https://www.huntress.com/blog/attackers-turn-mdm-into-remote-access",
+          "date": "2026-10-28",
+          "image": "https://images.huntress.com/asset/file/2a47912c14b246ad8e5b5337651eb996"
         }
       ]
     }

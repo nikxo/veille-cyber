@@ -25512,8 +25512,8 @@
       "id": "2026-10-28-volt-typhoon-silent-train",
       "title": "Volt Typhoon : le framework Silent Train masque des attaques zero-day derrière des relais jetables",
       "created": "2026-10-28T16:30:00+00:00",
-      "updated": "2026-10-28T19:30:00+00:00",
-      "version": 2,
+      "updated": "2026-10-28T22:30:00+00:00",
+      "version": 3,
       "resume": "Le groupe chinois Volt Typhoon utilise le framework Silent Train, une chaîne d'appareils compromis jetables, pour cacher des attaques zero-day contre des cibles de grande valeur ; plusieurs centaines de victimes sont identifiées [1, 7].",
       "chaine": [
         {
@@ -25523,6 +25523,10 @@
         {
           "etape": "Construction des relais",
           "texte": "Exploitation d'interfaces web exposées d'appareils → chaîne de relais SSH, avec des routeurs Intelbras à l'étranger et Netgear Orbi aux États-Unis [1, 7]."
+        },
+        {
+          "etape": "Implant KeyDrift",
+          "texte": "Contournement d'authentification de Cisco SD-WAN Catalyst Controller (CVE-2026-20127), puis installation de KeyDrift → portes dérobées, relais intermédiaires et collecte de clés [8]."
         },
         {
           "etape": "Contrôle des cibles",
@@ -25580,12 +25584,18 @@
           {
             "de": "mgt",
             "vers": "don",
-            "etape": 3,
+            "etape": 4,
             "texte": "Vol d'identifiants et exfiltration"
+          },
+          {
+            "de": "mgt",
+            "vers": "don",
+            "etape": 3,
+            "texte": "KeyDrift collecte clés et trafic de contrôle"
           }
         ]
       },
-      "limites": "Le vecteur d'accès pour chaque cible n'est pas décrit [1, 7] ; une faille Quest KACE est un zero-day suspecté, non confirmé [1, 7].",
+      "limites": "Vecteur d'accès par cible non décrit [1, 7] ; faille Quest KACE suspecte, non confirmée [1, 7] ; dates et nombre de victimes d'UAT-11473 non mentionnés [8].",
       "cves": [
         {
           "id": "CVE-2026-16812",
@@ -25608,12 +25618,21 @@
           "explication": "Versa Director : téléversement d'un fichier malveillant déguisé en image, compte administrateur requis, gravité élevée 7,2 [6]."
         }
       ],
-      "mitre": [],
+      "mitre": [
+        "T1055.008 : injection de code dans un processus par appels système ptrace, utilisée pour charger libdssl.so dans vdaemon [8]",
+        "T1574.006 : détournement de l'éditeur de liens dynamique, utilisé par PolyFlame [8]",
+        "T1037 : scripts d'initialisation, scripts de service runit modifiés [8]",
+        "T1543 : création ou modification de services système malveillants [8]",
+        "T1036.004 : usurpation des noms de services sshd et aaamgr [8]",
+        "T1040 : écoute du trafic de contrôle SD-WAN [8]"
+      ],
       "acteurs": [
-        "Volt Typhoon, groupe étatique chinois suivi par Black Lotus Labs, rapport de Lumen [1, 7]"
+        "Volt Typhoon, groupe étatique chinois suivi par Black Lotus Labs, rapport de Lumen [1, 7]",
+        "UAT-11473 : Talos évalue avec confiance élevée que son infrastructure chevauche largement Silent Train, attribué à Volt Typhoon [8]"
       ],
       "cibles": [
-        "Télécoms, administrations, sous-traitants de la défense, services publics, transports, sociétés informatiques [1, 7]"
+        "Télécoms, administrations, sous-traitants de la défense, services publics, transports, sociétés informatiques [1, 7]",
+        "Services spatiaux et satellitaires, défense et aérospatial, recherche en politiques publiques [8]"
       ],
       "abreviations": [
         {
@@ -25676,6 +25695,13 @@
           "url": "https://thehackernews.com/2026/10/volt-typhoon-used-covert-silent-train.html",
           "date": "2026-10-28",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXuRyHXVM1n6S9Z49nYkM2dmJjKwuZx2RAre0CQSpB202GteLj8keMogqzR7ZVIv7YRc9udBHU7-oCpnpzL6nLaez3ypbVr9cVmiH9zFwJVApy5cev84W725y38auaUdkCQGN3zvngCivMUl-SYV1jnJu9eHduaYeBzro4cdmFHIQJfBQN4RvcC-fUTrs1/s1700-nu-rw-lo-l85-e365/si.jpg"
+        },
+        {
+          "titre": "Inside KeyDrift: Analyzing historical UAT-11473 activity on Cisco SD-WAN",
+          "site": "Cisco Talos",
+          "url": "https://blog.talosintelligence.com/uat-11473-keydrift/",
+          "date": "2026-10-28",
+          "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/threat_advisory-1.jpg"
         }
       ]
     },

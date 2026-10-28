@@ -25512,17 +25512,17 @@
       "id": "2026-10-28-volt-typhoon-silent-train",
       "title": "Volt Typhoon : le framework Silent Train masque des attaques zero-day derrière des relais jetables",
       "created": "2026-10-28T16:30:00+00:00",
-      "updated": "2026-10-28T16:30:00+00:00",
-      "version": 1,
-      "resume": "Le groupe chinois Volt Typhoon utilise le framework Silent Train, une chaîne d'appareils compromis jetables, pour cacher l'origine d'attaques contre des cibles de grande valeur, y compris par des failles zero-day [1].",
+      "updated": "2026-10-28T19:30:00+00:00",
+      "version": 2,
+      "resume": "Le groupe chinois Volt Typhoon utilise le framework Silent Train, une chaîne d'appareils compromis jetables, pour cacher des attaques zero-day contre des cibles de grande valeur ; plusieurs centaines de victimes sont identifiées [1, 7].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Exploitation de failles zero-day de plateformes en périphérie et de gestion → accès aux cibles choisies ; vecteur précis par cible non mentionné [1]."
+          "texte": "Quatre campagnes zero-day visant Versa Director, N-able N-central, Cisco SD-WAN et VeloCloud Orchestrator → accès aux cibles ; vecteur précis par cible non mentionné [1, 7]."
         },
         {
           "etape": "Construction des relais",
-          "texte": "Exploitation d'interfaces web exposées d'appareils → chaîne de relais SSH, avec des routeurs Intelbras à l'étranger et Netgear Orbi aux États-Unis [1]."
+          "texte": "Exploitation d'interfaces web exposées d'appareils → chaîne de relais SSH, avec des routeurs Intelbras à l'étranger et Netgear Orbi aux États-Unis [1, 7]."
         },
         {
           "etape": "Contrôle des cibles",
@@ -25530,7 +25530,7 @@
         },
         {
           "etape": "Effacement des traces",
-          "texte": "Fin de session généralement en moins de 8 heures → outils, clés et configurations supprimés des relais jetables [1]."
+          "texte": "Fin de session en moins de 8 heures [1], environ quatre heures en moyenne [7] → outils, clés et configurations supprimés des relais jetables [1, 7]."
         }
       ],
       "parcours": {
@@ -25585,7 +25585,7 @@
           }
         ]
       },
-      "limites": "Le vecteur d'accès pour chaque cible n'est pas décrit et aucune victime n'est nommée ; une faille Quest KACE est un zero-day suspecté, non confirmé [1].",
+      "limites": "Le vecteur d'accès pour chaque cible n'est pas décrit [1, 7] ; une faille Quest KACE est un zero-day suspecté, non confirmé [1, 7].",
       "cves": [
         {
           "id": "CVE-2026-16812",
@@ -25610,10 +25610,10 @@
       ],
       "mitre": [],
       "acteurs": [
-        "Volt Typhoon, groupe étatique chinois suivi depuis environ trois ans par Black Lotus Labs [1]"
+        "Volt Typhoon, groupe étatique chinois suivi par Black Lotus Labs, rapport de Lumen [1, 7]"
       ],
       "cibles": [
-        "Télécoms, administrations, sous-traitants de la défense, services publics, transports, sociétés informatiques [1]"
+        "Télécoms, administrations, sous-traitants de la défense, services publics, transports, sociétés informatiques [1, 7]"
       ],
       "abreviations": [
         {
@@ -25669,6 +25669,13 @@
           "titre": "Fiche NVD CVE-2024-39717",
           "site": "NVD (NIST)",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-39717"
+        },
+        {
+          "titre": "Volt Typhoon Used Covert Silent Train Network in Four Zero-Day Exploitation Campaigns",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/volt-typhoon-used-covert-silent-train.html",
+          "date": "2026-10-28",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXuRyHXVM1n6S9Z49nYkM2dmJjKwuZx2RAre0CQSpB202GteLj8keMogqzR7ZVIv7YRc9udBHU7-oCpnpzL6nLaez3ypbVr9cVmiH9zFwJVApy5cev84W725y38auaUdkCQGN3zvngCivMUl-SYV1jnJu9eHduaYeBzro4cdmFHIQJfBQN4RvcC-fUTrs1/s1700-nu-rw-lo-l85-e365/si.jpg"
         }
       ]
     },

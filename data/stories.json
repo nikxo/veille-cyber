@@ -24643,6 +24643,117 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/27/cart.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-28-gmo-onamae-desktop-cloud",
+      "title": "GMO Internet : intrusion sur Onamae Desktop Cloud, vol de données et menace de rançongiciel",
+      "created": "2026-10-28T00:30:00+00:00",
+      "updated": "2026-10-28T00:30:00+00:00",
+      "version": 1,
+      "resume": "Un attaquant a pénétré le service Onamae Desktop Cloud de GMO Internet, volé des données et réclamé une rançon de 8 milliards de yens, refusée par GMO [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Intrusion sur les serveurs",
+          "texte": "Intrusion détectée le 20 octobre → logiciels malveillants possiblement installés sur jusqu'à 26 739 serveurs clients [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Données volées, confirmées par GMO → rançon de 8 milliards de yens exigée, refusée par GMO [1]."
+        },
+        {
+          "etape": "Menace de rançongiciel",
+          "texte": "Le 26 octobre, GMO annonce une divulgation et un rançongiciel déposé sur les serveurs clients → GMO demande d'éteindre et débrancher les PC [1]."
+        },
+        {
+          "etape": "Publication des données",
+          "texte": "Données de l'entreprise et de ses clients publiées, authenticité vérifiée par GMO ; aucun rançongiciel activé selon l'article [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "odc",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Onamae Desktop Cloud",
+            "note": "Intrusion détectée"
+          },
+          {
+            "id": "srv",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Serveurs clients",
+            "note": "Jusqu'à 26 739"
+          },
+          {
+            "id": "dat",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données GMO et clients",
+            "note": "Volées, publiées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "odc",
+            "etape": 2,
+            "texte": "Intrusion dans le service"
+          },
+          {
+            "de": "odc",
+            "vers": "srv",
+            "etape": 4,
+            "texte": "Rançongiciel déposé sur les serveurs clients"
+          },
+          {
+            "de": "att",
+            "vers": "dat",
+            "etape": 3,
+            "texte": "Vol puis publication des données"
+          }
+        ]
+      },
+      "limites": "L'article ne précise ni le vecteur d'accès initial, ni l'identité de l'attaquant, ni le logiciel malveillant installé [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Attaquant non identifié [1]"
+      ],
+      "cibles": [
+        "GMO Internet, clients d'Onamae Desktop Cloud, clients MetaTrader 4/5 [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "GMO",
+          "definition": "Nom du groupe japonais d'hébergement et de services Internet"
+        },
+        {
+          "sigle": "PC",
+          "definition": "Ordinateur personnel"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Japan's GMO urges customers to shut down PCs amid ransomware threat",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/japans-gmo-urges-customers-to-shut-down-pcs-amid-ransomware-threat/",
+          "date": "2026-10-27",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/27/gmo.jpg"
+        }
+      ]
     }
   ]
 }

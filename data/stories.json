@@ -25900,6 +25900,87 @@
           "image": "https://cms.therecord.media/uploads/moldova_1_5f60dac3c7.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-28-japan-airlines-amadeus",
+      "title": "Japan Airlines : données de réservation de clients consultées chez le prestataire Amadeus",
+      "created": "2026-10-28T21:30:00+00:00",
+      "updated": "2026-10-28T21:30:00+00:00",
+      "version": 1,
+      "resume": "Des pirates ont accédé à une partie des données de réservation des vols de Japan Airlines chez Amadeus, qui gère ses systèmes de réservation. 92 000 clients sont touchés, dont environ 2 000 avec passeport et coordonnées [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Accès aux données",
+          "texte": "Intrusion chez Amadeus, prestataire des systèmes de réservation, billetterie et enregistrement de Japan Airlines → accès à une partie des données de réservation [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Noms, codes de réservation et informations de vol de 92 000 clients ; pour environ 2 000 clients, passeport, fidélité, e-mail et téléphone [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "ama",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes d'Amadeus",
+            "note": "Prestataire de Japan Airlines"
+          },
+          {
+            "id": "res",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données de réservation Japan Airlines",
+            "note": "92 000 clients"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ama",
+            "etape": 2,
+            "texte": "Accès non précisé aux systèmes d'Amadeus"
+          },
+          {
+            "de": "ama",
+            "vers": "res",
+            "etape": 3,
+            "texte": "Données de réservation et de clients volées"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'accès, ni l'acteur, ni la date de l'intrusion chez Amadeus [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non précisé par les sources [1]"
+      ],
+      "cibles": [
+        "Clients de Japan Airlines et Japan Transocean Air, via le prestataire Amadeus [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Japan Airlines warns of data breach as country grapples with multiple cyber incidents",
+          "site": "The Record",
+          "url": "https://therecord.media/japan-airlines-warns-of-breach-country-grapples-with-incidents",
+          "date": "2026-10-28",
+          "image": "https://cms.therecord.media/uploads/japan_airlines_cb02768a19.jpg"
+        }
+      ]
     }
   ]
 }

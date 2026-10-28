@@ -8105,8 +8105,8 @@
       "id": "2026-10-06-fbi-shinyhunters-peoplesoft",
       "title": "FBI : ShinyHunters vole des données d'employés via une faille PeopleSoft non corrigée",
       "created": "2026-10-06T08:30:00+00:00",
-      "updated": "2026-10-11T23:07:33+00:00",
-      "version": 6,
+      "updated": "2026-10-28T08:10:37+00:00",
+      "version": 7,
       "resume": "Des données personnelles de milliers d'employés du FBI ont été volées par ShinyHunters sur une plateforme Oracle PeopleSoft gérée par un tiers. Un sous-traitant d'Accenture a été retiré [1, 2].",
       "chaine": [
         {
@@ -8192,12 +8192,12 @@
       "cves": [
         {
           "id": "CVE-2026-35273",
-          "explication": "Faille d'Oracle PeopleSoft exploitée avec un contournement du pare-feu applicatif ; le correctif existait mais n'avait pas été appliqué [1]."
+          "explication": "Oracle PeopleSoft PeopleTools 8.61 et 8.62 : trois failles chaînées dont une SSRF, permettant de prendre le contrôle du serveur sans authentification, gravité 9,8 sur 10 [7]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "ShinyHunters [1, 5]"
+        "ShinyHunters [1, 5], aussi suivi sous le nom UNC6240 [7]"
       ],
       "cibles": [
         "FBI : données personnelles de milliers d'employés [1] ; environ 60 000 agents actuels et anciens [3]"
@@ -8218,6 +8218,14 @@
         {
           "sigle": "AWS",
           "definition": "Amazon Web Services : services d'informatique en nuage d'Amazon"
+        },
+        {
+          "sigle": "SSRF",
+          "definition": "Faille faisant envoyer au serveur une requête vers une cible choisie par l'attaquant"
+        },
+        {
+          "sigle": "UNC6240",
+          "definition": "Nom de suivi de ShinyHunters par Mandiant"
         }
       ],
       "sources": [
@@ -8262,6 +8270,13 @@
           "url": "https://www.zataz.com/piratage-du-fbi-un-correctif-oublie-chez-un-prestataire/",
           "date": "2026-10-11",
           "image": "https://www.zataz.com/wp-content/uploads/Shiny_FBI.jpg"
+        },
+        {
+          "titre": "ShinyHunters-Exploited Oracle PeopleSoft Zero-Day Turns Out to Be Three Chained Flaws",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/shinyhunters-exploited-oracle.html",
+          "date": "2026-10-28",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgiU-iVEycp9z-2dprGJhgl046M9ZvG7kGGwaXNzgFJg7XDubOoWWLvEuKAOczIcGuXU04db46Xa6pRMKO36ZS7Fu8Xkv7mNuPjHUS0zLTHkGlNWNRD2DLCznPf6jqvqamZSZGMBXSzh9gMYm-9sR-y7OgN7i7n6x0dfYxyl9QftWlfuQw0mpTteHy57k/s1700-nu-rw-lo-l85-e365/sh.jpg"
         }
       ]
     },
@@ -24649,13 +24664,13 @@
       "id": "2026-10-28-gmo-onamae-desktop-cloud",
       "title": "GMO Internet : intrusion sur Onamae Desktop Cloud, vol de données et menace de rançongiciel",
       "created": "2026-10-28T00:30:00+00:00",
-      "updated": "2026-10-28T00:30:00+00:00",
-      "version": 1,
-      "resume": "Un attaquant a pénétré le service Onamae Desktop Cloud de GMO Internet, volé des données et réclamé une rançon de 8 milliards de yens, refusée par GMO [1].",
+      "updated": "2026-10-28T08:10:37+00:00",
+      "version": 2,
+      "resume": "Un attaquant a pénétré le service Onamae Desktop Cloud de GMO Internet, volé des données et réclamé une rançon de 8 milliards de yens, refusée par GMO [1]. GMO offre jusqu'à 1 million de dollars pour des informations menant aux attaquants [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé par les sources [1, 2]."
         },
         {
           "etape": "Intrusion sur les serveurs",
@@ -24672,6 +24687,10 @@
         {
           "etape": "Publication des données",
           "texte": "Données de l'entreprise et de ses clients publiées, authenticité vérifiée par GMO ; aucun rançongiciel activé selon l'article [1]."
+        },
+        {
+          "etape": "Utilisation des identifiants",
+          "texte": "Connexions et transactions par des tiers chez OANDA Japan avec des identifiants possiblement issus des serveurs GMO [2]."
         }
       ],
       "parcours": {
@@ -24703,6 +24722,13 @@
             "zone": "victime",
             "nom": "Données GMO et clients",
             "note": "Volées, publiées"
+          },
+          {
+            "id": "oa",
+            "type": "application",
+            "zone": "victime",
+            "nom": "OANDA Japan",
+            "note": "Transactions non autorisées"
           }
         ],
         "liens": [
@@ -24723,10 +24749,16 @@
             "vers": "dat",
             "etape": 3,
             "texte": "Vol puis publication des données"
+          },
+          {
+            "de": "att",
+            "vers": "oa",
+            "etape": 6,
+            "texte": "Connexions avec des identifiants possiblement issus de GMO"
           }
         ]
       },
-      "limites": "L'article ne précise ni le vecteur d'accès initial, ni l'identité de l'attaquant, ni le logiciel malveillant installé [1].",
+      "limites": "Les sources ne précisent ni le vecteur d'accès initial, ni l'identité de l'attaquant, ni le logiciel malveillant installé [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -24743,6 +24775,10 @@
         {
           "sigle": "PC",
           "definition": "Ordinateur personnel"
+        },
+        {
+          "sigle": "OANDA",
+          "definition": "Courtier de change en ligne : OANDA Japan"
         }
       ],
       "sources": [
@@ -24752,6 +24788,215 @@
           "url": "https://www.bleepingcomputer.com/news/security/japans-gmo-urges-customers-to-shut-down-pcs-amid-ransomware-threat/",
           "date": "2026-10-27",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/27/gmo.jpg"
+        },
+        {
+          "titre": "Japan's GMO Offers $1 Million Bounty to Catch Hackers Behind FX Trading Cloud Breach",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/japans-gmo-offers-1-million-bounty-to.html",
+          "date": "2026-10-28",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguDDZZalFBPLgf4YxDU_9FK46XXVkU3x0GKHeZHFd2WTdJ0cK5n1KCWDEOIvSgzHP4R14xmwLygLnnmyuBEVcHRVO7b9nIUZVcp5ehxIgFGrPyXZ3hZGwNa2bg8k4e_kkSHa2tyo05yPortQqRR_9g3yr-T0k0Tga9_26Pr0rs_MNIU8RndHMeq9r5Rr0/s1700-nu-rw-lo-l85-e365/gmo.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-27-camera-cms-dll-sideloading",
+      "title": "Logiciel de gestion de caméras compromis : porte dérobée installée chez des clients de Huntress",
+      "created": "2026-10-28T08:10:37+00:00",
+      "updated": "2026-10-28T08:10:37+00:00",
+      "version": 1,
+      "resume": "Huntress a observé, en septembre et octobre, plusieurs intrusions liées au logiciel de gestion de caméras CMS.exe : outil d'accès à distance, chargement de DLL malveillantes et communication avec un serveur de contrôle [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Le logiciel de gestion de caméras CMS.exe est présenté comme vecteur d'accès ; la méthode de compromission n'est pas précisée [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Dépôt de rs.win32.exe, lancé avec une adresse distante et des identifiants admin → session de contrôle à distance (reverse shell) [1]."
+        },
+        {
+          "etape": "Exécution du code",
+          "texte": "Dépôt du binaire Windows légitime WpcMon.exe et chargement de DLL malveillantes (détournement de DLL) → exécution du code de l'attaquant [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "WpcMon.exe ajouté à la clé Run de l'utilisateur → lancement à chaque connexion [1]."
+        },
+        {
+          "etape": "Communication distante",
+          "texte": "Signaux périodiques vers un serveur de contrôle à l'adresse 144.172.116[.]37 [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "cam",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Logiciel CMS.exe",
+            "note": "Gestion de caméras"
+          },
+          {
+            "id": "pc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Machine Windows du client",
+            "note": "WpcMon.exe, DLL"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de contrôle",
+            "note": "144.172.116[.]37"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cam",
+            "etape": 1,
+            "texte": "Compromission du logiciel, méthode non précisée"
+          },
+          {
+            "de": "cam",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Dépôt de rs.win32.exe, session de contrôle à distance"
+          },
+          {
+            "de": "pc",
+            "vers": "c2",
+            "etape": 5,
+            "texte": "Signaux périodiques vers le serveur de contrôle"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni la méthode de compromission, ni l'éditeur du logiciel, ni l'acteur, ni les dates exactes des incidents [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Acteur non identifié [1]"
+      ],
+      "cibles": [
+        "Plusieurs environnements clients de Huntress, secteurs non précisés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "DLL",
+          "definition": "Bibliothèque de code que Windows charge dans un programme"
+        },
+        {
+          "sigle": "CMS",
+          "definition": "Nom du logiciel de gestion de caméras observé"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Camera Management Software Compromise Leads to Malware Deployment",
+          "site": "Huntress",
+          "url": "https://www.huntress.com/blog/camera-management-software-compromise-malware",
+          "date": "2026-10-27",
+          "image": "https://images.huntress.com/asset/file/d9122fb6fb1f499fa534a01010c2b5e8"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-28-polyshell-adobe-commerce",
+      "title": "Adobe Commerce : la faille PolyShell exploitée contre des centaines de boutiques",
+      "created": "2026-10-28T08:10:37+00:00",
+      "updated": "2026-10-28T08:10:37+00:00",
+      "version": 1,
+      "resume": "Des attaquants exploitent la faille PolyShell (CVE-2026-48356) pour compromettre des centaines de boutiques Adobe Commerce et Magento. La CISA a ajouté cette faille et une faille Brotli à son catalogue des failles exploitées [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de CVE-2026-48356 (PolyShell), téléversement d'un fichier dangereux → compromission de centaines de boutiques Magento [1]."
+        },
+        {
+          "etape": "Chargeur malveillant",
+          "texte": "Injection d'un chargeur dans un bloc de contenu Magento → il récupère et exécute une charge contrôlée par l'attaquant [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "shop",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Boutiques Magento",
+            "note": "Centaines compromises"
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de l'attaquant",
+            "note": "Charge utile"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "shop",
+            "etape": 1,
+            "texte": "Exploitation de PolyShell"
+          },
+          {
+            "de": "srv",
+            "vers": "shop",
+            "etape": 2,
+            "texte": "Le chargeur récupère la charge utile"
+          }
+        ]
+      },
+      "limites": "Aucun logiciel de second étage n'a été récupéré et les objectifs de la campagne restent flous. Pour Brotli, aucune compromission confirmée n'est rapportée [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-48356",
+          "explication": "Adobe Commerce et Magento : téléversement non restreint d'un fichier dangereux, exécution de code arbitraire, gravité 9,3 sur 10, exploitation confirmée [1]."
+        },
+        {
+          "id": "CVE-2026-111497",
+          "explication": "Décodeur Brotli de Google : valeur de retour non vérifiée, corruption de mémoire pouvant mener à l'exécution de code, gravité 9,2 sur 10 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Acteur non identifié [1]"
+      ],
+      "cibles": [
+        "Centaines de boutiques en ligne Adobe Commerce et Magento [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Adobe Commerce PolyShell Attacks Breach Hundreds of Stores as Brotli Exploit Traffic Emerges",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/adobe-commerce-polyshell-attacks-breach.html",
+          "date": "2026-10-28",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1vdoV4q9cDhhxBpH2lDPkUPc4WTkuwSmH93IS6MDM8fSYR4ZsKEakfK54cvOjHMFYGJA7Hri87MShqbPweb0BNmEXEsKJErbferZyq7_m7XdHLrb2bgmps_Bs_nu_w7RCiade8PPKSYv6NpxnWTG8pJD5CIUvI2E_cfWMqNBFTl4MXm2WKZaqL_T0DaO-/s1700-nu-rw-lo-l85-e365/cisa-warning.jpg"
         }
       ]
     }

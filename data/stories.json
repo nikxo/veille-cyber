@@ -26034,9 +26034,9 @@
       "id": "2026-10-29-warp-panda-vmware-esx",
       "title": "Warp Panda : faille de VMware ESX exploitée pour réduire les journaux d'audit",
       "created": "2026-10-29T07:30:00+00:00",
-      "updated": "2026-10-29T07:30:00+00:00",
-      "version": 1,
-      "resume": "Le groupe Warp Panda, lié à la Chine, a exploité en zero-day une faille de VMware ESX qui réduit la visibilité des journaux d'audit, dans des attaques contre le secteur juridique américain [1].",
+      "updated": "2026-10-29T08:15:00+00:00",
+      "version": 2,
+      "resume": "Le groupe Warp Panda, lié à la Chine, a exploité en zero-day une faille de VMware ESX qui réduit la visibilité des journaux d'audit, dans des attaques contre le secteur juridique américain [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -26044,7 +26044,7 @@
         },
         {
           "etape": "Contournement des journaux",
-          "texte": "Exploitation de CVE-2026-41709 dans VMware ESX → opérations réalisées sans journalisation par un attaquant disposant de droits d'administration [1]."
+          "texte": "Exploitation de CVE-2026-41709 dans VMware ESX → opérations réalisées sans journalisation par un attaquant disposant de droits d'administration [1, 2]."
         }
       ],
       "parcours": {
@@ -26073,19 +26073,19 @@
           }
         ]
       },
-      "limites": "Les sources décrivent le mode opératoire général de Warp Panda (dispositifs exposés, vCenter, jetons Microsoft 365) sans le rattacher à ces attaques précises [1].",
+      "limites": "Les sources décrivent le mode opératoire général de Warp Panda (dispositifs exposés, vCenter, jetons Microsoft 365) sans le rattacher à ces attaques précises [1, 2].",
       "cves": [
         {
           "id": "CVE-2026-41709",
-          "explication": "VMware ESX de Broadcom : journalisation insuffisante, un attaquant administrateur agit sans trace, gravité 2,7 sur 10, correctifs publiés en juillet 2026 [1]."
+          "explication": "VMware ESX de Broadcom : journalisation insuffisante, un attaquant administrateur agit sans trace, gravité 2,7 sur 10, correctifs publiés en juillet 2026 [1, 2]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "Warp Panda, lié à la Chine, aussi suivi sous les noms Armory Castle, Clay Typhoon et VerdantBamboo [1]"
+        "Warp Panda, lié à la Chine, aussi suivi sous les noms Armory Castle, Clay Typhoon et VerdantBamboo [1, 2]"
       ],
       "cibles": [
-        "Secteur juridique américain, entités américaines de plusieurs secteurs [1]"
+        "Secteur juridique américain, entités américaines de plusieurs secteurs [1, 2]"
       ],
       "abreviations": [
         {
@@ -26100,6 +26100,13 @@
           "url": "https://thehackernews.com/2026/10/china-linked-hackers-exploited-vmware.html",
           "date": "2026-10-29",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcr5vMvEpNtC6AAPL85NwoZLwafJYuuIYKlofAez4dmACEH-0VI-icaKusP2b9HgxcJC2AMyZkdGNfVOyXQCWqjK-_vIvw1OjptUH_maUL82An7MRxEnZQ62JZqPqwuTp6QQ8TWq4y0SRqUb6KhdXLYRJMyUHg2cQBzez3g-0G8jh2ujIgx-6FqQdWBuFr/s1700-nu-rw-lo-l85-e365/esx-audit.jpg"
+        },
+        {
+          "titre": "Chinese Hackers Quietly Used Low-Severity ESXi Logging Flaw as Zero-Day",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/chinese-hackers-quietly-used-low-severity-esxi-logging-flaw-as-zero-day/",
+          "date": "2026-10-29",
+          "image": "https://www.securityweek.com/wp-content/uploads/2022/08/VMWare.jpg"
         }
       ]
     }

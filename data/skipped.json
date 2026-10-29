@@ -1,29 +1,5 @@
 [
   {
-    "id": "c326964ab7aa7e8a",
-    "title": "AI And Cybersecurity: An Interview With Cyril Simonnet",
-    "link": "https://www.sekoia.com/blog/ai-moves-faster-but-humans-are-setting-the-course",
-    "source": "Sekoia",
-    "raison": "interview d'opinion, aucune attaque décrite",
-    "date": "2026-10-09T13:30:00+00:00"
-  },
-  {
-    "id": "e96ba9baabd04a99",
-    "title": "OpenAI says it disrupted Russian and Iranian influence ops that used ChatGPT",
-    "link": "https://therecord.media/openai-disrupts-russian-iranian-operations-chatgpt",
-    "source": "The Record",
-    "raison": "opération d'influence, pas d'intrusion ni de méthode d'attaque informatique",
-    "date": "2026-10-09T14:07:07+00:00"
-  },
-  {
-    "id": "04cd634844344647",
-    "title": "Anthropic Launches Free AI Vulnerability Scanner for Open-Source Projects",
-    "link": "https://thehackernews.com/2026/10/anthropic-launches-free-ai.html",
-    "source": "The Hacker News",
-    "raison": "annonce produit",
-    "date": "2026-10-09T15:08:22+00:00"
-  },
-  {
     "id": "55864660cd86f4ba",
     "title": "TP-Link Sued by Four More U.S. States Over Router Security and China Ties",
     "link": "https://thehackernews.com/2026/10/tp-link-sued-by-four-more-us-states.html",
@@ -3998,5 +3974,29 @@
     "source": "SecurityWeek",
     "raison": "annonce produit",
     "date": "2026-10-29T14:27:43+00:00"
+  },
+  {
+    "id": "7f2174c7b4a12bb8",
+    "title": "Google Touts Powerful Cybersecurity Capabilities in Gemini 4 Carbon Model",
+    "link": "https://www.securityweek.com/google-says-gemini-4-carbon-leads-in-finding-exploiting-and-fixing-vulnerabilities/",
+    "source": "SecurityWeek",
+    "raison": "annonce produit",
+    "date": "2026-10-29T15:35:00+00:00"
+  },
+  {
+    "id": "92854a6c616da633",
+    "title": "How Secure Are US Elections? Voting Machine Risks and the Growing Threat of AI",
+    "link": "https://www.securityweek.com/how-secure-are-us-elections-voting-machine-risks-and-the-growing-threat-of-ai/",
+    "source": "SecurityWeek",
+    "raison": "analyse générale sans attaque décrite",
+    "date": "2026-10-29T15:35:00+00:00"
+  },
+  {
+    "id": "99ccbb4073246879",
+    "title": "Microsoft fixes Remote Desktop failures caused by recent Windows updates",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-remote-desktop-failures-caused-by-recent-windows-updates/",
+    "source": "BleepingComputer",
+    "raison": "correctif de bug sans attaque",
+    "date": "2026-10-29T15:35:00+00:00"
   }
 ]

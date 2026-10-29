@@ -26638,6 +26638,258 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh65eroK1pQacKJwqeGmgp2sDta1mgCrPuNMXiwAgTi-FVZNc1V4D7qooFFc-V-XNOJzYpjYk28Y_kIkoHMNJfnQ5h2gI0-bOWlVOt9VJ9oZUpRsBzYLsSMe3oNRTfZe53dtpezOOq1MHmWhEhAigbyOMLx4jWAbcvvImY39jY1h4FMS4_OUqSDF-kZJvQ/s1700-nu-rw-lo-l85-e365/linux-gitlab.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-29-gold-ogre-aur0ra-ia",
+      "title": "GOLD OGRE : le rançongiciel Aur0ra préparé et mené avec l'aide de l'IA",
+      "created": "2026-10-29T13:30:00+00:00",
+      "updated": "2026-10-29T13:30:00+00:00",
+      "version": 1,
+      "resume": "Le groupe GOLD OGRE, qui opère le rançongiciel Aur0ra, a utilisé largement l'IA pour développer ses outils et mener ses opérations. Trois victimes figurent sur son site de fuite [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Des opérateurs humains fournissent aux agents IA des identifiants VPN, un accès SOCKS et des identifiants obtenus précédemment [1]."
+        },
+        {
+          "etape": "Découverte du réseau",
+          "texte": "Scans de sous-réseaux et énumération du domaine avec BloodHound → cartographie du domaine et des chemins d'attaque [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Password spraying, Kerberoasting, relais NTLM, extraction depuis des fichiers et sauvegardes → nouveaux identifiants [1]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Attaques sur les certificats avec Certipy → accès administrateur du domaine, dans un sous-ensemble d'environnements [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Recherche dans partages, sauvegardes et stockage cloud, puis transfert vers un bucket compatible S3 → données sorties de l'environnement [1]."
+        },
+        {
+          "etape": "Chiffrement",
+          "texte": "Binaires Aur0ra pour Windows et Linux trouvés dans un répertoire ouvert ; le déploiement effectif n'est pas détaillé [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (GOLD OGRE)",
+            "note": "Agents IA"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Réseau de la victime",
+            "note": "Accès VPN"
+          },
+          {
+            "id": "ad",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Domaine de la victime",
+            "note": ""
+          },
+          {
+            "id": "dat",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Partages, sauvegardes, cloud",
+            "note": ""
+          },
+          {
+            "id": "s3",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Bucket compatible S3",
+            "note": "Données reçues"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Identifiants VPN et accès SOCKS fournis"
+          },
+          {
+            "de": "pc",
+            "vers": "ad",
+            "etape": 3,
+            "texte": "Vol d'identifiants dans le domaine"
+          },
+          {
+            "de": "ad",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Accès administrateur du domaine"
+          },
+          {
+            "de": "pc",
+            "vers": "dat",
+            "etape": 5,
+            "texte": "Recherche de données à voler"
+          },
+          {
+            "de": "dat",
+            "vers": "s3",
+            "etape": 5,
+            "texte": "Transfert des données"
+          }
+        ]
+      },
+      "limites": "Les noms et secteurs des victimes ainsi que le déroulement du chiffrement ne sont pas précisés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "GOLD OGRE, qui opère le rançongiciel Aur0ra, avec plusieurs opérateurs distincts [1]"
+      ],
+      "cibles": [
+        "Trois victimes nommées sur le site de fuite d'Aur0ra, sans nom ni secteur précisés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "VPN",
+          "definition": "Réseau privé virtuel : accès distant chiffré au réseau d'une organisation"
+        },
+        {
+          "sigle": "SOCKS",
+          "definition": "Protocole de relais qui fait passer le trafic par une machine intermédiaire"
+        },
+        {
+          "sigle": "NTLM",
+          "definition": "Ancien protocole d'authentification Windows"
+        },
+        {
+          "sigle": "S3",
+          "definition": "Service de stockage d'objets en ligne (bucket : espace de stockage)"
+        },
+        {
+          "sigle": "GOLD OGRE",
+          "definition": "Nom donné par Sophos au groupe qui opère le rançongiciel Aur0ra"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "AI used in Aur0ra ransomware testing and execution",
+          "site": "Sophos Threat Research",
+          "url": "https://www.sophos.com/en-us/blog/ai-used-in-aur0ra-ransomware-testing-and-execution",
+          "date": "2026-10-29",
+          "image": "https://images.contentstack.io/v3/assets/blt38f1f401b66100ad/bltb4b6c0750dc5846c/6aad5e6160452d9f5056a4ef/logo.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-29-dhs-okta-fuite-icepick",
+      "title": "Fuite de plus de 41 000 dossiers d'employés du DHS, issus d'un système Okta selon le pirate",
+      "created": "2026-10-29T13:30:00+00:00",
+      "updated": "2026-10-29T13:30:00+00:00",
+      "version": 1,
+      "resume": "Un pirate a publié plus de 41 000 enregistrements d'employés du ministère américain de la Sécurité intérieure (DHS), dérobés selon lui dans un système d'authentification unique Okta [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Selon le pirate, données volées dans un système d'authentification unique Okta utilisé par employés et sous-traitants du DHS ; Okta dit n'avoir aucune preuve de compromission [1]."
+        },
+        {
+          "etape": "Publication",
+          "texte": "Mise en ligne des enregistrements avec un outil de recherche → noms, e-mails, téléphones, postes, lieux et systèmes internes accessibles exposés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Department of Peace)",
+            "note": ""
+          },
+          {
+            "id": "sso",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Système Okta du DHS",
+            "note": "Selon le pirate"
+          },
+          {
+            "id": "dat",
+            "type": "donnees",
+            "zone": "internet",
+            "nom": "Base publiée en ligne",
+            "note": "41 000 dossiers"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sso",
+            "etape": 2,
+            "texte": "Vol de données, selon le pirate"
+          },
+          {
+            "de": "att",
+            "vers": "dat",
+            "etape": 3,
+            "texte": "Publication avec outil de recherche"
+          }
+        ]
+      },
+      "limites": "Le vecteur d'accès, la date du vol et la compromission d'Okta ne sont pas établis ; Okta affirme n'avoir aucune preuve [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Pseudonyme « Department of Peace », revendiqué par le pirate [1]"
+      ],
+      "cibles": [
+        "Employés et sous-traitants du DHS, surtout CBP, ICE et HSI, environ 1 000 de la CISA [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "DHS",
+          "definition": "Département de la Sécurité intérieure des États-Unis"
+        },
+        {
+          "sigle": "CBP",
+          "definition": "Police des douanes et des frontières des États-Unis"
+        },
+        {
+          "sigle": "ICE",
+          "definition": "Service américain de l'immigration et des douanes"
+        },
+        {
+          "sigle": "HSI",
+          "definition": "Enquêtes de sécurité intérieure, branche d'enquête de l'ICE"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Over 41,000 DHS Employee Records Leaked Online",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/over-41000-dhs-employee-records-leaked-online/",
+          "date": "2026-10-29",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+        }
+      ]
     }
   ]
 }

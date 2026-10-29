@@ -27371,6 +27371,106 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1ij0gwe-L1jDZxdoUPZ6hpSJnJgMHh2bG8bFF2y8y-dJA9nY0Fr2JOU2i4NaCetGqvTZOtvaRXbZONR6d8ajjMR6DNm_X7OwaVCiH7dPycEN9xGI0psNvPYbwDhpGmUQ4Qyhp5x9fqQ_sgzjcReslK-a-gRS3kFr5_JOns1kkuC6UheDHVb2yaV8EAhIF/s1700-nu-rw-lo-l85-e365/claude-hack.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-29-coree-nord-ia-sleet",
+      "title": "Acteurs nord-coréens : usage croissant de l'IA dans leurs campagnes",
+      "created": "2026-10-29T18:20:00+00:00",
+      "updated": "2026-10-29T18:20:00+00:00",
+      "version": 1,
+      "resume": "Microsoft décrit l'usage de l'IA par plusieurs groupes nord-coréens (Sapphire Sleet, Jade Sleet, Onyx Sleet, Diamond Sleet, Coral Sleet) pour préparer leurres, recrutements factices et outils [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Faux recruteurs et entretiens d'embauche, leurres de phishing, dépôts malveillants → premiers échanges avec les personnes ciblées [1]."
+        },
+        {
+          "etape": "Leurres personnalisés",
+          "texte": "Onyx Sleet crée plus de 100 PDF leurres propres à chaque cible en quelques minutes → phishing de masse contre des utilisateurs sud-coréens [1]."
+        },
+        {
+          "etape": "Compromission de développeurs",
+          "texte": "Sapphire Sleet cible des développeurs Rust en août 2026 → déploiement de logiciels malveillants, dont des portes dérobées [1]."
+        },
+        {
+          "etape": "Chaîne d'infection",
+          "texte": "Coral Sleet met en place en avril 2026 un workflow pour trojaniser des dépôts GitHub privés → intégration à sa chaîne d'infection existante [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (groupes nord-coréens)",
+            "note": ""
+          },
+          {
+            "id": "cib",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Personnes ciblées",
+            "note": "Recrutement factice"
+          },
+          {
+            "id": "dev",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes de développeurs Rust",
+            "note": "Logiciel compromis"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cib",
+            "etape": 1,
+            "texte": "Faux recruteurs, entretiens et leurres"
+          },
+          {
+            "de": "att",
+            "vers": "cib",
+            "etape": 2,
+            "texte": "PDF leurres personnalisés (Onyx Sleet)"
+          },
+          {
+            "de": "att",
+            "vers": "dev",
+            "etape": 3,
+            "texte": "Compromission de logiciel Rust (Sapphire Sleet)"
+          }
+        ]
+      },
+      "limites": "Le rapport ne détaille pas le vecteur exact de la compromission de Sapphire Sleet ni de l'intrusion de Coral Sleet, et ne donne pas de bilan des victimes [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Sapphire Sleet, Jade Sleet, Onyx Sleet, Diamond Sleet, Coral Sleet, attribués à la Corée du Nord [1]"
+      ],
+      "cibles": [
+        "Développeurs Rust, utilisateurs sud-coréens, secteurs pétrole et gaz, télécoms, défense, cryptomonnaies [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle : programmes capables de générer texte, code ou images"
+        },
+        {
+          "sigle": "PDF",
+          "definition": "Format de document portable, ici utilisé comme pièce jointe leurre"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Tracking AI adoption in North Korean threat actor tradecraft",
+          "site": "Microsoft Threat Intelligence",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/29/tracking-ai-adoption-in-north-korean-threat-actor-tradecraft/",
+          "date": "2026-10-29",
+          "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/10/North-Korean-use-of-AI-featured.png"
+        }
+      ]
     }
   ]
 }

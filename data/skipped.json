@@ -1,53 +1,5 @@
 [
   {
-    "id": "e3f3090fc550f0c0",
-    "title": "Three Teams Demonstrate Remote Hacks of Fully Patched Google Pixel 10 at Pwn2Own",
-    "link": "https://thehackernews.com/2026/10/three-teams-demonstrate-remote-hacks-of.html",
-    "source": "The Hacker News",
-    "raison": "démonstration en concours, pas d'exploitation dans la nature",
-    "date": "2026-10-09T10:08:23+00:00"
-  },
-  {
-    "id": "74ab20392a04ba68",
-    "title": "Microsoft: Outdated Windows devices will stop receiving security updates",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-outdated-windows-devices-will-lose-security-protection-next-year/",
-    "source": "BleepingComputer",
-    "raison": "annonce de politique de mises à jour, aucune attaque décrite",
-    "date": "2026-10-09T11:30:00+00:00"
-  },
-  {
-    "id": "1df878c9ea1a113d",
-    "title": "Man admits to running network of 15,000 money mules for cybercriminals",
-    "link": "https://www.bleepingcomputer.com/news/security/ukrainian-russian-dual-citizen-admits-to-laundering-millions-for-cybercriminals/",
-    "source": "BleepingComputer",
-    "raison": "actualité judiciaire, pas de méthode d'attaque",
-    "date": "2026-10-09T12:30:00+00:00"
-  },
-  {
-    "id": "b7ae45cc252807b0",
-    "title": "The AI Velocity Paradox: Why Security Is Decades Behind AI Ambition",
-    "link": "https://thehackernews.com/2026/10/the-ai-velocity-paradox-why-security-is.html",
-    "source": "The Hacker News",
-    "raison": "rapport sponsorisé, aucune attaque décrite",
-    "date": "2026-10-09T12:30:00+00:00"
-  },
-  {
-    "id": "ca6c0dcc6d3a1572",
-    "title": "Metasploit Wrap Up: A Collection of What Can Only Be Called Eclectic Modules",
-    "link": "https://www.rapid7.com/blog/post/pt-metasploit-wrap-up-a-collection-of-what-can-only-be-called-eclectic-modules",
-    "source": "Rapid7",
-    "raison": "annonce de modules d'outil, aucune attaque constatée",
-    "date": "2026-10-09T12:30:00+00:00"
-  },
-  {
-    "id": "90f8d938cf4bba50",
-    "title": "Social Engineering AI Agents: The New BEC for 2026",
-    "link": "https://www.darkreading.com/cybersecurity-operations/social-engineering-ai-agents-bec-2026",
-    "source": "Dark Reading",
-    "raison": "page inaccessible (403), résumé flux sans attaque précise",
-    "date": "2026-10-09T13:30:00+00:00"
-  },
-  {
     "id": "c326964ab7aa7e8a",
     "title": "AI And Cybersecurity: An Interview With Cyril Simonnet",
     "link": "https://www.sekoia.com/blog/ai-moves-faster-but-humans-are-setting-the-course",
@@ -3998,5 +3950,53 @@
     "source": "The Hacker News",
     "raison": "contenu sponsorisé / opinion",
     "date": "2026-10-29T13:30:00+00:00"
+  },
+  {
+    "id": "005f2528861a55a1",
+    "title": "Google's Gemini 4 Carbon Leads Benchmarks for Finding, Exploiting, and Patching Vulnerabilities",
+    "link": "https://thehackernews.com/2026/10/googles-gemini-4-carbon-leads.html",
+    "source": "The Hacker News",
+    "raison": "annonce produit",
+    "date": "2026-10-29T14:27:43+00:00"
+  },
+  {
+    "id": "147d2921484983ce",
+    "title": "FTC to probe major companies over personalized pricing and pay",
+    "link": "https://therecord.media/ftc-rideshare-airlines-data",
+    "source": "The Record",
+    "raison": "actualité réglementaire sans attaque",
+    "date": "2026-10-29T14:27:43+00:00"
+  },
+  {
+    "id": "82e06e7d80e33fcd",
+    "title": "Adobe, Veeam, Juniper Networks Patch Critical Vulnerabilities",
+    "link": "https://www.securityweek.com/adobe-veeam-juniper-networks-patch-critical-vulnerabilities/",
+    "source": "SecurityWeek",
+    "raison": "correctifs sans exploitation constatée",
+    "date": "2026-10-29T14:27:43+00:00"
+  },
+  {
+    "id": "86c09ad79b8361cd",
+    "title": "Cohere’s Qwen Story: Looks More Like Model Jaggedness",
+    "link": "https://research.checkpoint.com/2026/coheres-qwen-story-looks-more-like-model-jaggedness/",
+    "source": "Check Point Research",
+    "raison": "comportement de modèle, pas une attaque avérée",
+    "date": "2026-10-29T14:27:43+00:00"
+  },
+  {
+    "id": "c5cb56f9b754b3af",
+    "title": "AI Takes Root in Hospital Corridors, Raises Security Stakes",
+    "link": "https://www.darkreading.com/cybersecurity-operations/ai-root-hospital-corridors-raised-security-stakes",
+    "source": "Dark Reading",
+    "raison": "article général",
+    "date": "2026-10-29T14:27:43+00:00"
+  },
+  {
+    "id": "e008bf7698c0a460",
+    "title": "Cisco Open Sources Quarry to Catch AI Agent Attacks Hidden in Harmless Steps",
+    "link": "https://www.securityweek.com/cisco-open-sources-quarry-to-catch-ai-agent-attacks-hidden-in-harmless-steps/",
+    "source": "SecurityWeek",
+    "raison": "annonce produit",
+    "date": "2026-10-29T14:27:43+00:00"
   }
 ]

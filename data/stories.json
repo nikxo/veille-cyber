@@ -26276,6 +26276,248 @@
           "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/10/28210649/SL-SAS-NetamLoader-featured.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-29-cisco-asa-ftd-vpn-cve-2026-76418",
+      "title": "Cisco ASA et FTD : seconde faille zero-day du VPN exploitée depuis août",
+      "created": "2026-10-29T10:20:00+00:00",
+      "updated": "2026-10-29T10:20:00+00:00",
+      "version": 1,
+      "resume": "Cisco a publié des correctifs pour CVE-2026-76418, exploitée dans la nature sur ses pare-feu ASA et FTD. Une requête distante sans authentification force le redémarrage de l'appareil [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Requête malveillante envoyée au service VPN d'accès distant, sans connexion VPN réussie nécessaire → traitement vulnérable atteint [1]."
+        },
+        {
+          "etape": "Exploitation de la faille",
+          "texte": "Erreurs de logique sur les groupes de tunnels avec authentification secondaire → redémarrage imprévu de l'appareil, disponibilité atteinte [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "fw",
+            "type": "passerelle",
+            "zone": "expose",
+            "nom": "Pare-feu Cisco ASA ou FTD",
+            "note": "Service VPN non corrigé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "fw",
+            "etape": 1,
+            "texte": "Requête malveillante au service VPN"
+          },
+          {
+            "de": "att",
+            "vers": "fw",
+            "etape": 2,
+            "texte": "Redémarrage forcé de l'appareil"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni l'acteur, ni les victimes, ni le nombre d'attaques, ni la date des premières exploitations [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-76418",
+          "explication": "Cisco ASA et FTD, service VPN d'accès distant : erreurs de logique permettant un redémarrage forcé sans authentification, gravité 8,6 sur 10 [1]."
+        },
+        {
+          "id": "CVE-2026-20349",
+          "explication": "Cisco ASA et FTD : faille de traitement des requêtes HTTP corrigée en août, déjà exploitée pour des attaques par déni de service [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Pare-feu Cisco Secure Firewall ASA et FTD avec VPN d'accès distant [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ASA",
+          "definition": "Adaptive Security Appliance : logiciel de pare-feu de Cisco"
+        },
+        {
+          "sigle": "FTD",
+          "definition": "Firepower Threat Defense : logiciel de pare-feu de Cisco"
+        },
+        {
+          "sigle": "VPN",
+          "definition": "Réseau privé virtuel : accès distant chiffré au réseau"
+        },
+        {
+          "sigle": "HTTP",
+          "definition": "Protocole de communication des sites web"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Attackers Exploit Second Cisco Firewall VPN Zero-Day Since August",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/attackers-exploit-second-cisco-firewall-vpn-zero-day-since-august/",
+          "date": "2026-10-29",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Cisco_router_hack-e1793267161770.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-29-nik-c2-framework-ia",
+      "title": "NIK C2 : un framework de contrôle à distance intégrant l'IA observé par Talos",
+      "created": "2026-10-29T10:20:00+00:00",
+      "updated": "2026-10-29T10:20:00+00:00",
+      "version": 1,
+      "resume": "Cisco Talos a observé dans la nature NIK C2, un framework de commande et contrôle avec IA. Son implant Windows vole des identifiants, enregistre les frappes et affiche un écran de verrouillage de rançon [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Persistance et défenses",
+          "texte": "Copie dans AppData, clé de démarrage du registre, contournement d'AMSI, élévation de privilèges via fodhelper.exe sans UAC [1]."
+        },
+        {
+          "etape": "Communication avec l'attaquant",
+          "texte": "WebSocket sur TLS (port 443) avec repli HTTP, chiffrés en AES-256-GCM → machine enregistrée auprès du serveur [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Mots de passe Wi-Fi, identifiants de navigateurs, jetons Discord et portefeuilles crypto → archive browserdata.zip [1]."
+        },
+        {
+          "etape": "Surveillance et IA",
+          "texte": "Enregistreur de frappes, captures d'écran, caméra, micro ; requêtes à l'API OpenAI avec la clé OPENAI_API_KEY de la victime si aucune n'est fournie [1]."
+        },
+        {
+          "etape": "Écran de rançon",
+          "texte": "Sauvegarde du MBR, écran de verrouillage relancé à chaque ouverture de session → rançon en Bitcoin ou USDT, aucun fichier chiffré [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (NIK C2)",
+            "note": "Serveur de contrôle"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste Windows infecté",
+            "note": "Implant NIK C2"
+          },
+          {
+            "id": "ia",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "API OpenAI",
+            "note": "Requêtes IA"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Canal WebSocket chiffré vers l'implant"
+          },
+          {
+            "de": "pc",
+            "vers": "att",
+            "etape": 4,
+            "texte": "Identifiants et données envoyés"
+          },
+          {
+            "de": "pc",
+            "vers": "ia",
+            "etape": 5,
+            "texte": "Requêtes IA avec la clé de la victime"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment ni l'acteur, ni les victimes, ni le vecteur d'accès initial, ni les dates des attaques [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non nommé ; Talos évalue avec confiance modérée une équipe ayant déjà mené des opérations malveillantes [1]"
+      ],
+      "cibles": [
+        "Machines Windows ; aucune victime identifiée [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "C2",
+          "definition": "Commande et contrôle : serveur qui pilote les machines infectées"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "AMSI",
+          "definition": "Antimalware Scan Interface : interface Windows d'analyse antivirus des scripts"
+        },
+        {
+          "sigle": "UAC",
+          "definition": "Contrôle de compte d'utilisateur : demande de confirmation Windows"
+        },
+        {
+          "sigle": "TLS",
+          "definition": "Protocole de chiffrement des communications"
+        },
+        {
+          "sigle": "HTTP",
+          "definition": "Protocole de communication des sites web"
+        },
+        {
+          "sigle": "API",
+          "definition": "Interface permettant à un programme d'utiliser un service"
+        },
+        {
+          "sigle": "AES-256-GCM",
+          "definition": "Algorithme de chiffrement des échanges"
+        },
+        {
+          "sigle": "MBR",
+          "definition": "Master Boot Record : secteur de démarrage du disque"
+        },
+        {
+          "sigle": "USDT",
+          "definition": "Cryptomonnaie indexée sur le dollar"
+        },
+        {
+          "sigle": "WebSocket",
+          "definition": "Canal de communication permanent entre client et serveur"
+        },
+        {
+          "sigle": "NIK",
+          "definition": "Nom du framework C2 observé par Talos"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "NIK C2: The new AI-enabled command-and-control framework",
+          "site": "Cisco Talos",
+          "url": "https://blog.talosintelligence.com/nik-c2-new-ai-enabled-framework/",
+          "date": "2026-10-29",
+          "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/2026/10/NIKC2-Header.jpg"
+        }
+      ]
     }
   ]
 }

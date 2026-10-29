@@ -27593,6 +27593,106 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/14/Cisco.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-29-fausse-app-padre-terminal",
+      "title": "Fausse application Padre Terminal sur l'App Store : 27 portefeuilles Solana vidés",
+      "created": "2026-10-29T20:30:00+00:00",
+      "updated": "2026-10-29T20:30:00+00:00",
+      "version": 1,
+      "resume": "Une fausse application de trading de cryptomonnaies, Padre Terminal, a été publiée sur l'App Store. Elle est liée au vol d'environ 23 000 $ dans 27 portefeuilles Solana [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Publication d'une fausse application usurpant une plateforme de trading de memecoins sur Solana → installation par des utilisateurs [1]."
+        },
+        {
+          "etape": "Accès aux portefeuilles",
+          "texte": "Les utilisateurs importent leurs clés privées dans l'application malveillante → accès à leurs portefeuilles [1]."
+        },
+        {
+          "etape": "Vol de fonds",
+          "texte": "Vidange des portefeuilles → environ 23 000 $ volés dans 27 portefeuilles Solana [1]."
+        },
+        {
+          "etape": "Blanchiment des fonds",
+          "texte": "Conversion de 4 070 USDC en SOL pour empêcher Circle de les geler, puis transfert de 192 SOL vers un nouveau portefeuille [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Fausse application Padre Terminal",
+            "note": "App Store"
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Utilisateurs et portefeuilles Solana",
+            "note": "27 vidés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 1,
+            "texte": "Publication de la fausse application sur l'App Store"
+          },
+          {
+            "de": "usr",
+            "vers": "app",
+            "etape": 2,
+            "texte": "Clés privées importées dans l'application"
+          },
+          {
+            "de": "app",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Portefeuilles vidés, fonds convertis puis transférés"
+          }
+        ]
+      },
+      "limites": "Un seul cas de compromission est directement lié à l'application ; le mode de compromission des autres portefeuilles n'a pas été déterminé [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié : l'article parle d'un attaquant sans nom ni groupe [1]"
+      ],
+      "cibles": [
+        "27 portefeuilles Solana, dont un cas lié directement à l'application [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "USDC",
+          "definition": "Cryptomonnaie stable indexée sur le dollar américain"
+        },
+        {
+          "sigle": "SOL",
+          "definition": "Cryptomonnaie du réseau Solana"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Fake crypto app on Apple App Store linked to $23K wallet theft",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fake-crypto-app-on-apple-app-store-linked-to-23k-wallet-theft/",
+          "date": "2026-10-29",
+          "image": "https://www.bleepstatic.com/content/hl-images/2023/12/01/Hackers_cryptocurrency_red.jpg"
+        }
+      ]
     }
   ]
 }

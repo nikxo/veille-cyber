@@ -27701,6 +27701,118 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2023/12/01/Hackers_cryptocurrency_red.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-29-polymarket-debugbear-script",
+      "title": "Polymarket : script malveillant distribué via le prestataire DebugBear pour vider des comptes",
+      "created": "2026-10-29T22:20:00+00:00",
+      "updated": "2026-10-29T22:20:00+00:00",
+      "version": 1,
+      "resume": "Polymarket a suspendu le trading après qu'un script malveillant, distribué via son prestataire tiers DebugBear, a vidé des comptes d'utilisateurs. Environ 2,5 millions de dollars ont été tracés vers un portefeuille de l'attaquant [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Compromission du prestataire DebugBear (modalités non précisées) → un script JavaScript malveillant est distribué depuis son infrastructure [1]."
+        },
+        {
+          "etape": "Exécution chez les visiteurs",
+          "texte": "Le script s'exécute dans le navigateur des visiteurs de Polymarket et réutilise la session de trading de ceux qui sont connectés [1]."
+        },
+        {
+          "etape": "Vol de fonds",
+          "texte": "Liquidation des positions ou transfert direct des jetons vers un portefeuille de l'attaquant, selon le mode d'authentification [1]."
+        },
+        {
+          "etape": "Commande et collecte",
+          "texte": "Le script contacte un serveur de DebugBear → réception d'instructions et envoi des adresses de portefeuille, soldes et résultats de transactions [1]."
+        },
+        {
+          "etape": "Dispersion des fonds",
+          "texte": "Le portefeuille de l'attaquant a transféré environ 28,6 millions de POL vers trois autres portefeuilles [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "dbg",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Infrastructure DebugBear",
+            "note": "Prestataire compromis"
+          },
+          {
+            "id": "pm",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Site Polymarket",
+            "note": "Script tiers chargé"
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Utilisateurs connectés",
+            "note": "Sessions réutilisées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "dbg",
+            "etape": 1,
+            "texte": "Compromission du prestataire, script malveillant distribué"
+          },
+          {
+            "de": "dbg",
+            "vers": "pm",
+            "etape": 1,
+            "texte": "Script servi aux visiteurs du site"
+          },
+          {
+            "de": "pm",
+            "vers": "usr",
+            "etape": 2,
+            "texte": "Script exécuté dans le navigateur, session réutilisée"
+          },
+          {
+            "de": "usr",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Jetons transférés vers le portefeuille de l'attaquant"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni la date ni le moyen de la compromission de DebugBear, ni le nombre d'utilisateurs touchés, ni le montant volé [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié, l'article parle seulement de pirates [1]"
+      ],
+      "cibles": [
+        "Polymarket et ses utilisateurs, via le prestataire DebugBear [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "POL",
+          "definition": "Jeton de cryptomonnaie transféré par le portefeuille de l'attaquant"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Polymarket halts trading after crypto-draining script breach, $2.5M traced",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/polymarket-halts-trading-after-crypto-draining-script-breach-25m-traced/",
+          "date": "2026-10-29"
+        }
+      ]
     }
   ]
 }

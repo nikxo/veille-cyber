@@ -8746,9 +8746,9 @@
       "id": "2026-10-09-irhythm-fuite-donnees",
       "title": "iRhythm : données de patients volées dans des applications métier hébergées par des tiers",
       "created": "2026-10-09T17:20:00+00:00",
-      "updated": "2026-10-12T12:30:00+00:00",
-      "version": 2,
-      "resume": "Des pirates ont volé des données dans des applications métier hébergées par des tiers chez iRhythm, fabricant du capteur cardiaque Zio Patch. Au moins 360 000 personnes sont touchées [1].",
+      "updated": "2026-10-29T09:30:00+00:00",
+      "version": 3,
+      "resume": "Des pirates ont volé des données dans des applications métier hébergées par des tiers chez iRhythm, fabricant du capteur cardiaque Zio Patch. Au moins 360 000 personnes sont touchées selon [1], et 8 179 772 selon le HHS [3].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -8756,11 +8756,11 @@
         },
         {
           "etape": "Vol de données",
-          "texte": "Accès puis extraction de données de patients entre le 3 et le 8 juin → noms, adresses, courriels, dates de naissance, téléphones, numéros de compte et d'appareil volés [1, 2]."
+          "texte": "Accès puis extraction de données de patients entre le 3 et le 8 juin → noms, adresses, courriels, dates de naissance, téléphones, numéros de compte et d'appareil volés [1, 2, 3]."
         },
         {
           "etape": "Extorsion",
-          "texte": "Contact des pirates le 9 juin → menace de publier les données volées en ligne si une rançon n'est pas versée [2]."
+          "texte": "Contact des pirates le 9 juin → menace de publier les données volées en ligne si une rançon n'est pas versée [2, 3]."
         }
       ],
       "parcours": {
@@ -8802,16 +8802,21 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni les applications touchées ni l'acteur. [1] parle d'ingénierie sociale, sans méthode ; [2] ne mentionne pas le vecteur.",
+      "limites": "Les sources ne précisent ni les applications touchées ni l'acteur. [1] parle d'ingénierie sociale, sans méthode ; [2] et [3] ne mentionnent pas le vecteur. Le nombre de victimes diffère selon les sources.",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Non identifié, aucune revendication publique [1]"
       ],
       "cibles": [
-        "iRhythm : au moins 360 000 personnes, dont 298 647 au Texas et 69 526 en Caroline du Sud [1, 2]"
+        "iRhythm : au moins 360 000 personnes dont 298 647 au Texas [1, 2] ; 8 179 772 selon le HHS [3]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "HHS",
+          "definition": "Département américain de la Santé, qui recense les fuites de données de santé"
+        }
+      ],
       "sources": [
         {
           "titre": "Hundreds of thousands impacted by data breach at biosensor firm iRhythm",
@@ -8825,6 +8830,13 @@
           "site": "SecurityWeek",
           "url": "https://www.securityweek.com/irhythm-data-breach-impacts-over-360000-people/",
           "date": "2026-10-12",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/iRhythm.jpeg"
+        },
+        {
+          "titre": "HHS Filing Puts iRhythm Data Breach Toll at 8.2 Million",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/hhs-filing-puts-irhythm-data-breach-toll-at-8-2-million/",
+          "date": "2026-10-29",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/06/iRhythm.jpeg"
         }
       ]
@@ -25533,8 +25545,8 @@
       "id": "2026-10-28-volt-typhoon-silent-train",
       "title": "Volt Typhoon : le framework Silent Train masque des attaques zero-day derrière des relais jetables",
       "created": "2026-10-28T16:30:00+00:00",
-      "updated": "2026-10-28T22:30:00+00:00",
-      "version": 3,
+      "updated": "2026-10-29T09:30:00+00:00",
+      "version": 4,
       "resume": "Le groupe chinois Volt Typhoon utilise le framework Silent Train, une chaîne d'appareils compromis jetables, pour cacher des attaques zero-day contre des cibles de grande valeur ; plusieurs centaines de victimes sont identifiées [1, 7].",
       "chaine": [
         {
@@ -25547,7 +25559,7 @@
         },
         {
           "etape": "Implant KeyDrift",
-          "texte": "Contournement d'authentification de Cisco SD-WAN Catalyst Controller (CVE-2026-20127), puis installation de KeyDrift → portes dérobées, relais intermédiaires et collecte de clés [8]."
+          "texte": "Contournement d'authentification de Cisco SD-WAN Catalyst Controller (CVE-2026-20127), puis installation de KeyDrift → portes dérobées, relais intermédiaires et collecte de clés [8, 9]."
         },
         {
           "etape": "Contrôle des cibles",
@@ -25616,7 +25628,7 @@
           }
         ]
       },
-      "limites": "Vecteur d'accès par cible non décrit [1, 7] ; faille Quest KACE suspecte, non confirmée [1, 7] ; dates et nombre de victimes d'UAT-11473 non mentionnés [8].",
+      "limites": "Vecteur d'accès par cible non décrit [1, 7] ; faille Quest KACE suspecte, non confirmée [1, 7] ; dates et nombre de victimes d'UAT-11473 non mentionnés [8, 9] ; envoi effectif des clés non précisé [9].",
       "cves": [
         {
           "id": "CVE-2026-16812",
@@ -25649,7 +25661,7 @@
       ],
       "acteurs": [
         "Volt Typhoon, groupe étatique chinois suivi par Black Lotus Labs, rapport de Lumen [1, 7]",
-        "UAT-11473 : Talos évalue avec confiance élevée que son infrastructure chevauche largement Silent Train, attribué à Volt Typhoon [8]"
+        "UAT-11473 : Talos évalue avec confiance élevée que son infrastructure chevauche largement Silent Train, attribué à Volt Typhoon [8, 9]"
       ],
       "cibles": [
         "Télécoms, administrations, sous-traitants de la défense, services publics, transports, sociétés informatiques [1, 7]",
@@ -25723,6 +25735,13 @@
           "url": "https://blog.talosintelligence.com/uat-11473-keydrift/",
           "date": "2026-10-28",
           "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/threat_advisory-1.jpg"
+        },
+        {
+          "titre": "Hackers Exploited Cisco SD-WAN Flaw to Plant Malware Built to Steal Encryption Keys",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/hackers-exploited-cisco-sd-wan-flaw-to.html",
+          "date": "2026-10-29",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDuVB5nQJHwAnAATDQxAqD8KtWk7IpNvBqXQq6RPkqJ72joLVDp5dUDDdYmRHlrbUhJQpaQQ59p245XjotvW2DNx_fKk7cPp0wJUsK0z5IQY2jXA1oP-YcYKLtSdBXnZJDNECWOzX9tP3-12cKXJm2A1KKoBsu9CEiOYKbgJDVqvQt7YRF8Fzd706YumA/s1700-nu-rw-lo-l85-e365/cisco-sdwan.jpg"
         }
       ]
     },
@@ -26107,6 +26126,154 @@
           "url": "https://www.securityweek.com/chinese-hackers-quietly-used-low-severity-esxi-logging-flaw-as-zero-day/",
           "date": "2026-10-29",
           "image": "https://www.securityweek.com/wp-content/uploads/2022/08/VMWare.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-29-netamloader-windows-gouvernemental",
+      "title": "NetamLoader : une APT inconnue vise un Windows 10 personnalisé pour des gouvernements d'Asie",
+      "created": "2026-10-29T09:30:00+00:00",
+      "updated": "2026-10-29T09:30:00+00:00",
+      "version": 1,
+      "resume": "Un acteur non identifié a visé, avec le chargeur NetamLoader, une version personnalisée de Windows 10 utilisée par des entités gouvernementales en Asie. Une seule victime est identifiée [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources : la livraison de l'archive CAB à la victime n'a pas été observée [1]."
+        },
+        {
+          "etape": "Exécution",
+          "texte": "Archive CAB placée dans le dossier des mises à jour Windows, avec des composants légitimes de Patch My PC → lancement de PatchMyPC-ScriptRunner.exe avec l'argument -updatepackage [1]."
+        },
+        {
+          "etape": "Chargement du code",
+          "texte": "Fichier de configuration détourné puis objet sérialisé désérialisé de façon vulnérable → chargement de code XAML déchiffré avec une clé tirée de la ligne de commande [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Contournement d'AMSI, suppression de fichiers et journaux, désactivation d'ETW pour .NET → analyses AMSI toujours propres, traces effacées [1]."
+        },
+        {
+          "etape": "Sortie du processus initial",
+          "texte": "Chargement via un objet COM distant (RPC) dans dllhost.exe → infection sortie du processus initial pour échapper à l'EDR [1]."
+        },
+        {
+          "etape": "Implant et commande",
+          "texte": "Implant dans dllhost.exe → interrogation périodique du serveur C2 en HTTPS, téléchargement et exécution de code XAML [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (APT inconnue)",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Windows 10 gouvernemental",
+            "note": "Implant dans dllhost.exe"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur C2",
+            "note": "Derrière Cloudflare"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Archive CAB dans le dossier des mises à jour"
+          },
+          {
+            "de": "pc",
+            "vers": "c2",
+            "etape": 6,
+            "texte": "Interrogations périodiques en HTTPS"
+          },
+          {
+            "de": "c2",
+            "vers": "pc",
+            "etape": 6,
+            "texte": "Code XAML téléchargé et exécuté"
+          }
+        ]
+      },
+      "limites": "Livraison de l'archive CAB non observée [1] ; acteur non attribué, aucun lien avec une APT connue établi [1] ; contenu des commandes reçues du serveur C2 non mentionné [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non attribué : aucun lien avec un groupe APT connu établi [1]"
+      ],
+      "cibles": [
+        "Entités gouvernementales d'Asie utilisant un Windows 10 personnalisé ; une victime identifiée [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "APT",
+          "definition": "Advanced Persistent Threat : groupe d'attaquants avancé et durable"
+        },
+        {
+          "sigle": "CAB",
+          "definition": "Archive compressée utilisée par Windows pour les mises à jour"
+        },
+        {
+          "sigle": "XAML",
+          "definition": "Langage de description d'interfaces Microsoft, ici utilisé pour charger du code"
+        },
+        {
+          "sigle": "AMSI",
+          "definition": "Interface Windows qui permet aux antivirus d'analyser les scripts"
+        },
+        {
+          "sigle": "ETW",
+          "definition": "Event Tracing for Windows : journalisation d'événements système"
+        },
+        {
+          "sigle": "COM",
+          "definition": "Component Object Model : technologie Windows d'objets partagés entre programmes"
+        },
+        {
+          "sigle": "RPC",
+          "definition": "Remote Procedure Call : appel de fonctions sur une autre machine"
+        },
+        {
+          "sigle": "EDR",
+          "definition": "Endpoint Detection and Response : outil de détection sur les postes"
+        },
+        {
+          "sigle": "C2",
+          "definition": "Serveur de commande et de contrôle des attaquants"
+        },
+        {
+          "sigle": "HTTPS",
+          "definition": "Protocole web chiffré"
+        },
+        {
+          "sigle": ".NET",
+          "definition": "Plateforme logicielle de Microsoft pour exécuter des applications"
+        },
+        {
+          "sigle": "PC",
+          "definition": "Personal Computer : ordinateur personnel (dans le nom Patch My PC)"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Unknown APT uses NetamLoader to attack a Win10 OS customized for governments in Asia",
+          "site": "Securelist (Kaspersky)",
+          "url": "https://securelist.com/netamloader/121676/",
+          "date": "2026-10-29",
+          "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/10/28210649/SL-SAS-NetamLoader-featured.jpg"
         }
       ]
     }

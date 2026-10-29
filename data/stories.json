@@ -27471,6 +27471,128 @@
           "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/10/North-Korean-use-of-AI-featured.png"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-29-cisco-sdwan-keydrift",
+      "title": "UAT-11473 exploite une faille Cisco SD-WAN pour déployer le logiciel malveillant KeyDrift",
+      "created": "2026-10-29T19:20:00+00:00",
+      "updated": "2026-10-29T19:20:00+00:00",
+      "version": 1,
+      "resume": "Un nouveau groupe, UAT-11473, exploite CVE-2026-20127 sur des contrôleurs Cisco Catalyst SD-WAN pour installer KeyDrift. Il vise le spatial, la défense et l'aérospatiale [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation d'un contournement d'authentification des contrôleurs Cisco Catalyst SD-WAN → accès privilégié au Controller et au Manager [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Installation de PolyFlame dans des processus légitimes vdaemon → exécution de commandes, transfert de fichiers et relais vers le serveur de commande [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "KeyDrift est conçu pour un accès persistant de longue durée [1]."
+        },
+        {
+          "etape": "Interception",
+          "texte": "LittleFilch s'accroche à SSL_read → lecture des messages du plan de contrôle après déchiffrement, identifiants IP des nœuds de bord récupérés [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Informations collectées chiffrées en RSA, stockées dans /var/tmp/vdaemon.bin → envoyées aux attaquants par UDP [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (UAT-11473)",
+            "note": ""
+          },
+          {
+            "id": "ctl",
+            "type": "passerelle",
+            "zone": "victime",
+            "nom": "Contrôleurs Cisco SD-WAN",
+            "note": "PolyFlame, KeyDrift"
+          },
+          {
+            "id": "bord",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Nœuds de bord",
+            "note": "Identifiants IP lus"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ctl",
+            "etape": 1,
+            "texte": "Contournement d'authentification CVE-2026-20127"
+          },
+          {
+            "de": "ctl",
+            "vers": "bord",
+            "etape": 4,
+            "texte": "Messages du plan de contrôle interceptés"
+          },
+          {
+            "de": "ctl",
+            "vers": "att",
+            "etape": 5,
+            "texte": "Données chiffrées envoyées par UDP"
+          }
+        ]
+      },
+      "limites": "L'article ne donne ni les dates des attaques d'UAT-11473 ni le nombre de victimes. Talos juge possible un recoupement avec Silent Train, sans lien définitif [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-20127",
+          "explication": "Cisco Catalyst SD-WAN Controllers et Manager : contournement d'authentification donnant un accès privilégié à distance, sévérité maximale, corrigé en février 2026 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "UAT-11473, nouveau groupe APT à l'origine de KeyDrift [1]",
+        "UAT-8616 exploite la même faille comme zero-day depuis au moins 2023 [1]"
+      ],
+      "cibles": [
+        "Services spatiaux et satellitaires, défense et aérospatial, recherche en politiques publiques [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "APT",
+          "definition": "Advanced Persistent Threat : groupe d'attaquants avancé et durable"
+        },
+        {
+          "sigle": "SD-WAN",
+          "definition": "Réseau étendu piloté par logiciel reliant les sites d'une entreprise"
+        },
+        {
+          "sigle": "UDP",
+          "definition": "Protocole de transport réseau sans connexion"
+        },
+        {
+          "sigle": "RSA",
+          "definition": "Algorithme de chiffrement à clé publique"
+        },
+        {
+          "sigle": "IP",
+          "definition": "Protocole Internet : adresse d'une machine sur le réseau"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers exploit Cisco SD-WAN flaw to deploy custom KeyDrift malware",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-cisco-sd-wan-flaw-to-deploy-custom-keydrift-malware/",
+          "date": "2026-10-29",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/14/Cisco.jpg"
+        }
+      ]
     }
   ]
 }

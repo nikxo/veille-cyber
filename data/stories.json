@@ -26019,21 +26019,21 @@
       "id": "2026-10-28-japan-airlines-amadeus",
       "title": "Japan Airlines : données de réservation de clients consultées chez le prestataire Amadeus",
       "created": "2026-10-28T21:30:00+00:00",
-      "updated": "2026-10-28T21:30:00+00:00",
-      "version": 1,
-      "resume": "Des pirates ont accédé à une partie des données de réservation des vols de Japan Airlines chez Amadeus, qui gère ses systèmes de réservation. 92 000 clients sont touchés, dont environ 2 000 avec passeport et coordonnées [1].",
+      "updated": "2026-10-29T23:08:16+00:00",
+      "version": 2,
+      "resume": "Un accès non autorisé chez Amadeus, prestataire de réservation, a exposé les données d'environ 92 000 clients de Japan Airlines [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Amadeus a découvert une vulnérabilité dans son environnement d'affichage des réservations ; nature technique non précisée [2]."
         },
         {
           "etape": "Accès aux données",
-          "texte": "Intrusion chez Amadeus, prestataire des systèmes de réservation, billetterie et enregistrement de Japan Airlines → accès à une partie des données de réservation [1]."
+          "texte": "Accès non autorisé du 10 août 2023 au 23 septembre 2026 aux systèmes d'Amadeus, qui gère les réservations de Japan Airlines → données de réservation consultées [1, 2]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Noms, codes de réservation et informations de vol de 92 000 clients ; pour environ 2 000 clients, passeport, fidélité, e-mail et téléphone [1]."
+          "texte": "Noms, codes de réservation et informations de vol de 92 000 clients ; pour environ 2 000, passeport, fidélité, e-mail et téléphone [1, 2]."
         }
       ],
       "parcours": {
@@ -26047,9 +26047,9 @@
           },
           {
             "id": "ama",
-            "type": "inconnu",
+            "type": "application",
             "zone": "victime",
-            "nom": "Systèmes d'Amadeus",
+            "nom": "Affichage des réservations Amadeus",
             "note": "Prestataire de Japan Airlines"
           },
           {
@@ -26064,8 +26064,8 @@
           {
             "de": "att",
             "vers": "ama",
-            "etape": 2,
-            "texte": "Accès non précisé aux systèmes d'Amadeus"
+            "etape": 1,
+            "texte": "Vulnérabilité d'affichage des réservations"
           },
           {
             "de": "ama",
@@ -26075,14 +26075,14 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni le vecteur d'accès, ni l'acteur, ni la date de l'intrusion chez Amadeus [1].",
+      "limites": "Les sources ne détaillent pas la nature technique de la faille et ne nomment pas l'acteur [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non précisé par les sources [1]"
+        "Non identifié, les sources parlent d'un acteur de menace [1, 2]"
       ],
       "cibles": [
-        "Clients de Japan Airlines et Japan Transocean Air, via le prestataire Amadeus [1]"
+        "Clients de Japan Airlines et Japan Transocean Air via Amadeus [1, 2] ; Asiana Airlines et Korean Air aussi touchées [2]"
       ],
       "abreviations": [],
       "sources": [
@@ -26092,6 +26092,13 @@
           "url": "https://therecord.media/japan-airlines-warns-of-breach-country-grapples-with-incidents",
           "date": "2026-10-28",
           "image": "https://cms.therecord.media/uploads/japan_airlines_cb02768a19.jpg"
+        },
+        {
+          "titre": "Japan Airlines suffers third-party data breach exposing passenger info",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/japan-airlines-suffers-third-party-data-breach-exposing-passenger-info/",
+          "date": "2026-10-29",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/29/aircraft.jpg"
         }
       ]
     },
@@ -27811,6 +27818,278 @@
           "site": "BleepingComputer",
           "url": "https://www.bleepingcomputer.com/news/security/polymarket-halts-trading-after-crypto-draining-script-breach-25m-traced/",
           "date": "2026-10-29"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-29-hugging-face-mineur-qwen2",
+      "title": "Hugging Face : faux modèles Qwen2 installant un mineur de cryptomonnaie",
+      "created": "2026-10-29T23:08:16+00:00",
+      "updated": "2026-10-29T23:08:16+00:00",
+      "version": 1,
+      "resume": "Une campagne publie sur Hugging Face de faux petits modèles Qwen2 qui installent un mineur de cryptomonnaie sur des serveurs d'inférence, parfois avec un accès à distance. Elle est revenue après les suppressions [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Faux modèles Qwen2 chargés avec l'option d'exécution de code distant → exécution du code Python embarqué sur les serveurs d'inférence [1]."
+        },
+        {
+          "etape": "Installation du mineur",
+          "texte": "Le code installe un mineur déguisé en processus système Linux → relancé s'il est arrêté, autres mineurs supprimés [1]."
+        },
+        {
+          "etape": "Accès distant",
+          "texte": "Certaines versions ouvrent un reverse shell → accès direct de l'attaquant au serveur infecté [1]."
+        },
+        {
+          "etape": "Retour de la campagne",
+          "texte": "19 dépôts sous de nouveaux comptes après les suppressions ; script d'évasion de conteneur publié quelques heures après le signalement [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "hf",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Dépôts Hugging Face",
+            "note": "Faux modèles Qwen2"
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveurs d'inférence",
+            "note": "Xinference, GPUStack"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "hf",
+            "etape": 1,
+            "texte": "Publication de faux modèles Qwen2"
+          },
+          {
+            "de": "hf",
+            "vers": "srv",
+            "etape": 1,
+            "texte": "Modèle chargé, code Python exécuté"
+          },
+          {
+            "de": "srv",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Reverse shell ouvert vers l'attaquant"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent pas combien de serveurs ont été réellement infectés : les téléchargements ne sont pas des infections confirmées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Opérateur motivé financièrement et parlant chinois, selon Pluto Security [1]"
+      ],
+      "cibles": [
+        "Serveurs à cartes graphiques exécutant Xinference ou GPUStack ; neuf machines d'un cluster de recherche ont miné [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Hugging Face malware campaign returns to hijack GPUs for crypto mining",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hugging-face-malware-campaign-returns-to-hijack-gpus-for-crypto-mining/",
+          "date": "2026-10-29",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/07/20/Hugging-Face.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-29-faux-kit-solana-netsupport",
+      "title": "Faux kit Solana sur GitHub visant les agents de codage pour installer NetSupport",
+      "created": "2026-10-29T23:08:16+00:00",
+      "updated": "2026-10-29T23:08:16+00:00",
+      "version": 1,
+      "resume": "Un faux kit de démarrage Solana sur GitHub, placé en tête des recherches d'agents de codage, fait exécuter une commande PowerShell qui installe l'outil d'accès à distance NetSupport Manager sous Windows [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Dépôt GitHub en tête des recherches d'agents de codage → l'agent suit le README et exécute une commande PowerShell [1]."
+        },
+        {
+          "etape": "Téléchargement du script",
+          "texte": "La commande assemble une URL à partir de fragments → script téléchargé et exécuté en mémoire [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Installation de NetSupport Manager, outil légitime d'accès à distance, configuré vers un serveur de l'attaquant → contrôle caché à chaque ouverture de session [1]."
+        },
+        {
+          "etape": "Leurre",
+          "texte": "Faux message demandant de réessayer dans 72 heures, qu'un agent pourrait présenter comme un incident serveur banal [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "repo",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Dépôt GitHub piégé",
+            "note": "Faux kit Solana"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste du développeur",
+            "note": "Windows"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "repo",
+            "etape": 1,
+            "texte": "Publication du faux kit de démarrage"
+          },
+          {
+            "de": "repo",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Agent exécute la commande du README"
+          },
+          {
+            "de": "pc",
+            "vers": "att",
+            "etape": 3,
+            "texte": "NetSupport Manager connecté au serveur de l'attaquant"
+          }
+        ]
+      },
+      "limites": "L'adresse de la charge utile renvoyait une erreur 404 lors de la vérification d'Air Security ; l'opérateur n'est pas nommé [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Opérateur de NetSupport suivi par eSentire, relié par Air Security ; non nommé [1]"
+      ],
+      "cibles": [
+        "Développeurs et agents de codage cherchant un kit Solana, sous Windows [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "README",
+          "definition": "Fichier d'instructions d'un dépôt de code"
+        },
+        {
+          "sigle": "URL",
+          "definition": "Adresse d'une ressource sur Internet"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hugging Face malware campaign returns to hijack GPUs for crypto mining",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hugging-face-malware-campaign-returns-to-hijack-gpus-for-crypto-mining/",
+          "date": "2026-10-29",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/07/20/Hugging-Face.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-29-binance-transferts-hot-wallets",
+      "title": "Binance : milliards de dollars transférés depuis ses hot wallets, enquête en cours",
+      "created": "2026-10-29T23:08:16+00:00",
+      "updated": "2026-10-29T23:08:16+00:00",
+      "version": 1,
+      "resume": "Binance enquête sur des transferts de milliards de dollars de cryptomonnaies depuis ses hot wallets vers une adresse Ethereum nouvellement créée ; le caractère non autorisé et le montant ne sont pas confirmés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Transferts",
+          "texte": "Plusieurs hot wallets Binance auraient envoyé des fonds vers une adresse Ethereum nouvellement créée → environ 3,48 milliards de dollars signalés [1]."
+        },
+        {
+          "etape": "Gel des actifs",
+          "texte": "Tether a gelé plus de 1,567 milliard de dollars et Circle plus de 800 millions → plus de 2,3 milliards gelés au total [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "bin",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Hot wallets Binance",
+            "note": ""
+          },
+          {
+            "id": "adr",
+            "type": "inconnu",
+            "zone": "internet",
+            "nom": "Adresse Ethereum nouvelle",
+            "note": "Étiquetée exploiteur"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "bin",
+            "etape": 1,
+            "texte": "Accès non précisé par les sources"
+          },
+          {
+            "de": "bin",
+            "vers": "adr",
+            "etape": 2,
+            "texte": "Fonds transférés vers une adresse nouvellement créée"
+          }
+        ]
+      },
+      "limites": "Binance n'a pas confirmé que les transferts étaient non autorisés, ni la méthode, ni le montant volé ; 5,8 milliards est une valeur d'avoirs suivis par Arkham [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié ; Arkham suit l'entité nommée binance-hacker-1029 [1]"
+      ],
+      "cibles": [
+        "Plateforme d'échange de cryptomonnaies Binance [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Binance probes potential $5.8 billion crypto-theft hack",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/binance-probes-potential-58-billion-crypto-theft-hack/",
+          "date": "2026-10-29",
+          "image": "https://www.bleepstatic.com/content/hl-images/2023/10/13/back.png"
         }
       ]
     }

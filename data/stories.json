@@ -27107,6 +27107,270 @@
           "image": "https://cms.therecord.media/uploads/scam_click_tax_season_76bf967efe.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-29-tribunaux-faillite-bnc",
+      "title": "Tribunaux fédéraux de faillite américains : cyberattaque contre le centre d'avis BNC",
+      "created": "2026-10-29T16:40:00+00:00",
+      "updated": "2026-10-29T16:40:00+00:00",
+      "version": 1,
+      "resume": "Une cyberattaque a arrêté la production et l'envoi des avis des tribunaux fédéraux de faillite américains. BAE Systems, qui maintient la plateforme, affirme qu'aucune donnée n'a été extraite [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Arrêt du service",
+          "texte": "Attaque contre le Bankruptcy Noticing Center → production et distribution des avis arrêtées, sites hors ligne [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "bnc",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Plateforme du centre d'avis",
+            "note": "Sites hors ligne"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "bnc",
+            "etape": 2,
+            "texte": "Attaque, service arrêté"
+          }
+        ]
+      },
+      "limites": "Les sources ne donnent ni le vecteur d'accès, ni les actions de l'attaquant, ni l'auteur [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié, aucune revendication [1]"
+      ],
+      "cibles": [
+        "Bankruptcy Noticing Center, plateforme maintenue par BAE Systems pour les tribunaux de faillite [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "BAE",
+          "definition": "Entreprise sous-traitante qui maintient la plateforme"
+        },
+        {
+          "sigle": "BNC",
+          "definition": "Centre qui produit les avis des tribunaux de faillite"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Federal bankruptcy courts contractor says no data stolen during cyber intrusion",
+          "site": "The Record",
+          "url": "https://therecord.media/us-bankruptcy-courts-it-contractor-says-no-data-stolen-cyberattack",
+          "date": "2026-10-29",
+          "image": "https://cms.therecord.media/uploads/administrative_office_us_courts_f00373e8c3.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-29-extensions-chrome-recherche",
+      "title": "319 extensions Chrome détournent les recherches de 13,4 millions d'installations",
+      "created": "2026-10-29T16:40:00+00:00",
+      "updated": "2026-10-29T16:40:00+00:00",
+      "version": 1,
+      "resume": "Des opérateurs organisés ont diffusé 319 extensions Chrome qui redirigent les recherches via leurs serveurs pour toucher des revenus publicitaires de Bing et Yahoo [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Extensions non répertoriées du Chrome Web Store, promues par des publicités trompeuses sur des sites → installation par les utilisateurs [1]."
+        },
+        {
+          "etape": "Changement du moteur",
+          "texte": "Réglage de remplacement du moteur de recherche dans le manifeste → moteur par défaut modifié, parfois sans script ni permission [1]."
+        },
+        {
+          "etape": "Redirection",
+          "texte": "Requêtes envoyées à des serveurs contrôlés par les opérateurs puis à Bing ou Yahoo avec un identifiant partenaire → commissions publicitaires [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Opérateurs des extensions",
+            "note": ""
+          },
+          {
+            "id": "nav",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Navigateurs Chrome",
+            "note": "13,4 millions d'installations"
+          },
+          {
+            "id": "px",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveurs de suivi",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "nav",
+            "etape": 1,
+            "texte": "Publicités trompeuses, installation d'extensions"
+          },
+          {
+            "de": "nav",
+            "vers": "px",
+            "etape": 3,
+            "texte": "Recherches redirigées via les serveurs"
+          }
+        ]
+      },
+      "limites": "La destination finale peut changer sans mise à jour de l'extension ; Google n'avait pas répondu à la publication [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Quelques opérateurs organisés, non nommés [1]"
+      ],
+      "cibles": [
+        "Utilisateurs de Chrome : 13,4 millions d'installations signalées [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Chrome extensions with 13.4 million installs caught hijacking searches",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/chrome-extensions-with-134-million-installs-caught-hijacking-searches/",
+          "date": "2026-10-29",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/29/Chrome.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-29-yoba-fausses-apps-ia",
+      "title": "Campagne Yoba : fausses applications ChatGPT et Claude déployant un mineur de cryptomonnaie",
+      "created": "2026-10-29T16:40:00+00:00",
+      "updated": "2026-10-29T16:40:00+00:00",
+      "version": 1,
+      "resume": "Check Point Research décrit la campagne Yoba : de faux projets GitHub imitant des applications ChatGPT et Claude installent un chargeur puis un mineur de cryptomonnaie [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Faux projets GitHub présentés comme des applications de bureau d'IA → archive téléchargée par la victime [1]."
+        },
+        {
+          "etape": "Chargement détourné",
+          "texte": "Exécutable signé légitime lancé avec une bibliothèque DLL malveillante → chargement du dropper YobaDropper [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Copie de wmpdmc.exe dans ProgramData et tâche planifiée → chargement du payload à chaque relance [1]."
+        },
+        {
+          "etape": "Commande et contrôle",
+          "texte": "YobaLoader génère un domaine depuis une image Telegram et lit un enregistrement TXT chiffré → URL du second étage [1]."
+        },
+        {
+          "etape": "Minage",
+          "texte": "Payload injecté dans svchost.exe → exécution du mineur XMRig [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Yoba)",
+            "note": ""
+          },
+          {
+            "id": "gh",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux dépôts GitHub",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de la victime",
+            "note": "Mineur XMRig"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gh",
+            "etape": 1,
+            "texte": "Faux projets d'applications d'IA"
+          },
+          {
+            "de": "gh",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Archive avec DLL malveillante chargée"
+          }
+        ]
+      },
+      "limites": "Les sources ne citent ni victimes ni auteurs identifiés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Campagne nommée Yoba par Check Point Research, auteurs non identifiés [1]"
+      ],
+      "cibles": [
+        "Utilisateurs cherchant des applications de bureau ChatGPT ou Claude [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "DLL",
+          "definition": "Bibliothèque de code Windows chargée par un programme"
+        },
+        {
+          "sigle": "XMRig",
+          "definition": "Logiciel de minage de la cryptomonnaie Monero"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Programmes qui imitent des tâches humaines"
+        },
+        {
+          "sigle": "TXT",
+          "definition": "Champ DNS pouvant contenir du texte libre"
+        },
+        {
+          "sigle": "URL",
+          "definition": "Adresse d'une page ou d'un fichier sur Internet"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Fake ChatGPT and Claude Apps Abuse Signed Executables to Deploy Crypto Miners",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/fake-chatgpt-and-claude-apps-abuse.html",
+          "date": "2026-10-29",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1ij0gwe-L1jDZxdoUPZ6hpSJnJgMHh2bG8bFF2y8y-dJA9nY0Fr2JOU2i4NaCetGqvTZOtvaRXbZONR6d8ajjMR6DNm_X7OwaVCiH7dPycEN9xGI0psNvPYbwDhpGmUQ4Qyhp5x9fqQ_sgzjcReslK-a-gRS3kFr5_JOns1kkuC6UheDHVb2yaV8EAhIF/s1700-nu-rw-lo-l85-e365/claude-hack.jpg"
+        }
+      ]
     }
   ]
 }

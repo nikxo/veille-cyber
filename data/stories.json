@@ -25545,8 +25545,8 @@
       "id": "2026-10-28-volt-typhoon-silent-train",
       "title": "Volt Typhoon : le framework Silent Train masque des attaques zero-day derrière des relais jetables",
       "created": "2026-10-28T16:30:00+00:00",
-      "updated": "2026-10-29T09:30:00+00:00",
-      "version": 4,
+      "updated": "2026-10-29T11:30:00+00:00",
+      "version": 5,
       "resume": "Le groupe chinois Volt Typhoon utilise le framework Silent Train, une chaîne d'appareils compromis jetables, pour cacher des attaques zero-day contre des cibles de grande valeur ; plusieurs centaines de victimes sont identifiées [1, 7].",
       "chaine": [
         {
@@ -25559,11 +25559,11 @@
         },
         {
           "etape": "Implant KeyDrift",
-          "texte": "Contournement d'authentification de Cisco SD-WAN Catalyst Controller (CVE-2026-20127), puis installation de KeyDrift → portes dérobées, relais intermédiaires et collecte de clés [8, 9]."
+          "texte": "Contournement d'authentification de Cisco SD-WAN (CVE-2026-20127, exploitée dès fin 2025 selon Lumen), puis KeyDrift → portes dérobées, relais intermédiaires et collecte de clés [8, 9, 10]."
         },
         {
           "etape": "Contrôle des cibles",
-          "texte": "Accès aux plateformes de gestion → contrôle administratif étendu, vol d'identifiants, exfiltration de données et accès distant durable [1]."
+          "texte": "Accès aux plateformes de gestion → contrôle administratif étendu, vol d'identifiants, accès distant durable [1] ; documents militaires et réseau exfiltrés selon un chercheur [10]."
         },
         {
           "etape": "Effacement des traces",
@@ -25661,7 +25661,7 @@
       ],
       "acteurs": [
         "Volt Typhoon, groupe étatique chinois suivi par Black Lotus Labs, rapport de Lumen [1, 7]",
-        "UAT-11473 : Talos évalue avec confiance élevée que son infrastructure chevauche largement Silent Train, attribué à Volt Typhoon [8, 9]"
+        "UAT-11473 : Talos évalue avec confiance élevée que son infrastructure chevauche largement Silent Train, attribué à Volt Typhoon [8, 9, 10]"
       ],
       "cibles": [
         "Télécoms, administrations, sous-traitants de la défense, services publics, transports, sociétés informatiques [1, 7]",
@@ -25742,6 +25742,13 @@
           "url": "https://thehackernews.com/2026/10/hackers-exploited-cisco-sd-wan-flaw-to.html",
           "date": "2026-10-29",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDuVB5nQJHwAnAATDQxAqD8KtWk7IpNvBqXQq6RPkqJ72joLVDp5dUDDdYmRHlrbUhJQpaQQ59p245XjotvW2DNx_fKk7cPp0wJUsK0z5IQY2jXA1oP-YcYKLtSdBXnZJDNECWOzX9tP3-12cKXJm2A1KKoBsu9CEiOYKbgJDVqvQt7YRF8Fzd706YumA/s1700-nu-rw-lo-l85-e365/cisco-sdwan.jpg"
+        },
+        {
+          "titre": "Cisco SD-WAN Zero-Day Exploitation Tied to Volt Typhoon’s ‘Silent Train’ Network",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/cisco-sd-wan-zero-day-exploitation-tied-to-volt-typhoons-silent-train-network/",
+          "date": "2026-10-29",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Cisco-network-switch-exploit.webp"
         }
       ]
     },
@@ -25819,9 +25826,9 @@
       "id": "2026-10-28-sony-so-net-base-membres",
       "title": "Sony Network Communications : fuite de 2,5 millions d'enregistrements clients So-net",
       "created": "2026-10-28T17:20:00+00:00",
-      "updated": "2026-10-28T17:20:00+00:00",
-      "version": 1,
-      "resume": "La base de données des membres So-net de Sony Network Communications a été consultée par un tiers non autorisé, exposant 2 585 481 enregistrements de clients [1].",
+      "updated": "2026-10-29T11:30:00+00:00",
+      "version": 2,
+      "resume": "La base des membres So-net de Sony Network Communications a été consultée par un tiers non autorisé : environ 2,6 millions d'enregistrements de clients sont exposés [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -25829,11 +25836,11 @@
         },
         {
           "etape": "Vol de données",
-          "texte": "Accès non autorisé à la base des membres So-net → noms, téléphones, e-mails, dates de naissance et identifiants de connexion exposés [1]."
+          "texte": "Accès non autorisé à la base des membres So-net → données personnelles et identifiants exposés, dont environ 54 000 mots de passe de messagerie et 16 comptes bancaires [1, 2]."
         },
         {
           "etape": "Détection et réponse",
-          "texte": "Serveurs compromis arrêtés et communications externes bloquées, quatre jours après l'intrusion du 19 octobre [1]."
+          "texte": "Intrusion du 19 octobre, découverte le 23 octobre [2] → serveur ciblé mis hors ligne et trafic des attaquants coupé [2], mots de passe de messagerie réinitialisés [2]."
         }
       ],
       "parcours": {
@@ -25862,11 +25869,11 @@
           }
         ]
       },
-      "limites": "Les sources ne donnent ni le vecteur d'accès, ni l'acteur, ni la cause de l'incident, et aucune utilisation abusive des données n'est confirmée [1].",
+      "limites": "Les sources ne donnent ni le vecteur d'accès, ni l'acteur, ni la cause de l'incident [1, 2], et aucune utilisation abusive des données n'est confirmée [1].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non mentionné [1]"
+        "Non mentionné [1, 2]"
       ],
       "cibles": [
         "Clients actuels et anciens de So-net et clients Docomo Hikari, dont 443 495 enregistrements plala [1]"
@@ -25879,6 +25886,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/sony-isp-subsidiary-data-breach-exposes-25-million-customer-records/",
           "date": "2026-10-28",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/28/sony.jpg"
+        },
+        {
+          "titre": "Hackers Steal 2.6 Million Records From Sony’s Japanese ISP So-net",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/hackers-steal-2-6-million-records-from-sonys-japanese-isp-so-net/",
+          "date": "2026-10-29",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Sony-So-net.jpeg"
         }
       ]
     },
@@ -26282,17 +26296,17 @@
       "id": "2026-10-29-cisco-asa-ftd-vpn-cve-2026-76418",
       "title": "Cisco ASA et FTD : seconde faille zero-day du VPN exploitée depuis août",
       "created": "2026-10-29T10:20:00+00:00",
-      "updated": "2026-10-29T10:20:00+00:00",
-      "version": 1,
-      "resume": "Cisco a publié des correctifs pour CVE-2026-76418, exploitée dans la nature sur ses pare-feu ASA et FTD. Une requête distante sans authentification force le redémarrage de l'appareil [1].",
+      "updated": "2026-10-29T11:30:00+00:00",
+      "version": 2,
+      "resume": "Cisco a publié des correctifs pour CVE-2026-76418, exploitée dans la nature sur ses pare-feu ASA et FTD. Une requête distante sans authentification force le redémarrage de l'appareil [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Requête malveillante envoyée au service VPN d'accès distant, sans connexion VPN réussie nécessaire → traitement vulnérable atteint [1]."
+          "texte": "Requête forgée envoyée au VPN SSL d'accès distant, sans connexion VPN réussie nécessaire → traitement vulnérable atteint [1, 2, 3]."
         },
         {
           "etape": "Exploitation de la faille",
-          "texte": "Erreurs de logique sur les groupes de tunnels avec authentification secondaire → redémarrage imprévu de l'appareil, disponibilité atteinte [1]."
+          "texte": "Erreurs de logique sur les groupes de tunnels avec authentification secondaire → redémarrage imprévu de l'appareil, déni de service [1, 2, 3]."
         }
       ],
       "parcours": {
@@ -26327,11 +26341,11 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni l'acteur, ni les victimes, ni le nombre d'attaques, ni la date des premières exploitations [1].",
+      "limites": "Les sources ne précisent ni l'acteur, ni les victimes, ni le début des exploitations ; Cisco en a eu connaissance en octobre [2, 3]. Plus de 51 000 ASA à VPN SSL exposés [2].",
       "cves": [
         {
           "id": "CVE-2026-76418",
-          "explication": "Cisco ASA et FTD, service VPN d'accès distant : erreurs de logique permettant un redémarrage forcé sans authentification, gravité 8,6 sur 10 [1]."
+          "explication": "Cisco ASA et FTD, VPN SSL d'accès distant : erreurs de logique permettant un redémarrage forcé sans authentification, gravité élevée 8,6 sur 10 [1, 3]."
         },
         {
           "id": "CVE-2026-20349",
@@ -26359,6 +26373,10 @@
         {
           "sigle": "HTTP",
           "definition": "Protocole de communication des sites web"
+        },
+        {
+          "sigle": "SSL",
+          "definition": "Secure Sockets Layer : protocole de chiffrement des connexions réseau"
         }
       ],
       "sources": [
@@ -26368,6 +26386,20 @@
           "url": "https://www.securityweek.com/attackers-exploit-second-cisco-firewall-vpn-zero-day-since-august/",
           "date": "2026-10-29",
           "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Cisco_router_hack-e1793267161770.jpg"
+        },
+        {
+          "titre": "New Cisco firewall zero-day exploited to crash SSL VPN devices",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-firewall-zero-day-exploited-to-crash-ssl-vpn-devices/",
+          "date": "2026-10-29",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/29/Cisco-headpic.jpg"
+        },
+        {
+          "titre": "Cisco Patches Actively Exploited ASA and FTD VPN Flaw That Can Crash Firewalls",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/cisco-patches-actively-exploited-asa.html",
+          "date": "2026-10-29",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKqTkl_DfXdrvaLinBOu5OU0NISVo_mPJfqRmnHL-m8efFXEijbxOVsFgrSPparCspKfoUtxDtfA7gu8myFTfvWCFJfse3BQakKGOZCA54pWh371KyXdluHyqjckIBFjZ36Ogv1EI42yDCO2dt02noigEyL2RKJ8lEivH3PCWJURryc1JtNO9djpeW88tJ/s1700-nu-rw-lo-l85-e365/cisco-flaws.jpg"
         }
       ]
     },
@@ -26516,6 +26548,94 @@
           "url": "https://blog.talosintelligence.com/nik-c2-new-ai-enabled-framework/",
           "date": "2026-10-29",
           "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/2026/10/NIKC2-Header.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-29-alpine-gitlab-cve-2026-97229",
+      "title": "Alpine Linux : tentative d'exploitation de la faille GitLab CVE-2026-97229 sur son serveur",
+      "created": "2026-10-29T11:30:00+00:00",
+      "updated": "2026-10-29T11:30:00+00:00",
+      "version": 1,
+      "resume": "Un attaquant a tenté d'exploiter la faille CVE-2026-97229 sur le serveur GitLab d'Alpine Linux, une semaine après la publication du correctif ; Alpine n'a trouvé aucune preuve de réussite mais ne peut pas l'exclure [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Un compte nouvellement enregistré envoie des configurations CI contenant une expression régulière forgée → tentative d'exploitation de CVE-2026-97229 [1]."
+        },
+        {
+          "etape": "Tentatives d'exploitation",
+          "texte": "Les 20 et 21 octobre, huit plantages de processus de traitement, dont quatre avec un exploit parvenu à une étape avancée → échec [1]."
+        },
+        {
+          "etape": "Nouvelles tentatives",
+          "texte": "Compte bloqué le 23 octobre ; tentatives de réaccès les 25 et 26 octobre → échec [1]."
+        },
+        {
+          "etape": "Réponse d'Alpine",
+          "texte": "Serveur fermé aux non-développeurs le 27 octobre, puis reconstruit, secrets remplacés et Ruby corrigé le 28 octobre [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "gl",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur GitLab d'Alpine Linux",
+            "note": "Faille non corrigée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gl",
+            "etape": 1,
+            "texte": "Configurations CI avec expression régulière forgée"
+          },
+          {
+            "de": "att",
+            "vers": "gl",
+            "etape": 3,
+            "texte": "Tentatives de réaccès, échec"
+          }
+        ]
+      },
+      "limites": "Compromission non confirmée : aucune preuve de réussite, mais Alpine ne peut pas l'exclure ; acteur non identifié ; comment les configurations ont atteint le serveur n'est pas précisé [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-97229",
+          "explication": "GitLab : dépassement d'entier dans le moteur d'expressions régulières Onigmo de Ruby, exécution de code possible sans authentification sous certaines conditions, gravité 10 sur 10 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1]"
+      ],
+      "cibles": [
+        "Serveur GitLab du projet Alpine Linux [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CI",
+          "definition": "Intégration continue : exécution automatique de tâches sur le code"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Attacker Tried to Exploit Alpine Linux’s GitLab via CVSS 10.0 Flaw Its Ruby Left Open",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/attacker-tried-to-exploit-alpine-linuxs.html",
+          "date": "2026-10-29",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh65eroK1pQacKJwqeGmgp2sDta1mgCrPuNMXiwAgTi-FVZNc1V4D7qooFFc-V-XNOJzYpjYk28Y_kIkoHMNJfnQ5h2gI0-bOWlVOt9VJ9oZUpRsBzYLsSMe3oNRTfZe53dtpezOOq1MHmWhEhAigbyOMLx4jWAbcvvImY39jY1h4FMS4_OUqSDF-kZJvQ/s1700-nu-rw-lo-l85-e365/linux-gitlab.jpg"
         }
       ]
     }

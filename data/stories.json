@@ -28294,9 +28294,9 @@
       "id": "2026-10-30-gitlab-alpine-cisco-kev",
       "title": "Faille GitLab exploitée contre Alpine Linux et faille Cisco ajoutées au catalogue CISA",
       "created": "2026-10-30T08:30:00+00:00",
-      "updated": "2026-10-30T10:08:38+00:00",
-      "version": 2,
-      "resume": "Un acteur inconnu a tenté d'exploiter la faille CVE-2026-97229 sur une instance GitLab d'Alpine Linux [1, 2]. La CISA a ajouté cette faille et une faille Cisco à son catalogue des vulnérabilités exploitées [1].",
+      "updated": "2026-10-30T14:10:00+00:00",
+      "version": 3,
+      "resume": "Un acteur inconnu a tenté d'exploiter la faille CVE-2026-97229 sur une instance GitLab d'Alpine Linux [1, 2]. La CISA a ajouté cette faille et une faille Cisco à son catalogue des vulnérabilités exploitées [1, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -28347,7 +28347,7 @@
       "cves": [
         {
           "id": "CVE-2026-97229",
-          "explication": "GitLab : dépassement d'entier [1] lié à la validation insuffisante des expressions régulières d'Onigmo, moteur de Ruby [2] ; exécution de code sans authentification, gravité 10 sur 10 [1, 2]."
+          "explication": "GitLab : dépassement d'entier [1] lié à la validation insuffisante des expressions régulières d'Onigmo, moteur de Ruby [2] ; exécution de code sans authentification dans certaines conditions, gravité maximale [1, 2, 3]."
         },
         {
           "id": "CVE-2026-76418",
@@ -28360,7 +28360,8 @@
       ],
       "cibles": [
         "Instance GitLab d'Alpine Linux [1, 2]",
-        "Appareils Cisco Secure Firewall, nombre d'organisations non précisé [1]"
+        "Appareils Cisco Secure Firewall, nombre d'organisations non précisé [1]",
+        "Environ 2 800 instances GitLab Community Edition exposées sur Internet selon Shadowserver [3]"
       ],
       "abreviations": [
         {
@@ -28390,6 +28391,13 @@
           "url": "https://www.securityweek.com/max-severity-gitlab-vulnerability-exploited-against-alpine-linux/",
           "date": "2026-10-30",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/06/GitLab.jpeg"
+        },
+        {
+          "titre": "CISA says max severity GitLab flaw now exploited in the wild",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-now-exploiting-max-severity-gitlab-flaw-in-attacks/",
+          "date": "2026-10-30",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/12/GitLab.jpg"
         }
       ]
     },
@@ -28699,6 +28707,171 @@
           "url": "https://therecord.media/russian-home-goods-chain-faces-disruptions",
           "date": "2026-10-30",
           "image": "https://cms.therecord.media/uploads/large_Shopping_cart_86e057a3a2_fb1c573557.webp"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-30-netamloader-windows-asie",
+      "title": "NetamLoader : nouveau logiciel malveillant contre des administrations d'Asie sous Windows",
+      "created": "2026-10-30T14:10:00+00:00",
+      "updated": "2026-10-30T14:10:00+00:00",
+      "version": 1,
+      "resume": "Kaspersky décrit NetamLoader, un logiciel malveillant inédit visant une version spécialisée de Windows 10 utilisée par des administrations d'Asie. Il a été détecté sur un seul ordinateur [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources. Une attaque par chaîne d'approvisionnement est soupçonnée, sans confirmation [1]."
+        },
+        {
+          "etape": "Dépôt du malware",
+          "texte": "Paquet piégé placé dans un répertoire des mises à jour Windows, avec des fichiers légitimes d'un outil de mises à jour et des programmes signés par Microsoft [1]."
+        },
+        {
+          "etape": "Exécution et défenses",
+          "texte": "Exécution de code malveillant via des composants Microsoft légitimes → analyse de sécurité de Windows perturbée, activité masquée, fichiers et journaux effacés [1]."
+        },
+        {
+          "etape": "Contrôle à distance",
+          "texte": "Connexions chiffrées vers l'infrastructure des attaquants → collecte d'informations sur la machine et téléchargement de programmes supplémentaires [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (État soupçonné)",
+            "note": ""
+          },
+          {
+            "id": "maj",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Répertoire des mises à jour",
+            "note": "Paquet piégé"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Ordinateur d'une administration",
+            "note": "Windows 10 spécialisé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "maj",
+            "etape": 2,
+            "texte": "Paquet piégé déposé, mode d'entrée non précisé"
+          },
+          {
+            "de": "maj",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Exécution via composants Microsoft légitimes"
+          },
+          {
+            "de": "pc",
+            "vers": "att",
+            "etape": 4,
+            "texte": "Connexions chiffrées, programmes téléchargés"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent pas comment le malware est arrivé sur la machine, ni si des informations sensibles ont été volées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Pirates soupçonnés d'être liés à un État, non rattachés à un groupe connu [1]"
+      ],
+      "cibles": [
+        "Administrations d'Asie utilisant une version spécialisée de Windows 10, pays non précisés [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Hackers target government Windows systems in Asia with new malware",
+          "site": "The Record",
+          "url": "https://therecord.media/hackers-target-government-windows-systems-asia-new-malware",
+          "date": "2026-10-30",
+          "image": "https://cms.therecord.media/uploads/japan_asia_ffd5c2ef19.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-30-trezor-implant-cryptobilis",
+      "title": "Trezor : implant matériel suspecté dans un portefeuille vendu par CryptoBilis",
+      "created": "2026-10-30T14:10:00+00:00",
+      "updated": "2026-10-30T14:10:00+00:00",
+      "version": 1,
+      "resume": "Un client a signalé qu'un portefeuille Trezor Safe 5 acheté chez CryptoBilis contient une carte supplémentaire qui envoie la phrase de récupération par réseau mobile. Trezor n'a pas encore examiné l'appareil [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources : comment et par qui la carte a été installée n'est pas indiqué [1]."
+        },
+        {
+          "etape": "Implant matériel",
+          "texte": "Carte avec module cellulaire et antenne, placée entre la carte mère et l'écran → lecture de l'écran, phrase de récupération comprise [1]."
+        },
+        {
+          "etape": "Vol de la phrase",
+          "texte": "Envoi par réseau mobile dès que l'appareil est branché → phrase de récupération transmise [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant inconnu",
+            "note": ""
+          },
+          {
+            "id": "wal",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Portefeuille Trezor Safe 5",
+            "note": "Carte ajoutée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "wal",
+            "etape": 2,
+            "texte": "Carte supplémentaire installée, méthode non précisée"
+          },
+          {
+            "de": "wal",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Phrase de récupération envoyée par réseau mobile"
+          }
+        ]
+      },
+      "limites": "Trezor n'a pas examiné l'appareil ; aucune perte de fonds n'a été signalée à Trezor et le responsable est inconnu [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Responsable inconnu [1]"
+      ],
+      "cibles": [
+        "Acheteurs de Trezor chez CryptoBilis depuis mars 2026, invités à déplacer leurs fonds [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Trezor Warns of Suspected Hardware Implant in One of Its Wallets Sold by CryptoBilis",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/trezor-warns-of-suspected-hardware.html",
+          "date": "2026-10-30",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEih5QxhFnBw6d40ollOAoolmZedxywTm7DeBQpEqydVG5Pqg0v5iDVFT1hhbsW7Thqg00oI8MACNXC9FX6MCp_qMRkBRiqdxb9D4CDKfTWTZwI5eyY3V2IOa8ODSg24kX7Ni_C968r2X89tUXwPbDnHPV9xX-ydhytwerqMI1ru7tqdIK-cqA0p9oM5Ppxr/s1700-nu-rw-lo-l85-e365/trezor-wallet.jpg"
         }
       ]
     }

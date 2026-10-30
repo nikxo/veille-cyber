@@ -1,53 +1,5 @@
 [
   {
-    "id": "bc91f5ae369ce5d8",
-    "title": "Nippon Columbia malware incident exposes 8.6 million karaoke fan records",
-    "link": "https://www.bleepingcomputer.com/news/security/nippon-columbia-malware-incident-exposes-86-million-karaoke-fan-records/",
-    "source": "BleepingComputer",
-    "raison": "malware détecté sur un poste, aucune étape d'attaque décrite, fuite non confirmée",
-    "date": "2026-10-11T15:30:00+00:00"
-  },
-  {
-    "id": "62cdbb4792cea508",
-    "title": "NudeLeaksTeens : plus de 17 000 femmes identifiées",
-    "link": "https://www.zataz.com/nudeleaksteens-plus-de-17-000-femmes-identifiees/",
-    "source": "ZATAZ",
-    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
-    "date": "2026-10-12T00:10:00+00:00"
-  },
-  {
-    "id": "9144ca85b1281d49",
-    "title": "Lookup : un site fermé, trois adolescents interpellés",
-    "link": "https://www.zataz.com/lookup-un-site-ferme-trois-adolescents-interpelles/",
-    "source": "ZATAZ",
-    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
-    "date": "2026-10-12T01:20:00+00:00"
-  },
-  {
-    "id": "8a123394a7319723",
-    "title": "Let’s Encrypt Cuts Default Certificate Validity to 64 Days Ahead of 45-Day Switch",
-    "link": "https://www.securityweek.com/lets-encrypt-cuts-default-certificate-validity-to-64-days-ahead-of-45-day-switch/",
-    "source": "SecurityWeek",
-    "raison": "annonce produit, aucune attaque",
-    "date": "2026-10-12T08:30:00+00:00"
-  },
-  {
-    "id": "06b2e06004fbd5d5",
-    "title": "Data centers russes : la guerre hybride frappe le cloud",
-    "link": "https://www.zataz.com/data-centers-russes-la-guerre-hybride-frappe-le-cloud/",
-    "source": "ZATAZ",
-    "raison": "frappes physiques (drones) sans méthode d'attaque informatique",
-    "date": "2026-10-12T10:30:00+00:00"
-  },
-  {
-    "id": "096ad34b4c6bfad8",
-    "title": "Ransomware Response Expert Arrested in ShinyHunters FBI Hack Probe",
-    "link": "https://www.securityweek.com/ransomware-response-expert-arrested-in-shinyhunters-fbi-hack-probe/",
-    "source": "SecurityWeek",
-    "raison": "actualité judiciaire (arrestation) sans nouveau détail sur la méthode d'attaque, sujet déjà couvert",
-    "date": "2026-10-12T11:30:00+00:00"
-  },
-  {
     "id": "128ef325e330dc61",
     "title": "Ukraine strikes third Yandex data center, disrupting digital services across Russia",
     "link": "https://therecord.media/ukraine-strikes-third-yandex-data-center",
@@ -3998,5 +3950,53 @@
     "source": "Dark Reading",
     "raison": "article d'opinion, aucune attaque décrite",
     "date": "2026-10-30T12:40:00+00:00"
+  },
+  {
+    "id": "0ca93b8b7df8243e",
+    "title": "Bulletproof Host Virtualine Loses Its Domain to FBI Seizure",
+    "link": "https://www.securityweek.com/bulletproof-host-virtualine-loses-its-domain-to-fbi-seizure/",
+    "source": "SecurityWeek",
+    "raison": "actualité judiciaire, aucune méthode d'attaque",
+    "date": "2026-10-30T14:10:00+00:00"
+  },
+  {
+    "id": "0e377490003110b1",
+    "title": "Why Urgent Security Fixes Aren't Fixed. Observe, Prove, Act, Confirm Gets Them Moving",
+    "link": "https://thehackernews.com/2026/10/why-urgent-security-fixes-arent-fixed.html",
+    "source": "The Hacker News",
+    "raison": "contenu sponsorisé, conseil générique",
+    "date": "2026-10-30T14:10:00+00:00"
+  },
+  {
+    "id": "21a5de08ec59a24b",
+    "title": "Copilot Fusion : GitHub veut choisir et combiner les modèles d’IA à la place des développeurs",
+    "link": "https://www.lemagit.fr/actualites/366653133/Copilot-Fusion-GitHub-veut-choisir-et-combiner-les-modeles-dIA-a-la-place-des-developpeurs",
+    "source": "LeMagIT",
+    "raison": "annonce produit",
+    "date": "2026-10-30T14:10:00+00:00"
+  },
+  {
+    "id": "6734aa3aec6c0e42",
+    "title": "Syrian Hacker Behind Fake Tweet That Triggered $136 Billion Market Drop Gets 42 Months in Prison",
+    "link": "https://thehackernews.com/2026/10/syrian-hacker-behind-fake-tweet-that.html",
+    "source": "The Hacker News",
+    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
+    "date": "2026-10-30T14:10:00+00:00"
+  },
+  {
+    "id": "74b49c26bc1fece4",
+    "title": "Serveurs : « L’IA impose des cycles de renouvellement de 3 à 4 ans »",
+    "link": "https://www.lemagit.fr/dessin/Serveurs-LIA-impose-des-cycles-de-renouvellement-de-3-a-4-ans",
+    "source": "LeMagIT",
+    "raison": "hors sujet, aucune attaque",
+    "date": "2026-10-30T14:10:00+00:00"
+  },
+  {
+    "id": "bb609cd39a094f2e",
+    "title": "British spy agency cannot account for thousands of data storage devices, watchdog says",
+    "link": "https://therecord.media/gchq-cannot-account-for-thousands-of-data-devices",
+    "source": "The Record",
+    "raison": "actualité politique, aucune attaque",
+    "date": "2026-10-30T14:10:00+00:00"
   }
 ]

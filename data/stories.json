@@ -28104,6 +28104,105 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2023/10/13/back.png"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-30-amatera-infostealer-clickfix",
+      "title": "Amatera : un voleur d'informations diffusé notamment par de faux CAPTCHA ClickFix",
+      "created": "2026-10-30T05:30:00+00:00",
+      "updated": "2026-10-30T05:30:00+00:00",
+      "version": 1,
+      "resume": "ESET décrit Amatera, un logiciel voleur d'informations vendu par abonnement, en tête des détections en Amérique latine au premier semestre 2026. Il vole identifiants, sessions, fichiers et données de portefeuilles crypto [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Faux CAPTCHA ou faux message d'erreur (ClickFix) demandant de copier et exécuter une commande → compromission déclenchée par la victime [1]."
+        },
+        {
+          "etape": "Exécution",
+          "texte": "La commande copiée lance la chaîne de compromission → Amatera arrive comme charge finale [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Collecte des mots de passe des navigateurs, cookies et jetons de session → données de comptes récupérées [1]."
+        },
+        {
+          "etape": "Vol de documents",
+          "texte": "Recherche de fichiers sensibles synchronisés avec OneDrive ou SharePoint → documents récupérés [1]."
+        },
+        {
+          "etape": "Vol de cryptomonnaies",
+          "texte": "Manipulation du presse-papiers → portefeuilles crypto ciblés, selon Straiker [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de la victime",
+            "note": "Commande copiée"
+          },
+          {
+            "id": "fic",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Fichiers synchronisés",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Faux CAPTCHA ClickFix, commande exécutée"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Amatera lancé comme charge finale"
+          },
+          {
+            "de": "pc",
+            "vers": "fic",
+            "etape": 4,
+            "texte": "Recherche de fichiers sensibles"
+          }
+        ]
+      },
+      "limites": "L'article ne mentionne pas pour Amatera la persistance, le mouvement latéral, le mécanisme d'exfiltration ni le chiffrement [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Développeurs d'Amatera, nom non mentionné [1]"
+      ],
+      "cibles": [
+        "Détections les plus fortes en Amérique latine, clients entreprise signalés par Microsoft [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CAPTCHA",
+          "definition": "Test affiché pour vérifier que l'utilisateur est humain"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Amatera: How the prolific infostealer works and spreads",
+          "site": "WeLiveSecurity (ESET)",
+          "url": "https://www.welivesecurity.com/en/malware/amatera-how-prolific-infostealer-works-spreads/",
+          "date": "2026-10-29"
+        }
+      ]
     }
   ]
 }

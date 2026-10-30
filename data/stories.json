@@ -28991,6 +28991,194 @@
           "image": "https://cms.therecord.media/uploads/fsu_campus_d3e68b7c9a.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-30-teams-faux-support-ad-cs",
+      "title": "Faux support informatique sur Teams puis abus des certificats Active Directory (ESC1 et ESC8)",
+      "created": "2026-10-30T18:20:00+00:00",
+      "updated": "2026-10-30T18:20:00+00:00",
+      "version": 1,
+      "resume": "Microsoft décrit deux intrusions menées par des humains : des attaquants se font passer pour le support informatique sur Teams, prennent la main à distance, puis abusent d'AD CS pour obtenir des certificats d'authentification [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Messages et appels Teams d'imposteurs du support informatique → l'utilisateur ouvre Quick Assist et donne un code, ce qui accorde un accès distant [1]."
+        },
+        {
+          "etape": "Exécution du code",
+          "texte": "Archive extraite dans un dossier sous le profil utilisateur, puis exécution via un environnement portable (Python, Bun ou Java) → code de l'attaquant lancé [1]."
+        },
+        {
+          "etape": "Reconnaissance",
+          "texte": "Collecte de la version de Windows, du réseau et des processus, puis évaluation d'AD CS → recherche de chemins d'authentification par certificat [1]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Cas 1 : faille de configuration ESC1 → certificats obtenus pour trois comptes à privilèges élevés, puis huit autres environ 90 minutes plus tard [1]."
+        },
+        {
+          "etape": "Prise du domaine",
+          "texte": "Cas 2 : coercition d'authentification (PetitPotam) et relais NTLM vers l'inscription web d'AD CS (ESC8) → ticket Kerberos du contrôleur de domaine [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Cas 1 : connexion à distance avec le compte exclu de la réponse automatisée, serveur de fichiers, copie Rclone renommée → données envoyées vers un SFTP externe [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Employé joint via Teams",
+            "note": "Quick Assist"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de l'employé",
+            "note": "Code exécuté"
+          },
+          {
+            "id": "adcs",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Services de certificats AD CS",
+            "note": ""
+          },
+          {
+            "id": "dc",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Contrôleur de domaine",
+            "note": ""
+          },
+          {
+            "id": "fs",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur de fichiers",
+            "note": ""
+          },
+          {
+            "id": "ext",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Destination SFTP externe",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 1,
+            "texte": "Faux support sur Teams, Quick Assist ouvert"
+          },
+          {
+            "de": "usr",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Accès distant, archive extraite et exécutée"
+          },
+          {
+            "de": "pc",
+            "vers": "adcs",
+            "etape": 4,
+            "texte": "Cas 1 : certificats de comptes privilégiés (ESC1)"
+          },
+          {
+            "de": "pc",
+            "vers": "dc",
+            "etape": 5,
+            "texte": "Cas 2 : authentification relayée (PetitPotam, ESC8)"
+          },
+          {
+            "de": "att",
+            "vers": "fs",
+            "etape": 6,
+            "texte": "Connexion avec le compte exclu"
+          },
+          {
+            "de": "fs",
+            "vers": "ext",
+            "etape": 6,
+            "texte": "Données copiées avec Rclone"
+          }
+        ]
+      },
+      "limites": "L'article ne nomme ni l'acteur, ni les organisations, ni le secteur, et ne donne pas la date des intrusions [1].",
+      "cves": [],
+      "mitre": [
+        "T1566.003 : hameçonnage ciblé via un service, ici Teams [1]",
+        "T1566.004 : hameçonnage ciblé par appel vocal [1]",
+        "T1219 : logiciel d'accès à distance utilisé pour prendre la main [1]",
+        "T1557 : interception et relais d'authentification [1]",
+        "T1649 : vol ou obtention de certificats d'authentification [1]"
+      ],
+      "acteurs": [
+        "Non attribué à un acteur précis [1]"
+      ],
+      "cibles": [
+        "Organisations non identifiées, secteur non précisé [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "AD CS",
+          "definition": "Active Directory Certificate Services : service Windows qui délivre des certificats"
+        },
+        {
+          "sigle": "ESC1",
+          "definition": "Mauvaise configuration de modèles de certificats permettant d'obtenir un certificat au nom d'autrui"
+        },
+        {
+          "sigle": "ESC8",
+          "definition": "Relais d'authentification vers l'inscription web d'AD CS pour obtenir un certificat"
+        },
+        {
+          "sigle": "NTLM",
+          "definition": "Protocole d'authentification Windows plus ancien"
+        },
+        {
+          "sigle": "Kerberos",
+          "definition": "Protocole d'authentification par tickets dans un domaine Windows"
+        },
+        {
+          "sigle": "SFTP",
+          "definition": "Protocole de transfert de fichiers sécurisé"
+        },
+        {
+          "sigle": "Rclone",
+          "definition": "Outil en ligne de commande qui copie des fichiers vers des stockages distants"
+        },
+        {
+          "sigle": "PetitPotam",
+          "definition": "Technique qui force une machine à s'authentifier auprès d'un serveur choisi"
+        },
+        {
+          "sigle": "Quick Assist",
+          "definition": "Outil Windows de prise en main à distance"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "From help desk impersonation to AD CS abuse: Investigating ESC1 and ESC8 intrusion paths",
+          "site": "Microsoft Threat Intelligence",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/30/help-desk-impersonation-ad-cs-abuse-investigating-esc1-esc8-intrusion-paths/",
+          "date": "2026-10-30",
+          "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/04/MS_Actional-Insights_Access.png"
+        }
+      ]
     }
   ]
 }

@@ -1,13 +1,5 @@
 [
   {
-    "id": "b5621c35fe0ac989",
-    "title": "Reconnaissance faciale : un visage masqué reste identifiable",
-    "link": "https://www.zataz.com/reconnaissance-faciale-un-visage-masque-reste-identifiable/",
-    "source": "ZATAZ",
-    "raison": "analyse OSINT sans attaque",
-    "date": "2026-10-11T13:30:00+00:00"
-  },
-  {
     "id": "e17ea21e0918415d",
     "title": "Infogreffe visé par une revendication de fuite de données",
     "link": "https://www.zataz.com/infogreffe-vise-par-une-revendication-de-fuite-de-donnees/",
@@ -3998,5 +3990,13 @@
     "source": "SecurityWeek",
     "raison": "vulnérabilité sans exploitation constatée",
     "date": "2026-10-30T09:20:00+00:00"
+  },
+  {
+    "id": "11870eb36764196c",
+    "title": "Filter generation in practice: from algorithms to LLMs",
+    "link": "https://securelist.com/practical-filter-generation/121697/",
+    "source": "Securelist (Kaspersky)",
+    "raison": "méthode de génération de filtres d'alertes, aucune attaque décrite",
+    "date": "2026-10-30T10:08:38+00:00"
   }
 ]

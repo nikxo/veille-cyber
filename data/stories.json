@@ -27726,13 +27726,13 @@
       "id": "2026-10-29-polymarket-debugbear-script",
       "title": "Polymarket : script malveillant distribué via le prestataire DebugBear pour vider des comptes",
       "created": "2026-10-29T22:20:00+00:00",
-      "updated": "2026-10-29T22:20:00+00:00",
-      "version": 1,
-      "resume": "Polymarket a suspendu le trading après qu'un script malveillant, distribué via son prestataire tiers DebugBear, a vidé des comptes d'utilisateurs. Environ 2,5 millions de dollars ont été tracés vers un portefeuille de l'attaquant [1].",
+      "updated": "2026-10-30T10:08:38+00:00",
+      "version": 2,
+      "resume": "Polymarket a suspendu le trading après qu'un script malveillant, servi via son prestataire DebugBear, a vidé des comptes d'utilisateurs [1, 2]. Les montants cités vont d'environ 2,19 à 2,71 millions de dollars [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Compromission du prestataire DebugBear (modalités non précisées) → un script JavaScript malveillant est distribué depuis son infrastructure [1]."
+          "texte": "Compromission du prestataire DebugBear (modalités non précisées) → script JavaScript malveillant servi via son produit de surveillance des utilisateurs réels [1, 2]."
         },
         {
           "etape": "Exécution chez les visiteurs",
@@ -27740,7 +27740,7 @@
         },
         {
           "etape": "Vol de fonds",
-          "texte": "Liquidation des positions ou transfert direct des jetons vers un portefeuille de l'attaquant, selon le mode d'authentification [1]."
+          "texte": "Liquidation des positions ou envoi des jetons vers un portefeuille de l'attaquant ; adresse de repli codée en dur dans le script [1, 2]."
         },
         {
           "etape": "Commande et collecte",
@@ -27809,14 +27809,14 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni la date ni le moyen de la compromission de DebugBear, ni le nombre d'utilisateurs touchés, ni le montant volé [1].",
+      "limites": "Les sources ne précisent ni la date ni le moyen de la compromission de DebugBear, ni le nombre d'utilisateurs touchés [1, 2]. Montants : 2,5 millions [1] ; 2,19 à 2,71 millions [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non identifié, l'article parle seulement de pirates [1]"
+        "Non identifié, aucune source ne nomme d'auteur [1, 2]"
       ],
       "cibles": [
-        "Polymarket et ses utilisateurs, via le prestataire DebugBear [1]"
+        "Polymarket.com, ses utilisateurs connectés, via le prestataire DebugBear [1, 2]"
       ],
       "abreviations": [
         {
@@ -27830,6 +27830,13 @@
           "site": "BleepingComputer",
           "url": "https://www.bleepingcomputer.com/news/security/polymarket-halts-trading-after-crypto-draining-script-breach-25m-traced/",
           "date": "2026-10-29"
+        },
+        {
+          "titre": "$2 Million+ Drained From Polymarket Traders in New Supply Chain Attack",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/2-million-drained-from-polymarket-traders-in-new-supply-chain-attack/",
+          "date": "2026-10-30",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Polymarket.webp"
         }
       ]
     },
@@ -28029,13 +28036,13 @@
       "id": "2026-10-29-binance-transferts-hot-wallets",
       "title": "Binance : incident de sécurité, retraits non autorisés et milliards d'actifs touchés",
       "created": "2026-10-29T23:08:16+00:00",
-      "updated": "2026-10-30T09:20:00+00:00",
-      "version": 3,
+      "updated": "2026-10-30T10:08:38+00:00",
+      "version": 4,
       "resume": "Binance a signalé un incident touchant environ 6,3 milliards de dollars d'actifs, dont près de 3 milliards gelés ; des retraits non autorisés ont suivi l'accès à un conteneur de service [2, 3]. TRM Labs attribue l'attaque à TraderTraitor [3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Selon les premières conclusions de Binance, l'ordinateur portable compromis d'un ingénieur DevOps → accès de l'attaquant à un conteneur de service. Méthode de compromission non mentionnée [2, 3]."
+          "texte": "Selon les premières conclusions de Binance, l'ordinateur portable compromis d'un ingénieur DevOps → accès de l'attaquant à un conteneur de service. Méthode de compromission non mentionnée [2, 3, 4, 5]."
         },
         {
           "etape": "Retraits non autorisés",
@@ -28043,7 +28050,7 @@
         },
         {
           "etape": "Retraits sur dix blockchains",
-          "texte": "Portefeuilles de Binance envoyant des fonds via des transactions valides signées sur dix blockchains → la plupart des fonds sortis en environ 20 minutes [3]."
+          "texte": "Portefeuilles de Binance envoyant des fonds via des transactions valides signées [3] sur dix blockchains → la plupart des fonds sortis en environ 20 minutes [3, 5]."
         },
         {
           "etape": "Gel des actifs",
@@ -28051,7 +28058,7 @@
         },
         {
           "etape": "Blanchiment",
-          "texte": "Vente de jetons Tether contre de l'ether à plus de 10 % sous le prix du marché, auprès de teneurs de marché et plateformes de prêt [3]."
+          "texte": "Vente de Tether à plus de 10 % sous le prix du marché [3], auprès de teneurs de marché [3, 5] ; emprunt d'ether sur Aave [5]."
         }
       ],
       "parcours": {
@@ -28113,12 +28120,13 @@
           }
         ]
       },
-      "limites": "Le vecteur d'accès reste une hypothèse de Binance [2, 3]. Montants divergents : 5,8 milliards [1], 5,912 milliards [2], 6,3 à 6,36 milliards [3].",
+      "limites": "Vecteur d'accès : hypothèse de Binance [2, 3, 4], qui cite d'autres points de compromission non précisés [5]. Montants : 5,8 [1], 5,912 [2], 6,3 à 6,36 milliards [3, 4, 5]. Blockchains : dix [3, 5], vingt [4].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Arkham suit l'entité binance-hacker-1029 [1] ; aucune attribution à un groupe dans [2]",
-        "TraderTraitor (Corée du Nord) selon TRM Labs ; Lazarus Group selon ZachXBT ; Binance n'identifie pas les auteurs [3]"
+        "Arkham suit l'entité binance-hacker-1029 [1]",
+        "TraderTraitor (Corée du Nord) selon TRM Labs [2, 3, 5] ; Lazarus Group selon ZachXBT [3] ; Binance n'identifie aucun auteur [3, 5]",
+        "Corée du Nord selon Chainalysis et TRM Labs [4]"
       ],
       "cibles": [
         "Plateforme d'échange de cryptomonnaies Binance [1, 2]"
@@ -28154,6 +28162,20 @@
           "url": "https://www.securityweek.com/6-billion-binance-hack-bears-hallmarks-of-north-koreas-tradertraitor/",
           "date": "2026-10-30",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Binance-hacked.jpeg"
+        },
+        {
+          "titre": "Binance hit by record $6.3 billion crypto hack, scrambles to freeze funds",
+          "site": "The Record",
+          "url": "https://therecord.media/binance-hit-by-record-6-billion-crypto-hack",
+          "date": "2026-10-30",
+          "image": "https://cms.therecord.media/uploads/vadim_artyukhin_92_Bit_C3_QEU_unsplash_c14e5f899e.jpg"
+        },
+        {
+          "titre": "Binance links $6.3 billion crypto theft to compromised DevOps laptop",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/binance-links-63-billion-crypto-theft-to-compromised-devops-laptop/",
+          "date": "2026-10-30",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/30/Binance.jpg"
         }
       ]
     },
@@ -28261,17 +28283,17 @@
       "id": "2026-10-30-gitlab-alpine-cisco-kev",
       "title": "Faille GitLab exploitée contre Alpine Linux et faille Cisco ajoutées au catalogue CISA",
       "created": "2026-10-30T08:30:00+00:00",
-      "updated": "2026-10-30T08:30:00+00:00",
-      "version": 1,
-      "resume": "Un acteur inconnu a tenté d'exploiter la faille CVE-2026-97229 sur une instance GitLab d'Alpine Linux. La CISA a ajouté cette faille et une faille Cisco à son catalogue des vulnérabilités exploitées [1].",
+      "updated": "2026-10-30T10:08:38+00:00",
+      "version": 2,
+      "resume": "Un acteur inconnu a tenté d'exploiter la faille CVE-2026-97229 sur une instance GitLab d'Alpine Linux [1, 2]. La CISA a ajouté cette faille et une faille Cisco à son catalogue des vulnérabilités exploitées [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Envoi de configurations CI/CD forgées à une instance GitLab non corrigée → huit plantages de processus, exploit en échec à l'étape suivante pour quatre [1]."
+          "texte": "Compte nouvellement enregistré envoyant des configurations CI/CD forgées à une instance GitLab non corrigée → huit plantages de processus, exploit en échec à l'étape suivante pour quatre [1, 2]."
         },
         {
           "etape": "Récupération de données",
-          "texte": "Téléchargement de l'image de conteneur GitLab d'Alpine par l'attaquant [1]."
+          "texte": "Téléchargement de l'image de conteneur GitLab d'Alpine par l'attaquant [1, 2]."
         },
         {
           "etape": "Nouvelles tentatives",
@@ -28310,11 +28332,11 @@
           }
         ]
       },
-      "limites": "L'article ne dit pas si l'exploitation a réussi. Alpine n'a trouvé aucune preuve de réussite sans l'exclure, et rien ne dit ce qu'a permis le téléchargement de l'image [1].",
+      "limites": "Alpine n'a trouvé aucune preuve d'exécution de code, sans pouvoir l'exclure [2]. Selon [2], le téléchargement de l'image suggère un ajustement de l'exploit ; [1] ne précise pas sa finalité.",
       "cves": [
         {
           "id": "CVE-2026-97229",
-          "explication": "GitLab Community et Enterprise : dépassement d'entier via une expression régulière dans une configuration CI/CD, exécution de code sans authentification, gravité 10 sur 10 [1]."
+          "explication": "GitLab : dépassement d'entier [1] lié à la validation insuffisante des expressions régulières d'Onigmo, moteur de Ruby [2] ; exécution de code sans authentification, gravité 10 sur 10 [1, 2]."
         },
         {
           "id": "CVE-2026-76418",
@@ -28323,10 +28345,10 @@
       ],
       "mitre": [],
       "acteurs": [
-        "Acteur non identifié pour l'attaque contre Alpine Linux [1]"
+        "Acteur non identifié pour l'attaque contre Alpine Linux [1, 2]"
       ],
       "cibles": [
-        "Instance GitLab d'Alpine Linux [1]",
+        "Instance GitLab d'Alpine Linux [1, 2]",
         "Appareils Cisco Secure Firewall, nombre d'organisations non précisé [1]"
       ],
       "abreviations": [
@@ -28350,6 +28372,13 @@
           "url": "https://thehackernews.com/2026/10/cisa-adds-actively-exploited-gitlab-rce.html",
           "date": "2026-10-30",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiw1Ms9mKdtALczFoDaNy5Bm0HVMfxu0ps0ykDUXuLn3BeOEqUCDnzUiCP2lU_7xbC2kYuIAGCuOiQCGIlkR6wYBfCfb7g0wRESfIFaMtSltOjWphyswldC4LJxFf0RnCB9FzEVc-euJGtGbUvpJr7FOE0QefC3_rn8xLSFTij_yJn1MNP6bJVu8VgrcLaV/s1700-nu-rw-lo-l85-e365/github-cisco.jpg"
+        },
+        {
+          "titre": "Max-Severity GitLab Vulnerability Exploited Against Alpine Linux",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/max-severity-gitlab-vulnerability-exploited-against-alpine-linux/",
+          "date": "2026-10-30",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/GitLab.jpeg"
         }
       ]
     },

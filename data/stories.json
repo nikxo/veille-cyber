@@ -28614,17 +28614,21 @@
       "id": "2026-10-30-wordpress-course-mise-a-jour",
       "title": "WordPress : faille de la mise à jour du cœur ciblée par des attaquants",
       "created": "2026-10-30T12:40:00+00:00",
-      "updated": "2026-10-30T12:40:00+00:00",
-      "version": 1,
-      "resume": "Des acteurs malveillants tentent d'exploiter une faille de haute gravité du processus de mise à jour de WordPress, corrigée dans la version 7.1.4 [1]. Wordfence n'a signalé aucune compromission réussie [1].",
+      "updated": "2026-10-30T17:08:19+00:00",
+      "version": 2,
+      "resume": "Des acteurs non identifiés tentent d'exploiter une faille d'exécution de code du cœur de WordPress, versions 4.7 à 7.1.3, corrigée dans la 7.1.4 [1, 2]. Wordfence a bloqué 62 969 attaques en 24 heures [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Requêtes répétées vers des chemins de staging prévisibles, accessibles depuis le web, pendant que WordPress décompresse une mise à jour → exécution de code sans authentification [1]."
+          "texte": "Requêtes web sans authentification vers des chemins de staging prévisibles, pendant une mise à jour complète du cœur → interaction avec la copie WordPress préparée [1, 2]."
+        },
+        {
+          "etape": "Exécution de code",
+          "texte": "Requête tombant dans la courte fenêtre où WordPress décompresse la mise à jour (condition de concurrence) → exécution de code sur le serveur [2]."
         },
         {
           "etape": "Tentatives observées",
-          "texte": "Wordfence a enregistré plus de 18 500 requêtes visant des chemins d'installation setup-config.php en 21 heures [1]."
+          "texte": "Plus de 18 500 requêtes vers des chemins d'installation setup-config.php en 21 heures [1] ; 62 969 attaques bloquées par Wordfence en 24 heures [2]."
         }
       ],
       "parcours": {
@@ -28650,10 +28654,16 @@
             "vers": "wp",
             "etape": 1,
             "texte": "Requêtes vers les chemins de staging pendant la mise à jour"
+          },
+          {
+            "de": "att",
+            "vers": "wp",
+            "etape": 2,
+            "texte": "Requête calée sur la fenêtre de décompression"
           }
         ]
       },
-      "limites": "Aucun CVE n'est encore attribué ; l'acteur et les victimes ne sont pas nommés, et aucune compromission réussie n'est signalée [1].",
+      "limites": "Aucun CVE n'est attribué ; l'acteur et les victimes ne sont pas nommés [2]. Aucune compromission réussie n'est signalée [1].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
@@ -28668,6 +28678,13 @@
           "url": "https://www.securityweek.com/fresh-wordpress-vulnerability-in-attackers-crosshairs/",
           "date": "2026-10-30",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/08/WordPress.jpeg"
+        },
+        {
+          "titre": "WordPress RCE Flaw Draws Nearly 63,000 Attack Attempts in Just 24 Hours",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/wordpress-rce-flaw-draws-nearly-63000.html",
+          "date": "2026-10-30",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhf-pzflJO9HQoCdvBvYNtS12gwwEjAbM4dQ30ak7UYaIPzsVPN9MlFwvIDEFkbe9cWg4wQRFPbGfJ0YXjzGcBS6mUTwttwkQ8IR7OoHyTz3owZkVzYQOAObyJUqfjsC-PqMw2pv41_m68hb6ZkwJb56kGx-Ypv7GWZBtDzjyTTQ8L8i9NxA8_MDVoJSEba/s1700-nu-rw-lo-l85-e365/wp-hack.jpg"
         }
       ]
     },

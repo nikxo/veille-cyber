@@ -1,29 +1,5 @@
 [
   {
-    "id": "f4aaef80a28ca689",
-    "title": "GitLab warns of max severity code execution vulnerability",
-    "link": "https://www.bleepingcomputer.com/news/security/gitlab-warns-of-max-severity-rce-flaw-in-regex-compiler-engine/",
-    "source": "BleepingComputer",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-12T14:30:00+00:00"
-  },
-  {
-    "id": "9974e8bb3b68f185",
-    "title": "Marketing Digital : L’Oréal demande à l’IA de la cohérence, pas du volume",
-    "link": "https://www.lemagit.fr/etude/Marketing-Digital-LOreal-demande-a-lIA-de-la-coherence-pas-du-volume",
-    "source": "LeMagIT",
-    "raison": "marketing, sans rapport avec une attaque",
-    "date": "2026-10-12T15:30:00+00:00"
-  },
-  {
-    "id": "0119ae134808fa8b",
-    "title": "12th October – Threat Intelligence Report",
-    "link": "https://research.checkpoint.com/2026/12th-october-threat-intelligence-report/",
-    "source": "Check Point Research",
-    "raison": "bulletin hebdomadaire de plusieurs incidents, sans chaîne d'attaque détaillée",
-    "date": "2026-10-12T15:30:00+00:00"
-  },
-  {
     "id": "ec69fc943ab09659",
     "title": "IonQ to Acquire Zero Trust Firm Elisity for Up to $1.3 Billion",
     "link": "https://www.securityweek.com/ionq-to-acquire-zero-trust-firm-elisity-for-up-to-1-3-billion/",
@@ -3998,5 +3974,29 @@
     "source": "Dark Reading",
     "raison": "analyse générale sans attaque décrite",
     "date": "2026-10-30T16:15:00+00:00"
+  },
+  {
+    "id": "3f8b89d0633c5e44",
+    "title": "Rapid7 Analysis: Unauthenticated File Upload to RCE in BeyondTrust Remote Support (CVE-2026-102764)",
+    "link": "https://www.rapid7.com/blog/post/ra-rapid7-analysis-unauthenticated-file-upload-to-rce-in-beyondtrust-remote-support-cve-2026-102764",
+    "source": "Rapid7",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-10-30T17:08:19+00:00"
+  },
+  {
+    "id": "bfec2004bdb16c89",
+    "title": "TeamViewer Flaw Lets Remote Computers Attack Users Who Connect to Control Them",
+    "link": "https://thehackernews.com/2026/10/teamviewer-flaw-lets-remote-computers.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-10-30T17:08:19+00:00"
+  },
+  {
+    "id": "f030e53f51f44479",
+    "title": "Inherent prépare un SOC souverain sans Sentinel",
+    "link": "https://www.lemagit.fr/actualites/366653193/Inherent-prepare-un-SOC-souverain-sans-Sentinel",
+    "source": "LeMagIT",
+    "raison": "annonce commerciale, pas d'attaque",
+    "date": "2026-10-30T17:08:19+00:00"
   }
 ]

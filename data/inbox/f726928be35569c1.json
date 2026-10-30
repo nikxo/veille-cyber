@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-10-30T04:06:53+00:00",
+  "feed_summary": "View CSAF Summary Hitachi Energy is aware of OS command injection and Dirty Frag vulnerabilities that affect CoreTec product versions listed in this document. Successful exploitation of these vulnerabilities could result in impact on confidentiality, integrity and availability of the product. Please refer to the Recommended Immediate Actions for information about the mitigation/remediation. The following versions of Hitachi Energy CoreTec Product are affected: CoreTec5 vers:CoreTec5/<=3.4.0, 5.0.0 (CVE-2026-13162, CVE-2026-43284) CoreTec4 vers:CoreTec4/<=3.4.0 (CVE-2026-13162) CVSS Vendor Equipment v3 8.8 Hitachi Energy CoreTec5 2 Vulnerabilities Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection'), Write-what-where Condition Background Critical Infras",
+  "id": "f726928be35569c1",
+  "image": null,
+  "lang": "en",
+  "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-03",
+  "published": "2026-10-29T12:00:00+00:00",
+  "source": "CISA Advisories",
+  "source_type": "officiel",
+  "title": "Hitachi Energy CoreTec Product"
+}

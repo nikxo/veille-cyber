@@ -28029,21 +28029,29 @@
       "id": "2026-10-29-binance-transferts-hot-wallets",
       "title": "Binance : incident de sécurité, retraits non autorisés et milliards d'actifs touchés",
       "created": "2026-10-29T23:08:16+00:00",
-      "updated": "2026-10-30T06:13:31+00:00",
-      "version": 2,
-      "resume": "Binance a signalé un incident de sécurité touchant environ 6,3 milliards de dollars d'actifs, dont près de 3 milliards gelés ; des retraits non autorisés ont été soumis après un accès à un conteneur de service [1, 2].",
+      "updated": "2026-10-30T09:20:00+00:00",
+      "version": 3,
+      "resume": "Binance a signalé un incident touchant environ 6,3 milliards de dollars d'actifs, dont près de 3 milliards gelés ; des retraits non autorisés ont suivi l'accès à un conteneur de service [2, 3]. TRM Labs attribue l'attaque à TraderTraitor [3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Binance indique que l'incident pourrait impliquer l'ordinateur portable compromis d'un ingénieur DevOps → accès de l'attaquant à un conteneur de service [2]."
+          "texte": "Selon les premières conclusions de Binance, l'ordinateur portable compromis d'un ingénieur DevOps → accès de l'attaquant à un conteneur de service. Méthode de compromission non mentionnée [2, 3]."
         },
         {
           "etape": "Retraits non autorisés",
-          "texte": "Soumission de retraits non autorisés [2] ; des hot wallets auraient envoyé des fonds vers une adresse Ethereum nouvellement créée → environ 3,48 milliards de dollars signalés [1]."
+          "texte": "Soumission de retraits non autorisés [2, 3] ; des hot wallets auraient envoyé des fonds vers une adresse Ethereum nouvellement créée, environ 3,48 milliards de dollars signalés [1]."
+        },
+        {
+          "etape": "Retraits sur dix blockchains",
+          "texte": "Portefeuilles de Binance envoyant des fonds via des transactions valides signées sur dix blockchains → la plupart des fonds sortis en environ 20 minutes [3]."
         },
         {
           "etape": "Gel des actifs",
           "texte": "Tether a gelé plus de 1,567 milliard de dollars, Circle environ 800 millions et l'Arbitrum Security Council environ 30,5 millions [1, 2]."
+        },
+        {
+          "etape": "Blanchiment",
+          "texte": "Vente de jetons Tether contre de l'ether à plus de 10 % sous le prix du marché, auprès de teneurs de marché et plateformes de prêt [3]."
         }
       ],
       "parcours": {
@@ -28105,11 +28113,12 @@
           }
         ]
       },
-      "limites": "Le vecteur d'accès reste une hypothèse de Binance [2]. Les montants diffèrent : 5,8 milliards d'avoirs suivis par Arkham [1], environ 5,912 milliards estimés par Chainalysis [2].",
+      "limites": "Le vecteur d'accès reste une hypothèse de Binance [2, 3]. Montants divergents : 5,8 milliards [1], 5,912 milliards [2], 6,3 à 6,36 milliards [3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non identifié ; Arkham suit l'entité nommée binance-hacker-1029 [1] ; aucune attribution à un groupe dans [2]"
+        "Arkham suit l'entité binance-hacker-1029 [1] ; aucune attribution à un groupe dans [2]",
+        "TraderTraitor (Corée du Nord) selon TRM Labs ; Lazarus Group selon ZachXBT ; Binance n'identifie pas les auteurs [3]"
       ],
       "cibles": [
         "Plateforme d'échange de cryptomonnaies Binance [1, 2]"
@@ -28118,6 +28127,10 @@
         {
           "sigle": "DevOps",
           "definition": "Équipe qui développe et exploite les applications et leur infrastructure"
+        },
+        {
+          "sigle": "TRM",
+          "definition": "TRM Labs, société d'analyse de la blockchain"
         }
       ],
       "sources": [
@@ -28134,6 +28147,13 @@
           "url": "https://thehackernews.com/2026/10/binance-suffers-security-breach.html",
           "date": "2026-10-30",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmTtJggkBbk2ERH6bhZMSPnb_E1aQ44w4EpzkwAt1tqp45sGvG7jeAg2QvmbWQsBy5hyphenhyphen7ur18XQ1Uax7D9XRg-CZpQpMAByXt37Fn1loBClsu49KlBEsnxRCfy7vSuI-5yrpHB4JLWc1vtw0aITnhbFXDb4CosJzm07My3Lw6p3fOLTfcaxJLBR-Pdi2A6/s1700-nu-rw-lo-l85-e365/Binance.jpg"
+        },
+        {
+          "titre": "$6 Billion Binance Hack Bears Hallmarks of North Korea’s TraderTraitor",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/6-billion-binance-hack-bears-hallmarks-of-north-koreas-tradertraitor/",
+          "date": "2026-10-30",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Binance-hacked.jpeg"
         }
       ]
     },
@@ -28330,6 +28350,73 @@
           "url": "https://thehackernews.com/2026/10/cisa-adds-actively-exploited-gitlab-rce.html",
           "date": "2026-10-30",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiw1Ms9mKdtALczFoDaNy5Bm0HVMfxu0ps0ykDUXuLn3BeOEqUCDnzUiCP2lU_7xbC2kYuIAGCuOiQCGIlkR6wYBfCfb7g0wRESfIFaMtSltOjWphyswldC4LJxFf0RnCB9FzEVc-euJGtGbUvpJr7FOE0QefC3_rn8xLSFTij_yJn1MNP6bJVu8VgrcLaV/s1700-nu-rw-lo-l85-e365/github-cisco.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-30-drupal-commerce-core",
+      "title": "Drupal Commerce Core : faille d'autorisation exploitée dans la nature",
+      "created": "2026-10-30T09:20:00+00:00",
+      "updated": "2026-10-30T09:20:00+00:00",
+      "version": 1,
+      "resume": "Drupal avertit que des attaquants exploitent une faille jugée très critique du module Commerce Core, qui permet de contourner des contrôles d'accès [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Exploitation de la faille",
+          "texte": "Exploitation dans la nature d'une autorisation manquante de Commerce Core → contournement d'accès, impact financier possible pour le vendeur [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Site avec Commerce Core",
+            "note": "Contrôle d'accès contourné"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 2,
+            "texte": "Exploitation de l'autorisation manquante"
+          }
+        ]
+      },
+      "limites": "Les sources ne décrivent ni l'acteur, ni les victimes, ni la nature de l'activité, ni l'ampleur de la campagne [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-118539",
+          "explication": "Drupal Commerce Core jusqu'à 2.41 et 3.0.0 à 3.3.13 : autorisation manquante sur certaines routes et champs, contournement d'accès ; jugée très critique ; correctif 3.3.13 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Boutiques en ligne utilisant le module Drupal Commerce Core [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Hackers Actively Exploit Highly Critical Drupal Commerce Core Authorization Bypass Flaw",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/hackers-actively-exploit-highly.html",
+          "date": "2026-10-30",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitgPkf4uToEgXwcfmDEKipEveRL2l0PEz6WIegAc2uWyf5_khO7Scgu6MpWHRovED7S-4sKJb4o88JsJT8NI8zB8WCBo04Q9TrEVNJa-08EbxP_zdPkaA7wsBEPIjXbApW1StdY8JunSewAi9TNrAcMwYZjqSsVktddqQ0uIi8-rUzXq1LMMLBHBdccapz/s1700-nu-rw-lo-l85-e365/drupal-rce.jpg"
         }
       ]
     }

@@ -25306,13 +25306,13 @@
       "id": "2026-10-28-php2shell-fragnesia-pare-feu",
       "title": "PHP2Shell et Fragnesia : pare-feu rootés et intrusion chez une organisation liée au gouvernement américain",
       "created": "2026-10-28T12:20:00+00:00",
-      "updated": "2026-10-29T21:08:02+00:00",
-      "version": 5,
+      "updated": "2026-10-30T16:15:00+00:00",
+      "version": 6,
       "resume": "Des attaquants non identifiés, que Dream rattache à la Chine, ont enchaîné PHP2Shell et Fragnesia sur des pare-feu exposés et compromis trois serveurs d'une organisation liée au gouvernement américain [1, 3]. GreyNoise a relevé au moins six exploitations réussies de PHP2Shell [5].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Chaîne PHP2Shell et Fragnesia appliquée à 25 pare-feu exposés sur Internet → shell web PHP avec droits root déposé sur 24 d'entre eux [1, 3]."
+          "texte": "Chaîne PHP2Shell et Fragnesia appliquée à 25 pare-feu exposés sur Internet → shell web PHP avec droits root déposé sur 24 d'entre eux [1, 3, 6]."
         },
         {
           "etape": "Persistance",
@@ -25405,7 +25405,9 @@
       ],
       "cibles": [
         "Trois serveurs d'une organisation liée au gouvernement américain ; pare-feu aux États-Unis, au Japon, à Taïwan et en Corée du Sud [1, 3]",
-        "Palo Alto Networks, F5, NetScaler, Check Point et QNAP ont confirmé que certains produits sont touchés par PHP2Shell [2]"
+        "Palo Alto Networks, F5, NetScaler, Check Point et QNAP ont confirmé que certains produits sont touchés par PHP2Shell [2]",
+        "Palo Alto Networks : environ 0,02 % des appareils à interface de gestion exposée touchés, clients contactés [6]",
+        "Sites WordPress : aucune compromission confirmée au 28 octobre selon Defiant [6]"
       ],
       "abreviations": [
         {
@@ -25464,6 +25466,13 @@
           "url": "https://therecord.media/php2shell-successful-exploitation-reports-emerge",
           "date": "2026-10-29",
           "image": "https://cms.therecord.media/uploads/server_getty_images_unsplash_d927a0bf6f.jpg"
+        },
+        {
+          "titre": "PHP2Shell Attacks Root Palo Alto Firewalls but Fail Against WordPress",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/php2shell-attacks-root-palo-alto-firewalls-but-fail-against-wordpress/",
+          "date": "2026-10-30",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/php-exploit-code.webp"
         }
       ]
     },
@@ -28820,21 +28829,21 @@
       "id": "2026-10-30-trezor-implant-cryptobilis",
       "title": "Trezor : implant matériel suspecté dans un portefeuille vendu par CryptoBilis",
       "created": "2026-10-30T14:10:00+00:00",
-      "updated": "2026-10-30T14:10:00+00:00",
-      "version": 1,
+      "updated": "2026-10-30T16:15:00+00:00",
+      "version": 2,
       "resume": "Un client a signalé qu'un portefeuille Trezor Safe 5 acheté chez CryptoBilis contient une carte supplémentaire qui envoie la phrase de récupération par réseau mobile. Trezor n'a pas encore examiné l'appareil [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources : comment et par qui la carte a été installée n'est pas indiqué [1]."
+          "texte": "Non précisé par les sources : comment et par qui la carte a été installée n'est pas indiqué [1, 2]."
         },
         {
           "etape": "Implant matériel",
-          "texte": "Carte avec module cellulaire et antenne, placée entre la carte mère et l'écran → lecture de l'écran, phrase de récupération comprise [1]."
+          "texte": "Carte avec module cellulaire et antenne, placée entre la carte mère et l'écran → lecture de l'écran, phrase de récupération comprise [1, 2]."
         },
         {
           "etape": "Vol de la phrase",
-          "texte": "Envoi par réseau mobile dès que l'appareil est branché → phrase de récupération transmise [1]."
+          "texte": "Envoi par réseau mobile dès que l'appareil est branché → phrase de récupération transmise [1, 2]."
         }
       ],
       "parcours": {
@@ -28869,14 +28878,16 @@
           }
         ]
       },
-      "limites": "Trezor n'a pas examiné l'appareil ; aucune perte de fonds n'a été signalée à Trezor et le responsable est inconnu [1].",
+      "limites": "Trezor n'a pas examiné l'appareil [1] ; Trezor n'a connaissance d'aucun fonds volé et le responsable est inconnu [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Responsable inconnu [1]"
       ],
       "cibles": [
-        "Acheteurs de Trezor chez CryptoBilis depuis mars 2026, invités à déplacer leurs fonds [1]"
+        "Acheteurs de Trezor chez CryptoBilis depuis mars 2026, invités à déplacer leurs fonds [1]",
+        "Acheteur indonésien d'un Safe 5 acheté en août, sans perte rapportée [2]",
+        "Utilisateurs Ledger : implant similaire lié au même revendeur, avec des pertes [2]"
       ],
       "abreviations": [],
       "sources": [
@@ -28886,6 +28897,81 @@
           "url": "https://thehackernews.com/2026/10/trezor-warns-of-suspected-hardware.html",
           "date": "2026-10-30",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEih5QxhFnBw6d40ollOAoolmZedxywTm7DeBQpEqydVG5Pqg0v5iDVFT1hhbsW7Thqg00oI8MACNXC9FX6MCp_qMRkBRiqdxb9D4CDKfTWTZwI5eyY3V2IOa8ODSg24kX7Ni_C968r2X89tUXwPbDnHPV9xX-ydhytwerqMI1ru7tqdIK-cqA0p9oM5Ppxr/s1700-nu-rw-lo-l85-e365/trezor-wallet.jpg"
+        },
+        {
+          "titre": "Trezor warns of suspected crypto-theft implant in hardware wallet",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/trezor-warns-of-suspected-crypto-theft-implant-in-hardware-wallet/",
+          "date": "2026-10-30",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/08/13/Trezor.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-30-floride-aide-financiere-fuite",
+      "title": "Floride : fuite de données sur le site d'aide financière aux étudiants",
+      "created": "2026-10-30T16:15:00+00:00",
+      "updated": "2026-10-30T16:15:00+00:00",
+      "version": 1,
+      "resume": "Le Département de l'Éducation de Floride a constaté le 19 octobre un accès non autorisé au site d'aide financière aux étudiants. Les données de 4,9 millions de personnes, dont des numéros de sécurité sociale, ont fuité [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Accès non autorisé à un système ou une base de données → noms, adresses, téléphones, e-mails, numéros de sécurité sociale et dates de naissance exposés [1]."
+        },
+        {
+          "etape": "Réaction",
+          "texte": "Site mis hors ligne, incident signalé au procureur général et déclaré contenu par le Département [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant inconnu",
+            "note": ""
+          },
+          {
+            "id": "site",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Site d'aide financière de Floride",
+            "note": "Données exposées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "site",
+            "etape": 2,
+            "texte": "Accès non autorisé à un système ou une base"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le moyen d'accès, ni l'auteur : le Département a refusé de commenter la nature de l'incident [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1]"
+      ],
+      "cibles": [
+        "Près de 5 millions de personnes ayant demandé une aide financière en Floride [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Florida warns that 4.9 million people had Social Security numbers leaked in financial aid site breach",
+          "site": "The Record",
+          "url": "https://therecord.media/florida-warns-5-million-affected-financial-aid-site-breach",
+          "date": "2026-10-30",
+          "image": "https://cms.therecord.media/uploads/fsu_campus_d3e68b7c9a.jpg"
         }
       ]
     }

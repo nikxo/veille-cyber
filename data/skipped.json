@@ -1,29 +1,5 @@
 [
   {
-    "id": "4e3487a4dd5af34c",
-    "title": "OpenAI Fires 3 Safety Researchers in Dispute Over AI Risks",
-    "link": "https://www.securityweek.com/openai-fires-3-safety-researchers-in-dispute-over-ai-risks/",
-    "source": "SecurityWeek",
-    "raison": "litige interne sans attaque",
-    "date": "2026-10-09T22:20:00+00:00"
-  },
-  {
-    "id": "edcc711b1e7a119f",
-    "title": "ASOS Breach Reveals the Risks in Customer-Facing SaaS",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/asos-breach-risks-customer-facing-saas",
-    "source": "Dark Reading",
-    "raison": "article d'analyse inaccessible (403), résumé sans fait nouveau sur un sujet déjà traité",
-    "date": "2026-10-09T22:20:00+00:00"
-  },
-  {
-    "id": "14272a507c33a92b",
-    "title": "FBI Arrests Founder of Ransomware Negotiation Firm",
-    "link": "https://krebsonsecurity.com/2026/10/fbi-arrests-founder-of-ransomware-negotiation-firm/",
-    "source": "Krebs on Security",
-    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
-    "date": "2026-10-10T01:30:00+00:00"
-  },
-  {
     "id": "ebcd6167a2366d08",
     "title": "Anthropic Cuts Live Internet Access for Internal AI Tests After Claude Exploits Injection Flaws",
     "link": "https://thehackernews.com/2026/10/anthropic-cuts-live-internet-access-for.html",
@@ -3998,5 +3974,29 @@
     "source": "BleepingComputer",
     "raison": "annonce produit",
     "date": "2026-10-30T00:10:00+00:00"
+  },
+  {
+    "id": "3f007ce8c8278493",
+    "title": "Hitachi Energy TRO600 series products",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-02",
+    "source": "CISA Advisories",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-10-30T04:07:32+00:00"
+  },
+  {
+    "id": "58a4b860d2a79013",
+    "title": "Siemens Mendix SAML Module",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-01",
+    "source": "CISA Advisories",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-10-30T04:07:32+00:00"
+  },
+  {
+    "id": "f726928be35569c1",
+    "title": "Hitachi Energy CoreTec Product",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-03",
+    "source": "CISA Advisories",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-10-30T04:07:32+00:00"
   }
 ]

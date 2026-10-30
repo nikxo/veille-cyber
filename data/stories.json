@@ -26336,9 +26336,9 @@
       "id": "2026-10-29-cisco-asa-ftd-vpn-cve-2026-76418",
       "title": "Cisco ASA et FTD : seconde faille zero-day du VPN exploitée depuis août",
       "created": "2026-10-29T10:20:00+00:00",
-      "updated": "2026-10-29T11:30:00+00:00",
-      "version": 2,
-      "resume": "Cisco a publié des correctifs pour CVE-2026-76418, exploitée dans la nature sur ses pare-feu ASA et FTD. Une requête distante sans authentification force le redémarrage de l'appareil [1, 2, 3].",
+      "updated": "2026-10-30T04:07:32+00:00",
+      "version": 3,
+      "resume": "Cisco a publié des correctifs pour CVE-2026-76418, exploitée dans la nature sur ses pare-feu ASA et FTD. Une requête distante sans authentification force le redémarrage de l'appareil [1, 2, 3]. CISA l'a ajoutée à son catalogue des failles exploitées [4].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -26440,6 +26440,12 @@
           "url": "https://thehackernews.com/2026/10/cisco-patches-actively-exploited-asa.html",
           "date": "2026-10-29",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKqTkl_DfXdrvaLinBOu5OU0NISVo_mPJfqRmnHL-m8efFXEijbxOVsFgrSPparCspKfoUtxDtfA7gu8myFTfvWCFJfse3BQakKGOZCA54pWh371KyXdluHyqjckIBFjZ36Ogv1EI42yDCO2dt02noigEyL2RKJ8lEivH3PCWJURryc1JtNO9djpeW88tJ/s1700-nu-rw-lo-l85-e365/cisco-flaws.jpg"
+        },
+        {
+          "titre": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/10/29/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+          "date": "2026-10-29"
         }
       ]
     },
@@ -26596,8 +26602,8 @@
       "id": "2026-10-29-alpine-gitlab-cve-2026-97229",
       "title": "Alpine Linux : tentative d'exploitation de la faille GitLab CVE-2026-97229 sur son serveur",
       "created": "2026-10-29T11:30:00+00:00",
-      "updated": "2026-10-29T11:30:00+00:00",
-      "version": 1,
+      "updated": "2026-10-30T04:07:32+00:00",
+      "version": 2,
       "resume": "Un attaquant a tenté d'exploiter la faille CVE-2026-97229 sur le serveur GitLab d'Alpine Linux, une semaine après la publication du correctif ; Alpine n'a trouvé aucune preuve de réussite mais ne peut pas l'exclure [1].",
       "chaine": [
         {
@@ -26649,7 +26655,7 @@
           }
         ]
       },
-      "limites": "Compromission non confirmée : aucune preuve de réussite, mais Alpine ne peut pas l'exclure ; acteur non identifié ; comment les configurations ont atteint le serveur n'est pas précisé [1].",
+      "limites": "Compromission non confirmée : aucune preuve de réussite, mais Alpine ne peut pas l'exclure ; acteur non identifié [1]. CISA a ajouté la faille à son catalogue des failles exploitées [2].",
       "cves": [
         {
           "id": "CVE-2026-97229",
@@ -26676,6 +26682,12 @@
           "url": "https://thehackernews.com/2026/10/attacker-tried-to-exploit-alpine-linuxs.html",
           "date": "2026-10-29",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh65eroK1pQacKJwqeGmgp2sDta1mgCrPuNMXiwAgTi-FVZNc1V4D7qooFFc-V-XNOJzYpjYk28Y_kIkoHMNJfnQ5h2gI0-bOWlVOt9VJ9oZUpRsBzYLsSMe3oNRTfZe53dtpezOOq1MHmWhEhAigbyOMLx4jWAbcvvImY39jY1h4FMS4_OUqSDF-kZJvQ/s1700-nu-rw-lo-l85-e365/linux-gitlab.jpg"
+        },
+        {
+          "titre": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/10/29/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+          "date": "2026-10-29"
         }
       ]
     },

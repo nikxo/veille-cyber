@@ -1,13 +1,5 @@
 [
   {
-    "id": "6e33620606a01d8d",
-    "title": "⚡ Weekly Recap: Helpdesk 0-Days, Rogue Certs, ShinyHunters Arrest, AI-Fooling Malware and More",
-    "link": "https://thehackernews.com/2026/10/weekly-recap-helpdesk-0-days-rogue.html",
-    "source": "The Hacker News",
-    "raison": "récapitulatif hebdomadaire multi-sujets",
-    "date": "2026-10-12T17:30:00+00:00"
-  },
-  {
     "id": "f39b0115a3c625e4",
     "title": "L’IA rebat les cartes de la qualité de données",
     "link": "https://www.lemagit.fr/tribune/LIA-rebat-les-cartes-de-la-qualite-de-donnees",
@@ -3998,5 +3990,13 @@
     "source": "The Record",
     "raison": "actualité judiciaire sans attaque",
     "date": "2026-10-30T21:10:00+00:00"
+  },
+  {
+    "id": "95d06cad1c552fcc",
+    "title": "Critical Linux kernel flaw allows remote root attacks on MPTCP servers",
+    "link": "https://www.bleepingcomputer.com/news/security/critical-linux-kernel-flaw-allows-remote-root-attacks-on-mptcp-servers/",
+    "source": "BleepingComputer",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-10-30T22:10:00+00:00"
   }
 ]

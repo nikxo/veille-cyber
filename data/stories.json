@@ -28235,6 +28235,103 @@
           "date": "2026-10-29"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-30-gitlab-alpine-cisco-kev",
+      "title": "Faille GitLab exploitée contre Alpine Linux et faille Cisco ajoutées au catalogue CISA",
+      "created": "2026-10-30T08:30:00+00:00",
+      "updated": "2026-10-30T08:30:00+00:00",
+      "version": 1,
+      "resume": "Un acteur inconnu a tenté d'exploiter la faille CVE-2026-97229 sur une instance GitLab d'Alpine Linux. La CISA a ajouté cette faille et une faille Cisco à son catalogue des vulnérabilités exploitées [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Envoi de configurations CI/CD forgées à une instance GitLab non corrigée → huit plantages de processus, exploit en échec à l'étape suivante pour quatre [1]."
+        },
+        {
+          "etape": "Récupération de données",
+          "texte": "Téléchargement de l'image de conteneur GitLab d'Alpine par l'attaquant [1]."
+        },
+        {
+          "etape": "Nouvelles tentatives",
+          "texte": "Tentatives de réentrée les 25 et 26 octobre → bloquées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant inconnu",
+            "note": ""
+          },
+          {
+            "id": "gl",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Instance GitLab d'Alpine",
+            "note": "Non corrigée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gl",
+            "etape": 1,
+            "texte": "Configurations CI/CD forgées envoyées"
+          },
+          {
+            "de": "att",
+            "vers": "gl",
+            "etape": 3,
+            "texte": "Nouvelles tentatives bloquées"
+          }
+        ]
+      },
+      "limites": "L'article ne dit pas si l'exploitation a réussi. Alpine n'a trouvé aucune preuve de réussite sans l'exclure, et rien ne dit ce qu'a permis le téléchargement de l'image [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-97229",
+          "explication": "GitLab Community et Enterprise : dépassement d'entier via une expression régulière dans une configuration CI/CD, exécution de code sans authentification, gravité 10 sur 10 [1]."
+        },
+        {
+          "id": "CVE-2026-76418",
+          "explication": "Cisco Secure Firewall ASA et Threat Defense : valeur de retour non vérifiée, redémarrage de l'appareil à distance sans authentification, gravité 8,6 sur 10 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Acteur non identifié pour l'attaque contre Alpine Linux [1]"
+      ],
+      "cibles": [
+        "Instance GitLab d'Alpine Linux [1]",
+        "Appareils Cisco Secure Firewall, nombre d'organisations non précisé [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CI/CD",
+          "definition": "Intégration et livraison continues : automatisation de la construction et du déploiement de logiciels"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de protection des infrastructures"
+        },
+        {
+          "sigle": "ASA",
+          "definition": "Adaptive Security Appliance : pare-feu de Cisco"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CISA Adds Actively Exploited GitLab RCE and Cisco Firewall DoS Flaws to KEV",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/cisa-adds-actively-exploited-gitlab-rce.html",
+          "date": "2026-10-30",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiw1Ms9mKdtALczFoDaNy5Bm0HVMfxu0ps0ykDUXuLn3BeOEqUCDnzUiCP2lU_7xbC2kYuIAGCuOiQCGIlkR6wYBfCfb7g0wRESfIFaMtSltOjWphyswldC4LJxFf0RnCB9FzEVc-euJGtGbUvpJr7FOE0QefC3_rn8xLSFTij_yJn1MNP6bJVu8VgrcLaV/s1700-nu-rw-lo-l85-e365/github-cisco.jpg"
+        }
+      ]
     }
   ]
 }

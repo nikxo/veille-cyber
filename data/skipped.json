@@ -1,21 +1,5 @@
 [
   {
-    "id": "e17ea21e0918415d",
-    "title": "Infogreffe visé par une revendication de fuite de données",
-    "link": "https://www.zataz.com/infogreffe-vise-par-une-revendication-de-fuite-de-donnees/",
-    "source": "ZATAZ",
-    "raison": "revendication non vérifiée, sans détail sur la méthode d'attaque",
-    "date": "2026-10-11T13:30:00+00:00"
-  },
-  {
-    "id": "54dfda5592043028",
-    "title": "DDoS : une menace pour la participation démocratique ?",
-    "link": "https://www.zataz.com/ddos-une-menace-pour-la-participation-democratique/",
-    "source": "ZATAZ",
-    "raison": "revendications DDoS non vérifiées, sans détail sur la méthode d'attaque",
-    "date": "2026-10-11T14:20:00+00:00"
-  },
-  {
     "id": "bc91f5ae369ce5d8",
     "title": "Nippon Columbia malware incident exposes 8.6 million karaoke fan records",
     "link": "https://www.bleepingcomputer.com/news/security/nippon-columbia-malware-incident-exposes-86-million-karaoke-fan-records/",
@@ -3998,5 +3982,21 @@
     "source": "Securelist (Kaspersky)",
     "raison": "méthode de génération de filtres d'alertes, aucune attaque décrite",
     "date": "2026-10-30T10:08:38+00:00"
+  },
+  {
+    "id": "32d8589f2318deeb",
+    "title": "Microsoft finally fixes VPN issues caused by September updates",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-finally-fixes-vpn-issues-caused-by-september-updates/",
+    "source": "BleepingComputer",
+    "raison": "correctif de bogue, aucune attaque",
+    "date": "2026-10-30T12:40:00+00:00"
+  },
+  {
+    "id": "5553b245af75f973",
+    "title": "Why CTF Competitions May Be More Important Than Ever",
+    "link": "https://www.darkreading.com/cybersecurity-operations/why-ctf-more-important-than-ever",
+    "source": "Dark Reading",
+    "raison": "article d'opinion, aucune attaque décrite",
+    "date": "2026-10-30T12:40:00+00:00"
   }
 ]

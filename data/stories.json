@@ -28027,23 +28027,23 @@
     {
       "schema": 3,
       "id": "2026-10-29-binance-transferts-hot-wallets",
-      "title": "Binance : milliards de dollars transférés depuis ses hot wallets, enquête en cours",
+      "title": "Binance : incident de sécurité, retraits non autorisés et milliards d'actifs touchés",
       "created": "2026-10-29T23:08:16+00:00",
-      "updated": "2026-10-29T23:08:16+00:00",
-      "version": 1,
-      "resume": "Binance enquête sur des transferts de milliards de dollars de cryptomonnaies depuis ses hot wallets vers une adresse Ethereum nouvellement créée ; le caractère non autorisé et le montant ne sont pas confirmés [1].",
+      "updated": "2026-10-30T06:13:31+00:00",
+      "version": 2,
+      "resume": "Binance a signalé un incident de sécurité touchant environ 6,3 milliards de dollars d'actifs, dont près de 3 milliards gelés ; des retraits non autorisés ont été soumis après un accès à un conteneur de service [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Binance indique que l'incident pourrait impliquer l'ordinateur portable compromis d'un ingénieur DevOps → accès de l'attaquant à un conteneur de service [2]."
         },
         {
-          "etape": "Transferts",
-          "texte": "Plusieurs hot wallets Binance auraient envoyé des fonds vers une adresse Ethereum nouvellement créée → environ 3,48 milliards de dollars signalés [1]."
+          "etape": "Retraits non autorisés",
+          "texte": "Soumission de retraits non autorisés [2] ; des hot wallets auraient envoyé des fonds vers une adresse Ethereum nouvellement créée → environ 3,48 milliards de dollars signalés [1]."
         },
         {
           "etape": "Gel des actifs",
-          "texte": "Tether a gelé plus de 1,567 milliard de dollars et Circle plus de 800 millions → plus de 2,3 milliards gelés au total [1]."
+          "texte": "Tether a gelé plus de 1,567 milliard de dollars, Circle environ 800 millions et l'Arbitrum Security Council environ 30,5 millions [1, 2]."
         }
       ],
       "parcours": {
@@ -28053,6 +28053,20 @@
             "type": "attaquant",
             "zone": "internet",
             "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Portable ingénieur DevOps",
+            "note": "Compromission possible"
+          },
+          {
+            "id": "cont",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Conteneur de service",
             "note": ""
           },
           {
@@ -28073,9 +28087,15 @@
         "liens": [
           {
             "de": "att",
-            "vers": "bin",
+            "vers": "pc",
             "etape": 1,
-            "texte": "Accès non précisé par les sources"
+            "texte": "Compromission possible du portable"
+          },
+          {
+            "de": "pc",
+            "vers": "cont",
+            "etape": 1,
+            "texte": "Accès au conteneur de service"
           },
           {
             "de": "bin",
@@ -28085,16 +28105,21 @@
           }
         ]
       },
-      "limites": "Binance n'a pas confirmé que les transferts étaient non autorisés, ni la méthode, ni le montant volé ; 5,8 milliards est une valeur d'avoirs suivis par Arkham [1].",
+      "limites": "Le vecteur d'accès reste une hypothèse de Binance [2]. Les montants diffèrent : 5,8 milliards d'avoirs suivis par Arkham [1], environ 5,912 milliards estimés par Chainalysis [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non identifié ; Arkham suit l'entité nommée binance-hacker-1029 [1]"
+        "Non identifié ; Arkham suit l'entité nommée binance-hacker-1029 [1] ; aucune attribution à un groupe dans [2]"
       ],
       "cibles": [
-        "Plateforme d'échange de cryptomonnaies Binance [1]"
+        "Plateforme d'échange de cryptomonnaies Binance [1, 2]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "DevOps",
+          "definition": "Équipe qui développe et exploite les applications et leur infrastructure"
+        }
+      ],
       "sources": [
         {
           "titre": "Binance probes potential $5.8 billion crypto-theft hack",
@@ -28102,6 +28127,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/binance-probes-potential-58-billion-crypto-theft-hack/",
           "date": "2026-10-29",
           "image": "https://www.bleepstatic.com/content/hl-images/2023/10/13/back.png"
+        },
+        {
+          "titre": "Binance Suffers Security Breach Affecting $6.3 Billion in Assets, Nearly $3 Billion Frozen",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/binance-suffers-security-breach.html",
+          "date": "2026-10-30",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmTtJggkBbk2ERH6bhZMSPnb_E1aQ44w4EpzkwAt1tqp45sGvG7jeAg2QvmbWQsBy5hyphenhyphen7ur18XQ1Uax7D9XRg-CZpQpMAByXt37Fn1loBClsu49KlBEsnxRCfy7vSuI-5yrpHB4JLWc1vtw0aITnhbFXDb4CosJzm07My3Lw6p3fOLTfcaxJLBR-Pdi2A6/s1700-nu-rw-lo-l85-e365/Binance.jpg"
         }
       ]
     },

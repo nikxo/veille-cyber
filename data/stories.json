@@ -28491,25 +28491,25 @@
       "id": "2026-10-30-claude-code-extension-cursor-backdoor",
       "title": "Extension Claude Code piégée sur la marketplace Cursor : porte dérobée SSH",
       "created": "2026-10-30T11:30:00+00:00",
-      "updated": "2026-10-30T11:30:00+00:00",
-      "version": 1,
-      "resume": "Une fausse version 2.1.313 de l'extension anthropic.claude-code, diffusée via la marketplace Cursor, a installé un accès SSH persistant. Cursor compte au maximum 5 000 utilisateurs touchés [1].",
+      "updated": "2026-10-30T15:00:08+00:00",
+      "version": 2,
+      "resume": "Une fausse version 2.1.313 de l'extension Claude Code, diffusée via la marketplace Cursor, a installé un accès SSH persistant. Cursor compte au maximum 5 000 utilisateurs touchés [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Extension malveillante se présentant comme anthropic.claude-code 2.1.313, distribuée via la marketplace Cursor → code exécuté au démarrage de VS Code [1]."
+          "texte": "Extension malveillante se présentant comme anthropic.claude-code 2.1.313 sur la marketplace Cursor, chargeur JavaScript en tête de extension.js → code exécuté au chargement, sans action de l'utilisateur [1, 3]."
         },
         {
           "etape": "Persistance",
-          "texte": "Ajout d'une clé de l'attaquant dans authorized_keys, plus tâche planifiée, crontab ou LaunchAgent selon la plateforme → accès SSH durable [1]."
+          "texte": "Clé de l'attaquant ajoutée dans authorized_keys, plus LaunchAgent macOS ou tâche planifiée Windows, tunnel relancé environ chaque minute → accès SSH durable [1, 2, 3]."
         },
         {
           "etape": "Accès distant",
-          "texte": "Tunnel inverse vers 134.209.82[.]225 → voie d'accès au service SSH de la victime ; l'activation du service échoue sur la plupart des Mac et Windows faute de droits administrateur [1]."
+          "texte": "Tunnel inverse vers 134.209.82[.]225 → accès au SSH de la victime ; l'activation de SSH échoue sur la plupart des Mac et Windows à cause d'erreurs de code [1, 2, 3]."
         },
         {
           "etape": "Reconnaissance",
-          "texte": "Envoi non chiffré vers le serveur de l'attaquant de l'adresse publique, du nom d'hôte, de l'utilisateur et de noms de variables sensibles → profil de la machine [1]."
+          "texte": "Envoi non chiffré vers le serveur de l'attaquant de l'adresse publique, du nom d'hôte, de l'utilisateur, de l'e-mail Git, de noms de variables sensibles [1, 3]."
         }
       ],
       "parcours": {
@@ -28557,14 +28557,14 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni comment la marketplace a été compromise, ni l'acteur. Aucune autre charge utile n'a été observée à ce jour [1].",
+      "limites": "Les sources ne précisent ni comment l'extension a été publiée sous le nom d'Anthropic, ni l'acteur [2, 3]. Aucune autre charge utile n'a été observée à ce jour [1].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non identifié ; Cursor indique que la version n'a pas été développée par Anthropic [1]"
+        "Non identifié ; Cursor indique que la version n'a pas été développée par Anthropic [1, 3]"
       ],
       "cibles": [
-        "Utilisateurs ayant installé la version malveillante, au maximum 5 000 selon Cursor [1]"
+        "Utilisateurs ayant installé la version malveillante, au maximum 5 000 selon Cursor [1, 2, 3]"
       ],
       "abreviations": [
         {
@@ -28583,6 +28583,20 @@
           "url": "https://thehackernews.com/2026/10/official-claude-code-vs-code-extension.html",
           "date": "2026-10-30",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggT2-bdx6q5Aa-HsOIuOeYTY1kFbPYIPIaA7N0Esdo4LHRscpkr3fMnRNiE_NqR71eURHrlqkC1stLKp2bKmT8cLHta8uYyGPtbWRwGm5ctnpMJC-8Q7pswyRP5hXMkIDjptIHDBdcQobfqaMEu9eXfPS9c_vvIi-jYmZBHVnKJb04CtcCyGOeBY709cdq/s1700-nu-rw-lo-l85-e365/claude-vs.png"
+        },
+        {
+          "titre": "Malicious Claude Code extension distributed through Cursor marketplace",
+          "site": "Sophos Threat Research",
+          "url": "https://www.sophos.com/en-us/blog/malicious-claude-code-extension-distributed-through-cursor-marketplace",
+          "date": "2026-10-30",
+          "image": "https://images.contentstack.io/v3/assets/blt38f1f401b66100ad/bltb4b6c0750dc5846c/6aad5e6160452d9f5056a4ef/logo.png"
+        },
+        {
+          "titre": "Malicious Claude Code extension on Cursor planted SSH backdoors",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/malicious-claude-code-extension-on-cursor-planted-ssh-backdoors/",
+          "date": "2026-10-30",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/30/claude-code-attack.jpg"
         }
       ]
     },

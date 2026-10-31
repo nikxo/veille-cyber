@@ -29554,6 +29554,131 @@
           "image": "https://cms.therecord.media/uploads/CAM_25013_copy_8a567a6f3a.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-31-volta-infostealer-ia",
+      "title": "VOLTA : un voleur d'informations qui classe ses victimes grâce à un modèle d'IA",
+      "created": "2026-10-31T12:15:00+00:00",
+      "updated": "2026-10-31T12:15:00+00:00",
+      "version": 1,
+      "resume": "Cisco Talos décrit VOLTA-AUTODOXER, un voleur d'informations Windows qui s'auto-supprime. Après le vol, il envoie un dossier sur la victime à un modèle d'IA pour classer ses actifs par valeur monétisable [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Collecte de mots de passe, cookies, jetons Microsoft, clés SSH et cloud, cartes de paiement et captures d'écran → vol de comptes et de cryptomonnaies [1]."
+        },
+        {
+          "etape": "Craquage des portefeuilles",
+          "texte": "Un craqueur intégré attaque les coffres des portefeuilles de cryptomonnaies → accès aux fonds [1]."
+        },
+        {
+          "etape": "Enrichissement du profil",
+          "texte": "Avec les sessions volées, consultation de Gmail, d'Uber Eats, de DoorDash et de Discord → victime documentée [1]."
+        },
+        {
+          "etape": "Classement par IA",
+          "texte": "Envoi du dossier de renseignement à un modèle d'IA via OpenRouter → actifs de la victime classés par valeur monétisable [1]."
+        },
+        {
+          "etape": "Exfiltration",
+          "texte": "Trois archives successives envoyées à l'opérateur, l'exécutable principal pouvant ensuite se supprimer lui-même [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (opérateur VOLTA)",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste Windows de la victime",
+            "note": "Données volées"
+          },
+          {
+            "id": "svc",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Comptes en ligne volés",
+            "note": "Sessions volées"
+          },
+          {
+            "id": "ia",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Modèle d'IA via OpenRouter",
+            "note": "Classement"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Vecteur d'accès non précisé"
+          },
+          {
+            "de": "pc",
+            "vers": "svc",
+            "etape": 4,
+            "texte": "Sessions volées utilisées pour enrichir le profil"
+          },
+          {
+            "de": "pc",
+            "vers": "ia",
+            "etape": 5,
+            "texte": "Dossier de renseignement envoyé pour classement"
+          },
+          {
+            "de": "pc",
+            "vers": "att",
+            "etape": 6,
+            "texte": "Archives exfiltrées vers l'opérateur"
+          }
+        ]
+      },
+      "limites": "L'article ne précise ni le vecteur d'accès initial, ni l'acteur, ni les victimes, ni de technique MITRE ATT&CK [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non mentionné ; auteur vendant des binaires configurables à des clients (modèle « builder ») [1]"
+      ],
+      "cibles": [
+        "Particuliers, sans secteur précis [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole d'accès sécurisé à distance à une machine"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle : ici un grand modèle de langage interrogé par le malware"
+        },
+        {
+          "sigle": "VOLTA",
+          "definition": "Nom du voleur d'informations décrit par Talos (VOLTA-AUTODOXER)"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Appraisal by AI: Model-driven victim prioritization in the VOLTA infostealer",
+          "site": "Cisco Talos",
+          "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+          "date": "2026-10-31",
+          "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/VOLTA.jpg"
+        }
+      ]
     }
   ]
 }

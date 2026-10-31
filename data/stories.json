@@ -28500,9 +28500,9 @@
       "id": "2026-10-30-claude-code-extension-cursor-backdoor",
       "title": "Extension Claude Code piégée sur la marketplace Cursor : porte dérobée SSH",
       "created": "2026-10-30T11:30:00+00:00",
-      "updated": "2026-10-30T15:00:08+00:00",
-      "version": 2,
-      "resume": "Une fausse version 2.1.313 de l'extension Claude Code, diffusée via la marketplace Cursor, a installé un accès SSH persistant. Cursor compte au maximum 5 000 utilisateurs touchés [1, 2, 3].",
+      "updated": "2026-10-31T02:30:00+00:00",
+      "version": 3,
+      "resume": "Une fausse version 2.1.313 de l'extension Claude Code, diffusée via la marketplace Cursor, a installé un accès SSH persistant. Cursor compte au maximum 5 000 utilisateurs touchés [1, 2, 3, 4].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -28510,15 +28510,15 @@
         },
         {
           "etape": "Persistance",
-          "texte": "Clé de l'attaquant ajoutée dans authorized_keys, plus LaunchAgent macOS ou tâche planifiée Windows, tunnel relancé environ chaque minute → accès SSH durable [1, 2, 3]."
+          "texte": "Clé de l'attaquant dans authorized_keys, puis LaunchAgent macOS, crontab Linux ou tâche planifiée Windows, reconnexion après 60 secondes → accès SSH durable [1, 2, 3, 4]."
         },
         {
           "etape": "Accès distant",
-          "texte": "Tunnel inverse vers 134.209.82[.]225 → accès au SSH de la victime ; l'activation de SSH échoue sur la plupart des Mac et Windows à cause d'erreurs de code [1, 2, 3]."
+          "texte": "Tunnel inverse vers 134.209.82[.]225 → accès au SSH de la victime ; l'activation de SSH échoue sur la plupart des Mac et Windows [1, 2, 3, 4]."
         },
         {
           "etape": "Reconnaissance",
-          "texte": "Envoi non chiffré vers le serveur de l'attaquant de l'adresse publique, du nom d'hôte, de l'utilisateur, de l'e-mail Git, de noms de variables sensibles [1, 3]."
+          "texte": "Envoi vers le serveur de l'attaquant de l'adresse publique, du nom d'hôte, de l'utilisateur, de l'e-mail Git, de noms de variables sensibles [1, 3, 4]."
         }
       ],
       "parcours": {
@@ -28566,9 +28566,14 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni comment l'extension a été publiée sous le nom d'Anthropic, ni l'acteur [2, 3]. Aucune autre charge utile n'a été observée à ce jour [1].",
+      "limites": "Les sources ne précisent ni comment l'extension a été publiée sous le nom d'Anthropic, ni l'acteur [2, 3, 4]. Le vol de secrets n'est pas démontré [4].",
       "cves": [],
-      "mitre": [],
+      "mitre": [
+        "T1098.004 : SSH Authorized Keys, ajout d'une clé publique pour un accès persistant [4]",
+        "T1572 : Protocol Tunneling, tunnel SSH inverse vers un serveur distant [4]",
+        "T1053.003 : Cron, entrée crontab au redémarrage sous Linux [4]",
+        "T1053.005 : Scheduled Task, tâche planifiée « SysMon » sous Windows [4]"
+      ],
       "acteurs": [
         "Non identifié ; Cursor indique que la version n'a pas été développée par Anthropic [1, 3]"
       ],
@@ -28606,6 +28611,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/malicious-claude-code-extension-on-cursor-planted-ssh-backdoors/",
           "date": "2026-10-30",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/30/claude-code-attack.jpg"
+        },
+        {
+          "titre": "Inside a malicious Claude Code-branded extension and its persistent SSH backdoor",
+          "site": "Microsoft Threat Intelligence",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/",
+          "date": "2026-10-30",
+          "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/05/MS_Actional-Insights_Links.jpg"
         }
       ]
     },

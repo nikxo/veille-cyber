@@ -29358,19 +29358,27 @@
     {
       "schema": 3,
       "id": "2026-10-30-cisa-kev-ivanti-connect-secure",
-      "title": "Deux nouvelles failles d'Ivanti Connect Secure exploitées, ajoutées au catalogue de la CISA",
+      "title": "Ivanti Connect Secure : chaîne de trois failles exploitée, deux ajoutées au catalogue de la CISA",
       "created": "2026-10-30T19:20:00+00:00",
-      "updated": "2026-10-30T19:20:00+00:00",
-      "version": 1,
-      "resume": "La CISA a ajouté deux failles d'Ivanti Connect Secure à son catalogue des vulnérabilités exploitées, sur la base de preuves d'exploitation active [1].",
+      "updated": "2026-10-31T10:07:16+00:00",
+      "version": 2,
+      "resume": "Des attaquants ont enchaîné trois failles d'Ivanti Connect Secure pour exécuter du code sans authentification avec les droits root ; la CISA a ajouté deux de ces failles à son catalogue des vulnérabilités exploitées [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Contournement d'authentification (CVE-2026-104935), première étape de la chaîne, sur Ivanti Connect Secure ; le vecteur précis n'est pas détaillé [2]."
         },
         {
-          "etape": "Exploitation des failles",
-          "texte": "Exploitation active de deux failles d'Ivanti Connect Secure → ajout au catalogue KEV de la CISA le 30 octobre 2026 [1]."
+          "etape": "Exécution de code root",
+          "texte": "Exécution de code à distance puis élévation de privilèges, combinées au contournement → exécution de code non authentifiée au niveau root [2]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Extraction d'identifiants et de métadonnées limitées d'Active Directory, recherche de mots de passe administrateur et de clés de récupération BitLocker [2]."
+        },
+        {
+          "etape": "Alerte et catalogue",
+          "texte": "Exploitation active constatée → ajout de deux failles au catalogue KEV de la CISA le 30 octobre 2026 [1, 2]."
         }
       ],
       "parcours": {
@@ -29379,7 +29387,7 @@
             "id": "att",
             "type": "attaquant",
             "zone": "internet",
-            "nom": "Attaquant",
+            "nom": "Attaquant (UTA0576)",
             "note": ""
           },
           {
@@ -29387,35 +29395,58 @@
             "type": "passerelle",
             "zone": "victime",
             "nom": "Ivanti Connect Secure",
-            "note": ""
+            "note": "Accès root"
+          },
+          {
+            "id": "ad",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Active Directory",
+            "note": "Identifiants extraits"
           }
         ],
         "liens": [
           {
             "de": "att",
             "vers": "gw",
+            "etape": 1,
+            "texte": "Contournement d'authentification"
+          },
+          {
+            "de": "att",
+            "vers": "gw",
             "etape": 2,
-            "texte": "Exploitation active de deux failles"
+            "texte": "Exécution de code et élévation de privilèges"
+          },
+          {
+            "de": "att",
+            "vers": "ad",
+            "etape": 3,
+            "texte": "Extraction d'identifiants et de métadonnées"
           }
         ]
       },
-      "limites": "La source ne précise ni les attaquants, ni les victimes, ni la nature des attaques, ni les correctifs [1].",
+      "limites": "Les sources ne précisent pas l'ordre exact des étapes ni les victimes. L'article ne dit pas quelle faille correspond à quelle étape [1, 2].",
       "cves": [
         {
+          "id": "CVE-2026-104935",
+          "explication": "Ivanti Connect Secure : contournement d'authentification, première étape de la chaîne, gravité 8,6 sur 10, ajoutée au catalogue KEV le 13 octobre 2026 [2]."
+        },
+        {
           "id": "CVE-2026-111357",
-          "explication": "Ivanti Connect Secure : absence d'authentification pour une fonction critique ; exploitation active constatée [1]."
+          "explication": "Ivanti Connect Secure : absence d'authentification pour une fonction critique, élévation de privilèges par un attaquant local authentifié, gravité 8,8 ; exploitation active [1, 2]."
         },
         {
           "id": "CVE-2026-118527",
-          "explication": "Ivanti Connect Secure : génération de nombres ou d'identifiants prévisibles ; exploitation active constatée [1]."
+          "explication": "Ivanti Connect Secure : identifiants prévisibles, téléversement de fichiers à un emplacement connu par un attaquant distant authentifié, gravité 4,3 ; exploitation active [1, 2]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "Non précisé [1]"
+        "UTA0576, groupe non documenté auparavant selon Volexity [2]"
       ],
       "cibles": [
-        "Utilisateurs d'Ivanti Connect Secure ; victimes non précisées [1]"
+        "Utilisateurs d'Ivanti Connect Secure ; victimes non précisées [1, 2]"
       ],
       "abreviations": [
         {
@@ -29425,6 +29456,10 @@
         {
           "sigle": "KEV",
           "definition": "Catalogue des vulnérabilités connues comme exploitées, tenu par la CISA"
+        },
+        {
+          "sigle": "UTA0576",
+          "definition": "Nom donné par Volexity à un groupe d'attaquants non documenté auparavant"
         }
       ],
       "sources": [
@@ -29433,6 +29468,13 @@
           "site": "CISA Advisories",
           "url": "https://www.cisa.gov/news-events/alerts/2026/10/30/cisa-adds-two-known-exploited-vulnerabilities-catalog",
           "date": "2026-10-30"
+        },
+        {
+          "titre": "Attackers Chain Three Ivanti Connect Secure Flaws to Gain Unauthenticated Root Access",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html",
+          "date": "2026-10-31",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjeqP4vPt6j2lLPFj77A_1OthmSKb8mItfBrX_q8sQCAUVgTry1FxKizDI2SCLS4CglfjgbVkaMDN8ainqoOZm2pdaF6xw7sU4STZhwIFPCLSz84YXQTVx2tquPo7YJsZhgOWcD3V_w5td9BA_vVuOu1cFcrgL3SXyLF4E24IyGotrzDcbJ-M1mA85biDuW/s1700-nu-rw-lo-l85-e365/1000120841.jpg"
         }
       ]
     },

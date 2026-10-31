@@ -1,13 +1,5 @@
 [
   {
-    "id": "6512ad6a9c13d351",
-    "title": "Maximum-Severity SSRF Flaw in SonicWall SMA Devices Under Attack",
-    "link": "https://www.darkreading.com/vulnerabilities-threats/max-severity-ssrf-flaw-sonicwall-sma-devices-under-attack",
-    "source": "Dark Reading",
-    "raison": "page inaccessible (403), résumé sans détail de l'attaque ni CVE, lien avec le sujet SonicWall existant non établi",
-    "date": "2026-10-12T22:06:15+00:00"
-  },
-  {
     "id": "9f3248c0b121f4e5",
     "title": "Puces IA : l’hyperscaler Azure présente son nouveau Maia 300",
     "link": "https://www.lemagit.fr/actualites/366652083/Puces-IA-lhyperscaler-Azure-presente-son-nouveau-Maia-300",
@@ -3998,5 +3990,13 @@
     "source": "SecurityWeek",
     "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
     "date": "2026-10-31T11:06:04+00:00"
+  },
+  {
+    "id": "89624d6883b7b756",
+    "title": "Reddit to lock content behind logins to fight scrapers",
+    "link": "https://www.bleepingcomputer.com/news/security/reddit-to-lock-content-behind-logins-to-fight-scrapers/",
+    "source": "BleepingComputer",
+    "raison": "annonce produit, aucune attaque décrite",
+    "date": "2026-10-31T14:06:27+00:00"
   }
 ]

@@ -29767,6 +29767,96 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2025/03/18/Blockchain-2.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-31-northflank-cles-api-ia",
+      "title": "Northflank : intrusion et utilisation frauduleuse de clés d'accès à des services d'IA de clients",
+      "created": "2026-10-31T18:20:00+00:00",
+      "updated": "2026-10-31T18:20:00+00:00",
+      "version": 1,
+      "resume": "Northflank, plateforme d'hébergement d'applications dans le cloud, a subi une intrusion. Des clés API d'IA de clients ont été utilisées sans autorisation [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Abus de clés API",
+          "texte": "Intrusion sur la plateforme → utilisation non autorisée des clés API d'IA de clients [1]."
+        },
+        {
+          "etape": "Réaction de l'éditeur",
+          "texte": "Northflank demande aux clients de renouveler tous les identifiants et secrets stockés sur la plateforme [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "pf",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Plateforme Northflank",
+            "note": ""
+          },
+          {
+            "id": "cles",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Clés API d'IA des clients",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pf",
+            "etape": 1,
+            "texte": "Intrusion, vecteur non précisé"
+          },
+          {
+            "de": "pf",
+            "vers": "cles",
+            "etape": 2,
+            "texte": "Utilisation non autorisée des clés API"
+          }
+        ]
+      },
+      "limites": "Le résumé de l'article ne précise ni le vecteur d'accès, ni l'auteur, ni le nombre de clients touchés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non précisé par les sources [1]"
+      ],
+      "cibles": [
+        "Northflank et ses clients dont les clés API d'IA ont été utilisées [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Interface de programmation permettant à un logiciel d'utiliser un service"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Northflank security breach leads to abuse of customers' AI API keys",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/northflank-security-breach-leads-to-abuse-of-customers-ai-api-keys/",
+          "date": "2026-10-31",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/31/northflank-header.jpg"
+        }
+      ]
     }
   ]
 }

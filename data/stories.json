@@ -29679,6 +29679,94 @@
           "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/VOLTA.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-31-chainalysis-intrusion-agentique",
+      "title": "Chainalysis : intrusion dans ses outils internes par des techniques agentiques offensives",
+      "created": "2026-10-31T13:20:00+00:00",
+      "updated": "2026-10-31T13:20:00+00:00",
+      "version": 1,
+      "resume": "Chainalysis, entreprise d'analyse de blockchain, a subi une intrusion dans ses systèmes et outils internes. Des données non sensibles de clients ont été consultées [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1, 2]."
+        },
+        {
+          "etape": "Accès aux outils internes",
+          "texte": "Un acteur externe emploie des « techniques agentiques offensives » → accès non autorisé aux systèmes et outils internes [1, 2]."
+        },
+        {
+          "etape": "Consultation de données",
+          "texte": "Lecture de données clients → identifiants utilisateur, noms, e-mails et libellés de rôle exposés [1, 2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Systèmes et outils internes",
+            "note": ""
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données clients non sensibles",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Techniques agentiques offensives"
+          },
+          {
+            "de": "sys",
+            "vers": "don",
+            "etape": 3,
+            "texte": "Consultation des données clients"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'accès, ni les failles exploitées, ni la durée de l'accès, ni le nombre de clients touchés [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Acteur externe non identifié [1, 2]"
+      ],
+      "cibles": [
+        "Chainalysis et ses clients, dont des utilisateurs de la plateforme [1, 2]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Chainalysis Confirms Intrusion Into Internal Tools and Exposure of Customer Identity Data",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/chainalysis-confirms-intrusion-into.html",
+          "date": "2026-10-31",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFRN0kXDPnLLvRBYqNZG4BTyUK0EaSxRtepYOQ-msXGAqu1IW8t2cdnav4ANAO8fXwY_-ug6Ictj29WcseInPhJmYOwpgcinvc8KO36A8HK6Wo41lgztgyH2jb9hGg7bVyWZ4A-adjBYuTi-hOJxMALa7myG172BWKwB_SyvrfMeqxH_3DdcyJxYwXFIKG/s1700-nu-rw-lo-l85-e365/chain.jpg"
+        },
+        {
+          "titre": "Chainalysis discloses data breach from \"offensive agentic techniques\"",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/chainalysis-discloses-data-breach-from-offensive-agentic-techniques/",
+          "date": "2026-10-31",
+          "image": "https://www.bleepstatic.com/content/hl-images/2025/03/18/Blockchain-2.jpg"
+        }
+      ]
     }
   ]
 }

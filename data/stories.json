@@ -28078,8 +28078,8 @@
       "id": "2026-10-29-binance-transferts-hot-wallets",
       "title": "Binance : incident de sécurité, retraits non autorisés et milliards d'actifs touchés",
       "created": "2026-10-29T23:08:16+00:00",
-      "updated": "2026-11-01T08:08:28+00:00",
-      "version": 5,
+      "updated": "2026-11-01T20:07:08+00:00",
+      "version": 6,
       "resume": "Binance a signalé un incident touchant environ 6,3 milliards de dollars d'actifs, dont près de 3 milliards gelés ; des retraits non autorisés ont suivi l'accès à un conteneur de service [2, 3]. Le FBI l'attribue à TraderTraitor [6].",
       "chaine": [
         {
@@ -28100,7 +28100,7 @@
         },
         {
           "etape": "Blanchiment",
-          "texte": "Vente de Tether à plus de 10 % sous le marché auprès de teneurs de marché [3, 5] ; emprunt d'ether sur Aave [5] ; conversion surtout en ether selon le FBI [6]."
+          "texte": "Vente de Tether à plus de 10 % sous le marché auprès de teneurs de marché [3, 5] ; emprunt d'ether sur Aave [5] ; conversion surtout en ether selon le FBI [6, 7]."
         }
       ],
       "parcours": {
@@ -28162,17 +28162,18 @@
           }
         ]
       },
-      "limites": "Vecteur d'accès : hypothèse de Binance [2, 3, 4], d'autres points de compromission non précisés [5] ; non mentionné par [6]. Montants : de 5,8 [1] à 6,43 milliards [6]. Blockchains : dix [3, 5], onze [6].",
+      "limites": "Vecteur d'accès : hypothèse de Binance [2, 3, 4], non mentionné par [6]. Montants : de 5,8 [1] à 6,43 milliards [6], 6,36 milliards [7]. Blockchains : dix [3, 5], onze [6].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Arkham suit l'entité binance-hacker-1029 [1]",
         "TraderTraitor (Corée du Nord) selon TRM Labs [2, 3, 5] ; Lazarus Group selon ZachXBT [3] ; Binance n'identifie aucun auteur [3, 5]",
         "Corée du Nord selon Chainalysis et TRM Labs [4]",
-        "Le FBI attribue le vol à TraderTraitor, aussi appelé Jade Sleet, Pressure Chollima, Slow Pisces [6]"
+        "Le FBI attribue le vol à TraderTraitor, aussi appelé Jade Sleet, Pressure Chollima, Slow Pisces [6]",
+        "Le FBI nomme aussi le groupe Lazarus Group et Jade Sleet [7]"
       ],
       "cibles": [
-        "Plateforme d'échange de cryptomonnaies Binance [1, 2]"
+        "Plateforme d'échange de cryptomonnaies Binance, qui dit couvrir environ 95 % du montant touché [1, 2, 7]"
       ],
       "abreviations": [
         {
@@ -28230,6 +28231,13 @@
           "url": "https://thehackernews.com/2026/11/fbi-links-north-koreas-tradertraitor-to.html",
           "date": "2026-11-01",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmb1j0HC3RkKxZ4bBQPaOa5GaLqC2EBtxXHOMnebPlgHGDJG7ryIuSBIR-9YBQuUm6HwD15-OJQgBvIkhbLIApM8XoU0DptSEF6DNhEpinxPA-06wQZhLhRiKmFGO5cVjONcaouGC3lqybhkeEsZj-xebX6u6hSR19mS7sVqOrpR02qNOlpHZJEUjf1HtB/s1700-nu-rw-lo-l85-e365/binance-hack.png"
+        },
+        {
+          "titre": "FBI links $6.3 billion Binance crypto heist to North Korean hackers",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fbi-links-63-billion-binance-crypto-heist-to-north-korean-hackers/",
+          "date": "2026-11-01",
+          "image": "https://www.bleepstatic.com/content/hl-images/2024/08/12/north-korean-hackers.jpg"
         }
       ]
     },

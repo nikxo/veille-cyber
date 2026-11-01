@@ -1,13 +1,5 @@
 [
   {
-    "id": "e295f9a7f7aa193f",
-    "title": "What to do when a data breach notice doesn't say much",
-    "link": "https://www.welivesecurity.com/en/how-to/what-to-do-when-a-data-breach-notice-tells-you-almost-nothing/",
-    "source": "WeLiveSecurity (ESET)",
-    "raison": "conseils génériques",
-    "date": "2026-10-13T07:07:55+00:00"
-  },
-  {
     "id": "339f93492eeffe92",
     "title": "Two Critical MarkLogic Flaws Could Give Delegated Managers Persistent Admin Control",
     "link": "https://thehackernews.com/2026/10/two-critical-marklogic-flaws-could-give.html",
@@ -3998,5 +3990,13 @@
     "source": "BleepingComputer",
     "raison": "vulnérabilité avec preuve de concept publique, sans exploitation constatée",
     "date": "2026-10-31T16:06:26+00:00"
+  },
+  {
+    "id": "c1c20131973afc74",
+    "title": "CVSS 10.0 LXD, MicroCloud Flaw Lets Attackers Impersonate Trusted Clients Without a Private Key",
+    "link": "https://thehackernews.com/2026/11/critical-lxd-and-microcloud-flaw-cvss.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-01T10:30:00+00:00"
   }
 ]

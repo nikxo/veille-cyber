@@ -27735,21 +27735,21 @@
       "id": "2026-10-29-polymarket-debugbear-script",
       "title": "Polymarket : script malveillant distribué via le prestataire DebugBear pour vider des comptes",
       "created": "2026-10-29T22:20:00+00:00",
-      "updated": "2026-10-30T12:40:00+00:00",
-      "version": 3,
+      "updated": "2026-11-01T08:08:28+00:00",
+      "version": 4,
       "resume": "Polymarket a suspendu le trading après qu'un script malveillant, servi via son prestataire DebugBear, a vidé des comptes d'utilisateurs [1, 2, 3]. Les montants cités vont d'environ 2,1 à 2,71 millions de dollars [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Compromission du prestataire DebugBear (modalités non précisées) → script JavaScript malveillant servi via son produit de surveillance des utilisateurs réels [1, 2, 3]."
+          "texte": "Selon DebugBear, compromission de ses enregistrements DNS via son bureau d'enregistrement de domaines → un autre serveur répond pour ses adresses et sert le script malveillant [4]."
         },
         {
           "etape": "Exécution chez les visiteurs",
-          "texte": "Le script s'exécute dans le navigateur des visiteurs de Polymarket et réutilise la session de trading de ceux qui sont connectés [1]."
+          "texte": "Le script s'exécute dans le navigateur des visiteurs de Polymarket et réutilise la session de trading de ceux qui sont connectés [1, 4]."
         },
         {
           "etape": "Vol de fonds",
-          "texte": "Liquidation des positions ou envoi des jetons vers un portefeuille de l'attaquant ; adresse de repli codée en dur dans le script [1, 2]."
+          "texte": "Comptes à portefeuille crypto : positions transférées aux attaquants ; comptes par e-mail : positions vendues puis fonds retirés [4]. Adresse de repli codée en dur dans le script [1, 2]."
         },
         {
           "etape": "Commande et collecte",
@@ -27757,11 +27757,11 @@
         },
         {
           "etape": "Dispersion des fonds",
-          "texte": "Le portefeuille de l'attaquant a transféré environ 28,6 millions de POL vers trois autres portefeuilles [1]."
+          "texte": "Le portefeuille de l'attaquant a reçu 28,6 millions de POL et des positions de 33 portefeuilles ; les POL sont partis vers trois autres adresses [1, 4]."
         },
         {
           "etape": "Réaction des acteurs",
-          "texte": "DebugBear demande à ses clients de retirer son code d'intégration ; Polymarket le retire, suspend puis rétablit le trading et annonce rembourser les traders touchés [3]."
+          "texte": "DebugBear demande à ses clients de retirer son code [3] ; Polymarket retire le script, suspend le trading et a remboursé 689 des 726 portefeuilles touchés au 30 octobre [4]."
         }
       ],
       "parcours": {
@@ -27778,7 +27778,7 @@
             "type": "serveur",
             "zone": "internet",
             "nom": "Infrastructure DebugBear",
-            "note": "Prestataire compromis"
+            "note": "Enregistrements DNS compromis"
           },
           {
             "id": "pm",
@@ -27800,7 +27800,7 @@
             "de": "att",
             "vers": "dbg",
             "etape": 1,
-            "texte": "Compromission du prestataire, script malveillant distribué"
+            "texte": "Compromission des enregistrements DNS, script malveillant servi"
           },
           {
             "de": "dbg",
@@ -27822,11 +27822,11 @@
           }
         ]
       },
-      "limites": "Ni la date ni le moyen de la compromission de DebugBear, ni le nombre de victimes ne sont précisés [1, 2, 3]. Montants : 2,5 millions [1] ; 2,19 à 2,71 [2] ; plus de 2,1 [3].",
+      "limites": "Le mécanisme de compromission du bureau d'enregistrement n'est pas précisé [4]. Montants : 2,5 millions [1] ; 2,19 à 2,71 [2] ; plus de 2,1 [3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non identifié, aucune source ne nomme d'auteur [1, 2]"
+        "Non identifié, aucune source ne nomme d'auteur [1, 2, 4]"
       ],
       "cibles": [
         "Polymarket.com, ses utilisateurs connectés, via le prestataire DebugBear [1, 2]"
@@ -27835,6 +27835,10 @@
         {
           "sigle": "POL",
           "definition": "Jeton de cryptomonnaie transféré par le portefeuille de l'attaquant"
+        },
+        {
+          "sigle": "DNS",
+          "definition": "Domain Name System : annuaire associant un nom de domaine à un serveur"
         }
       ],
       "sources": [
@@ -27857,6 +27861,13 @@
           "url": "https://therecord.media/polymarket-confirms-cyberattack-third-party",
           "date": "2026-10-30",
           "image": "https://cms.therecord.media/uploads/polymarket_b2f07cfbfc.jpg"
+        },
+        {
+          "titre": "Hackers Steal About $2.7 Million From Polymarket Traders via Hijacked DebugBear Script",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-steal-about-27-million-from.html",
+          "date": "2026-11-01",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhe0B28qLAtUMfqN29_phxZJVJORICkj_98MZFwDiXAxFTABw8G9qbsVyD98pg7T_Rvgv83NXyR5tNGYH4dRwlxs3QFTUZxDPHQs2BgFsnmGcOuVW1HkFVCfiCR3Y05kPQrfFx4S7A8DiFXXAAgdc5SiEKx0-0xrW5rNlNSyN3jZJcyXasdpCr5AG7KM3s/s1700-nu-rw-lo-l85-e365/Polymarket.jpg"
         }
       ]
     },
@@ -28056,9 +28067,9 @@
       "id": "2026-10-29-binance-transferts-hot-wallets",
       "title": "Binance : incident de sécurité, retraits non autorisés et milliards d'actifs touchés",
       "created": "2026-10-29T23:08:16+00:00",
-      "updated": "2026-10-30T10:08:38+00:00",
-      "version": 4,
-      "resume": "Binance a signalé un incident touchant environ 6,3 milliards de dollars d'actifs, dont près de 3 milliards gelés ; des retraits non autorisés ont suivi l'accès à un conteneur de service [2, 3]. TRM Labs attribue l'attaque à TraderTraitor [3].",
+      "updated": "2026-11-01T08:08:28+00:00",
+      "version": 5,
+      "resume": "Binance a signalé un incident touchant environ 6,3 milliards de dollars d'actifs, dont près de 3 milliards gelés ; des retraits non autorisés ont suivi l'accès à un conteneur de service [2, 3]. Le FBI l'attribue à TraderTraitor [6].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -28074,11 +28085,11 @@
         },
         {
           "etape": "Gel des actifs",
-          "texte": "Tether a gelé plus de 1,567 milliard de dollars, Circle environ 800 millions et l'Arbitrum Security Council environ 30,5 millions [1, 2]."
+          "texte": "Gel de 2,85 milliards de dollars par Tether, Circle, Ripple, Arbitrum et Optimism [6] ; Tether a gelé plus de 1,567 milliard et Circle environ 800 millions [1, 2]."
         },
         {
           "etape": "Blanchiment",
-          "texte": "Vente de Tether à plus de 10 % sous le prix du marché [3], auprès de teneurs de marché [3, 5] ; emprunt d'ether sur Aave [5]."
+          "texte": "Vente de Tether à plus de 10 % sous le marché auprès de teneurs de marché [3, 5] ; emprunt d'ether sur Aave [5] ; conversion surtout en ether selon le FBI [6]."
         }
       ],
       "parcours": {
@@ -28140,13 +28151,14 @@
           }
         ]
       },
-      "limites": "Vecteur d'accès : hypothèse de Binance [2, 3, 4], qui cite d'autres points de compromission non précisés [5]. Montants : 5,8 [1], 5,912 [2], 6,3 à 6,36 milliards [3, 4, 5]. Blockchains : dix [3, 5], vingt [4].",
+      "limites": "Vecteur d'accès : hypothèse de Binance [2, 3, 4], d'autres points de compromission non précisés [5] ; non mentionné par [6]. Montants : de 5,8 [1] à 6,43 milliards [6]. Blockchains : dix [3, 5], onze [6].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Arkham suit l'entité binance-hacker-1029 [1]",
         "TraderTraitor (Corée du Nord) selon TRM Labs [2, 3, 5] ; Lazarus Group selon ZachXBT [3] ; Binance n'identifie aucun auteur [3, 5]",
-        "Corée du Nord selon Chainalysis et TRM Labs [4]"
+        "Corée du Nord selon Chainalysis et TRM Labs [4]",
+        "Le FBI attribue le vol à TraderTraitor, aussi appelé Jade Sleet, Pressure Chollima, Slow Pisces [6]"
       ],
       "cibles": [
         "Plateforme d'échange de cryptomonnaies Binance [1, 2]"
@@ -28159,6 +28171,10 @@
         {
           "sigle": "TRM",
           "definition": "TRM Labs, société d'analyse de la blockchain"
+        },
+        {
+          "sigle": "FBI",
+          "definition": "Federal Bureau of Investigation : police fédérale américaine"
         }
       ],
       "sources": [
@@ -28196,6 +28212,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/binance-links-63-billion-crypto-theft-to-compromised-devops-laptop/",
           "date": "2026-10-30",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/30/Binance.jpg"
+        },
+        {
+          "titre": "FBI Links North Korea's TraderTraitor to Record $6.43 Billion Binance Crypto Heist",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/fbi-links-north-koreas-tradertraitor-to.html",
+          "date": "2026-11-01",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmb1j0HC3RkKxZ4bBQPaOa5GaLqC2EBtxXHOMnebPlgHGDJG7ryIuSBIR-9YBQuUm6HwD15-OJQgBvIkhbLIApM8XoU0DptSEF6DNhEpinxPA-06wQZhLhRiKmFGO5cVjONcaouGC3lqybhkeEsZj-xebX6u6hSR19mS7sVqOrpR02qNOlpHZJEUjf1HtB/s1700-nu-rw-lo-l85-e365/binance-hack.png"
         }
       ]
     },
@@ -28767,25 +28790,25 @@
       "id": "2026-10-30-netamloader-windows-asie",
       "title": "NetamLoader : nouveau logiciel malveillant contre des administrations d'Asie sous Windows",
       "created": "2026-10-30T14:10:00+00:00",
-      "updated": "2026-10-30T14:10:00+00:00",
-      "version": 1,
-      "resume": "Kaspersky décrit NetamLoader, un logiciel malveillant inédit visant une version spécialisée de Windows 10 utilisée par des administrations d'Asie. Il a été détecté sur un seul ordinateur [1].",
+      "updated": "2026-11-01T08:08:28+00:00",
+      "version": 2,
+      "resume": "Kaspersky décrit NetamLoader, un logiciel malveillant inédit visant une version spécialisée de Windows 10 utilisée par des administrations d'Asie. Il a été détecté sur un seul ordinateur [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources. Une attaque par chaîne d'approvisionnement est soupçonnée, sans confirmation [1]."
+          "texte": "Non précisé par les sources. Une attaque par chaîne d'approvisionnement est soupçonnée, sans confirmation [1, 2]."
         },
         {
           "etape": "Dépôt du malware",
-          "texte": "Paquet piégé placé dans un répertoire des mises à jour Windows, avec des fichiers légitimes d'un outil de mises à jour et des programmes signés par Microsoft [1]."
+          "texte": "Archive CAB placée dans le dossier des mises à jour Windows, avec des fichiers légitimes de l'outil Patch My PC [1, 2] ; un seul fichier sur sept est malveillant [2]."
         },
         {
           "etape": "Exécution et défenses",
-          "texte": "Exécution de code malveillant via des composants Microsoft légitimes → analyse de sécurité de Windows perturbée, activité masquée, fichiers et journaux effacés [1]."
+          "texte": "Un programme légitime de Patch My PC charge une bibliothèque via son fichier de configuration (AppDomainManager) → code malveillant exécuté ; analyse antimalware AMSI contournée, fichiers et journaux effacés [1, 2]."
         },
         {
           "etape": "Contrôle à distance",
-          "texte": "Connexions chiffrées vers l'infrastructure des attaquants → collecte d'informations sur la machine et téléchargement de programmes supplémentaires [1]."
+          "texte": "Connexions chiffrées vers l'infrastructure des attaquants → collecte d'informations sur la machine et téléchargement de programmes supplémentaires [1] ; premier contact après 20 à 40 minutes d'attente aléatoire [2]."
         }
       ],
       "parcours": {
@@ -28823,7 +28846,7 @@
             "de": "maj",
             "vers": "pc",
             "etape": 3,
-            "texte": "Exécution via composants Microsoft légitimes"
+            "texte": "Exécution via un programme légitime détourné"
           },
           {
             "de": "pc",
@@ -28833,16 +28856,31 @@
           }
         ]
       },
-      "limites": "Les sources ne disent pas comment le malware est arrivé sur la machine, ni si des informations sensibles ont été volées [1].",
+      "limites": "Les sources ne disent pas comment le malware est arrivé sur la machine, ni si des informations sensibles ont été volées [1, 2].",
       "cves": [],
-      "mitre": [],
+      "mitre": [
+        "T1574.014 : Hijack Execution Flow (AppDomainManager), détournement du chargement d'un programme [2]"
+      ],
       "acteurs": [
         "Pirates soupçonnés d'être liés à un État, non rattachés à un groupe connu [1]"
       ],
       "cibles": [
         "Administrations d'Asie utilisant une version spécialisée de Windows 10, pays non précisés [1]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "CAB",
+          "definition": "Cabinet : format d'archive compressée de Windows"
+        },
+        {
+          "sigle": "AMSI",
+          "definition": "Antimalware Scan Interface : interface d'analyse antimalware de Windows"
+        },
+        {
+          "sigle": "PC",
+          "definition": "Dans Patch My PC : nom d'un outil légitime de mises à jour"
+        }
+      ],
       "sources": [
         {
           "titre": "Hackers target government Windows systems in Asia with new malware",
@@ -28850,6 +28888,13 @@
           "url": "https://therecord.media/hackers-target-government-windows-systems-asia-new-malware",
           "date": "2026-10-30",
           "image": "https://cms.therecord.media/uploads/japan_asia_ffd5c2ef19.png"
+        },
+        {
+          "titre": "NetamLoader Malware Targets Government Windows 10 Systems in Asia via .NET Injection",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/netamloader-malware-targets-government.html",
+          "date": "2026-11-01",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhy0oLNj9TVg8ifLKdJSg4HH1EhN3m_OBldd7wEIeVoQSHtFXSmsiPdmf-njsPD-CbVHY8NckeW2N9rN8-CTnp81zaeFq-ISj04O7ihoj5HgnvJT_zY_0fdC8vCcd5LXL8Mx9ym1fPI5GMrEtjxZoEiernCr_CZwLocgtrJsKZzixEnYUe2WmkehWLNR2hx/s1700-nu-rw-lo-l85-e365/windows-hacker.jpg"
         }
       ]
     },

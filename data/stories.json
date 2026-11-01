@@ -29913,6 +29913,184 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/31/northflank-header.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-10-30-artex-outils-agentiques-mandiant",
+      "title": "ARTEX et autres outils d'intrusion pilotés par intelligence artificielle utilisés dans de vraies intrusions (Mandiant)",
+      "created": "2026-11-01T19:30:00+00:00",
+      "updated": "2026-11-01T19:30:00+00:00",
+      "version": 1,
+      "resume": "Mandiant et Google ont observé des acteurs utiliser des outils d'intrusion pilotés par des modèles de langage, surtout ARTEX, dans de vraies intrusions. Les actions s'enchaînent en quelques secondes, mais l'accès initial repose sur des identifiants valides [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Identifiants valides de l'organisation ciblée fournis à ARTEX ; leur origine n'est pas mentionnée [1]."
+        },
+        {
+          "etape": "Reconnaissance",
+          "texte": "Tests de permissions des identifiants cloud et plus de 500 requêtes web → cartographie des accès et des fichiers accessibles [1]."
+        },
+        {
+          "etape": "Prise de position",
+          "texte": "Abus des interfaces d'administration Kudu → exécution de commandes et de scripts ; serveur de commande et contrôle sur un serveur de base de données interne [1]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Kerberoasting, injection SQL puis DCSync → vol de la clé krbtgt et d'empreintes de mots de passe de contrôleurs de domaine [1]."
+        },
+        {
+          "etape": "Déplacement latéral bloqué",
+          "texte": "Tentatives vers les contrôleurs de domaine (Pass-the-Ticket, Pass-the-Hash, WinRM) → bloquées par les restrictions de jetons, puis par la protection des postes [1]."
+        },
+        {
+          "etape": "Collecte de données",
+          "texte": "Interrogation de bases SQL ; plus de 110 000 objets Active Directory énumérés → résultats de l'énumération envoyés vers des adresses webhook.site [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (outil ARTEX)",
+            "note": ""
+          },
+          {
+            "id": "cl",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Comptes et ressources cloud",
+            "note": "Permissions testées"
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur de base de données",
+            "note": "Commande et contrôle"
+          },
+          {
+            "id": "dc",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Contrôleurs de domaine",
+            "note": "Clé krbtgt volée"
+          },
+          {
+            "id": "ext",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Adresses webhook.site",
+            "note": "Réception des résultats"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cl",
+            "etape": 2,
+            "texte": "Identifiants valides, tests de permissions"
+          },
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 3,
+            "texte": "Interfaces Kudu, commande et contrôle"
+          },
+          {
+            "de": "att",
+            "vers": "dc",
+            "etape": 4,
+            "texte": "Kerberoasting et DCSync"
+          },
+          {
+            "de": "att",
+            "vers": "dc",
+            "etape": 5,
+            "texte": "Tentatives de déplacement, bloquées"
+          },
+          {
+            "de": "dc",
+            "vers": "ext",
+            "etape": 6,
+            "texte": "Objets Active Directory énumérés, résultats envoyés"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent pas comment les identifiants ont été obtenus, ni quelle victime a subi quelle étape. Aucun chiffrement n'y est mentionné [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "UNC7228, dont l'activité chevauche STORM-0940 (suivi par Microsoft comme lié à la Chine) [1]"
+      ],
+      "cibles": [
+        "Logiciels, automatisation industrielle, semi-conducteurs et télécoms aux États-Unis et en Europe ; administrations américaines [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ARTEX",
+          "definition": "Outil d'intrusion open source piloté par des modèles de langage"
+        },
+        {
+          "sigle": "Kudu",
+          "definition": "Interface d'administration des applications web Azure"
+        },
+        {
+          "sigle": "Kerberoasting",
+          "definition": "Vol de mots de passe de comptes de service via Kerberos"
+        },
+        {
+          "sigle": "SQL",
+          "definition": "Langage d'interrogation des bases de données"
+        },
+        {
+          "sigle": "DCSync",
+          "definition": "Fait passer l'attaquant pour un contrôleur de domaine afin d'obtenir des secrets"
+        },
+        {
+          "sigle": "krbtgt",
+          "definition": "Compte dont la clé protège les tickets Kerberos du domaine"
+        },
+        {
+          "sigle": "Pass-the-Ticket",
+          "definition": "Réutilisation d'un ticket Kerberos volé pour s'authentifier"
+        },
+        {
+          "sigle": "Pass-the-Hash",
+          "definition": "Réutilisation d'une empreinte de mot de passe volée pour s'authentifier"
+        },
+        {
+          "sigle": "WinRM",
+          "definition": "Service Windows d'administration à distance"
+        },
+        {
+          "sigle": "Active Directory",
+          "definition": "Annuaire Windows qui gère comptes et machines du domaine"
+        },
+        {
+          "sigle": "UNC7228",
+          "definition": "Nom donné par Google à un groupe d'activité non encore attribué"
+        },
+        {
+          "sigle": "STORM-0940",
+          "definition": "Nom donné par Microsoft à un acteur de menace"
+        },
+        {
+          "sigle": "API",
+          "definition": "Interface permettant à des programmes de communiquer entre eux"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "ARTEX and Friends: Enter Agentic Offensive Frameworks",
+          "site": "Google Threat Intelligence (Mandiant)",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/artex-and-friends-enter-agentic-offensive-frameworks/",
+          "date": "2026-10-30",
+          "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
+        }
+      ]
     }
   ]
 }

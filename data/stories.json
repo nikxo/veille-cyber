@@ -26611,8 +26611,8 @@
       "id": "2026-10-29-alpine-gitlab-cve-2026-97229",
       "title": "Alpine Linux : tentative d'exploitation de la faille GitLab CVE-2026-97229 sur son serveur",
       "created": "2026-10-29T11:30:00+00:00",
-      "updated": "2026-10-30T04:07:32+00:00",
-      "version": 2,
+      "updated": "2026-11-01T16:20:00+00:00",
+      "version": 3,
       "resume": "Un attaquant a tenté d'exploiter la faille CVE-2026-97229 sur le serveur GitLab d'Alpine Linux, une semaine après la publication du correctif ; Alpine n'a trouvé aucune preuve de réussite mais ne peut pas l'exclure [1].",
       "chaine": [
         {
@@ -26624,12 +26624,16 @@
           "texte": "Les 20 et 21 octobre, huit plantages de processus de traitement, dont quatre avec un exploit parvenu à une étape avancée → échec [1]."
         },
         {
+          "etape": "Récupération d'image",
+          "texte": "Téléchargement de l'image de conteneur GitLab d'Alpine par l'attaquant [3]."
+        },
+        {
           "etape": "Nouvelles tentatives",
           "texte": "Compte bloqué le 23 octobre ; tentatives de réaccès les 25 et 26 octobre → échec [1]."
         },
         {
           "etape": "Réponse d'Alpine",
-          "texte": "Serveur fermé aux non-développeurs le 27 octobre, puis reconstruit, secrets remplacés et Ruby corrigé le 28 octobre [1]."
+          "texte": "Serveur fermé aux non-développeurs le 27 octobre, puis reconstruit, secrets remplacés et Ruby corrigé le 28 octobre [1] ; tous les mots de passe réinitialisés [3]."
         }
       ],
       "parcours": {
@@ -26659,24 +26663,24 @@
           {
             "de": "att",
             "vers": "gl",
-            "etape": 3,
+            "etape": 4,
             "texte": "Tentatives de réaccès, échec"
           }
         ]
       },
-      "limites": "Compromission non confirmée : aucune preuve de réussite, mais Alpine ne peut pas l'exclure ; acteur non identifié [1]. CISA a ajouté la faille à son catalogue des failles exploitées [2].",
+      "limites": "Compromission non confirmée : aucune preuve de réussite, mais Alpine ne peut pas l'exclure ; acteur non identifié [1, 3]. CISA a ajouté la faille à son catalogue des failles exploitées [2].",
       "cves": [
         {
           "id": "CVE-2026-97229",
-          "explication": "GitLab : dépassement d'entier dans le moteur d'expressions régulières Onigmo de Ruby, exécution de code possible sans authentification sous certaines conditions, gravité 10 sur 10 [1]."
+          "explication": "GitLab : dépassement d'entier dans le moteur d'expressions régulières Onigmo de Ruby, exécution de code possible sans authentification sous certaines conditions, gravité 10 sur 10 [1, 3]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "Non identifié [1]"
+        "Non identifié [1, 3]"
       ],
       "cibles": [
-        "Serveur GitLab du projet Alpine Linux [1]"
+        "Serveur GitLab du projet Alpine Linux [1, 3]"
       ],
       "abreviations": [
         {
@@ -26697,6 +26701,13 @@
           "site": "CISA Advisories",
           "url": "https://www.cisa.gov/news-events/alerts/2026/10/29/cisa-adds-two-known-exploited-vulnerabilities-catalog",
           "date": "2026-10-29"
+        },
+        {
+          "titre": "Alpine Linux rebuilds GitLab after attempted RCE attack",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/alpine-linux-rebuilds-gitlab-after-attempted-rce-attack/",
+          "date": "2026-11-01",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/30/alpine-linux.jpg"
         }
       ]
     },

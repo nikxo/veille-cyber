@@ -891,13 +891,13 @@
       "id": "2026-11-02-xcpe-videostrong-botnet",
       "title": "XCPE : porte dérobée préinstallée sur 1,3 million de boîtiers Android TV, botnet démantelé",
       "created": "2026-11-02T13:50:00+00:00",
-      "updated": "2026-11-02T13:50:00+00:00",
-      "version": 1,
-      "resume": "Le fabricant Android Videostrong a préinstallé la porte dérobée XCPE, qui a enrôlé plus de 1,3 million de boîtiers TV dans un botnet dont l'accès était vendu à des affiliés criminels. Google et ses partenaires l'ont démantelé [1].",
+      "updated": "2026-11-02T17:30:00+00:00",
+      "version": 2,
+      "resume": "Le fabricant Android Videostrong a préinstallé la porte dérobée XCPE, qui a enrôlé plus de 1,3 million de boîtiers TV dans un botnet dont l'accès était vendu à des affiliés criminels. Google et ses partenaires l'ont démantelé [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Porte dérobée préinstallée dans le firmware par le fabricant, code malveillant chargé après le premier démarrage pour passer les tests de Google [1]."
+          "texte": "Porte dérobée préinstallée dans le firmware par le fabricant, code malveillant chargé après le premier démarrage pour passer les tests de Google [1, 2]."
         },
         {
           "etape": "Persistance",
@@ -917,7 +917,7 @@
         },
         {
           "etape": "Démantèlement",
-          "texte": "Google et ses partenaires démantèlent la porte dérobée et le botnet la semaine précédant la publication [1]."
+          "texte": "Démantèlement par Google et ses partenaires [1] : saisies judiciaires de domaines et serveurs → accès coupé à au moins 10 millions d'autres appareils infectés [2]."
         }
       ],
       "parcours": {
@@ -1012,6 +1012,13 @@
           "url": "https://cloud.google.com/blog/topics/threat-intelligence/shutting-the-door-on-the-xcpe-botnet/",
           "date": "2026-11-02",
           "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
+        },
+        {
+          "titre": "Google Disrupts 1.3 Million-Device Android Botnet, Says TV Box Maker Sold Criminal Access",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/google-disrupts-13-million-device.html",
+          "date": "2026-11-02",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkbU6vLZjF0nlz7vqN6UVf3kN1IcdUfIpAmVWlh2II4gGbMMmSuiE1S8HLzP4JV-ImeCa64hU-cEaa-yGXWqUO_XHOurKtEw61DFvjGOJhM7gHpRPpegBcCFYrXkd59wGX-PoV6zm7z7uq6PpXjc4GLhDRzcinR5IIjcOVZEVl8FMQ0v0Dt3CV9sRxZNk/s1700-nu-rw-lo-l85-e365/android-tv-botnet.jpg"
         }
       ]
     },
@@ -1845,13 +1852,13 @@
       "id": "2026-10-29-polymarket-debugbear-script",
       "title": "Polymarket : script malveillant distribué via le prestataire DebugBear pour vider des comptes",
       "created": "2026-10-29T22:20:00+00:00",
-      "updated": "2026-11-02T10:08:54+00:00",
-      "version": 5,
+      "updated": "2026-11-02T17:30:00+00:00",
+      "version": 6,
       "resume": "Polymarket a suspendu le trading après qu'un script malveillant, servi via son prestataire DebugBear, a vidé des comptes d'utilisateurs [1, 2, 3]. Polymarket a ensuite remboursé 3,9 millions de dollars aux traders [5].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Selon DebugBear, compromission de ses enregistrements DNS via son bureau d'enregistrement de domaines → un autre serveur répond pour ses adresses et sert le script malveillant [4]."
+          "texte": "Selon DebugBear, compromission de ses enregistrements DNS via son bureau d'enregistrement de domaines → un autre serveur répond pour ses adresses et sert le script malveillant [4, 6]."
         },
         {
           "etape": "Exécution chez les visiteurs",
@@ -1871,7 +1878,7 @@
         },
         {
           "etape": "Réaction des acteurs",
-          "texte": "DebugBear demande à ses clients de retirer son code [3] ; Polymarket suspend le trading et rembourse au total 3,9 millions de dollars aux traders [5]."
+          "texte": "DebugBear demande à ses clients de retirer son code [3] ; Polymarket suspend le trading, réinitialise les sessions actives [6] et rembourse 3,9 millions de dollars [5, 6]."
         }
       ],
       "parcours": {
@@ -1985,6 +1992,13 @@
           "url": "https://www.securityweek.com/polymarket-returns-3-9-million-to-traders-as-debugbear-cites-dns-hijack/",
           "date": "2026-11-02",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Polymarket.webp"
+        },
+        {
+          "titre": "Polymarket pledges to give $3.9 million back to victims after site compromise",
+          "site": "The Record",
+          "url": "https://therecord.media/polymarket-returning-funds-to-customers-after-site-compromise",
+          "date": "2026-11-02",
+          "image": "https://cms.therecord.media/uploads/polymarket_3d06dbe254.jpg"
         }
       ]
     },
@@ -31459,6 +31473,114 @@
           }
         ]
       }
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-02-rosstat-cyber-partisans",
+      "title": "Rosstat : attaque destructrice revendiquée par Cyber Partisans et Silent Crow",
+      "created": "2026-11-02T17:30:00+00:00",
+      "updated": "2026-11-02T17:30:00+00:00",
+      "version": 1,
+      "resume": "Les groupes Cyber Partisans et Silent Crow revendiquent une attaque destructrice contre Rosstat, l'agence russe de statistiques. Rosstat confirme une cyberattaque mais conteste l'ampleur revendiquée [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Déplacement discret",
+          "texte": "Selon les groupes, accès au réseau environ six mois avant l'attaque, puis environ quatre mois de déplacement discret → documents internes collectés, accès étendus [1]."
+        },
+        {
+          "etape": "Préparation destructrice",
+          "texte": "Préparation de la phase destructrice environ un mois avant l'attaque, avec une activité intense pendant les deux dernières semaines [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Extraction revendiquée de registres de mortalité, de statistiques non publiques sur les territoires ukrainiens occupés et de données sur les pertes militaires russes [1]."
+        },
+        {
+          "etape": "Destruction et défiguration",
+          "texte": "Nuit du samedi : destruction revendiquée de serveurs physiques et virtuels et du stockage ; selon Kommersant, site principal et portails régionaux défigurés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Cyber Partisans, Silent Crow)",
+            "note": ""
+          },
+          {
+            "id": "net",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Réseau de Rosstat",
+            "note": "25 000 appareils revendiqués"
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveurs et stockage",
+            "note": "Détruits (revendiqué)"
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Site et portails régionaux",
+            "note": "Défigurés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "net",
+            "etape": 2,
+            "texte": "Accès discret environ six mois avant l'attaque (revendiqué)"
+          },
+          {
+            "de": "net",
+            "vers": "att",
+            "etape": 4,
+            "texte": "Données sensibles extraites (revendiqué)"
+          },
+          {
+            "de": "net",
+            "vers": "srv",
+            "etape": 5,
+            "texte": "Serveurs et stockage détruits (revendiqué)"
+          },
+          {
+            "de": "net",
+            "vers": "web",
+            "etape": 5,
+            "texte": "Site principal et portails défigurés selon Kommersant"
+          }
+        ]
+      },
+      "limites": "Rosstat confirme une cyberattaque mais dit n'avoir trouvé aucune preuve de fuite de données protégées ; les revendications n'ont pas été vérifiées de façon indépendante [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Cyber Partisans (biélorusses) et Silent Crow, qui revendiquent l'attaque [1]"
+      ],
+      "cibles": [
+        "Rosstat, agence fédérale russe de statistiques [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Russia's statistics agency confirms cyberattack claimed by Belarusian and Ukrainian hackers",
+          "site": "The Record",
+          "url": "https://therecord.media/hackers-ukraine-belarus-russia",
+          "date": "2026-11-02",
+          "image": "https://cms.therecord.media/uploads/rosstat_cyber_partisans_9ce9dfb0f4.jpg"
+        }
+      ]
     }
   ]
 }

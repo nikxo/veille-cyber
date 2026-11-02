@@ -2,6 +2,96 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-02-michigan-state-byod",
+      "title": "Michigan State University : le gang BYOD revendique le vol de données de 1,3 million d'étudiants",
+      "created": "2026-11-02T21:15:00+00:00",
+      "updated": "2026-11-02T21:15:00+00:00",
+      "version": 1,
+      "resume": "Le gang de rançongiciel BYOD revendique le vol de données personnelles de 1,3 million d'étudiants de Michigan State University [1]. L'université évoque un événement potentiel de compromission d'identifiants [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Compromission potentielle d'identifiants évoquée par l'université, méthode non précisée [1]."
+        },
+        {
+          "etape": "Revendication",
+          "texte": "Publication de l'université sur le site de fuite du gang → affirmation d'un vol de données de 1,3 million d'étudiants actuels et anciens [1]."
+        },
+        {
+          "etape": "Réponse de l'université",
+          "texte": "Courriel demandant à tous les titulaires d'un compte de l'université de réinitialiser leur mot de passe, avec 15 caractères minimum [1]."
+        },
+        {
+          "etape": "Position de l'université",
+          "texte": "Elle affirme qu'aucune autre donnée n'a été consultée, modifiée ou volée, sans concilier cela avec la revendication [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (BYOD)",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Système d'entrée inconnu",
+            "note": "Identifiants potentiellement compromis"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données des étudiants",
+            "note": "Vol revendiqué"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Compromission potentielle d'identifiants, méthode non précisée"
+          },
+          {
+            "de": "att",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Vol de données revendiqué sur le site de fuite"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni la méthode d'accès ni les étapes de l'attaque. La revendication n'est pas confirmée par l'université [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Gang de rançongiciel BYOD, peu documenté, revendication non confirmée par l'université [1]"
+      ],
+      "cibles": [
+        "Michigan State University, 1,3 million d'étudiants actuels et anciens selon le gang [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "BYOD",
+          "definition": "Nom du groupe de rançongiciel qui revendique l'attaque"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Michigan State cyber incident claimed by ransomware gang behind recent hospital attack",
+          "site": "The Record",
+          "url": "https://therecord.media/michigan-state-university-byod-gang-cyber-incident",
+          "date": "2026-11-02",
+          "image": "https://cms.therecord.media/uploads/51827676980_7c7e7edcf5_o_24c477828d.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-02-xcpe-botnet-boitiers-tv-android",
       "title": "Botnet XCPE : 1,3 million de boîtiers TV Android infectés par leur fabricant",
       "created": "2026-11-02T19:20:00+00:00",

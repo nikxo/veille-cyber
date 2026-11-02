@@ -27746,9 +27746,9 @@
       "id": "2026-10-29-polymarket-debugbear-script",
       "title": "Polymarket : script malveillant distribué via le prestataire DebugBear pour vider des comptes",
       "created": "2026-10-29T22:20:00+00:00",
-      "updated": "2026-11-01T08:08:28+00:00",
-      "version": 4,
-      "resume": "Polymarket a suspendu le trading après qu'un script malveillant, servi via son prestataire DebugBear, a vidé des comptes d'utilisateurs [1, 2, 3]. Les montants cités vont d'environ 2,1 à 2,71 millions de dollars [1, 2, 3].",
+      "updated": "2026-11-02T10:08:54+00:00",
+      "version": 5,
+      "resume": "Polymarket a suspendu le trading après qu'un script malveillant, servi via son prestataire DebugBear, a vidé des comptes d'utilisateurs [1, 2, 3]. Polymarket a ensuite remboursé 3,9 millions de dollars aux traders [5].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -27772,7 +27772,7 @@
         },
         {
           "etape": "Réaction des acteurs",
-          "texte": "DebugBear demande à ses clients de retirer son code [3] ; Polymarket retire le script, suspend le trading et a remboursé 689 des 726 portefeuilles touchés au 30 octobre [4]."
+          "texte": "DebugBear demande à ses clients de retirer son code [3] ; Polymarket suspend le trading et rembourse au total 3,9 millions de dollars aux traders [5]."
         }
       ],
       "parcours": {
@@ -27879,6 +27879,13 @@
           "url": "https://thehackernews.com/2026/11/hackers-steal-about-27-million-from.html",
           "date": "2026-11-01",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhe0B28qLAtUMfqN29_phxZJVJORICkj_98MZFwDiXAxFTABw8G9qbsVyD98pg7T_Rvgv83NXyR5tNGYH4dRwlxs3QFTUZxDPHQs2BgFsnmGcOuVW1HkFVCfiCR3Y05kPQrfFx4S7A8DiFXXAAgdc5SiEKx0-0xrW5rNlNSyN3jZJcyXasdpCr5AG7KM3s/s1700-nu-rw-lo-l85-e365/Polymarket.jpg"
+        },
+        {
+          "titre": "Polymarket Returns $3.9 Million to Traders as DebugBear Cites DNS Hijack",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/polymarket-returns-3-9-million-to-traders-as-debugbear-cites-dns-hijack/",
+          "date": "2026-11-02",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/Polymarket.webp"
         }
       ]
     },
@@ -29424,8 +29431,8 @@
       "id": "2026-10-30-cisa-kev-ivanti-connect-secure",
       "title": "Ivanti Connect Secure : chaîne de trois failles exploitée, deux ajoutées au catalogue de la CISA",
       "created": "2026-10-30T19:20:00+00:00",
-      "updated": "2026-11-02T08:20:00+00:00",
-      "version": 3,
+      "updated": "2026-11-02T10:08:54+00:00",
+      "version": 4,
       "resume": "Des attaquants ont enchaîné trois failles d'Ivanti Connect Secure pour exécuter du code sans authentification avec les droits root ; Ivanti a corrigé deux failles supplémentaires et la CISA les a ajoutées à son catalogue des vulnérabilités exploitées [1, 2, 3].",
       "chaine": [
         {
@@ -29442,7 +29449,7 @@
         },
         {
           "etape": "Actions après compromission",
-          "texte": "Vol d'identifiants, exfiltration de données, scan du réseau et altération des journaux [3]."
+          "texte": "Vol d'identifiants, exfiltration de données, scan du réseau [3] ; journaux altérés [3, 4], sans logiciel malveillant déposé : l'appareil est réexploité à chaque commande [4]."
         },
         {
           "etape": "Alerte et catalogue",
@@ -29514,7 +29521,8 @@
         "UTA0576, groupe non documenté auparavant selon Volexity ; motivation criminelle avancée avec une faible confiance [2, 3]"
       ],
       "cibles": [
-        "Utilisateurs d'Ivanti Connect Secure ; nombre limité de clients touchés, secteurs non précisés [1, 2, 3]"
+        "Utilisateurs d'Ivanti Connect Secure ; nombre limité de clients touchés, secteurs non précisés [1, 2, 3]",
+        "Plus de 5 000 instances exposées sur Internet recensées par Shadowserver [4]"
       ],
       "abreviations": [
         {
@@ -29550,6 +29558,13 @@
           "url": "https://www.securityweek.com/ivanti-patches-two-more-zero-days-exploited-in-connect-secure-attack-chain/",
           "date": "2026-11-02",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/02/Ivanti-Risks-Exploits.jpg"
+        },
+        {
+          "titre": "Ivanti patches two more Connect Secure zero-days chained in attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/",
+          "date": "2026-11-02",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/02/Ivanti-headpic.jpg"
         }
       ]
     },

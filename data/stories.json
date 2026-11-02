@@ -2,6 +2,83 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-02-xcpe-botnet-boitiers-tv-android",
+      "title": "Botnet XCPE : 1,3 million de boîtiers TV Android infectés par leur fabricant",
+      "created": "2026-11-02T19:20:00+00:00",
+      "updated": "2026-11-02T19:20:00+00:00",
+      "version": 1,
+      "resume": "Google et des partenaires ont démantelé le botnet XCPE, formé de plus de 1,3 million de boîtiers TV Android. Selon Google, leur fabricant les a infectés volontairement pour générer des revenus [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Le fabricant des boîtiers les a lui-même infectés avec un logiciel malveillant, selon Google → botnet de plus de 1,3 million d'appareils [1]."
+        },
+        {
+          "etape": "Exploitation criminelle",
+          "texte": "Les boîtiers infectés servent à des activités cybercriminelles → revenus pour le fabricant, selon Google [1]."
+        },
+        {
+          "etape": "Démantèlement",
+          "texte": "Google et ses partenaires démantèlent le botnet XCPE [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (fabricant des boîtiers)",
+            "note": ""
+          },
+          {
+            "id": "tv",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Boîtiers TV Android",
+            "note": "1,3 million infectés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "tv",
+            "etape": 1,
+            "texte": "Infection volontaire des boîtiers"
+          }
+        ]
+      },
+      "limites": "L'extrait disponible de la source ne décrit ni le fonctionnement du logiciel malveillant ni les activités criminelles précises [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Fabricant des boîtiers TV, accusé par Google d'avoir infecté les appareils [1]"
+      ],
+      "cibles": [
+        "Plus de 1,3 million de boîtiers TV Android [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "TV",
+          "definition": "Télévision"
+        },
+        {
+          "sigle": "XCPE",
+          "definition": "Nom donné par Google au botnet de boîtiers Android"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Google disrupts million-device XCPE Android malware botnet, bans TV box maker",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/google-disrupts-million-device-xcpe-android-malware-botnet-bans-tv-box-maker/",
+          "date": "2026-11-02",
+          "image": "https://www.bleepstatic.com/content/hl-images/2024/09/12/android-tv-malware.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-10-30-floride-aide-financiere-fuite",
       "title": "Floride : fuite de données sur le site d'aide financière aux étudiants",
       "created": "2026-10-30T16:15:00+00:00",

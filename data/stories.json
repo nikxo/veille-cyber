@@ -31748,6 +31748,210 @@
           "image": "https://cms.therecord.media/uploads/rosstat_cyber_partisans_9ce9dfb0f4.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-02-vapor-panda-artex-ai",
+      "title": "Vapor Panda : le framework ARTEX AI utilisé dans des attaques automatisées contre plus de 200 organisations",
+      "created": "2026-11-02T22:20:00+00:00",
+      "updated": "2026-11-02T22:20:00+00:00",
+      "version": 1,
+      "resume": "Le groupe Vapor Panda, lié à la Chine, a utilisé le framework ARTEX AI dans des attaques visant plus de 200 organisations dans 14 pays, dont des opérateurs télécoms, des administrations et des entreprises pharmaceutiques [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé pour la campagne principale [1]. Chez l'institut néerlandais DIVD : deux failles zero-day enchaînées, Zammad puis élévation de privilèges locale → accès root en 12 minutes [1]."
+        },
+        {
+          "etape": "Exploitation automatisée",
+          "texte": "Les agents d'ARTEX AI enchaînent reconnaissance, exploitation de vulnérabilités et dépôt de web shells [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Password spraying et scan d'identifiants contre au moins 12 cibles ; au moins neuf organisations compromises [1]."
+        },
+        {
+          "etape": "Accès aux messageries",
+          "texte": "Jeton administrateur forgé avec des clés issues d'un export de 2022 d'un serveur de messagerie → lecture de boîtes mail d'une entité grecque [1]."
+        },
+        {
+          "etape": "Évitement des défenses",
+          "texte": "Consigne donnée aux agents de contourner les machines Windows protégées par Falcon et de cibler les hôtes non protégés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Vapor Panda)",
+            "note": ""
+          },
+          {
+            "id": "org",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes des organisations ciblées",
+            "note": "Web shells"
+          },
+          {
+            "id": "mail",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Boîtes mail d'une entité grecque",
+            "note": "Jeton forgé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "org",
+            "etape": 1,
+            "texte": "Point d'entrée non précisé (campagne principale)"
+          },
+          {
+            "de": "att",
+            "vers": "org",
+            "etape": 2,
+            "texte": "Reconnaissance, exploitation, web shells"
+          },
+          {
+            "de": "att",
+            "vers": "org",
+            "etape": 3,
+            "texte": "Password spraying et scan d'identifiants"
+          },
+          {
+            "de": "att",
+            "vers": "mail",
+            "etape": 4,
+            "texte": "Jeton administrateur forgé, lecture de boîtes mail"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le point d'entrée de la campagne principale, ni les dates des compromissions, dont celle de l'entité grecque [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Vapor Panda, groupe lié à la Chine suivi par CrowdStrike ; outils ARTEX AI et porte dérobée BLOODALCHEMY [1]"
+      ],
+      "cibles": [
+        "Ministères, télécoms, pharmaceutique, semi-conducteurs, défense, nucléaire, finance ; victimes aux États-Unis, en Belgique, en Grèce [1]",
+        "DIVD, institut néerlandais de divulgation de vulnérabilités [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "DIVD",
+          "definition": "Institut néerlandais de divulgation de vulnérabilités"
+        },
+        {
+          "sigle": "AI",
+          "definition": "Artificial Intelligence : intelligence artificielle"
+        },
+        {
+          "sigle": "ARTEX",
+          "definition": "Nom d'un framework open source de tests d'intrusion multi-agents"
+        },
+        {
+          "sigle": "BLOODALCHEMY",
+          "definition": "Nom d'une porte dérobée active depuis 2023"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Chinese hackers use ARTEX AI in automated attacks against 200 orgs",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/chinese-hackers-use-artex-ai-in-automated-attacks-against-200-orgs/",
+          "date": "2026-11-02",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/02/pandabot.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-02-mercado-bitcoin-cyberattaque",
+      "title": "Mercado Bitcoin : cyberattaque et plus de 46 millions de dollars sortis de la plateforme",
+      "created": "2026-11-02T22:20:00+00:00",
+      "updated": "2026-11-02T22:20:00+00:00",
+      "version": 1,
+      "resume": "Mercado Bitcoin, plateforme brésilienne d'actifs numériques, a subi une cyberattaque. Des sociétés de sécurité blockchain estiment à plus de 46 millions de dollars les fonds sortis, ce que l'entreprise ne confirme pas [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Sortie des fonds",
+          "texte": "Des fonds quittent la plateforme dimanche soir ; des preuves sur la blockchain montrent des détournements depuis certains portefeuilles clients [1]."
+        },
+        {
+          "etape": "Réaction de la victime",
+          "texte": "Dépôts et retraits suspendus lundi matin ; Tether gèle environ 4,5 millions de dollars et d'autres plateformes environ 2 millions [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "plat",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateforme Mercado Bitcoin",
+            "note": ""
+          },
+          {
+            "id": "pf",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Portefeuilles clients",
+            "note": "Certains touchés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "plat",
+            "etape": 1,
+            "texte": "Point d'entrée non précisé"
+          },
+          {
+            "de": "plat",
+            "vers": "att",
+            "etape": 2,
+            "texte": "Plus de 46 millions de dollars sortis"
+          },
+          {
+            "de": "pf",
+            "vers": "att",
+            "etape": 2,
+            "texte": "Fonds détournés de certains portefeuilles clients"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le point d'entrée ni l'auteur. L'entreprise nie tout préjudice pour les clients, des experts le contestent [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Mercado Bitcoin, plateforme d'actifs numériques d'environ 4,5 millions de clients [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Largest crypto exchange in Brazil confirms cyberattack as millions flow out of platform",
+          "site": "The Record",
+          "url": "https://therecord.media/mercado-bitcoin-brazil-cryptocurrency-heist",
+          "date": "2026-11-02",
+          "image": "https://cms.therecord.media/uploads/mercado_bitcoin_92ae590f6f.jpg"
+        }
+      ]
     }
   ]
 }

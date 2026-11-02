@@ -29782,21 +29782,21 @@
       "id": "2026-10-31-chainalysis-intrusion-agentique",
       "title": "Chainalysis : intrusion dans ses outils internes par des techniques agentiques offensives",
       "created": "2026-10-31T13:20:00+00:00",
-      "updated": "2026-10-31T13:20:00+00:00",
-      "version": 1,
-      "resume": "Chainalysis, entreprise d'analyse de blockchain, a subi une intrusion dans ses systèmes et outils internes. Des données non sensibles de clients ont été consultées [1, 2].",
+      "updated": "2026-11-02T11:14:25+00:00",
+      "version": 2,
+      "resume": "Chainalysis, entreprise d'analyse de blockchain, a subi une intrusion dans ses systèmes et outils internes. Des données non sensibles de clients ont été consultées [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 2]."
+          "texte": "Non précisé par les sources [1, 2, 3]."
         },
         {
           "etape": "Accès aux outils internes",
-          "texte": "Un acteur externe emploie des « techniques agentiques offensives » → accès non autorisé aux systèmes et outils internes [1, 2]."
+          "texte": "Un acteur externe emploie des « techniques agentiques offensives » → accès non autorisé aux systèmes et outils internes [1, 2, 3]."
         },
         {
           "etape": "Consultation de données",
-          "texte": "Lecture de données clients → identifiants utilisateur, noms, e-mails et libellés de rôle exposés [1, 2]."
+          "texte": "Lecture de données clients → identifiants utilisateur, noms, e-mails et rôles exposés [1, 2, 3]."
         }
       ],
       "parcours": {
@@ -29838,11 +29838,11 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni le vecteur d'accès, ni les failles exploitées, ni la durée de l'accès, ni le nombre de clients touchés [1, 2].",
+      "limites": "Les sources ne précisent ni le vecteur d'accès, ni les failles exploitées, ni la durée de l'accès, ni le nombre de clients touchés [1, 2, 3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Acteur externe non identifié [1, 2]"
+        "Acteur externe non identifié, sans lien avec le vol chez Binance selon [3]"
       ],
       "cibles": [
         "Chainalysis et ses clients, dont des utilisateurs de la plateforme [1, 2]"
@@ -29862,6 +29862,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/chainalysis-discloses-data-breach-from-offensive-agentic-techniques/",
           "date": "2026-10-31",
           "image": "https://www.bleepstatic.com/content/hl-images/2025/03/18/Blockchain-2.jpg"
+        },
+        {
+          "titre": "Chainalysis Discloses Data Breach Following AI-Driven Cyberattack",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/chainalysis-discloses-data-breach-following-ai-driven-cyberattack/",
+          "date": "2026-11-02",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/chainalysis.jpeg"
         }
       ]
     },

@@ -29424,25 +29424,29 @@
       "id": "2026-10-30-cisa-kev-ivanti-connect-secure",
       "title": "Ivanti Connect Secure : chaîne de trois failles exploitée, deux ajoutées au catalogue de la CISA",
       "created": "2026-10-30T19:20:00+00:00",
-      "updated": "2026-10-31T10:07:16+00:00",
-      "version": 2,
-      "resume": "Des attaquants ont enchaîné trois failles d'Ivanti Connect Secure pour exécuter du code sans authentification avec les droits root ; la CISA a ajouté deux de ces failles à son catalogue des vulnérabilités exploitées [1, 2].",
+      "updated": "2026-11-02T08:20:00+00:00",
+      "version": 3,
+      "resume": "Des attaquants ont enchaîné trois failles d'Ivanti Connect Secure pour exécuter du code sans authentification avec les droits root ; Ivanti a corrigé deux failles supplémentaires et la CISA les a ajoutées à son catalogue des vulnérabilités exploitées [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Contournement d'authentification (CVE-2026-104935), première étape de la chaîne, sur Ivanti Connect Secure ; le vecteur précis n'est pas détaillé [2]."
+          "texte": "Contournement d'authentification (CVE-2026-104935), première étape de la chaîne, sur Ivanti Connect Secure ; le vecteur précis n'est pas détaillé [2, 3]."
         },
         {
           "etape": "Exécution de code root",
-          "texte": "Exécution de code à distance puis élévation de privilèges, combinées au contournement → exécution de code non authentifiée au niveau root [2]."
+          "texte": "Exécution de code à distance puis élévation de privilèges, combinées au contournement → exécution de code non authentifiée au niveau root [2, 3]."
         },
         {
           "etape": "Vol d'identifiants",
           "texte": "Extraction d'identifiants et de métadonnées limitées d'Active Directory, recherche de mots de passe administrateur et de clés de récupération BitLocker [2]."
         },
         {
+          "etape": "Actions après compromission",
+          "texte": "Vol d'identifiants, exfiltration de données, scan du réseau et altération des journaux [3]."
+        },
+        {
           "etape": "Alerte et catalogue",
-          "texte": "Exploitation active constatée → ajout de deux failles au catalogue KEV de la CISA le 30 octobre 2026 [1, 2]."
+          "texte": "Exploitation active constatée → ajout de deux failles au catalogue KEV de la CISA le 30 octobre 2026 [1, 3]."
         }
       ],
       "parcours": {
@@ -29490,27 +29494,27 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent pas l'ordre exact des étapes ni les victimes. L'article ne dit pas quelle faille correspond à quelle étape [1, 2].",
+      "limites": "Les sources ne précisent pas l'ordre exact des étapes ni les victimes. L'article ne dit pas quelle faille correspond à quelle étape ; le rôle de CVE-2026-118527 n'est pas détaillé [2, 3].",
       "cves": [
         {
           "id": "CVE-2026-104935",
-          "explication": "Ivanti Connect Secure : contournement d'authentification, première étape de la chaîne, gravité 8,6 sur 10, ajoutée au catalogue KEV le 13 octobre 2026 [2]."
+          "explication": "Ivanti Connect Secure : contournement d'authentification, première étape de la chaîne, gravité 8,6 sur 10, ajoutée au catalogue KEV le 13 octobre 2026 [2, 3]."
         },
         {
           "id": "CVE-2026-111357",
-          "explication": "Ivanti Connect Secure : absence d'authentification pour une fonction critique, élévation de privilèges par un attaquant local authentifié, gravité 8,8 ; exploitation active [1, 2]."
+          "explication": "Ivanti Connect Secure : absence d'authentification pour une fonction critique, élévation de privilèges par un attaquant local, gravité 8,8 ; exploitation active [1, 2, 3]."
         },
         {
           "id": "CVE-2026-118527",
-          "explication": "Ivanti Connect Secure : identifiants prévisibles, téléversement de fichiers à un emplacement connu par un attaquant distant authentifié, gravité 4,3 ; exploitation active [1, 2]."
+          "explication": "Ivanti Connect Secure : identifiants prévisibles, téléversement de fichiers à distance par un attaquant authentifié, gravité 4,3 ; exploitation active [1, 2, 3]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "UTA0576, groupe non documenté auparavant selon Volexity [2]"
+        "UTA0576, groupe non documenté auparavant selon Volexity ; motivation criminelle avancée avec une faible confiance [2, 3]"
       ],
       "cibles": [
-        "Utilisateurs d'Ivanti Connect Secure ; victimes non précisées [1, 2]"
+        "Utilisateurs d'Ivanti Connect Secure ; nombre limité de clients touchés, secteurs non précisés [1, 2, 3]"
       ],
       "abreviations": [
         {
@@ -29539,6 +29543,13 @@
           "url": "https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html",
           "date": "2026-10-31",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjeqP4vPt6j2lLPFj77A_1OthmSKb8mItfBrX_q8sQCAUVgTry1FxKizDI2SCLS4CglfjgbVkaMDN8ainqoOZm2pdaF6xw7sU4STZhwIFPCLSz84YXQTVx2tquPo7YJsZhgOWcD3V_w5td9BA_vVuOu1cFcrgL3SXyLF4E24IyGotrzDcbJ-M1mA85biDuW/s1700-nu-rw-lo-l85-e365/1000120841.jpg"
+        },
+        {
+          "titre": "Ivanti Patches Two More Zero-Days Exploited in Connect Secure Attack Chain",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/ivanti-patches-two-more-zero-days-exploited-in-connect-secure-attack-chain/",
+          "date": "2026-11-02",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/02/Ivanti-Risks-Exploits.jpg"
         }
       ]
     },
@@ -30104,6 +30115,157 @@
           "url": "https://cloud.google.com/blog/topics/threat-intelligence/artex-and-friends-enter-agentic-offensive-frameworks/",
           "date": "2026-10-30",
           "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-02-cyberstrikeai-education-afrique-amerique-latine",
+      "title": "CyberStrikeAI : intrusions automatisées contre des établissements d'enseignement en Afrique et Amérique latine",
+      "created": "2026-11-02T08:20:00+00:00",
+      "updated": "2026-11-02T08:20:00+00:00",
+      "version": 1,
+      "resume": "Kaspersky décrit des attaques contre le secteur éducatif de plusieurs pays d'Afrique et d'Amérique latine, où le framework CyberStrikeAI a automatisé la phase après intrusion jusqu'aux administrateurs de domaine [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Les premières commandes provenaient du processus sqlservr.exe d'un serveur SQL Server → exécution de commandes, reconnaissance du réseau puis pause de deux semaines [1]."
+        },
+        {
+          "etape": "Déploiement de l'agent",
+          "texte": "Agent nommé comme un processus légitime (svchosts.exe), commandes encodées en Base64 → outil installé sur la machine [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Tâche planifiée « SystemUpdate » ou clé de registre Run, en moins de 2 minutes → maintien de l'accès [1]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Tâches planifiées exécutées en SYSTEM avec des droits administrateur, secrets déchiffrés dans rsreportserver.config → privilèges plus élevés [1]."
+        },
+        {
+          "etape": "Reconnaissance du domaine",
+          "texte": "Requêtes LDAP en vue de Kerberoasting et AS-REP Roasting (environ 5 heures), puis pause de plusieurs jours [1]."
+        },
+        {
+          "etape": "Mouvement latéral et vol",
+          "texte": "Déplacement via SMB et WMI, dump de LSASS, DCSync, Golden Ticket, export de bases de données → administrateurs de domaine compromis en 3 à 4 jours [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (CyberStrikeAI)",
+            "note": ""
+          },
+          {
+            "id": "sql",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur SQL Server",
+            "note": "Premières commandes"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines du réseau",
+            "note": "Déplacement latéral"
+          },
+          {
+            "id": "ad",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Domaine Windows",
+            "note": "Administrateurs compromis"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sql",
+            "etape": 1,
+            "texte": "Premières commandes via sqlservr.exe"
+          },
+          {
+            "de": "sql",
+            "vers": "pc",
+            "etape": 6,
+            "texte": "Déplacement via SMB et WMI"
+          },
+          {
+            "de": "pc",
+            "vers": "ad",
+            "etape": 6,
+            "texte": "Dump d'identifiants, DCSync, Golden Ticket"
+          }
+        ]
+      },
+      "limites": "Aucune date précise ni liste de pays. Aucun acteur n'est attribué ; l'article ne peut pas affirmer qu'un même opérateur est derrière les deux groupes d'implants [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non attribué ; commentaires en chinois et redémarrages de serveurs aux horaires de la Chine, sans preuve certaine selon l'article [1]"
+      ],
+      "cibles": [
+        "Secteur éducatif de plusieurs pays d'Afrique et d'Amérique latine [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SQL Server",
+          "definition": "Serveur de bases de données de Microsoft"
+        },
+        {
+          "sigle": "LDAP",
+          "definition": "Protocole d'interrogation de l'annuaire du domaine"
+        },
+        {
+          "sigle": "SMB",
+          "definition": "Protocole Windows de partage de fichiers en réseau"
+        },
+        {
+          "sigle": "WMI",
+          "definition": "Interface Windows d'administration à distance des machines"
+        },
+        {
+          "sigle": "LSASS",
+          "definition": "Processus Windows qui garde les identifiants en mémoire"
+        },
+        {
+          "sigle": "DCSync",
+          "definition": "Technique qui imite un contrôleur de domaine pour copier les identifiants"
+        },
+        {
+          "sigle": "Golden Ticket",
+          "definition": "Faux ticket Kerberos donnant un accès illimité au domaine"
+        },
+        {
+          "sigle": "Kerberoasting",
+          "definition": "Attaque qui récupère des tickets Kerberos de services pour casser des mots de passe"
+        },
+        {
+          "sigle": "AS-REP Roasting",
+          "definition": "Attaque contre les comptes sans préauthentification Kerberos"
+        },
+        {
+          "sigle": "Base64",
+          "definition": "Encodage de données en texte"
+        },
+        {
+          "sigle": "SYSTEM",
+          "definition": "Compte Windows aux droits les plus élevés sur la machine"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CyberStrikeAI in the wild: the use of AI in real-world attacks on organizations",
+          "site": "Securelist (Kaspersky)",
+          "url": "https://securelist.com/tr/cyberstrikeai-attacks/121715/",
+          "date": "2026-11-02",
+          "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/10/31142432/cyberstrikeai-1_securelist-featured_1200x600.jpg"
         }
       ]
     }

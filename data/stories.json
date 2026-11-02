@@ -30268,6 +30268,136 @@
           "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/10/31142432/cyberstrikeai-1_securelist-featured_1200x600.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-02-tradertraitor-binance",
+      "title": "TraderTraitor : vol de plus de 6,3 milliards de dollars chez Binance",
+      "created": "2026-11-02T09:20:00+00:00",
+      "updated": "2026-11-02T09:20:00+00:00",
+      "version": 1,
+      "resume": "Binance a perdu plus de 6,3 milliards de dollars de cryptomonnaies. Le FBI attribue le vol au groupe nord-coréen TraderTraitor [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Binance a d'abord cité l'ordinateur portable compromis d'un ingénieur ; l'enquête a ensuite révélé d'autres points de compromission, non détaillés [1, 2]."
+        },
+        {
+          "etape": "Contournement des contrôles",
+          "texte": "Utilisation de la délégation EIP-7702 d'Ethereum, qui n'est pas passée par les contrôles d'approbation habituels de Binance [1]."
+        },
+        {
+          "etape": "Vol de fonds",
+          "texte": "Vidage des hot wallets sur plusieurs blockchains, l'essentiel des fonds sortis en environ 20 minutes [1]."
+        },
+        {
+          "etape": "Effacement des traces",
+          "texte": "Mécanisme d'autodestruction → outils et preuves détruits pendant l'attaque [1, 2]."
+        },
+        {
+          "etape": "Blanchiment",
+          "texte": "Conversion surtout en ETH, puis services DeFi et d'échange instantané ; nouveaux portefeuilles utilisés quand un pont refusait les dépôts [1, 2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (TraderTraitor)",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Portable d'un ingénieur",
+            "note": "Compromis"
+          },
+          {
+            "id": "wal",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Hot wallets de Binance",
+            "note": "Vidés"
+          },
+          {
+            "id": "svc",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Blockchains et services DeFi",
+            "note": "Blanchiment"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Premier point de compromission cité par Binance"
+          },
+          {
+            "de": "att",
+            "vers": "wal",
+            "etape": 2,
+            "texte": "Délégation EIP-7702 hors contrôles d'approbation"
+          },
+          {
+            "de": "wal",
+            "vers": "svc",
+            "etape": 3,
+            "texte": "Fonds sortis sur plusieurs blockchains"
+          }
+        ]
+      },
+      "limites": "Les sources ne détaillent pas les autres points de compromission ni le jour exact du vol, et ne décrivent ni persistance ni déplacement dans le réseau [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "TraderTraitor, groupe lié à la Corée du Nord, désigné par le FBI, le Secret Service et l'IRS-CI [1, 2]"
+      ],
+      "cibles": [
+        "Plateforme de cryptomonnaies Binance [1, 2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "FBI",
+          "definition": "Federal Bureau of Investigation : police fédérale américaine"
+        },
+        {
+          "sigle": "IRS-CI",
+          "definition": "Service d'enquête criminelle du fisc américain"
+        },
+        {
+          "sigle": "EIP-7702",
+          "definition": "Proposition d'amélioration d'Ethereum permettant la délégation de comptes"
+        },
+        {
+          "sigle": "ETH",
+          "definition": "Ether, cryptomonnaie du réseau Ethereum"
+        },
+        {
+          "sigle": "DeFi",
+          "definition": "Finance décentralisée : services financiers fonctionnant sur blockchain"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "FBI Flags Over 600 Addresses Tied to North Korea’s Binance Heist",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/fbi-flags-over-600-addresses-tied-to-north-koreas-binance-heist/",
+          "date": "2026-11-02",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+        },
+        {
+          "titre": "FBI blames N. Korea’s TraderTraitor for Binance theft, urges crypto industry to block transactions",
+          "site": "The Record",
+          "url": "https://therecord.media/fbi-blames-tradertraitor-for-binance-hack",
+          "date": "2026-11-02",
+          "image": "https://cms.therecord.media/uploads/File_photo_of_North_Korean_flags_Image_John_Pavelka_via_Wikimedia_Commons_CC_BY_2_0_96fc9d25cb.png"
+        }
+      ]
     }
   ]
 }

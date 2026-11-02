@@ -1,45 +1,5 @@
 [
   {
-    "id": "f4503b57be74a9d1",
-    "title": "SAP warns of maximum severity OAuth2 SSRF security flaw",
-    "link": "https://www.bleepingcomputer.com/news/security/sap-warns-of-maximum-severity-oauth2-ssrf-security-flaw/",
-    "source": "BleepingComputer",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-13T14:30:00+00:00"
-  },
-  {
-    "id": "2fd581d2b9b4e293",
-    "title": "Xandr Fined a Record €8.6 Million for Relaying Grindr Data Revealing Sexual Orientation",
-    "link": "https://thehackernews.com/2026/10/xandr-fined-record-86-million-for.html",
-    "source": "The Hacker News",
-    "raison": "sanction réglementaire, aucune méthode d'attaque",
-    "date": "2026-10-13T15:20:00+00:00"
-  },
-  {
-    "id": "7514b73c85f9a2ac",
-    "title": "When LLM Gateways Go Wrong: Findings from LiteLLM",
-    "link": "https://research.checkpoint.com/2026/when-llm-gateways-go-wrong-findings-from-litellm/",
-    "source": "Check Point Research",
-    "raison": "vulnérabilités sans exploitation constatée",
-    "date": "2026-10-13T15:20:00+00:00"
-  },
-  {
-    "id": "84573b5a17c65123",
-    "title": "Docker Hub flaw let attackers impersonate users, tamper with images",
-    "link": "https://www.bleepingcomputer.com/news/security/docker-hub-flaw-let-attackers-impersonate-users-tamper-with-images/",
-    "source": "BleepingComputer",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-13T16:09:31+00:00"
-  },
-  {
-    "id": "cb9f45b273dbc6a4",
-    "title": "Assises de la sécurité 2026 : retour aux fondamentaux",
-    "link": "https://www.lemagit.fr/dessin/Assises-de-la-securite-2026-retour-aux-fondamentaux",
-    "source": "LeMagIT",
-    "raison": "conseils génériques",
-    "date": "2026-10-13T17:20:00+00:00"
-  },
-  {
     "id": "3770e65c491fe5df",
     "title": "GitHub Tightens npm Publishing After Flaw Left 1,500+ Packages Vulnerable to Hijacking",
     "link": "https://thehackernews.com/2026/10/github-tightens-npm-publishing-after.html",
@@ -3998,5 +3958,45 @@
     "source": "BleepingComputer",
     "raison": "correctif de bogue sans attaque",
     "date": "2026-11-02T14:55:00+00:00"
+  },
+  {
+    "id": "5f16eacba49e893e",
+    "title": "Droit et IT : 5 problématiques légales que la DSI doit impérativement maîtriser",
+    "link": "https://www.lemagit.fr/essentialguide/Droit-et-IT-5-problematiques-legales-que-la-DSI-doit-imperativement-maitriser",
+    "source": "LeMagIT",
+    "raison": "actualité juridique sans attaque",
+    "date": "2026-11-02T16:30:00+00:00"
+  },
+  {
+    "id": "6c5cf422a94bb03c",
+    "title": "Microsoft's AI Risk Report Misses This Key Detail",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/microsoft-ai-cyber-risk-report-miss",
+    "source": "Dark Reading",
+    "raison": "analyse d'un rapport, sans détail d'attaque (page inaccessible)",
+    "date": "2026-11-02T16:30:00+00:00"
+  },
+  {
+    "id": "9b847cec7f357ed3",
+    "title": "Apple warns users in 99 countries of mercenary spyware",
+    "link": "https://therecord.media/apple-warns-users-99-countries-mercenary-spyware",
+    "source": "The Record",
+    "raison": "notifications d'Apple sans détail sur la méthode d'attaque",
+    "date": "2026-11-02T16:30:00+00:00"
+  },
+  {
+    "id": "a8390c4ba8618624",
+    "title": "2nd November – Threat Intelligence Report",
+    "link": "https://research.checkpoint.com/2026/2nd-november-threat-intelligence-report/",
+    "source": "Check Point Research",
+    "raison": "bulletin hebdomadaire récapitulatif",
+    "date": "2026-11-02T16:30:00+00:00"
+  },
+  {
+    "id": "d4e56b60d3af7d5d",
+    "title": "Cybersecurity M&A Roundup: 37 Deals Announced in October 2026",
+    "link": "https://www.securityweek.com/cybersecurity-ma-roundup-37-deals-announced-in-october-2026/",
+    "source": "SecurityWeek",
+    "raison": "actualité financière (fusions-acquisitions)",
+    "date": "2026-11-02T16:30:00+00:00"
   }
 ]

@@ -2,6 +2,427 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-10-30-floride-aide-financiere-fuite",
+      "title": "Floride : fuite de données sur le site d'aide financière aux étudiants",
+      "created": "2026-10-30T16:15:00+00:00",
+      "updated": "2026-11-02T16:30:00+00:00",
+      "version": 2,
+      "resume": "Le Département de l'Éducation de Floride a constaté le 19 octobre un accès non autorisé au site d'aide financière aux étudiants. Les données de 4,9 millions de personnes, dont des numéros de sécurité sociale, ont fuité [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Accès non autorisé à un système ou une base de données → noms, adresses, téléphones, e-mails, numéros de sécurité sociale et dates de naissance exposés [1, 2]."
+        },
+        {
+          "etape": "Réaction",
+          "texte": "Site mis hors ligne, incident signalé au procureur général et déclaré contenu par le Département ; deux services de l'État l'assistent [1, 2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant inconnu",
+            "note": ""
+          },
+          {
+            "id": "site",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Site d'aide financière de Floride",
+            "note": "Données exposées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "site",
+            "etape": 2,
+            "texte": "Accès non autorisé à un système ou une base"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le moyen d'accès, ni l'auteur : le Département a refusé de commenter la nature de l'incident [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1, 2]"
+      ],
+      "cibles": [
+        "Près de 5 millions de personnes ayant demandé une aide financière en Floride [1, 2]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Florida warns that 4.9 million people had Social Security numbers leaked in financial aid site breach",
+          "site": "The Record",
+          "url": "https://therecord.media/florida-warns-5-million-affected-financial-aid-site-breach",
+          "date": "2026-10-30",
+          "image": "https://cms.therecord.media/uploads/fsu_campus_d3e68b7c9a.jpg"
+        },
+        {
+          "titre": "Florida Student Aid Website Hack Puts Data of 4.9 Million People at Risk",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/florida-student-aid-website-hack-puts-data-of-4-9-million-people-at-risk/",
+          "date": "2026-11-02",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/03/school-education.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-02-btcpay-server-hot-wallets",
+      "title": "BTCPay Server : vidage de portefeuilles chauds sur des instances anciennes",
+      "created": "2026-11-02T16:30:00+00:00",
+      "updated": "2026-11-02T16:30:00+00:00",
+      "version": 1,
+      "resume": "Des attaquants vident les « hot wallets » d'instances BTCPay Server en version 2.4.1 ou antérieure, selon le mainteneur de ce logiciel de paiement en cryptomonnaies [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources : le mainteneur dit avoir identifié un vecteur visant les versions 2.4.1 ou antérieures, sans le détailler [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Connexion en administrateur sur des instances anciennes → contrôle de l'instance ; la manière dont c'est possible fait l'objet d'une enquête [1]."
+        },
+        {
+          "etape": "Vol de fonds",
+          "texte": "Vidage des hot wallets → paiements non autorisés en Bitcoin et en Litecoin [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inst",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Instance BTCPay Server",
+            "note": "Version 2.4.1 ou antérieure"
+          },
+          {
+            "id": "w",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Hot wallets",
+            "note": "Bitcoin et Litecoin"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inst",
+            "etape": 2,
+            "texte": "Connexion en administrateur"
+          },
+          {
+            "de": "inst",
+            "vers": "w",
+            "etape": 3,
+            "texte": "Paiements non autorisés"
+          }
+        ]
+      },
+      "limites": "Les sources ne donnent ni la faille exploitée, ni l'auteur, ni le nombre de victimes ou les montants volés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1]"
+      ],
+      "cibles": [
+        "Utilisateurs de BTCPay Server en version 2.4.1 ou antérieure [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "BTCPay Server warns of hot wallet crypto thefts on outdated instances",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/btcpay-server-warns-of-hot-wallet-thefts-targeting-outdated-instances/",
+          "date": "2026-11-02",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/08/Bitcoin-cryptocurrency.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-02-darkblinders-israel-kurdistan",
+      "title": "DarkBlinders : espionnage d'une personnalité israélienne et d'un cloud gouvernemental kurde",
+      "created": "2026-11-02T16:30:00+00:00",
+      "updated": "2026-11-02T16:30:00+00:00",
+      "version": 1,
+      "resume": "Le groupe DarkBlinders, lié à l'Iran, a mené entre août et octobre 2026 une campagne d'espionnage qui a compromis une personnalité israélienne de haut niveau et un environnement cloud du gouvernement du Kurdistan irakien [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Hameçonnage ciblé : faux recrutements, utilitaires piégés, sites imitant des services gouvernementaux, de messagerie et de cloud pour récolter des identifiants [1]."
+        },
+        {
+          "etape": "Exécution du code",
+          "texte": "Projet Visual Studio malveillant présenté comme test de programmation → injection AppDomainManager, puis chargement de ShelbyLoader V2 par DLL sideloading [1]."
+        },
+        {
+          "etape": "Contrôle à distance",
+          "texte": "SHELBYC2 lancé par le chargeur → contrôle à distance et exfiltration de données via GitHub [1]."
+        },
+        {
+          "etape": "Tunnel réseau",
+          "texte": "Déploiement de l'utilitaire de tunneling Blackwood via SHELBYC2 [1]."
+        },
+        {
+          "etape": "Compromission",
+          "texte": "Compromission d'une personnalité de haut niveau en Israël et d'un environnement cloud gouvernemental au Kurdistan ; actions menées non détaillées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (DarkBlinders)",
+            "note": ""
+          },
+          {
+            "id": "cib",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Personnes ciblées",
+            "note": "Faux recrutements"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de la cible",
+            "note": "ShelbyLoader V2"
+          },
+          {
+            "id": "gh",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "GitHub",
+            "note": "Canal de contrôle"
+          },
+          {
+            "id": "cl",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Cloud gouvernemental kurde",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cib",
+            "etape": 1,
+            "texte": "Hameçonnage ciblé et faux recrutements"
+          },
+          {
+            "de": "cib",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Projet piégé exécuté, chargeur installé"
+          },
+          {
+            "de": "pc",
+            "vers": "gh",
+            "etape": 3,
+            "texte": "SHELBYC2 contrôlé et exfiltration via GitHub"
+          },
+          {
+            "de": "att",
+            "vers": "cl",
+            "etape": 5,
+            "texte": "Environnement cloud compromis"
+          }
+        ]
+      },
+      "limites": "Les sources ne détaillent pas les actions menées après la compromission ni le nombre de victimes [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "DarkBlinders, groupe lié à l'Iran, rattaché par Dream Research Labs au cluster UNC5795 [1]"
+      ],
+      "cibles": [
+        "Personnalité de haut niveau en Israël, cloud gouvernemental du Kurdistan irakien [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "AppDomainManager",
+          "definition": "Mécanisme .NET détourné pour exécuter du code au lancement d'un programme"
+        },
+        {
+          "sigle": "DLL sideloading",
+          "definition": "Faire charger une bibliothèque malveillante par un programme légitime"
+        },
+        {
+          "sigle": "DLL",
+          "definition": "Bibliothèque de code Windows chargée par les programmes"
+        },
+        {
+          "sigle": "Visual Studio",
+          "definition": "Environnement de développement de Microsoft"
+        },
+        {
+          "sigle": "SHELBYC2",
+          "definition": "Logiciel de contrôle à distance utilisé par le groupe"
+        },
+        {
+          "sigle": "UNC5795",
+          "definition": "Identifiant de cluster d'activité malveillante suivi par Google"
+        },
+        {
+          "sigle": "V2",
+          "definition": "Version 2 du chargeur ShelbyLoader"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "DarkBlinders Compromises Israeli Target and Iraqi Kurdish Government Cloud Environment",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/darkblinders-compromises-israeli-target.html",
+          "date": "2026-11-02",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7nIwDn7LIoF8OUZdj0NRjq4ZMu-xjzcOPQJDwouwkwqwVe618e77am9iyAIez63Q8jVqZi7OtU43gJlhbZT-_4l_4pUq3tYpDUe4ErouPlkNi8YTNZiPQ6KmX2Ci028oT24DRcPtCdKv_zZ33_ZHOodARrbmcwxYWCAx4r45Qc0qVOQNmCCoWZmAWJnzt/s1700-nu-rw-lo-l85-e365/shelby-hacker.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-02-llmjacking-mandiant",
+      "title": "LLMJacking : détournement d'accès cloud à des modèles d'IA et revente",
+      "created": "2026-11-02T16:30:00+00:00",
+      "updated": "2026-11-02T16:30:00+00:00",
+      "version": 1,
+      "resume": "Mandiant a traité en 2026 plusieurs incidents où des attaquants motivés par l'argent ont détourné l'accès d'entreprises à des modèles d'IA dans le cloud, jusqu'à 1 million de dollars de frais cumulés chez certaines [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Clés cloud exposées ou volées, jetons de session récupérés par hameçonnage, clés dans des dépôts GitHub publics → accès aux services d'IA de l'entreprise [1]."
+        },
+        {
+          "etape": "Reconnaissance",
+          "texte": "Test de validité des clés, cartographie des services et des droits, clonage de dépôts pour y chercher des secrets [1]."
+        },
+        {
+          "etape": "Élévation et persistance",
+          "texte": "Création de comptes à droits administrateur, ajout de clés SSH non autorisées dans les machines virtuelles, faux comptes de service déguisés en utilitaires de facturation [1]."
+        },
+        {
+          "etape": "Élévation via LiteLLM",
+          "texte": "Exploitation de CVE-2026-40217 sur la passerelle LiteLLM → passage de clés standard à des identifiants administrateur complets [1]."
+        },
+        {
+          "etape": "Monétisation",
+          "texte": "Abonnement des comptes victimes à des contrats à l'usage et à des modèles premium, puis revente des clés agrégées dans des boutiques souterraines [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "cl",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Comptes cloud de l'entreprise",
+            "note": "Clés et jetons volés"
+          },
+          {
+            "id": "gw",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Passerelle LiteLLM",
+            "note": "Droits administrateur obtenus"
+          },
+          {
+            "id": "sh",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Boutiques souterraines",
+            "note": "Revente de clés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cl",
+            "etape": 1,
+            "texte": "Clés ou jetons volés"
+          },
+          {
+            "de": "cl",
+            "vers": "gw",
+            "etape": 4,
+            "texte": "CVE-2026-40217 exploitée"
+          },
+          {
+            "de": "cl",
+            "vers": "sh",
+            "etape": 5,
+            "texte": "Clés agrégées revendues"
+          }
+        ]
+      },
+      "limites": "L'article ne donne ni la date précise de chaque incident ni le nombre d'organisations touchées [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-40217",
+          "explication": "Passerelle LiteLLM : réattribution de l'identifiant utilisateur dans le point d'accès /key/regenerate, permettant de passer de clés standard à des droits administrateur complets [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "UNC6993, groupe nommé, a utilisé une clé de compte de service mal configurée et des jetons d'accès volés [1]",
+        "Plusieurs groupes non nommés motivés par l'argent, dont l'acteur « Jet Night » [1]"
+      ],
+      "cibles": [
+        "Services financiers, commerce de détail, technologie et transport en Amérique du Nord, du Sud et en Asie-Pacifique [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SSH",
+          "definition": "Protocole d'accès distant sécurisé à un serveur"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "UNC6993",
+          "definition": "Identifiant de cluster d'activité malveillante suivi par Mandiant"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "The Rise of LLMJacking: How Threat Actors Monetize Compromised Cloud and Model Resources",
+          "site": "Google Threat Intelligence (Mandiant)",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/llmjacking-monetizing-compromised-cloud-models/",
+          "date": "2026-11-02",
+          "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-10-30-revolve-vol-cartes-paiement",
       "title": "Revolve : des pirates volent des numéros de cartes de paiement de clients",
       "created": "2026-10-30T20:20:00+00:00",
@@ -3026,74 +3447,6 @@
           "url": "https://www.bleepingcomputer.com/news/security/trezor-warns-of-suspected-crypto-theft-implant-in-hardware-wallet/",
           "date": "2026-10-30",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/08/13/Trezor.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-30-floride-aide-financiere-fuite",
-      "title": "Floride : fuite de données sur le site d'aide financière aux étudiants",
-      "created": "2026-10-30T16:15:00+00:00",
-      "updated": "2026-10-30T16:15:00+00:00",
-      "version": 1,
-      "resume": "Le Département de l'Éducation de Floride a constaté le 19 octobre un accès non autorisé au site d'aide financière aux étudiants. Les données de 4,9 millions de personnes, dont des numéros de sécurité sociale, ont fuité [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Accès non autorisé à un système ou une base de données → noms, adresses, téléphones, e-mails, numéros de sécurité sociale et dates de naissance exposés [1]."
-        },
-        {
-          "etape": "Réaction",
-          "texte": "Site mis hors ligne, incident signalé au procureur général et déclaré contenu par le Département [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant inconnu",
-            "note": ""
-          },
-          {
-            "id": "site",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Site d'aide financière de Floride",
-            "note": "Données exposées"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "site",
-            "etape": 2,
-            "texte": "Accès non autorisé à un système ou une base"
-          }
-        ]
-      },
-      "limites": "Les sources ne précisent ni le moyen d'accès, ni l'auteur : le Département a refusé de commenter la nature de l'incident [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non identifié [1]"
-      ],
-      "cibles": [
-        "Près de 5 millions de personnes ayant demandé une aide financière en Floride [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Florida warns that 4.9 million people had Social Security numbers leaked in financial aid site breach",
-          "site": "The Record",
-          "url": "https://therecord.media/florida-warns-5-million-affected-financial-aid-site-breach",
-          "date": "2026-10-30",
-          "image": "https://cms.therecord.media/uploads/fsu_campus_d3e68b7c9a.jpg"
         }
       ]
     },

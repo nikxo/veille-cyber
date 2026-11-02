@@ -28549,17 +28549,17 @@
       "id": "2026-10-30-claude-code-extension-cursor-backdoor",
       "title": "Extension Claude Code piégée sur la marketplace Cursor : porte dérobée SSH",
       "created": "2026-10-30T11:30:00+00:00",
-      "updated": "2026-10-31T02:30:00+00:00",
-      "version": 3,
-      "resume": "Une fausse version 2.1.313 de l'extension Claude Code, diffusée via la marketplace Cursor, a installé un accès SSH persistant. Cursor compte au maximum 5 000 utilisateurs touchés [1, 2, 3, 4].",
+      "updated": "2026-11-02T12:09:04+00:00",
+      "version": 4,
+      "resume": "Des versions piégées de l'extension Claude Code, restées environ 11 heures sur la marketplace Cursor, ont installé un accès SSH persistant. Cursor compte au maximum 5 000 utilisateurs touchés [1, 2, 3, 4, 5].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Extension malveillante se présentant comme anthropic.claude-code 2.1.313 sur la marketplace Cursor, chargeur JavaScript en tête de extension.js → code exécuté au chargement, sans action de l'utilisateur [1, 3]."
+          "texte": "Un acteur utilise un accès à la marketplace Cursor pour publier une extension altérée (2.1.312 et 2.1.313), chargeur JavaScript → code exécuté au chargement [1, 3, 5]."
         },
         {
           "etape": "Persistance",
-          "texte": "Clé de l'attaquant dans authorized_keys, puis LaunchAgent macOS, crontab Linux ou tâche planifiée Windows, reconnexion après 60 secondes → accès SSH durable [1, 2, 3, 4]."
+          "texte": "Clé de l'attaquant dans authorized_keys, puis LaunchAgent macOS, crontab Linux ou tâche planifiée Windows → accès SSH durable ; scripts toujours actifs après désinstallation [1, 2, 3, 4, 5]."
         },
         {
           "etape": "Accès distant",
@@ -28615,7 +28615,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni comment l'extension a été publiée sous le nom d'Anthropic, ni l'acteur [2, 3, 4]. Le vol de secrets n'est pas démontré [4].",
+      "limites": "Les sources ne précisent ni comment l'extension a été publiée sous le nom d'Anthropic, ni l'acteur [2, 3, 4], ni comment l'accès à la marketplace a été obtenu [5]. Le vol de secrets n'est pas démontré [4].",
       "cves": [],
       "mitre": [
         "T1098.004 : SSH Authorized Keys, ajout d'une clé publique pour un accès persistant [4]",
@@ -28667,6 +28667,13 @@
           "url": "https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/",
           "date": "2026-10-30",
           "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/05/MS_Actional-Insights_Links.jpg"
+        },
+        {
+          "titre": "Malicious Claude Code Extension Served in Cursor Supply Chain Attack",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/malicious-claude-code-extension-served-in-cursor-supply-chain-attack/",
+          "date": "2026-11-02",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supply-chain-attack.jpeg"
         }
       ]
     },
@@ -29080,9 +29087,9 @@
       "id": "2026-10-30-teams-faux-support-ad-cs",
       "title": "Faux support informatique sur Teams puis abus des certificats Active Directory (ESC1 et ESC8)",
       "created": "2026-10-30T18:20:00+00:00",
-      "updated": "2026-10-30T18:20:00+00:00",
-      "version": 1,
-      "resume": "Microsoft décrit deux intrusions menées par des humains : des attaquants se font passer pour le support informatique sur Teams, prennent la main à distance, puis abusent d'AD CS pour obtenir des certificats d'authentification [1].",
+      "updated": "2026-11-02T12:09:04+00:00",
+      "version": 2,
+      "resume": "Microsoft décrit deux intrusions menées par des humains : des attaquants se font passer pour le support informatique sur Teams, prennent la main à distance, puis abusent d'AD CS pour obtenir des certificats d'authentification [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -29106,7 +29113,7 @@
         },
         {
           "etape": "Vol de données",
-          "texte": "Cas 1 : connexion à distance avec le compte exclu de la réponse automatisée, serveur de fichiers, copie Rclone renommée → données envoyées vers un SFTP externe [1]."
+          "texte": "Cas 1 : DCSync sur un contrôleur de domaine, puis compte resté actif et copie Rclone renommée → données d'un partage envoyées vers un SFTP externe [1, 2]."
         }
       ],
       "parcours": {
@@ -29251,6 +29258,10 @@
         {
           "sigle": "Quick Assist",
           "definition": "Outil Windows de prise en main à distance"
+        },
+        {
+          "sigle": "DCSync",
+          "definition": "Technique qui copie les données d'authentification depuis un contrôleur de domaine"
         }
       ],
       "sources": [
@@ -29260,6 +29271,13 @@
           "url": "https://www.microsoft.com/en-us/security/blog/2026/10/30/help-desk-impersonation-ad-cs-abuse-investigating-esc1-esc8-intrusion-paths/",
           "date": "2026-10-30",
           "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/04/MS_Actional-Insights_Access.png"
+        },
+        {
+          "titre": "Attackers Pose as IT Support on Microsoft Teams, Abuse AD CS to Steal Company Data",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/attackers-pose-as-it-support-on.html",
+          "date": "2026-11-02",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLv88EM1ZSjaeI7bH9DVpg2mGdkwXWUuir0S_p9IfiWG49_TgRalFdK4oQ6e7UE_JYOnNH70Z6wcftnjhcYHRY-Xc0o8GYp9r1uNzxdC_1bnXZgvon74cXkWgKpHZtwJg3IKLsqGC2HS2tcMfQS8BZu7kfrW1vAaaIA316LRzgCOn8zeGZ1WvALgJmyM4/s1700-nu-rw-lo-l85-e365/ms-ad.jpg"
         }
       ]
     },
@@ -29431,13 +29449,13 @@
       "id": "2026-10-30-cisa-kev-ivanti-connect-secure",
       "title": "Ivanti Connect Secure : chaîne de trois failles exploitée, deux ajoutées au catalogue de la CISA",
       "created": "2026-10-30T19:20:00+00:00",
-      "updated": "2026-11-02T10:08:54+00:00",
-      "version": 4,
+      "updated": "2026-11-02T12:09:04+00:00",
+      "version": 5,
       "resume": "Des attaquants ont enchaîné trois failles d'Ivanti Connect Secure pour exécuter du code sans authentification avec les droits root ; Ivanti a corrigé deux failles supplémentaires et la CISA les a ajoutées à son catalogue des vulnérabilités exploitées [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Contournement d'authentification (CVE-2026-104935), première étape de la chaîne, sur Ivanti Connect Secure ; le vecteur précis n'est pas détaillé [2, 3]."
+          "texte": "Contournement d'authentification (CVE-2026-104935), première étape de la chaîne, sur Ivanti Connect Secure ; chaîne débutée le 3 octobre 2026 sur une version 22.8R2.4 selon Volexity [2, 3, 5]."
         },
         {
           "etape": "Exécution de code root",
@@ -29449,7 +29467,7 @@
         },
         {
           "etape": "Actions après compromission",
-          "texte": "Vol d'identifiants, exfiltration de données, scan du réseau [3] ; journaux altérés [3, 4], sans logiciel malveillant déposé : l'appareil est réexploité à chaque commande [4]."
+          "texte": "Vol d'identifiants, exfiltration de données, scan du réseau [3] ; journaux altérés [3, 4], sans logiciel malveillant déposé : l'appareil est réexploité à chaque commande [4] ; outil Integrity Checker d'Ivanti évité [5]."
         },
         {
           "etape": "Alerte et catalogue",
@@ -29501,7 +29519,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent pas l'ordre exact des étapes ni les victimes. L'article ne dit pas quelle faille correspond à quelle étape ; le rôle de CVE-2026-118527 n'est pas détaillé [2, 3].",
+      "limites": "Les sources ne précisent ni l'ordre exact des étapes ni les victimes [2, 3]. Rapid7 ne dit pas que CVE-2026-104935 est le point d'entrée [5].",
       "cves": [
         {
           "id": "CVE-2026-104935",
@@ -29509,11 +29527,11 @@
         },
         {
           "id": "CVE-2026-111357",
-          "explication": "Ivanti Connect Secure : absence d'authentification pour une fonction critique, élévation de privilèges par un attaquant local, gravité 8,8 ; exploitation active [1, 2, 3]."
+          "explication": "Ivanti Connect Secure : absence d'authentification pour une fonction critique, élévation de privilèges locale ; gravité 8,8 selon Ivanti, 7,0 selon Rapid7 [5] ; exploitation active [1, 2, 3]."
         },
         {
           "id": "CVE-2026-118527",
-          "explication": "Ivanti Connect Secure : identifiants prévisibles, téléversement de fichiers à distance par un attaquant authentifié, gravité 4,3 ; exploitation active [1, 2, 3]."
+          "explication": "Ivanti Connect Secure : identifiants prévisibles, téléversement de fichiers à distance par un attaquant authentifié, gravité 4,3 ; exploitation active [1, 2, 3, 5]."
         }
       ],
       "mitre": [],
@@ -29565,6 +29583,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/",
           "date": "2026-11-02",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/02/Ivanti-headpic.jpg"
+        },
+        {
+          "titre": "Additional Ivanti Connect Secure zero-days exploited in the wild (CVE-2026-111357, CVE-2026-118527)",
+          "site": "Rapid7",
+          "url": "https://www.rapid7.com/blog/post/etr-additional-ivanti-connect-secure-zero-days-exploited-in-the-wild-cve-2026-111357-cve-2026-118527",
+          "date": "2026-11-02",
+          "image": "https://www.rapid7.com/cdn/images/blt65a432ba319f4043/6846abddaf18306debe6cf4d/ETR.webp"
         }
       ]
     },
@@ -30418,6 +30443,255 @@
           "url": "https://therecord.media/fbi-blames-tradertraitor-for-binance-hack",
           "date": "2026-11-02",
           "image": "https://cms.therecord.media/uploads/File_photo_of_North_Korean_flags_Image_John_Pavelka_via_Wikimedia_Commons_CC_BY_2_0_96fc9d25cb.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-02-cl-unk-1211-linux-gouvernements",
+      "title": "Espionnage de serveurs Linux gouvernementaux (CL-UNK-1211) avec SysGoRAT",
+      "created": "2026-11-02T12:09:04+00:00",
+      "updated": "2026-11-02T12:09:04+00:00",
+      "version": 1,
+      "resume": "Unit 42 décrit une campagne d'espionnage, suivie sous le nom CL-UNK-1211, contre des serveurs Linux de gouvernements entre octobre 2025 et avril 2026, avec le logiciel SysGoRAT et des scripts contenant des notes de raisonnement conversationnelles [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Web shells PHP et RAT SysGoRAT en Go, connecté en WebSocket à une IP codée en dur sur le port 443 → accès persistant aux réseaux [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Fichier .bashrc remplacé, code injecté dans des pages de connexion PHP, mots de passe cherchés dans les fichiers de configuration → identifiants récupérés [1]."
+        },
+        {
+          "etape": "Collecte de courriels",
+          "texte": "Parcours de /var/qmail/mailnames/, recherche de mots-clés dans les en-têtes, script zip_mails.sh → tentative d'exfiltration de boîtes mail, échec sur erreurs de syntaxe [1]."
+        },
+        {
+          "etape": "Dissimulation",
+          "texte": "Tentatives de désactiver les protections des postes, d'effacer les journaux et de poser de faux marqueurs de red team → activité présentée comme un audit [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (CL-UNK-1211)",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveurs Linux gouvernementaux",
+            "note": "Web shells, SysGoRAT"
+          },
+          {
+            "id": "mail",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Boîtes mail gouvernementales",
+            "note": "Exfiltration tentée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Web shells et SysGoRAT, accès persistant"
+          },
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 3,
+            "texte": "Vol d'identifiants administrateur"
+          },
+          {
+            "de": "srv",
+            "vers": "mail",
+            "etape": 4,
+            "texte": "Courriels énumérés, copie tentée"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'accès initial, ni l'attribution à un État, ni les victimes nommées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "CL-UNK-1211, suivi par Unit 42 ; aucune attribution à un État ou à un groupe connu [1]"
+      ],
+      "cibles": [
+        "Entités gouvernementales et infrastructures liées à des États, serveurs Linux [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CL-UNK-1211",
+          "definition": "Cluster (CL) d'origine inconnue (UNK) suivi par Unit 42"
+        },
+        {
+          "sigle": "Unit 42",
+          "definition": "Équipe de recherche de Palo Alto Networks"
+        },
+        {
+          "sigle": "RAT",
+          "definition": "Remote Access Trojan : logiciel malveillant de contrôle à distance"
+        },
+        {
+          "sigle": "PHP",
+          "definition": "Langage de script utilisé par les sites web"
+        },
+        {
+          "sigle": "WebSocket",
+          "definition": "Protocole de communication continue entre client et serveur"
+        },
+        {
+          "sigle": "IP",
+          "definition": "Adresse d'une machine sur le réseau"
+        },
+        {
+          "sigle": "Go",
+          "definition": "Langage de programmation"
+        },
+        {
+          "sigle": "web shell",
+          "definition": "Page web piégée donnant des commandes à distance sur un serveur"
+        },
+        {
+          "sigle": "red team",
+          "definition": "Équipe qui simule des attaques lors d'un audit"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Government Linux Servers Targeted With SysGoRAT and Suspected AI-Generated Scripts",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/government-linux-servers-targeted-with.html",
+          "date": "2026-11-02",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYHKbP_7yOsvpwAldBMCL3QkCJ9SbUVrJz1Tr_RB6m3O99Gj73H0fX20hIbzKujRWB-1qkBCWv1UEJEbrTe1NFYpPkTm0OoNqJe7OdJoZa1HcZDT2On3mUT0igQeCOsMnWw_ZfT-HsLx6B8R84XYHHg4mUI2hPzM15ggddQCFAAmzChzC5Of90LInW8RB8/s1700-nu-rw-lo-l85-e365/artex.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-02-synology-c3rb3r-nas",
+      "title": "Rançongiciel C3RB3R : Synology alerte sur des attaques contre les NAS",
+      "created": "2026-11-02T12:09:04+00:00",
+      "updated": "2026-11-02T12:09:04+00:00",
+      "version": 1,
+      "resume": "Synology avertit d'une hausse d'attaques du rançongiciel C3RB3R contre ses NAS, dont les fichiers sont chiffrés avec l'extension .L0CK3D [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources : Synology n'indique pas la faille exploitée [1]."
+        },
+        {
+          "etape": "Chiffrement",
+          "texte": "Chiffrement des données des NAS → extension .L0CK3D ajoutée aux fichiers [1]."
+        },
+        {
+          "etape": "Demande de rançon",
+          "texte": "Note read-me3.txt déposée → achat de l'outil C3rb3r Decryptor exigé sur un portail du dark web, pour des milliers de dollars [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (C3RB3R)",
+            "note": ""
+          },
+          {
+            "id": "nas",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "NAS Synology",
+            "note": "Fichiers .L0CK3D"
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Portail du dark web",
+            "note": "Achat du déchiffreur"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "nas",
+            "etape": 1,
+            "texte": "Faille non précisée par Synology"
+          },
+          {
+            "de": "att",
+            "vers": "nas",
+            "etape": 2,
+            "texte": "Données chiffrées, extension .L0CK3D"
+          },
+          {
+            "de": "nas",
+            "vers": "web",
+            "etape": 3,
+            "texte": "Note de rançon renvoyant vers le portail"
+          }
+        ]
+      },
+      "limites": "Synology ne précise pas la faille exploitée ; l'article cite trois CVE de l'avis de novembre 2024 sans confirmer leur lien avec ces attaques [1].",
+      "cves": [
+        {
+          "id": "CVE-2024-10441",
+          "explication": "DSM de Synology : exécution de code arbitraire sur appareils non corrigés ; lien avec ces attaques non confirmé [1]."
+        },
+        {
+          "id": "CVE-2024-50629",
+          "explication": "DSM de Synology : lecture de fichiers sur appareils non corrigés ; lien avec ces attaques non confirmé [1]."
+        },
+        {
+          "id": "CVE-2024-10445",
+          "explication": "DSM de Synology : écriture de fichiers sur appareils non corrigés ; lien avec ces attaques non confirmé [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Opérateurs de C3RB3R, aussi appelé Cerber ou CerberImposter ; identité non précisée [1]"
+      ],
+      "cibles": [
+        "Utilisateurs de NAS Synology ; plus de 380 000 NAS exposés sur Internet selon Shadowserver [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "NAS",
+          "definition": "Network Attached Storage : serveur de stockage de fichiers en réseau"
+        },
+        {
+          "sigle": "DSM",
+          "definition": "DiskStation Manager : système d'exploitation des NAS Synology"
+        },
+        {
+          "sigle": "C3RB3R",
+          "definition": "Nom d'un rançongiciel, aussi appelé Cerber ou CerberImposter"
+        },
+        {
+          "sigle": "L0CK3D",
+          "definition": "Extension ajoutée aux fichiers chiffrés par C3RB3R"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Synology warns of C3RB3R ransomware attacks targeting NAS devices",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/synology-warns-customers-of-ongoing-c3rb3r-ransomware-attacks/",
+          "date": "2026-11-02",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/02/Synology_headpic.jpg"
         }
       ]
     }

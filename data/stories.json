@@ -26611,8 +26611,8 @@
       "id": "2026-10-29-alpine-gitlab-cve-2026-97229",
       "title": "Alpine Linux : tentative d'exploitation de la faille GitLab CVE-2026-97229 sur son serveur",
       "created": "2026-10-29T11:30:00+00:00",
-      "updated": "2026-11-01T16:20:00+00:00",
-      "version": 3,
+      "updated": "2026-11-02T13:50:00+00:00",
+      "version": 4,
       "resume": "Un attaquant a tenté d'exploiter la faille CVE-2026-97229 sur le serveur GitLab d'Alpine Linux, une semaine après la publication du correctif ; Alpine n'a trouvé aucune preuve de réussite mais ne peut pas l'exclure [1].",
       "chaine": [
         {
@@ -26634,6 +26634,10 @@
         {
           "etape": "Réponse d'Alpine",
           "texte": "Serveur fermé aux non-développeurs le 27 octobre, puis reconstruit, secrets remplacés et Ruby corrigé le 28 octobre [1] ; tous les mots de passe réinitialisés [3]."
+        },
+        {
+          "etape": "Exploitation confirmée",
+          "texte": "La CISA ajoute la faille à son catalogue des failles exploitées [2] ; plus de 1 000 serveurs GitLab non corrigés sont visés par des attaques en cours [4]."
         }
       ],
       "parcours": {
@@ -26665,10 +26669,16 @@
             "vers": "gl",
             "etape": 4,
             "texte": "Tentatives de réaccès, échec"
+          },
+          {
+            "de": "att",
+            "vers": "gl",
+            "etape": 6,
+            "texte": "Attaques en cours contre serveurs non corrigés"
           }
         ]
       },
-      "limites": "Compromission non confirmée : aucune preuve de réussite, mais Alpine ne peut pas l'exclure ; acteur non identifié [1, 3]. CISA a ajouté la faille à son catalogue des failles exploitées [2].",
+      "limites": "Compromission non confirmée : aucune preuve de réussite, mais Alpine ne peut pas l'exclure ; acteur non identifié [1, 3].",
       "cves": [
         {
           "id": "CVE-2026-97229",
@@ -26708,6 +26718,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/alpine-linux-rebuilds-gitlab-after-attempted-rce-attack/",
           "date": "2026-11-01",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/30/alpine-linux.jpg"
+        },
+        {
+          "titre": "Over 1,000 GitLab servers vulnerable to ongoing RCE attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/over-1-000-gitlab-servers-vulnerable-to-code-execution-attacks/",
+          "date": "2026-11-02",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/02/GitLab-headpic.jpg"
         }
       ]
     },
@@ -30692,6 +30709,207 @@
           "url": "https://www.bleepingcomputer.com/news/security/synology-warns-customers-of-ongoing-c3rb3r-ransomware-attacks/",
           "date": "2026-11-02",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/02/Synology_headpic.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-02-xcpe-videostrong-botnet",
+      "title": "XCPE : porte dérobée préinstallée sur 1,3 million de boîtiers Android TV, botnet démantelé",
+      "created": "2026-11-02T13:50:00+00:00",
+      "updated": "2026-11-02T13:50:00+00:00",
+      "version": 1,
+      "resume": "Le fabricant Android Videostrong a préinstallé la porte dérobée XCPE, qui a enrôlé plus de 1,3 million de boîtiers TV dans un botnet dont l'accès était vendu à des affiliés criminels. Google et ses partenaires l'ont démantelé [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Porte dérobée préinstallée dans le firmware par le fabricant, code malveillant chargé après le premier démarrage pour passer les tests de Google [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Si elle est désinstallée, la porte dérobée est réinstallée au redémarrage depuis /oem/ → l'utilisateur ne peut pas la supprimer [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Connexion à un serveur de commande MQTT → installation silencieuse d'applications, commandes shell, désactivation de Google Play Protect [1]."
+        },
+        {
+          "etape": "Monétisation",
+          "texte": "Chargement de modules d'affiliés criminels → fraude publicitaire, proxys résidentiels et installation d'autres maliciels [1]."
+        },
+        {
+          "etape": "Évolution en août 2026",
+          "texte": "Installeurs déguisés en applications système, service ADB relancé avec les droits root → partition système remontée en écriture [1]."
+        },
+        {
+          "etape": "Démantèlement",
+          "texte": "Google et ses partenaires démantèlent la porte dérobée et le botnet la semaine précédant la publication [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Videostrong)",
+            "note": ""
+          },
+          {
+            "id": "box",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Boîtiers Android TV",
+            "note": "Porte dérobée préinstallée"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de commande MQTT",
+            "note": ""
+          },
+          {
+            "id": "aff",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Modules d'affiliés",
+            "note": "Fraude et proxys"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "box",
+            "etape": 1,
+            "texte": "Porte dérobée préinstallée dans le firmware"
+          },
+          {
+            "de": "box",
+            "vers": "c2",
+            "etape": 3,
+            "texte": "Connexion persistante au serveur de commande"
+          },
+          {
+            "de": "c2",
+            "vers": "box",
+            "etape": 3,
+            "texte": "Applications installées, commandes shell exécutées"
+          },
+          {
+            "de": "aff",
+            "vers": "box",
+            "etape": 4,
+            "texte": "Modules de fraude et de proxys chargés"
+          }
+        ]
+      },
+      "limites": "Aucune faille logicielle ni CVE n'est mentionnée pour l'accès initial ; les dates précises du démantèlement ne sont pas données [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Videostrong Technology Co., fabricant Android évalué avec forte confiance comme développeur et exploitant [1]"
+      ],
+      "cibles": [
+        "Plus de 1,3 million de boîtiers Android TV, ainsi que des objets connectés (télémédecine, karaoké, affichage numérique) [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "MQTT",
+          "definition": "Message Queuing Telemetry Transport : protocole de messagerie léger utilisé par des objets connectés"
+        },
+        {
+          "sigle": "ADB",
+          "definition": "Android Debug Bridge : service de débogage d'Android"
+        },
+        {
+          "sigle": "TV",
+          "definition": "Télévision"
+        },
+        {
+          "sigle": "XCPE",
+          "definition": "Nom donné par Google à la porte dérobée préinstallée"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Shutting the Door on the XCPE Botnet",
+          "site": "Google Threat Intelligence (Mandiant)",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/shutting-the-door-on-the-xcpe-botnet/",
+          "date": "2026-11-02",
+          "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-02-congelateurs-supermarches-europe",
+      "title": "Congélateurs de supermarchés européens piratés : seconde vague le 2 novembre",
+      "created": "2026-11-02T13:50:00+00:00",
+      "updated": "2026-11-02T13:50:00+00:00",
+      "version": 1,
+      "resume": "Lundi 2 novembre, des congélateurs de supermarchés européens ont été piratés : les températures ont été manipulées à distance et des stocks détruits. C'est la deuxième vague en quelques semaines ; aucun groupe n'a revendiqué [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Manipulation des températures",
+          "texte": "Contrôles de température modifiés à distance, congélateurs réglés à 50 °C → stocks détruits [1]."
+        },
+        {
+          "etape": "Équipements touchés",
+          "texte": "Un ancien système Danfoss atteint en Estonie, des équipements Copeland en Belgique [1]."
+        },
+        {
+          "etape": "Réponse",
+          "texte": "Techniciens mobilisés en Belgique ; les correctifs demandent des modifications physiques, pas une simple mise à jour logicielle [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant inconnu",
+            "note": ""
+          },
+          {
+            "id": "ctl",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Contrôleurs de réfrigération",
+            "note": "Danfoss, Copeland"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ctl",
+            "etape": 2,
+            "texte": "Températures réglées à 50 °C à distance"
+          }
+        ]
+      },
+      "limites": "Le vecteur d'accès de cette vague n'est pas précisé ; l'article ne dit pas si les deux vagues sont liées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié, aucune revendication [1]"
+      ],
+      "cibles": [
+        "Supermarchés en Belgique (plus de 50), Suède, Irlande, Estonie, Pays-Bas et Luxembourg [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Second wave of suspected cyberattacks hits supermarket freezers across Europe",
+          "site": "The Record",
+          "url": "https://therecord.media/cyberattack-grocery-freezers-europe",
+          "date": "2026-11-02",
+          "image": "https://cms.therecord.media/uploads/Shopping_carts_Netherlands_6df61cd499.jpg"
         }
       ]
     }

@@ -29624,8 +29624,8 @@
       "id": "2026-10-31-volta-infostealer-ia",
       "title": "VOLTA : un voleur d'informations qui classe ses victimes grâce à un modèle d'IA",
       "created": "2026-10-31T12:15:00+00:00",
-      "updated": "2026-10-31T12:15:00+00:00",
-      "version": 1,
+      "updated": "2026-11-02T06:11:37+00:00",
+      "version": 2,
       "resume": "Cisco Talos décrit VOLTA-AUTODOXER, un voleur d'informations Windows qui s'auto-supprime. Après le vol, il envoie un dossier sur la victime à un modèle d'IA pour classer ses actifs par valeur monétisable [1].",
       "chaine": [
         {
@@ -29646,11 +29646,11 @@
         },
         {
           "etape": "Classement par IA",
-          "texte": "Envoi du dossier de renseignement à un modèle d'IA via OpenRouter → actifs de la victime classés par valeur monétisable [1]."
+          "texte": "Envoi du dossier à un modèle d'IA via OpenRouter, avec modèles de repli si refus → actifs classés par valeur monétisable [1, 2]."
         },
         {
           "etape": "Exfiltration",
-          "texte": "Trois archives successives envoyées à l'opérateur, l'exécutable principal pouvant ensuite se supprimer lui-même [1]."
+          "texte": "Trois envois successifs à l'opérateur, via Telegram selon The Hacker News ; l'exécutable principal peut ensuite se supprimer [1, 2]."
         }
       ],
       "parcours": {
@@ -29711,11 +29711,11 @@
           }
         ]
       },
-      "limites": "L'article ne précise ni le vecteur d'accès initial, ni l'acteur, ni les victimes, ni de technique MITRE ATT&CK [1].",
+      "limites": "Les sources ne précisent ni le vecteur d'accès initial, ni l'acteur, ni les victimes, ni de technique MITRE ATT&CK [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non mentionné ; auteur vendant des binaires configurables à des clients (modèle « builder ») [1]"
+        "Non identifié ; l'auteur pourrait vendre un kit de construction ou opérer un outil sur mesure [2]"
       ],
       "cibles": [
         "Particuliers, sans secteur précis [1]"
@@ -29741,6 +29741,13 @@
           "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
           "date": "2026-10-31",
           "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/VOLTA.jpg"
+        },
+        {
+          "titre": "New VOLTA Infostealer Uses Claude, Gemini, and Kimi AI to Rank Victims by Financial Value",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/new-volta-infostealer-uses-claude.html",
+          "date": "2026-11-02",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhd5V8QVweKn56_SnTCKZkhmOip6paz9noBrJn7znyZqUtFbOEaLuALQUNlmjcSAb7RIUW8GDETB6J0kFpQQe6vq7wAjk3ogxKUeQ0-2rKeO6TveLdqHNs9KnTN6zC6rwPzWE2IBWMokqQOUzAA0XPM2BWHTUTE7_U7XDfUGKTDIC1PYttxHGnAq_Kr_hMq/s1700-nu-rw-lo-l85-e365/hacker-ai.jpg"
         }
       ]
     },

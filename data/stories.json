@@ -31958,6 +31958,232 @@
           "image": "https://cms.therecord.media/uploads/mercado_bitcoin_92ae590f6f.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-03-siemens-simatic-iot2050-cve-2026-58115",
+      "title": "Siemens SIMATIC IoT2050 : faille CVE-2026-58115 exploitée pour installer un bot et des portes dérobées",
+      "created": "2026-11-03T06:30:00+00:00",
+      "updated": "2026-11-03T06:30:00+00:00",
+      "version": 1,
+      "resume": "Des attaquants exploitent la faille CVE-2026-58115 des appareils industriels SIMATIC IoT2050 Advanced pour y exécuter un bot Linux et des portes dérobées d'exécution de commandes [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Interface HTTP de Node-RED sans authentification sur l'appareil → un attaquant distant non authentifié peut créer des flux malveillants [1]."
+        },
+        {
+          "etape": "Exécution de code",
+          "texte": "Flux Node-RED malveillant à plusieurs couches d'encodage → script shell qui télécharge puis exécute un binaire de botnet [1]."
+        },
+        {
+          "etape": "Second téléchargement",
+          "texte": "Récupération d'un script wget.sh et d'un fichier .sys_update nommé comme un thread noyau → contenu non récupéré, fonction inconnue [1]."
+        },
+        {
+          "etape": "Porte dérobée",
+          "texte": "Point d'entrée HTTP relié à un nœud d'exécution → commandes arbitraires via un paramètre de requête [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveurs de téléchargement",
+            "note": ""
+          },
+          {
+            "id": "dev",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Appareil SIMATIC IoT2050 Advanced",
+            "note": "Node-RED sans authentification"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "dev",
+            "etape": 1,
+            "texte": "Création d'un flux Node-RED malveillant"
+          },
+          {
+            "de": "srv",
+            "vers": "dev",
+            "etape": 2,
+            "texte": "Binaire de botnet téléchargé et exécuté"
+          },
+          {
+            "de": "srv",
+            "vers": "dev",
+            "etape": 3,
+            "texte": "Script wget.sh et fichier .sys_update téléchargés"
+          },
+          {
+            "de": "att",
+            "vers": "dev",
+            "etape": 4,
+            "texte": "Commandes envoyées via un point d'entrée HTTP"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment ni l'acteur ni des victimes, et la fonction des fichiers du second processus est inconnue [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-58115",
+          "explication": "Appareils SIMATIC IoT2050 Advanced : absence d'authentification pour une fonction critique, exécution de code à distance sans authentification, gravité 10,0 sur 10 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non mentionné par les sources [1]"
+      ],
+      "cibles": [
+        "Appareils SIMATIC IoT2050 Advanced observés par VulnCheck sur son réseau de pièges [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "Node-RED",
+          "definition": "Outil de programmation par flux installé sur ces appareils"
+        },
+        {
+          "sigle": "HTTP",
+          "definition": "Protocole des pages web"
+        },
+        {
+          "sigle": "CVSS",
+          "definition": "Note de gravité d'une faille, de 0 à 10"
+        },
+        {
+          "sigle": "wget",
+          "definition": "Commande qui télécharge un fichier"
+        },
+        {
+          "sigle": "thread noyau",
+          "definition": "Tâche interne du système, ici imitée par un nom de fichier"
+        },
+        {
+          "sigle": "SIMATIC",
+          "definition": "Gamme de produits d'automatisation industrielle de Siemens"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Attackers Exploit Critical Siemens IoT2050 Flaw to Plant Remote Command Backdoors",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/attackers-exploit-critical-siemens.html",
+          "date": "2026-11-03",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLg0QvfH0SD_sz2pFnyrG6Zcs-ltrKaf42ZY7PYKTsA26Nu4alNeqarZZ9HGEjO0UJFr5Wfsb7WBSDYoRnGi6X1jXZ8_4xx1VJtYshtPXYX9DVJYu4lln_IqEhf-NQJC7MKWI1JVzzR5heu6O_OnWezfKsj3AnBs5NKVp5dOVgR-7XuKMIAiyiKflPlT9E/s1700-nu-rw-lo-l85-e365/siemens-hack.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-03-cryptopayment-gateway-cve-2026-81648",
+      "title": "Plugin WordPress CryptoPayment Gateway : faille CVE-2026-81648 non corrigée, tentatives d'exploitation",
+      "created": "2026-11-03T06:30:00+00:00",
+      "updated": "2026-11-03T06:30:00+00:00",
+      "version": 1,
+      "resume": "Des attaquants tentent d'exploiter une faille non corrigée du plugin WordPress CryptoPayment Gateway, selon Defused Cyber [1]. Elle permet de supprimer des fichiers et de récupérer des identifiants de portefeuilles crypto [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Endpoint AJAX du plugin sans contrôle d'autorisation → des utilisateurs non authentifiés invoquent des opérations administratives [1]."
+        },
+        {
+          "etape": "Capacités obtenues",
+          "texte": "Suppression de fichiers arbitraires, écrasement de la configuration de la passerelle de paiement, récupération en clair des identifiants de portefeuilles [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plugin CryptoPayment Gateway",
+            "note": "Endpoint AJAX"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Identifiants de portefeuilles",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 1,
+            "texte": "Opérations administratives sans authentification"
+          },
+          {
+            "de": "app",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Identifiants récupérés en clair"
+          }
+        ]
+      },
+      "limites": "Aucune séquence d'attaque observée n'est décrite, aucune victime confirmée, et l'acteur n'est pas identifié [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-81648",
+          "explication": "Plugin CryptoPayment Gateway, versions 1.2.1 à 1.2.2 : absence de contrôle d'autorisation sur un endpoint AJAX, gravité 10,0 sur 10, aucun correctif connu selon WPScan [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié ; l'infrastructure d'attaque se présente comme un hébergeur VPS anonyme [1]"
+      ],
+      "cibles": [
+        "Sites WordPress utilisant le plugin ; aucune victime confirmée [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "AJAX",
+          "definition": "Technique de requêtes web envoyées en arrière-plan"
+        },
+        {
+          "sigle": "CVSS",
+          "definition": "Note de gravité d'une faille, de 0 à 10"
+        },
+        {
+          "sigle": "WordPress",
+          "definition": "Système de gestion de sites web"
+        },
+        {
+          "sigle": "VPS",
+          "definition": "Serveur privé virtuel loué chez un hébergeur"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Attackers Target Unpatched CryptoPayment Gateway Flaw That Can Expose Wallet Credentials",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/attackers-target-unpatched.html",
+          "date": "2026-11-03",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1tflB6yfzJv3UijqJlfCikzOQx0NHz9AVTh13vDvWu-LfAfFfBDjGbKI79Cb3dd2Ca_ck2KNP46WwYKcuweVD9Wc1srFpRkBimsG-EQS567tR92Yyg1DKPWqhhZHc1sP71qHWQoUxndY2VzDlqVsd2gx2GPcMx7pjVG8ws13bfMKXDtqz5q7EiJ22Mmr_/s1700-nu-rw-lo-l85-e365/wp.jpg"
+        }
+      ]
     }
   ]
 }

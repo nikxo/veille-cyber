@@ -33509,6 +33509,111 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/03/workos.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-03-cpguard-mise-a-jour-piratee",
+      "title": "cPGuard : mises à jour piratées pour voler des données sur des serveurs",
+      "created": "2026-11-03T23:07:11+00:00",
+      "updated": "2026-11-03T23:07:11+00:00",
+      "version": 1,
+      "resume": "L'infrastructure de mises à jour de cPGuard, éditeur OpsShield, a servi à diffuser un script voleur de données ; 2 946 serveurs sont affectés et la base de facturation d'OpsShield a été copiée [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Identifiants compromis sur l'infrastructure de distribution d'OpsShield → diffusion d'un script malveillant par le canal de mise à jour [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Les serveurs mis à jour (versions 5.88.12 à 5.88.19) reçoivent un script visant hachages de mots de passe Linux, base de données root, historique shell, fichiers SSH [1]."
+        },
+        {
+          "etape": "Exfiltration",
+          "texte": "Envoi des données au serveur de licences d'OpsShield via un compte compromis → récupération par l'attaquant, 32 fichiers par client [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "cdn",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Mises à jour OpsShield",
+            "note": "Identifiants compromis"
+          },
+          {
+            "id": "srv",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Serveurs clients cPGuard",
+            "note": "Script voleur reçu"
+          },
+          {
+            "id": "lic",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur de licences OpsShield",
+            "note": "Compte compromis"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cdn",
+            "etape": 1,
+            "texte": "Accès avec des identifiants compromis"
+          },
+          {
+            "de": "cdn",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Script diffusé par la mise à jour"
+          },
+          {
+            "de": "srv",
+            "vers": "lic",
+            "etape": 3,
+            "texte": "Données volées envoyées au serveur de licences"
+          },
+          {
+            "de": "att",
+            "vers": "lic",
+            "etape": 3,
+            "texte": "Récupération des données volées"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent pas comment les identifiants ont été obtenus, qui est l'attaquant, ni combien de serveurs ont réellement exécuté le script [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1]"
+      ],
+      "cibles": [
+        "Serveurs utilisant cPGuard (2 946 affectés) et base de facturation d'OpsShield [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SSH",
+          "definition": "Protocole d'accès distant sécurisé à un serveur"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers hijack cPGuard autoupdate to deploy backdoor, steal data",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-cpguard-autoupdate-to-deploy-backdoor-steal-data/",
+          "date": "2026-11-03",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/hacker-box.jpg"
+        }
+      ]
     }
   ]
 }

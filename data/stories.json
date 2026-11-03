@@ -33374,6 +33374,141 @@
           "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/02/MS_Actional-Insights_Detection-hunting.png"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-03-wordpress-cve-2026-119977-kev",
+      "title": "WordPress : faille CVE-2026-119977 ajoutée au catalogue des failles exploitées de la CISA",
+      "created": "2026-11-03T22:10:00+00:00",
+      "updated": "2026-11-03T22:10:00+00:00",
+      "version": 1,
+      "resume": "La CISA a ajouté la faille CVE-2026-119977 du cœur de WordPress à son catalogue des vulnérabilités exploitées, en citant des preuves d'exploitation active [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "wp",
+            "type": "application",
+            "zone": "victime",
+            "nom": "WordPress (cœur)",
+            "note": "Faille CVE-2026-119977"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "wp",
+            "etape": 1,
+            "texte": "Exploitation active de la faille, détails non précisés"
+          }
+        ]
+      },
+      "limites": "La source ne décrit ni les victimes, ni l'acteur, ni le déroulement de l'exploitation [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-119977",
+          "explication": "Cœur de WordPress : situation de concurrence entre vérification et utilisation, exploitation active constatée par la CISA [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "CISA Adds One Known Exploited Vulnerability to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/03/cisa-adds-one-known-exploited-vulnerability-catalog",
+          "date": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-03-workos-artex-ai-fuite",
+      "title": "WorkOS : fuite de données via une application interne de ventes, attaquant utilisant un outil d'intelligence artificielle",
+      "created": "2026-11-03T22:10:00+00:00",
+      "updated": "2026-11-03T22:10:00+00:00",
+      "version": 1,
+      "resume": "La plateforme pour développeurs WorkOS a subi une fuite de données : un attaquant a accédé à des fiches de contacts professionnels et à des résumés d'échanges avec des clients [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Intrusion dans l'application interne de ventes avec un outil d'intelligence artificielle nommé dans le titre → détails non précisés [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Accès à des fiches de contacts professionnels et à des résumés de communications clients [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Outil d'intelligence artificielle"
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Application interne de ventes",
+            "note": ""
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Contacts et résumés clients",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 1,
+            "texte": "Intrusion avec un outil d'intelligence artificielle"
+          },
+          {
+            "de": "app",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Accès aux fiches de contacts et résumés"
+          }
+        ]
+      },
+      "limites": "L'article complet n'a pas pu être lu ; seuls le titre et le résumé du flux sont utilisés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "WorkOS, plateforme pour développeurs [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "WorkOS says attacker used ARTEX AI to breach internal sales app",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/workos-says-attacker-used-artex-ai-to-breach-internal-sales-app/",
+          "date": "2026-11-03",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/03/workos.jpg"
+        }
+      ]
     }
   ]
 }

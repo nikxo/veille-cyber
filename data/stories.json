@@ -479,13 +479,13 @@
       "id": "2026-11-02-llmjacking-mandiant",
       "title": "LLMJacking : détournement d'accès cloud à des modèles d'IA et revente",
       "created": "2026-11-02T16:30:00+00:00",
-      "updated": "2026-11-02T16:30:00+00:00",
-      "version": 1,
-      "resume": "Mandiant a traité en 2026 plusieurs incidents où des attaquants motivés par l'argent ont détourné l'accès d'entreprises à des modèles d'IA dans le cloud, jusqu'à 1 million de dollars de frais cumulés chez certaines [1].",
+      "updated": "2026-11-03T16:08:50+00:00",
+      "version": 2,
+      "resume": "Google et Mandiant décrivent le LLMjacking : des attaquants détournent l'accès cloud d'entreprises à des modèles d'IA, jusqu'à 1 million de dollars de frais cumulés chez certaines victimes avant révocation de l'accès [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Clés cloud exposées ou volées, jetons de session récupérés par hameçonnage, clés dans des dépôts GitHub publics → accès aux services d'IA de l'entreprise [1]."
+          "texte": "Clés cloud exposées ou volées, jetons de session récupérés par hameçonnage → accès aux services d'IA de l'entreprise [1, 2]."
         },
         {
           "etape": "Reconnaissance",
@@ -493,15 +493,15 @@
         },
         {
           "etape": "Élévation et persistance",
-          "texte": "Création de comptes à droits administrateur, ajout de clés SSH non autorisées dans les machines virtuelles, faux comptes de service déguisés en utilitaires de facturation [1]."
+          "texte": "Création de comptes à droits administrateur, ajout de clés SSH non autorisées dans les machines virtuelles, faux comptes de service déguisés en utilitaires de facturation [1, 2]."
         },
         {
           "etape": "Élévation via LiteLLM",
-          "texte": "Exploitation de CVE-2026-40217 sur la passerelle LiteLLM → passage de clés standard à des identifiants administrateur complets [1]."
+          "texte": "Exploitation de CVE-2026-40217 sur la passerelle LiteLLM → passage de clés standard à des identifiants administrateur complets [1, 2]."
         },
         {
           "etape": "Monétisation",
-          "texte": "Abonnement des comptes victimes à des contrats à l'usage et à des modèles premium, puis revente des clés agrégées dans des boutiques souterraines [1]."
+          "texte": "Contrats à l'usage et modèles premium souscrits sur les comptes victimes [1] → revente de l'accès volé [1, 2, 3]."
         }
       ],
       "parcours": {
@@ -556,7 +556,7 @@
           }
         ]
       },
-      "limites": "L'article ne donne ni la date précise de chaque incident ni le nombre d'organisations touchées [1].",
+      "limites": "Les sources ne donnent ni la date précise de chaque incident ni le nombre d'organisations touchées [1, 2].",
       "cves": [
         {
           "id": "CVE-2026-40217",
@@ -565,11 +565,11 @@
       ],
       "mitre": [],
       "acteurs": [
-        "UNC6993, groupe nommé, a utilisé une clé de compte de service mal configurée et des jetons d'accès volés [1]",
+        "UNC6993, groupe nommé, a utilisé une clé de compte de service mal configurée et une page de hameçonnage de session [1, 2]",
         "Plusieurs groupes non nommés motivés par l'argent, dont l'acteur « Jet Night » [1]"
       ],
       "cibles": [
-        "Services financiers, commerce de détail, technologie et transport en Amérique du Nord, du Sud et en Asie-Pacifique [1]"
+        "Services financiers, commerce de détail, technologie et transport en Amérique du Nord, du Sud et en Asie-Pacifique [1, 2]"
       ],
       "abreviations": [
         {
@@ -592,6 +592,19 @@
           "url": "https://cloud.google.com/blog/topics/threat-intelligence/llmjacking-monetizing-compromised-cloud-models/",
           "date": "2026-11-02",
           "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
+        },
+        {
+          "titre": "Google Warns LLMjacking Attacks Are Costing Some Enterprises Up to $1 Million in Cloud Charges",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/google-warns-llmjacking-attacks-are.html",
+          "date": "2026-11-03",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvqwPJPXsflyvqykVK3Pd1lLXLzEJ6vpLudxQUyYbWkS4nQ0dr9dhcSlMCPwgqfAkyadPSj28XReqkeiymKG5RAZMWpx5Hqhg_XI0HNp3jRMRpaO-wVIRbyJyS8MaaqDNOxXvk8aUENx_aiNMqrqm9SWjtJVpXR2uaP-LNp5deG4U_4YvSxpPKtdJLRNoh/s1700-nu-rw-lo-l85-e365/llmjacking.png"
+        },
+        {
+          "titre": "LLMJacking Emerges as Thriving Cybercriminal Enterprise",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/cloud-security/llmjacking-thriving-cybercriminal-enterprise",
+          "date": "2026-11-03"
         }
       ]
     },
@@ -684,8 +697,8 @@
       "id": "2026-11-02-congelateurs-supermarches-europe",
       "title": "Congélateurs de supermarchés européens piratés : seconde vague le 2 novembre",
       "created": "2026-11-02T13:50:00+00:00",
-      "updated": "2026-11-03T08:20:00+00:00",
-      "version": 3,
+      "updated": "2026-11-03T16:08:50+00:00",
+      "version": 4,
       "resume": "Dans la nuit du 1er au 2 novembre, des attaquants ont modifié à distance les réglages de contrôleurs de réfrigération dans plus de 100 magasins européens, entraînant des pertes d'aliments. Aucun groupe n'a revendiqué [1, 2, 3, 4].",
       "chaine": [
         {
@@ -735,7 +748,8 @@
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non identifié, aucune revendication [1, 3, 4]"
+        "Non identifié, aucune revendication [1, 3, 4]",
+        "Groupes alignés sur la Russie : suspects crédibles selon SentinelLABS, attribution restée ouverte [5]"
       ],
       "cibles": [
         "Plus de 115 magasins en Belgique, Pays-Bas, Suède, Luxembourg, Irlande et Estonie [2] ; cas aussi en Finlande, Italie et Portugal [3, 4]"
@@ -769,6 +783,12 @@
           "url": "https://www.securityweek.com/over-100-european-stores-hit-as-supermarket-fridge-attacks-resume/",
           "date": "2026-11-03",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supermarket-refrigerators.jpeg"
+        },
+        {
+          "titre": "Defrost and Disrupt | An Assessment of Europe’s Refrigeration Attacks",
+          "site": "SentinelLABS",
+          "url": "https://www.sentinelone.com/labs/defrost-and-disrupt-an-assessment-of-europe-s-refrigeration-attacks/",
+          "date": "2026-11-03"
         }
       ]
     },
@@ -32660,6 +32680,117 @@
           "url": "https://research.checkpoint.com/2026/free-the-model-sell-the-gateway-prompt-adware-hidden-in-jailbreak-bundles/",
           "date": "2026-11-03",
           "image": "https://research.checkpoint.com/wp-content/uploads/2026/10/a6126edd-87b5-4d34-9ec5-02b4ddc01b0c.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-03-cpguard-mise-a-jour-detournee",
+      "title": "cPGuard : canal de mise à jour détourné pour piéger des serveurs Linux",
+      "created": "2026-11-03T16:08:50+00:00",
+      "updated": "2026-11-03T16:08:50+00:00",
+      "version": 1,
+      "resume": "Un attaquant a pénétré le système de mise à jour de l'outil de sécurité cPGuard le 2 novembre et diffusé un script qui installait une porte dérobée et collectait des empreintes de mots de passe sur des serveurs Linux [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Utilisation d'identifiants compromis pour accéder au système de mise à jour de cPGuard ; leur origine n'est pas précisée [1]."
+        },
+        {
+          "etape": "Diffusion du script",
+          "texte": "Script malveillant distribué dans les versions 5.88.12 à 5.88.19 → exécution sur des serveurs Linux de clients [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Installation d'un shell de porte dérobée sur le serveur [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Collecte de /etc/shadow, /etc/passwd, du fichier my.cnf de root, de son historique shell et de ses fichiers SSH dans une archive [1]."
+        },
+        {
+          "etape": "Exfiltration",
+          "texte": "Envoi vers un serveur de licences d'OPSSHIELD via un compte compromis → 32 fichiers récupérés, chacun lié à un serveur client [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "upd",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Mises à jour cPGuard",
+            "note": "Identifiants compromis"
+          },
+          {
+            "id": "srv",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Serveurs Linux clients",
+            "note": "Porte dérobée installée"
+          },
+          {
+            "id": "lic",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur de licences OPSSHIELD",
+            "note": "Compte compromis"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "upd",
+            "etape": 1,
+            "texte": "Accès avec identifiants compromis"
+          },
+          {
+            "de": "upd",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Script diffusé via les mises à jour"
+          },
+          {
+            "de": "srv",
+            "vers": "lic",
+            "etape": 5,
+            "texte": "Données envoyées vers le serveur de licences"
+          }
+        ]
+      },
+      "limites": "Le nombre de serveurs touchés et la façon dont les identifiants ont été obtenus ne sont pas précisés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1]"
+      ],
+      "cibles": [
+        "Clients de cPGuard utilisant des serveurs Linux ; éditeur OPSSHIELD [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SSH",
+          "definition": "Protocole d'accès distant sécurisé à un serveur"
+        },
+        {
+          "sigle": "OPSSHIELD",
+          "definition": "Éditeur de l'outil de sécurité cPGuard"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "cPGuard Update Channel Hijacked to Backdoor Linux Servers and Collect Password Hashes",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/cpguard-update-channel-hijacked-to.html",
+          "date": "2026-11-03",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtc3HOtWwxZPk7V8yva9o6Oe5lWAPX8KZsWHG27ohycqrb04wAKSDSSdk6ta6y284N9gT6Ab6QKIWwTPss2bBK4PtS3Fm7gSI9QG5kec2AvEgQPjQnc0YlhlUQx0uZKt2ygn576BQ3aburL-IhrMRFVm1vEpTR5ol06R0BtjySvifD05Q_dQGUPvyPLxs/s1700-nu-rw-lo-l85-e365/cpgaurd.png"
         }
       ]
     }

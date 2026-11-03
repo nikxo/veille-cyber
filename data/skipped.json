@@ -1,29 +1,5 @@
 [
   {
-    "id": "ef61a9283f23f85c",
-    "title": "Four-Byte Write and Timing Bug Let Researchers Run Code in Windows SmartScreen Enclave",
-    "link": "https://thehackernews.com/2026/10/four-byte-write-and-timing-bug-let.html",
-    "source": "The Hacker News",
-    "raison": "preuve de concept en laboratoire, sans exploitation constatée",
-    "date": "2026-10-14T07:30:00+00:00"
-  },
-  {
-    "id": "bb1617835f71cc9c",
-    "title": "ClickFix to BEC in 24 Hours: Tragic Quadrant | Huntress",
-    "link": "https://www.huntress.com/blog/clickfix-bec-tragic-quadrant-doris",
-    "source": "Huntress",
-    "raison": "scénario fictif, pas d'attaque réelle",
-    "date": "2026-10-14T08:30:00+00:00"
-  },
-  {
-    "id": "1ec0ac97bd5943e0",
-    "title": "Citrix, Fortinet, Ivanti Patch 29 Vulnerabilities Across Their Products",
-    "link": "https://www.securityweek.com/citrix-fortinet-ivanti-patch-29-vulnerabilities-across-their-products/",
-    "source": "SecurityWeek",
-    "raison": "synthèse de correctifs, sans détail d'attaque",
-    "date": "2026-10-14T08:30:00+00:00"
-  },
-  {
     "id": "bf2f3416b36a1408",
     "title": "Chrome, Firefox Updates Patch 114 Flaws as Mozilla Unveils Firefox Enterprise",
     "link": "https://www.securityweek.com/chrome-firefox-updates-patch-114-flaws-as-mozilla-unveils-firefox-enterprise/",
@@ -3998,5 +3974,29 @@
     "source": "CISA Advisories",
     "raison": "vulnérabilité sans exploitation constatée (résumé du flux)",
     "date": "2026-11-03T17:08:10+00:00"
+  },
+  {
+    "id": "bc96c130a163cdde",
+    "title": "Barracuda Flaws Could Be Chained to Bypass Authorization and Gain Root Access",
+    "link": "https://thehackernews.com/2026/11/barracuda-flaws-could-be-chained-to.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-03T18:20:00+00:00"
+  },
+  {
+    "id": "3ef32407e1cbcf19",
+    "title": "IBM Automation 2.0 : vers une console unifiée pour l’automatisation IT",
+    "link": "https://www.lemagit.fr/actualites/366653492/IBM-Automation-20-vers-une-console-unifiee-pour-lautomatisation-IT",
+    "source": "LeMagIT",
+    "raison": "annonce produit",
+    "date": "2026-11-03T18:20:00+00:00"
+  },
+  {
+    "id": "77e928d095693734",
+    "title": "Guide essentiel : la sauvegarde en cloud",
+    "link": "https://www.lemagit.fr/essentialguide/Guide-essentiel-la-sauvegarde-en-cloud",
+    "source": "LeMagIT",
+    "raison": "conseils génériques",
+    "date": "2026-11-03T18:20:00+00:00"
   }
 ]

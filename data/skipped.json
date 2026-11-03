@@ -1,21 +1,5 @@
 [
   {
-    "id": "295d67949d4d6289",
-    "title": "SAP Patches Critical NetWeaver, S/4HANA Vulnerabilities",
-    "link": "https://www.securityweek.com/sap-patches-critical-netweaver-s-4hana-vulnerabilities/",
-    "source": "SecurityWeek",
-    "raison": "vulnérabilités corrigées sans exploitation constatée",
-    "date": "2026-10-14T07:30:00+00:00"
-  },
-  {
-    "id": "d605b9e0c2501ad5",
-    "title": "Infrastructures IA : l’interconnexion via LPool promet 50% de tokens en plus",
-    "link": "https://www.lemagit.fr/actualites/366651986/Infrastructures-IA-linterconnexion-via-LPool-promet-50-de-tokens-en-plus",
-    "source": "LeMagIT",
-    "raison": "hors sujet (architecture matérielle, pas une attaque)",
-    "date": "2026-10-14T07:30:00+00:00"
-  },
-  {
     "id": "ef61a9283f23f85c",
     "title": "Four-Byte Write and Timing Bug Let Researchers Run Code in Windows SmartScreen Enclave",
     "link": "https://thehackernews.com/2026/10/four-byte-write-and-timing-bug-let.html",
@@ -3998,5 +3982,21 @@
     "source": "LeMagIT",
     "raison": "annonce produit",
     "date": "2026-11-03T16:08:50+00:00"
+  },
+  {
+    "id": "47887f1443ada123",
+    "title": "9 Cyber Awareness Tips That Actually Match Today’s Maze of Threats",
+    "link": "https://www.darkreading.com/cyber-risk/9-cyber-awareness-tips-todays-maze-threats",
+    "source": "Dark Reading",
+    "raison": "conseils génériques",
+    "date": "2026-11-03T17:08:10+00:00"
+  },
+  {
+    "id": "4ee243d9c309bcdc",
+    "title": "Subnet Solutions PowerSYSTEM Center",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-307-01",
+    "source": "CISA Advisories",
+    "raison": "vulnérabilité sans exploitation constatée (résumé du flux)",
+    "date": "2026-11-03T17:08:10+00:00"
   }
 ]

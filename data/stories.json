@@ -2235,25 +2235,29 @@
       "id": "2026-11-02-tradertraitor-binance",
       "title": "TraderTraitor : vol de plus de 6,3 milliards de dollars chez Binance",
       "created": "2026-11-02T09:20:00+00:00",
-      "updated": "2026-11-02T09:20:00+00:00",
-      "version": 1,
-      "resume": "Binance a perdu plus de 6,3 milliards de dollars de cryptomonnaies. Le FBI attribue le vol au groupe nord-coréen TraderTraitor [1, 2].",
+      "updated": "2026-11-03T17:08:10+00:00",
+      "version": 2,
+      "resume": "Binance a perdu environ 6,3 milliards de dollars de cryptomonnaies. Le FBI attribue le vol à TraderTraitor [1, 2] ; Binance parle d'une campagne de plusieurs mois [3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Binance a d'abord cité l'ordinateur portable compromis d'un ingénieur ; l'enquête a ensuite révélé d'autres points de compromission, non détaillés [1, 2]."
+          "texte": "En juin, logiciel malveillant installé par un ingénieur, détecté ; en septembre, faux entretien d'embauche et dépôt de code malveillant téléchargé → accès aux systèmes de Binance [3]."
         },
         {
-          "etape": "Contournement des contrôles",
-          "texte": "Utilisation de la délégation EIP-7702 d'Ethereum, qui n'est pas passée par les contrôles d'approbation habituels de Binance [1]."
+          "etape": "Déplacement dans le réseau",
+          "texte": "Outils légitimes remplacés par des outils malveillants, échappant aux protections des terminaux ; le 20 octobre, deux autres appareils pris sous contrôle [3]."
+        },
+        {
+          "etape": "Accès aux portefeuilles",
+          "texte": "Identifiants volés aux employés compromis → accès aux outils de portefeuilles le 29 octobre ; premières sorties via un service interne de signature, près de 400 millions de dollars [3]."
         },
         {
           "etape": "Vol de fonds",
-          "texte": "Vidage des hot wallets sur plusieurs blockchains, l'essentiel des fonds sortis en environ 20 minutes [1]."
+          "texte": "Délégation EIP-7702 d'Ethereum hors des contrôles d'approbation habituels, hot wallets vidés sur plusieurs blockchains, l'essentiel en environ 20 minutes [1]."
         },
         {
           "etape": "Effacement des traces",
-          "texte": "Mécanisme d'autodestruction → outils et preuves détruits pendant l'attaque [1, 2]."
+          "texte": "Mécanisme d'autodestruction → outils et preuves détruits pendant l'attaque [1, 2] ; traces de la compromission initiale effacées [3]."
         },
         {
           "etape": "Blanchiment",
@@ -2273,8 +2277,15 @@
             "id": "pc",
             "type": "poste",
             "zone": "victime",
-            "nom": "Portable d'un ingénieur",
+            "nom": "Poste d'un ingénieur",
             "note": "Compromis"
+          },
+          {
+            "id": "pc2",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Deux autres appareils",
+            "note": "Sous contrôle"
           },
           {
             "id": "wal",
@@ -2296,30 +2307,38 @@
             "de": "att",
             "vers": "pc",
             "etape": 1,
-            "texte": "Premier point de compromission cité par Binance"
+            "texte": "Faux entretien, dépôt de code malveillant"
+          },
+          {
+            "de": "pc",
+            "vers": "pc2",
+            "etape": 2,
+            "texte": "Prise de contrôle de deux autres appareils"
           },
           {
             "de": "att",
             "vers": "wal",
-            "etape": 2,
-            "texte": "Délégation EIP-7702 hors contrôles d'approbation"
+            "etape": 3,
+            "texte": "Identifiants volés, accès aux outils de portefeuilles"
           },
           {
             "de": "wal",
             "vers": "svc",
-            "etape": 3,
+            "etape": 4,
             "texte": "Fonds sortis sur plusieurs blockchains"
           }
         ]
       },
-      "limites": "Les sources ne détaillent pas les autres points de compromission ni le jour exact du vol, et ne décrivent ni persistance ni déplacement dans le réseau [1, 2].",
+      "limites": "Binance a d'abord cité un portable d'ingénieur compromis [1, 2] ; [3] décrit deux entrées, en juin et en septembre, sans dire laquelle est le vecteur initial.",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "TraderTraitor, groupe lié à la Corée du Nord, désigné par le FBI, le Secret Service et l'IRS-CI [1, 2]"
+        "TraderTraitor, groupe lié à la Corée du Nord, désigné par le FBI, le Secret Service et l'IRS-CI [1, 2]",
+        "La Corée du Nord, par la voix de Kim Yo Jong, nie toute implication [3]"
       ],
       "cibles": [
-        "Plateforme de cryptomonnaies Binance [1, 2]"
+        "Plateforme de cryptomonnaies Binance [1, 2]",
+        "Un ingénieur logiciel et d'autres membres de l'équipe de développement [3]"
       ],
       "abreviations": [
         {
@@ -2357,6 +2376,13 @@
           "url": "https://therecord.media/fbi-blames-tradertraitor-for-binance-hack",
           "date": "2026-11-02",
           "image": "https://cms.therecord.media/uploads/File_photo_of_North_Korean_flags_Image_John_Pavelka_via_Wikimedia_Commons_CC_BY_2_0_96fc9d25cb.png"
+        },
+        {
+          "titre": "Binance CEO says ‘months-long campaign’ led to $6.3 billion theft as N. Korea denies responsibility",
+          "site": "The Record",
+          "url": "https://therecord.media/binance-cryptocurrency-theft-months-long-campaign-nkorea",
+          "date": "2026-11-03",
+          "image": "https://cms.therecord.media/uploads/binance_logo_f4cdb044bb.jpg"
         }
       ]
     },

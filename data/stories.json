@@ -32324,8 +32324,8 @@
       "id": "2026-11-02-llmjacking-mandiant",
       "title": "LLMJacking : détournement d'accès cloud à des modèles d'IA et revente",
       "created": "2026-11-02T16:30:00+00:00",
-      "updated": "2026-11-03T16:08:50+00:00",
-      "version": 2,
+      "updated": "2026-11-03T19:11:03+00:00",
+      "version": 3,
       "resume": "Google et Mandiant décrivent le LLMjacking : des attaquants détournent l'accès cloud d'entreprises à des modèles d'IA, jusqu'à 1 million de dollars de frais cumulés chez certaines victimes avant révocation de l'accès [1, 2, 3].",
       "chaine": [
         {
@@ -32401,7 +32401,7 @@
           }
         ]
       },
-      "limites": "Les sources ne donnent ni la date précise de chaque incident ni le nombre d'organisations touchées [1, 2].",
+      "limites": "Les sources ne donnent ni la date précise de chaque incident ni le nombre d'organisations touchées [1, 2]. Une quatrième source parle de pertes dépassant 100 000 dollars par jour pour certaines organisations [4].",
       "cves": [
         {
           "id": "CVE-2026-40217",
@@ -32450,6 +32450,13 @@
           "site": "Dark Reading",
           "url": "https://www.darkreading.com/cloud-security/llmjacking-thriving-cybercriminal-enterprise",
           "date": "2026-11-03"
+        },
+        {
+          "titre": "Google: LLMjacking attacks rack up $1 million in cloud AI charges",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/google-llmjacking-attacks-rack-up-1-million-in-cloud-ai-charges/",
+          "date": "2026-11-03",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/21/cloud-servers.jpg"
         }
       ]
     },
@@ -33040,6 +33047,109 @@
           "url": "https://therecord.media/british-businesses-caught-in-europe-wide-supermarket-fridge-attacks",
           "date": "2026-11-03",
           "image": "https://cms.therecord.media/uploads/meat_40e30a68b3.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-03-chainstack-composant-tiers",
+      "title": "Chainstack : intrusion via un composant tiers, données clients et hachages de mots de passe touchés",
+      "created": "2026-11-03T19:11:03+00:00",
+      "updated": "2026-11-03T19:11:03+00:00",
+      "version": 1,
+      "resume": "Le fournisseur d'infrastructure blockchain Chainstack a été visité par un attaquant externe, entré par un composant tiers. Des données clients et des hachages de mots de passe ont été atteints [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Accès non autorisé à une partie de l'infrastructure via un composant tiers non identifié → accès à un environnement de développement le 26 octobre [1]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Escalade de privilèges depuis l'environnement de développement → accès à certaines parties de l'environnement de production [1]."
+        },
+        {
+          "etape": "Accès aux données",
+          "texte": "Consultation d'une base clients (noms d'organisations, e-mails, hachages de mots de passe) et de systèmes contenant des identifiants de nœuds, traités comme exposés [1]."
+        },
+        {
+          "etape": "Détection",
+          "texte": "Intrusion détectée le 31 octobre → accès coupés le même jour [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "tp",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Composant tiers",
+            "note": "Non identifié"
+          },
+          {
+            "id": "dev",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Environnement de développement",
+            "note": ""
+          },
+          {
+            "id": "prod",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Environnement de production",
+            "note": "Base clients"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "tp",
+            "etape": 1,
+            "texte": "Accès via un composant tiers"
+          },
+          {
+            "de": "tp",
+            "vers": "dev",
+            "etape": 1,
+            "texte": "Accès au développement le 26 octobre"
+          },
+          {
+            "de": "dev",
+            "vers": "prod",
+            "etape": 2,
+            "texte": "Escalade de privilèges vers la production"
+          }
+        ]
+      },
+      "limites": "Le composant tiers n'est pas identifié et l'acteur n'est pas nommé. Chainstack ne détaille pas l'attaque [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non nommé. L'article note des recoupements avec une campagne d'un groupe lié à la Chine utilisant ARTEX [1]"
+      ],
+      "cibles": [
+        "Chainstack, fournisseur d'infrastructure blockchain, et ses clients [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ARTEX",
+          "definition": "Outil d'intrusion cité dans une campagne contre des entreprises de grande valeur"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Chainstack Reports Production Systems Breach Exposing Customer Data and Password Hashes",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/chainstack-reports-production-systems.html",
+          "date": "2026-11-03",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMgLc61q6cTompbBY4lS-pqinmS1_3vYBYH7OVnnFTmOZfMk8R7houuqUmnMhUs-gTI-55HwieAaPuCI_zhc0XNw74PhfZVbCjWexPUUugMc1crPvP6uQsic7o3GDy5KXbYJE8LtXqdban8cTcfnn9AxRgOkR0w5_bQx-pHTR1A5-ttEHcpqGkgYajjSiA/s1700-nu-rw-lo-l85-e365/chainstack.png"
         }
       ]
     }

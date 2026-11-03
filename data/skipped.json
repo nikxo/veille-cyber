@@ -1,29 +1,5 @@
 [
   {
-    "id": "bf2f3416b36a1408",
-    "title": "Chrome, Firefox Updates Patch 114 Flaws as Mozilla Unveils Firefox Enterprise",
-    "link": "https://www.securityweek.com/chrome-firefox-updates-patch-114-flaws-as-mozilla-unveils-firefox-enterprise/",
-    "source": "SecurityWeek",
-    "raison": "correctifs et annonce produit, sans exploitation constatée",
-    "date": "2026-10-14T08:30:00+00:00"
-  },
-  {
-    "id": "7b7f85599e2f1660",
-    "title": "Cyber Resilience Act : les SBOM mises à l'épreuve par les agents IA",
-    "link": "https://www.lemagit.fr/tribune/Cyber-Resilience-Act-les-SBOM-mises-a-lepreuve-par-les-agents-IA",
-    "source": "LeMagIT",
-    "raison": "réglementation, pas d'attaque",
-    "date": "2026-10-14T08:30:00+00:00"
-  },
-  {
-    "id": "0a34dc42eff456a4",
-    "title": "AI-Found Linux Kernel Flaw Gives Local Users Root, and Can Break a Guest Out to the Host",
-    "link": "https://thehackernews.com/2026/10/ai-found-linux-kernel-flaw-gives-local.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-14T10:10:00+00:00"
-  },
-  {
     "id": "318723c374894f32",
     "title": "US Arrests Two in Crackdown on North Korean IT Worker Laptop Farms",
     "link": "https://www.securityweek.com/us-arrests-two-in-crackdown-on-north-korean-it-worker-laptop-farms/",
@@ -3998,5 +3974,29 @@
     "source": "LeMagIT",
     "raison": "conseils génériques",
     "date": "2026-11-03T18:20:00+00:00"
+  },
+  {
+    "id": "04e3dc3e5c4ef4d2",
+    "title": "Divalto lance sa plateforme d’agents IA pour ses ERP et CRM",
+    "link": "https://www.lemagit.fr/actualites/366653436/Divalto-lance-sa-plateforme-dagents-IA-pour-ERP-et-CRM",
+    "source": "LeMagIT",
+    "raison": "annonce produit",
+    "date": "2026-11-03T19:11:03+00:00"
+  },
+  {
+    "id": "96de8a8fe0e6ff57",
+    "title": "Several German lawmakers and foreign policy staff received Apple warnings on spyware",
+    "link": "https://therecord.media/german-officials-among-apple-spyware-warning-recipients",
+    "source": "The Record",
+    "raison": "aucun détail sur la méthode d'attaque",
+    "date": "2026-11-03T19:11:03+00:00"
+  },
+  {
+    "id": "9ca07b46843ba208",
+    "title": "mSecure Warns Users to Change Passwords, Reset 2FA and Passkeys After Suspicious Activity",
+    "link": "https://thehackernews.com/2026/11/msecure-warns-users-to-change-passwords.html",
+    "source": "The Hacker News",
+    "raison": "activité suspecte sans détail sur l'attaque",
+    "date": "2026-11-03T19:11:03+00:00"
   }
 ]

@@ -31386,26 +31386,30 @@
       "id": "2026-10-03-frontline-education-fuite-donnees",
       "title": "Frontline Education : vol de données d'employés de districts scolaires via une faille d'un logiciel tiers",
       "created": "2026-10-03T16:02:48+00:00",
-      "updated": "2026-10-03T16:02:48+00:00",
-      "version": 1,
-      "resume": "Frontline Education, éditeur de logiciels de gestion du personnel pour districts scolaires, s'est fait voler des données d'employés (numéros de sécurité sociale, adresses) via une faille d'un logiciel tiers [1]. Le nombre de personnes touchées n'est pas connu [1].",
+      "updated": "2026-11-03T15:20:00+00:00",
+      "version": 2,
+      "resume": "Frontline Education a subi un vol de données via une faille d'un logiciel tiers [1, 2]. Selon des déclarations officielles, 1 298 917 personnes (personnel et élèves de districts scolaires) sont touchées [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Exploitation d'une vulnérabilité d'un logiciel tiers non nommé → accès non autorisé aux systèmes de l'entreprise [1]."
+          "texte": "Exploitation d'une vulnérabilité d'un logiciel tiers non nommé → accès non autorisé à l'environnement de Frontline [1, 2]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Vol des numéros de sécurité sociale, adresses électroniques et adresses postales d'employés des districts clients [1]."
+          "texte": "Vol de données personnelles d'employés et d'élèves de districts scolaires, dont numéros de sécurité sociale et informations d'assurance maladie [1, 2]."
+        },
+        {
+          "etape": "Réponse de l'entreprise",
+          "texte": "Correction de la faille et renforcement de la sécurité ; Frontline indique l'attaque entièrement contenue le 15 août [2]."
         }
       ],
-      "limites": "La source ne décrit ni la nature de la faille, ni les droits obtenus, ni le début de l'intrusion ; la vulnérabilité a été identifiée le 14 août 2026 [1].",
+      "limites": "Les sources ne nomment ni le logiciel tiers, ni l'acteur, et ne donnent pas de CVE [1, 2]. Frontline n'a pas publié de chiffre officiel de victimes [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Frontline Education, éditeur de logiciels d'administration et de gestion du personnel pour districts scolaires [1]",
-        "Les employés des districts scolaires clients de Frontline Education, dont les 1 210 employés d'un district cité par un administrateur [1]"
+        "Frontline Education, éditeur de logiciels pour districts scolaires (produits Frontline Central et School Health Management) [1, 2]",
+        "Personnel et élèves de districts scolaires clients [1, 2]"
       ],
       "abreviations": [],
       "sources": [
@@ -31415,6 +31419,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/frontline-education-data-breach-impacts-school-district-employees/",
           "date": "2026-10-02",
           "image": "https://www.bleepstatic.com/content/hl-images/2025/10/15/School-hacker.jpg"
+        },
+        {
+          "titre": "Frontline Education Data Breach Impacts Over 1.3 Million",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/frontline-education-data-breach-impacts-over-1-3-million/",
+          "date": "2026-11-03",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/08/data-breach.jpeg"
         }
       ],
       "parcours": {

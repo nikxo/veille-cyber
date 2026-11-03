@@ -677,17 +677,17 @@
       "id": "2026-11-02-congelateurs-supermarches-europe",
       "title": "Congélateurs de supermarchés européens piratés : seconde vague le 2 novembre",
       "created": "2026-11-02T13:50:00+00:00",
-      "updated": "2026-11-02T14:55:00+00:00",
-      "version": 2,
-      "resume": "Lundi 2 novembre, des congélateurs de supermarchés européens ont été piratés : températures manipulées à distance, plus de 115 magasins touchés dans six pays, stocks détruits. Aucun groupe n'a revendiqué [1, 2].",
+      "updated": "2026-11-03T08:20:00+00:00",
+      "version": 3,
+      "resume": "Dans la nuit du 1er au 2 novembre, des attaquants ont modifié à distance les réglages de contrôleurs de réfrigération dans plus de 100 magasins européens, entraînant des pertes d'aliments. Aucun groupe n'a revendiqué [1, 2, 3, 4].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé pour cette vague ; BleepingComputer dit que l'attaquant a exploité la même vulnérabilité que lors des attaques françaises, sans la nommer [1, 2]."
+          "texte": "Non confirmé ; chaque congélateur touché avait une interface de gestion accessible depuis Internet selon Kevin Beaumont [4] ; ordinateur de contrôle d'un ancien système Danfoss atteint en Estonie [3]."
         },
         {
           "etape": "Manipulation des températures",
-          "texte": "Réglages modifiés à distance, congélateurs arrêtés ou mis en dégivrage, +50 °C dans un magasin suédois sans correction possible → aliments jetés [1, 2]."
+          "texte": "Réglages modifiés à distance : dégivrage forcé en Belgique, 50 °C en Suède et en Estonie → aliments jetés ou retirés de la vente [1, 2, 3, 4]."
         },
         {
           "etape": "Équipements touchés",
@@ -695,7 +695,7 @@
         },
         {
           "etape": "Réponse",
-          "texte": "Techniciens mobilisés en Belgique, installations déconnectées, camions frigorifiques utilisés ; les correctifs demandent des modifications physiques [1, 2]."
+          "texte": "Techniciens mobilisés en Belgique, installations déconnectées, camions frigorifiques utilisés ; une mise à jour logicielle ne suffirait pas, une modification physique serait nécessaire [1, 2, 4]."
         }
       ],
       "parcours": {
@@ -724,14 +724,14 @@
           }
         ]
       },
-      "limites": "Le vecteur d'accès de cette vague n'est pas précisé ; les sources ne disent pas si les attaques étaient coordonnées ni si les deux vagues sont liées [1, 2].",
+      "limites": "Le vecteur d'accès de cette vague n'est pas confirmé ; les enquêteurs n'ont pas établi si les deux vagues sont liées [1, 2, 3, 4].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non identifié, aucune revendication [1]"
+        "Non identifié, aucune revendication [1, 3, 4]"
       ],
       "cibles": [
-        "Plus de 115 magasins en Belgique, Pays-Bas, Suède, Luxembourg, Irlande et Estonie [2]"
+        "Plus de 115 magasins en Belgique, Pays-Bas, Suède, Luxembourg, Irlande et Estonie [2] ; cas aussi en Finlande, Italie et Portugal [3, 4]"
       ],
       "abreviations": [],
       "sources": [
@@ -748,6 +748,20 @@
           "url": "https://www.bleepingcomputer.com/news/security/hackers-disrupt-refrigeration-systems-at-european-supermarkets/",
           "date": "2026-11-02",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/02/freezers.jpg"
+        },
+        {
+          "titre": "New Wave of Refrigeration Cyberattacks Hits Supermarkets Across Europe, Forcing Stores to Pull Food",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/second-wave-of-cyberattacks-hits.html",
+          "date": "2026-11-03",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjScxShEa3bsAhGLHlqkBcsyuRe6UeQwrOVXBFP3TwxzmXtd03vDeDRZHxxBLIKHDYgY5p5CsrFvBwuozg3UsRLtVMO758NhVwSju6D6WgO1J42wJd2NWR9aVzz-B_CWfiMFH2QANUrAnUXbgkKec2KtJjULvN3NTqrCPbLRNnxlnvBFIAkndClXJMIeXY/s1700-nu-rw-lo-l85-e365/fridge-hack.jpg"
+        },
+        {
+          "titre": "Over 100 European Stores Hit as Supermarket Fridge Attacks Return",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/over-100-european-stores-hit-as-supermarket-fridge-attacks-resume/",
+          "date": "2026-11-03",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supermarket-refrigerators.jpeg"
         }
       ]
     },
@@ -1813,13 +1827,13 @@
       "id": "2026-11-02-synology-c3rb3r-nas",
       "title": "Rançongiciel C3RB3R : Synology alerte sur des attaques contre les NAS",
       "created": "2026-11-02T12:09:04+00:00",
-      "updated": "2026-11-02T12:09:04+00:00",
-      "version": 1,
-      "resume": "Synology avertit d'une hausse d'attaques du rançongiciel C3RB3R contre ses NAS, dont les fichiers sont chiffrés avec l'extension .L0CK3D [1].",
+      "updated": "2026-11-03T08:20:00+00:00",
+      "version": 2,
+      "resume": "Synology avertit d'attaques de rançongiciel contre ses NAS, dont les fichiers sont chiffrés avec l'extension .L0CK3D ; des clients signalent C3RB3R [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources : Synology n'indique pas la faille exploitée [1]."
+          "texte": "Exploitation d'une faille corrigée en décembre 2024 sur des versions obsolètes de DSM ; Synology n'indique pas laquelle [1, 2]."
         },
         {
           "etape": "Chiffrement",
@@ -1859,7 +1873,7 @@
             "de": "att",
             "vers": "nas",
             "etape": 1,
-            "texte": "Faille non précisée par Synology"
+            "texte": "Faille corrigée en 2024, non précisée"
           },
           {
             "de": "att",
@@ -1875,19 +1889,19 @@
           }
         ]
       },
-      "limites": "Synology ne précise pas la faille exploitée ; l'article cite trois CVE de l'avis de novembre 2024 sans confirmer leur lien avec ces attaques [1].",
+      "limites": "Synology ne précise pas la faille exploitée ; l'article cite trois CVE de l'avis de novembre 2024 sans confirmer leur lien avec ces attaques [1, 2].",
       "cves": [
         {
           "id": "CVE-2024-10441",
-          "explication": "DSM de Synology : exécution de code arbitraire sur appareils non corrigés ; lien avec ces attaques non confirmé [1]."
+          "explication": "DSM de Synology : exécution de code à distance possible, gravité 9,8 sur 10 ; lien avec ces attaques non confirmé [1, 2]."
         },
         {
           "id": "CVE-2024-50629",
-          "explication": "DSM de Synology : lecture de fichiers sur appareils non corrigés ; lien avec ces attaques non confirmé [1]."
+          "explication": "DSM de Synology : lecture de fichiers sur appareils non corrigés ; lien avec ces attaques non confirmé [1, 2]."
         },
         {
           "id": "CVE-2024-10445",
-          "explication": "DSM de Synology : écriture de fichiers sur appareils non corrigés ; lien avec ces attaques non confirmé [1]."
+          "explication": "DSM de Synology : écriture de fichiers sur appareils non corrigés ; lien avec ces attaques non confirmé [1, 2]."
         }
       ],
       "mitre": [],
@@ -1895,7 +1909,7 @@
         "Opérateurs de C3RB3R, aussi appelé Cerber ou CerberImposter ; identité non précisée [1]"
       ],
       "cibles": [
-        "Utilisateurs de NAS Synology ; plus de 380 000 NAS exposés sur Internet selon Shadowserver [1]"
+        "Utilisateurs de NAS Synology sous DSM obsolète [2] ; plus de 380 000 NAS exposés selon Shadowserver [1]"
       ],
       "abreviations": [
         {
@@ -1922,6 +1936,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/synology-warns-customers-of-ongoing-c3rb3r-ransomware-attacks/",
           "date": "2026-11-02",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/02/Synology_headpic.jpg"
+        },
+        {
+          "titre": "Synology NAS Devices Targeted in Ransomware Attacks Exploiting Patched DSM Flaw",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/synology-nas-devices-targeted-in.html",
+          "date": "2026-11-03",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg18lSM19IJpBCuAofy8CZNsJ-05CtvqxdL8BcHUS65fn_Oph-FAXqpdDE9c11G78nq7I1pVtt4XAotc_hszgea-QpNDTt-RzstD3k7yfXHP3JUnBViplsRzL_4q_LM-jujcv6NbMUUYBMWtJKSdKcBYlbSkm7Mx9LaTbVRW88uFh723nDOGYYDxiwkfYFr/s1700-nu-rw-lo-l85-e365/synology-ransomware.jpg"
         }
       ]
     },

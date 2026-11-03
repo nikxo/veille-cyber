@@ -32676,21 +32676,21 @@
       "id": "2026-11-02-tradertraitor-binance",
       "title": "TraderTraitor : vol de plus de 6,3 milliards de dollars chez Binance",
       "created": "2026-11-02T09:20:00+00:00",
-      "updated": "2026-11-03T17:08:10+00:00",
-      "version": 2,
-      "resume": "Binance a perdu environ 6,3 milliards de dollars de cryptomonnaies. Le FBI attribue le vol à TraderTraitor [1, 2] ; Binance parle d'une campagne de plusieurs mois [3].",
+      "updated": "2026-11-03T20:30:00+00:00",
+      "version": 3,
+      "resume": "Binance a perdu environ 6,3 milliards de dollars de cryptomonnaies [4]. Le FBI attribue le vol à TraderTraitor [1, 2] ; Binance parle d'une campagne de plusieurs mois [3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "En juin, logiciel malveillant installé par un ingénieur, détecté ; en septembre, faux entretien d'embauche et dépôt de code malveillant téléchargé → accès aux systèmes de Binance [3]."
+          "texte": "En juin, logiciel malveillant installé par un ingénieur, détecté [3] ; en septembre, faux entretien d'embauche et dépôt de code malveillant → accès aux systèmes [3, 4]."
         },
         {
           "etape": "Déplacement dans le réseau",
-          "texte": "Outils légitimes remplacés par des outils malveillants, échappant aux protections des terminaux ; le 20 octobre, deux autres appareils pris sous contrôle [3]."
+          "texte": "Outils légitimes remplacés par des outils malveillants, échappant aux protections des terminaux [3, 4] ; le 20 octobre, deux autres employés compromis via un outil interne d'intelligence artificielle [4]."
         },
         {
           "etape": "Accès aux portefeuilles",
-          "texte": "Identifiants volés aux employés compromis → accès aux outils de portefeuilles le 29 octobre ; premières sorties via un service interne de signature, près de 400 millions de dollars [3]."
+          "texte": "Identifiants et jeton de déploiement de conteneurs volés → script malveillant, accès au service de signature des portefeuilles le 29 octobre [4] ; premières sorties : près de 400 millions [3]."
         },
         {
           "etape": "Vol de fonds",
@@ -32774,12 +32774,13 @@
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "TraderTraitor, groupe lié à la Corée du Nord, désigné par le FBI, le Secret Service et l'IRS-CI [1, 2]",
+        "TraderTraitor, groupe nord-coréen désigné par le FBI, le Secret Service et l'IRS-CI [1, 2] ; aussi Lazarus Group, Jade Sleet ou APT38 [4]",
         "La Corée du Nord, par la voix de Kim Yo Jong, nie toute implication [3]"
       ],
       "cibles": [
         "Plateforme de cryptomonnaies Binance [1, 2]",
-        "Un ingénieur logiciel et d'autres membres de l'équipe de développement [3]"
+        "Un ingénieur logiciel et d'autres membres de l'équipe de développement [3]",
+        "Deux autres employés de l'infrastructure des portefeuilles [4]"
       ],
       "abreviations": [
         {
@@ -32801,6 +32802,10 @@
         {
           "sigle": "DeFi",
           "definition": "Finance décentralisée : services financiers fonctionnant sur blockchain"
+        },
+        {
+          "sigle": "APT38",
+          "definition": "Nom d'un groupe d'attaquants lié à la Corée du Nord"
         }
       ],
       "sources": [
@@ -32824,6 +32829,13 @@
           "url": "https://therecord.media/binance-cryptocurrency-theft-months-long-campaign-nkorea",
           "date": "2026-11-03",
           "image": "https://cms.therecord.media/uploads/binance_logo_f4cdb044bb.jpg"
+        },
+        {
+          "titre": "Binance says fake job interview led to $6.3 billion crypto heist",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/binance-says-fake-job-interview-led-to-63-billion-crypto-heist/",
+          "date": "2026-11-03",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/30/Binance.jpg"
         }
       ]
     },
@@ -33150,6 +33162,216 @@
           "url": "https://thehackernews.com/2026/11/chainstack-reports-production-systems.html",
           "date": "2026-11-03",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMgLc61q6cTompbBY4lS-pqinmS1_3vYBYH7OVnnFTmOZfMk8R7houuqUmnMhUs-gTI-55HwieAaPuCI_zhc0XNw74PhfZVbCjWexPUUugMc1crPvP6uQsic7o3GDy5KXbYJE8LtXqdban8cTcfnn9AxRgOkR0w5_bQx-pHTR1A5-ttEHcpqGkgYajjSiA/s1700-nu-rw-lo-l85-e365/chainstack.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-03-xcpe-boitiers-android",
+      "title": "Google démantèle X.CPE, un réseau d'appareils infectés dès le firmware",
+      "created": "2026-11-03T20:30:00+00:00",
+      "updated": "2026-11-03T20:30:00+00:00",
+      "version": 1,
+      "resume": "Google et des partenaires ont démantelé X.CPE, un réseau d'appareils infectés dans plus de 1,3 million de boîtiers Android répartis dans plus de 200 pays, avec un logiciel malveillant intégré au firmware [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Logiciel malveillant intégré au firmware avant l'arrivée chez les utilisateurs → porte dérobée préinstallée ; Videostrong aurait employé l'obscurcissement pour passer les tests de Google [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "La porte dérobée télécharge et exécute des fichiers sans consentement → réinstallation automatique si l'utilisateur tente de la désinstaller [1]."
+        },
+        {
+          "etape": "Proxy résidentiel",
+          "texte": "Trafic de tiers acheminé par la connexion et l'adresse IP de la victime [1]."
+        },
+        {
+          "etape": "Monétisation",
+          "texte": "Accès vendu à des affiliés criminels, dont les modules sont chargés sur les appareils → revente de bande passante, fraude publicitaire, exfiltration de données [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Videostrong)",
+            "note": ""
+          },
+          {
+            "id": "box",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Boîtiers Android infectés",
+            "note": "Firmware piégé"
+          },
+          {
+            "id": "aff",
+            "type": "inconnu",
+            "zone": "internet",
+            "nom": "Affiliés criminels",
+            "note": "Non identifiés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "box",
+            "etape": 1,
+            "texte": "Logiciel malveillant intégré au firmware"
+          },
+          {
+            "de": "att",
+            "vers": "box",
+            "etape": 2,
+            "texte": "Téléchargement de fichiers, réinstallation"
+          },
+          {
+            "de": "att",
+            "vers": "box",
+            "etape": 3,
+            "texte": "Trafic de tiers via la connexion"
+          },
+          {
+            "de": "aff",
+            "vers": "box",
+            "etape": 4,
+            "texte": "Modules malveillants chargés sur les appareils"
+          }
+        ]
+      },
+      "limites": "L'article ne donne pas la date du démantèlement ni la suppression du logiciel sur les appareils [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Videostrong Technology, fabricant chinois d'appareils Android, sans réponse aux demandes de commentaire [1]",
+        "Affiliés criminels non identifiés [1]"
+      ],
+      "cibles": [
+        "Plus de 1,3 million d'appareils : boîtiers Android, télésanté, karaoké, affichage numérique [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IP",
+          "definition": "Adresse numérique qui identifie une connexion sur Internet"
+        },
+        {
+          "sigle": "X.CPE",
+          "definition": "Nom donné par Google au réseau d'appareils infectés"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Google dismantles massive botnet hidden in Android TV boxes",
+          "site": "The Record",
+          "url": "https://therecord.media/google-dismantles-botnet-hidden-android-tv-boxes",
+          "date": "2026-11-03",
+          "image": "https://cms.therecord.media/uploads/tv_1_8b7fd51044.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-03-faux-installeurs-inno-monetisation",
+      "title": "Faux installeurs Inno Setup : plusieurs offres monétisées installées en une session",
+      "created": "2026-11-03T20:30:00+00:00",
+      "updated": "2026-11-03T20:30:00+00:00",
+      "version": 1,
+      "resume": "Microsoft décrit une campagne de faux téléchargements visant les internautes qui cherchent des logiciels piratés ou gratuits : un installeur trojanisé dépose plusieurs charges monétisées en une seule session [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Faux installeurs présentés comme logiciels piratés, jeux, activateurs ou utilitaires, lancés par l'utilisateur → exécution de l'installeur Inno Setup trojanisé [1]."
+        },
+        {
+          "etape": "Exécution en étapes",
+          "texte": "Exécuteur temporaire dans le dossier temporaire → lancement d'étapes numérotées eld*.exe et set_*.exe [1]."
+        },
+        {
+          "etape": "Appel de l'infrastructure",
+          "texte": "Contact d'une infrastructure rotative avec les paramètres d=inno et r=offer_execution → choix et suivi des offres livrées [1]."
+        },
+        {
+          "etape": "Livraison des offres",
+          "texte": "Charges installées en mode silencieux → agent proxy WorldProxyPool, calcul distribué avec VirtualBox, utilitaires de type adware [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "WorldProxyPool crée trois tâches planifiées système : agent au démarrage, surveillance toutes les cinq minutes, mise à jour toutes les heures [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de l'internaute",
+            "note": "Installeur trojanisé"
+          },
+          {
+            "id": "inf",
+            "type": "inconnu",
+            "zone": "internet",
+            "nom": "Infrastructure rotative",
+            "note": "Choix des offres"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Faux installeur exécuté par l'utilisateur"
+          },
+          {
+            "de": "pc",
+            "vers": "inf",
+            "etape": 3,
+            "texte": "Appel avec paramètres d=inno, r=offer_execution"
+          },
+          {
+            "de": "inf",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Offres installées en mode silencieux"
+          }
+        ]
+      },
+      "limites": "L'article ne donne ni acteur, ni date de début, ni nombre de victimes [1].",
+      "cves": [],
+      "mitre": [
+        "T1204.002 : exécution par l'utilisateur d'un fichier malveillant [1]",
+        "T1053.005 : tâche planifiée [1]",
+        "T1036 : usurpation d'identité de fichiers ou processus [1]",
+        "T1564.003 : fenêtre masquée [1]",
+        "T1071.001 : protocoles web pour communiquer [1]",
+        "T1105 : transfert d'outils vers la machine [1]",
+        "T1496 : détournement de ressources [1]"
+      ],
+      "acteurs": [
+        "Non identifié par la source [1]"
+      ],
+      "cibles": [
+        "Internautes cherchant des logiciels piratés, jeux gratuits, activateurs ou utilitaires [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Fake-download campaign uses trojanized installers to deliver monetization payloads",
+          "site": "Microsoft Threat Intelligence",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/03/fake-download-campaign-uses-trojanized-installers-deliver-monetization-payloads/",
+          "date": "2026-11-03",
+          "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/02/MS_Actional-Insights_Detection-hunting.png"
         }
       ]
     }

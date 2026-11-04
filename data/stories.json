@@ -33653,6 +33653,177 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/hacker-box.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-04-vasygrek-phishing-finance",
+      "title": "VasyGrek (Fluffy Wolf) : hameçonnage financier contre des entreprises, trois arrestations en Russie",
+      "created": "2026-11-04T10:30:00+00:00",
+      "updated": "2026-11-04T10:30:00+00:00",
+      "version": 1,
+      "resume": "Le groupe VasyGrek vise depuis 2016 des entreprises russes et étrangères par des courriels piégés. La police russe a arrêté trois suspects et démantelé son infrastructure [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Courriels de hameçonnage avec pièces jointes déguisées en documents financiers → ouverture d'un fichier piégé chez la victime [1]."
+        },
+        {
+          "etape": "Infection en plusieurs étapes",
+          "texte": "Composants malveillants hébergés sur des services en ligne légitimes → activité dissimulée et analyse compliquée [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Documents piégés déposant une porte dérobée écrite en Go → exécution de commandes arbitraires et contrôle total de l'appareil [1]."
+        },
+        {
+          "etape": "Détournement de fonds",
+          "texte": "Dans un cas de septembre 2025, transfert d'argent du compte bancaire de l'organisation vers des comptes des attaquants → perte de 660 000 roubles [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (VasyGrek)",
+            "note": ""
+          },
+          {
+            "id": "mail",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Messagerie de l'organisation",
+            "note": "Pièce jointe piégée"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de l'employé",
+            "note": "Porte dérobée"
+          },
+          {
+            "id": "bq",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Compte bancaire",
+            "note": "Fonds détournés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "mail",
+            "etape": 1,
+            "texte": "Courriel de hameçonnage avec faux document financier"
+          },
+          {
+            "de": "mail",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Ouverture du document, porte dérobée déposée"
+          },
+          {
+            "de": "pc",
+            "vers": "bq",
+            "etape": 4,
+            "texte": "Transfert de fonds vers les comptes des attaquants"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas comment le malware du cas de septembre 2025 a obtenu l'accès au compte bancaire, ni la date des arrestations [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "VasyGrek, aussi appelé Fluffy Wolf, actif depuis 2016, motivation financière [1]"
+      ],
+      "cibles": [
+        "Entreprises en Russie, au Bélarus et au Kazakhstan : métallurgie, administrations, santé, énergie, finance, agriculture [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Russian Police Arrest 3 Suspected VasyGrek Hackers, Dismantle Criminal Infrastructure",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/russian-police-arrest-3-suspected.html",
+          "date": "2026-11-04",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvVXRk9XWLvV5V7-gF-fqxa3YEEGpquE2Q8rML0rLK7ieZAbLJLqsHS6Sk012cwUslyYApJRP4b8SvmPCyATY2SbWpuhWILK0MRglNFqH5l5rVhTjSaJunpjWvbt8O9_UUnZnuxMJ26k5S4aQNj6pMBJLhY0gfn4zIY0Ot6m-gkntqxJiU4qgoAL3641pw/s1700-nu-rw-lo-l85-e365/russia-hackerss.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-04-watering-hole-ios-android-n-day",
+      "title": "Attaque de point d'eau liée à des pirates russes contre des utilisateurs d'iOS et d'Android",
+      "created": "2026-11-04T10:30:00+00:00",
+      "updated": "2026-11-04T10:30:00+00:00",
+      "version": 1,
+      "resume": "Une attaque de point d'eau à grande échelle, associée à des pirates russes, vise des utilisateurs d'iOS et d'Android. Le titre de l'article parle d'exploits de failles connues et d'attaques sans clic [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Visite de sites compromis ou de faux portails imitant des sites légitimes → utilisateurs d'iOS et d'Android ciblés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (pirates russes)",
+            "note": ""
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Sites compromis ou faux portails",
+            "note": ""
+          },
+          {
+            "id": "tel",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Appareils iOS et Android",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Sites compromis ou faux portails"
+          },
+          {
+            "de": "web",
+            "vers": "tel",
+            "etape": 1,
+            "texte": "Utilisateurs visitant ces sites ciblés"
+          }
+        ]
+      },
+      "limites": "Seul un résumé de l'article a pu être lu : failles utilisées, étapes suivantes et impact ne sont pas connus [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Pirates russes (association décrite par l'article) [1]"
+      ],
+      "cibles": [
+        "Utilisateurs d'iOS et d'Android visitant des sites compromis ou de faux portails [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Hackers use n-day exploits in zero-click attacks on iOS, Android devices",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-use-n-day-exploits-in-zero-click-attacks-on-ios-android-devices/",
+          "date": "2026-11-04",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/07/13/Russian_hacker.jpg"
+        }
+      ]
     }
   ]
 }

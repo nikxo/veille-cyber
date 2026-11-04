@@ -32497,8 +32497,8 @@
       "id": "2026-11-02-congelateurs-supermarches-europe",
       "title": "Congélateurs de supermarchés européens piratés : seconde vague le 2 novembre",
       "created": "2026-11-02T13:50:00+00:00",
-      "updated": "2026-11-03T16:08:50+00:00",
-      "version": 4,
+      "updated": "2026-11-04T14:30:00+00:00",
+      "version": 5,
       "resume": "Dans la nuit du 1er au 2 novembre, des attaquants ont modifié à distance les réglages de contrôleurs de réfrigération dans plus de 100 magasins européens, entraînant des pertes d'aliments. Aucun groupe n'a revendiqué [1, 2, 3, 4].",
       "chaine": [
         {
@@ -32516,6 +32516,10 @@
         {
           "etape": "Réponse",
           "texte": "Techniciens mobilisés en Belgique, installations déconnectées, camions frigorifiques utilisés ; une mise à jour logicielle ne suffirait pas, une modification physique serait nécessaire [1, 2, 4]."
+        },
+        {
+          "etape": "Atteinte du sang",
+          "texte": "Passage par un fournisseur tiers d'équipements frigorifiques → seuils de température et de dégivrage relevés très haut dans trois sites de l'Établissement français du sang [6]."
         }
       ],
       "parcours": {
@@ -32552,7 +32556,8 @@
         "Groupes alignés sur la Russie : suspects crédibles selon SentinelLABS, attribution restée ouverte [5]"
       ],
       "cibles": [
-        "Plus de 115 magasins en Belgique, Pays-Bas, Suède, Luxembourg, Irlande et Estonie [2] ; cas aussi en Finlande, Italie et Portugal [3, 4]"
+        "Plus de 115 magasins en Belgique, Pays-Bas, Suède, Luxembourg, Irlande et Estonie [2] ; cas aussi en Finlande, Italie et Portugal [3, 4]",
+        "Trois sites de l'Établissement français du sang, sans perte de produits sanguins signalée [6]"
       ],
       "abreviations": [],
       "sources": [
@@ -32589,6 +32594,13 @@
           "site": "SentinelLABS",
           "url": "https://www.sentinelone.com/labs/defrost-and-disrupt-an-assessment-of-europe-s-refrigeration-attacks/",
           "date": "2026-11-03"
+        },
+        {
+          "titre": "French blood service hit by Europe-wide cyberattacks on refrigeration",
+          "site": "The Record",
+          "url": "https://therecord.media/france-cyberattack-blood-refrigeration",
+          "date": "2026-11-04",
+          "image": "https://cms.therecord.media/uploads/Blood_PP_17fdea2031.jpg"
         }
       ]
     },
@@ -34026,9 +34038,9 @@
       "id": "2026-11-04-cryptominage-supercalculateurs-universites",
       "title": "Cryptominage sur des supercalculateurs d'universités américaines : un Canadien extradé",
       "created": "2026-11-04T13:08:22+00:00",
-      "updated": "2026-11-04T13:08:22+00:00",
-      "version": 1,
-      "resume": "Deux Canadiens sont inculpés aux États-Unis pour avoir détourné des ordinateurs d'universités, dont des supercalculateurs, afin de miner de l'Electroneum entre juin 2016 et décembre 2019. L'un d'eux a été extradé [1].",
+      "updated": "2026-11-04T14:30:00+00:00",
+      "version": 2,
+      "resume": "Deux Canadiens sont inculpés aux États-Unis pour avoir détourné des ordinateurs d'universités, dont des supercalculateurs, afin de miner de l'Electroneum entre juin 2016 et décembre 2019 [1, 2]. L'un d'eux a été extradé [1].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -34126,6 +34138,94 @@
           "url": "https://www.securityweek.com/canadian-extradited-to-us-over-cryptomining-hacks-on-university-supercomputers/",
           "date": "2026-11-04",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/01/cryptocurrency.jpeg"
+        },
+        {
+          "titre": "US charges two Canadians accused of hacking US universities",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/us-charges-two-canadians-accused-of-hacking-us-universities/",
+          "date": "2026-11-04",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/Hackers-room.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-04-beget-hebergeur-russe-effacement",
+      "title": "Beget : une cyberattaque efface des données cloud d'un grand hébergeur russe",
+      "created": "2026-11-04T14:30:00+00:00",
+      "updated": "2026-11-04T14:30:00+00:00",
+      "version": 1,
+      "resume": "Une cyberattaque a détruit des données de l'infrastructure cloud de Beget, grand hébergeur russe, et perturbé des centaines de sites. Aucun groupe n'a revendiqué [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Accès aux systèmes de gestion de l'infrastructure → possibilité de lancer des scripts d'effacement [1]."
+        },
+        {
+          "etape": "Destruction des données",
+          "texte": "Scripts d'effacement exécutés → données des serveurs privés virtuels, du stockage cloud et de Kubernetes effacées, sauvegardes binaires perdues [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant inconnu",
+            "note": ""
+          },
+          {
+            "id": "adm",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Systèmes de gestion de Beget",
+            "note": ""
+          },
+          {
+            "id": "cl",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Infrastructure cloud de Beget",
+            "note": "Données effacées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "adm",
+            "etape": 2,
+            "texte": "Accès aux systèmes de gestion"
+          },
+          {
+            "de": "adm",
+            "vers": "cl",
+            "etape": 3,
+            "texte": "Scripts d'effacement exécutés"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni la date exacte, ni la manière dont les attaquants sont entrés, ni l'auteur [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié, aucune revendication [1]"
+      ],
+      "cibles": [
+        "Clients de Beget (petites entreprises, boutiques en ligne), site de la ville de Naryan-Mar, système Chestny Znak [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Cyberattack wipes cloud data at major Russian hosting provider Beget",
+          "site": "The Record",
+          "url": "https://therecord.media/russia-cyberattack-beget-cloud",
+          "date": "2026-11-04",
+          "image": "https://cms.therecord.media/uploads/Beget_de93fe90b7.jpg"
         }
       ]
     }

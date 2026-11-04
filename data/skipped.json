@@ -1,37 +1,5 @@
 [
   {
-    "id": "af1be2a25a437871",
-    "title": "U.K. Sanctions Cryptomus for RU Money Laundering",
-    "link": "https://krebsonsecurity.com/2026/10/u-k-sanctions-cryptomus-for-ru-money-laundering/",
-    "source": "Krebs on Security",
-    "raison": "actualité judiciaire/politique sans méthode d'attaque",
-    "date": "2026-10-14T15:30:00+00:00"
-  },
-  {
-    "id": "4bbe86671932a286",
-    "title": "ICS Patch Tuesday: Siemens Issues 17 Advisories, Rockwell Fixes ArmorBlock Takeover Flaw",
-    "link": "https://www.securityweek.com/ics-patch-tuesday-siemens-issues-17-advisories-rockwell-fixes-armorblock-takeover-flaw/",
-    "source": "SecurityWeek",
-    "raison": "vulnérabilités sans exploitation constatée",
-    "date": "2026-10-14T16:07:47+00:00"
-  },
-  {
-    "id": "a0735ceeedd7da22",
-    "title": "Choisir et gouverner ses modèles d’IA : une méthode en cinq étapes",
-    "link": "https://www.lemagit.fr/conseil/Choisir-et-gouverner-ses-modeles-dIA-une-methode-en-cinq-etapes",
-    "source": "LeMagIT",
-    "raison": "conseil générique, pas une attaque",
-    "date": "2026-10-14T16:07:47+00:00"
-  },
-  {
-    "id": "a2de7043bd5e4226",
-    "title": "From One Account to Every Mailbox: Breaking Zimbra's Identity Boundaries (Part 1)",
-    "link": "https://www.rapid7.com/blog/post/ve-breaking-zimbra-identity-boundaries-part-1",
-    "source": "Rapid7",
-    "raison": "vulnérabilités sans exploitation constatée",
-    "date": "2026-10-14T16:07:47+00:00"
-  },
-  {
     "id": "045289937798f189",
     "title": "Spyware manufacturer had access to data harvested by former Polish government, current PM says",
     "link": "https://therecord.media/spyware-manufacturer-had-access-to-data-harvested-by-previous-polish-government",
@@ -3998,5 +3966,37 @@
     "source": "Elastic Security Labs",
     "raison": "rapport trimestriel agrégé, aucune intrusion précise décrite",
     "date": "2026-11-04T13:08:22+00:00"
+  },
+  {
+    "id": "5ce5c8d2c37fde75",
+    "title": "Phishing-Resistant Isn't Enough; Yubico Takes Aim at Identity-Verification Gap",
+    "link": "https://www.darkreading.com/identity-access-management-security/beyond-phishing-resistant-yubico-identity-verification-gap",
+    "source": "Dark Reading",
+    "raison": "annonce produit",
+    "date": "2026-11-04T14:30:00+00:00"
+  },
+  {
+    "id": "7562a94fe89e9f1d",
+    "title": "TikTok, une passerelle vers les casinos illégaux ?",
+    "link": "https://www.zataz.com/tiktok-une-passerelle-vers-les-casinos-illegaux/",
+    "source": "ZATAZ",
+    "raison": "pas d'attaque décrite",
+    "date": "2026-11-04T14:30:00+00:00"
+  },
+  {
+    "id": "90b253066bd50a59",
+    "title": "VerifiedIDA | Making LLM-Driven Reverse Engineering Inspectable, Continuable and Reusable",
+    "link": "https://www.sentinelone.com/labs/verifiedida-making-llm-driven-reverse-engineering-inspectable-continuable-and-reusable/",
+    "source": "SentinelLABS",
+    "raison": "annonce d'outil, aucune attaque",
+    "date": "2026-11-04T14:30:00+00:00"
+  },
+  {
+    "id": "e00a3359257ff166",
+    "title": "Chasse aux vulnérabilités : chez GitHub, les scans agentiques complètent les analyses statiques",
+    "link": "https://www.lemagit.fr/actualites/366653556/Chasse-aux-vulnerabilites-chez-GitHub-les-scans-agentiques-completent-les-analyses-statiques",
+    "source": "LeMagIT",
+    "raison": "annonce produit",
+    "date": "2026-11-04T14:30:00+00:00"
   }
 ]

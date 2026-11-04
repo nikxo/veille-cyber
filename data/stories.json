@@ -35018,6 +35018,83 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/zyxel-gs1900.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-04-amadeus-compagnies-aeriennes-fuite",
+      "title": "Amadeus : fuite de données de réservation chez plusieurs compagnies aériennes asiatiques",
+      "created": "2026-11-04T22:30:00+00:00",
+      "updated": "2026-11-04T22:30:00+00:00",
+      "version": 1,
+      "resume": "Six compagnies aériennes asiatiques ont signalé des fuites de données liées à Amadeus, fournisseur de systèmes de réservation. Japan Airlines compte 92 000 clients touchés, Cathay Pacific 53 000 enregistrements volés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Vulnérabilité dans l'environnement d'affichage des réservations d'Amadeus, plus identifiants du compte système → accès aux données de réservation [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Consultation des réservations → noms, numéros de réservation, détails de vol, parfois passeports et adresses e-mail chez Cathay Pacific [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "am",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Affichage réservations Amadeus",
+            "note": "Vulnérabilité"
+          },
+          {
+            "id": "d",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données de réservation",
+            "note": "Clients des compagnies"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "am",
+            "etape": 1,
+            "texte": "Vulnérabilité et identifiants du compte système"
+          },
+          {
+            "de": "am",
+            "vers": "d",
+            "etape": 2,
+            "texte": "Données de réservation consultées"
+          }
+        ]
+      },
+      "limites": "Amadeus n'a donné ni détail technique, ni acteur, ni date de l'intrusion, et a refusé de communiquer le nombre total de victimes [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1]"
+      ],
+      "cibles": [
+        "Japan Airlines, Cathay Pacific, Korean Air, Asiana Airlines, Singapore Airlines, Malaysia Airlines, via Amadeus [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "More Asian airlines announce data breaches after attack on Spanish IT provider Amadeus",
+          "site": "The Record",
+          "url": "https://therecord.media/asian-airlines-announce-data-breach-it-provider-incident",
+          "date": "2026-11-04",
+          "image": "https://cms.therecord.media/uploads/airplane_airport_d009f47cb4.jpg"
+        }
+      ]
     }
   ]
 }

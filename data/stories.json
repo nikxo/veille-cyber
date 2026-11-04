@@ -31898,25 +31898,29 @@
       "id": "2026-11-03-gorbag-ukraine-winrar-voleurs",
       "title": "Gorbag : voleurs d'informations et faille WinRAR contre des organisations ukrainiennes",
       "created": "2026-11-03T13:20:00+00:00",
-      "updated": "2026-11-03T14:30:00+00:00",
-      "version": 2,
-      "resume": "Le groupe Gorbag, aligné sur la Russie, vise exclusivement des organisations ukrainiennes (police, justice, administrations proches du front, défense) avec des logiciels voleurs d'informations [1].",
+      "updated": "2026-11-04T02:07:31+00:00",
+      "version": 3,
+      "resume": "Le groupe Gorbag, aligné sur la Russie, vise exclusivement des organisations ukrainiennes (police, justice, administrations proches du front, défense) avec des logiciels voleurs d'informations [1, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Courriels de spear-phishing à thème officiel (amendes, impôts) avec pièce jointe → dans un cas, un classeur Excel à macros décode et lance BeautyStealer [1, 2]."
+          "texte": "Courriels de spearphishing à thème officiel (amendes, impôts), parfois depuis un compte compromis d'une administration locale → classeur Excel à macros qui décode et lance BeautyStealer [1, 2, 3]."
         },
         {
           "etape": "Exécution de code",
-          "texte": "Faille WinRAR CVE-2025-8088, utilisée à partir de début 2026 [2] → chaîne de chargement de bibliothèque détournée qui exécute le voleur GIFTEDCROOK [1]."
+          "texte": "Faille WinRAR CVE-2025-8088, utilisée à partir de début 2026 [2, 3] → chaîne de chargement de bibliothèque détournée qui exécute le voleur GIFTEDCROOK [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Raccourci LNK déposé dans le dossier Démarrage de Windows par l'archive RAR piégée → relance du chargeur à chaque démarrage [3]."
         },
         {
           "etape": "Vol d'identifiants",
-          "texte": "Collecte des données de navigateurs, des configurations OpenVPN et bureau à distance, de fichiers ciblés → informations sensibles rassemblées [1]."
+          "texte": "Collecte des données de navigateurs, des configurations OpenVPN et bureau à distance, de fichiers ciblés → informations sensibles rassemblées [1, 3]."
         },
         {
           "etape": "Exfiltration",
-          "texte": "Données compressées envoyées à un chat Telegram ou à un serveur de commande → BeautyStealer se supprime ; le groupe privilégie la collecte rapide à l'accès durable [1, 2]."
+          "texte": "Données compressées envoyées à un chat Telegram ou à un serveur de commande → BeautyStealer se supprime ; le groupe privilégie la collecte rapide à l'accès durable [1, 2, 3]."
         }
       ],
       "parcours": {
@@ -31959,21 +31963,26 @@
           {
             "de": "pc",
             "vers": "c2",
-            "etape": 4,
+            "etape": 5,
             "texte": "Archive de données envoyée"
           }
         ]
       },
-      "limites": "L'article ne précise pas si la faille WinRAR a été exploitée dans les mêmes courriels, ni le nombre de victimes [1].",
+      "limites": "Les sources ne précisent pas le nombre de victimes ni les noms des organisations touchées [1, 3].",
       "cves": [
         {
           "id": "CVE-2025-8088",
-          "explication": "WinRAR, faille désormais corrigée, utilisée pour déclencher une chaîne de chargement de bibliothèque menant à GIFTEDCROOK [1]."
+          "explication": "WinRAR, faille désormais corrigée : traversée de chemin permettant d'extraire des données hors du dossier choisi, utilisée pour une chaîne menant à GIFTEDCROOK [1, 3]."
         }
       ],
-      "mitre": [],
+      "mitre": [
+        "T1566.001 : Spearphishing Attachment, pièce jointe piégée [3]",
+        "T1547.001 : Startup Folder, persistance par le dossier Démarrage [3]",
+        "T1203 : Exploitation for Client Execution, exploitation d'une faille côté client [3]"
+      ],
       "acteurs": [
-        "Gorbag, aligné sur la Russie, actif depuis février 2025 au moins [1, 2]"
+        "Gorbag, aligné sur la Russie, actif depuis février 2025 au moins [1, 2, 3]",
+        "GIFTEDCROOK attribué à UAC-0226 par CERT-UA [3]"
       ],
       "cibles": [
         "Organisations ukrainiennes : police et justice, administrations proches du front, défense [1] ; un centre de transport de l'aide militaire étrangère [2]"
@@ -31998,6 +32007,22 @@
         {
           "sigle": "GIFTEDCROOK",
           "definition": "Logiciel voleur de données de navigateurs"
+        },
+        {
+          "sigle": "UAC-0226",
+          "definition": "Identifiant d'acteur de menace attribué par CERT-UA"
+        },
+        {
+          "sigle": "CERT-UA",
+          "definition": "Équipe ukrainienne de réponse aux incidents informatiques"
+        },
+        {
+          "sigle": "LNK",
+          "definition": "Fichier raccourci Windows"
+        },
+        {
+          "sigle": "RAR",
+          "definition": "Format d'archive compressée utilisé par WinRAR"
         }
       ],
       "sources": [
@@ -32014,6 +32039,13 @@
           "url": "https://therecord.media/russia-linked-cyber-spies-target-ukraine-war-support",
           "date": "2026-11-03",
           "image": "https://cms.therecord.media/uploads/ukraine_tank_a2d86eaf96.jpg"
+        },
+        {
+          "titre": "Gorbag: Orcs at the border harvesting intelligence from Ukraine",
+          "site": "WeLiveSecurity (ESET)",
+          "url": "https://www.welivesecurity.com/en/eset-research/gorbag-orcs-border-harvesting-intelligence-ukraine/",
+          "date": "2026-11-03",
+          "image": "https://web-assets.esetstatic.com/wls/2026/10-26/gorbag-phishing.jpg"
         }
       ]
     },

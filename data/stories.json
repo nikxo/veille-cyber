@@ -34287,17 +34287,17 @@
       "id": "2026-11-04-arkea-fortuneo-virements-crypto",
       "title": "Crédit Mutuel Arkéa : plus de 133 millions de dollars détournés puis blanchis en cryptomonnaies",
       "created": "2026-11-04T15:20:00+00:00",
-      "updated": "2026-11-04T15:20:00+00:00",
-      "version": 1,
-      "resume": "Crédit Mutuel Arkéa a confirmé une attaque ayant entraîné des opérations frauduleuses. Des virements auraient détourné plus de 133 millions de dollars, estimation non confirmée par la banque [1].",
+      "updated": "2026-11-04T19:10:00+00:00",
+      "version": 2,
+      "resume": "Crédit Mutuel Arkéa a confirmé une attaque passée par un prestataire. Plus de 133 millions de dollars auraient été détournés, estimation de ZachXBT que la banque ne confirme pas [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Compromission de la plateforme d'un prestataire non nommé → accès direct au groupe bancaire, selon la banque [2]."
         },
         {
           "etape": "Virements frauduleux",
-          "texte": "Virements émis depuis Fortuneo, d'après des sources citées → plus de 133 millions de dollars détournés selon ZachXBT, non confirmé par la banque [1]."
+          "texte": "Virements depuis le compte de la banque → fonds convertis en cryptomonnaies, plus de 133 millions de dollars (ZachXBT) [2]. Fortuneo cité par [1], démenti par la banque [2]."
         },
         {
           "etape": "Conversion en cryptomonnaies",
@@ -34318,11 +34318,18 @@
             "note": ""
           },
           {
-            "id": "fort",
-            "type": "application",
+            "id": "pre",
+            "type": "inconnu",
             "zone": "victime",
-            "nom": "Fortuneo (groupe Arkéa)",
-            "note": "Virements émis"
+            "nom": "Prestataire non nommé",
+            "note": "Plateforme compromise"
+          },
+          {
+            "id": "fort",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Groupe Crédit Mutuel Arkéa",
+            "note": "Compte propre utilisé"
           },
           {
             "id": "cx",
@@ -34342,15 +34349,21 @@
         "liens": [
           {
             "de": "att",
+            "vers": "pre",
+            "etape": 1,
+            "texte": "Compromission de la plateforme du prestataire"
+          },
+          {
+            "de": "pre",
             "vers": "fort",
             "etape": 1,
-            "texte": "Accès non précisé"
+            "texte": "Accès direct au groupe bancaire"
           },
           {
             "de": "fort",
             "vers": "cx",
-            "etape": 3,
-            "texte": "Fonds convertis puis retirés"
+            "etape": 2,
+            "texte": "Virements puis conversion en cryptomonnaies"
           },
           {
             "de": "att",
@@ -34366,14 +34379,14 @@
           }
         ]
       },
-      "limites": "Vecteur d'accès, acteur et date de l'intrusion sont inconnus ; deux pistes évoquées (systèmes de paiement, fraude au président) ne sont pas confirmées [1].",
+      "limites": "Acteur et dates de l'intrusion non précisés ; les sources divergent sur le rôle de Fortuneo [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non identifié ; la piste Lazarus est écartée pour le moment [1]"
+        "Non identifié ; la piste Lazarus est écartée pour le moment [1]. Enquête des autorités en cours [2]"
       ],
       "cibles": [
-        "Crédit Mutuel Arkéa, dont la filiale en ligne Fortuneo [1]"
+        "Crédit Mutuel Arkéa ; la banque indique qu'aucun compte client n'a été consulté [1, 2]"
       ],
       "abreviations": [
         {
@@ -34387,6 +34400,13 @@
           "site": "ZATAZ",
           "url": "https://www.zataz.com/credit-mutuel-arkea-133-millions-de-dollars-detournes/",
           "date": "2026-11-04"
+        },
+        {
+          "titre": "French bank confirms cyber heist, hackers suspected to have stolen an estimated $133 million",
+          "site": "The Record",
+          "url": "https://therecord.media/french-bank-confirms-cyber-heist",
+          "date": "2026-11-04",
+          "image": "https://cms.therecord.media/uploads/euros_41ac60ccd6.jpg"
         }
       ]
     },

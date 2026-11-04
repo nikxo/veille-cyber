@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-11-04T13:06:30+00:00",
+  "feed_summary": "Two flaws in the Xen hypervisor allow a malicious guest virtual machine (VM) to read and write the memory of other VMs on the same host, including dom0. Dom0 is the VM that, by default, has full permissions and manages the others. Patches are out, and there is no known mitigation, the Xen Project said in an advisory on November 3. All Xen versions from 4.6 onward are vulnerable,",
+  "id": "de8bbdd0e39a7667",
+  "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAVPXiuTBfhBnpwaZHMfSDWymKJrXbS88kOEO1Xuh5t11qAnwSKeFTHGQy6ZG9Sr2N-wRYrJg58x3lKFbybvU9p1a85lxaCHfBa61vO1DfjEhUi5Yzf6bQS1eN7Mu-s_sUwkE-JGc-UznJ1p0qfmwMDusXFzWawXKXMt6jj-vENxyQG12uAUDUe0p0gtg/s1700-nu-rw-lo-l85-e365/xen.jpg",
+  "lang": "en",
+  "link": "https://thehackernews.com/2026/11/xen-hypervisor-flaws-let-one-malicious.html",
+  "published": "2026-11-04T17:16:27+05:30",
+  "source": "The Hacker News",
+  "source_type": "actu",
+  "title": "Xen Hypervisor Flaws Let One Malicious VM Read and Write Any Other VM's Memory"
+}

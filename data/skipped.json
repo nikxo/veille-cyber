@@ -1,29 +1,5 @@
 [
   {
-    "id": "030beb761e020ee8",
-    "title": "CISO Conversations: James Robinson – Many Jobs, One Journey to Netskope CISO",
-    "link": "https://www.securityweek.com/ciso-conversations-james-robinson-many-jobs-one-journey-to-netskope-ciso/",
-    "source": "SecurityWeek",
-    "raison": "entretien sans attaque",
-    "date": "2026-10-15T09:08:16+00:00"
-  },
-  {
-    "id": "62ec047a4b1fef7f",
-    "title": "Medicare scam calls, texts and ads: What to watch for this Open Enrollment",
-    "link": "https://www.welivesecurity.com/en/scams/medicare-open-enrollment-season-scams/",
-    "source": "WeLiveSecurity (ESET)",
-    "raison": "conseils génériques",
-    "date": "2026-10-15T09:08:16+00:00"
-  },
-  {
-    "id": "a576b234e60b0fac",
-    "title": "Microsoft fixes bug causing Windows black screens, Explorer crashes",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-bug-causing-windows-black-screens-explorer-crashes/",
-    "source": "BleepingComputer",
-    "raison": "correctif de bogue, pas une attaque",
-    "date": "2026-10-15T10:07:57+00:00"
-  },
-  {
     "id": "cb4f3bcbd54dc702",
     "title": "Ukraine says Elon Musk's Starshield service partially restored after restrictions disrupted drone missions",
     "link": "https://therecord.media/ukraine-says-starshield-working-again-after-disruption",
@@ -3998,5 +3974,29 @@
     "source": "Rapid7",
     "raison": "annonce produit",
     "date": "2026-11-04T17:20:00+00:00"
+  },
+  {
+    "id": "1b9b96d402ef45a5",
+    "title": "SonicWall Won't Patch EoL GMS Flaws That Could Expose Files, Alter Database Records",
+    "link": "https://thehackernews.com/2026/11/sonicwall-wont-patch-eol-gms-flaws-that.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilités sans exploitation constatée",
+    "date": "2026-11-04T18:08:31+00:00"
+  },
+  {
+    "id": "3632eace057e58a0",
+    "title": "Debian and Ubuntu APT Flaw Lets MitM Attackers Swap Verified Packages and Run Code as Root",
+    "link": "https://thehackernews.com/2026/11/debian-and-ubuntu-apt-flaw-lets-mitm.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-04T18:08:31+00:00"
+  },
+  {
+    "id": "3ad8822087e7a40c",
+    "title": "CTF Social Engineering : trois jours pour piéger l’humain",
+    "link": "https://www.zataz.com/ctf-social-engineering-trois-jours-pour-pieger-lhumain/",
+    "source": "ZATAZ",
+    "raison": "compétition CTF, pas une attaque réelle",
+    "date": "2026-11-04T18:08:31+00:00"
   }
 ]

@@ -33853,8 +33853,8 @@
       "id": "2026-11-02-congelateurs-supermarches-europe",
       "title": "Congélateurs de supermarchés européens piratés : seconde vague le 2 novembre",
       "created": "2026-11-02T13:50:00+00:00",
-      "updated": "2026-11-04T14:30:00+00:00",
-      "version": 5,
+      "updated": "2026-11-04T18:08:31+00:00",
+      "version": 6,
       "resume": "Dans la nuit du 1er au 2 novembre, des attaquants ont modifié à distance les réglages de contrôleurs de réfrigération dans plus de 100 magasins européens, entraînant des pertes d'aliments. Aucun groupe n'a revendiqué [1, 2, 3, 4].",
       "chaine": [
         {
@@ -33875,7 +33875,7 @@
         },
         {
           "etape": "Atteinte du sang",
-          "texte": "Passage par un fournisseur tiers d'équipements frigorifiques → seuils de température et de dégivrage relevés très haut dans trois sites de l'Établissement français du sang [6]."
+          "texte": "Attaque contre un fournisseur d'équipements frigorifiques → seuils de température et de dégivrage relevés dans trois sites de l'Établissement français du sang [6, 7]."
         }
       ],
       "parcours": {
@@ -33904,7 +33904,7 @@
           }
         ]
       },
-      "limites": "Le vecteur d'accès de cette vague n'est pas confirmé ; les enquêteurs n'ont pas établi si les deux vagues sont liées [1, 2, 3, 4].",
+      "limites": "Le vecteur d'accès de cette vague n'est pas confirmé ; les enquêteurs n'ont pas établi si les deux vagues sont liées [1, 2, 3, 4]. L'Établissement français du sang n'a pas nommé son fournisseur [7].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -33913,7 +33913,7 @@
       ],
       "cibles": [
         "Plus de 115 magasins en Belgique, Pays-Bas, Suède, Luxembourg, Irlande et Estonie [2] ; cas aussi en Finlande, Italie et Portugal [3, 4]",
-        "Trois sites de l'Établissement français du sang, sans perte de produits sanguins signalée [6]"
+        "Trois sites de l'Établissement français du sang, sans perte de produits sanguins signalée [6, 7]"
       ],
       "abreviations": [],
       "sources": [
@@ -33957,6 +33957,13 @@
           "url": "https://therecord.media/france-cyberattack-blood-refrigeration",
           "date": "2026-11-04",
           "image": "https://cms.therecord.media/uploads/Blood_PP_17fdea2031.jpg"
+        },
+        {
+          "titre": "Cyberattack disrupts blood storage refrigeration systems in France",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cyberattack-disrupts-blood-storage-refrigeration-systems-in-france/",
+          "date": "2026-11-04",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/blood-bags.jpg"
         }
       ]
     },
@@ -34722,6 +34729,96 @@
           "site": "Dark Reading",
           "url": "https://www.darkreading.com/endpoint-security/google-13-million-device-strong-xcpe-botnet",
           "date": "2026-11-04"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-04-codex-jailbreak-prompt-adware",
+      "title": "Jailbreak d'OpenAI Codex : une publicité cachée dans la configuration de l'agent",
+      "created": "2026-11-04T18:08:31+00:00",
+      "updated": "2026-11-04T18:08:31+00:00",
+      "version": 1,
+      "resume": "Un paquet de jailbreak pour OpenAI Codex modifie les instructions de l'agent pour afficher la publicité d'une passerelle de modèles payante. Check Point Research nomme ce comportement « prompt adware » [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "L'utilisateur installe le paquet de jailbreak publié sur GitHub le 10 juillet 2026 → configurations de Codex remplacées [1]."
+        },
+        {
+          "etape": "Contournement des garde-fous",
+          "texte": "Jeux de rôle et demandes de cybersécurité reformulées en scénario CTF → garde-fous du modèle contournés [1]."
+        },
+        {
+          "etape": "Modification de la configuration",
+          "texte": "Réécriture des fichiers de configuration et des instructions globales de l'agent → changement durable appliqué aux réponses suivantes [1]."
+        },
+        {
+          "etape": "Publicité",
+          "texte": "Salutations courantes ou mot « Seagull » → affichage d'une publicité pour la passerelle payante de l'auteur [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Auteur du jailbreak",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de l'utilisateur",
+            "note": "Codex modifié"
+          },
+          {
+            "id": "gw",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Passerelle de modèles payante",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Paquet de jailbreak installé par l'utilisateur"
+          },
+          {
+            "de": "pc",
+            "vers": "gw",
+            "etape": 4,
+            "texte": "Publicité pour la passerelle de l'auteur"
+          }
+        ]
+      },
+      "limites": "Le nombre d'utilisateurs touchés n'est pas indiqué, et l'auteur du jailbreak n'est pas identifié [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Auteur du jailbreak non identifié [1]"
+      ],
+      "cibles": [
+        "Utilisateurs de Codex ayant installé le paquet, nombre non précisé [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CTF",
+          "definition": "Capture The Flag : défi de sécurité sous forme de jeu"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Researchers Uncover Prompt Adware Hidden in OpenAI Codex Jailbreak Toolkit",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/researchers-uncover-prompt-adware.html",
+          "date": "2026-11-04",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiO7-xs-0dO1uqFLbfphgPbe8T7cbCLkrab6XhAjlNPVo-bLQOFw4mkcArqglQOvhuIYif4ohTAub-TNWlket6iguifshMRo3zBrYvM4G_IwFTtbh8ifIqh1Vuf8GuNmqDg_PB2Roy7yzYuTFhRrFM8wxOo8HVwfG9Y2eqJnq82LGYHnAKI5S6TuvZ_Q95A/s1700-nu-rw-lo-l85-e365/ai-adware.jpg"
         }
       ]
     }

@@ -33412,13 +33412,13 @@
       "id": "2026-11-03-wordpress-cve-2026-119977-kev",
       "title": "WordPress : faille CVE-2026-119977 ajoutée au catalogue des failles exploitées de la CISA",
       "created": "2026-11-03T22:10:00+00:00",
-      "updated": "2026-11-03T22:10:00+00:00",
-      "version": 1,
-      "resume": "La CISA a ajouté la faille CVE-2026-119977 du cœur de WordPress à son catalogue des vulnérabilités exploitées, en citant des preuves d'exploitation active [1].",
+      "updated": "2026-11-04T08:10:00+00:00",
+      "version": 2,
+      "resume": "La CISA a ajouté la faille CVE-2026-119977 du cœur de WordPress à son catalogue des vulnérabilités exploitées. Un attaquant sans compte peut exécuter du code sur le serveur pendant une mise à jour [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Exploitation, sans compte, de chemins de préparation prévisibles accessibles depuis le web pendant une mise à jour du cœur → exécution de code sur le serveur [2]."
         }
       ],
       "parcours": {
@@ -33435,7 +33435,7 @@
             "type": "application",
             "zone": "victime",
             "nom": "WordPress (cœur)",
-            "note": "Faille CVE-2026-119977"
+            "note": "Mise à jour"
           }
         ],
         "liens": [
@@ -33443,15 +33443,15 @@
             "de": "att",
             "vers": "wp",
             "etape": 1,
-            "texte": "Exploitation active de la faille, détails non précisés"
+            "texte": "Exploitation pendant une mise à jour du cœur"
           }
         ]
       },
-      "limites": "La source ne décrit ni les victimes, ni l'acteur, ni le déroulement de l'exploitation [1].",
+      "limites": "L'article ne mentionne ni acteur, ni victime confirmée, ni action après l'exécution de code [2].",
       "cves": [
         {
           "id": "CVE-2026-119977",
-          "explication": "Cœur de WordPress : situation de concurrence entre vérification et utilisation, exploitation active constatée par la CISA [1]."
+          "explication": "Cœur de WordPress : situation de concurrence permettant à un attaquant sans compte d'exécuter du code pendant une mise à jour, gravité 8,1 [2]. Exploitation active [1]."
         }
       ],
       "mitre": [],
@@ -33464,6 +33464,13 @@
           "site": "CISA Advisories",
           "url": "https://www.cisa.gov/news-events/alerts/2026/11/03/cisa-adds-one-known-exploited-vulnerability-catalog",
           "date": "2026-11-03"
+        },
+        {
+          "titre": "CISA Confirms Hackers Exploiting WordPress Core Flaw During Software Upgrades",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/cisa-confirms-hackers-exploiting.html",
+          "date": "2026-11-04",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9IgE0BWDAvYzjY8wFSMADIRn69AMLYxUa-oPoOISNBOpPbxwBNoWrbXWzI6P0deiU6WDqitiIZx1gFXSAlR8xX9rj56BuU48veMEPJAGSsmQTbVPirFOCuyMc_KQxtbPfc841GZGZ-3HSYYHCGbHnzrihtwQUaMlXrT3leLzI2USh00hc9OBw4k1SCJt4/s1700-nu-rw-lo-l85-e365/wp-exploit.jpg"
         }
       ]
     },

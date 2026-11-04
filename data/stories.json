@@ -34382,6 +34382,85 @@
           }
         ]
       }
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-04-msecure-fuite-base-clients",
+      "title": "mSecure : cyberattaque sur le gestionnaire de mots de passe, base clients chiffrée exposée",
+      "created": "2026-11-04T16:20:00+00:00",
+      "updated": "2026-11-04T16:20:00+00:00",
+      "version": 1,
+      "resume": "mSeven Software indique qu'une cyberattaque aurait exposé une base de données chiffrée de clients du gestionnaire de mots de passe mSecure. L'éditeur demande aux clients actuels et anciens de changer leurs mots de passe [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Cyberattaque contre mSeven Software → base de données chiffrée de clients qui aurait été exposée [1]."
+        },
+        {
+          "etape": "Mesures demandées",
+          "texte": "Changer les mots de passe, réinitialiser la double authentification et retirer les clés d'accès (passkeys) [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes de mSeven Software",
+            "note": ""
+          },
+          {
+            "id": "bdd",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Base clients chiffrée",
+            "note": "Exposée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Cyberattaque, vecteur non précisé"
+          },
+          {
+            "de": "sys",
+            "vers": "bdd",
+            "etape": 2,
+            "texte": "Base de données chiffrée exposée"
+          }
+        ]
+      },
+      "limites": "Seul le résumé du flux a pu être lu (l'article complet était inaccessible). Vecteur d'accès, acteur, date et volume de données ne sont pas précisés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Clients actuels et anciens du gestionnaire de mots de passe mSecure [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "mSecure password manager hack prompts password reset warnings",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/msecure-password-manager-hack-prompts-password-reset-warnings/",
+          "date": "2026-11-04",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/hacker-password-manager-redlock.jpg"
+        }
+      ]
     }
   ]
 }

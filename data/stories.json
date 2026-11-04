@@ -32708,25 +32708,25 @@
       "id": "2026-11-02-tradertraitor-binance",
       "title": "TraderTraitor : vol de plus de 6,3 milliards de dollars chez Binance",
       "created": "2026-11-02T09:20:00+00:00",
-      "updated": "2026-11-03T20:30:00+00:00",
-      "version": 3,
+      "updated": "2026-11-04T11:08:44+00:00",
+      "version": 4,
       "resume": "Binance a perdu environ 6,3 milliards de dollars de cryptomonnaies [4]. Le FBI attribue le vol à TraderTraitor [1, 2] ; Binance parle d'une campagne de plusieurs mois [3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "En juin, logiciel malveillant installé par un ingénieur, détecté [3] ; en septembre, faux entretien d'embauche et dépôt de code malveillant → accès aux systèmes [3, 4]."
+          "texte": "En juin, ingénieur ayant téléchargé une installation Homebrew altérée, détectée [5] ; en septembre, faux entretiens et devoir de codage piégé → accès aux systèmes [3, 4, 5]."
         },
         {
           "etape": "Déplacement dans le réseau",
-          "texte": "Outils légitimes remplacés par des outils malveillants, échappant aux protections des terminaux [3, 4] ; le 20 octobre, deux autres employés compromis via un outil interne d'intelligence artificielle [4]."
+          "texte": "Outils légitimes remplacés par des outils malveillants, échappant aux protections des terminaux [3, 4, 5] ; le 20 octobre, deux autres postes compromis via un outil interne d'intelligence artificielle [4, 5]."
         },
         {
           "etape": "Accès aux portefeuilles",
-          "texte": "Identifiants et jeton de déploiement de conteneurs volés → script malveillant, accès au service de signature des portefeuilles le 29 octobre [4] ; premières sorties : près de 400 millions [3]."
+          "texte": "Identifiants et jeton de déploiement de conteneurs volés → script malveillant, accès au service de signature des portefeuilles le 29 octobre [4, 5] ; premières sorties : près de 400 millions [3]."
         },
         {
           "etape": "Vol de fonds",
-          "texte": "Délégation EIP-7702 d'Ethereum hors des contrôles d'approbation habituels, hot wallets vidés sur plusieurs blockchains, l'essentiel en environ 20 minutes [1]."
+          "texte": "Délégation EIP-7702 d'Ethereum hors des contrôles d'approbation habituels, hot wallets vidés sur plusieurs blockchains, l'essentiel en environ 20 minutes [1, 5]."
         },
         {
           "etape": "Effacement des traces",
@@ -32868,6 +32868,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/binance-says-fake-job-interview-led-to-63-billion-crypto-heist/",
           "date": "2026-11-03",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/30/Binance.jpg"
+        },
+        {
+          "titre": "Rigged Coding Assignment, Abused AI Tool Opened Path to $6 Billion Binance Heist",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/rigged-coding-assignment-abused-ai-tool-opened-path-to-6-billion-binance-heist/",
+          "date": "2026-11-04",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Binance-hacked.jpeg"
         }
       ]
     },
@@ -33554,21 +33561,29 @@
       "id": "2026-11-03-cpguard-mise-a-jour-piratee",
       "title": "cPGuard : mises à jour piratées pour voler des données sur des serveurs",
       "created": "2026-11-03T23:07:11+00:00",
-      "updated": "2026-11-03T23:07:11+00:00",
-      "version": 1,
-      "resume": "L'infrastructure de mises à jour de cPGuard, éditeur OpsShield, a servi à diffuser un script voleur de données ; 2 946 serveurs sont affectés et la base de facturation d'OpsShield a été copiée [1].",
+      "updated": "2026-11-04T11:08:44+00:00",
+      "version": 2,
+      "resume": "Des mises à jour piégées de cPGuard, éditeur OpsShield, ont volé des données : 2 946 serveurs affectés selon [1], environ 2 950 selon [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Identifiants compromis sur l'infrastructure de distribution d'OpsShield → diffusion d'un script malveillant par le canal de mise à jour [1]."
+          "texte": "Compte d'essai créé, puis requêtes forgées vers le portail → exécution de commandes sur le serveur de facturation et de licences [2] ; [1] cite des identifiants compromis."
+        },
+        {
+          "etape": "Fausse mise à jour",
+          "texte": "Clé d'accès volée → fausse mise à jour (versions 5.88.12 à 5.88.19) déposée sur l'infrastructure de distribution, diffusée environ 70 minutes [2]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Les serveurs mis à jour (versions 5.88.12 à 5.88.19) reçoivent un script visant hachages de mots de passe Linux, base de données root, historique shell, fichiers SSH [1]."
+          "texte": "Script exécuté en root sur les serveurs clients, shell caché installé [2] → hachages de mots de passe, historique shell et fichiers SSH visés [1]."
         },
         {
           "etape": "Exfiltration",
-          "texte": "Envoi des données au serveur de licences d'OpsShield via un compte compromis → récupération par l'attaquant, 32 fichiers par client [1]."
+          "texte": "Envoi au serveur de licences via un compte compromis → 32 fichiers récupérés [1, 2]."
+        },
+        {
+          "etape": "Copie de serveurs cloud",
+          "texte": "Trois serveurs cloud d'OpsShield copiés → environ 7 900 enregistrements de comptes clients obtenus [2]."
         }
       ],
       "parcours": {
@@ -33581,62 +33596,75 @@
             "note": ""
           },
           {
+            "id": "lic",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur de facturation et licences",
+            "note": "Compte compromis"
+          },
+          {
             "id": "cdn",
             "type": "serveur",
             "zone": "victime",
-            "nom": "Mises à jour OpsShield",
-            "note": "Identifiants compromis"
+            "nom": "Distribution des mises à jour",
+            "note": "Fausse mise à jour"
           },
           {
             "id": "srv",
             "type": "postes",
             "zone": "victime",
             "nom": "Serveurs clients cPGuard",
-            "note": "Script voleur reçu"
+            "note": "Script exécuté en root"
           },
           {
-            "id": "lic",
-            "type": "serveur",
+            "id": "cl",
+            "type": "cloud",
             "zone": "victime",
-            "nom": "Serveur de licences OpsShield",
-            "note": "Compte compromis"
+            "nom": "Serveurs cloud OpsShield",
+            "note": "Copiés"
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "cdn",
+            "vers": "lic",
             "etape": 1,
-            "texte": "Accès avec des identifiants compromis"
+            "texte": "Requêtes forgées vers le portail"
+          },
+          {
+            "de": "att",
+            "vers": "cdn",
+            "etape": 2,
+            "texte": "Clé d'accès volée, fausse mise à jour"
           },
           {
             "de": "cdn",
             "vers": "srv",
-            "etape": 2,
-            "texte": "Script diffusé par la mise à jour"
+            "etape": 3,
+            "texte": "Mise à jour piégée exécutée en root"
           },
           {
             "de": "srv",
             "vers": "lic",
-            "etape": 3,
-            "texte": "Données volées envoyées au serveur de licences"
+            "etape": 4,
+            "texte": "Données envoyées via un compte compromis"
           },
           {
             "de": "att",
-            "vers": "lic",
-            "etape": 3,
-            "texte": "Récupération des données volées"
+            "vers": "cl",
+            "etape": 5,
+            "texte": "Copie de trois serveurs cloud"
           }
         ]
       },
-      "limites": "Les sources ne précisent pas comment les identifiants ont été obtenus, qui est l'attaquant, ni combien de serveurs ont réellement exécuté le script [1].",
+      "limites": "Les sources ne précisent pas qui est l'attaquant, ni comment la faille du portail a été exploitée [2] ; le nombre de serveurs diffère [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non identifié [1]"
+        "Non identifié [1, 2]"
       ],
       "cibles": [
-        "Serveurs utilisant cPGuard (2 946 affectés) et base de facturation d'OpsShield [1]"
+        "Serveurs utilisant cPGuard et comptes clients d'OpsShield (environ 7 900 enregistrements) [1, 2]"
       ],
       "abreviations": [
         {
@@ -33651,6 +33679,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-cpguard-autoupdate-to-deploy-backdoor-steal-data/",
           "date": "2026-11-03",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/hacker-box.jpg"
+        },
+        {
+          "titre": "Malicious cPGuard Updates Served in OpsShield Supply Chain Attack",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/malicious-cpguard-updates-served-in-opsshield-supply-chain-attack/",
+          "date": "2026-11-04",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/supply-chain-threat.webp"
         }
       ]
     },

@@ -35611,6 +35611,109 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiA5xlxteigxw9PDEVogRmGjD3vyPuJRyKCuIAOmURy0CY-OLXfYOjC93BPb_gvifLUiVoUk9JcjmxtsGpkT-cYhlrTwXS6yodTv-WwHnPUKvahU67tc5R841Sb_hkIIsUkzNzne5Fzo0h6BUpzEW1770YFBayYksyjSc9pKOV3VsHfoHcPfu3mYAFOQW4K/s1700-nu-rw-lo-l85-e365/docker-ai.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-05-phishing-banques-compte-suspendu",
+      "title": "Faux sites de banques américaines : une page « compte suspendu » masque le phishing aux revisites",
+      "created": "2026-11-05T14:20:00+00:00",
+      "updated": "2026-11-05T14:20:00+00:00",
+      "version": 1,
+      "resume": "Un acteur non identifié exploite plus de 300 domaines frauduleux imitant des banques, surtout américaines. Les visiteurs qui reviennent voient une fausse page de compte suspendu, ce qui trompe les équipes de retrait [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé : Kela n'a pas identifié comment les victimes sont redirigées vers les pages de phishing [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Première visite : page à la charte de la banque demandant identifiant et mot de passe → collecte d'identifiants [1]."
+        },
+        {
+          "etape": "Évasion des analyses",
+          "texte": "Visite de retour : page « This account has been suspended » → scanners, équipes de sécurité et prestataires de retrait voient un site apparemment désactivé [1]."
+        },
+        {
+          "etape": "Mémorisation des visiteurs",
+          "texte": "Le kit mémorise l'adresse IP de chaque visiteur → voir le contenu réel exige une nouvelle adresse IP à chaque vérification [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "site",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux sites de banques",
+            "note": "Derrière Cloudflare"
+          },
+          {
+            "id": "cli",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Clients des banques",
+            "note": ""
+          },
+          {
+            "id": "scan",
+            "type": "inconnu",
+            "zone": "internet",
+            "nom": "Scanners et équipes de retrait",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "cli",
+            "vers": "site",
+            "etape": 2,
+            "texte": "Saisie de l'identifiant et du mot de passe"
+          },
+          {
+            "de": "site",
+            "vers": "att",
+            "etape": 2,
+            "texte": "Identifiants collectés"
+          },
+          {
+            "de": "site",
+            "vers": "scan",
+            "etape": 3,
+            "texte": "Fausse page de compte suspendu aux revisites"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas comment les victimes arrivent sur les faux sites ni qui est l'acteur [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Acteur de la menace non identifié [1]"
+      ],
+      "cibles": [
+        "189 institutions financières américaines usurpées, surtout des banques régionales ; victimes aussi au Royaume-Uni, en Australie et en Nouvelle-Zélande [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IP",
+          "definition": "Adresse IP : numéro identifiant une machine sur Internet"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Bank Phishing Sites Show Fake ‘Suspended’ Pages to Evade Takedowns",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/bank-phishing-sites-show-fake-suspended-pages-to-evade-takedowns/",
+          "date": "2026-11-05",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/07/corporate-bank-fraud.jpeg"
+        }
+      ]
     }
   ]
 }

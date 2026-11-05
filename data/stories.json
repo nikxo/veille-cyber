@@ -34050,8 +34050,8 @@
       "id": "2026-11-02-congelateurs-supermarches-europe",
       "title": "Congélateurs de supermarchés européens piratés : seconde vague le 2 novembre",
       "created": "2026-11-02T13:50:00+00:00",
-      "updated": "2026-11-04T18:08:31+00:00",
-      "version": 6,
+      "updated": "2026-11-05T13:10:31+00:00",
+      "version": 7,
       "resume": "Dans la nuit du 1er au 2 novembre, des attaquants ont modifié à distance les réglages de contrôleurs de réfrigération dans plus de 100 magasins européens, entraînant des pertes d'aliments. Aucun groupe n'a revendiqué [1, 2, 3, 4].",
       "chaine": [
         {
@@ -34072,7 +34072,7 @@
         },
         {
           "etape": "Atteinte du sang",
-          "texte": "Attaque contre un fournisseur d'équipements frigorifiques → seuils de température et de dégivrage relevés dans trois sites de l'Établissement français du sang [6, 7]."
+          "texte": "Attaque contre un fournisseur d'équipements frigorifiques → seuils de température et de dégivrage relevés dans trois sites de l'Établissement français du sang [6, 7, 8]."
         }
       ],
       "parcours": {
@@ -34101,7 +34101,7 @@
           }
         ]
       },
-      "limites": "Le vecteur d'accès de cette vague n'est pas confirmé ; les enquêteurs n'ont pas établi si les deux vagues sont liées [1, 2, 3, 4]. L'Établissement français du sang n'a pas nommé son fournisseur [7].",
+      "limites": "Le vecteur d'accès n'est pas confirmé et le lien entre les deux vagues n'est pas établi [1, 2, 3, 4]. Coolworld évoque une vulnérabilité dans un composant tiers, sans la décrire [8].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -34110,7 +34110,7 @@
       ],
       "cibles": [
         "Plus de 115 magasins en Belgique, Pays-Bas, Suède, Luxembourg, Irlande et Estonie [2] ; cas aussi en Finlande, Italie et Portugal [3, 4]",
-        "Trois sites de l'Établissement français du sang, sans perte de produits sanguins signalée [6, 7]"
+        "Trois sites de l'Établissement français du sang, sans perte de produits sanguins signalée [6, 7, 8]"
       ],
       "abreviations": [],
       "sources": [
@@ -34161,6 +34161,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/cyberattack-disrupts-blood-storage-refrigeration-systems-in-france/",
           "date": "2026-11-04",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/blood-bags.jpg"
+        },
+        {
+          "titre": "Cyberattack Hits French Blood Bank Site but No Blood Products Are Compromised",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/cyberattack-hits-french-blood-bank-site-but-no-blood-products-are-compromised/",
+          "date": "2026-11-05",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/blood.jpeg"
         }
       ]
     },

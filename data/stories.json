@@ -33722,29 +33722,29 @@
       "id": "2026-11-04-slippynunchucks-sogou-darkvigil",
       "title": "SlippyNunchucks : détournement DNS de Sogou Input Method pour installer la porte dérobée DarkVigil",
       "created": "2026-11-04T13:08:22+00:00",
-      "updated": "2026-11-04T13:08:22+00:00",
-      "version": 1,
-      "resume": "Le groupe SlippyNunchucks, lié à la Chine, détourne les requêtes DNS de Sogou Input Method sous Windows pour installer l'implant DarkVigil. La campagne observée depuis le 1er juillet 2026 vise surtout l'Asie [1].",
+      "updated": "2026-11-05T05:30:00+00:00",
+      "version": 2,
+      "resume": "Le groupe SlippyNunchucks, lié à la Chine, détourne les requêtes DNS de Sogou Input Method sous Windows pour installer l'implant DarkVigil. La campagne observée depuis le 1er juillet 2026 vise surtout l'Asie [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Détournement DNS de la requête HTTP non chiffrée de Sogou Input Method → requête redirigée vers deux serveurs de staging de l'attaquant [1]."
+          "texte": "Détournement DNS de la requête HTTP non chiffrée de Sogou Input Method → requête redirigée vers des serveurs de staging de l'attaquant [1, 2]."
         },
         {
           "etape": "Configuration malveillante",
-          "texte": "Le composant SGTool.exe demande sa configuration → le serveur répond avec des instructions de téléchargement de charges supplémentaires [1]."
+          "texte": "Le composant SGTool.exe demande sa configuration → le serveur répond avec une configuration malveillante et des instructions de téléchargement [1, 2]."
         },
         {
           "etape": "Téléchargement des charges",
-          "texte": "Récupération d'un exécutable Adobe légitime et d'une bibliothèque libcef.dll malveillante contenant DarkVigil [1]."
+          "texte": "Récupération d'un exécutable Adobe légitime et d'une bibliothèque libcef.dll malveillante contenant DarkVigil [1, 2]."
         },
         {
           "etape": "Exécution de DarkVigil",
-          "texte": "Chargement de la bibliothèque malveillante par l'exécutable légitime (DLL sideloading) → exécution de DarkVigil [1]."
+          "texte": "Chargement de la bibliothèque malveillante par l'exécutable légitime (DLL sideloading) → exécution de DarkVigil [1, 2]."
         },
         {
           "etape": "Contrôle à distance",
-          "texte": "DarkVigil exécute les modules reçus du serveur de l'attaquant via le protocole DMTP [1]."
+          "texte": "DarkVigil exécute les modules reçus du serveur de l'attaquant via le protocole DMTP [1, 2]."
         }
       ],
       "parcours": {
@@ -33798,19 +33798,23 @@
           }
         ]
       },
-      "limites": "La source ne précise pas comment le détournement DNS est réalisé, ni le nombre de victimes [1].",
+      "limites": "Les sources ne précisent pas où le détournement DNS est réalisé ; ESET évoque des hypothèses sans confirmation [2].",
       "cves": [
         {
           "id": "CVE-2026-120422",
-          "explication": "Sogou Input Method : requêtes envoyées en HTTP non chiffré, corrigées par le passage à HTTPS dans la version 16.10 du 29 octobre 2026 [1]."
+          "explication": "Sogou Input Method : requêtes en HTTP non chiffré, corrigées par HTTPS dans la version 16.10, publiée le 29 octobre selon [1], le 29 ou 30 selon [2]."
         }
       ],
-      "mitre": [],
+      "mitre": [
+        "T1659 : Content Injection, injection de contenu malveillant [2]",
+        "T1574.001 : détournement du chargement de bibliothèque (DLL) [2]",
+        "T1557 : Adversary-in-the-Middle, interception du trafic [2]"
+      ],
       "acteurs": [
-        "SlippyNunchucks, lié à la Chine, actif depuis au moins septembre 2023 selon ESET [1]"
+        "SlippyNunchucks, lié à la Chine, actif depuis au moins septembre 2023 selon ESET [1, 2]"
       ],
       "cibles": [
-        "Organisations et particuliers à Hong Kong, en Thaïlande, au Japon, au Vietnam, à Oman et au Sri Lanka [1]"
+        "Organisations et particuliers à Hong Kong, en Thaïlande, au Japon, au Vietnam, à Oman et au Sri Lanka [1, 2]"
       ],
       "abreviations": [
         {
@@ -33845,6 +33849,13 @@
           "url": "https://thehackernews.com/2026/11/china-aligned-hackers-hijack-sogou.html",
           "date": "2026-11-04",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMawvNNOvRYRm-k7ii9yDdw214v4kwQ7h5fAfOaUVkvMetNwArral8qumlObtaftjOcBsibL9vkqM1UT0-9l9jYPjj3M3C9NcPfg5pdIuENUfdKlK7lyseCS30AVhgLLs6a-2fdXlSDymSVeyIziO7IC13HFCaOf1v4sjbgmkeKfewWNsbTJCJ0WR2zLBZ/s1700-nu-rw-lo-l85-e365/key.jpg"
+        },
+        {
+          "titre": "SlippyNunchucks hijacks Sogou Input Method’s brand promotion mechanism to distribute malware",
+          "site": "WeLiveSecurity (ESET)",
+          "url": "https://www.welivesecurity.com/en/eset-research/slippynunchucks-hijacks-sogou-input-methods-brand-promotion-mechanism-to-distribute-malware/",
+          "date": "2026-11-04",
+          "image": "https://web-assets.esetstatic.com/wls/2026/11-26/slippynunchucks/slippynunchucks-malware.jpg"
         }
       ]
     },

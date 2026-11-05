@@ -1,45 +1,5 @@
 [
   {
-    "id": "834a248937dfd68d",
-    "title": "When Your Ransomware Negotiator Works for the Other Side",
-    "link": "https://www.darkreading.com/cyber-risk/when-your-ransomware-negotiator-works-other-side",
-    "source": "Dark Reading",
-    "raison": "actualité judiciaire, aucun détail sur la méthode d'attaque (page inaccessible)",
-    "date": "2026-10-16T14:10:00+00:00"
-  },
-  {
-    "id": "95977526b7ada6ed",
-    "title": "RISC-V : quand l'indépendance de l'Europe passe par des processeurs... chinois",
-    "link": "https://www.lemagit.fr/actualites/366652473/RISC-V-quand-lindependance-de-lEurope-passe-par-des-processeurs-chinois",
-    "source": "LeMagIT",
-    "raison": "actualité industrielle, pas d'attaque",
-    "date": "2026-10-16T14:10:00+00:00"
-  },
-  {
-    "id": "ed6d11b21cf42d85",
-    "title": "Il n'y a pas (encore) d'IA agentique dans les grandes entreprises françaises",
-    "link": "https://www.lemagit.fr/actualites/366652338/LIA-agentique-nest-pas-encore-deployee-dans-les-grandes-entreprises-francaises",
-    "source": "LeMagIT",
-    "raison": "sujet hors attaque",
-    "date": "2026-10-16T14:10:00+00:00"
-  },
-  {
-    "id": "1a228933fafb2009",
-    "title": "Integrated Security Operations Center (ISOC): What It Means",
-    "link": "https://www.sekoia.com/blog/isoc-when-the-soc-stops-being-a-stack-of-tools",
-    "source": "Sekoia",
-    "raison": "annonce produit",
-    "date": "2026-10-16T15:20:00+00:00"
-  },
-  {
-    "id": "2c4913860ee4fefe",
-    "title": "In Other News: ICS-Sniper Attack, Hacking XWorm Malware Operators, $250k Chrome Exploit",
-    "link": "https://www.securityweek.com/in-other-news-ics-sniper-attack-hacking-xworm-malware-operators-250k-chrome-exploit/",
-    "source": "SecurityWeek",
-    "raison": "brève hebdomadaire sans détail d'attaque",
-    "date": "2026-10-16T15:20:00+00:00"
-  },
-  {
     "id": "348862c34884fced",
     "title": "Rapid7 Analysis: GitLab CI/CD Regex Integer Overflow (CVE-2026-97229)",
     "link": "https://www.rapid7.com/blog/post/ra-gitlab-ci-cd-regex-integer-overflow-technical-analysis-cve-2026-97229",
@@ -3998,5 +3958,45 @@
     "source": "The Record",
     "raison": "actualité judiciaire sans méthode d'attaque",
     "date": "2026-11-05T21:10:00+00:00"
+  },
+  {
+    "id": "2e711d3789ca8a2b",
+    "title": "Barracuda Networks is your new best friend (Barracuda Email Security Gateway Pre-Auth Remote Root RCE CVE-2026-116606 / CVE-2026-111560)",
+    "link": "https://labs.watchtowr.com/barracuda-networks-is-your-new-best-friend-barracuda-email-security-gateway-pre-auth-remote-root-rce-cve-2026-116606-cve-2026-111560/",
+    "source": "watchTowr Labs",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-05T22:07:35+00:00"
+  },
+  {
+    "id": "306be99284dc169e",
+    "title": "Researchers Bypass ChatGPT Lockdown Mode to Exfiltrate Chats Without User Interaction",
+    "link": "https://thehackernews.com/2026/11/researchers-bypass-chatgpt-lockdown.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-05T22:07:35+00:00"
+  },
+  {
+    "id": "3fe484f436f5a815",
+    "title": "OpenSSH Issues Emergency Fix for Flaw Letting Long Passwords Bypass SSH Auth on Alpine Linux",
+    "link": "https://thehackernews.com/2026/11/openssh-issues-emergency-fix-for-flaw.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-05T22:07:35+00:00"
+  },
+  {
+    "id": "6ae54b5becb8074a",
+    "title": "What We Missed: Knicks Phishing Test Goes Out of Bounds",
+    "link": "https://www.darkreading.com/cyber-risk/what-we-missed-knicks-phishing-test-out-of-bounds",
+    "source": "Dark Reading",
+    "raison": "vidéo de revue d'actualité sans détail sur la méthode d'attaque (page inaccessible, résumé du flux seul)",
+    "date": "2026-11-05T22:07:35+00:00"
+  },
+  {
+    "id": "c5d8bcb2d0573a49",
+    "title": "US Government Email Systems Open to Abuse Thanks to Typos",
+    "link": "https://www.darkreading.com/cybersecurity-operations/us-government-email-systems-abuse-typos",
+    "source": "Dark Reading",
+    "raison": "enregistrements DNS erronés, aucune attaque constatée (page inaccessible, résumé du flux seul)",
+    "date": "2026-11-05T22:07:35+00:00"
   }
 ]

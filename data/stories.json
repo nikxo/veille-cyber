@@ -34047,155 +34047,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-11-02-congelateurs-supermarches-europe",
-      "title": "Congélateurs de supermarchés européens piratés : seconde vague le 2 novembre",
-      "created": "2026-11-02T13:50:00+00:00",
-      "updated": "2026-11-05T20:20:00+00:00",
-      "version": 9,
-      "resume": "Dans la nuit du 1er au 2 novembre, des attaquants ont modifié à distance les réglages de contrôleurs de réfrigération dans plus de 100 magasins européens, entraînant des pertes d'aliments. Aucun groupe n'a revendiqué [1, 2, 3, 4].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non confirmé ; chaque congélateur touché avait une interface de gestion accessible depuis Internet selon Kevin Beaumont [4] ; ordinateur de contrôle d'un ancien système Danfoss atteint en Estonie [3]."
-        },
-        {
-          "etape": "Manipulation des températures",
-          "texte": "Réglages modifiés à distance : dégivrage forcé en Belgique, 50 °C en Suède et en Estonie → aliments jetés ou retirés de la vente [1, 2, 3, 4]."
-        },
-        {
-          "etape": "Équipements touchés",
-          "texte": "Un ancien système Danfoss atteint en Estonie, des équipements Copeland en Belgique [1]."
-        },
-        {
-          "etape": "Réponse",
-          "texte": "Techniciens mobilisés en Belgique, installations déconnectées, camions frigorifiques utilisés [1, 2, 4] ; la CISA et le FBI appellent à renforcer les systèmes de refroidissement [10]."
-        },
-        {
-          "etape": "Atteinte du sang",
-          "texte": "Attaque contre le système de supervision d'un prestataire → consignes de température et de dégivrage relevées dans trois sites de l'Établissement français du sang [6, 7, 8, 9]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant inconnu",
-            "note": ""
-          },
-          {
-            "id": "ctl",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Contrôleurs de réfrigération",
-            "note": "Danfoss, Copeland"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "ctl",
-            "etape": 2,
-            "texte": "Températures réglées à 50 °C à distance"
-          }
-        ]
-      },
-      "limites": "Vecteur d'accès non confirmé, lien entre les deux vagues non établi [1, 2, 3, 4]. Coolworld évoque un composant tiers vulnérable, non décrit [8]. Vecteur à l'Établissement français du sang non précisé [9].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non identifié, aucune revendication [1, 3, 4]",
-        "Groupes alignés sur la Russie : suspects crédibles selon SentinelLABS, attribution restée ouverte [5]"
-      ],
-      "cibles": [
-        "Plus de 115 magasins en Belgique, Pays-Bas, Suède, Luxembourg, Irlande et Estonie [2] ; cas aussi en Finlande, Italie et Portugal [3, 4]",
-        "Trois sites de l'Établissement français du sang, sans perte de produits sanguins signalée [6, 7, 8]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "CISA",
-          "definition": "Agence américaine de cybersécurité des infrastructures"
-        },
-        {
-          "sigle": "FBI",
-          "definition": "Police fédérale américaine"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Second wave of suspected cyberattacks hits supermarket freezers across Europe",
-          "site": "The Record",
-          "url": "https://therecord.media/cyberattack-grocery-freezers-europe",
-          "date": "2026-11-02",
-          "image": "https://cms.therecord.media/uploads/Shopping_carts_Netherlands_6df61cd499.jpg"
-        },
-        {
-          "titre": "Hackers disrupt refrigeration systems at European supermarkets",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/hackers-disrupt-refrigeration-systems-at-european-supermarkets/",
-          "date": "2026-11-02",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/02/freezers.jpg"
-        },
-        {
-          "titre": "New Wave of Refrigeration Cyberattacks Hits Supermarkets Across Europe, Forcing Stores to Pull Food",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/second-wave-of-cyberattacks-hits.html",
-          "date": "2026-11-03",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjScxShEa3bsAhGLHlqkBcsyuRe6UeQwrOVXBFP3TwxzmXtd03vDeDRZHxxBLIKHDYgY5p5CsrFvBwuozg3UsRLtVMO758NhVwSju6D6WgO1J42wJd2NWR9aVzz-B_CWfiMFH2QANUrAnUXbgkKec2KtJjULvN3NTqrCPbLRNnxlnvBFIAkndClXJMIeXY/s1700-nu-rw-lo-l85-e365/fridge-hack.jpg"
-        },
-        {
-          "titre": "Over 100 European Stores Hit as Supermarket Fridge Attacks Return",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/over-100-european-stores-hit-as-supermarket-fridge-attacks-resume/",
-          "date": "2026-11-03",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supermarket-refrigerators.jpeg"
-        },
-        {
-          "titre": "Defrost and Disrupt | An Assessment of Europe’s Refrigeration Attacks",
-          "site": "SentinelLABS",
-          "url": "https://www.sentinelone.com/labs/defrost-and-disrupt-an-assessment-of-europe-s-refrigeration-attacks/",
-          "date": "2026-11-03"
-        },
-        {
-          "titre": "French blood service hit by Europe-wide cyberattacks on refrigeration",
-          "site": "The Record",
-          "url": "https://therecord.media/france-cyberattack-blood-refrigeration",
-          "date": "2026-11-04",
-          "image": "https://cms.therecord.media/uploads/Blood_PP_17fdea2031.jpg"
-        },
-        {
-          "titre": "Cyberattack disrupts blood storage refrigeration systems in France",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/cyberattack-disrupts-blood-storage-refrigeration-systems-in-france/",
-          "date": "2026-11-04",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/blood-bags.jpg"
-        },
-        {
-          "titre": "Cyberattack Hits French Blood Bank Site but No Blood Products Are Compromised",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/cyberattack-hits-french-blood-bank-site-but-no-blood-products-are-compromised/",
-          "date": "2026-11-05",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/blood.jpeg"
-        },
-        {
-          "titre": "Cyberattaque contre les frigos de l’EFS : le plasma visé",
-          "site": "ZATAZ",
-          "url": "https://www.zataz.com/cyberattaque-contre-les-frigos-de-lefs-le-plasma-vise/",
-          "date": "2026-11-05",
-          "image": "https://www.zataz.com/wp-content/uploads/EFS_plasma_ZATAZ_COM.jpg"
-        },
-        {
-          "titre": "Harden cooling systems now, feds warn critical infrastructure operators amid attacks",
-          "site": "The Record",
-          "url": "https://therecord.media/cyberattacks-refrigeration-cisa-fbi",
-          "date": "2026-11-05",
-          "image": "https://cms.therecord.media/uploads/Trucks_34d1614b26.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-11-04-codex-jailbreak-prompt-adware",
       "title": "Jailbreak d'OpenAI Codex : une publicité cachée dans la configuration de l'agent",
       "created": "2026-11-04T18:08:31+00:00",
@@ -34852,279 +34703,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-11-04-watering-hole-ios-android-n-day",
-      "title": "APT29 : point d'eau contre iOS et Android via un script d'analyse web piraté",
-      "created": "2026-11-04T10:30:00+00:00",
-      "updated": "2026-11-05T20:20:00+00:00",
-      "version": 6,
-      "resume": "Le groupe APT29, lié à la Russie, mène une campagne de point d'eau contre des utilisateurs d'iOS et d'Android, via des sites compromis, de faux sites et un script d'analyse web piraté [1, 2, 3, 5].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Sites légitimes compromis, faux sites relais et script du service Plerdy modifié pendant une semaine → JavaScript malveillant servi aux visiteurs [1, 2, 3, 4]."
-        },
-        {
-          "etape": "Profilage et exploitation",
-          "texte": "Le JavaScript profile l'appareil → le serveur renvoie la chaîne d'exploitation iOS ou Android, sans interaction [1, 2, 3, 4] ; seules les victimes jugées intéressantes sont ciblées [6]."
-        },
-        {
-          "etape": "Vol de données iOS",
-          "texte": "Failles d'iOS 16.7 et 18.5 exploitées → vol de cookies Safari, de bases WhatsApp et Telegram, du trousseau [1, 2, 5]."
-        },
-        {
-          "etape": "Vol de données Android",
-          "texte": "Failles de Chrome pour Android et de Qualcomm exploitées, puis logiciel AndroSnitch → vol de cookies, d'identifiants et de mots de passe Wi-Fi [1, 2, 4, 5]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (APT29)",
-            "note": ""
-          },
-          {
-            "id": "pl",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Script d'analyse Plerdy",
-            "note": "Code modifié"
-          },
-          {
-            "id": "web",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Sites compromis ou faux sites",
-            "note": ""
-          },
-          {
-            "id": "tel",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Appareils iOS et Android",
-            "note": "Données volées"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "pl",
-            "etape": 1,
-            "texte": "Script du service modifié"
-          },
-          {
-            "de": "att",
-            "vers": "web",
-            "etape": 1,
-            "texte": "Sites compromis et faux sites"
-          },
-          {
-            "de": "web",
-            "vers": "tel",
-            "etape": 2,
-            "texte": "Profilage puis exploits adaptés"
-          }
-        ]
-      },
-      "limites": "Les sources ne donnent pas de description technique des failles [1, 2, 5].",
-      "cves": [
-        {
-          "id": "CVE-2025-43529",
-          "explication": "Faille utilisée dans les chaînes contre iOS 16.7 et 18.5, liée au kit d'exploitation DarkSword [1, 2]."
-        },
-        {
-          "id": "CVE-2026-3910",
-          "explication": "Faille de Chrome pour Android utilisée pour exécuter du code à distance et sortir du bac à sable [2] ; corrigée en mars [4]."
-        },
-        {
-          "id": "CVE-2024-27834",
-          "explication": "Produits Apple : authentification incorrecte permettant de contourner Pointer Authentication, gravité moyenne 5,5 sur 10, ajoutée au catalogue des failles exploitées [3]."
-        },
-        {
-          "id": "CVE-2025-27038",
-          "explication": "Faille de Qualcomm utilisée dans la chaîne Android, corrigée par la mise à jour Android d'août 2025 [4]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "APT29 (Midnight Blizzard), lié à la Russie, attribution par Sekoia [1, 2, 3, 5]"
-      ],
-      "cibles": [
-        "Visiteurs de sites compromis aux États-Unis, en Ukraine, en Tchéquie et en Bulgarie, dont une association américaine de la chimie [1, 2]",
-        "Aussi : une entreprise ukrainienne de production de gaz et un parti politique d'extrême droite européen [5]",
-        "Des milliers d'utilisateurs de mobiles ciblés selon le titre de Dark Reading [6]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "APT29",
-          "definition": "Advanced Persistent Threat 29 : nom d'un groupe d'attaquants lié à la Russie"
-        },
-        {
-          "sigle": "Pointer Authentication",
-          "definition": "Protection d'Apple qui vérifie l'intégrité des pointeurs mémoire"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Hackers use n-day exploits in zero-click attacks on iOS, Android devices",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/hackers-use-n-day-exploits-in-zero-click-attacks-on-ios-android-devices/",
-          "date": "2026-11-04",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/07/13/Russian_hacker.jpg"
-        },
-        {
-          "titre": "APT29-Linked Hackers Hijack Web Analytics Script to Deliver iOS and Android Exploits",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/apt29-linked-hackers-hijack-web.html",
-          "date": "2026-11-04",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhx1cus2o8fkYGLhQu9BfPgGtAUwnmTAMucLagfAodBuRoYnyxGIJKgpqtKFyCSV-WSG3pDqmPujhj-iwoOZB-zF8JjbQMrLzDHYtdTPA3hD3Kc3rqYQM4CQwkICwZkh8K6O8ZSt-WAA_PBoUA6lHwh_55dbDlKizsjzcTN847c9BSHsWHmrAP42JHRHIYS/s1700-nu-rw-lo-l85-e365/ios-exploit.jpg"
-        },
-        {
-          "titre": "Hackers Exploit Patched Apple Flaw to Deliver Info-Stealing Malware, CISA Says",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/hackers-exploit-patched-apple-flaw-to.html",
-          "date": "2026-11-05",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkv0B0acGnMDLnCJQYXNCkpzSeKKr_1m4-a10Q2Iy6DZOorGLb35YDD9vw3iQQA9fZTi7QGIZYlSsvTSmxc8w0UbgN_Xtl-QPyTngA9qhOuoryee3Z8X8CZRnHiUAY3wuIXG_UIO1DyDnjnfS5cOilt3WPzRnYYqFDZ1NHbXS0OVAsrVYHSeFuc7zglZw5/s1700-nu-rw-lo-l85-e365/apple-0day.jpg"
-        },
-        {
-          "titre": "Russia-Linked Hackers Hit iOS, Android Devices With Exploit Chains via Watering Holes",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/russia-linked-hackers-hit-ios-android-devices-with-exploit-chains-via-watering-holes/",
-          "date": "2026-11-05",
-          "image": "https://www.securityweek.com/wp-content/uploads/2024/10/Midnight-Blizzard-Russia-1024x576.png"
-        },
-        {
-          "titre": "Russian state-linked hackers target iPhone, Android devices in zero-click espionage campaign",
-          "site": "The Record",
-          "url": "https://therecord.media/russia-hackers-smartphone-cyberattacks",
-          "date": "2026-11-05",
-          "image": "https://cms.therecord.media/uploads/Smartphones_79e20f7fb1.jpg"
-        },
-        {
-          "titre": "APT29's Watering Holes Target Thousands of Mobile Users",
-          "site": "Dark Reading",
-          "url": "https://www.darkreading.com/mobile-security/apt29-watering-holes-target-mobile-users",
-          "date": "2026-11-05"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-04-zyxel-gs1900-zero-day",
-      "title": "Zyxel : faille zero-day des commutateurs GS1900 exploitée sur près de 1 000 appareils",
-      "created": "2026-11-04T21:15:00+00:00",
-      "updated": "2026-11-05T11:09:35+00:00",
-      "version": 3,
-      "resume": "Une faille zero-day des commutateurs Zyxel GS1900 a servi à compromettre près de 1 000 appareils et à voler configurations et identifiants [1]. Selon Binarly, le correctif de juin ne bloque pas l'exploit [2, 3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Requêtes web forgées, sans authentification, vers une faille du service web des commutateurs → exécution de commandes, près de 1 000 appareils compromis [1, 2, 3]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Téléchargement d'un script de collecte sur les commutateurs → récupération des configurations, des identifiants root hachés et d'informations réseau [1, 2]."
-        },
-        {
-          "etape": "Déploiement de logiciels malveillants",
-          "texte": "Installation de variantes des logiciels malveillants Jitterly et Sixzut, déjà analysés par Acronis [3]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "sw",
-            "type": "passerelle",
-            "zone": "victime",
-            "nom": "Commutateurs Zyxel GS1900",
-            "note": "Près de 1 000"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "sw",
-            "etape": 1,
-            "texte": "Exploitation d'une faille zero-day"
-          },
-          {
-            "de": "sw",
-            "vers": "att",
-            "etape": 2,
-            "texte": "Configurations et identifiants volés"
-          },
-          {
-            "de": "att",
-            "vers": "sw",
-            "etape": 3,
-            "texte": "Variantes de Jitterly et Sixzut déployées"
-          }
-        ]
-      },
-      "limites": "Les sources ne précisent pas comment les attaquants ont atteint les commutateurs [2]. Le lien avec le même groupe pour la nouvelle campagne n'est pas confirmé explicitement [3].",
-      "cves": [
-        {
-          "id": "CVE-2026-7273",
-          "explication": "Commutateurs GS1900 : absence de vérification du compteur de paramètres selon Zyxel, corrigée par le firmware 2.90 Patch 2 [2]."
-        },
-        {
-          "id": "CVE-2026-107441",
-          "explication": "Commutateurs GS1900 : écriture hors limites dans le firmware, exécution de commandes par un attaquant non authentifié ; gravité 9,8 (Binarly) ou 8,8 (fiche CVE), corrigée le 23 octobre [2, 3]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "Selon GreyNoise, acteur identique ou apparenté au groupe Red Heron, décrit comme chinophone [2]"
-      ],
-      "cibles": [
-        "Commutateurs réseau Zyxel de la série GS1900 [1]",
-        "996 commutateurs touchés, dont 564 avec les identifiants par défaut [2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "GS1900",
-          "definition": "Série de commutateurs réseau (switchs) de Zyxel"
-        },
-        {
-          "sigle": "root",
-          "definition": "Compte administrateur disposant de tous les droits sur un système Unix"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Zyxel fixes zero-day exploited to hack nearly 1,000 network switches",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches/",
-          "date": "2026-11-04",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/zyxel-gs1900.jpg"
-        },
-        {
-          "titre": "Zyxel GS1900 Patch Fails to Block Zero-Day Exploit Allowing Root Command Execution",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html",
-          "date": "2026-11-05",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaF7lULSp8hpZx_WSDcDsJxD9TzTOH5Oo5dkFteUVQqQMOXc7ZyytOxbNgL01vkV43Kx0V0sDzJvKGrZvPwjos_-g9djk8jVAqSN04CIhGoiWWUMLdyKQH32ES8ghi-6ilZbnbGi_WIRi8hvzik6ztrin-MZEK1QI2CKR3Lk1sUg3yVYuhGvsX0pC85Qg/s1700-nu-rw-lo-l85-e365/zyxel-hacker.jpg"
-        },
-        {
-          "titre": "Zyxel Switch Hacks Blamed on Patched Flaw Actually Exploited a Zero-Day",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/zyxel-switch-hacks-blamed-on-patched-flaw-actually-exploited-a-zero-day/",
-          "date": "2026-11-05",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/09/switch-router.webp"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-10-31-chainalysis-intrusion-agentique",
       "title": "Chainalysis : intrusion dans ses outils internes par des techniques agentiques offensives",
       "created": "2026-10-31T13:20:00+00:00",
@@ -35647,6 +35225,119 @@
           "url": "https://thehackernews.com/2026/11/backdoored-docker-image-for-artex-ai.html",
           "date": "2026-11-05",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiA5xlxteigxw9PDEVogRmGjD3vyPuJRyKCuIAOmURy0CY-OLXfYOjC93BPb_gvifLUiVoUk9JcjmxtsGpkT-cYhlrTwXS6yodTv-WwHnPUKvahU67tc5R841Sb_hkIIsUkzNzne5Fzo0h6BUpzEW1770YFBayYksyjSc9pKOV3VsHfoHcPfu3mYAFOQW4K/s1700-nu-rw-lo-l85-e365/docker-ai.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-04-zyxel-gs1900-zero-day",
+      "title": "Zyxel : faille zero-day des commutateurs GS1900 exploitée sur près de 1 000 appareils",
+      "created": "2026-11-04T21:15:00+00:00",
+      "updated": "2026-11-05T11:09:35+00:00",
+      "version": 3,
+      "resume": "Une faille zero-day des commutateurs Zyxel GS1900 a servi à compromettre près de 1 000 appareils et à voler configurations et identifiants [1]. Selon Binarly, le correctif de juin ne bloque pas l'exploit [2, 3].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Requêtes web forgées, sans authentification, vers une faille du service web des commutateurs → exécution de commandes, près de 1 000 appareils compromis [1, 2, 3]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Téléchargement d'un script de collecte sur les commutateurs → récupération des configurations, des identifiants root hachés et d'informations réseau [1, 2]."
+        },
+        {
+          "etape": "Déploiement de logiciels malveillants",
+          "texte": "Installation de variantes des logiciels malveillants Jitterly et Sixzut, déjà analysés par Acronis [3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sw",
+            "type": "passerelle",
+            "zone": "victime",
+            "nom": "Commutateurs Zyxel GS1900",
+            "note": "Près de 1 000"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sw",
+            "etape": 1,
+            "texte": "Exploitation d'une faille zero-day"
+          },
+          {
+            "de": "sw",
+            "vers": "att",
+            "etape": 2,
+            "texte": "Configurations et identifiants volés"
+          },
+          {
+            "de": "att",
+            "vers": "sw",
+            "etape": 3,
+            "texte": "Variantes de Jitterly et Sixzut déployées"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent pas comment les attaquants ont atteint les commutateurs [2]. Le lien avec le même groupe pour la nouvelle campagne n'est pas confirmé explicitement [3].",
+      "cves": [
+        {
+          "id": "CVE-2026-7273",
+          "explication": "Commutateurs GS1900 : absence de vérification du compteur de paramètres selon Zyxel, corrigée par le firmware 2.90 Patch 2 [2]."
+        },
+        {
+          "id": "CVE-2026-107441",
+          "explication": "Commutateurs GS1900 : écriture hors limites dans le firmware, exécution de commandes par un attaquant non authentifié ; gravité 9,8 (Binarly) ou 8,8 (fiche CVE), corrigée le 23 octobre [2, 3]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Selon GreyNoise, acteur identique ou apparenté au groupe Red Heron, décrit comme chinophone [2]"
+      ],
+      "cibles": [
+        "Commutateurs réseau Zyxel de la série GS1900 [1]",
+        "996 commutateurs touchés, dont 564 avec les identifiants par défaut [2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "GS1900",
+          "definition": "Série de commutateurs réseau (switchs) de Zyxel"
+        },
+        {
+          "sigle": "root",
+          "definition": "Compte administrateur disposant de tous les droits sur un système Unix"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Zyxel fixes zero-day exploited to hack nearly 1,000 network switches",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches/",
+          "date": "2026-11-04",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/zyxel-gs1900.jpg"
+        },
+        {
+          "titre": "Zyxel GS1900 Patch Fails to Block Zero-Day Exploit Allowing Root Command Execution",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html",
+          "date": "2026-11-05",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaF7lULSp8hpZx_WSDcDsJxD9TzTOH5Oo5dkFteUVQqQMOXc7ZyytOxbNgL01vkV43Kx0V0sDzJvKGrZvPwjos_-g9djk8jVAqSN04CIhGoiWWUMLdyKQH32ES8ghi-6ilZbnbGi_WIRi8hvzik6ztrin-MZEK1QI2CKR3Lk1sUg3yVYuhGvsX0pC85Qg/s1700-nu-rw-lo-l85-e365/zyxel-hacker.jpg"
+        },
+        {
+          "titre": "Zyxel Switch Hacks Blamed on Patched Flaw Actually Exploited a Zero-Day",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/zyxel-switch-hacks-blamed-on-patched-flaw-actually-exploited-a-zero-day/",
+          "date": "2026-11-05",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/09/switch-router.webp"
         }
       ]
     },
@@ -36187,6 +35878,430 @@
           "url": "https://research.checkpoint.com/2026/hacking-on-autopilot-inside-artex-cybercrime-campaigns/",
           "date": "2026-11-05",
           "image": "https://research.checkpoint.com/wp-content/uploads/2026/11/artex_background.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-02-congelateurs-supermarches-europe",
+      "title": "Congélateurs de supermarchés européens piratés : seconde vague le 2 novembre",
+      "created": "2026-11-02T13:50:00+00:00",
+      "updated": "2026-11-05T20:20:00+00:00",
+      "version": 9,
+      "resume": "Dans la nuit du 1er au 2 novembre, des attaquants ont modifié à distance les réglages de contrôleurs de réfrigération dans plus de 100 magasins européens, entraînant des pertes d'aliments. Aucun groupe n'a revendiqué [1, 2, 3, 4].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non confirmé ; chaque congélateur touché avait une interface de gestion accessible depuis Internet selon Kevin Beaumont [4] ; ordinateur de contrôle d'un ancien système Danfoss atteint en Estonie [3]."
+        },
+        {
+          "etape": "Manipulation des températures",
+          "texte": "Réglages modifiés à distance : dégivrage forcé en Belgique, 50 °C en Suède et en Estonie → aliments jetés ou retirés de la vente [1, 2, 3, 4]."
+        },
+        {
+          "etape": "Équipements touchés",
+          "texte": "Un ancien système Danfoss atteint en Estonie, des équipements Copeland en Belgique [1]."
+        },
+        {
+          "etape": "Réponse",
+          "texte": "Techniciens mobilisés en Belgique, installations déconnectées, camions frigorifiques utilisés [1, 2, 4] ; la CISA et le FBI appellent à renforcer les systèmes de refroidissement [10]."
+        },
+        {
+          "etape": "Atteinte du sang",
+          "texte": "Attaque contre le système de supervision d'un prestataire → consignes de température et de dégivrage relevées dans trois sites de l'Établissement français du sang [6, 7, 8, 9]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant inconnu",
+            "note": ""
+          },
+          {
+            "id": "ctl",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Contrôleurs de réfrigération",
+            "note": "Danfoss, Copeland"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ctl",
+            "etape": 2,
+            "texte": "Températures réglées à 50 °C à distance"
+          }
+        ]
+      },
+      "limites": "Vecteur d'accès non confirmé, lien entre les deux vagues non établi [1, 2, 3, 4]. Coolworld évoque un composant tiers vulnérable, non décrit [8]. Vecteur à l'Établissement français du sang non précisé [9].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié, aucune revendication [1, 3, 4]",
+        "Groupes alignés sur la Russie : suspects crédibles selon SentinelLABS, attribution restée ouverte [5]"
+      ],
+      "cibles": [
+        "Plus de 115 magasins en Belgique, Pays-Bas, Suède, Luxembourg, Irlande et Estonie [2] ; cas aussi en Finlande, Italie et Portugal [3, 4]",
+        "Trois sites de l'Établissement français du sang, sans perte de produits sanguins signalée [6, 7, 8]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité des infrastructures"
+        },
+        {
+          "sigle": "FBI",
+          "definition": "Police fédérale américaine"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Second wave of suspected cyberattacks hits supermarket freezers across Europe",
+          "site": "The Record",
+          "url": "https://therecord.media/cyberattack-grocery-freezers-europe",
+          "date": "2026-11-02",
+          "image": "https://cms.therecord.media/uploads/Shopping_carts_Netherlands_6df61cd499.jpg"
+        },
+        {
+          "titre": "Hackers disrupt refrigeration systems at European supermarkets",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-disrupt-refrigeration-systems-at-european-supermarkets/",
+          "date": "2026-11-02",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/02/freezers.jpg"
+        },
+        {
+          "titre": "New Wave of Refrigeration Cyberattacks Hits Supermarkets Across Europe, Forcing Stores to Pull Food",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/second-wave-of-cyberattacks-hits.html",
+          "date": "2026-11-03",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjScxShEa3bsAhGLHlqkBcsyuRe6UeQwrOVXBFP3TwxzmXtd03vDeDRZHxxBLIKHDYgY5p5CsrFvBwuozg3UsRLtVMO758NhVwSju6D6WgO1J42wJd2NWR9aVzz-B_CWfiMFH2QANUrAnUXbgkKec2KtJjULvN3NTqrCPbLRNnxlnvBFIAkndClXJMIeXY/s1700-nu-rw-lo-l85-e365/fridge-hack.jpg"
+        },
+        {
+          "titre": "Over 100 European Stores Hit as Supermarket Fridge Attacks Return",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/over-100-european-stores-hit-as-supermarket-fridge-attacks-resume/",
+          "date": "2026-11-03",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supermarket-refrigerators.jpeg"
+        },
+        {
+          "titre": "Defrost and Disrupt | An Assessment of Europe’s Refrigeration Attacks",
+          "site": "SentinelLABS",
+          "url": "https://www.sentinelone.com/labs/defrost-and-disrupt-an-assessment-of-europe-s-refrigeration-attacks/",
+          "date": "2026-11-03"
+        },
+        {
+          "titre": "French blood service hit by Europe-wide cyberattacks on refrigeration",
+          "site": "The Record",
+          "url": "https://therecord.media/france-cyberattack-blood-refrigeration",
+          "date": "2026-11-04",
+          "image": "https://cms.therecord.media/uploads/Blood_PP_17fdea2031.jpg"
+        },
+        {
+          "titre": "Cyberattack disrupts blood storage refrigeration systems in France",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cyberattack-disrupts-blood-storage-refrigeration-systems-in-france/",
+          "date": "2026-11-04",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/blood-bags.jpg"
+        },
+        {
+          "titre": "Cyberattack Hits French Blood Bank Site but No Blood Products Are Compromised",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/cyberattack-hits-french-blood-bank-site-but-no-blood-products-are-compromised/",
+          "date": "2026-11-05",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/blood.jpeg"
+        },
+        {
+          "titre": "Cyberattaque contre les frigos de l’EFS : le plasma visé",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/cyberattaque-contre-les-frigos-de-lefs-le-plasma-vise/",
+          "date": "2026-11-05",
+          "image": "https://www.zataz.com/wp-content/uploads/EFS_plasma_ZATAZ_COM.jpg"
+        },
+        {
+          "titre": "Harden cooling systems now, feds warn critical infrastructure operators amid attacks",
+          "site": "The Record",
+          "url": "https://therecord.media/cyberattacks-refrigeration-cisa-fbi",
+          "date": "2026-11-05",
+          "image": "https://cms.therecord.media/uploads/Trucks_34d1614b26.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-04-watering-hole-ios-android-n-day",
+      "title": "APT29 : point d'eau contre iOS et Android via un script d'analyse web piraté",
+      "created": "2026-11-04T10:30:00+00:00",
+      "updated": "2026-11-05T20:20:00+00:00",
+      "version": 6,
+      "resume": "Le groupe APT29, lié à la Russie, mène une campagne de point d'eau contre des utilisateurs d'iOS et d'Android, via des sites compromis, de faux sites et un script d'analyse web piraté [1, 2, 3, 5].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Sites légitimes compromis, faux sites relais et script du service Plerdy modifié pendant une semaine → JavaScript malveillant servi aux visiteurs [1, 2, 3, 4]."
+        },
+        {
+          "etape": "Profilage et exploitation",
+          "texte": "Le JavaScript profile l'appareil → le serveur renvoie la chaîne d'exploitation iOS ou Android, sans interaction [1, 2, 3, 4] ; seules les victimes jugées intéressantes sont ciblées [6]."
+        },
+        {
+          "etape": "Vol de données iOS",
+          "texte": "Failles d'iOS 16.7 et 18.5 exploitées → vol de cookies Safari, de bases WhatsApp et Telegram, du trousseau [1, 2, 5]."
+        },
+        {
+          "etape": "Vol de données Android",
+          "texte": "Failles de Chrome pour Android et de Qualcomm exploitées, puis logiciel AndroSnitch → vol de cookies, d'identifiants et de mots de passe Wi-Fi [1, 2, 4, 5]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (APT29)",
+            "note": ""
+          },
+          {
+            "id": "pl",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Script d'analyse Plerdy",
+            "note": "Code modifié"
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Sites compromis ou faux sites",
+            "note": ""
+          },
+          {
+            "id": "tel",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Appareils iOS et Android",
+            "note": "Données volées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pl",
+            "etape": 1,
+            "texte": "Script du service modifié"
+          },
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Sites compromis et faux sites"
+          },
+          {
+            "de": "web",
+            "vers": "tel",
+            "etape": 2,
+            "texte": "Profilage puis exploits adaptés"
+          }
+        ]
+      },
+      "limites": "Les sources ne donnent pas de description technique des failles [1, 2, 5].",
+      "cves": [
+        {
+          "id": "CVE-2025-43529",
+          "explication": "Faille utilisée dans les chaînes contre iOS 16.7 et 18.5, liée au kit d'exploitation DarkSword [1, 2]."
+        },
+        {
+          "id": "CVE-2026-3910",
+          "explication": "Faille de Chrome pour Android utilisée pour exécuter du code à distance et sortir du bac à sable [2] ; corrigée en mars [4]."
+        },
+        {
+          "id": "CVE-2024-27834",
+          "explication": "Produits Apple : authentification incorrecte permettant de contourner Pointer Authentication, gravité moyenne 5,5 sur 10, ajoutée au catalogue des failles exploitées [3]."
+        },
+        {
+          "id": "CVE-2025-27038",
+          "explication": "Faille de Qualcomm utilisée dans la chaîne Android, corrigée par la mise à jour Android d'août 2025 [4]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "APT29 (Midnight Blizzard), lié à la Russie, attribution par Sekoia [1, 2, 3, 5]"
+      ],
+      "cibles": [
+        "Visiteurs de sites compromis aux États-Unis, en Ukraine, en Tchéquie et en Bulgarie, dont une association américaine de la chimie [1, 2]",
+        "Aussi : une entreprise ukrainienne de production de gaz et un parti politique d'extrême droite européen [5]",
+        "Des milliers d'utilisateurs de mobiles ciblés selon le titre de Dark Reading [6]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "APT29",
+          "definition": "Advanced Persistent Threat 29 : nom d'un groupe d'attaquants lié à la Russie"
+        },
+        {
+          "sigle": "Pointer Authentication",
+          "definition": "Protection d'Apple qui vérifie l'intégrité des pointeurs mémoire"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers use n-day exploits in zero-click attacks on iOS, Android devices",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-use-n-day-exploits-in-zero-click-attacks-on-ios-android-devices/",
+          "date": "2026-11-04",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/07/13/Russian_hacker.jpg"
+        },
+        {
+          "titre": "APT29-Linked Hackers Hijack Web Analytics Script to Deliver iOS and Android Exploits",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/apt29-linked-hackers-hijack-web.html",
+          "date": "2026-11-04",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhx1cus2o8fkYGLhQu9BfPgGtAUwnmTAMucLagfAodBuRoYnyxGIJKgpqtKFyCSV-WSG3pDqmPujhj-iwoOZB-zF8JjbQMrLzDHYtdTPA3hD3Kc3rqYQM4CQwkICwZkh8K6O8ZSt-WAA_PBoUA6lHwh_55dbDlKizsjzcTN847c9BSHsWHmrAP42JHRHIYS/s1700-nu-rw-lo-l85-e365/ios-exploit.jpg"
+        },
+        {
+          "titre": "Hackers Exploit Patched Apple Flaw to Deliver Info-Stealing Malware, CISA Says",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-patched-apple-flaw-to.html",
+          "date": "2026-11-05",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkv0B0acGnMDLnCJQYXNCkpzSeKKr_1m4-a10Q2Iy6DZOorGLb35YDD9vw3iQQA9fZTi7QGIZYlSsvTSmxc8w0UbgN_Xtl-QPyTngA9qhOuoryee3Z8X8CZRnHiUAY3wuIXG_UIO1DyDnjnfS5cOilt3WPzRnYYqFDZ1NHbXS0OVAsrVYHSeFuc7zglZw5/s1700-nu-rw-lo-l85-e365/apple-0day.jpg"
+        },
+        {
+          "titre": "Russia-Linked Hackers Hit iOS, Android Devices With Exploit Chains via Watering Holes",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/russia-linked-hackers-hit-ios-android-devices-with-exploit-chains-via-watering-holes/",
+          "date": "2026-11-05",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/10/Midnight-Blizzard-Russia-1024x576.png"
+        },
+        {
+          "titre": "Russian state-linked hackers target iPhone, Android devices in zero-click espionage campaign",
+          "site": "The Record",
+          "url": "https://therecord.media/russia-hackers-smartphone-cyberattacks",
+          "date": "2026-11-05",
+          "image": "https://cms.therecord.media/uploads/Smartphones_79e20f7fb1.jpg"
+        },
+        {
+          "titre": "APT29's Watering Holes Target Thousands of Mobile Users",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/mobile-security/apt29-watering-holes-target-mobile-users",
+          "date": "2026-11-05"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-05-faux-evenements-ia-phishing",
+      "title": "Faux événements OpenAI, SpaceX et Anthropic : vol de comptes Microsoft et Google par hameçonnage",
+      "created": "2026-11-05T22:07:35+00:00",
+      "updated": "2026-11-05T22:07:35+00:00",
+      "version": 1,
+      "resume": "Des employés reçoivent de fausses invitations à des événements OpenAI, SpaceX ou Anthropic. Deux plateformes d'hameçonnage volent leurs identifiants et sessions Microsoft ou Google [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Invitations à de faux événements promettant des avantages gratuits, avec redirections par des services de confiance (raccourcisseurs Google, Zapier) → victime amenée sur la fausse page [1]."
+        },
+        {
+          "etape": "Évitement des analyses",
+          "texte": "Page de vérification Cloudflare affichée → les outils automatisés ne peuvent pas analyser le site [1]."
+        },
+        {
+          "etape": "Appât de connexion",
+          "texte": "Inscription exigeant un compte professionnel pour réclamer la récompense → la victime choisit Microsoft ou Google [1]."
+        },
+        {
+          "etape": "Vol côté Microsoft",
+          "texte": "Code d'appareil généré par Kali365 et saisi sur la vraie page Microsoft → jetons volés ; puis fausse page VoidProxy → mot de passe et cookie de session capturés [1]."
+        },
+        {
+          "etape": "Vol côté Google",
+          "texte": "Fenêtre contextuelle avec fausse page Google de VoidProxy, placée en intermédiaire → identifiants, réponses de double authentification et cookies de session capturés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Employés ciblés",
+            "note": "Comptes professionnels"
+          },
+          {
+            "id": "kit",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Fausses pages d'inscription",
+            "note": "Kali365, VoidProxy"
+          },
+          {
+            "id": "ms",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Compte Microsoft",
+            "note": ""
+          },
+          {
+            "id": "gg",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Compte Google",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 1,
+            "texte": "Invitations à de faux événements"
+          },
+          {
+            "de": "usr",
+            "vers": "kit",
+            "etape": 3,
+            "texte": "Connexion demandée pour réclamer la récompense"
+          },
+          {
+            "de": "kit",
+            "vers": "ms",
+            "etape": 4,
+            "texte": "Code d'appareil et fausse page, jetons et session volés"
+          },
+          {
+            "de": "kit",
+            "vers": "gg",
+            "etape": 5,
+            "texte": "Fausse page Google, identifiants et session volés"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent pas comment les liens des invitations sont d'abord distribués, ni le nombre de victimes [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non nommé ; kits ZoomMock et MSDRoot, plateformes Kali365 et VoidProxy [1]"
+      ],
+      "cibles": [
+        "Employés utilisant leurs comptes professionnels Microsoft et Google [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Fake OpenAI, SpaceX events used to steal Microsoft, Google accounts",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fake-openai-spacex-events-used-to-steal-microsoft-google-accounts/",
+          "date": "2026-11-05",
+          "image": "https://www.bleepstatic.com/content/hl-images/2022/08/23/phishing-hook.jpg"
         }
       ]
     }

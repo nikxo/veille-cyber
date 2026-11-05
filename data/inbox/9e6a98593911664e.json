@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-11-05T18:06:28+00:00",
+  "feed_summary": "Le 5 novembre 2026, OpenSSH a publié un avis de sécurité concernant une vulnérabilité qui permet à un attaquant de contourner l’authentification d'un service SSH. En effet, sur les systèmes Linux qui utilisent la bibliothèque standard C musl, compilés sans support PAM ou avec PAM désactivé, un...",
+  "id": "9e6a98593911664e",
+  "image": null,
+  "lang": "fr",
+  "link": "https://www.cert.cyber.gouv.fr/alerte/CERTFR-2026-ALE-015/",
+  "published": "2026-11-05T00:00:00+00:00",
+  "source": "CERT-FR (alertes)",
+  "source_type": "officiel",
+  "title": "Vulnérabilité dans OpenSSH (05 novembre 2026)"
+}

@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-11-05T14:08:40+00:00",
+  "feed_summary": "Research by: Alexey Bukhteyev Key Takeaways Introduction Earlier this year, Check Point Research disclosed a security flaw in ChatGPT’s code-execution runtime that allowed sensitive conversation data to be silently exfiltrated to an attacker-controlled server through DNS tunneling, a hidden outbound channel that bypassed the runtime’s network isolation. A fix for this issue was promptly deployed. […] The post ChatGPT Lockdown Mode Bypass: Phishing, Malware Delivery, and Silent Data Exfiltration appeared first on Check Point Research .",
+  "id": "1e9f8c6cb4be4924",
+  "image": "https://research.checkpoint.com/wp-content/uploads/2026/10/chatgpt_lockdown_background-1024x512.png",
+  "lang": "en",
+  "link": "https://research.checkpoint.com/2026/chatgpt-lockdown-mode-bypass-phishing-malware-delivery-and-silent-data-exfiltration/",
+  "published": "2026-11-05T14:00:11+00:00",
+  "source": "Check Point Research",
+  "source_type": "analyse",
+  "title": "ChatGPT Lockdown Mode Bypass: Phishing, Malware Delivery, and Silent Data Exfiltration"
+}

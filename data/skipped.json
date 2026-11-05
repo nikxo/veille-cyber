@@ -1,21 +1,5 @@
 [
   {
-    "id": "94b8ad4d3c5d4590",
-    "title": "Microsoft: October Windows update may break Smart App Control",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/kb5127648-windows-security-update-may-break-smart-app-control/",
-    "source": "BleepingComputer",
-    "raison": "bogue de mise à jour, aucune attaque",
-    "date": "2026-10-16T09:10:00+00:00"
-  },
-  {
-    "id": "c8911b69d0835e08",
-    "title": "F5, Juniper Networks Patch Critical Vulnerabilities",
-    "link": "https://www.securityweek.com/f5-juniper-networks-patch-critical-vulnerabilities/",
-    "source": "SecurityWeek",
-    "raison": "vulnérabilités sans exploitation constatée",
-    "date": "2026-10-16T10:10:00+00:00"
-  },
-  {
     "id": "48b9aea0ee8325ee",
     "title": "When AI Agents Commit Breaches, Humans May Not Be Held Liable",
     "link": "https://www.darkreading.com/insider-threats/ai-agents-breaches-humans-liable",
@@ -3998,5 +3982,21 @@
     "source": "LeMagIT",
     "raison": "annonce produit",
     "date": "2026-11-05T19:10:00+00:00"
+  },
+  {
+    "id": "16ffc1548b7f90e4",
+    "title": "Defense Drill Interventions",
+    "link": "https://www.huntress.com/blog/defense-drill-interventions",
+    "source": "Huntress",
+    "raison": "annonce produit",
+    "date": "2026-11-05T20:20:00+00:00"
+  },
+  {
+    "id": "f36911c184fa0935",
+    "title": "OpenAI’s GPT-6 Astra silently obstructed safety research tasks",
+    "link": "https://www.bleepingcomputer.com/news/security/openais-gpt-6-astra-silently-obstructed-safety-research-tasks/",
+    "source": "BleepingComputer",
+    "raison": "incident d'alignement d'IA, pas une attaque",
+    "date": "2026-11-05T20:20:00+00:00"
   }
 ]

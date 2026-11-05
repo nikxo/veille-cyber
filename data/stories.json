@@ -34050,8 +34050,8 @@
       "id": "2026-11-02-congelateurs-supermarches-europe",
       "title": "Congélateurs de supermarchés européens piratés : seconde vague le 2 novembre",
       "created": "2026-11-02T13:50:00+00:00",
-      "updated": "2026-11-05T17:30:00+00:00",
-      "version": 8,
+      "updated": "2026-11-05T20:20:00+00:00",
+      "version": 9,
       "resume": "Dans la nuit du 1er au 2 novembre, des attaquants ont modifié à distance les réglages de contrôleurs de réfrigération dans plus de 100 magasins européens, entraînant des pertes d'aliments. Aucun groupe n'a revendiqué [1, 2, 3, 4].",
       "chaine": [
         {
@@ -34068,7 +34068,7 @@
         },
         {
           "etape": "Réponse",
-          "texte": "Techniciens mobilisés en Belgique, installations déconnectées, camions frigorifiques utilisés ; une mise à jour logicielle ne suffirait pas, une modification physique serait nécessaire [1, 2, 4]."
+          "texte": "Techniciens mobilisés en Belgique, installations déconnectées, camions frigorifiques utilisés [1, 2, 4] ; la CISA et le FBI appellent à renforcer les systèmes de refroidissement [10]."
         },
         {
           "etape": "Atteinte du sang",
@@ -34101,7 +34101,7 @@
           }
         ]
       },
-      "limites": "Vecteur d'accès non confirmé, lien entre les deux vagues non établi [1, 2, 3, 4]. Coolworld évoque un composant tiers vulnérable, sans le décrire [8]. Date d'intrusion et vecteur à l'Établissement français du sang non précisés [9].",
+      "limites": "Vecteur d'accès non confirmé, lien entre les deux vagues non établi [1, 2, 3, 4]. Coolworld évoque un composant tiers vulnérable, non décrit [8]. Vecteur à l'Établissement français du sang non précisé [9].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -34112,7 +34112,16 @@
         "Plus de 115 magasins en Belgique, Pays-Bas, Suède, Luxembourg, Irlande et Estonie [2] ; cas aussi en Finlande, Italie et Portugal [3, 4]",
         "Trois sites de l'Établissement français du sang, sans perte de produits sanguins signalée [6, 7, 8]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité des infrastructures"
+        },
+        {
+          "sigle": "FBI",
+          "definition": "Police fédérale américaine"
+        }
+      ],
       "sources": [
         {
           "titre": "Second wave of suspected cyberattacks hits supermarket freezers across Europe",
@@ -34175,6 +34184,13 @@
           "url": "https://www.zataz.com/cyberattaque-contre-les-frigos-de-lefs-le-plasma-vise/",
           "date": "2026-11-05",
           "image": "https://www.zataz.com/wp-content/uploads/EFS_plasma_ZATAZ_COM.jpg"
+        },
+        {
+          "titre": "Harden cooling systems now, feds warn critical infrastructure operators amid attacks",
+          "site": "The Record",
+          "url": "https://therecord.media/cyberattacks-refrigeration-cisa-fbi",
+          "date": "2026-11-05",
+          "image": "https://cms.therecord.media/uploads/Trucks_34d1614b26.jpg"
         }
       ]
     },
@@ -34839,8 +34855,8 @@
       "id": "2026-11-04-watering-hole-ios-android-n-day",
       "title": "APT29 : point d'eau contre iOS et Android via un script d'analyse web piraté",
       "created": "2026-11-04T10:30:00+00:00",
-      "updated": "2026-11-05T18:08:02+00:00",
-      "version": 5,
+      "updated": "2026-11-05T20:20:00+00:00",
+      "version": 6,
       "resume": "Le groupe APT29, lié à la Russie, mène une campagne de point d'eau contre des utilisateurs d'iOS et d'Android, via des sites compromis, de faux sites et un script d'analyse web piraté [1, 2, 3, 5].",
       "chaine": [
         {
@@ -34849,7 +34865,7 @@
         },
         {
           "etape": "Profilage et exploitation",
-          "texte": "Le JavaScript profile l'appareil → le serveur renvoie la chaîne d'exploitation propre à iOS ou Android, sans interaction de l'utilisateur [1, 2, 3, 4]."
+          "texte": "Le JavaScript profile l'appareil → le serveur renvoie la chaîne d'exploitation iOS ou Android, sans interaction [1, 2, 3, 4] ; seules les victimes jugées intéressantes sont ciblées [6]."
         },
         {
           "etape": "Vol de données iOS",
@@ -34912,7 +34928,7 @@
           }
         ]
       },
-      "limites": "Les sources ne donnent pas de description technique des failles ni le nombre de victimes [1, 2, 5].",
+      "limites": "Les sources ne donnent pas de description technique des failles [1, 2, 5].",
       "cves": [
         {
           "id": "CVE-2025-43529",
@@ -34937,7 +34953,8 @@
       ],
       "cibles": [
         "Visiteurs de sites compromis aux États-Unis, en Ukraine, en Tchéquie et en Bulgarie, dont une association américaine de la chimie [1, 2]",
-        "Aussi : une entreprise ukrainienne de production de gaz et un parti politique d'extrême droite européen [5]"
+        "Aussi : une entreprise ukrainienne de production de gaz et un parti politique d'extrême droite européen [5]",
+        "Des milliers d'utilisateurs de mobiles ciblés selon le titre de Dark Reading [6]"
       ],
       "abreviations": [
         {
@@ -34984,6 +35001,12 @@
           "url": "https://therecord.media/russia-hackers-smartphone-cyberattacks",
           "date": "2026-11-05",
           "image": "https://cms.therecord.media/uploads/Smartphones_79e20f7fb1.jpg"
+        },
+        {
+          "titre": "APT29's Watering Holes Target Thousands of Mobile Users",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/mobile-security/apt29-watering-holes-target-mobile-users",
+          "date": "2026-11-05"
         }
       ]
     },

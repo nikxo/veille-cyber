@@ -34186,17 +34186,17 @@
       "id": "2026-11-04-watering-hole-ios-android-n-day",
       "title": "APT29 : point d'eau contre iOS et Android via un script d'analyse web piraté",
       "created": "2026-11-04T10:30:00+00:00",
-      "updated": "2026-11-04T15:20:00+00:00",
-      "version": 2,
-      "resume": "Le groupe APT29, lié à la Russie, mène une campagne de point d'eau contre des utilisateurs d'iOS et d'Android, via des sites compromis, de faux sites et un script d'analyse web piraté [1, 2].",
+      "updated": "2026-11-05T07:15:00+00:00",
+      "version": 3,
+      "resume": "Le groupe APT29, lié à la Russie, mène une campagne de point d'eau contre des utilisateurs d'iOS et d'Android, via des sites compromis, de faux sites et un script d'analyse web piraté [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Sites légitimes compromis, faux sites et script du service Plerdy modifié → JavaScript malveillant servi aux visiteurs [1, 2]."
+          "texte": "Sites légitimes compromis, faux sites et script du service Plerdy modifié → JavaScript malveillant servi aux visiteurs [1, 2, 3]."
         },
         {
           "etape": "Profilage et exploitation",
-          "texte": "Le JavaScript profile l'appareil → le serveur renvoie la chaîne d'exploitation propre à iOS ou Android, sans interaction de l'utilisateur [1, 2]."
+          "texte": "Le JavaScript profile l'appareil → le serveur renvoie la chaîne d'exploitation propre à iOS ou Android, sans interaction de l'utilisateur [1, 2, 3]."
         },
         {
           "etape": "Vol de données iOS",
@@ -34268,11 +34268,15 @@
         {
           "id": "CVE-2026-3910",
           "explication": "Faille de Chrome pour Android utilisée pour exécuter du code à distance et sortir du bac à sable [2]."
+        },
+        {
+          "id": "CVE-2024-27834",
+          "explication": "Produits Apple : authentification incorrecte permettant de contourner Pointer Authentication, gravité moyenne 5,5 sur 10, ajoutée au catalogue des failles exploitées [3]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "APT29 (Midnight Blizzard), lié à la Russie, attribution par Sekoia [1, 2]"
+        "APT29 (Midnight Blizzard), lié à la Russie, attribution par Sekoia [1, 2, 3]"
       ],
       "cibles": [
         "Visiteurs de sites compromis aux États-Unis, en Ukraine, en Tchéquie et en Bulgarie, dont une association américaine de la chimie [1, 2]"
@@ -34281,6 +34285,10 @@
         {
           "sigle": "APT29",
           "definition": "Advanced Persistent Threat 29 : nom d'un groupe d'attaquants lié à la Russie"
+        },
+        {
+          "sigle": "Pointer Authentication",
+          "definition": "Protection d'Apple qui vérifie l'intégrité des pointeurs mémoire"
         }
       ],
       "sources": [
@@ -34297,6 +34305,13 @@
           "url": "https://thehackernews.com/2026/11/apt29-linked-hackers-hijack-web.html",
           "date": "2026-11-04",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhx1cus2o8fkYGLhQu9BfPgGtAUwnmTAMucLagfAodBuRoYnyxGIJKgpqtKFyCSV-WSG3pDqmPujhj-iwoOZB-zF8JjbQMrLzDHYtdTPA3hD3Kc3rqYQM4CQwkICwZkh8K6O8ZSt-WAA_PBoUA6lHwh_55dbDlKizsjzcTN847c9BSHsWHmrAP42JHRHIYS/s1700-nu-rw-lo-l85-e365/ios-exploit.jpg"
+        },
+        {
+          "titre": "Hackers Exploit Patched Apple Flaw to Deliver Info-Stealing Malware, CISA Says",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-patched-apple-flaw-to.html",
+          "date": "2026-11-05",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkv0B0acGnMDLnCJQYXNCkpzSeKKr_1m4-a10Q2Iy6DZOorGLb35YDD9vw3iQQA9fZTi7QGIZYlSsvTSmxc8w0UbgN_Xtl-QPyTngA9qhOuoryee3Z8X8CZRnHiUAY3wuIXG_UIO1DyDnjnfS5cOilt3WPzRnYYqFDZ1NHbXS0OVAsrVYHSeFuc7zglZw5/s1700-nu-rw-lo-l85-e365/apple-0day.jpg"
         }
       ]
     },

@@ -1,13 +1,5 @@
 [
   {
-    "id": "348862c34884fced",
-    "title": "Rapid7 Analysis: GitLab CI/CD Regex Integer Overflow (CVE-2026-97229)",
-    "link": "https://www.rapid7.com/blog/post/ra-gitlab-ci-cd-regex-integer-overflow-technical-analysis-cve-2026-97229",
-    "source": "Rapid7",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-16T15:20:00+00:00"
-  },
-  {
     "id": "6c93682bf2887395",
     "title": "Proofpoint lines up $6.3 billion deal for Varonis’ data security",
     "link": "https://therecord.media/proofpoint-varonis-cybersecurity-acquisition",
@@ -3998,5 +3990,13 @@
     "source": "Dark Reading",
     "raison": "enregistrements DNS erronés, aucune attaque constatée (page inaccessible, résumé du flux seul)",
     "date": "2026-11-05T22:07:35+00:00"
+  },
+  {
+    "id": "780955fd1e41f71d",
+    "title": "Post-Quantum Questions to Ask Your Vendors",
+    "link": "https://www.cisa.gov/resources-tools/resources/post-quantum-questions-ask-your-vendors",
+    "source": "CISA Advisories",
+    "raison": "conseils génériques, aucune attaque",
+    "date": "2026-11-05T23:15:00+00:00"
   }
 ]

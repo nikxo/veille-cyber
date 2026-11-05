@@ -36304,6 +36304,248 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2022/08/23/phishing-hook.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-05-avis-refrigeration-industrielle",
+      "title": "Alerte américaine : contrôleurs de réfrigération industrielle visés dans le monde",
+      "created": "2026-11-05T23:15:00+00:00",
+      "updated": "2026-11-05T23:15:00+00:00",
+      "version": 1,
+      "resume": "Des agences américaines signalent une activité malveillante mondiale contre des systèmes de réfrigération industrielle et de suivi de la chaîne du froid, avec modification à distance des réglages et risque de perte de stock [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de contournement d'authentification, d'injection de code ou de configurations faibles sur des contrôleurs de température → modification possible des réglages à distance [1]."
+        },
+        {
+          "etape": "Dérèglement des unités",
+          "texte": "Réglages modifiés à distance → unités forcées en cycles continus de chauffage et de dégivrage, perte d'inventaire et dangers matériels [1]."
+        },
+        {
+          "etape": "Perte de visibilité",
+          "texte": "Altération de la température → les exploitants perdent la visibilité sur les températures actuelles [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "ctl",
+            "type": "passerelle",
+            "zone": "expose",
+            "nom": "Contrôleurs de température",
+            "note": "Non corrigés ou accessibles"
+          },
+          {
+            "id": "fr",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Unités de réfrigération",
+            "note": "Chauffage et dégivrage"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ctl",
+            "etape": 1,
+            "texte": "Exploitation de failles ou configurations faibles"
+          },
+          {
+            "de": "att",
+            "vers": "ctl",
+            "etape": 2,
+            "texte": "Réglages modifiés à distance"
+          },
+          {
+            "de": "ctl",
+            "vers": "fr",
+            "etape": 3,
+            "texte": "Cycles continus de chauffage et dégivrage"
+          }
+        ]
+      },
+      "limites": "L'avis ne nomme ni acteur, ni victime, ni CVE, ni date d'activité, et ne décrit pas de séquence d'intrusion détaillée [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié, aucune attribution dans l'avis [1]"
+      ],
+      "cibles": [
+        "Commerces alimentaires de détail et entrepôts frigorifiques, dont le transport réfrigéré [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "US Government Partners Urge Hardening Industrial Refrigeration and Cold Chain Monitoring Systems",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/resources-tools/resources/us-government-partners-urge-hardening-industrial-refrigeration-and-cold-chain-monitoring-systems",
+          "date": "2026-11-05"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-05-queens-library-rancongiciel",
+      "title": "Queens Public Library : rançongiciel, services numériques coupés",
+      "created": "2026-11-05T23:15:00+00:00",
+      "updated": "2026-11-05T23:15:00+00:00",
+      "version": 1,
+      "resume": "La Queens Public Library de New York, 66 succursales, a confirmé une attaque par rançongiciel qui a coupé ordinateurs sur place, réseau sans fil et services numériques. Aucun gang n'a revendiqué [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Chiffrement",
+          "texte": "Systèmes chiffrés par un rançongiciel → ordinateurs sur place, bornes de prêt, réseau sans fil, médias numériques et application mobile hors service [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Systèmes de la bibliothèque",
+            "note": "Chiffrés"
+          },
+          {
+            "id": "srv",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Services numériques",
+            "note": "Hors service"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Chiffrement par rançongiciel"
+          },
+          {
+            "de": "sys",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Services interrompus"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'accès, ni un éventuel vol de données, ni le gang responsable [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Gang de rançongiciel non identifié, aucune revendication [1]"
+      ],
+      "cibles": [
+        "Queens Public Library, 66 succursales pour 2,3 millions d'habitants [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Queens Public Library says ransomware attack disrupted Wi-Fi, on-site computers",
+          "site": "The Record",
+          "url": "https://therecord.media/queens-library-ransomware-causes-disruptions",
+          "date": "2026-11-05",
+          "image": "https://cms.therecord.media/uploads/queens_library_5e385910af.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-04-apple-cve-2024-27834-exploitee",
+      "title": "Faille Apple CVE-2024-27834 exploitée, ajoutée au catalogue américain",
+      "created": "2026-11-05T23:15:00+00:00",
+      "updated": "2026-11-05T23:15:00+00:00",
+      "version": 1,
+      "resume": "L'agence américaine de cybersécurité a ajouté la faille CVE-2024-27834, d'authentification incorrecte dans plusieurs produits Apple, à son catalogue des failles exploitées, sur preuve d'exploitation active [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Exploitation de la faille",
+          "texte": "Exploitation active de CVE-2024-27834 dans des produits Apple → contournement de la protection par authentification de pointeurs possible [1, 2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "ap",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Produits Apple",
+            "note": "Faille exploitée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ap",
+            "etape": 2,
+            "texte": "Exploitation de CVE-2024-27834"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent ni qui exploite la faille, ni contre qui, ni par quel enchaînement d'attaque [1].",
+      "cves": [
+        {
+          "id": "CVE-2024-27834",
+          "explication": "Plusieurs produits Apple : un attaquant avec lecture et écriture arbitraires peut contourner l'authentification de pointeurs ; gravité moyenne 5,5 sur 10 [2]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non précisé [1]"
+      ],
+      "cibles": [
+        "Non précisées [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "CISA Adds One Known Exploited Vulnerability to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/04/cisa-adds-one-known-exploited-vulnerability-catalog",
+          "date": "2026-11-04"
+        },
+        {
+          "titre": "Fiche NVD CVE-2024-27834",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-27834"
+        }
+      ]
     }
   ]
 }

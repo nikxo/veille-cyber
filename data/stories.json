@@ -29268,101 +29268,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-10-31-chainalysis-intrusion-agentique",
-      "title": "Chainalysis : intrusion dans ses outils internes par des techniques agentiques offensives",
-      "created": "2026-10-31T13:20:00+00:00",
-      "updated": "2026-11-02T11:14:25+00:00",
-      "version": 2,
-      "resume": "Chainalysis, entreprise d'analyse de blockchain, a subi une intrusion dans ses systèmes et outils internes. Des données non sensibles de clients ont été consultées [1, 2, 3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 2, 3]."
-        },
-        {
-          "etape": "Accès aux outils internes",
-          "texte": "Un acteur externe emploie des « techniques agentiques offensives » → accès non autorisé aux systèmes et outils internes [1, 2, 3]."
-        },
-        {
-          "etape": "Consultation de données",
-          "texte": "Lecture de données clients → identifiants utilisateur, noms, e-mails et rôles exposés [1, 2, 3]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "sys",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Systèmes et outils internes",
-            "note": ""
-          },
-          {
-            "id": "don",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Données clients non sensibles",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "sys",
-            "etape": 2,
-            "texte": "Techniques agentiques offensives"
-          },
-          {
-            "de": "sys",
-            "vers": "don",
-            "etape": 3,
-            "texte": "Consultation des données clients"
-          }
-        ]
-      },
-      "limites": "Les sources ne précisent ni le vecteur d'accès, ni les failles exploitées, ni la durée de l'accès, ni le nombre de clients touchés [1, 2, 3].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Acteur externe non identifié, sans lien avec le vol chez Binance selon [3]"
-      ],
-      "cibles": [
-        "Chainalysis et ses clients, dont des utilisateurs de la plateforme [1, 2]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Chainalysis Confirms Intrusion Into Internal Tools and Exposure of Customer Identity Data",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/chainalysis-confirms-intrusion-into.html",
-          "date": "2026-10-31",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFRN0kXDPnLLvRBYqNZG4BTyUK0EaSxRtepYOQ-msXGAqu1IW8t2cdnav4ANAO8fXwY_-ug6Ictj29WcseInPhJmYOwpgcinvc8KO36A8HK6Wo41lgztgyH2jb9hGg7bVyWZ4A-adjBYuTi-hOJxMALa7myG172BWKwB_SyvrfMeqxH_3DdcyJxYwXFIKG/s1700-nu-rw-lo-l85-e365/chain.jpg"
-        },
-        {
-          "titre": "Chainalysis discloses data breach from \"offensive agentic techniques\"",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/chainalysis-discloses-data-breach-from-offensive-agentic-techniques/",
-          "date": "2026-10-31",
-          "image": "https://www.bleepstatic.com/content/hl-images/2025/03/18/Blockchain-2.jpg"
-        },
-        {
-          "titre": "Chainalysis Discloses Data Breach Following AI-Driven Cyberattack",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/chainalysis-discloses-data-breach-following-ai-driven-cyberattack/",
-          "date": "2026-11-02",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/chainalysis.jpeg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-10-30-claude-code-extension-cursor-backdoor",
       "title": "Extension Claude Code piégée sur la marketplace Cursor : porte dérobée SSH",
       "created": "2026-10-30T11:30:00+00:00",
@@ -33719,389 +33624,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-11-04-slippynunchucks-sogou-darkvigil",
-      "title": "SlippyNunchucks : détournement DNS de Sogou Input Method pour installer la porte dérobée DarkVigil",
-      "created": "2026-11-04T13:08:22+00:00",
-      "updated": "2026-11-05T05:30:00+00:00",
-      "version": 2,
-      "resume": "Le groupe SlippyNunchucks, lié à la Chine, détourne les requêtes DNS de Sogou Input Method sous Windows pour installer l'implant DarkVigil. La campagne observée depuis le 1er juillet 2026 vise surtout l'Asie [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Détournement DNS de la requête HTTP non chiffrée de Sogou Input Method → requête redirigée vers des serveurs de staging de l'attaquant [1, 2]."
-        },
-        {
-          "etape": "Configuration malveillante",
-          "texte": "Le composant SGTool.exe demande sa configuration → le serveur répond avec une configuration malveillante et des instructions de téléchargement [1, 2]."
-        },
-        {
-          "etape": "Téléchargement des charges",
-          "texte": "Récupération d'un exécutable Adobe légitime et d'une bibliothèque libcef.dll malveillante contenant DarkVigil [1, 2]."
-        },
-        {
-          "etape": "Exécution de DarkVigil",
-          "texte": "Chargement de la bibliothèque malveillante par l'exécutable légitime (DLL sideloading) → exécution de DarkVigil [1, 2]."
-        },
-        {
-          "etape": "Contrôle à distance",
-          "texte": "DarkVigil exécute les modules reçus du serveur de l'attaquant via le protocole DMTP [1, 2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (SlippyNunchucks)",
-            "note": ""
-          },
-          {
-            "id": "stg",
-            "type": "serveur",
-            "zone": "internet",
-            "nom": "Serveurs de staging",
-            "note": "Deux serveurs"
-          },
-          {
-            "id": "pc",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Postes avec Sogou Input Method",
-            "note": "Windows"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "pc",
-            "etape": 1,
-            "texte": "Détournement DNS de la requête HTTP de Sogou"
-          },
-          {
-            "de": "stg",
-            "vers": "pc",
-            "etape": 2,
-            "texte": "Configuration malveillante renvoyée"
-          },
-          {
-            "de": "stg",
-            "vers": "pc",
-            "etape": 3,
-            "texte": "Téléchargement de deux charges"
-          },
-          {
-            "de": "att",
-            "vers": "pc",
-            "etape": 5,
-            "texte": "Modules exécutés via DMTP"
-          }
-        ]
-      },
-      "limites": "Les sources ne précisent pas où le détournement DNS est réalisé ; ESET évoque des hypothèses sans confirmation [2].",
-      "cves": [
-        {
-          "id": "CVE-2026-120422",
-          "explication": "Sogou Input Method : requêtes en HTTP non chiffré, corrigées par HTTPS dans la version 16.10, publiée le 29 octobre selon [1], le 29 ou 30 selon [2]."
-        }
-      ],
-      "mitre": [
-        "T1659 : Content Injection, injection de contenu malveillant [2]",
-        "T1574.001 : détournement du chargement de bibliothèque (DLL) [2]",
-        "T1557 : Adversary-in-the-Middle, interception du trafic [2]"
-      ],
-      "acteurs": [
-        "SlippyNunchucks, lié à la Chine, actif depuis au moins septembre 2023 selon ESET [1, 2]"
-      ],
-      "cibles": [
-        "Organisations et particuliers à Hong Kong, en Thaïlande, au Japon, au Vietnam, à Oman et au Sri Lanka [1, 2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "DNS",
-          "definition": "Domain Name System : annuaire traduisant les noms de sites en adresses"
-        },
-        {
-          "sigle": "HTTP",
-          "definition": "Protocole web non chiffré"
-        },
-        {
-          "sigle": "HTTPS",
-          "definition": "Version chiffrée du protocole web"
-        },
-        {
-          "sigle": "DLL",
-          "definition": "Bibliothèque de code chargée par un programme Windows"
-        },
-        {
-          "sigle": "DMTP",
-          "definition": "Duplex Message Transport Protocol : protocole de communication de DarkVigil"
-        },
-        {
-          "sigle": "ESET",
-          "definition": "Éditeur de sécurité à l'origine de l'attribution"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "China-Aligned Hackers Hijack Sogou Input Method DNS Requests to Deploy DarkVigil Backdoor",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/china-aligned-hackers-hijack-sogou.html",
-          "date": "2026-11-04",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMawvNNOvRYRm-k7ii9yDdw214v4kwQ7h5fAfOaUVkvMetNwArral8qumlObtaftjOcBsibL9vkqM1UT0-9l9jYPjj3M3C9NcPfg5pdIuENUfdKlK7lyseCS30AVhgLLs6a-2fdXlSDymSVeyIziO7IC13HFCaOf1v4sjbgmkeKfewWNsbTJCJ0WR2zLBZ/s1700-nu-rw-lo-l85-e365/key.jpg"
-        },
-        {
-          "titre": "SlippyNunchucks hijacks Sogou Input Method’s brand promotion mechanism to distribute malware",
-          "site": "WeLiveSecurity (ESET)",
-          "url": "https://www.welivesecurity.com/en/eset-research/slippynunchucks-hijacks-sogou-input-methods-brand-promotion-mechanism-to-distribute-malware/",
-          "date": "2026-11-04",
-          "image": "https://web-assets.esetstatic.com/wls/2026/11-26/slippynunchucks/slippynunchucks-malware.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-02-congelateurs-supermarches-europe",
-      "title": "Congélateurs de supermarchés européens piratés : seconde vague le 2 novembre",
-      "created": "2026-11-02T13:50:00+00:00",
-      "updated": "2026-11-04T18:08:31+00:00",
-      "version": 6,
-      "resume": "Dans la nuit du 1er au 2 novembre, des attaquants ont modifié à distance les réglages de contrôleurs de réfrigération dans plus de 100 magasins européens, entraînant des pertes d'aliments. Aucun groupe n'a revendiqué [1, 2, 3, 4].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non confirmé ; chaque congélateur touché avait une interface de gestion accessible depuis Internet selon Kevin Beaumont [4] ; ordinateur de contrôle d'un ancien système Danfoss atteint en Estonie [3]."
-        },
-        {
-          "etape": "Manipulation des températures",
-          "texte": "Réglages modifiés à distance : dégivrage forcé en Belgique, 50 °C en Suède et en Estonie → aliments jetés ou retirés de la vente [1, 2, 3, 4]."
-        },
-        {
-          "etape": "Équipements touchés",
-          "texte": "Un ancien système Danfoss atteint en Estonie, des équipements Copeland en Belgique [1]."
-        },
-        {
-          "etape": "Réponse",
-          "texte": "Techniciens mobilisés en Belgique, installations déconnectées, camions frigorifiques utilisés ; une mise à jour logicielle ne suffirait pas, une modification physique serait nécessaire [1, 2, 4]."
-        },
-        {
-          "etape": "Atteinte du sang",
-          "texte": "Attaque contre un fournisseur d'équipements frigorifiques → seuils de température et de dégivrage relevés dans trois sites de l'Établissement français du sang [6, 7]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant inconnu",
-            "note": ""
-          },
-          {
-            "id": "ctl",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Contrôleurs de réfrigération",
-            "note": "Danfoss, Copeland"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "ctl",
-            "etape": 2,
-            "texte": "Températures réglées à 50 °C à distance"
-          }
-        ]
-      },
-      "limites": "Le vecteur d'accès de cette vague n'est pas confirmé ; les enquêteurs n'ont pas établi si les deux vagues sont liées [1, 2, 3, 4]. L'Établissement français du sang n'a pas nommé son fournisseur [7].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non identifié, aucune revendication [1, 3, 4]",
-        "Groupes alignés sur la Russie : suspects crédibles selon SentinelLABS, attribution restée ouverte [5]"
-      ],
-      "cibles": [
-        "Plus de 115 magasins en Belgique, Pays-Bas, Suède, Luxembourg, Irlande et Estonie [2] ; cas aussi en Finlande, Italie et Portugal [3, 4]",
-        "Trois sites de l'Établissement français du sang, sans perte de produits sanguins signalée [6, 7]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Second wave of suspected cyberattacks hits supermarket freezers across Europe",
-          "site": "The Record",
-          "url": "https://therecord.media/cyberattack-grocery-freezers-europe",
-          "date": "2026-11-02",
-          "image": "https://cms.therecord.media/uploads/Shopping_carts_Netherlands_6df61cd499.jpg"
-        },
-        {
-          "titre": "Hackers disrupt refrigeration systems at European supermarkets",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/hackers-disrupt-refrigeration-systems-at-european-supermarkets/",
-          "date": "2026-11-02",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/02/freezers.jpg"
-        },
-        {
-          "titre": "New Wave of Refrigeration Cyberattacks Hits Supermarkets Across Europe, Forcing Stores to Pull Food",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/second-wave-of-cyberattacks-hits.html",
-          "date": "2026-11-03",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjScxShEa3bsAhGLHlqkBcsyuRe6UeQwrOVXBFP3TwxzmXtd03vDeDRZHxxBLIKHDYgY5p5CsrFvBwuozg3UsRLtVMO758NhVwSju6D6WgO1J42wJd2NWR9aVzz-B_CWfiMFH2QANUrAnUXbgkKec2KtJjULvN3NTqrCPbLRNnxlnvBFIAkndClXJMIeXY/s1700-nu-rw-lo-l85-e365/fridge-hack.jpg"
-        },
-        {
-          "titre": "Over 100 European Stores Hit as Supermarket Fridge Attacks Return",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/over-100-european-stores-hit-as-supermarket-fridge-attacks-resume/",
-          "date": "2026-11-03",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supermarket-refrigerators.jpeg"
-        },
-        {
-          "titre": "Defrost and Disrupt | An Assessment of Europe’s Refrigeration Attacks",
-          "site": "SentinelLABS",
-          "url": "https://www.sentinelone.com/labs/defrost-and-disrupt-an-assessment-of-europe-s-refrigeration-attacks/",
-          "date": "2026-11-03"
-        },
-        {
-          "titre": "French blood service hit by Europe-wide cyberattacks on refrigeration",
-          "site": "The Record",
-          "url": "https://therecord.media/france-cyberattack-blood-refrigeration",
-          "date": "2026-11-04",
-          "image": "https://cms.therecord.media/uploads/Blood_PP_17fdea2031.jpg"
-        },
-        {
-          "titre": "Cyberattack disrupts blood storage refrigeration systems in France",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/cyberattack-disrupts-blood-storage-refrigeration-systems-in-france/",
-          "date": "2026-11-04",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/blood-bags.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-04-cryptominage-supercalculateurs-universites",
-      "title": "Cryptominage sur des supercalculateurs d'universités américaines : un Canadien extradé",
-      "created": "2026-11-04T13:08:22+00:00",
-      "updated": "2026-11-04T20:30:00+00:00",
-      "version": 3,
-      "resume": "Deux Canadiens sont inculpés aux États-Unis pour avoir détourné des ordinateurs d'universités, dont des supercalculateurs, afin de miner de l'Electroneum entre juin 2016 et décembre 2019 [1, 2, 3]. L'un d'eux a été extradé [1, 3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources : seulement « plusieurs méthodes », dont un serveur et des ordinateurs compromis d'une autre victime pour masquer l'identité [1, 3]."
-        },
-        {
-          "etape": "Infrastructure de masquage",
-          "texte": "Serveurs privés virtuels dans plusieurs pays gérés avec de fausses identités, et machines compromises servant de relais → origine de l'attaque masquée [1]."
-        },
-        {
-          "etape": "Déploiement",
-          "texte": "Envoi de logiciels malveillants et de minage aux ordinateurs victimes → identifiants volés stockés sur les serveurs de l'attaquant [1, 3]."
-        },
-        {
-          "etape": "Extension de l'accès",
-          "texte": "Reconnaissance puis extension de l'accès une fois dans un réseau, sans détail sur les techniques [1]."
-        },
-        {
-          "etape": "Minage",
-          "texte": "Détournement de la puissance de calcul des universités, dont des supercalculateurs → minage d'Electroneum, 10 ordinateurs en minant au pic [1, 3]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquants (deux inculpés)",
-            "note": ""
-          },
-          {
-            "id": "vps",
-            "type": "serveur",
-            "zone": "internet",
-            "nom": "Serveurs privés virtuels",
-            "note": "Fausses identités"
-          },
-          {
-            "id": "uni",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Ordinateurs des universités",
-            "note": ""
-          },
-          {
-            "id": "sc",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Supercalculateurs",
-            "note": "Minage"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "vps",
-            "etape": 2,
-            "texte": "Infrastructure multi-pays à fausses identités"
-          },
-          {
-            "de": "att",
-            "vers": "uni",
-            "etape": 3,
-            "texte": "Logiciels malveillants et de minage envoyés"
-          },
-          {
-            "de": "att",
-            "vers": "uni",
-            "etape": 4,
-            "texte": "Reconnaissance et extension de l'accès"
-          },
-          {
-            "de": "uni",
-            "vers": "sc",
-            "etape": 5,
-            "texte": "Puissance détournée pour miner l'Electroneum"
-          }
-        ]
-      },
-      "limites": "La source ne donne ni le vecteur d'accès initial, ni les techniques employées, ni le nombre de victimes, ni les gains de minage [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Ryan James Roach (extradé le 28 octobre) et Mathiew James Stubbings (extradition en cours) [1]"
-      ],
-      "cibles": [
-        "Universités de New York, du Massachusetts, de Caroline du Nord et du Tennessee [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Canadian Extradited to US Over Cryptomining Hacks on University Supercomputers",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/canadian-extradited-to-us-over-cryptomining-hacks-on-university-supercomputers/",
-          "date": "2026-11-04",
-          "image": "https://www.securityweek.com/wp-content/uploads/2024/01/cryptocurrency.jpeg"
-        },
-        {
-          "titre": "US charges two Canadians accused of hacking US universities",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/us-charges-two-canadians-accused-of-hacking-us-universities/",
-          "date": "2026-11-04",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/Hackers-room.jpg"
-        },
-        {
-          "titre": "Canadian extradited to US for allegedly hacking schools in at least four states",
-          "site": "The Record",
-          "url": "https://therecord.media/canadian-nationals-accused-us-education-hacks-cryptomining",
-          "date": "2026-11-04",
-          "image": "https://cms.therecord.media/uploads/us_canada_flags_pexels_thomas_k_cb8bc816e8.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-11-04-beget-hebergeur-russe-effacement",
       "title": "Beget : une cyberattaque efface des données cloud d'un grand hébergeur russe",
       "created": "2026-11-04T14:30:00+00:00",
@@ -34178,268 +33700,6 @@
           "url": "https://therecord.media/russia-cyberattack-beget-cloud",
           "date": "2026-11-04",
           "image": "https://cms.therecord.media/uploads/Beget_de93fe90b7.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-04-watering-hole-ios-android-n-day",
-      "title": "APT29 : point d'eau contre iOS et Android via un script d'analyse web piraté",
-      "created": "2026-11-04T10:30:00+00:00",
-      "updated": "2026-11-05T07:15:00+00:00",
-      "version": 3,
-      "resume": "Le groupe APT29, lié à la Russie, mène une campagne de point d'eau contre des utilisateurs d'iOS et d'Android, via des sites compromis, de faux sites et un script d'analyse web piraté [1, 2, 3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Sites légitimes compromis, faux sites et script du service Plerdy modifié → JavaScript malveillant servi aux visiteurs [1, 2, 3]."
-        },
-        {
-          "etape": "Profilage et exploitation",
-          "texte": "Le JavaScript profile l'appareil → le serveur renvoie la chaîne d'exploitation propre à iOS ou Android, sans interaction de l'utilisateur [1, 2, 3]."
-        },
-        {
-          "etape": "Vol de données iOS",
-          "texte": "Failles d'iOS 16.7 et 18.5 exploitées → vol de cookies Safari, de bases WhatsApp et Telegram, du trousseau [1, 2]."
-        },
-        {
-          "etape": "Vol de données Android",
-          "texte": "Failles de Chrome pour Android exploitées, puis logiciel AndroSnitch → vol de cookies, d'identifiants et de mots de passe Wi-Fi [1, 2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (APT29)",
-            "note": ""
-          },
-          {
-            "id": "pl",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Script d'analyse Plerdy",
-            "note": "Code modifié"
-          },
-          {
-            "id": "web",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Sites compromis ou faux sites",
-            "note": ""
-          },
-          {
-            "id": "tel",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Appareils iOS et Android",
-            "note": "Données volées"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "pl",
-            "etape": 1,
-            "texte": "Script du service modifié"
-          },
-          {
-            "de": "att",
-            "vers": "web",
-            "etape": 1,
-            "texte": "Sites compromis et faux sites"
-          },
-          {
-            "de": "web",
-            "vers": "tel",
-            "etape": 2,
-            "texte": "Profilage puis exploits adaptés"
-          }
-        ]
-      },
-      "limites": "Les sources ne donnent pas de description technique des failles ni le nombre de victimes [1, 2].",
-      "cves": [
-        {
-          "id": "CVE-2025-43529",
-          "explication": "Faille utilisée dans les chaînes contre iOS 16.7 et 18.5, liée au kit d'exploitation DarkSword [1, 2]."
-        },
-        {
-          "id": "CVE-2026-3910",
-          "explication": "Faille de Chrome pour Android utilisée pour exécuter du code à distance et sortir du bac à sable [2]."
-        },
-        {
-          "id": "CVE-2024-27834",
-          "explication": "Produits Apple : authentification incorrecte permettant de contourner Pointer Authentication, gravité moyenne 5,5 sur 10, ajoutée au catalogue des failles exploitées [3]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "APT29 (Midnight Blizzard), lié à la Russie, attribution par Sekoia [1, 2, 3]"
-      ],
-      "cibles": [
-        "Visiteurs de sites compromis aux États-Unis, en Ukraine, en Tchéquie et en Bulgarie, dont une association américaine de la chimie [1, 2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "APT29",
-          "definition": "Advanced Persistent Threat 29 : nom d'un groupe d'attaquants lié à la Russie"
-        },
-        {
-          "sigle": "Pointer Authentication",
-          "definition": "Protection d'Apple qui vérifie l'intégrité des pointeurs mémoire"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Hackers use n-day exploits in zero-click attacks on iOS, Android devices",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/hackers-use-n-day-exploits-in-zero-click-attacks-on-ios-android-devices/",
-          "date": "2026-11-04",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/07/13/Russian_hacker.jpg"
-        },
-        {
-          "titre": "APT29-Linked Hackers Hijack Web Analytics Script to Deliver iOS and Android Exploits",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/apt29-linked-hackers-hijack-web.html",
-          "date": "2026-11-04",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhx1cus2o8fkYGLhQu9BfPgGtAUwnmTAMucLagfAodBuRoYnyxGIJKgpqtKFyCSV-WSG3pDqmPujhj-iwoOZB-zF8JjbQMrLzDHYtdTPA3hD3Kc3rqYQM4CQwkICwZkh8K6O8ZSt-WAA_PBoUA6lHwh_55dbDlKizsjzcTN847c9BSHsWHmrAP42JHRHIYS/s1700-nu-rw-lo-l85-e365/ios-exploit.jpg"
-        },
-        {
-          "titre": "Hackers Exploit Patched Apple Flaw to Deliver Info-Stealing Malware, CISA Says",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/hackers-exploit-patched-apple-flaw-to.html",
-          "date": "2026-11-05",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkv0B0acGnMDLnCJQYXNCkpzSeKKr_1m4-a10Q2Iy6DZOorGLb35YDD9vw3iQQA9fZTi7QGIZYlSsvTSmxc8w0UbgN_Xtl-QPyTngA9qhOuoryee3Z8X8CZRnHiUAY3wuIXG_UIO1DyDnjnfS5cOilt3WPzRnYYqFDZ1NHbXS0OVAsrVYHSeFuc7zglZw5/s1700-nu-rw-lo-l85-e365/apple-0day.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-04-arkea-fortuneo-virements-crypto",
-      "title": "Crédit Mutuel Arkéa : plus de 133 millions de dollars détournés puis blanchis en cryptomonnaies",
-      "created": "2026-11-04T15:20:00+00:00",
-      "updated": "2026-11-04T19:10:00+00:00",
-      "version": 2,
-      "resume": "Crédit Mutuel Arkéa a confirmé une attaque passée par un prestataire. Plus de 133 millions de dollars auraient été détournés, estimation de ZachXBT que la banque ne confirme pas [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Compromission de la plateforme d'un prestataire non nommé → accès direct au groupe bancaire, selon la banque [2]."
-        },
-        {
-          "etape": "Virements frauduleux",
-          "texte": "Virements depuis le compte de la banque → fonds convertis en cryptomonnaies, plus de 133 millions de dollars (ZachXBT) [2]. Fortuneo cité par [1], démenti par la banque [2]."
-        },
-        {
-          "etape": "Conversion en cryptomonnaies",
-          "texte": "Comptes ouverts avec des identités falsifiées, fonds convertis en stablecoins puis retirés vers Kraken, Crypto.com et OKX [1]."
-        },
-        {
-          "etape": "Blanchiment",
-          "texte": "Stablecoins échangés contre de l'ether via UniswapX, transferts vers d'autres services, conversion d'une partie en Monero [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (non identifié)",
-            "note": ""
-          },
-          {
-            "id": "pre",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Prestataire non nommé",
-            "note": "Plateforme compromise"
-          },
-          {
-            "id": "fort",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Groupe Crédit Mutuel Arkéa",
-            "note": "Compte propre utilisé"
-          },
-          {
-            "id": "cx",
-            "type": "cloud",
-            "zone": "internet",
-            "nom": "Plateformes crypto",
-            "note": "Kraken, OKX"
-          },
-          {
-            "id": "wal",
-            "type": "cloud",
-            "zone": "internet",
-            "nom": "Services d'échange et Monero",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "pre",
-            "etape": 1,
-            "texte": "Compromission de la plateforme du prestataire"
-          },
-          {
-            "de": "pre",
-            "vers": "fort",
-            "etape": 1,
-            "texte": "Accès direct au groupe bancaire"
-          },
-          {
-            "de": "fort",
-            "vers": "cx",
-            "etape": 2,
-            "texte": "Virements puis conversion en cryptomonnaies"
-          },
-          {
-            "de": "att",
-            "vers": "cx",
-            "etape": 3,
-            "texte": "Comptes ouverts avec identités falsifiées"
-          },
-          {
-            "de": "cx",
-            "vers": "wal",
-            "etape": 4,
-            "texte": "Échange et dispersion des fonds"
-          }
-        ]
-      },
-      "limites": "Acteur et dates de l'intrusion non précisés ; les sources divergent sur le rôle de Fortuneo [1, 2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non identifié ; la piste Lazarus est écartée pour le moment [1]. Enquête des autorités en cours [2]"
-      ],
-      "cibles": [
-        "Crédit Mutuel Arkéa ; la banque indique qu'aucun compte client n'a été consulté [1, 2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "OKX",
-          "definition": "Plateforme d'échange de cryptomonnaies"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Crédit Mutuel Arkéa : 133 millions de dollars détournés",
-          "site": "ZATAZ",
-          "url": "https://www.zataz.com/credit-mutuel-arkea-133-millions-de-dollars-detournes/",
-          "date": "2026-11-04"
-        },
-        {
-          "titre": "French bank confirms cyber heist, hackers suspected to have stolen an estimated $133 million",
-          "site": "The Record",
-          "url": "https://therecord.media/french-bank-confirms-cyber-heist",
-          "date": "2026-11-04",
-          "image": "https://cms.therecord.media/uploads/euros_41ac60ccd6.jpg"
         }
       ]
     },
@@ -34787,6 +34047,125 @@
     },
     {
       "schema": 3,
+      "id": "2026-11-02-congelateurs-supermarches-europe",
+      "title": "Congélateurs de supermarchés européens piratés : seconde vague le 2 novembre",
+      "created": "2026-11-02T13:50:00+00:00",
+      "updated": "2026-11-04T18:08:31+00:00",
+      "version": 6,
+      "resume": "Dans la nuit du 1er au 2 novembre, des attaquants ont modifié à distance les réglages de contrôleurs de réfrigération dans plus de 100 magasins européens, entraînant des pertes d'aliments. Aucun groupe n'a revendiqué [1, 2, 3, 4].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non confirmé ; chaque congélateur touché avait une interface de gestion accessible depuis Internet selon Kevin Beaumont [4] ; ordinateur de contrôle d'un ancien système Danfoss atteint en Estonie [3]."
+        },
+        {
+          "etape": "Manipulation des températures",
+          "texte": "Réglages modifiés à distance : dégivrage forcé en Belgique, 50 °C en Suède et en Estonie → aliments jetés ou retirés de la vente [1, 2, 3, 4]."
+        },
+        {
+          "etape": "Équipements touchés",
+          "texte": "Un ancien système Danfoss atteint en Estonie, des équipements Copeland en Belgique [1]."
+        },
+        {
+          "etape": "Réponse",
+          "texte": "Techniciens mobilisés en Belgique, installations déconnectées, camions frigorifiques utilisés ; une mise à jour logicielle ne suffirait pas, une modification physique serait nécessaire [1, 2, 4]."
+        },
+        {
+          "etape": "Atteinte du sang",
+          "texte": "Attaque contre un fournisseur d'équipements frigorifiques → seuils de température et de dégivrage relevés dans trois sites de l'Établissement français du sang [6, 7]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant inconnu",
+            "note": ""
+          },
+          {
+            "id": "ctl",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Contrôleurs de réfrigération",
+            "note": "Danfoss, Copeland"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ctl",
+            "etape": 2,
+            "texte": "Températures réglées à 50 °C à distance"
+          }
+        ]
+      },
+      "limites": "Le vecteur d'accès de cette vague n'est pas confirmé ; les enquêteurs n'ont pas établi si les deux vagues sont liées [1, 2, 3, 4]. L'Établissement français du sang n'a pas nommé son fournisseur [7].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié, aucune revendication [1, 3, 4]",
+        "Groupes alignés sur la Russie : suspects crédibles selon SentinelLABS, attribution restée ouverte [5]"
+      ],
+      "cibles": [
+        "Plus de 115 magasins en Belgique, Pays-Bas, Suède, Luxembourg, Irlande et Estonie [2] ; cas aussi en Finlande, Italie et Portugal [3, 4]",
+        "Trois sites de l'Établissement français du sang, sans perte de produits sanguins signalée [6, 7]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Second wave of suspected cyberattacks hits supermarket freezers across Europe",
+          "site": "The Record",
+          "url": "https://therecord.media/cyberattack-grocery-freezers-europe",
+          "date": "2026-11-02",
+          "image": "https://cms.therecord.media/uploads/Shopping_carts_Netherlands_6df61cd499.jpg"
+        },
+        {
+          "titre": "Hackers disrupt refrigeration systems at European supermarkets",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-disrupt-refrigeration-systems-at-european-supermarkets/",
+          "date": "2026-11-02",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/02/freezers.jpg"
+        },
+        {
+          "titre": "New Wave of Refrigeration Cyberattacks Hits Supermarkets Across Europe, Forcing Stores to Pull Food",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/second-wave-of-cyberattacks-hits.html",
+          "date": "2026-11-03",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjScxShEa3bsAhGLHlqkBcsyuRe6UeQwrOVXBFP3TwxzmXtd03vDeDRZHxxBLIKHDYgY5p5CsrFvBwuozg3UsRLtVMO758NhVwSju6D6WgO1J42wJd2NWR9aVzz-B_CWfiMFH2QANUrAnUXbgkKec2KtJjULvN3NTqrCPbLRNnxlnvBFIAkndClXJMIeXY/s1700-nu-rw-lo-l85-e365/fridge-hack.jpg"
+        },
+        {
+          "titre": "Over 100 European Stores Hit as Supermarket Fridge Attacks Return",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/over-100-european-stores-hit-as-supermarket-fridge-attacks-resume/",
+          "date": "2026-11-03",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supermarket-refrigerators.jpeg"
+        },
+        {
+          "titre": "Defrost and Disrupt | An Assessment of Europe’s Refrigeration Attacks",
+          "site": "SentinelLABS",
+          "url": "https://www.sentinelone.com/labs/defrost-and-disrupt-an-assessment-of-europe-s-refrigeration-attacks/",
+          "date": "2026-11-03"
+        },
+        {
+          "titre": "French blood service hit by Europe-wide cyberattacks on refrigeration",
+          "site": "The Record",
+          "url": "https://therecord.media/france-cyberattack-blood-refrigeration",
+          "date": "2026-11-04",
+          "image": "https://cms.therecord.media/uploads/Blood_PP_17fdea2031.jpg"
+        },
+        {
+          "titre": "Cyberattack disrupts blood storage refrigeration systems in France",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cyberattack-disrupts-blood-storage-refrigeration-systems-in-france/",
+          "date": "2026-11-04",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/blood-bags.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-04-codex-jailbreak-prompt-adware",
       "title": "Jailbreak d'OpenAI Codex : une publicité cachée dans la configuration de l'agent",
       "created": "2026-11-04T18:08:31+00:00",
@@ -34872,6 +34251,256 @@
           "url": "https://thehackernews.com/2026/11/researchers-uncover-prompt-adware.html",
           "date": "2026-11-04",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiO7-xs-0dO1uqFLbfphgPbe8T7cbCLkrab6XhAjlNPVo-bLQOFw4mkcArqglQOvhuIYif4ohTAub-TNWlket6iguifshMRo3zBrYvM4G_IwFTtbh8ifIqh1Vuf8GuNmqDg_PB2Roy7yzYuTFhRrFM8wxOo8HVwfG9Y2eqJnq82LGYHnAKI5S6TuvZ_Q95A/s1700-nu-rw-lo-l85-e365/ai-adware.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-04-arkea-fortuneo-virements-crypto",
+      "title": "Crédit Mutuel Arkéa : plus de 133 millions de dollars détournés puis blanchis en cryptomonnaies",
+      "created": "2026-11-04T15:20:00+00:00",
+      "updated": "2026-11-04T19:10:00+00:00",
+      "version": 2,
+      "resume": "Crédit Mutuel Arkéa a confirmé une attaque passée par un prestataire. Plus de 133 millions de dollars auraient été détournés, estimation de ZachXBT que la banque ne confirme pas [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Compromission de la plateforme d'un prestataire non nommé → accès direct au groupe bancaire, selon la banque [2]."
+        },
+        {
+          "etape": "Virements frauduleux",
+          "texte": "Virements depuis le compte de la banque → fonds convertis en cryptomonnaies, plus de 133 millions de dollars (ZachXBT) [2]. Fortuneo cité par [1], démenti par la banque [2]."
+        },
+        {
+          "etape": "Conversion en cryptomonnaies",
+          "texte": "Comptes ouverts avec des identités falsifiées, fonds convertis en stablecoins puis retirés vers Kraken, Crypto.com et OKX [1]."
+        },
+        {
+          "etape": "Blanchiment",
+          "texte": "Stablecoins échangés contre de l'ether via UniswapX, transferts vers d'autres services, conversion d'une partie en Monero [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (non identifié)",
+            "note": ""
+          },
+          {
+            "id": "pre",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Prestataire non nommé",
+            "note": "Plateforme compromise"
+          },
+          {
+            "id": "fort",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Groupe Crédit Mutuel Arkéa",
+            "note": "Compte propre utilisé"
+          },
+          {
+            "id": "cx",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Plateformes crypto",
+            "note": "Kraken, OKX"
+          },
+          {
+            "id": "wal",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Services d'échange et Monero",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pre",
+            "etape": 1,
+            "texte": "Compromission de la plateforme du prestataire"
+          },
+          {
+            "de": "pre",
+            "vers": "fort",
+            "etape": 1,
+            "texte": "Accès direct au groupe bancaire"
+          },
+          {
+            "de": "fort",
+            "vers": "cx",
+            "etape": 2,
+            "texte": "Virements puis conversion en cryptomonnaies"
+          },
+          {
+            "de": "att",
+            "vers": "cx",
+            "etape": 3,
+            "texte": "Comptes ouverts avec identités falsifiées"
+          },
+          {
+            "de": "cx",
+            "vers": "wal",
+            "etape": 4,
+            "texte": "Échange et dispersion des fonds"
+          }
+        ]
+      },
+      "limites": "Acteur et dates de l'intrusion non précisés ; les sources divergent sur le rôle de Fortuneo [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié ; la piste Lazarus est écartée pour le moment [1]. Enquête des autorités en cours [2]"
+      ],
+      "cibles": [
+        "Crédit Mutuel Arkéa ; la banque indique qu'aucun compte client n'a été consulté [1, 2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "OKX",
+          "definition": "Plateforme d'échange de cryptomonnaies"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Crédit Mutuel Arkéa : 133 millions de dollars détournés",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/credit-mutuel-arkea-133-millions-de-dollars-detournes/",
+          "date": "2026-11-04"
+        },
+        {
+          "titre": "French bank confirms cyber heist, hackers suspected to have stolen an estimated $133 million",
+          "site": "The Record",
+          "url": "https://therecord.media/french-bank-confirms-cyber-heist",
+          "date": "2026-11-04",
+          "image": "https://cms.therecord.media/uploads/euros_41ac60ccd6.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-04-cryptominage-supercalculateurs-universites",
+      "title": "Cryptominage sur des supercalculateurs d'universités américaines : un Canadien extradé",
+      "created": "2026-11-04T13:08:22+00:00",
+      "updated": "2026-11-04T20:30:00+00:00",
+      "version": 3,
+      "resume": "Deux Canadiens sont inculpés aux États-Unis pour avoir détourné des ordinateurs d'universités, dont des supercalculateurs, afin de miner de l'Electroneum entre juin 2016 et décembre 2019 [1, 2, 3]. L'un d'eux a été extradé [1, 3].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources : seulement « plusieurs méthodes », dont un serveur et des ordinateurs compromis d'une autre victime pour masquer l'identité [1, 3]."
+        },
+        {
+          "etape": "Infrastructure de masquage",
+          "texte": "Serveurs privés virtuels dans plusieurs pays gérés avec de fausses identités, et machines compromises servant de relais → origine de l'attaque masquée [1]."
+        },
+        {
+          "etape": "Déploiement",
+          "texte": "Envoi de logiciels malveillants et de minage aux ordinateurs victimes → identifiants volés stockés sur les serveurs de l'attaquant [1, 3]."
+        },
+        {
+          "etape": "Extension de l'accès",
+          "texte": "Reconnaissance puis extension de l'accès une fois dans un réseau, sans détail sur les techniques [1]."
+        },
+        {
+          "etape": "Minage",
+          "texte": "Détournement de la puissance de calcul des universités, dont des supercalculateurs → minage d'Electroneum, 10 ordinateurs en minant au pic [1, 3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquants (deux inculpés)",
+            "note": ""
+          },
+          {
+            "id": "vps",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveurs privés virtuels",
+            "note": "Fausses identités"
+          },
+          {
+            "id": "uni",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Ordinateurs des universités",
+            "note": ""
+          },
+          {
+            "id": "sc",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Supercalculateurs",
+            "note": "Minage"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "vps",
+            "etape": 2,
+            "texte": "Infrastructure multi-pays à fausses identités"
+          },
+          {
+            "de": "att",
+            "vers": "uni",
+            "etape": 3,
+            "texte": "Logiciels malveillants et de minage envoyés"
+          },
+          {
+            "de": "att",
+            "vers": "uni",
+            "etape": 4,
+            "texte": "Reconnaissance et extension de l'accès"
+          },
+          {
+            "de": "uni",
+            "vers": "sc",
+            "etape": 5,
+            "texte": "Puissance détournée pour miner l'Electroneum"
+          }
+        ]
+      },
+      "limites": "La source ne donne ni le vecteur d'accès initial, ni les techniques employées, ni le nombre de victimes, ni les gains de minage [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Ryan James Roach (extradé le 28 octobre) et Mathiew James Stubbings (extradition en cours) [1]"
+      ],
+      "cibles": [
+        "Universités de New York, du Massachusetts, de Caroline du Nord et du Tennessee [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Canadian Extradited to US Over Cryptomining Hacks on University Supercomputers",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/canadian-extradited-to-us-over-cryptomining-hacks-on-university-supercomputers/",
+          "date": "2026-11-04",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/01/cryptocurrency.jpeg"
+        },
+        {
+          "titre": "US charges two Canadians accused of hacking US universities",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/us-charges-two-canadians-accused-of-hacking-us-universities/",
+          "date": "2026-11-04",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/Hackers-room.jpg"
+        },
+        {
+          "titre": "Canadian extradited to US for allegedly hacking schools in at least four states",
+          "site": "The Record",
+          "url": "https://therecord.media/canadian-nationals-accused-us-education-hacks-cryptomining",
+          "date": "2026-11-04",
+          "image": "https://cms.therecord.media/uploads/us_canada_flags_pexels_thomas_k_cb8bc816e8.jpg"
         }
       ]
     },
@@ -34974,6 +34603,359 @@
     },
     {
       "schema": 3,
+      "id": "2026-11-04-amadeus-compagnies-aeriennes-fuite",
+      "title": "Amadeus : fuite de données de réservation chez plusieurs compagnies aériennes asiatiques",
+      "created": "2026-11-04T22:30:00+00:00",
+      "updated": "2026-11-04T22:30:00+00:00",
+      "version": 1,
+      "resume": "Six compagnies aériennes asiatiques ont signalé des fuites de données liées à Amadeus, fournisseur de systèmes de réservation. Japan Airlines compte 92 000 clients touchés, Cathay Pacific 53 000 enregistrements volés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Vulnérabilité dans l'environnement d'affichage des réservations d'Amadeus, plus identifiants du compte système → accès aux données de réservation [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Consultation des réservations → noms, numéros de réservation, détails de vol, parfois passeports et adresses e-mail chez Cathay Pacific [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "am",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Affichage réservations Amadeus",
+            "note": "Vulnérabilité"
+          },
+          {
+            "id": "d",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données de réservation",
+            "note": "Clients des compagnies"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "am",
+            "etape": 1,
+            "texte": "Vulnérabilité et identifiants du compte système"
+          },
+          {
+            "de": "am",
+            "vers": "d",
+            "etape": 2,
+            "texte": "Données de réservation consultées"
+          }
+        ]
+      },
+      "limites": "Amadeus n'a donné ni détail technique, ni acteur, ni date de l'intrusion, et a refusé de communiquer le nombre total de victimes [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1]"
+      ],
+      "cibles": [
+        "Japan Airlines, Cathay Pacific, Korean Air, Asiana Airlines, Singapore Airlines, Malaysia Airlines, via Amadeus [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "More Asian airlines announce data breaches after attack on Spanish IT provider Amadeus",
+          "site": "The Record",
+          "url": "https://therecord.media/asian-airlines-announce-data-breach-it-provider-incident",
+          "date": "2026-11-04",
+          "image": "https://cms.therecord.media/uploads/airplane_airport_d009f47cb4.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-04-slippynunchucks-sogou-darkvigil",
+      "title": "SlippyNunchucks : détournement DNS de Sogou Input Method pour installer la porte dérobée DarkVigil",
+      "created": "2026-11-04T13:08:22+00:00",
+      "updated": "2026-11-05T05:30:00+00:00",
+      "version": 2,
+      "resume": "Le groupe SlippyNunchucks, lié à la Chine, détourne les requêtes DNS de Sogou Input Method sous Windows pour installer l'implant DarkVigil. La campagne observée depuis le 1er juillet 2026 vise surtout l'Asie [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Détournement DNS de la requête HTTP non chiffrée de Sogou Input Method → requête redirigée vers des serveurs de staging de l'attaquant [1, 2]."
+        },
+        {
+          "etape": "Configuration malveillante",
+          "texte": "Le composant SGTool.exe demande sa configuration → le serveur répond avec une configuration malveillante et des instructions de téléchargement [1, 2]."
+        },
+        {
+          "etape": "Téléchargement des charges",
+          "texte": "Récupération d'un exécutable Adobe légitime et d'une bibliothèque libcef.dll malveillante contenant DarkVigil [1, 2]."
+        },
+        {
+          "etape": "Exécution de DarkVigil",
+          "texte": "Chargement de la bibliothèque malveillante par l'exécutable légitime (DLL sideloading) → exécution de DarkVigil [1, 2]."
+        },
+        {
+          "etape": "Contrôle à distance",
+          "texte": "DarkVigil exécute les modules reçus du serveur de l'attaquant via le protocole DMTP [1, 2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (SlippyNunchucks)",
+            "note": ""
+          },
+          {
+            "id": "stg",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveurs de staging",
+            "note": "Deux serveurs"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes avec Sogou Input Method",
+            "note": "Windows"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Détournement DNS de la requête HTTP de Sogou"
+          },
+          {
+            "de": "stg",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Configuration malveillante renvoyée"
+          },
+          {
+            "de": "stg",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Téléchargement de deux charges"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 5,
+            "texte": "Modules exécutés via DMTP"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent pas où le détournement DNS est réalisé ; ESET évoque des hypothèses sans confirmation [2].",
+      "cves": [
+        {
+          "id": "CVE-2026-120422",
+          "explication": "Sogou Input Method : requêtes en HTTP non chiffré, corrigées par HTTPS dans la version 16.10, publiée le 29 octobre selon [1], le 29 ou 30 selon [2]."
+        }
+      ],
+      "mitre": [
+        "T1659 : Content Injection, injection de contenu malveillant [2]",
+        "T1574.001 : détournement du chargement de bibliothèque (DLL) [2]",
+        "T1557 : Adversary-in-the-Middle, interception du trafic [2]"
+      ],
+      "acteurs": [
+        "SlippyNunchucks, lié à la Chine, actif depuis au moins septembre 2023 selon ESET [1, 2]"
+      ],
+      "cibles": [
+        "Organisations et particuliers à Hong Kong, en Thaïlande, au Japon, au Vietnam, à Oman et au Sri Lanka [1, 2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "DNS",
+          "definition": "Domain Name System : annuaire traduisant les noms de sites en adresses"
+        },
+        {
+          "sigle": "HTTP",
+          "definition": "Protocole web non chiffré"
+        },
+        {
+          "sigle": "HTTPS",
+          "definition": "Version chiffrée du protocole web"
+        },
+        {
+          "sigle": "DLL",
+          "definition": "Bibliothèque de code chargée par un programme Windows"
+        },
+        {
+          "sigle": "DMTP",
+          "definition": "Duplex Message Transport Protocol : protocole de communication de DarkVigil"
+        },
+        {
+          "sigle": "ESET",
+          "definition": "Éditeur de sécurité à l'origine de l'attribution"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "China-Aligned Hackers Hijack Sogou Input Method DNS Requests to Deploy DarkVigil Backdoor",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/china-aligned-hackers-hijack-sogou.html",
+          "date": "2026-11-04",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMawvNNOvRYRm-k7ii9yDdw214v4kwQ7h5fAfOaUVkvMetNwArral8qumlObtaftjOcBsibL9vkqM1UT0-9l9jYPjj3M3C9NcPfg5pdIuENUfdKlK7lyseCS30AVhgLLs6a-2fdXlSDymSVeyIziO7IC13HFCaOf1v4sjbgmkeKfewWNsbTJCJ0WR2zLBZ/s1700-nu-rw-lo-l85-e365/key.jpg"
+        },
+        {
+          "titre": "SlippyNunchucks hijacks Sogou Input Method’s brand promotion mechanism to distribute malware",
+          "site": "WeLiveSecurity (ESET)",
+          "url": "https://www.welivesecurity.com/en/eset-research/slippynunchucks-hijacks-sogou-input-methods-brand-promotion-mechanism-to-distribute-malware/",
+          "date": "2026-11-04",
+          "image": "https://web-assets.esetstatic.com/wls/2026/11-26/slippynunchucks/slippynunchucks-malware.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-04-watering-hole-ios-android-n-day",
+      "title": "APT29 : point d'eau contre iOS et Android via un script d'analyse web piraté",
+      "created": "2026-11-04T10:30:00+00:00",
+      "updated": "2026-11-05T07:15:00+00:00",
+      "version": 3,
+      "resume": "Le groupe APT29, lié à la Russie, mène une campagne de point d'eau contre des utilisateurs d'iOS et d'Android, via des sites compromis, de faux sites et un script d'analyse web piraté [1, 2, 3].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Sites légitimes compromis, faux sites et script du service Plerdy modifié → JavaScript malveillant servi aux visiteurs [1, 2, 3]."
+        },
+        {
+          "etape": "Profilage et exploitation",
+          "texte": "Le JavaScript profile l'appareil → le serveur renvoie la chaîne d'exploitation propre à iOS ou Android, sans interaction de l'utilisateur [1, 2, 3]."
+        },
+        {
+          "etape": "Vol de données iOS",
+          "texte": "Failles d'iOS 16.7 et 18.5 exploitées → vol de cookies Safari, de bases WhatsApp et Telegram, du trousseau [1, 2]."
+        },
+        {
+          "etape": "Vol de données Android",
+          "texte": "Failles de Chrome pour Android exploitées, puis logiciel AndroSnitch → vol de cookies, d'identifiants et de mots de passe Wi-Fi [1, 2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (APT29)",
+            "note": ""
+          },
+          {
+            "id": "pl",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Script d'analyse Plerdy",
+            "note": "Code modifié"
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Sites compromis ou faux sites",
+            "note": ""
+          },
+          {
+            "id": "tel",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Appareils iOS et Android",
+            "note": "Données volées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pl",
+            "etape": 1,
+            "texte": "Script du service modifié"
+          },
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Sites compromis et faux sites"
+          },
+          {
+            "de": "web",
+            "vers": "tel",
+            "etape": 2,
+            "texte": "Profilage puis exploits adaptés"
+          }
+        ]
+      },
+      "limites": "Les sources ne donnent pas de description technique des failles ni le nombre de victimes [1, 2].",
+      "cves": [
+        {
+          "id": "CVE-2025-43529",
+          "explication": "Faille utilisée dans les chaînes contre iOS 16.7 et 18.5, liée au kit d'exploitation DarkSword [1, 2]."
+        },
+        {
+          "id": "CVE-2026-3910",
+          "explication": "Faille de Chrome pour Android utilisée pour exécuter du code à distance et sortir du bac à sable [2]."
+        },
+        {
+          "id": "CVE-2024-27834",
+          "explication": "Produits Apple : authentification incorrecte permettant de contourner Pointer Authentication, gravité moyenne 5,5 sur 10, ajoutée au catalogue des failles exploitées [3]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "APT29 (Midnight Blizzard), lié à la Russie, attribution par Sekoia [1, 2, 3]"
+      ],
+      "cibles": [
+        "Visiteurs de sites compromis aux États-Unis, en Ukraine, en Tchéquie et en Bulgarie, dont une association américaine de la chimie [1, 2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "APT29",
+          "definition": "Advanced Persistent Threat 29 : nom d'un groupe d'attaquants lié à la Russie"
+        },
+        {
+          "sigle": "Pointer Authentication",
+          "definition": "Protection d'Apple qui vérifie l'intégrité des pointeurs mémoire"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers use n-day exploits in zero-click attacks on iOS, Android devices",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-use-n-day-exploits-in-zero-click-attacks-on-ios-android-devices/",
+          "date": "2026-11-04",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/07/13/Russian_hacker.jpg"
+        },
+        {
+          "titre": "APT29-Linked Hackers Hijack Web Analytics Script to Deliver iOS and Android Exploits",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/apt29-linked-hackers-hijack-web.html",
+          "date": "2026-11-04",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhx1cus2o8fkYGLhQu9BfPgGtAUwnmTAMucLagfAodBuRoYnyxGIJKgpqtKFyCSV-WSG3pDqmPujhj-iwoOZB-zF8JjbQMrLzDHYtdTPA3hD3Kc3rqYQM4CQwkICwZkh8K6O8ZSt-WAA_PBoUA6lHwh_55dbDlKizsjzcTN847c9BSHsWHmrAP42JHRHIYS/s1700-nu-rw-lo-l85-e365/ios-exploit.jpg"
+        },
+        {
+          "titre": "Hackers Exploit Patched Apple Flaw to Deliver Info-Stealing Malware, CISA Says",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-patched-apple-flaw-to.html",
+          "date": "2026-11-05",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkv0B0acGnMDLnCJQYXNCkpzSeKKr_1m4-a10Q2Iy6DZOorGLb35YDD9vw3iQQA9fZTi7QGIZYlSsvTSmxc8w0UbgN_Xtl-QPyTngA9qhOuoryee3Z8X8CZRnHiUAY3wuIXG_UIO1DyDnjnfS5cOilt3WPzRnYYqFDZ1NHbXS0OVAsrVYHSeFuc7zglZw5/s1700-nu-rw-lo-l85-e365/apple-0day.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-04-zyxel-gs1900-zero-day",
       "title": "Zyxel : faille zero-day des commutateurs GS1900 exploitée sur près de 1 000 appareils",
       "created": "2026-11-04T21:15:00+00:00",
@@ -35070,20 +35052,36 @@
     },
     {
       "schema": 3,
-      "id": "2026-11-04-amadeus-compagnies-aeriennes-fuite",
-      "title": "Amadeus : fuite de données de réservation chez plusieurs compagnies aériennes asiatiques",
-      "created": "2026-11-04T22:30:00+00:00",
-      "updated": "2026-11-04T22:30:00+00:00",
-      "version": 1,
-      "resume": "Six compagnies aériennes asiatiques ont signalé des fuites de données liées à Amadeus, fournisseur de systèmes de réservation. Japan Airlines compte 92 000 clients touchés, Cathay Pacific 53 000 enregistrements volés [1].",
+      "id": "2026-10-31-chainalysis-intrusion-agentique",
+      "title": "Chainalysis : intrusion dans ses outils internes par des techniques agentiques offensives",
+      "created": "2026-10-31T13:20:00+00:00",
+      "updated": "2026-11-05T10:08:33+00:00",
+      "version": 3,
+      "resume": "Chainalysis a subi une intrusion dans ses systèmes et outils internes [1, 2, 3]. Selon sa mise à jour de mercredi soir, des informations de tous ses utilisateurs sont exposées et des mots de passe de certains clients ont été interceptés [4].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Vulnérabilité dans l'environnement d'affichage des réservations d'Amadeus, plus identifiants du compte système → accès aux données de réservation [1]."
+          "texte": "Non précisé par les sources [1, 2, 3, 4]."
         },
         {
-          "etape": "Vol de données",
-          "texte": "Consultation des réservations → noms, numéros de réservation, détails de vol, parfois passeports et adresses e-mail chez Cathay Pacific [1]."
+          "etape": "Accès aux outils internes",
+          "texte": "Un acteur externe emploie des « techniques agentiques offensives » → accès non autorisé aux systèmes et outils internes [1, 2, 3, 4]."
+        },
+        {
+          "etape": "Consultation de données",
+          "texte": "Lecture de données clients → identifiants utilisateur, noms, e-mails et rôles exposés [1, 2, 3]."
+        },
+        {
+          "etape": "Exposition élargie",
+          "texte": "Une attaque d'interception « on-path » → mots de passe de certains clients interceptés [4]."
+        },
+        {
+          "etape": "Exposition élargie",
+          "texte": "Mise à jour de mercredi soir → noms, identifiants, hachages de mots de passe et « live tokens » de tous les utilisateurs exposés [4]."
+        },
+        {
+          "etape": "Accès suspects",
+          "texte": "Accès suspects à certains comptes KYT → interface et API de KYT mises hors ligne par l'entreprise [4]."
         }
       ],
       "parcours": {
@@ -35096,52 +35094,486 @@
             "note": ""
           },
           {
-            "id": "am",
-            "type": "application",
+            "id": "sys",
+            "type": "serveur",
             "zone": "victime",
-            "nom": "Affichage réservations Amadeus",
-            "note": "Vulnérabilité"
+            "nom": "Systèmes et outils internes",
+            "note": ""
           },
           {
-            "id": "d",
+            "id": "don",
             "type": "donnees",
             "zone": "victime",
-            "nom": "Données de réservation",
-            "note": "Clients des compagnies"
+            "nom": "Données des utilisateurs",
+            "note": ""
+          },
+          {
+            "id": "cli",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Clients de Chainalysis",
+            "note": "Mots de passe interceptés"
+          },
+          {
+            "id": "kyt",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Comptes KYT",
+            "note": "Accès suspects"
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "am",
-            "etape": 1,
-            "texte": "Vulnérabilité et identifiants du compte système"
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Techniques agentiques offensives"
           },
           {
-            "de": "am",
-            "vers": "d",
-            "etape": 2,
-            "texte": "Données de réservation consultées"
+            "de": "sys",
+            "vers": "don",
+            "etape": 3,
+            "texte": "Consultation des données"
+          },
+          {
+            "de": "att",
+            "vers": "cli",
+            "etape": 4,
+            "texte": "Interception des mots de passe"
+          },
+          {
+            "de": "att",
+            "vers": "kyt",
+            "etape": 6,
+            "texte": "Accès suspects aux comptes"
           }
         ]
       },
-      "limites": "Amadeus n'a donné ni détail technique, ni acteur, ni date de l'intrusion, et a refusé de communiquer le nombre total de victimes [1].",
+      "limites": "Les sources ne précisent ni le vecteur d'accès ni le nombre d'utilisateurs touchés. Le lien entre l'interception, l'exposition des hachages et les accès suspects n'est pas établi [4].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non identifié [1]"
+        "Acteur externe non identifié, sans lien avec le vol chez Binance selon [3]"
       ],
       "cibles": [
-        "Japan Airlines, Cathay Pacific, Korean Air, Asiana Airlines, Singapore Airlines, Malaysia Airlines, via Amadeus [1]"
+        "Chainalysis et ses clients, tous les utilisateurs selon la mise à jour [1, 2, 4]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Interface permettant à des programmes d'échanger avec un service"
+        },
+        {
+          "sigle": "KYT",
+          "definition": "Produit de Chainalysis dont des comptes ont reçu des accès suspects"
+        }
+      ],
       "sources": [
         {
-          "titre": "More Asian airlines announce data breaches after attack on Spanish IT provider Amadeus",
+          "titre": "Chainalysis Confirms Intrusion Into Internal Tools and Exposure of Customer Identity Data",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/10/chainalysis-confirms-intrusion-into.html",
+          "date": "2026-10-31",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFRN0kXDPnLLvRBYqNZG4BTyUK0EaSxRtepYOQ-msXGAqu1IW8t2cdnav4ANAO8fXwY_-ug6Ictj29WcseInPhJmYOwpgcinvc8KO36A8HK6Wo41lgztgyH2jb9hGg7bVyWZ4A-adjBYuTi-hOJxMALa7myG172BWKwB_SyvrfMeqxH_3DdcyJxYwXFIKG/s1700-nu-rw-lo-l85-e365/chain.jpg"
+        },
+        {
+          "titre": "Chainalysis discloses data breach from \"offensive agentic techniques\"",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/chainalysis-discloses-data-breach-from-offensive-agentic-techniques/",
+          "date": "2026-10-31",
+          "image": "https://www.bleepstatic.com/content/hl-images/2025/03/18/Blockchain-2.jpg"
+        },
+        {
+          "titre": "Chainalysis Discloses Data Breach Following AI-Driven Cyberattack",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/chainalysis-discloses-data-breach-following-ai-driven-cyberattack/",
+          "date": "2026-11-02",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/chainalysis.jpeg"
+        },
+        {
+          "titre": "Chainalysis warns all users hit in cyber breach involving ‘agentic’ techniques",
           "site": "The Record",
-          "url": "https://therecord.media/asian-airlines-announce-data-breach-it-provider-incident",
-          "date": "2026-11-04",
-          "image": "https://cms.therecord.media/uploads/airplane_airport_d009f47cb4.jpg"
+          "url": "https://therecord.media/chainalysis-all-users-hit-by-agentic-cyberattack",
+          "date": "2026-11-05",
+          "image": "https://cms.therecord.media/uploads/Chainalysis_logo_on_laptop_file_photo_by_Alexander_Martin_2d4097e7d9.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-05-storm-2603-sharepoint-sans-fichier",
+      "title": "Storm-2603 : intrusion SharePoint sans fichier via ToolShell, rançongiciel Warlock bloqué",
+      "created": "2026-11-05T10:08:33+00:00",
+      "updated": "2026-11-05T10:08:33+00:00",
+      "version": 1,
+      "resume": "Un serveur SharePoint d'un client a été compromis en décembre 2025 via ToolShell, dans une intrusion que Kaspersky attribue avec confiance modérée à Storm-2603. Le lancement du rançongiciel Warlock a été bloqué [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Requêtes HTTP forgées sur le point d'accès ToolPane de SharePoint (CVE-2025-53770) → exécution de code à distance, le 24 décembre [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Porte dérobée web chargée en mémoire dans le runtime ASP.NET, puis outil Velociraptor installé → persistance, découverte et collecte de données [1]."
+        },
+        {
+          "etape": "Accès distant redondant",
+          "texte": "Plusieurs tunnels déployés (Zoho Assist, tunnel VS Code, Cloudflare Tunnel, reverse proxy) → accès indépendant de ToolShell [1]."
+        },
+        {
+          "etape": "Élévation et déplacement",
+          "texte": "Technique inspirée d'EfsPotato → niveau SYSTEM ; comptes administrateur créés ; connexions TCP vers des hôtes internes relayées par le serveur [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Pilote vulnérable et DLL chargée par sideloading, identifiée comme outil de Warlock → tentative de désactiver les solutions de sécurité [1]."
+        },
+        {
+          "etape": "Chiffrement",
+          "texte": "Lancement du rançongiciel Warlock bloqué par le module Proactive Defense de Kaspersky → pas de chiffrement [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Storm-2603)",
+            "note": ""
+          },
+          {
+            "id": "sp",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur SharePoint",
+            "note": "Porte dérobée en mémoire"
+          },
+          {
+            "id": "h",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Hôtes internes",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sp",
+            "etape": 1,
+            "texte": "Exploitation de ToolShell (CVE-2025-53770)"
+          },
+          {
+            "de": "att",
+            "vers": "sp",
+            "etape": 3,
+            "texte": "Tunnels d'accès distant"
+          },
+          {
+            "de": "sp",
+            "vers": "h",
+            "etape": 4,
+            "texte": "Connexions relayées par le serveur"
+          }
+        ]
+      },
+      "limites": "L'article ne nomme ni le client touché ni son secteur, et ne dit pas explicitement si des données ont été exfiltrées [1].",
+      "cves": [
+        {
+          "id": "CVE-2025-53770",
+          "explication": "SharePoint installé en local (ToolShell) : exécution de code à distance par des requêtes HTTP forgées [1]."
+        }
+      ],
+      "mitre": [
+        "T1553 : Subversion of trust controls, cité pour le contournement de la précompilation [1]"
+      ],
+      "acteurs": [
+        "Storm-2603, attribution par Kaspersky avec confiance modérée ; Microsoft lui rattache des rançongiciels [1]"
+      ],
+      "cibles": [
+        "Serveur SharePoint d'un client, non identifié [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ASP.NET",
+          "definition": "Environnement Microsoft d'exécution d'applications web"
+        },
+        {
+          "sigle": "VS Code",
+          "definition": "Visual Studio Code, éditeur de code de Microsoft"
+        },
+        {
+          "sigle": "SYSTEM",
+          "definition": "Niveau de privilèges le plus élevé sous Windows"
+        },
+        {
+          "sigle": "TCP",
+          "definition": "Protocole réseau de transport des connexions"
+        },
+        {
+          "sigle": "DLL",
+          "definition": "Bibliothèque de code chargée par un programme Windows"
+        },
+        {
+          "sigle": "sideloading",
+          "definition": "Faire charger une bibliothèque malveillante par un programme légitime"
+        },
+        {
+          "sigle": "HTTP",
+          "definition": "Protocole de communication des sites web"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "The SOC Files 5: Ghost in the pipeline, or a fileless SharePoint breach by Storm-2603",
+          "site": "Securelist (Kaspersky)",
+          "url": "https://securelist.com/storm-2603-fileless-toolshell-attack/121467/",
+          "date": "2026-11-05",
+          "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/10/14165524/SL-Storm-2603-featured-scaled.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-05-crafty-falcon-cert-in-finance",
+      "title": "Crafty Falcon : le CERT-In alerte sur des attaques assistées par IA contre la finance indienne",
+      "created": "2026-11-05T10:08:33+00:00",
+      "updated": "2026-11-05T10:08:33+00:00",
+      "version": 1,
+      "resume": "Le CERT-In indien signale une activité en cours de Crafty Falcon, acteur assisté par IA, contre les secteurs bancaire, financier et de l'assurance, avec des outils offensifs publics dont ARTEX [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation d'applications et d'API exposées, jetons API codés en dur ou identifiants en clair → vol d'identifiants API de passerelles de paiement et banques partenaires [1]."
+        },
+        {
+          "etape": "Contournement des contrôles",
+          "texte": "Appels directs aux API de transfert de fonds depuis l'infrastructure autorisée → contrôles de prêt, KYC, sanctions et plafonds contournés [1]."
+        },
+        {
+          "etape": "Tests puis virements",
+          "texte": "Transactions de test de valeur minimale → flux non autorisés validés avant des transferts rapides vers des comptes de mules [1]."
+        },
+        {
+          "etape": "Pivot vers la production",
+          "texte": "Pivot depuis des environnements de non-production publics via identifiants partagés, jetons ou chemins réseau → accès à la production [1]."
+        },
+        {
+          "etape": "Exécution de code",
+          "texte": "Failles récentes (envoi de fichiers, désérialisation) → web shells PHP et Node.js ; commandes et charges exécutées dans le cloud [1]."
+        },
+        {
+          "etape": "Effacement des traces",
+          "texte": "Journaux effacés et outils de sécurité des postes sabotés → détection et réponse compliquées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Crafty Falcon)",
+            "note": ""
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "expose",
+            "nom": "Applications et API exposées",
+            "note": ""
+          },
+          {
+            "id": "pay",
+            "type": "application",
+            "zone": "victime",
+            "nom": "API de transfert de fonds",
+            "note": ""
+          },
+          {
+            "id": "mu",
+            "type": "inconnu",
+            "zone": "internet",
+            "nom": "Comptes de mules",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 1,
+            "texte": "Exploitation, vol d'identifiants API"
+          },
+          {
+            "de": "att",
+            "vers": "pay",
+            "etape": 2,
+            "texte": "Appels directs aux API de transfert"
+          },
+          {
+            "de": "pay",
+            "vers": "mu",
+            "etape": 3,
+            "texte": "Transferts rapides vers des comptes de mules"
+          }
+        ]
+      },
+      "limites": "L'article ne donne ni l'ordre exact des étapes, ni les victimes nommées, ni les montants, ni les CVE [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Crafty Falcon, acteur assisté par IA suivi par le CERT-In [1]"
+      ],
+      "cibles": [
+        "Banques, services financiers et assurances en Inde ; échanges de cryptomonnaies et prestataires d'actifs numériques [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CERT-In",
+          "definition": "Équipe indienne de réponse aux urgences informatiques"
+        },
+        {
+          "sigle": "API",
+          "definition": "Interface permettant à des programmes d'échanger avec un service"
+        },
+        {
+          "sigle": "KYC",
+          "definition": "Vérification de l'identité des clients d'un établissement financier"
+        },
+        {
+          "sigle": "PHP",
+          "definition": "Langage de programmation de sites web"
+        },
+        {
+          "sigle": "Node.js",
+          "definition": "Environnement d'exécution de programmes JavaScript côté serveur"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "ARTEX",
+          "definition": "Framework offensif assisté par IA, utilisé pour automatiser des attaques"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CERT-In Flags AI-Driven Attacks as Backdoored ARTEX Exposes 62 Consoles to Root Access",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/backdoored-docker-image-for-artex-ai.html",
+          "date": "2026-11-05",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiA5xlxteigxw9PDEVogRmGjD3vyPuJRyKCuIAOmURy0CY-OLXfYOjC93BPb_gvifLUiVoUk9JcjmxtsGpkT-cYhlrTwXS6yodTv-WwHnPUKvahU67tc5R841Sb_hkIIsUkzNzne5Fzo0h6BUpzEW1770YFBayYksyjSc9pKOV3VsHfoHcPfu3mYAFOQW4K/s1700-nu-rw-lo-l85-e365/docker-ai.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-05-artex-image-docker-piegee",
+      "title": "ARTEX AI : image Docker piégée donnant un shell root sans authentification",
+      "created": "2026-11-05T10:08:33+00:00",
+      "updated": "2026-11-05T10:08:33+00:00",
+      "version": 1,
+      "resume": "Une image Docker piégée du framework ARTEX AI, tirée depuis Docker Hub, donne un shell root sans authentification. Du 2 au 4 novembre 2026, 62 consoles servaient ce build [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Une copie du dépôt ARTEX modifie une ligne de docker-compose.yml → l'image piégée tomicdd/artex est tirée de Docker Hub [1]."
+        },
+        {
+          "etape": "Porte dérobée",
+          "texte": "Fonction cachée verifyCaptcha() dans le gestionnaire de connexion → un champ CAPTCHA débutant par un marqueur secret fait exécuter la suite en root [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Exécution avant toute vérification d'identifiants → shell root sans authentification sur chaque installation ; image téléchargée 9 000 fois [1]."
+        },
+        {
+          "etape": "Données exposées",
+          "texte": "Une instance compromise contient constats non corrigés des cibles, identifiants actifs et sessions capturées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "hub",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Docker Hub",
+            "note": "Image tomicdd/artex"
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "expose",
+            "nom": "Consoles ARTEX",
+            "note": "62 servant le build"
+          }
+        ],
+        "liens": [
+          {
+            "de": "hub",
+            "vers": "srv",
+            "etape": 1,
+            "texte": "Image piégée tirée via docker-compose"
+          },
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 3,
+            "texte": "Shell root sans authentification"
+          },
+          {
+            "de": "att",
+            "vers": "hub",
+            "etape": 1,
+            "texte": "Image piégée associée à une copie du dépôt"
+          }
+        ]
+      },
+      "limites": "L'article ne nomme ni l'auteur de la porte dérobée ni de victimes ; seule la localisation des consoles est donnée : 26 aux États-Unis, 17 à Hong Kong, 7 en Chine [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Auteur de la porte dérobée non mentionné [1]"
+      ],
+      "cibles": [
+        "Utilisateurs du framework ARTEX AI, dont 62 consoles exposées au build piégé [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CAPTCHA",
+          "definition": "Test servant à distinguer un humain d'un programme à la connexion"
+        },
+        {
+          "sigle": "root",
+          "definition": "Compte administrateur disposant de tous les droits sur un système Unix"
+        },
+        {
+          "sigle": "ARTEX",
+          "definition": "Framework offensif assisté par IA, utilisé pour automatiser des attaques"
+        },
+        {
+          "sigle": "AI",
+          "definition": "Intelligence artificielle (en anglais)"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CERT-In Flags AI-Driven Attacks as Backdoored ARTEX Exposes 62 Consoles to Root Access",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/backdoored-docker-image-for-artex-ai.html",
+          "date": "2026-11-05",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiA5xlxteigxw9PDEVogRmGjD3vyPuJRyKCuIAOmURy0CY-OLXfYOjC93BPb_gvifLUiVoUk9JcjmxtsGpkT-cYhlrTwXS6yodTv-WwHnPUKvahU67tc5R841Sb_hkIIsUkzNzne5Fzo0h6BUpzEW1770YFBayYksyjSc9pKOV3VsHfoHcPfu3mYAFOQW4K/s1700-nu-rw-lo-l85-e365/docker-ai.jpg"
         }
       ]
     }

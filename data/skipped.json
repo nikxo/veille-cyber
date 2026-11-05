@@ -1,21 +1,5 @@
 [
   {
-    "id": "b2eead11db7cea6f",
-    "title": "Microsoft: Windows Server 2022 reached end of mainstream support",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-server-2022-reached-end-of-mainstream-support/",
-    "source": "BleepingComputer",
-    "raison": "annonce produit",
-    "date": "2026-10-15T14:20:00+00:00"
-  },
-  {
-    "id": "12b5084185c2ae4f",
-    "title": "NGINX Fixes 5 Flaws, Including Possible RCE and a TLS Bug That May Skip Client-Cert Checks",
-    "link": "https://thehackernews.com/2026/10/nginx-fixes-5-flaws-including-possible.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilités sans exploitation constatée",
-    "date": "2026-10-15T15:08:30+00:00"
-  },
-  {
     "id": "e7e0582933872fb7",
     "title": "Next.js Ships Out-of-Band Patch for Two Critical RCE Flaws in Caching and SVG Processing",
     "link": "https://thehackernews.com/2026/10/nextjs-ships-out-of-band-patch-for-two.html",
@@ -3998,5 +3982,21 @@
     "source": "LeMagIT",
     "raison": "conformité réglementaire, aucune attaque décrite",
     "date": "2026-11-05T09:30:00+00:00"
+  },
+  {
+    "id": "c3be2112dd1104f4",
+    "title": "GhostMap Android flaw lets malicious app trigger persistent boot loop",
+    "link": "https://www.bleepingcomputer.com/news/security/ghostmap-android-flaw-lets-malicious-app-trigger-persistent-boot-loop/",
+    "source": "BleepingComputer",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-05T10:08:33+00:00"
+  },
+  {
+    "id": "96a1ace9f58c677e",
+    "title": "Apple to Start Scanning Publicly Shared iCloud Photos and Files for Harmful Content",
+    "link": "https://thehackernews.com/2026/11/apple-to-start-scanning-publicly-shared.html",
+    "source": "The Hacker News",
+    "raison": "annonce produit",
+    "date": "2026-11-05T10:08:33+00:00"
   }
 ]

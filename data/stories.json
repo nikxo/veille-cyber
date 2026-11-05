@@ -34977,17 +34977,17 @@
       "id": "2026-11-04-zyxel-gs1900-zero-day",
       "title": "Zyxel : faille zero-day des commutateurs GS1900 exploitée sur près de 1 000 appareils",
       "created": "2026-11-04T21:15:00+00:00",
-      "updated": "2026-11-04T21:15:00+00:00",
-      "version": 1,
-      "resume": "Une faille zero-day des commutateurs réseau Zyxel de la série GS1900 a été exploitée pour compromettre près de 1 000 appareils dans le monde et voler fichiers de configuration et identifiants [1].",
+      "updated": "2026-11-05T09:30:00+00:00",
+      "version": 2,
+      "resume": "Une faille zero-day des commutateurs Zyxel GS1900 a servi à compromettre près de 1 000 appareils et à voler configurations et identifiants [1]. Selon Binarly, le correctif de juin ne bloque pas l'exploit [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Exploitation d'une faille zero-day des commutateurs GS1900 → compromission de près de 1 000 appareils dans le monde [1]."
+          "texte": "Exploitation d'une faille du service de gestion web des commutateurs, sans authentification → commandes exécutées avec les privilèges root, près de 1 000 appareils compromis [1, 2]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Accès aux appareils compromis → vol des fichiers de configuration et des identifiants [1]."
+          "texte": "Téléchargement d'un script de collecte sur les commutateurs → récupération des configurations, des identifiants root hachés et d'informations réseau [1, 2]."
         }
       ],
       "parcours": {
@@ -35022,17 +35022,33 @@
           }
         ]
       },
-      "limites": "Le résumé de l'article ne précise ni la faille exploitée, ni l'acteur, ni la durée de l'exploitation, ni l'usage des données volées [1].",
-      "cves": [],
+      "limites": "Les sources ne précisent pas comment les attaquants ont atteint les commutateurs, ni si CVE-2026-107441 a été exploitée [2]. Le correctif 2.90 Patch 2 ne bloque pas l'exploit [2].",
+      "cves": [
+        {
+          "id": "CVE-2026-7273",
+          "explication": "Commutateurs GS1900 : absence de vérification du compteur de paramètres selon Zyxel, corrigée par le firmware 2.90 Patch 2 [2]."
+        },
+        {
+          "id": "CVE-2026-107441",
+          "explication": "Commutateurs GS1900 : écriture hors limites dans le traitement des requêtes web, commandes exécutées en root ; gravité 9,8 (Binarly) ou 8,8 (fiche CVE), corrigée par le Patch 3 [2]."
+        }
+      ],
       "mitre": [],
-      "acteurs": [],
+      "acteurs": [
+        "Selon GreyNoise, acteur identique ou apparenté au groupe Red Heron, décrit comme chinophone [2]"
+      ],
       "cibles": [
-        "Commutateurs réseau Zyxel de la série GS1900 [1]"
+        "Commutateurs réseau Zyxel de la série GS1900 [1]",
+        "996 commutateurs touchés, dont 564 avec les identifiants par défaut [2]"
       ],
       "abreviations": [
         {
           "sigle": "GS1900",
           "definition": "Série de commutateurs réseau (switchs) de Zyxel"
+        },
+        {
+          "sigle": "root",
+          "definition": "Compte administrateur disposant de tous les droits sur un système Unix"
         }
       ],
       "sources": [
@@ -35042,6 +35058,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches/",
           "date": "2026-11-04",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/zyxel-gs1900.jpg"
+        },
+        {
+          "titre": "Zyxel GS1900 Patch Fails to Block Zero-Day Exploit Allowing Root Command Execution",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html",
+          "date": "2026-11-05",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaF7lULSp8hpZx_WSDcDsJxD9TzTOH5Oo5dkFteUVQqQMOXc7ZyytOxbNgL01vkV43Kx0V0sDzJvKGrZvPwjos_-g9djk8jVAqSN04CIhGoiWWUMLdyKQH32ES8ghi-6ilZbnbGi_WIRi8hvzik6ztrin-MZEK1QI2CKR3Lk1sUg3yVYuhGvsX0pC85Qg/s1700-nu-rw-lo-l85-e365/zyxel-hacker.jpg"
         }
       ]
     },

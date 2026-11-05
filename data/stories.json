@@ -34050,8 +34050,8 @@
       "id": "2026-11-02-congelateurs-supermarches-europe",
       "title": "Congélateurs de supermarchés européens piratés : seconde vague le 2 novembre",
       "created": "2026-11-02T13:50:00+00:00",
-      "updated": "2026-11-05T13:10:31+00:00",
-      "version": 7,
+      "updated": "2026-11-05T17:30:00+00:00",
+      "version": 8,
       "resume": "Dans la nuit du 1er au 2 novembre, des attaquants ont modifié à distance les réglages de contrôleurs de réfrigération dans plus de 100 magasins européens, entraînant des pertes d'aliments. Aucun groupe n'a revendiqué [1, 2, 3, 4].",
       "chaine": [
         {
@@ -34072,7 +34072,7 @@
         },
         {
           "etape": "Atteinte du sang",
-          "texte": "Attaque contre un fournisseur d'équipements frigorifiques → seuils de température et de dégivrage relevés dans trois sites de l'Établissement français du sang [6, 7, 8]."
+          "texte": "Attaque contre le système de supervision d'un prestataire → consignes de température et de dégivrage relevées dans trois sites de l'Établissement français du sang [6, 7, 8, 9]."
         }
       ],
       "parcours": {
@@ -34101,7 +34101,7 @@
           }
         ]
       },
-      "limites": "Le vecteur d'accès n'est pas confirmé et le lien entre les deux vagues n'est pas établi [1, 2, 3, 4]. Coolworld évoque une vulnérabilité dans un composant tiers, sans la décrire [8].",
+      "limites": "Vecteur d'accès non confirmé, lien entre les deux vagues non établi [1, 2, 3, 4]. Coolworld évoque un composant tiers vulnérable, sans le décrire [8]. Date d'intrusion et vecteur à l'Établissement français du sang non précisés [9].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -34168,6 +34168,13 @@
           "url": "https://www.securityweek.com/cyberattack-hits-french-blood-bank-site-but-no-blood-products-are-compromised/",
           "date": "2026-11-05",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/11/blood.jpeg"
+        },
+        {
+          "titre": "Cyberattaque contre les frigos de l’EFS : le plasma visé",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/cyberattaque-contre-les-frigos-de-lefs-le-plasma-vise/",
+          "date": "2026-11-05",
+          "image": "https://www.zataz.com/wp-content/uploads/EFS_plasma_ZATAZ_COM.jpg"
         }
       ]
     },
@@ -35714,6 +35721,322 @@
           "image": "https://www.securityweek.com/wp-content/uploads/2026/07/corporate-bank-fraud.jpeg"
         }
       ]
+    },
+    {
+      "id": "2026-11-05-cwpdoor-cwpsrv-pirate",
+      "title": "CWPdoor : porte dérobée Linux diffusée via une version piégée du serveur web de Control Web Panel",
+      "resume": "Un nouveau logiciel malveillant Linux, CWPdoor, est distribué dans une version trojanisée de cwpsrv, le serveur web de l'interface d'administration Control Web Panel [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Diffusion du logiciel malveillant",
+          "texte": "Version trojanisée de cwpsrv distribuée → installation du logiciel malveillant CWPdoor sur des serveurs Linux [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveurs Linux Control Web Panel",
+            "note": "cwpsrv piégé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Version piégée de cwpsrv distribuée"
+          }
+        ]
+      },
+      "limites": "Le résumé de l'article ne précise ni l'acteur, ni la façon dont la version piégée est distribuée, ni ce que fait CWPdoor [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Serveurs Linux utilisant Control Web Panel [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Hackers backdoor Linux servers using trojanized CWP web server",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-backdoor-linux-servers-using-trojanized-cwp-web-server/",
+          "date": "2026-11-05",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/29/Linux.jpg"
+        }
+      ],
+      "schema": 3,
+      "created": "2026-11-05T17:30:00+00:00",
+      "updated": "2026-11-05T17:30:00+00:00",
+      "version": 1
+    },
+    {
+      "id": "2026-11-05-digicert-fuite-migration",
+      "title": "DigiCert : fuite de données après l'exposition d'un système interne sur Internet",
+      "resume": "DigiCert annonce une fuite de données : lors d'une migration de serveur, un système interne a été exposé par erreur sur Internet, ce qui a permis un accès non autorisé aux informations de clients et à leurs pièces d'identité [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Erreur lors d'une migration de serveur → système interne exposé sur Internet [1]."
+        },
+        {
+          "etape": "Accès aux données",
+          "texte": "Accès non autorisé au système exposé → informations de clients et pièces d'identité atteintes [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "application",
+            "zone": "expose",
+            "nom": "Système interne de gestion",
+            "note": "Exposé par erreur"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données clients",
+            "note": "Pièces d'identité"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Accès non autorisé au système exposé"
+          },
+          {
+            "de": "sys",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Informations clients et pièces d'identité"
+          }
+        ]
+      },
+      "limites": "Le résumé de l'article ne précise ni l'auteur, ni la durée de l'exposition, ni le nombre de clients touchés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Clients de DigiCert, informations et pièces d'identité [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "DigiCert data breach exposes customer information, identity documents",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/digicert-data-breach-exposes-customer-information-identity-documents/",
+          "date": "2026-11-05",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/05/digicert-header.jpg"
+        }
+      ],
+      "schema": 3,
+      "created": "2026-11-05T17:30:00+00:00",
+      "updated": "2026-11-05T17:30:00+00:00",
+      "version": 1
+    },
+    {
+      "id": "2026-11-05-hameconnage-code-appareil-salary-review",
+      "title": "Campagne « Salary Review » : hameçonnage par code d'appareil visant des cabinets juridiques américains",
+      "resume": "Les 19 et 20 août 2026, une campagne a visé plus de 10 000 utilisateurs dans plus de 4 800 organisations, surtout des cabinets d'avocats aux États-Unis, pour obtenir leur jeton de session [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Courriel sans texte avec un document Word en pièce jointe, envoyé pendant environ 13 heures → victime invitée à ouvrir le document [1]."
+        },
+        {
+          "etape": "Leurre",
+          "texte": "Le document Word contient un QR code promettant une rémunération révisée → redirection vers une fausse page de connexion OneDrive [1]."
+        },
+        {
+          "etape": "Vol de session",
+          "texte": "La page affiche un code à copier, puis renvoie vers la page officielle de connexion par code d'appareil → jeton de session transmis à l'attaquant, sans mot de passe [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Employés de cabinets juridiques",
+            "note": ""
+          },
+          {
+            "id": "fp",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Fausse page OneDrive",
+            "note": "Code à copier"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 1,
+            "texte": "Courriel avec document Word"
+          },
+          {
+            "de": "usr",
+            "vers": "fp",
+            "etape": 2,
+            "texte": "QR code vers fausse page"
+          },
+          {
+            "de": "fp",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Jeton de session transmis"
+          }
+        ]
+      },
+      "limites": "Aucune attribution n'est donnée pour cette campagne [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non précisé par la source [1]"
+      ],
+      "cibles": [
+        "Plus de 10 000 utilisateurs dans plus de 4 800 organisations, surtout des cabinets d'avocats aux États-Unis [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "QR",
+          "definition": "Quick Response : code-barres carré lisible avec un téléphone"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Email threat landscape: Q3 2026 trends and insights",
+          "site": "Microsoft Threat Intelligence",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/email-threat-landscape-q3-2026-trends-and-insights/",
+          "date": "2026-11-05",
+          "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/11/Q3-featured-image.png"
+        }
+      ],
+      "schema": 3,
+      "created": "2026-11-05T17:30:00+00:00",
+      "updated": "2026-11-05T17:30:00+00:00",
+      "version": 1
+    },
+    {
+      "id": "2026-11-05-agent-tesla-campagne-espagnole",
+      "title": "Campagne en espagnol (bons de commande, paie) diffusant Agent Tesla",
+      "resume": "Le 21 septembre 2026, une campagne en espagnol a visé plus de 56 000 utilisateurs dans plus de 8 100 organisations avec de faux bons de commande et fiches de paie pour installer Agent Tesla [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Courriels à thème d'achat (63 %) ou de paie (37 %) avec une archive déguisée en pièce jointe, envoyés pendant environ 9 heures [1]."
+        },
+        {
+          "etape": "Téléchargeur",
+          "texte": "Pour les bons de commande : archive → script JavaScript → récupération du script Lincoln.ps1 sur Firebase Storage → Agent Tesla [1]."
+        },
+        {
+          "etape": "Exécutable direct",
+          "texte": "Pour la paie : archive déguisée contenant directement l'exécutable Agent Tesla [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Employés ciblés",
+            "note": ""
+          },
+          {
+            "id": "fs",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Firebase Storage",
+            "note": "Lincoln.ps1"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 1,
+            "texte": "Courriels de bon de commande ou de paie"
+          },
+          {
+            "de": "usr",
+            "vers": "fs",
+            "etape": 2,
+            "texte": "Script JavaScript récupère Lincoln.ps1"
+          },
+          {
+            "de": "fs",
+            "vers": "usr",
+            "etape": 2,
+            "texte": "Installation d'Agent Tesla"
+          }
+        ]
+      },
+      "limites": "Aucun acteur n'est nommé [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non précisé par la source [1]"
+      ],
+      "cibles": [
+        "Plus de 56 000 utilisateurs dans plus de 8 100 organisations, surtout Colombie, États-Unis, Mexique, Chili, Espagne [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Email threat landscape: Q3 2026 trends and insights",
+          "site": "Microsoft Threat Intelligence",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/email-threat-landscape-q3-2026-trends-and-insights/",
+          "date": "2026-11-05",
+          "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/11/Q3-featured-image.png"
+        }
+      ],
+      "schema": 3,
+      "created": "2026-11-05T17:30:00+00:00",
+      "updated": "2026-11-05T17:30:00+00:00",
+      "version": 1
     }
   ]
 }

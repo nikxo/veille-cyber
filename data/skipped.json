@@ -1,29 +1,5 @@
 [
   {
-    "id": "c7adc8194c581b16",
-    "title": "AI Slop Isn't Just for Social Media; It's Ruining Cyberattacks, Too",
-    "link": "https://www.darkreading.com/threat-intelligence/ai-slop-ruining-cyberattacks",
-    "source": "Dark Reading",
-    "raison": "analyse générale, aucune attaque précise (page inaccessible, 403)",
-    "date": "2026-10-15T21:20:00+00:00"
-  },
-  {
-    "id": "3f1030ed0e261f81",
-    "title": "SecTor 2026 Reveals a Rapidly Shifting Cybersecurity Landscape",
-    "link": "https://www.darkreading.com/cybersecurity-operations/sector-2026-reveals-a-rapidly-shifting-cybersecurity-landscape",
-    "source": "Dark Reading",
-    "raison": "compte rendu d'événement, aucune attaque précise",
-    "date": "2026-10-15T23:10:00+00:00"
-  },
-  {
-    "id": "5921092180ebaec2",
-    "title": "F-Secure Launches Victim-First Scam Encyclopedia Covering 50+ Types of Consumer Fraud",
-    "link": "https://www.darkreading.com/threat-intelligence/f-secure-launches-victim-first-scam-encyclopedia-covering-50-types-of-consumer-fraud",
-    "source": "Dark Reading",
-    "raison": "annonce produit",
-    "date": "2026-10-15T23:10:00+00:00"
-  },
-  {
     "id": "7b69f97c677ed97d",
     "title": "Proofpoint Inks $6.3 Billion All-Cash Deal to Acquire Varonis",
     "link": "https://www.securityweek.com/proofpoint-inks-6-3-billion-all-cash-deal-to-acquire-varonis/",
@@ -3998,5 +3974,29 @@
     "source": "Dark Reading",
     "raison": "contenu sponsorisé / annonce",
     "date": "2026-11-05T17:30:00+00:00"
+  },
+  {
+    "id": "02b4125588749d90",
+    "title": "OpenSSH flaw lets attackers log into password-disabled Linux accounts",
+    "link": "https://www.bleepingcomputer.com/news/security/openssh-flaw-lets-attackers-log-into-password-disabled-linux-accounts/",
+    "source": "BleepingComputer",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-05T18:08:02+00:00"
+  },
+  {
+    "id": "9e6a98593911664e",
+    "title": "Vulnérabilité dans OpenSSH (05 novembre 2026)",
+    "link": "https://www.cert.cyber.gouv.fr/alerte/CERTFR-2026-ALE-015/",
+    "source": "CERT-FR (alertes)",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-05T18:08:02+00:00"
+  },
+  {
+    "id": "f49c8cffc26c8dcf",
+    "title": "AI Agents Got Root on Linux via 948 Kernel Flaws in OpenAI Research",
+    "link": "https://www.securityweek.com/ai-agents-got-root-on-linux-via-948-kernel-flaws-in-openai-research/",
+    "source": "SecurityWeek",
+    "raison": "recherche, aucune exploitation dans la nature",
+    "date": "2026-11-05T18:08:02+00:00"
   }
 ]

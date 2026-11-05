@@ -34839,9 +34839,9 @@
       "id": "2026-11-04-watering-hole-ios-android-n-day",
       "title": "APT29 : point d'eau contre iOS et Android via un script d'analyse web piraté",
       "created": "2026-11-04T10:30:00+00:00",
-      "updated": "2026-11-05T11:09:35+00:00",
-      "version": 4,
-      "resume": "Le groupe APT29, lié à la Russie, mène une campagne de point d'eau contre des utilisateurs d'iOS et d'Android, via des sites compromis, de faux sites et un script d'analyse web piraté [1, 2, 3].",
+      "updated": "2026-11-05T18:08:02+00:00",
+      "version": 5,
+      "resume": "Le groupe APT29, lié à la Russie, mène une campagne de point d'eau contre des utilisateurs d'iOS et d'Android, via des sites compromis, de faux sites et un script d'analyse web piraté [1, 2, 3, 5].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -34853,11 +34853,11 @@
         },
         {
           "etape": "Vol de données iOS",
-          "texte": "Failles d'iOS 16.7 et 18.5 exploitées → vol de cookies Safari, de bases WhatsApp et Telegram, du trousseau [1, 2]."
+          "texte": "Failles d'iOS 16.7 et 18.5 exploitées → vol de cookies Safari, de bases WhatsApp et Telegram, du trousseau [1, 2, 5]."
         },
         {
           "etape": "Vol de données Android",
-          "texte": "Failles de Chrome pour Android et de Qualcomm exploitées, puis logiciel AndroSnitch → vol de cookies, d'identifiants et de mots de passe Wi-Fi [1, 2, 4]."
+          "texte": "Failles de Chrome pour Android et de Qualcomm exploitées, puis logiciel AndroSnitch → vol de cookies, d'identifiants et de mots de passe Wi-Fi [1, 2, 4, 5]."
         }
       ],
       "parcours": {
@@ -34912,7 +34912,7 @@
           }
         ]
       },
-      "limites": "Les sources ne donnent pas de description technique des failles ni le nombre de victimes [1, 2].",
+      "limites": "Les sources ne donnent pas de description technique des failles ni le nombre de victimes [1, 2, 5].",
       "cves": [
         {
           "id": "CVE-2025-43529",
@@ -34933,10 +34933,11 @@
       ],
       "mitre": [],
       "acteurs": [
-        "APT29 (Midnight Blizzard), lié à la Russie, attribution par Sekoia [1, 2, 3]"
+        "APT29 (Midnight Blizzard), lié à la Russie, attribution par Sekoia [1, 2, 3, 5]"
       ],
       "cibles": [
-        "Visiteurs de sites compromis aux États-Unis, en Ukraine, en Tchéquie et en Bulgarie, dont une association américaine de la chimie [1, 2]"
+        "Visiteurs de sites compromis aux États-Unis, en Ukraine, en Tchéquie et en Bulgarie, dont une association américaine de la chimie [1, 2]",
+        "Aussi : une entreprise ukrainienne de production de gaz et un parti politique d'extrême droite européen [5]"
       ],
       "abreviations": [
         {
@@ -34976,6 +34977,13 @@
           "url": "https://www.securityweek.com/russia-linked-hackers-hit-ios-android-devices-with-exploit-chains-via-watering-holes/",
           "date": "2026-11-05",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/10/Midnight-Blizzard-Russia-1024x576.png"
+        },
+        {
+          "titre": "Russian state-linked hackers target iPhone, Android devices in zero-click espionage campaign",
+          "site": "The Record",
+          "url": "https://therecord.media/russia-hackers-smartphone-cyberattacks",
+          "date": "2026-11-05",
+          "image": "https://cms.therecord.media/uploads/Smartphones_79e20f7fb1.jpg"
         }
       ]
     },
@@ -36037,6 +36045,127 @@
       "created": "2026-11-05T17:30:00+00:00",
       "updated": "2026-11-05T17:30:00+00:00",
       "version": 1
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-05-artex-trois-campagnes-check-point",
+      "title": "ARTEX : trois campagnes d'intrusion pilotées par IA (certificats iOS, cryptomonnaie, comptes de jeu)",
+      "created": "2026-11-05T18:08:02+00:00",
+      "updated": "2026-11-05T18:08:02+00:00",
+      "version": 1,
+      "resume": "Des opérateurs ont utilisé l'outil ARTEX, conçu pour des tests d'intrusion pilotés par IA, dans trois campagnes : vol de certificats iOS, tentative de vol de USDT et récupération d'identifiants de jeu [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de failles web (mots de passe administrateur dans le JavaScript, interface web sans authentification, injection de commandes) → accès aux systèmes des victimes [1]."
+        },
+        {
+          "etape": "Vol de certificats iOS",
+          "texte": "Compromission de 10 boutiques de signature iOS et recherche de certificats et mots de passe → plus de 300 obtenus, dont trois valides [1]."
+        },
+        {
+          "etape": "Vol de USDT",
+          "texte": "Intrusions contre 292 domaines de paiement en cryptomonnaie pour extraire des USDT → objectif non atteint [1]."
+        },
+        {
+          "etape": "Vol de comptes",
+          "texte": "Fichier d'identifiants en clair trouvé dans la racine web de 13 serveurs de vérification de comptes → plus de 190 000 identifiants Honor of Kings récupérés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (opérateurs ARTEX)",
+            "note": ""
+          },
+          {
+            "id": "bou",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Boutiques de signature iOS",
+            "note": "Certificats volés"
+          },
+          {
+            "id": "pay",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Domaines de paiement crypto",
+            "note": "USDT visés"
+          },
+          {
+            "id": "jeu",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveurs de comptes de jeu",
+            "note": "Identifiants récupérés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "bou",
+            "etape": 1,
+            "texte": "Exploitation de failles web"
+          },
+          {
+            "de": "att",
+            "vers": "bou",
+            "etape": 2,
+            "texte": "Recherche de certificats et mots de passe"
+          },
+          {
+            "de": "att",
+            "vers": "pay",
+            "etape": 3,
+            "texte": "Tentative d'extraction de USDT"
+          },
+          {
+            "de": "att",
+            "vers": "jeu",
+            "etape": 4,
+            "texte": "Fichier d'identifiants en clair récupéré"
+          }
+        ]
+      },
+      "limites": "Les sources ne donnent pas la date de la campagne sur les USDT ni celle des comptes de jeu, et n'attribuent les campagnes à aucun groupe nommé [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non attribué : opérateurs anonymes motivés financièrement [1]"
+      ],
+      "cibles": [
+        "Boutiques de signature iOS, domaines de paiement crypto, serveurs de comptes de jeu Honor of Kings [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ARTEX",
+          "definition": "Plateforme chinoise open source de tests d'intrusion pilotée par des agents IA"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "USDT",
+          "definition": "Cryptomonnaie stable adossée au dollar"
+        },
+        {
+          "sigle": "JavaScript",
+          "definition": "Langage de programmation exécuté dans les navigateurs web"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hacking on Autopilot: Inside ARTEX Cybercrime Campaigns",
+          "site": "Check Point Research",
+          "url": "https://research.checkpoint.com/2026/hacking-on-autopilot-inside-artex-cybercrime-campaigns/",
+          "date": "2026-11-05",
+          "image": "https://research.checkpoint.com/wp-content/uploads/2026/11/artex_background.png"
+        }
+      ]
     }
   ]
 }

@@ -36686,6 +36686,114 @@
           "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/11/AI-tooling-scanning-secrets-featured.png"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-05-fraude-ia-faux-dirigeants-avocats",
+      "title": "Fraude au président : voix de dirigeants imitée par intelligence artificielle et faux avocats, 129 millions de dollars volés",
+      "created": "2026-11-06T03:20:00+00:00",
+      "updated": "2026-11-06T03:20:00+00:00",
+      "version": 1,
+      "resume": "Trois personnes sont inculpées aux États-Unis pour avoir usurpé des dirigeants et des avocats, avec voix imitée par intelligence artificielle, afin de faire virer environ 129 millions de dollars par des services comptables [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Courriel se faisant passer pour le dirigeant, envoyé au service comptable, demandant de l'aide pour une transaction confidentielle → premier contact avec l'employé [1]."
+        },
+        {
+          "etape": "Usurpation du dirigeant",
+          "texte": "Appel ou visioconférence où l'intelligence artificielle imite la voix, parfois l'image du dirigeant → demande rendue plus crédible [1]."
+        },
+        {
+          "etape": "Usurpation d'avocats",
+          "texte": "L'employé est invité à contacter un avocat d'un grand cabinet, usurpé par le groupe à partir d'un script « Lawyer Call » → faux avocat qui guide la victime [1]."
+        },
+        {
+          "etape": "Virements frauduleux",
+          "texte": "Le faux avocat demande de gros virements vers des comptes bancaires dans le monde → fonds détournés [1]."
+        },
+        {
+          "etape": "Blanchiment",
+          "texte": "Conversion en cryptomonnaies → origine des fonds dissimulée, puis partage entre les trois prévenus et des complices [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (trois prévenus)",
+            "note": ""
+          },
+          {
+            "id": "cpt",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Service comptable de l'entreprise",
+            "note": "Employé trompé"
+          },
+          {
+            "id": "bq",
+            "type": "inconnu",
+            "zone": "internet",
+            "nom": "Comptes bancaires dans le monde",
+            "note": ""
+          },
+          {
+            "id": "cry",
+            "type": "donnees",
+            "zone": "internet",
+            "nom": "Cryptomonnaies",
+            "note": "Fonds répartis"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cpt",
+            "etape": 1,
+            "texte": "Courriel se faisant passer pour le dirigeant"
+          },
+          {
+            "de": "att",
+            "vers": "cpt",
+            "etape": 2,
+            "texte": "Voix imitée, puis faux avocat"
+          },
+          {
+            "de": "cpt",
+            "vers": "bq",
+            "etape": 4,
+            "texte": "Gros virements demandés par le faux avocat"
+          },
+          {
+            "de": "bq",
+            "vers": "cry",
+            "etape": 5,
+            "texte": "Fonds convertis en cryptomonnaies"
+          }
+        ]
+      },
+      "limites": "L'article ne donne ni le montant par victime, ni la date de début de l'activité, ni de groupe nommé [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Jacob Soall, Sharon Hazan et Guy Sheetrit, surnommés « Rocky Balboa », « Superman Cash » et « Fat Boy » [1]"
+      ],
+      "cibles": [
+        "Hôpitaux, banque, fintech, société de fonds, entreprise d'alimentation animale aux États-Unis et au Royaume-Uni [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "3 Charged in Scheme to Use AI to Impersonate CEOs and Attorneys to Steal $129 Million",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/3-charged-in-scheme-to-use-ai-to-impersonate-ceos-and-attorneys-to-steal-129-million/",
+          "date": "2026-11-05",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+        }
+      ]
     }
   ]
 }

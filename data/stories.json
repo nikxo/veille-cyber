@@ -34706,8 +34706,8 @@
       "id": "2026-10-31-chainalysis-intrusion-agentique",
       "title": "Chainalysis : intrusion dans ses outils internes par des techniques agentiques offensives",
       "created": "2026-10-31T13:20:00+00:00",
-      "updated": "2026-11-05T10:08:33+00:00",
-      "version": 3,
+      "updated": "2026-11-06T09:30:00+00:00",
+      "version": 4,
       "resume": "Chainalysis a subi une intrusion dans ses systèmes et outils internes [1, 2, 3]. Selon sa mise à jour de mercredi soir, des informations de tous ses utilisateurs sont exposées et des mots de passe de certains clients ont été interceptés [4].",
       "chaine": [
         {
@@ -34728,11 +34728,11 @@
         },
         {
           "etape": "Exposition élargie",
-          "texte": "Mise à jour de mercredi soir → noms, identifiants, hachages de mots de passe et « live tokens » de tous les utilisateurs exposés [4]."
+          "texte": "Mise à jour de mercredi soir → noms, identifiants, hachages de mots de passe et « live tokens » de tous les utilisateurs exposés [4, 5]."
         },
         {
           "etape": "Accès suspects",
-          "texte": "Accès suspects à certains comptes KYT → interface et API de KYT mises hors ligne par l'entreprise [4]."
+          "texte": "Accès suspects à certains comptes KYT → interface et API de KYT mises hors ligne ; accès à Reactor et Data Solutions retirés [4, 5]."
         }
       ],
       "parcours": {
@@ -34800,7 +34800,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni le vecteur d'accès ni le nombre d'utilisateurs touchés. Le lien entre l'interception, l'exposition des hachages et les accès suspects n'est pas établi [4].",
+      "limites": "Les sources ne précisent ni le vecteur d'accès ni le nombre d'utilisateurs touchés. Chainalysis dit n'avoir aucune preuve d'accès aux données d'enquête [5]. Le lien entre interception, hachages et accès suspects n'est pas établi [4].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -34847,6 +34847,13 @@
           "url": "https://therecord.media/chainalysis-all-users-hit-by-agentic-cyberattack",
           "date": "2026-11-05",
           "image": "https://cms.therecord.media/uploads/Chainalysis_logo_on_laptop_file_photo_by_Alexander_Martin_2d4097e7d9.png"
+        },
+        {
+          "titre": "Chainalysis Breach Exposes All Users' Credentials, Forces Shutdown of Key Services",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/chainalysis-breach-exposes-all-users.html",
+          "date": "2026-11-06",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoSpb8lu1ytakNne4rJ58nWfLFrYtdR7MCyZ2prSaLKiAb2Bt_upvfAHl-slDTt_3h7zxFdhbPcLwzAkcHDjnvu2TNcVp6JsgJU6GI5GMvZrrmzZTUZDyeOhS0GnFV-YtazzzcgMFnUvkqKmpSr9FBrCXQhlyPZM9E8c7LPSxACwPhfJ4nFzIANqdaVXUd/s1700-nu-rw-lo-l85-e365/chain-breach.jpg"
         }
       ]
     },

@@ -16012,8 +16012,8 @@
       "id": "2026-10-19-ahold-delhaize-cyberattaque",
       "title": "Ahold Delhaize : cyberattaque et systèmes mis hors ligne dans la plupart des enseignes",
       "created": "2026-10-19T17:08:15+00:00",
-      "updated": "2026-10-20T14:30:00+00:00",
-      "version": 3,
+      "updated": "2026-11-06T13:30:00+00:00",
+      "version": 4,
       "resume": "Ahold Delhaize a mis hors ligne ses systèmes dans la plupart de ses enseignes américaines et européennes après une activité suspecte, puis a confirmé des « actions malveillantes » le 19 octobre [1, 2].",
       "chaine": [
         {
@@ -16031,6 +16031,10 @@
         {
           "etape": "Rétablissement partiel",
           "texte": "Sites et applications rétablis par phases, dont Albert Heijn → certains systèmes restent hors service [2] ; boutiques américaines attendues sous quelques jours [3]."
+        },
+        {
+          "etape": "Bilan financier",
+          "texte": "Perturbation en grande partie contenue après environ deux semaines → chiffre d'affaires du quatrième trimestre réduit de 200 à 250 millions d'euros [4]."
         }
       ],
       "parcours": {
@@ -16072,7 +16076,7 @@
           }
         ]
       },
-      "limites": "L'entreprise n'a pas décrit la nature de l'attaque ni le vecteur d'accès ; aucun acteur nommé, chiffrement non confirmé [1, 2].",
+      "limites": "L'entreprise n'a pas décrit la nature de l'attaque ni le vecteur d'accès ; aucun acteur nommé, chiffrement non confirmé [1, 2]. Nature de l'attaque toujours non divulguée [4].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -16102,6 +16106,13 @@
           "site": "SecurityWeek",
           "url": "https://www.securityweek.com/ahold-delhaize-restoring-services-disrupted-by-cyberattack/",
           "date": "2026-10-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/11/Ahold-Delhaize-cyberattack.jpeg"
+        },
+        {
+          "titre": "Grocery Giant Ahold Delhaize Estimates Financial Toll of October Cyberattack",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/grocery-giant-ahold-delhaize-estimates-financial-toll-of-october-cyberattack/",
+          "date": "2026-11-06",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/11/Ahold-Delhaize-cyberattack.jpeg"
         }
       ]
@@ -37029,6 +37040,92 @@
           "url": "https://www.bleepingcomputer.com/news/security/metamask-says-recent-attack-didnt-affect-wallet-infrastructure/",
           "date": "2026-11-06",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/06/Metamask.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-06-proxys-residentiels-maison-blanche",
+      "title": "Proxys résidentiels détectés sur le réseau de la Maison-Blanche",
+      "created": "2026-11-06T13:30:00+00:00",
+      "updated": "2026-11-06T13:30:00+00:00",
+      "version": 1,
+      "resume": "Des chercheurs ont observé que six adresses du réseau du Bureau exécutif du président ont servi de sorties à 28 services de proxys résidentiels en un mois [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Infection",
+          "texte": "Appareils infectés par un kit de développement de proxy (InfaticaSDK, selon Synthient) → machines Windows 11 devenues nœuds de sortie [1]."
+        },
+        {
+          "etape": "Revente d'accès",
+          "texte": "Inscription à un service public de proxy résidentiel → envoi de requêtes via ces nœuds [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Utilisateurs de proxys",
+            "note": ""
+          },
+          {
+            "id": "px",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Services de proxys résidentiels",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines du réseau Maison-Blanche",
+            "note": "Nœuds de sortie"
+          }
+        ],
+        "liens": [
+          {
+            "de": "pc",
+            "vers": "px",
+            "etape": 2,
+            "texte": "Machines infectées servant de nœuds de sortie"
+          },
+          {
+            "de": "att",
+            "vers": "px",
+            "etape": 3,
+            "texte": "Requêtes envoyées via le service"
+          }
+        ]
+      },
+      "limites": "Les sources ne décrivent ni le vecteur d'infection ni l'acteur à l'origine de l'utilisation des proxys [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié pour l'utilisation des proxys [1]"
+      ],
+      "cibles": [
+        "Réseau du Bureau exécutif du président, Maison-Blanche [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SDK",
+          "definition": "Kit de développement logiciel intégré dans une application"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Researchers Find Residential Proxies on White House Network",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/researchers-find-residential-proxies-on-white-house-network/",
+          "date": "2026-11-06",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/01/Whitehouse-Cybersecurity.jpg"
         }
       ]
     }

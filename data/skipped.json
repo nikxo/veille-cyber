@@ -1,37 +1,5 @@
 [
  {
-  "id": "cbc0d354e14d2a8a",
-  "title": "Mind the (Patch) Gap , Part 3: Analysis with Volexity Volcano, Threat Intel, and MCP",
-  "link": "https://www.volexity.com/blog/2026/10/16/mind-the-patch-gap-part-3-analysis-with-volexity-volcano-threat-intel-and-mcp/",
-  "source": "Volexity",
-  "raison": "présentation de produit, reproduction sur machine de test",
-  "date": "2026-10-16T19:20:00+00:00"
- },
- {
-  "id": "bcad72a22c11de74",
-  "title": "Critical BlockStrap flaw lets hackers run code on Magento servers",
-  "link": "https://www.bleepingcomputer.com/news/security/critical-blockstrap-flaw-lets-hackers-run-code-on-magento-servers/",
-  "source": "BleepingComputer",
-  "raison": "vulnérabilité sans exploitation constatée",
-  "date": "2026-10-16T20:20:00+00:00"
- },
- {
-  "id": "714d202db5965001",
-  "title": "Enterprise AI Enters Risk Management Phase as Security Concerns Rise",
-  "link": "https://www.darkreading.com/cyber-risk/enterprise-ai-risk-management-phase-security-concerns-rise",
-  "source": "Dark Reading",
-  "raison": "conseils génériques / analyse de marché, pas d'attaque",
-  "date": "2026-10-16T20:20:00+00:00"
- },
- {
-  "id": "b8b7cb7d4b497f6a",
-  "title": "Biomemory Launches DNA Shield, First Commercial Product Built on Its Molecular IT Platform",
-  "link": "https://www.darkreading.com/data-privacy/biomemory-launches-dna-shield",
-  "source": "Dark Reading",
-  "raison": "annonce produit",
-  "date": "2026-10-16T20:20:00+00:00"
- },
- {
   "id": "15367a3259ffd977",
   "title": "BeyondTrust Remote Support Zero-Day Continues Trend of Exploited Edge Bugs",
   "link": "https://www.darkreading.com/endpoint-security/beyondtrust-remote-support-exploited-edge-bugs",
@@ -3998,5 +3966,37 @@
   "source": "The Record",
   "raison": "actualité réglementaire sans méthode d'attaque",
   "date": "2026-11-06T12:07:15+00:00"
+ },
+ {
+  "id": "649e0d8b078ebcc3",
+  "title": "Microsoft Paint RCE Fix Now Available, but Windows Update Won't Deliver It",
+  "link": "https://thehackernews.com/2026/11/microsoft-paint-rce-fix-now-available.html",
+  "source": "The Hacker News",
+  "raison": "vulnérabilité sans exploitation constatée",
+  "date": "2026-11-06T13:30:00+00:00"
+ },
+ {
+  "id": "803a1f71a44e1479",
+  "title": "D-Link warns of multiple zero-days in DGS-3130 Series switches",
+  "link": "https://www.bleepingcomputer.com/news/security/d-link-warns-of-multiple-zero-days-in-dgs-3130-series-switches/",
+  "source": "BleepingComputer",
+  "raison": "vulnérabilités sans exploitation constatée",
+  "date": "2026-11-06T13:30:00+00:00"
+ },
+ {
+  "id": "cea41b0360f6d357",
+  "title": "Malicious Browser Extensions Could Use Claude Dispatch to Run Code on Users' Computers",
+  "link": "https://thehackernews.com/2026/11/malicious-browser-extensions-could-use.html",
+  "source": "The Hacker News",
+  "raison": "démonstration de chercheurs sans exploitation constatée",
+  "date": "2026-11-06T13:30:00+00:00"
+ },
+ {
+  "id": "e7267a328ffa57e4",
+  "title": "OpenSSH Rushes Patches for ‘SSHole’ Authentication Bypass",
+  "link": "https://www.securityweek.com/openssh-rushes-patches-for-sshole-authentication-bypass/",
+  "source": "SecurityWeek",
+  "raison": "vulnérabilité sans exploitation constatée",
+  "date": "2026-11-06T13:30:00+00:00"
  }
 ]

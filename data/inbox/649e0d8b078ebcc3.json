@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-11-06T13:07:26+00:00",
+  "feed_summary": "A fix for CVE-2026-83844, a remote code execution flaw in Windows Paint, is now in the Microsoft Store. Paint gets this fix only through a Store update, not through Windows updates. The fixed build, 11.2609.401.0, was the newest Paint build in all ten countries The Hacker News checked today. The flaw is an out-of-bounds read that could let an attacker run code over a network. Microsoft rates",
+  "id": "649e0d8b078ebcc3",
+  "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFEFFUv1MUNRoFx03Jcw0k5NZCU0EOf5qEpbvAEQoTSTzoxHWPk1rc7XgQeG1USPP9vVB0ePI_lzQLqBU5bHdQ7-YrwEXFo8gJwayqwCvCtcDrw1JYMxKYxieV3bcQeCRAJAxt8CRfifzMzL22_ab0Z0OxwWrNckC36gPEOnubZnzagv6DkV7iY4AQJfA/s1700-nu-rw-lo-l85-e365/paint-rce.jpg",
+  "lang": "en",
+  "link": "https://thehackernews.com/2026/11/microsoft-paint-rce-fix-now-available.html",
+  "published": "2026-11-06T17:36:43+05:30",
+  "source": "The Hacker News",
+  "source_type": "actu",
+  "title": "Microsoft Paint RCE Fix Now Available, but Windows Update Won't Deliver It"
+}

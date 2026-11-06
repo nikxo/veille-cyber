@@ -35447,15 +35447,23 @@
     {
       "id": "2026-11-05-cwpdoor-cwpsrv-pirate",
       "title": "CWPdoor : porte dérobée Linux diffusée via une version piégée du serveur web de Control Web Panel",
-      "resume": "Un nouveau logiciel malveillant Linux, CWPdoor, est distribué dans une version trojanisée de cwpsrv, le serveur web de l'interface d'administration Control Web Panel [1].",
+      "resume": "Une porte dérobée Linux, CWPdoor, se cache dans une version piégée de cwpsrv, le serveur web de Control Web Panel, et permet d'exécuter des commandes absentes des journaux [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé : l'installation exige déjà un accès root, les attaquants contrôlent donc déjà le serveur [2]."
         },
         {
           "etape": "Diffusion du logiciel malveillant",
-          "texte": "Version trojanisée de cwpsrv distribuée → installation du logiciel malveillant CWPdoor sur des serveurs Linux [1]."
+          "texte": "Un script d'installation remplace cwpsrv par une version modifiée → CWPdoor installé sur des serveurs Linux [1, 2]."
+        },
+        {
+          "etape": "Dissimulation",
+          "texte": "Dates du fichier restaurées à leurs valeurs d'origine → ls et stat ne montrent aucune modification [2]."
+        },
+        {
+          "etape": "Exécution de commandes",
+          "texte": "Requête avec horodatage et signature valides dans des en-têtes X-Ngx-Integrity → commande exécutée, absente des journaux d'accès [2]."
         }
       ],
       "parcours": {
@@ -35480,11 +35488,17 @@
             "de": "att",
             "vers": "srv",
             "etape": 2,
-            "texte": "Version piégée de cwpsrv distribuée"
+            "texte": "Script remplaçant cwpsrv par une version piégée"
+          },
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 4,
+            "texte": "Requêtes signées déclenchant des commandes"
           }
         ]
       },
-      "limites": "Le résumé de l'article ne précise ni l'acteur, ni la façon dont la version piégée est distribuée, ni ce que fait CWPdoor [1].",
+      "limites": "Les sources ne disent ni comment les attaquants obtiennent l'accès root, ni leur identité, ni le nombre de serveurs touchés [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
@@ -35499,12 +35513,19 @@
           "url": "https://www.bleepingcomputer.com/news/security/hackers-backdoor-linux-servers-using-trojanized-cwp-web-server/",
           "date": "2026-11-05",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/29/Linux.jpg"
+        },
+        {
+          "titre": "Hackers Hide Linux Backdoor in Control Web Panel Server to Execute Commands Without Logs",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-hide-linux-backdoor-in-control.html",
+          "date": "2026-11-06",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsAMxBevh2cmz1buKWukyP6JgUHrIPcr9zrJjAs1OwDoP1wMjn_s_WKHeUAdSwVzTImUsDE0C3SLGEpciaLk9H8CGvqiYugQWASsflB1a5zA9Wyr4RbroT3Z3JlOeak1AEinAy7Brf9N0BRDuGFWdZC23nCrOq4VuSMQQuDFYBYC6YCEm2ncPhHOv3KXs/s1700-nu-rw-lo-l85-e365/cwp.jpg"
         }
       ],
       "schema": 3,
       "created": "2026-11-05T17:30:00+00:00",
-      "updated": "2026-11-05T17:30:00+00:00",
-      "version": 1
+      "updated": "2026-11-06T07:30:00+00:00",
+      "version": 2
     },
     {
       "id": "2026-11-05-digicert-fuite-migration",

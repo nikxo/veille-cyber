@@ -36310,9 +36310,9 @@
       "id": "2026-11-05-avis-refrigeration-industrielle",
       "title": "Alerte américaine : contrôleurs de réfrigération industrielle visés dans le monde",
       "created": "2026-11-05T23:15:00+00:00",
-      "updated": "2026-11-05T23:15:00+00:00",
-      "version": 1,
-      "resume": "Des agences américaines signalent une activité malveillante mondiale contre des systèmes de réfrigération industrielle et de suivi de la chaîne du froid, avec modification à distance des réglages et risque de perte de stock [1].",
+      "updated": "2026-11-06T01:30:00+00:00",
+      "version": 2,
+      "resume": "Le FBI et la CISA signalent des attaques mondiales contre des systèmes de réfrigération industrielle et de suivi de la chaîne du froid, avec risque de pertes de stock, de dégâts matériels et d'incendie [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -36372,7 +36372,7 @@
           }
         ]
       },
-      "limites": "L'avis ne nomme ni acteur, ni victime, ni CVE, ni date d'activité, et ne décrit pas de séquence d'intrusion détaillée [1].",
+      "limites": "L'avis ne nomme ni acteur, ni victime, ni CVE, ni date d'activité, et ne décrit pas de séquence d'intrusion détaillée [1]. Le second article n'est connu que par son résumé [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -36381,13 +36381,25 @@
       "cibles": [
         "Commerces alimentaires de détail et entrepôts frigorifiques, dont le transport réfrigéré [1]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "FBI",
+          "definition": "Federal Bureau of Investigation, police fédérale américaine"
+        }
+      ],
       "sources": [
         {
           "titre": "US Government Partners Urge Hardening Industrial Refrigeration and Cold Chain Monitoring Systems",
           "site": "CISA Advisories",
           "url": "https://www.cisa.gov/resources-tools/resources/us-government-partners-urge-hardening-industrial-refrigeration-and-cold-chain-monitoring-systems",
           "date": "2026-11-05"
+        },
+        {
+          "titre": "FBI, CISA warn of cyberattacks targeting refrigeration systems",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fbi-cisa-warn-of-cyberattacks-targeting-refrigeration-systems/",
+          "date": "2026-11-06",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/05/refrigeration-hot.jpg"
         }
       ]
     },
@@ -36544,6 +36556,134 @@
           "titre": "Fiche NVD CVE-2024-27834",
           "site": "NVD (NIST)",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-27834"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-05-artex-secrets-github-azure",
+      "title": "Des attaquants utilisent ARTEX pour trouver des secrets sur GitHub et piller des environnements Azure",
+      "created": "2026-11-06T01:30:00+00:00",
+      "updated": "2026-11-06T01:30:00+00:00",
+      "version": 1,
+      "resume": "Microsoft observe des attaquants qui cherchent sur GitHub des secrets d'applications OAuth avec le framework ARTEX, puis les utilisent pour accéder à des organisations clientes et en extraire des données [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Recherches sur GitHub de secrets d'applications exposés dans des dépôts publics, via le framework ARTEX → identifiants d'application valides [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Connexions des applications compromises, dont depuis un nœud de sortie Tor → accès aux locataires Entra ID et aux ressources Azure et Microsoft 365 [1]."
+        },
+        {
+          "etape": "Découverte",
+          "texte": "Énumération des opérations qui renvoient des identifiants, cartographie d'Azure, requêtes adaptées après des erreurs → identifiants supplémentaires et métadonnées de secrets [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Abus d'une application OAuth mono-locataire → accès maintenu tant que les secrets ne sont pas révoqués [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Accès à SharePoint, OneDrive et Microsoft Graph, puis exfiltration depuis Azure Key Vault et des comptes de stockage → identifiants et données récupérés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (outil ARTEX)",
+            "note": ""
+          },
+          {
+            "id": "gh",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Dépôts GitHub publics",
+            "note": "Secrets exposés"
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Applications OAuth compromises",
+            "note": ""
+          },
+          {
+            "id": "az",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Locataires Entra ID et Azure",
+            "note": "Microsoft 365"
+          },
+          {
+            "id": "dat",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Key Vault, stockage, SharePoint",
+            "note": "Données exfiltrées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gh",
+            "etape": 1,
+            "texte": "Recherche de secrets d'application"
+          },
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 2,
+            "texte": "Connexions avec les identifiants récupérés"
+          },
+          {
+            "de": "app",
+            "vers": "az",
+            "etape": 3,
+            "texte": "Énumération des identifiants et ressources"
+          },
+          {
+            "de": "az",
+            "vers": "dat",
+            "etape": 5,
+            "texte": "Accès aux fichiers et exfiltration des secrets"
+          }
+        ]
+      },
+      "limites": "L'article ne nomme aucun acteur, ni secteur, ni pays, et ne donne pas d'identifiant CVE. Certains usages, comme le déplacement latéral, sont présentés comme possibles [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non nommé ; l'outil utilisé est le framework offensif ARTEX [1]"
+      ],
+      "cibles": [
+        "Organisations clientes dont des locataires Entra ID ont été accédés, y compris via une application multilocataire [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ARTEX",
+          "definition": "Framework offensif agentique, piloté par des agents d'IA"
+        },
+        {
+          "sigle": "OAuth",
+          "definition": "Protocole d'autorisation d'accès par jetons entre applications"
+        },
+        {
+          "sigle": "Entra ID",
+          "definition": "Service d'identités et d'annuaire cloud de Microsoft"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Threat actors use agentic AI tooling to find and abuse exposed secrets",
+          "site": "Microsoft Threat Intelligence",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/",
+          "date": "2026-11-05",
+          "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/11/AI-tooling-scanning-secrets-featured.png"
         }
       ]
     }

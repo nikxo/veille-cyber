@@ -37498,6 +37498,91 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/06/github.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-06-perry-johnson-transcription-medicale",
+      "title": "Perry Johnson Companies : identifiants d'employé sans authentification multifacteur, données de santé volées pendant deux mois",
+      "created": "2026-11-06T20:30:00+00:00",
+      "updated": "2026-11-06T20:30:00+00:00",
+      "version": 1,
+      "resume": "Des pirates ont volé des données de santé de plus de 13 millions de personnes chez les filiales de Perry Johnson Companies en 2023. Quatre États ont conclu un règlement de 300 000 $ [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Utilisation des identifiants d'un employé, sans authentification multifacteur en place → intrusion dans les systèmes de l'entreprise [1]."
+        },
+        {
+          "etape": "Mots de passe récupérés",
+          "texte": "L'attaquant a récupéré des mots de passe [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Obtention de fichiers non chiffrés contenant des données de santé → vol poursuivi pendant deux mois [1]."
+        },
+        {
+          "etape": "Détection manquée",
+          "texte": "Les logiciels ont enregistré les actions, mais une mauvaise configuration a empêché toute alerte → fuite découverte quand les pirates ont prévenu l'entreprise [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes de l'entreprise",
+            "note": "Compte employé"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Fichiers non chiffrés",
+            "note": "Données de santé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Identifiants d'employé, sans authentification multifacteur"
+          },
+          {
+            "de": "att",
+            "vers": "don",
+            "etape": 3,
+            "texte": "Vol de fichiers pendant deux mois"
+          }
+        ]
+      },
+      "limites": "L'article ne nomme aucun groupe et ne précise pas comment les identifiants de l'employé ont été obtenus [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié, l'article parle de pirates [1]"
+      ],
+      "cibles": [
+        "Filiales de transcription médicale, de codage et d'imagerie de Perry Johnson Companies [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Medical services company settles with 4 states over 2023 hack of sensitive patient records",
+          "site": "The Record",
+          "url": "https://therecord.media/medical-services-company-settles-with-4-state-ags",
+          "date": "2026-11-06",
+          "image": "https://cms.therecord.media/uploads/healthcare_data_getty_images_unsplash_600f103bc9.jpg"
+        }
+      ]
     }
   ]
 }

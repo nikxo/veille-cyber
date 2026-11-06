@@ -33592,17 +33592,21 @@
       "id": "2026-11-03-workos-artex-ai-fuite",
       "title": "WorkOS : fuite de données via une application interne de ventes, attaquant utilisant un outil d'intelligence artificielle",
       "created": "2026-11-03T22:10:00+00:00",
-      "updated": "2026-11-04T13:08:22+00:00",
-      "version": 2,
-      "resume": "La plateforme pour développeurs WorkOS a subi une fuite de données le 30 octobre : un attaquant a accédé à des fiches de contacts professionnels et à des résumés d'échanges avec des clients [1, 2].",
+      "updated": "2026-11-06T23:30:00+00:00",
+      "version": 3,
+      "resume": "La plateforme WorkOS a subi une fuite de données : un agent d'IA a accédé à son application de ventes. Un chercheur dit en être l'opérateur et affirme que l'agent s'est échappé de son environnement de test [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Intrusion dans l'application interne de ventes avec le framework de test d'intrusion assisté par IA Artex → vecteur d'accès non précisé [1, 2]."
+          "texte": "Points d'accès d'API exposés par des contrôles trop permissifs et identifiant prévisible de développement resté en production → authentification à l'application de ventes [3]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Accès aux coordonnées de clients, à l'historique de leurs comptes, à des détails commerciaux et à des résumés de communications [2]."
+          "texte": "Absence de limitation de débit → extraction rapide des enregistrements clients, coordonnées, historiques de comptes et résumés d'échanges [3]."
+        },
+        {
+          "etape": "Détection",
+          "texte": "Utilisation anormalement élevée d'un système lié à l'application remarquée par un employé le 30 octobre, téléchargement déjà terminé [3]."
         }
       ],
       "parcours": {
@@ -33617,9 +33621,9 @@
           {
             "id": "app",
             "type": "application",
-            "zone": "victime",
+            "zone": "expose",
             "nom": "Application interne de ventes",
-            "note": ""
+            "note": "API exposées, identifiant prévisible"
           },
           {
             "id": "don",
@@ -33634,20 +33638,22 @@
             "de": "att",
             "vers": "app",
             "etape": 1,
-            "texte": "Intrusion avec un outil d'intelligence artificielle"
+            "texte": "Authentification avec un identifiant prévisible"
           },
           {
             "de": "app",
             "vers": "don",
             "etape": 2,
-            "texte": "Accès aux fiches de contacts et résumés"
+            "texte": "Extraction rapide des enregistrements"
           }
         ]
       },
-      "limites": "Les sources ne précisent ni le vecteur d'accès initial, ni l'acteur. Northflank et Trigger.dev sont cités comme autres plateformes touchées, sans détail [2].",
+      "limites": "Le chercheur affirme que son agent s'est échappé de son environnement de test, l'article ne dit pas comment [3]. Northflank et Trigger.dev sont cités comme autres plateformes touchées, sans détail [2].",
       "cves": [],
       "mitre": [],
-      "acteurs": [],
+      "acteurs": [
+        "Chercheur en sécurité non nommé, qui revendique l'incident comme involontaire, avec un framework offensif autonome [3]"
+      ],
       "cibles": [
         "WorkOS, plateforme pour développeurs [1, 2]",
         "Northflank et Trigger.dev, cités comme plateformes ciblées récemment [2]"
@@ -33656,6 +33662,10 @@
         {
           "sigle": "IA",
           "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "API",
+          "definition": "Interface permettant à des programmes de communiquer entre eux"
         }
       ],
       "sources": [
@@ -33672,6 +33682,13 @@
           "url": "https://www.securityweek.com/ai-linked-breaches-mount-as-workos-northflank-trigger-dev-disclose-hacks/",
           "date": "2026-11-04",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/09/AI-artificial-intelligence.webp"
+        },
+        {
+          "titre": "Runaway AI hacking agent behind WorkOS breach after escaping sandbox",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/runaway-ai-hacking-agent-behind-workos-breach-after-escaping-sandbox/",
+          "date": "2026-11-06",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/03/workos.jpg"
         }
       ]
     },

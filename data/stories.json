@@ -37192,13 +37192,13 @@
       "id": "2026-11-06-digicert-fuite-clients",
       "title": "DigiCert : fuite de données de contact de clients professionnels via un compte créé sans contrôle",
       "created": "2026-11-06T14:20:00+00:00",
-      "updated": "2026-11-06T14:20:00+00:00",
-      "version": 1,
-      "resume": "Des pirates ont créé un compte en lecture seule sur un système interne d'archivage de DigiCert et consulté les coordonnées de clients professionnels. Les systèmes d'autorité de certification n'ont pas été touchés [1].",
+      "updated": "2026-11-06T19:30:00+00:00",
+      "version": 2,
+      "resume": "Des pirates ont créé un compte en lecture seule sur un système interne d'archivage de DigiCert et consulté les coordonnées de clients professionnels. Les systèmes d'autorité de certification n'ont pas été touchés [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Un système d'archivage des données clients, déplacé en février 2025 vers un autre segment réseau, est devenu exposé à Internet par inadvertance [1]."
+          "texte": "Un système interne, déplacé en février 2025 hors du réseau restreint par VPN, est devenu exposé à Internet par inadvertance [1, 2]."
         },
         {
           "etape": "Création de compte",
@@ -37206,11 +37206,11 @@
         },
         {
           "etape": "Vol de données",
-          "texte": "Le compte consulte les données archivées → noms, adresses e-mail, téléphones et adresses professionnelles de clients, parfois des pièces justificatives [1]."
+          "texte": "Le compte consulte les données archivées → noms, adresses e-mail, téléphones, adresses professionnelles de clients, parfois permis, passeports ou factures [1, 2]."
         },
         {
           "etape": "Détection",
-          "texte": "Compte bloqué le 2 juillet ; enquête ouverte le 12 octobre, qui confirme l'accès aux données archivées [1]."
+          "texte": "Compte bloqué le 2 juillet [1], problème corrigé le 2 juillet [2] ; enquête ouverte le 12 octobre [1], accès confirmé le 19 octobre [2]."
         }
       ],
       "parcours": {
@@ -37258,16 +37258,21 @@
           }
         ]
       },
-      "limites": "Les sources ne nomment pas l'acteur, ne donnent pas le nombre de clients touchés ni l'année de la création du compte [1].",
+      "limites": "Les sources ne nomment pas l'acteur ni le nombre de clients touchés [1, 2]. Selon [2], les identifiants de connexion des clients n'ont pas été volés.",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non identifié, l'article parle seulement de pirates [1]"
+        "Non identifié, les articles parlent seulement de pirates [1, 2]"
       ],
       "cibles": [
         "Clients professionnels de DigiCert ; dans certains cas permis, passeports et factures fournis par les clients [1]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "VPN",
+          "definition": "Réseau privé virtuel : accès chiffré et restreint au réseau interne"
+        }
+      ],
       "sources": [
         {
           "titre": "DigiCert Data Breach Impacts Business Customer Information",
@@ -37275,6 +37280,13 @@
           "url": "https://www.securityweek.com/digicert-data-breach-impacts-business-customer-information/",
           "date": "2026-11-06",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/05/DigiCert.jpeg"
+        },
+        {
+          "titre": "Certificate authority DigiCert reports data breach involving business customer info",
+          "site": "The Record",
+          "url": "https://therecord.media/digicert-certificate-authority-reports-data-breach",
+          "date": "2026-11-06",
+          "image": "https://cms.therecord.media/uploads/digicert_logo_8468cb0d4a.jpg"
         }
       ]
     },
@@ -37365,6 +37377,125 @@
           "url": "https://thehackernews.com/2026/11/hackers-exploited-openssh-sshole-flaw.html",
           "date": "2026-11-06",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHbl1TAGj_ZHZDF3oQ8AfebRDiovg_d8Wk4huY5VJkSa0csE45G7k5jwdG1De-W-7l2RjnyH_ZvT3vcioykVeOooifwvViM8RiuTu0gSt2t-XgOefyYKyM5_zbsI5WFNubkIT0hOUr4inPIQMvXs6GDTLa6j7XWL3etRJYvOcDLJxa3IDXv-KtuCma5JsG/s1700-nu-rw-lo-l85-e365/ssh.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-06-faux-outils-github-portes-derobees",
+      "title": "Faux outils de sécurité sur GitHub : porte dérobée et voleur d'informations contre des professionnels",
+      "created": "2026-11-06T19:30:00+00:00",
+      "updated": "2026-11-06T19:30:00+00:00",
+      "version": 1,
+      "resume": "Des dépôts GitHub présentés comme outils de sécurité visent des professionnels de la cybersécurité pour installer une porte dérobée et un voleur d'informations ; Dr.Web compte plus de 2 000 systèmes Windows compromis [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Dépôts GitHub piégés, dont un faux script pour le scanner Fscan → code malveillant caché derrière de longues suites d'espaces dans les fichiers du projet [1]."
+        },
+        {
+          "etape": "Chargement",
+          "texte": "PowerShell récupère un lien de téléchargement chiffré → téléchargement d'un chargeur modulaire nommé Microsoft.exe [1]."
+        },
+        {
+          "etape": "Persistance et évasion",
+          "texte": "Le chargeur établit la persistance, élève ses privilèges et désactive des fonctions de sécurité de Windows → injection de la charge suivante dans des processus légitimes [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Tentative de suppression de trois antivirus (ESET, McAfee, Malwarebytes) et de coupure de leurs serveurs de mise à jour [1]."
+        },
+        {
+          "etape": "Charges finales",
+          "texte": "Déploiement de la porte dérobée AsyncRAT (accès à distance), d'un détourneur d'adresses de portefeuilles crypto et d'un voleur d'informations [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Collecte des données de navigateurs, paramètres VPN, clients FTP, comptes de jeux et jetons Discord → envoi via un bot Telegram [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "gh",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Dépôts GitHub piégés",
+            "note": "Faux outils de sécurité"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes Windows de professionnels",
+            "note": "Plus de 2 000"
+          },
+          {
+            "id": "tg",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Bot Telegram",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gh",
+            "etape": 1,
+            "texte": "Publication de projets piégés"
+          },
+          {
+            "de": "gh",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Code caché, chargeur téléchargé"
+          },
+          {
+            "de": "pc",
+            "vers": "tg",
+            "etape": 6,
+            "texte": "Données volées envoyées"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment pas l'acteur et ne donnent aucun identifiant MITRE ni CVE ; les dates précises des intrusions ne sont pas indiquées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié, l'article parle d'un acteur de la menace [1]"
+      ],
+      "cibles": [
+        "Professionnels de la cybersécurité ; plus de 2 000 systèmes Windows compromis selon Dr.Web [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "VPN",
+          "definition": "Réseau privé virtuel : accès chiffré et restreint au réseau interne"
+        },
+        {
+          "sigle": "FTP",
+          "definition": "Protocole de transfert de fichiers entre machines"
+        },
+        {
+          "sigle": "ESET",
+          "definition": "Éditeur d'antivirus dont le logiciel est visé"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Fake security tools on GitHub push backdoors and infostealers",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fake-security-tools-on-github-push-backdoors-and-infostealers/",
+          "date": "2026-11-06",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/06/github.jpg"
         }
       ]
     }

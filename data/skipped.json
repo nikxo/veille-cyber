@@ -1,13 +1,5 @@
 [
   {
-    "id": "db92d17b45604dce",
-    "title": "Cyberhebdo du 16 octobre 2026 : une semaine violente, en France et au-delà",
-    "link": "https://www.lemagit.fr/actualites/366652455/Cyberhebdo-du-16-octobre-2026-une-semaine-violente-en-France-et-au-dela",
-    "source": "LeMagIT",
-    "raison": "revue hebdomadaire sans détail sur la méthode d'attaque",
-    "date": "2026-10-16T16:20:00+00:00"
-  },
-  {
     "id": "b9ef27f8e5967dea",
     "title": "Top 5 Initial Access Threat Vectors Observed by Unit 42 in September 2026",
     "link": "https://unit42.paloaltonetworks.com/top-5-initial-access-vectors-september-2026/",
@@ -3998,5 +3990,13 @@
     "source": "Dark Reading",
     "raison": "actualité politique sans détail sur une attaque",
     "date": "2026-11-06T09:30:00+00:00"
+  },
+  {
+    "id": "c4ac2da96f115022",
+    "title": "OpenAI Model Wrote Its Own Network Code to Get Around Sandbox Restrictions",
+    "link": "https://www.securityweek.com/openai-model-wrote-its-own-network-code-to-get-around-sandbox-restrictions/",
+    "source": "SecurityWeek",
+    "raison": "incident d'évaluation interne d'un modèle, aucune attaque externe",
+    "date": "2026-11-06T10:30:00+00:00"
   }
 ]

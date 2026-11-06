@@ -36822,6 +36822,215 @@
           "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-06-esxi-proxmox-rancongiciel-virtualisation",
+      "title": "Rançongiciels sur ESXi (BlackNevas) et Proxmox (The Gentlemen) : mots de passe réutilisés et identifiants en clair",
+      "created": "2026-11-06T10:30:00+00:00",
+      "updated": "2026-11-06T10:30:00+00:00",
+      "version": 1,
+      "resume": "Kaspersky décrit deux cas de chiffrement d'environnements virtualisés : un ESXi attaqué via la supervision PRTG et un mot de passe root réutilisé, un cluster Proxmox via des identifiants en clair sur un poste administrateur [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Cas ESXi : vecteur non précisé pour le système Windows, puis accès à la supervision PRTG. Cas Proxmox : poste d'un administrateur compromis, méthode non précisée [1]."
+        },
+        {
+          "etape": "Accès aux hyperviseurs",
+          "texte": "ESXi : même mot de passe root sur plusieurs nœuds → connexion SSH depuis PRTG. Proxmox : identifiants trouvés en clair dans des notes → connexion root [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "ESXi : politique execInstalledOnly désactivée via esxcli → exécution du binaire malveillant autorisée. Proxmox : websocket VNC activé via le compte root [1]."
+        },
+        {
+          "etape": "Chiffrement",
+          "texte": "ESXi : binaire lancé, journaux effacés. Proxmox : rançongiciel téléchargé et exécuté dans le cluster → tout l'environnement virtuel chiffré [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (BlackNevas, The Gentlemen)",
+            "note": ""
+          },
+          {
+            "id": "sup",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Supervision PRTG",
+            "note": "Accès large aux hôtes"
+          },
+          {
+            "id": "adm",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste administrateur",
+            "note": "Identifiants en clair"
+          },
+          {
+            "id": "esx",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Hôtes ESXi",
+            "note": "Chiffrés"
+          },
+          {
+            "id": "pve",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Cluster Proxmox",
+            "note": "Chiffré"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sup",
+            "etape": 1,
+            "texte": "Accès à la supervision PRTG"
+          },
+          {
+            "de": "att",
+            "vers": "adm",
+            "etape": 1,
+            "texte": "Compromission du poste administrateur"
+          },
+          {
+            "de": "sup",
+            "vers": "esx",
+            "etape": 2,
+            "texte": "SSH root avec mot de passe réutilisé"
+          },
+          {
+            "de": "adm",
+            "vers": "pve",
+            "etape": 2,
+            "texte": "Connexion root avec identifiants des notes"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni le vecteur d'accès initial des deux cas, ni les organisations touchées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "BlackNevas (rançongiciel, cas ESXi) ; The Gentlemen (rançongiciel en service, cas Proxmox) [1]"
+      ],
+      "cibles": [
+        "Hôtes ESXi et cluster Proxmox, organisations non précisées [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ESXi",
+          "definition": "Hyperviseur VMware qui fait tourner des machines virtuelles"
+        },
+        {
+          "sigle": "Proxmox",
+          "definition": "Plateforme de virtualisation open source"
+        },
+        {
+          "sigle": "PRTG",
+          "definition": "PRTG Network Monitor : logiciel de supervision réseau"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : connexion d'administration à distance chiffrée"
+        },
+        {
+          "sigle": "VNC",
+          "definition": "Prise de contrôle graphique d'une machine à distance"
+        },
+        {
+          "sigle": "esxcli",
+          "definition": "Outil en ligne de commande pour administrer ESXi"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Virtualization security: attack layers and misconfiguration impact",
+          "site": "Securelist (Kaspersky)",
+          "url": "https://securelist.com/virtualization-security-esxi-and-proxmox-ransomware-cases/121819/",
+          "date": "2026-11-06",
+          "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/11/06081025/virtualization-security-featured-image.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-06-metamask-staking-recompenses",
+      "title": "MetaMask : accès à des systèmes de staking et détournement de récompenses",
+      "created": "2026-11-06T10:30:00+00:00",
+      "updated": "2026-11-06T10:30:00+00:00",
+      "version": 1,
+      "resume": "Un acteur non identifié a accédé à des systèmes de MetaMask et détourné environ 0,385 ETH de récompenses de staking. MetaMask affirme que ses portefeuilles et son infrastructure ne sont pas touchés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Détournement de récompenses",
+          "texte": "Accès à des systèmes stockant les adresses des destinataires → détournement d'une partie des récompenses de staking [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes d'adresses destinataires",
+            "note": "Staking MetaMask"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Accès et détournement de récompenses de staking"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni le vecteur d'accès, ni l'acteur, ni la date exacte de l'intrusion [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié, désigné comme acteur de la menace [1]"
+      ],
+      "cibles": [
+        "Clients MetaMask utilisant le staking non-custodial [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ETH",
+          "definition": "Ether, cryptomonnaie du réseau Ethereum"
+        },
+        {
+          "sigle": "staking",
+          "definition": "Immobiliser des cryptomonnaies pour valider le réseau et gagner des récompenses"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "MetaMask says recent attack didn't affect wallet infrastructure",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/metamask-says-recent-attack-didnt-affect-wallet-infrastructure/",
+          "date": "2026-11-06",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/06/Metamask.jpg"
+        }
+      ]
     }
   ]
 }

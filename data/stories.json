@@ -18584,8 +18584,8 @@
       "id": "2026-10-19-plex2shell-plex-media-server",
       "title": "Plex2Shell : serveurs Plex Media Server exploités pour installer un mineur et un proxy",
       "created": "2026-10-19T13:12:00+00:00",
-      "updated": "2026-10-21T19:07:43+00:00",
-      "version": 4,
+      "updated": "2026-11-06T17:30:00+00:00",
+      "version": 5,
       "resume": "Une chaîne de quatre failles de Plex Media Server a été exploitée pour installer un mineur de cryptomonnaie et un proxy, un jour après la publication d'une preuve de concept [1, 3].",
       "chaine": [
         {
@@ -18627,7 +18627,7 @@
           }
         ]
       },
-      "limites": "Seul un serveur piège est cité comme touché [1]. La CISA a ajouté les quatre failles à son catalogue [4]. Aucun acteur n'est désigné [1, 3, 4, 5]. Correctifs exigés avant le 23 octobre [5].",
+      "limites": "Cette source ne cite qu'un serveur piège touché [1]. Aucun acteur n'est désigné [1, 3, 4, 5]. Correctifs exigés avant le 23 octobre [5]. Le fabricant demande la mise à jour de Plex [6].",
       "cves": [
         {
           "id": "CVE-2026-96652",
@@ -18649,7 +18649,8 @@
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Serveurs Plex Media Server exposés sur Internet, dont le serveur piège d'un chercheur [1]"
+        "Serveurs Plex Media Server exposés sur Internet, dont le serveur piège d'un chercheur [1]",
+        "Appareils NAS piratés via Plex2Shell, selon le fabricant [6]"
       ],
       "abreviations": [
         {
@@ -18659,6 +18660,10 @@
         {
           "sigle": "CISA",
           "definition": "Agence américaine de cybersécurité des infrastructures"
+        },
+        {
+          "sigle": "NAS",
+          "definition": "Serveur de stockage en réseau"
         }
       ],
       "sources": [
@@ -18694,6 +18699,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/cisa-hackers-chain-plex-flaws-in-plex2shell-attacks-to-breach-servers/",
           "date": "2026-10-21",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/21/CISA.jpg"
+        },
+        {
+          "titre": "QNAP says hackers breaching NAS devices in Plex2Shell attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/qnap-says-hackers-breaching-nas-devices-in-plex2shell-attacks/",
+          "date": "2026-11-06",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/06/QNAP.jpg"
         }
       ]
     },
@@ -33466,8 +33478,8 @@
       "id": "2026-11-03-wordpress-cve-2026-119977-kev",
       "title": "WordPress : faille CVE-2026-119977 ajoutée au catalogue des failles exploitées de la CISA",
       "created": "2026-11-03T22:10:00+00:00",
-      "updated": "2026-11-04T13:08:22+00:00",
-      "version": 3,
+      "updated": "2026-11-06T17:30:00+00:00",
+      "version": 4,
       "resume": "La CISA a ajouté la faille CVE-2026-119977 du cœur de WordPress à son catalogue des vulnérabilités exploitées. Un attaquant sans compte peut exécuter du code sur le serveur pendant une mise à jour [1, 2, 3].",
       "chaine": [
         {
@@ -33477,6 +33489,18 @@
         {
           "etape": "Exploitation constatée",
           "texte": "Wordfence dit avoir bloqué 13 095 attaques visant la faille en 24 heures, après le correctif de la version 7.1.4 du 28 octobre [3]."
+        },
+        {
+          "etape": "Accès à l'installateur",
+          "texte": "Installateur resté dans un dossier temporaire pendant la mise à jour → copie de WordPress avec sa propre base, exécution de code PHP avec les droits du serveur web [4]."
+        },
+        {
+          "etape": "Atteinte du site réel",
+          "texte": "Lecture et écriture de fichiers du site en production à partir de cette copie [4]."
+        },
+        {
+          "etape": "Fenêtre pendant le correctif",
+          "texte": "Le correctif s'installe avec l'ancien code → site encore attaquable pendant sa propre mise à jour [4]."
         }
       ],
       "parcours": {
@@ -33508,10 +33532,16 @@
             "vers": "wp",
             "etape": 2,
             "texte": "Attaques bloquées par Wordfence en 24 heures"
+          },
+          {
+            "de": "att",
+            "vers": "wp",
+            "etape": 3,
+            "texte": "Installateur exposé pendant la mise à jour"
           }
         ]
       },
-      "limites": "Aucune source ne nomme d'acteur ni de victime confirmée, ni ne décrit les actions après l'exécution de code [2, 3].",
+      "limites": "Aucune source ne nomme d'acteur ni de victime confirmée, ni ne décrit les actions après l'exécution de code [2, 3]. Le fonctionnement du code publié sur GitHub n'est pas établi [4].",
       "cves": [
         {
           "id": "CVE-2026-119977",
@@ -33521,7 +33551,12 @@
       "mitre": [],
       "acteurs": [],
       "cibles": [],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "PHP",
+          "definition": "Langage de programmation utilisé par WordPress"
+        }
+      ],
       "sources": [
         {
           "titre": "CISA Adds One Known Exploited Vulnerability to Catalog",
@@ -33542,6 +33577,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/",
           "date": "2026-11-04",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/04/WordPress.jpg"
+        },
+        {
+          "titre": "Installing the Fix for an Exploited WordPress Flaw Can Expose Some Sites One Last Time",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/installing-fix-for-exploited-wordpress.html",
+          "date": "2026-11-06",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4gwg9bgmxLj_anXtQvOZdeKYWN-aAZxZqlOrI7wXwZ_qW_lUZrzwYufexnbDLcC20eXBkh7TgA-dAQHm6EEmEc80i9A6GOBGkiOb8NhcR1d1CFLKDLc7VJzyC4Bv-5Ye2AEE_ApPcKmAWqJJFfbQ2AOGffKhCPNznyYyz5s0Jro-mxcTxfxPoqRe-ZoY/s1700-nu-rw-lo-l85-e365/wp-update.jpg"
         }
       ]
     },
@@ -37233,6 +37275,96 @@
           "url": "https://www.securityweek.com/digicert-data-breach-impacts-business-customer-information/",
           "date": "2026-11-06",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/05/DigiCert.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-06-openssh-sshole-alpine",
+      "title": "OpenSSH : faille SSHole exploitée quelques heures après sa divulgation",
+      "created": "2026-11-06T17:30:00+00:00",
+      "updated": "2026-11-06T17:30:00+00:00",
+      "version": 1,
+      "resume": "Des attaquants ont tenté d'exploiter la faille SSHole d'OpenSSH moins de 9 heures après sa publication et ont obtenu un accès root sur un serveur piège Alpine Linux [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Envoi d'un mot de passe de 257 à 1 024 octets, sans authentification → échec du hachage accepté, connexion à un compte dont le hash est « * » [1]."
+        },
+        {
+          "etape": "Exécution de commandes",
+          "texte": "Sur le serveur piège Alpine Linux, accès root confirmé → commandes de reconnaissance (id, uname, hostname) en sessions SSH non interactives [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur piège Alpine Linux",
+            "note": "OpenSSH vulnérable"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 1,
+            "texte": "Mot de passe démesuré accepté"
+          },
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Commandes de reconnaissance en root"
+          }
+        ]
+      },
+      "limites": "Aucun acteur n'est identifié et aucune victime réelle n'est citée. Huit tentatives viennent d'une adresse géolocalisée au Japon [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-123158",
+          "explication": "OpenSSH sous Linux avec libc musl et PAM désactivé : un mot de passe démesuré est accepté sur un compte au hash « * », gravité 8,1 sur 10 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Linux avec OpenSSH, libc musl et PAM désactivé, dont la configuration par défaut d'Alpine Linux [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SSH",
+          "definition": "Protocole de connexion sécurisée à distance"
+        },
+        {
+          "sigle": "PAM",
+          "definition": "Modules d'authentification enfichables de Linux"
+        },
+        {
+          "sigle": "musl",
+          "definition": "Bibliothèque C standard utilisée par Alpine Linux"
+        },
+        {
+          "sigle": "libc",
+          "definition": "Bibliothèque C standard des systèmes Linux"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers Target OpenSSH SSHole Flaw Within Hours of Disclosure, Gain Root on Honeypot",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploited-openssh-sshole-flaw.html",
+          "date": "2026-11-06",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHbl1TAGj_ZHZDF3oQ8AfebRDiovg_d8Wk4huY5VJkSa0csE45G7k5jwdG1De-W-7l2RjnyH_ZvT3vcioykVeOooifwvViM8RiuTu0gSt2t-XgOefyYKyM5_zbsI5WFNubkIT0hOUr4inPIQMvXs6GDTLa6j7XWL3etRJYvOcDLJxa3IDXv-KtuCma5JsG/s1700-nu-rw-lo-l85-e365/ssh.jpg"
         }
       ]
     }

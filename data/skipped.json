@@ -1,37 +1,5 @@
 [
   {
-    "id": "a531c6175aad17ab",
-    "title": "Doctolib : mon opposition à l’IA reste sans réponse claire",
-    "link": "https://www.zataz.com/doctolib-mon-opposition-a-lia-reste-sans-reponse-claire/",
-    "source": "ZATAZ",
-    "raison": "sujet de droits RGPD, pas d'attaque",
-    "date": "2026-10-17T11:30:00+00:00"
-  },
-  {
-    "id": "58e7b65f24116e2d",
-    "title": "Taxis et VTC : ce que vos données révèlent de vous",
-    "link": "https://www.zataz.com/taxis-et-vtc-ce-que-vos-donnees-revelent-de-vous/",
-    "source": "ZATAZ",
-    "raison": "synthèse d'affaires passées sans détail sur la méthode d'attaque",
-    "date": "2026-10-17T12:30:00+00:00"
-  },
-  {
-    "id": "c687deeb529c185a",
-    "title": "Drupal patches critical RCE flaws, warns exploits may emerge soon",
-    "link": "https://www.bleepingcomputer.com/news/security/drupal-patches-critical-rce-flaws-warns-exploits-may-emerge-soon/",
-    "source": "BleepingComputer",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-17T15:10:00+00:00"
-  },
-  {
-    "id": "9af99acb83ab30e3",
-    "title": "US Cybersecurity Job Postings Fall 26% as AI Security Engineer Demand Soars",
-    "link": "https://www.securityweek.com/us-cybersecurity-job-postings-fall-26-as-ai-security-engineer-demand-soars/",
-    "source": "SecurityWeek",
-    "raison": "étude du marché de l'emploi, aucune attaque",
-    "date": "2026-10-18T11:10:00+00:00"
-  },
-  {
     "id": "d942a4b92397a05a",
     "title": "La Chine veut contrôler ses exportations d’IA",
     "link": "https://www.zataz.com/la-chine-veut-controler-ses-exportations-dia/",
@@ -3998,5 +3966,37 @@
     "source": "BleepingComputer",
     "raison": "panne logicielle, aucune attaque",
     "date": "2026-11-06T16:10:00+00:00"
+  },
+  {
+    "id": "17e04fbcf2b3d16d",
+    "title": "OpenAI Launches GPT-6 Cyber After AI Helps Find 81 Firefox Flaws, 948 Linux Exploits",
+    "link": "https://thehackernews.com/2026/11/openai-launches-gpt-6-cyber-after-ai.html",
+    "source": "The Hacker News",
+    "raison": "annonce produit",
+    "date": "2026-11-06T17:30:00+00:00"
+  },
+  {
+    "id": "3284ccf462bdb716",
+    "title": "Oui, l’IA agentique accélère le passage à Rust, mais attention aux déconvenues",
+    "link": "https://www.lemagit.fr/actualites/366653933/Oui-lIA-agentique-accelere-le-passage-a-Rust-mais-attention-aux-deconvenues",
+    "source": "LeMagIT",
+    "raison": "article de fond, aucune attaque",
+    "date": "2026-11-06T17:30:00+00:00"
+  },
+  {
+    "id": "61acc4cac2d33f2b",
+    "title": "Il n’y a pas un métier de RSSI, mais des métiers : regard de cinq secteurs économiques",
+    "link": "https://www.lemagit.fr/conseil/Il-ny-a-pas-un-metier-de-RSSI-mais-des-metiers-regard-de-cinq-secteurs-economiques",
+    "source": "LeMagIT",
+    "raison": "article de fond sur le métier de RSSI, aucune attaque",
+    "date": "2026-11-06T17:30:00+00:00"
+  },
+  {
+    "id": "88525575b645fabc",
+    "title": "FBI agent pleads guilty to stealing $2.4 million in crypto from nation-state hackers",
+    "link": "https://therecord.media/fbi-agent-pleads-guilty-to-stealing-from-nation-state-hackers",
+    "source": "The Record",
+    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
+    "date": "2026-11-06T17:30:00+00:00"
   }
 ]

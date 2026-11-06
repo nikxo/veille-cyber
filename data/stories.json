@@ -37669,6 +37669,87 @@
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19868"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-06-refrigeration-europe-degivrage",
+      "title": "Contrôleurs de réfrigération détournés dans des supermarchés européens",
+      "created": "2026-11-06T22:30:00+00:00",
+      "updated": "2026-11-06T22:30:00+00:00",
+      "version": 1,
+      "resume": "Des acteurs non identifiés ont accédé à des contrôleurs de réfrigération et les ont mis en mode dégivrage, ce qui a poussé des supermarchés européens à jeter des denrées [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Accès non autorisé aux contrôleurs de réfrigération → passage des unités en mode dégivrage [1]."
+        },
+        {
+          "etape": "Impact sur les magasins",
+          "texte": "Deux vagues, environ 700 supermarchés en France puis des points de vente dans au moins 10 autres pays → températures jusqu'à 50 °C, denrées jetées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "ctrl",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Contrôleurs de réfrigération",
+            "note": "Mode dégivrage"
+          },
+          {
+            "id": "mag",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Supermarchés européens",
+            "note": "Denrées jetées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ctrl",
+            "etape": 2,
+            "texte": "Accès non autorisé aux contrôleurs"
+          },
+          {
+            "de": "ctrl",
+            "vers": "mag",
+            "etape": 3,
+            "texte": "Dégivrage forcé, températures jusqu'à 50 °C"
+          }
+        ]
+      },
+      "limites": "L'article évoque une exploitation possible de versions vulnérables ou d'identifiants par défaut, sans preuve établie [1]. Les revendications ne sont pas vérifiées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Acteurs non identifiés ; NoName057(16) et Z-Pentest, groupes pro-russes, revendiquent sans preuve vérifiée [1]"
+      ],
+      "cibles": [
+        "Supermarchés en France puis dans au moins 10 autres pays européens ; établissements médicaux en France [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Turning Up the Heat: Inside the Attacks on Europe’s Refrigeration System",
+          "site": "Unit 42 (Palo Alto Networks)",
+          "url": "https://unit42.paloaltonetworks.com/europes-refrigeration-systems-attacks/",
+          "date": "2026-11-06",
+          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/11/06_Myth-Busting_Category_1505x922.jpg"
+        }
+      ]
     }
   ]
 }

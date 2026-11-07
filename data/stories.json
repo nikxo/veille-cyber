@@ -34210,13 +34210,13 @@
       "id": "2026-11-04-arkea-fortuneo-virements-crypto",
       "title": "Crédit Mutuel Arkéa : plus de 133 millions de dollars détournés puis blanchis en cryptomonnaies",
       "created": "2026-11-04T15:20:00+00:00",
-      "updated": "2026-11-04T19:10:00+00:00",
-      "version": 2,
-      "resume": "Crédit Mutuel Arkéa a confirmé une attaque passée par un prestataire. Plus de 133 millions de dollars auraient été détournés, estimation de ZachXBT que la banque ne confirme pas [1, 2].",
+      "updated": "2026-11-07T16:07:23+00:00",
+      "version": 3,
+      "resume": "Crédit Mutuel Arkéa a confirmé une attaque passée par un prestataire. Jusqu'à 133 millions de dollars de transactions frauduleuses (estimation de ZachXBT que la banque ne confirme pas) ; certains systèmes ont été suspendus [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Compromission de la plateforme d'un prestataire non nommé → accès direct au groupe bancaire, selon la banque [2]."
+          "texte": "Compromission de la plateforme d'un prestataire non nommé → accès direct au groupe bancaire, selon la banque [2, 3]."
         },
         {
           "etape": "Virements frauduleux",
@@ -34330,6 +34330,13 @@
           "url": "https://therecord.media/french-bank-confirms-cyber-heist",
           "date": "2026-11-04",
           "image": "https://cms.therecord.media/uploads/euros_41ac60ccd6.jpg"
+        },
+        {
+          "titre": "Hackers pull off $133 million French bank heist via service provider",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-pull-off-133-million-french-bank-heist-via-service-provider/",
+          "date": "2026-11-07",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/06/financial-theft.jpg"
         }
       ]
     },

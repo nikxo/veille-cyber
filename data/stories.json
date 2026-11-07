@@ -37840,6 +37840,106 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2025/05/08/SonicWall.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-07-storm-3358-artex-finance",
+      "title": "Storm-3358 vise le secteur financier avec le framework agentique ARTEX",
+      "created": "2026-11-07T04:00:00+00:00",
+      "updated": "2026-11-07T04:00:00+00:00",
+      "version": 1,
+      "resume": "Depuis octobre 2026, le groupe Storm-3358, motivé financièrement et basé au Cambodge, utilise le framework ARTEX contre le secteur financier, surtout en Asie du Sud-Est [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Scan de systèmes exposés sur Internet, puis exploitation de failles de téléversement anonyme de fichiers et de falsification de requête côté serveur → compromission des systèmes [1]."
+        },
+        {
+          "etape": "Installation d'outils",
+          "texte": "Les agents ARTEX utilisent netcat et curl pour installer les outils d'accès à distance WISP, vshell et AdaptixC2 sur les systèmes compromis [1]."
+        },
+        {
+          "etape": "Maintien et déplacement",
+          "texte": "Les outils d'accès à distance servent à maintenir l'accès et à se déplacer dans le réseau [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Storm-3358)",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "inconnu",
+            "zone": "expose",
+            "nom": "Systèmes exposés vulnérables",
+            "note": "Failles d'upload et SSRF"
+          },
+          {
+            "id": "res",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Réseau de la victime",
+            "note": "Outils d'accès installés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Scan puis exploitation des failles"
+          },
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Installation de WISP, vshell, AdaptixC2"
+          },
+          {
+            "de": "sys",
+            "vers": "res",
+            "etape": 3,
+            "texte": "Déplacement dans le réseau"
+          }
+        ]
+      },
+      "limites": "L'article ne désigne pas de vecteur unique pour Storm-3358 et ne donne pas de CVE. Les étapes de vol de données ne lui sont pas attribuées nommément [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Storm-3358, groupe motivé financièrement basé au Cambodge, utilisant ARTEX [1]"
+      ],
+      "cibles": [
+        "Secteur financier, surtout en Asie du Sud-Est, et quelques grandes organisations financières dans le monde [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SSRF",
+          "definition": "Server-Side Request Forgery : faire émettre des requêtes par le serveur lui-même"
+        },
+        {
+          "sigle": "ARTEX",
+          "definition": "Framework offensif agentique, outil d'attaque piloté par intelligence artificielle"
+        },
+        {
+          "sigle": "WISP",
+          "definition": "Outil d'accès à distance open source cité par Microsoft"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "ARTEX abuse expands as cybercriminals target financial sector",
+          "site": "Microsoft Threat Intelligence",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector/",
+          "date": "2026-11-06",
+          "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/11/ARTEX-finance-industry-featured.png"
+        }
+      ]
     }
   ]
 }

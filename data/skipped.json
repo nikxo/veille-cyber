@@ -1,13 +1,5 @@
 [
   {
-    "id": "99d4b10c36bf0a76",
-    "title": "MITRE ATT&CK v20 Catalogs AI Abuse, MFA Bypass, Water Utility Attacks",
-    "link": "https://www.securityweek.com/mitre-attck-v20-catalogs-ai-abuse-mfa-bypass-water-utility-attacks/",
-    "source": "SecurityWeek",
-    "raison": "annonce de version d'un référentiel, aucune attaque décrite",
-    "date": "2026-10-19T10:08:00+00:00"
-  },
-  {
     "id": "033a58e712e7a025",
     "title": "SAP décline une « souveraineté à la carte »",
     "link": "https://www.lemagit.fr/actualites/366652414/SAP-decline-une-souverainete-a-la-carte",
@@ -3998,5 +3990,13 @@
     "source": "Huntress",
     "raison": "annonce produit",
     "date": "2026-11-07T00:30:00+00:00"
+  },
+  {
+    "id": "804a43c3361e7807",
+    "title": "Claude Code's “Don't Ask Again” File Exposes Passwords and Keys in 1,122 Public Copies on GitHub",
+    "link": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html",
+    "source": "The Hacker News",
+    "raison": "exposition de secrets sans exploitation constatée",
+    "date": "2026-11-07T08:30:00+00:00"
   }
 ]

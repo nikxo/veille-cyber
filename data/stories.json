@@ -37767,6 +37767,79 @@
           "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/11/06_Myth-Busting_Category_1505x922.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-07-sonicwall-sonicos-contournement-mfa",
+      "title": "SonicWall SonicOS : faille de contournement de la MFA du VPN SSL exploitée",
+      "created": "2026-11-07T00:30:00+00:00",
+      "updated": "2026-11-07T00:30:00+00:00",
+      "version": 1,
+      "resume": "SonicWall a publié des correctifs pour sept failles de ses pare-feu SonicOS, dont un contournement d'authentification du VPN SSL exploité dans des attaques [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Exploitation de la faille",
+          "texte": "Exploitation d'un contournement d'authentification du VPN SSL de SonicOS → accès contournant l'authentification [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "vpn",
+            "type": "passerelle",
+            "zone": "victime",
+            "nom": "VPN SSL pare-feu SonicOS",
+            "note": "Faille exploitée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "vpn",
+            "etape": 2,
+            "texte": "Exploitation du contournement d'authentification"
+          }
+        ]
+      },
+      "limites": "Les sources consultées ne précisent ni l'identifiant de la faille, ni l'acteur, ni les victimes, ni l'enchaînement de l'attaque [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non précisé [1]"
+      ],
+      "cibles": [
+        "Non précisées [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "VPN SSL",
+          "definition": "Accès distant chiffré au réseau d'une organisation via le navigateur ou un client"
+        },
+        {
+          "sigle": "MFA",
+          "definition": "Authentification multifacteur : plusieurs preuves d'identité exigées"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "SonicWall warns of new SSL-VPN MFA bypass flaw exploited in attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-new-ssl-vpn-mfa-bypass-flaw-exploited-in-attacks/",
+          "date": "2026-11-06",
+          "image": "https://www.bleepstatic.com/content/hl-images/2025/05/08/SonicWall.jpg"
+        }
+      ]
     }
   ]
 }

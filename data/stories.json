@@ -37606,17 +37606,17 @@
       "id": "2026-11-06-sonicwall-sonicos-cve-2026-19868",
       "title": "SonicWall SonicOS : faille CVE-2026-19868 du VPN SSL exploitée, ajoutée au catalogue américain",
       "created": "2026-11-06T21:30:00+00:00",
-      "updated": "2026-11-06T21:30:00+00:00",
-      "version": 1,
-      "resume": "L'agence américaine de cybersécurité a ajouté la faille CVE-2026-19868 du VPN SSL de SonicWall SonicOS à son catalogue des failles exploitées, sur preuve d'exploitation active [1].",
+      "updated": "2026-11-07T11:06:59+00:00",
+      "version": 2,
+      "resume": "SonicWall a corrigé la faille CVE-2026-19868 du VPN SSL de SonicOS, ajoutée au catalogue américain des failles exploitées. Elle permet de contourner l'authentification SAML, y compris la MFA, avec des identifiants valides d'une autre méthode [1, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé par les sources [1, 3]."
         },
         {
-          "etape": "Exploitation de la faille",
-          "texte": "Exploitation active de CVE-2026-19868 dans le VPN SSL de SonicOS → contournement possible de l'authentification SAML, y compris de la MFA [1, 2]."
+          "etape": "Contournement de la MFA",
+          "texte": "Utilisation d'identifiants valides d'une autre méthode d'authentification → contournement des contrôles SAML, dont la MFA imposée par SAML [3]."
         }
       ],
       "parcours": {
@@ -37633,7 +37633,7 @@
             "type": "passerelle",
             "zone": "victime",
             "nom": "VPN SSL SonicWall SonicOS",
-            "note": "Faille exploitée"
+            "note": "SAML activé"
           }
         ],
         "liens": [
@@ -37641,23 +37641,23 @@
             "de": "att",
             "vers": "vpn",
             "etape": 2,
-            "texte": "Exploitation de CVE-2026-19868"
+            "texte": "Identifiants d'une autre méthode, SAML contourné"
           }
         ]
       },
-      "limites": "Les sources ne disent ni qui exploite la faille, ni contre qui, ni par quel enchaînement d'attaque [1].",
+      "limites": "Les sources ne disent ni qui exploite la faille, ni contre qui, ni l'enchaînement de l'attaque après le contournement [1, 3].",
       "cves": [
         {
           "id": "CVE-2026-19868",
-          "explication": "SonicWall SonicOS, service VPN SSL : un utilisateur avec des identifiants valides d'une autre méthode peut contourner l'authentification SAML et la MFA ; gravité non fournie [2]."
+          "explication": "SonicOS (Gen7 et Gen8), VPN SSL : identifiants valides d'une autre méthode → contournement de SAML et de la MFA, gravité 7,1 sur 10 [2, 3]. Exploitation suspectée [3]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "Non précisé [1]"
+        "Non précisé [1, 3]"
       ],
       "cibles": [
-        "Non précisées [1]"
+        "Pare-feu SonicOS Gen7 et Gen8 avec VPN SSL et SAML activés [3]"
       ],
       "abreviations": [
         {
@@ -37684,6 +37684,13 @@
           "titre": "Fiche NVD CVE-2026-19868",
           "site": "NVD (NIST)",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19868"
+        },
+        {
+          "titre": "SonicWall Patches Exploited SonicOS Vulnerability That Weakens VPN Logins",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/sonicwall-patches-exploited-sonicos-bug-that-weakens-vpn-logins/",
+          "date": "2026-11-07",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/08/SonicWall.jpg"
         }
       ]
     },

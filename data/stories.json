@@ -2,6 +2,109 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-08-datasuckers-arrestations-github",
+      "title": "DataSuckers : intrusions via identifiants GitHub chez Dodo Pizza, ATB et Tez Tour, suspects arrêtés",
+      "created": "2026-11-08T15:30:00+00:00",
+      "updated": "2026-11-08T15:30:00+00:00",
+      "version": 1,
+      "resume": "Le collectif DataSuckers a visé Dodo Pizza, ATB et Tez Tour, et des suspects ont été arrêtés. Les volumes de données annoncés par les pirates ne sont pas vérifiés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Identifiants professionnels exposés sur GitHub utilisés → entrée dans des systèmes interconnectés de l'entreprise [1]."
+        },
+        {
+          "etape": "Accès aux données",
+          "texte": "Connexion aux espaces de stockage cloud et aux bases de données → récupération de données [1]."
+        },
+        {
+          "etape": "Accès supplémentaires",
+          "texte": "Récupération de mots de passe conservés dans l'environnement compromis → accès supplémentaires [1]."
+        },
+        {
+          "etape": "Revente et extorsion",
+          "texte": "Fichiers Dodo Pizza proposés sur le dark web pour 100 000 $ ; menace de publication des données de clients d'ATB contre 400 000 $ [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (DataSuckers)",
+            "note": ""
+          },
+          {
+            "id": "gh",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Dépôts GitHub",
+            "note": "Identifiants exposés"
+          },
+          {
+            "id": "sys",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Systèmes interconnectés",
+            "note": ""
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Stockage cloud et bases",
+            "note": "Données récupérées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gh",
+            "etape": 1,
+            "texte": "Découverte d'identifiants professionnels"
+          },
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Connexion avec ces identifiants"
+          },
+          {
+            "de": "sys",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Accès au stockage cloud et aux bases"
+          }
+        ]
+      },
+      "limites": "L'article ne donne ni les dates des intrusions chez Dodo Pizza, ni le détail propre à chaque victime. ATB et Tez Tour contestent un vol de données clients [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Collectif DataSuckers, motivé par l'argent, principalement russophone ; Denis Fridman, 19 ans, poursuivi à Moscou [1]"
+      ],
+      "cibles": [
+        "Dodo Pizza (environ 1 500 restaurants dans 28 pays), ATB, Tez Tour [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ATB",
+          "definition": "Nom d'une entreprise victime citée par l'article"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "DataSuckers : trois suspects arrêtés après une fuite",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/datasuckers-trois-suspects-arretes-apres-une-fuite/",
+          "date": "2026-11-08",
+          "image": "https://www.zataz.com/wp-content/uploads/Pizza_datasukers.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-10-03-warlock-ransomware-sharepoint",
       "title": "Warlock (Storm-2603) exploite SharePoint contre une compagnie d'eau, un opérateur télécom, une administration, une université",
       "created": "2026-10-03T16:02:48+00:00",

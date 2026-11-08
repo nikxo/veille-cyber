@@ -38057,6 +38057,87 @@
           "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/11/ARTEX-finance-industry-featured.png"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-08-iris-ohyama-fuite-cloud",
+      "title": "Iris Ohyama : accès non autorisé à un service cloud tiers, 7,7 millions de personnes concernées",
+      "created": "2026-11-08T16:30:00+00:00",
+      "updated": "2026-11-08T16:30:00+00:00",
+      "version": 1,
+      "resume": "L'industriel japonais Iris Ohyama, exploitant de la boutique Iris Plaza, indique que les données d'environ 7,7 millions de personnes ont pu être exposées après un accès non autorisé à un service cloud tiers [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Accès aux données clients",
+          "texte": "Accès non autorisé à un service cloud externe utilisé par l'entreprise → consultation possible des données clients qui y étaient stockées [1]."
+        },
+        {
+          "etape": "Détection et réaction",
+          "texte": "Un fichier suspect est repéré dans ce service → une boutique en ligne du groupe et les systèmes associés sont suspendus le 28 octobre [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "cl",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Service cloud externe",
+            "note": "Fichier suspect"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données clients",
+            "note": "7,7 millions de personnes"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cl",
+            "etape": 2,
+            "texte": "Accès non autorisé au service cloud"
+          },
+          {
+            "de": "cl",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Données clients stockées consultables"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'accès, ni l'auteur, ni le nombre exact de personnes touchées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié ; aucune demande de rançon connue [1]"
+      ],
+      "cibles": [
+        "Iris Ohyama (fabricant japonais), boutique en ligne Iris Plaza : membres, anciens membres et non-membres [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Iris Ohyama data cloud breach exposes info of 7.7 million customers",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/iris-ohyama-data-cloud-breach-exposes-info-of-77-million-customers/",
+          "date": "2026-11-08",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/06/iris.jpg"
+        }
+      ]
     }
   ]
 }

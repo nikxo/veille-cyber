@@ -1,37 +1,5 @@
 [
   {
-    "id": "d297e6e17d42578d",
-    "title": "Microsoft Targets Rogue AI Agents With Dynamic Permissions, Risk Scoring",
-    "link": "https://www.securityweek.com/microsoft-targets-rogue-ai-agents-with-dynamic-permissions-risk-scoring/",
-    "source": "SecurityWeek",
-    "raison": "annonce produit",
-    "date": "2026-10-20T12:30:00+00:00"
-  },
-  {
-    "id": "39476c1da8535b8d",
-    "title": "Windows Server 2025 gets support for quick machine recovery",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/windows-server-2025-gets-support-for-quick-machine-recovery/",
-    "source": "BleepingComputer",
-    "raison": "annonce produit",
-    "date": "2026-10-20T13:09:22+00:00"
-  },
-  {
-    "id": "467c211f344f8720",
-    "title": "WhatsApp Hid Instructions in Help Pages Telling Its AI Chatbot Not to Recommend Privacy Regulators",
-    "link": "https://thehackernews.com/2026/10/whatsapp-hid-instructions-in-help-pages.html",
-    "source": "The Hacker News",
-    "raison": "pas une attaque : instructions cachées d'un chatbot",
-    "date": "2026-10-20T13:09:22+00:00"
-  },
-  {
-    "id": "a5bdcf09f57483d7",
-    "title": "Ex-OpenAI Worker Accused of Bugging Conference Room Planned to Fly to Saudi Arabia, Prosecutors Say",
-    "link": "https://www.securityweek.com/ex-openai-worker-accused-of-bugging-conference-room-planned-to-fly-to-saudi-arabia-prosecutors-say/",
-    "source": "SecurityWeek",
-    "raison": "actualité judiciaire sans méthode d'attaque",
-    "date": "2026-10-20T13:09:22+00:00"
-  },
-  {
     "id": "df48f73ea919677f",
     "title": "What Security Teams Can Do To Tame Wild Code",
     "link": "https://thehackernews.com/2026/10/what-security-teams-can-do-to-tame-wild.html",
@@ -3998,5 +3966,37 @@
     "source": "Huntress",
     "raison": "vulnérabilités sans exploitation constatée",
     "date": "2026-11-09T21:07:20+00:00"
+  },
+  {
+    "id": "564f65582e15efe4",
+    "title": "N-able takes cloud platform offline after 30+ \"zero-days\" published",
+    "link": "https://www.bleepingcomputer.com/news/security/n-able-takes-cloud-platform-offline-after-30-plus-zero-days-published/",
+    "source": "BleepingComputer",
+    "raison": "vulnérabilités divulguées sans exploitation constatée",
+    "date": "2026-11-09T22:07:56+00:00"
+  },
+  {
+    "id": "907718f8d43040ed",
+    "title": "CISA Announces Enhanced Reporting Form for Cyber Incidents",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/cisa-announces-enhanced-reporting-form-cyber-incidents",
+    "source": "Dark Reading",
+    "raison": "annonce sans détail d'attaque",
+    "date": "2026-11-09T22:07:56+00:00"
+  },
+  {
+    "id": "ad117221614998e0",
+    "title": "Cybersécurité : la CNIL sanctionne dix collectivités",
+    "link": "https://www.zataz.com/cybersecurite-la-cnil-sanctionne-dix-collectivites/",
+    "source": "ZATAZ",
+    "raison": "actualité judiciaire sans méthode d'attaque",
+    "date": "2026-11-09T22:07:56+00:00"
+  },
+  {
+    "id": "eae4ff98ab3e26a3",
+    "title": "Microsoft Fixes RCE Bug in Windows Paint After Weeks of Confusion",
+    "link": "https://www.darkreading.com/application-security/microsoft-rce-bug-windows-paint-confusion",
+    "source": "Dark Reading",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-09T22:07:56+00:00"
   }
 ]

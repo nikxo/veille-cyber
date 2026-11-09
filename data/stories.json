@@ -39926,6 +39926,70 @@
           "image": "https://cms.therecord.media/uploads/Vanderbilt_University_56a944465a.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-09-york-university-formulaires",
+      "title": "York University : vol d'informations personnelles soumises via des formulaires en ligne",
+      "created": "2026-11-09T22:07:56+00:00",
+      "updated": "2026-11-09T22:07:56+00:00",
+      "version": 1,
+      "resume": "York University a annoncé un incident de cybersécurité : un attaquant a volé des informations personnelles que des personnes avaient envoyées via des formulaires en ligne [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Vol des informations personnelles envoyées via des formulaires en ligne de l'université [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Formulaires en ligne de l'université",
+            "note": "Données personnelles"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 2,
+            "texte": "Vol des informations des formulaires"
+          }
+        ]
+      },
+      "limites": "L'article n'a pas pu être lu en entier : seul son résumé est utilisé, sans vecteur d'accès ni durée de l'intrusion [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Acteur de menace non identifié [1]"
+      ],
+      "cibles": [
+        "York University [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "York University breach exposed personal information dating to 2007",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/york-university-breach-exposed-personal-information-dating-to-2007/",
+          "date": "2026-11-09",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/09/york.jpg"
+        }
+      ]
     }
   ]
 }

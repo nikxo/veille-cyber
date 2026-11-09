@@ -37729,106 +37729,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-11-06-sonicwall-sonicos-cve-2026-19868",
-      "title": "SonicWall SonicOS : faille CVE-2026-19868 du VPN SSL exploitée, ajoutée au catalogue américain",
-      "created": "2026-11-06T21:30:00+00:00",
-      "updated": "2026-11-09T06:11:44+00:00",
-      "version": 3,
-      "resume": "SonicWall a corrigé la faille CVE-2026-19868 du VPN SSL de SonicOS, ajoutée au catalogue américain des failles exploitées. Elle permet de contourner l'authentification SAML, y compris la MFA, avec des identifiants valides d'une autre méthode [1, 3, 4].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 3, 4]."
-        },
-        {
-          "etape": "Contournement de la MFA",
-          "texte": "Utilisation d'identifiants valides d'une autre méthode d'authentification → contournement des contrôles SAML, dont la MFA imposée par SAML [3, 4]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "vpn",
-            "type": "passerelle",
-            "zone": "victime",
-            "nom": "VPN SSL SonicWall SonicOS",
-            "note": "SAML activé"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "vpn",
-            "etape": 2,
-            "texte": "Identifiants d'une autre méthode, SAML contourné"
-          }
-        ]
-      },
-      "limites": "Les sources ne disent ni qui exploite la faille, ni contre qui, ni l'enchaînement de l'attaque après le contournement [1, 3, 4].",
-      "cves": [
-        {
-          "id": "CVE-2026-19868",
-          "explication": "SonicOS (Gen7 et Gen8), VPN SSL : identifiants valides d'une autre méthode → contournement de SAML et de la MFA, gravité 7,1 sur 10 [2, 3]. Exploitation suspectée [3, 4]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "Non précisé [1, 3]"
-      ],
-      "cibles": [
-        "Pare-feu SonicOS Gen7 et Gen8 avec VPN SSL et SAML activés [3]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "SAML",
-          "definition": "Security Assertion Markup Language : norme d'authentification unique entre systèmes"
-        },
-        {
-          "sigle": "MFA",
-          "definition": "Authentification multifacteur : plusieurs preuves d'identité exigées"
-        },
-        {
-          "sigle": "VPN SSL",
-          "definition": "Accès distant chiffré au réseau d'une organisation via le navigateur ou un client"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "CISA Adds One Known Exploited Vulnerability to Catalog",
-          "site": "CISA Advisories",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/11/06/cisa-adds-one-known-exploited-vulnerability-catalog",
-          "date": "2026-11-06"
-        },
-        {
-          "titre": "Fiche NVD CVE-2026-19868",
-          "site": "NVD (NIST)",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19868"
-        },
-        {
-          "titre": "SonicWall Patches Exploited SonicOS Vulnerability That Weakens VPN Logins",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/sonicwall-patches-exploited-sonicos-bug-that-weakens-vpn-logins/",
-          "date": "2026-11-07",
-          "image": "https://www.securityweek.com/wp-content/uploads/2025/08/SonicWall.jpg"
-        },
-        {
-          "titre": "CISA Flags SonicWall SonicOS MFA Bypass Flaw Amid Reports of Possible Exploitation",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/cisa-flags-sonicwall-sonicos-mfa-bypass.html",
-          "date": "2026-11-09",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjILYvlBWd-cPdnYJiX5gpFUBvDeq0nZYHWard5V4B8oEx7r_-4lUxcIan0_5l4EHxun-KbEHOJTj1p8qTuORzAaKalwqmlz1ajVuBmS-KTBJB0-rBSrhHGgHUkY0I3GTMSEbIy5fkP4vDyITtkZvbkqreMTACQjDS3OBRmnZE4U7pVZLjgId53L259b5Qj/s1700-nu-rw-lo-l85-e365/sonicss.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-11-04-arkea-fortuneo-virements-crypto",
       "title": "Crédit Mutuel Arkéa : plus de 133 millions de dollars détournés puis blanchis en cryptomonnaies",
       "created": "2026-11-04T15:20:00+00:00",
@@ -38255,6 +38155,106 @@
     },
     {
       "schema": 3,
+      "id": "2026-11-06-sonicwall-sonicos-cve-2026-19868",
+      "title": "SonicWall SonicOS : faille CVE-2026-19868 du VPN SSL exploitée, ajoutée au catalogue américain",
+      "created": "2026-11-06T21:30:00+00:00",
+      "updated": "2026-11-09T06:11:44+00:00",
+      "version": 3,
+      "resume": "SonicWall a corrigé la faille CVE-2026-19868 du VPN SSL de SonicOS, ajoutée au catalogue américain des failles exploitées. Elle permet de contourner l'authentification SAML, y compris la MFA, avec des identifiants valides d'une autre méthode [1, 3, 4].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1, 3, 4]."
+        },
+        {
+          "etape": "Contournement de la MFA",
+          "texte": "Utilisation d'identifiants valides d'une autre méthode d'authentification → contournement des contrôles SAML, dont la MFA imposée par SAML [3, 4]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "vpn",
+            "type": "passerelle",
+            "zone": "victime",
+            "nom": "VPN SSL SonicWall SonicOS",
+            "note": "SAML activé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "vpn",
+            "etape": 2,
+            "texte": "Identifiants d'une autre méthode, SAML contourné"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent ni qui exploite la faille, ni contre qui, ni l'enchaînement de l'attaque après le contournement [1, 3, 4].",
+      "cves": [
+        {
+          "id": "CVE-2026-19868",
+          "explication": "SonicOS (Gen7 et Gen8), VPN SSL : identifiants valides d'une autre méthode → contournement de SAML et de la MFA, gravité 7,1 sur 10 [2, 3]. Exploitation suspectée [3, 4]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non précisé [1, 3]"
+      ],
+      "cibles": [
+        "Pare-feu SonicOS Gen7 et Gen8 avec VPN SSL et SAML activés [3]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SAML",
+          "definition": "Security Assertion Markup Language : norme d'authentification unique entre systèmes"
+        },
+        {
+          "sigle": "MFA",
+          "definition": "Authentification multifacteur : plusieurs preuves d'identité exigées"
+        },
+        {
+          "sigle": "VPN SSL",
+          "definition": "Accès distant chiffré au réseau d'une organisation via le navigateur ou un client"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CISA Adds One Known Exploited Vulnerability to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/06/cisa-adds-one-known-exploited-vulnerability-catalog",
+          "date": "2026-11-06"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-19868",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19868"
+        },
+        {
+          "titre": "SonicWall Patches Exploited SonicOS Vulnerability That Weakens VPN Logins",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/sonicwall-patches-exploited-sonicos-bug-that-weakens-vpn-logins/",
+          "date": "2026-11-07",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/08/SonicWall.jpg"
+        },
+        {
+          "titre": "CISA Flags SonicWall SonicOS MFA Bypass Flaw Amid Reports of Possible Exploitation",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/cisa-flags-sonicwall-sonicos-mfa-bypass.html",
+          "date": "2026-11-09",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjILYvlBWd-cPdnYJiX5gpFUBvDeq0nZYHWard5V4B8oEx7r_-4lUxcIan0_5l4EHxun-KbEHOJTj1p8qTuORzAaKalwqmlz1ajVuBmS-KTBJB0-rBSrhHGgHUkY0I3GTMSEbIy5fkP4vDyITtkZvbkqreMTACQjDS3OBRmnZE4U7pVZLjgId53L259b5Qj/s1700-nu-rw-lo-l85-e365/sonicss.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-09-alerte-us-controleurs-refrigeration",
       "title": "Alerte américaine : contrôleurs de réfrigération industrielle attaqués dans le monde",
       "created": "2026-11-09T07:20:00+00:00",
@@ -38626,6 +38626,294 @@
           "url": "https://www.securityweek.com/3-million-people-hit-by-frontline-education-data-breach/",
           "date": "2026-11-09",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/07/data-tracking-report.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-09-web3auth-keplr",
+      "title": "Web3Auth : faille exploitée pour voler des portefeuilles Keplr créés via Google ou Apple",
+      "created": "2026-11-09T12:30:00+00:00",
+      "updated": "2026-11-09T12:30:00+00:00",
+      "version": 1,
+      "resume": "Un attaquant a volé des fonds dans des portefeuilles Keplr créés avec un compte Google ou Apple, grâce à une faille chez Web3Auth, qui assure la connexion. Web3Auth a ensuite vidé d'autres portefeuilles par la même voie [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Faille de sécurité dans l'infrastructure de Web3Auth, dont le fonctionnement n'est pas divulgué → accès aux portefeuilles Keplr créés via Google ou Apple [1]."
+        },
+        {
+          "etape": "Vol de fonds",
+          "texte": "Accès aux portefeuilles → clés privées compromises pour certains utilisateurs et fonds volés [1]."
+        },
+        {
+          "etape": "Vidage de sauvegarde",
+          "texte": "Web3Auth emprunte la même voie pour vider d'autres portefeuilles vulnérables → fonds transférés vers des portefeuilles de récupération [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "w3a",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Infrastructure Web3Auth",
+            "note": "Faille exploitée"
+          },
+          {
+            "id": "wal",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Portefeuilles Keplr Google/Apple",
+            "note": ""
+          },
+          {
+            "id": "rec",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Portefeuilles de récupération",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "w3a",
+            "etape": 1,
+            "texte": "Exploitation d'une faille de Web3Auth"
+          },
+          {
+            "de": "w3a",
+            "vers": "wal",
+            "etape": 2,
+            "texte": "Accès aux portefeuilles, fonds volés"
+          },
+          {
+            "de": "wal",
+            "vers": "rec",
+            "etape": 3,
+            "texte": "Autres portefeuilles vidés par Web3Auth"
+          }
+        ]
+      },
+      "limites": "La date de la première exploitation, le fonctionnement de la faille et l'identité de l'attaquant ne sont pas précisés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Utilisateurs de Keplr ayant créé leur portefeuille avec un compte Google ou Apple [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Web3Auth Flaw Exploited to Steal Keplr Crypto, Provider Empties Other Wallets for Safety",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/web3auth-flaw-exploited-to-steal-keplr.html",
+          "date": "2026-11-09",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJtevfYXrRQrcU5FKn33bfyWpqN9O6FlI2b1eWOTjNWWslLIM1wwUfpzedZdMvdw6BXqmYqM1PwO-8GH3_IpKOGa15uoiXx5yDTkAal7JOFSKisSYOAHBdRk9XImTowXaCyJlTwX-chPd7uJFCDEq8u9sKY7jW6UYxorQKUSyuH9pF3szdwejvN_HGhno/s1700-nu-rw-lo-l85-e365/kep.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-09-amplifon-americas-fuite",
+      "title": "Amplifon Americas : fuite de données touchant plus de 1,3 million de personnes",
+      "created": "2026-11-09T12:30:00+00:00",
+      "updated": "2026-11-09T12:30:00+00:00",
+      "version": 1,
+      "resume": "Des pirates sont entrés dans les systèmes internes d'Amplifon Americas en janvier 2026 et ont copié des fichiers contenant des données personnelles, de santé et d'assurance de plus de 1,3 million de personnes [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Intrusion",
+          "texte": "Pénétration des systèmes internes de l'entreprise en janvier 2026 → accès aux systèmes [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Copie de fichiers entre le 18 janvier et le 8 février 2026 → données personnelles, de santé et d'assurance extraites [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Systèmes internes Amplifon",
+            "note": ""
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Fichiers copiés",
+            "note": "Santé, assurance"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Intrusion dans les systèmes internes"
+          },
+          {
+            "de": "sys",
+            "vers": "don",
+            "etape": 3,
+            "texte": "Fichiers copiés du 18 janvier au 8 février"
+          }
+        ]
+      },
+      "limites": "Le vecteur d'accès, l'auteur de l'attaque et la date de détection ne sont pas précisés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Amplifon Americas, filiale américaine d'Amplifon : 1 332 826 personnes concernées selon un dépôt au Texas [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Amplifon Americas Data Breach Impacts 1.3 Million",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/amplifon-americas-data-breach-impacts-1-3-million/",
+          "date": "2026-11-09",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/10/bank-finance-lender-credit-union-hack.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-09-forgerock-admin-automobiles",
+      "title": "Mot de passe admin:admin sur un serveur ForgeRock : prise de contrôle de comptes et de véhicules de deux constructeurs",
+      "created": "2026-11-09T12:30:00+00:00",
+      "updated": "2026-11-09T12:30:00+00:00",
+      "version": 1,
+      "resume": "Deux chercheurs ont pris le contrôle des serveurs de connexion des applications de deux constructeurs automobiles, accédé à n'importe quel compte client et, pour un véhicule connecté, déverrouillé les portes et démarré le moteur [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Console d'administration aux identifiants par défaut admin:admin, atteinte grâce à une adresse web lue différemment par le filtre et le serveur → accès à la console [1]."
+        },
+        {
+          "etape": "Exécution de code",
+          "texte": "Scripts lancés via le planificateur de la console → accès de type invite de commandes sur le serveur d'identité [1]."
+        },
+        {
+          "etape": "Prise de compte",
+          "texte": "Modification de l'e-mail et du mot de passe d'un compte cible depuis le serveur → connexion par l'application normale et mêmes jetons d'accès qu'elle [1]."
+        },
+        {
+          "etape": "Commandes du véhicule",
+          "texte": "Jetons d'accès utilisés → portes déverrouillées, moteur démarré puis arrêté sur un véhicule de test, en présence du propriétaire [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (deux chercheurs)",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur d'identité ForgeRock",
+            "note": "Console admin:admin"
+          },
+          {
+            "id": "cpt",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Comptes clients",
+            "note": ""
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Application mobile",
+            "note": ""
+          },
+          {
+            "id": "veh",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Véhicule connecté",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 1,
+            "texte": "Console atteinte avec admin:admin"
+          },
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Scripts lancés via le planificateur"
+          },
+          {
+            "de": "srv",
+            "vers": "cpt",
+            "etape": 3,
+            "texte": "E-mail et mot de passe modifiés"
+          },
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 3,
+            "texte": "Connexion et jetons d'accès obtenus"
+          },
+          {
+            "de": "att",
+            "vers": "veh",
+            "etape": 4,
+            "texte": "Portes déverrouillées, moteur démarré"
+          }
+        ]
+      },
+      "limites": "Les constructeurs ne sont pas nommés. Les systèmes ont été corrigés environ deux heures après le signalement. Les chercheurs ignorent si d'autres ont exploité la faille [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Deux chercheurs en sécurité, Shubham Shah et Sam Curry, testant leurs propres véhicules ou ceux de propriétaires consentants [1]"
+      ],
+      "cibles": [
+        "Deux constructeurs automobiles non nommés dont les applications utilisent ForgeRock, aux États-Unis [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Default 'admin:admin' Server Password Helps Researchers Hack Two Automakers, Unlock and Start Cars",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/default-adminadmin-server-password.html",
+          "date": "2026-11-09",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiI85M0pHHPiXe5ar2VpaGsBVRzxoYfZhpQTKgWqd8YGjK9Nyaca-z6XrGT3jT0lqh41qe-cAjb33_r7JErd7rB1CfuWkgTP_z-_IJkpQPWebz1GeEvSu9QpE5XYWRMOfhYTHmzhbkFB07hzSuV1FYARdaIWjfB_mUoX1_eMjl_3dOaSUFpTQvjt-34eQo/s1700-nu-rw-lo-l85-e365/login-car.jpg"
         }
       ]
     }

@@ -38252,6 +38252,92 @@
           "image": "https://www.zataz.com/wp-content/uploads/Noname_free_laposte.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-09-alerte-us-controleurs-refrigeration",
+      "title": "Alerte américaine : contrôleurs de réfrigération industrielle attaqués dans le monde",
+      "created": "2026-11-09T07:20:00+00:00",
+      "updated": "2026-11-09T07:20:00+00:00",
+      "version": 1,
+      "resume": "Des agences américaines alertent sur des attaques visant des systèmes industriels de réfrigération et de chaîne du froid. En Europe, des centaines de supermarchés de 12 pays et un prestataire de l'Établissement français du sang sont touchés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de failles ou de faiblesses de contrôleurs non corrigés ou accessibles depuis Internet [1]."
+        },
+        {
+          "etape": "Modification des réglages",
+          "texte": "Réglages changés à distance → chauffage continu ou cycles de dégivrage forcés [1]."
+        },
+        {
+          "etape": "Impact sur les stocks",
+          "texte": "Températures portées jusqu'à 50 °C dans certains cas → denrées gâchées et pertes financières [1]."
+        },
+        {
+          "etape": "Sites de plasma",
+          "texte": "Chez un prestataire d'équipements frigorifiques de l'Établissement français du sang, températures et dégivrage très élevés → trois sites stockant du plasma touchés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "ctl",
+            "type": "serveur",
+            "zone": "expose",
+            "nom": "Contrôleurs de réfrigération",
+            "note": "Non corrigés"
+          },
+          {
+            "id": "stk",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Magasins et sites de stockage",
+            "note": "Denrées, plasma"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ctl",
+            "etape": 1,
+            "texte": "Exploitation de contrôleurs accessibles depuis Internet"
+          },
+          {
+            "de": "ctl",
+            "vers": "stk",
+            "etape": 3,
+            "texte": "Réglages modifiés, températures jusqu'à 50 °C"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent pas qui est derrière ces attaques ni quelle faille précise a été exploitée [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1]"
+      ],
+      "cibles": [
+        "Centaines de supermarchés dans 12 pays d'Europe [1]",
+        "Prestataire d'équipements frigorifiques de l'Établissement français du sang, trois sites de plasma [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "U.S. Agencies Warn Refrigeration Controller Attacks Could Cause Fires and Inventory Losses",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/us-agencies-warn-refrigeration.html",
+          "date": "2026-11-09",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKryTkTZPSm_Pvf-PEvYRFle3Bp0jQaXScE21oOsMfwir63sr355bqHInvPRm5zynq2sYfLswRNEeywDHo7p2snw5sQmlIrWIONBq4AoYFEGXvdgy5gNLMESgjL5zwnhbqYIwdKLRaolb18pKz1sqFynmSjWn2IT_BxlEb-0av9vDfp-oEzp23_cwOIoik/s1700-nu-rw-lo-l85-e365/ref.jpg"
+        }
+      ]
     }
   ]
 }

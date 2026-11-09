@@ -38338,6 +38338,134 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKryTkTZPSm_Pvf-PEvYRFle3Bp0jQaXScE21oOsMfwir63sr355bqHInvPRm5zynq2sYfLswRNEeywDHo7p2snw5sQmlIrWIONBq4AoYFEGXvdgy5gNLMESgjL5zwnhbqYIwdKLRaolb18pKz1sqFynmSjWn2IT_BxlEb-0av9vDfp-oEzp23_cwOIoik/s1700-nu-rw-lo-l85-e365/ref.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-09-bossai-agents-ia-taipei-urgences",
+      "title": "Un pirate taïwanais utilise des agents IA contre les services d'urgence de Taipei",
+      "created": "2026-11-09T10:20:00+00:00",
+      "updated": "2026-11-09T10:20:00+00:00",
+      "version": 1,
+      "resume": "Un seul attaquant, aidé d'agents IA, a extrait des dossiers de répartition des secours couvrant sept districts de Taipei et visé des centaines d'organisations dans au moins 11 pays [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources pour l'ensemble de l'opération : les vecteurs varient selon la cible [1]."
+        },
+        {
+          "etape": "Construction de l'infrastructure",
+          "texte": "Des agents IA commerciaux (Grok, Claude Code, Codex) bâtissent serveurs et outils → infrastructure d'attaque prête [1]."
+        },
+        {
+          "etape": "Contournement des garde-fous",
+          "texte": "Bascule vers des modèles IA « abliterated » (sans garde-fous), après des refus de Grok et MiniMax → agents capables d'attaquer [1]."
+        },
+        {
+          "etape": "Extraction de données",
+          "texte": "Interrogation de l'API publique du système de répartition 119 → dossiers de sept districts de Taipei extraits [1]."
+        },
+        {
+          "etape": "Exploitation de failles",
+          "texte": "Identifiants root par défaut, injection SQL, plateforme sans authentification → accès à une base de pompiers, une table de comptes d'un prêteur, des données patients exposées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (agents IA)",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de l'attaquant",
+            "note": "90 000 fichiers"
+          },
+          {
+            "id": "api",
+            "type": "application",
+            "zone": "expose",
+            "nom": "API de répartition 119",
+            "note": "Dossiers de secours"
+          },
+          {
+            "id": "pat",
+            "type": "application",
+            "zone": "expose",
+            "nom": "Plateforme patients pompiers",
+            "note": "Sans authentification"
+          },
+          {
+            "id": "db",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Base d'un fournisseur pompiers",
+            "note": "Identifiants root"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Agents IA construisent l'infrastructure"
+          },
+          {
+            "de": "srv",
+            "vers": "api",
+            "etape": 4,
+            "texte": "Extraction des dossiers de répartition"
+          },
+          {
+            "de": "srv",
+            "vers": "pat",
+            "etape": 5,
+            "texte": "Données lues sans connexion"
+          },
+          {
+            "de": "srv",
+            "vers": "db",
+            "etape": 5,
+            "texte": "Connexion avec identifiants root par défaut"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni persistance, ni mouvement latéral, ni méthode d'exfiltration. Le résumé évoque des vols de données, le détail de la plateforme patients parle d'exposition [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Une seule personne, très probablement basée à Hualien City (Taïwan), selon les chercheurs d'Acronis [1]"
+      ],
+      "cibles": [
+        "Services d'urgence, banques, universités, systèmes militaires dans au moins 11 pays, surtout Taïwan [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Interface permettant à des programmes d'échanger des données"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "SQL",
+          "definition": "Langage d'interrogation des bases de données (injection SQL : requêtes malveillantes)"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Taiwan-Based Hacker Used BOSSAI AI Agents to Steal Taipei Emergency Dispatch Records",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/taiwan-based-hacker-used-bossai-ai.html",
+          "date": "2026-11-09",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhd53Ql49F0iuQEtdvfoxOLNTuQnYM5oGQkqnQ3ym4aIW-HVZuHtOqzyi0IdwUxpFj5qU_jbUEKzPXG4Wx7Uj7g2-UKDotvOh0_AlNlkEIpgLbEBDuQxDkuxDFlukNKKbWXXZv1xCeHEtoOQ_Z1XQUshkJmlBaOmGQzMbryg6KHbOdt8IR7MNQ5oADM-GM/s1700-nu-rw-lo-l85-e365/CYBER-AI.jpg"
+        }
+      ]
     }
   ]
 }

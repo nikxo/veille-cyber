@@ -11001,7 +11001,7 @@
         },
         {
           "etape": "Persistance",
-          "texte": "Webshell JSP et récepteur de réplication malveillant → accès maintenu au serveur [1]. Cinq familles de webshells JSP, dont un chargeur caché dans des images PNG → exécution de commandes [6]."
+          "texte": "Webshell JSP et récepteur de réplication malveillant → accès maintenu [1]. Cinq familles de webshells JSP, dont un chargeur caché dans des images PNG [6]."
         },
         {
           "etape": "Téléchargement d'outils",
@@ -11009,7 +11009,7 @@
         },
         {
           "etape": "Minage de cryptomonnaie",
-          "texte": "Service MicrosoftEdgeUpdateSvc lançant un NSSM modifié → XMRig déguisé en Edge, relancé après un crash et connecté à un pool Monero [1, 4]."
+          "texte": "Service MicrosoftEdgeUpdateSvc lançant un NSSM modifié → XMRig déguisé en Edge, relancé après un crash, connecté à un pool Monero [1, 4]."
         },
         {
           "etape": "Dissimulation et défenses",

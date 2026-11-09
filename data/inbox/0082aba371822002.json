@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-11-09T10:06:26+00:00",
+  "feed_summary": "Key TakeawaysMicrosoft Entra Agent Identity extends Entra to AI agents and closely mirrors the traditional application model, inheriting many of the same opportunities for abuse.Proofpoint®  researchers present “BluePhishing” as the next evolution of OAuth consent abuse, enabling attackers to leverage agent identities for initial access.Attackers can configure the blueprint with inheritable permissions and requiredResourceAccess (RRA), using consent links to gain initial access to a victim tenant.Consent to a malicious blueprint allows an attacker   to establish agent identities and operate with granted privileges, using discoverable identifiers (e.g., tenant ID and user/sponsor object ID).The challenges of governance around agent identities and consent flows increase the risk of scalable ",
+  "id": "0082aba371822002",
+  "image": "https://www.proofpoint.com/sites/default/files/styles/metatag/public/blog-banners/varonis-banner-texture.jpg.webp?itok=qaUz0cV-",
+  "lang": "en",
+  "link": "https://www.proofpoint.com/us/blog/threat-insight/BluePhishing-Initial-Access-via-Third-Party-Agent-Blueprint-Consent",
+  "published": "2026-11-11T09:39:42-08:00",
+  "source": "Proofpoint Threat Insight",
+  "source_type": "analyse",
+  "title": "BluePhishing: Initial Access via Third-Party Agent Blueprint Consent"
+}

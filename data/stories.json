@@ -32667,8 +32667,8 @@
       "id": "2026-11-02-tradertraitor-binance",
       "title": "TraderTraitor : vol de plus de 6,3 milliards de dollars chez Binance",
       "created": "2026-11-02T09:20:00+00:00",
-      "updated": "2026-11-04T11:08:44+00:00",
-      "version": 4,
+      "updated": "2026-11-09T19:30:00+00:00",
+      "version": 5,
       "resume": "Binance a perdu environ 6,3 milliards de dollars de cryptomonnaies [4]. Le FBI attribue le vol à TraderTraitor [1, 2] ; Binance parle d'une campagne de plusieurs mois [3].",
       "chaine": [
         {
@@ -32685,7 +32685,7 @@
         },
         {
           "etape": "Vol de fonds",
-          "texte": "Délégation EIP-7702 d'Ethereum hors des contrôles d'approbation habituels, hot wallets vidés sur plusieurs blockchains, l'essentiel en environ 20 minutes [1, 5]."
+          "texte": "Délégation EIP-7702 d'Ethereum hors des contrôles d'approbation habituels, hot wallets vidés sur plusieurs blockchains (dix selon [6]), l'essentiel en environ 20 minutes [1, 5, 6]."
         },
         {
           "etape": "Effacement des traces",
@@ -32693,7 +32693,7 @@
         },
         {
           "etape": "Blanchiment",
-          "texte": "Conversion surtout en ETH, puis services DeFi et d'échange instantané ; nouveaux portefeuilles utilisés quand un pont refusait les dépôts [1, 2]."
+          "texte": "Conversion surtout en ETH, puis services DeFi et d'échange instantané ; nouveaux portefeuilles quand un pont refusait les dépôts [1, 2] ; teneurs de marché et protocoles de prêt [6]."
         }
       ],
       "parcours": {
@@ -32834,6 +32834,13 @@
           "url": "https://www.securityweek.com/rigged-coding-assignment-abused-ai-tool-opened-path-to-6-billion-binance-heist/",
           "date": "2026-11-04",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Binance-hacked.jpeg"
+        },
+        {
+          "titre": "Comment Binance s'est fait voler plusieurs milliards",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366654657/Comment-Binance-sest-fait-voler-plusieurs-milliards",
+          "date": "2026-11-09",
+          "image": "https://www.lemagit.fr/visuals/German/HERO-Gefahr-STOCKYE-STUDIO-hacker-in-a-dark-room-Adobe-05.jpg"
         }
       ]
     },
@@ -39338,8 +39345,8 @@
       "id": "2026-11-09-frigos-francais-unite-iranienne",
       "title": "Frigos de commerces français piratés en octobre : Paris vise une unité iranienne",
       "created": "2026-11-09T17:20:00+00:00",
-      "updated": "2026-11-09T18:08:52+00:00",
-      "version": 2,
+      "updated": "2026-11-09T19:30:00+00:00",
+      "version": 3,
       "resume": "Dans la nuit du 11 au 12 octobre, environ 700 commerces français ont subi une attaque sur leurs contrôleurs de réfrigération : pertes alimentaires et une vingtaine de départs de feu [1]. Le CERT-FR l'attribue à des unités iraniennes [2].",
       "chaine": [
         {
@@ -39348,7 +39355,7 @@
         },
         {
           "etape": "Sabotage des températures",
-          "texte": "Accès aux interfaces web des contrôleurs, modification des consignes de température et des cycles de dégivrage → hausse anormale des températures [1, 3]."
+          "texte": "Accès aux interfaces web des contrôleurs, réglages de température et de dégivrage modifiés à distance → hausse anormale des températures [1, 3, 6]."
         },
         {
           "etape": "Alertes désactivées",
@@ -39356,7 +39363,7 @@
         },
         {
           "etape": "Seconde vague",
-          "texte": "Nuit du 1er au 2 novembre : chambres froides de trois sites de l'Établissement français du sang réglées à 110 °C [3]."
+          "texte": "Nuit du 1er au 2 novembre : chambres froides de trois sites de l'Établissement français du sang réglées à 110 °C [3] ; le personnel a repris la main [5]."
         },
         {
           "etape": "Conséquences",
@@ -39414,7 +39421,7 @@
           }
         ]
       },
-      "limites": "Détails techniques de l'attribution non publics [1, 2]. Sekoia ne confirme pas l'exploitation de CVE-2025-41450 dans la première vague [3].",
+      "limites": "Détails techniques de l'attribution non publics [1, 2]. Sekoia ne confirme pas l'exploitation de CVE-2025-41450 dans la première vague [3]. Départs de feu : une vingtaine [1], au moins 15 [4, 6].",
       "cves": [
         {
           "id": "CVE-2025-41450",
@@ -39423,10 +39430,11 @@
       ],
       "mitre": [],
       "acteurs": [
-        "Unité Shahid Kaveh, liée au Corps des Gardiens de la Révolution islamique [1, 2]",
+        "Unité Shahid Kaveh, liée au Corps des Gardiens de la Révolution islamique [1, 2, 4]",
         "Unité Shahid Shoostari, citée par le CERT-FR [2]",
         "Autorités françaises (9 novembre) : IRGC, unité Shahid Kaveh, alias public CyberAveng3rs [3]",
-        "Revendication NoName057(16) jugée non fondée par Sekoia [3]"
+        "Revendication NoName057(16) jugée non fondée par Sekoia [3]",
+        "Indices d'attribution : traces de farsi [5, 6], adresses de connexion vers l'Iran [5] ; un faux drapeau n'est pas exclu [5]"
       ],
       "cibles": [
         "Environ 700 commerces de la grande distribution française [1]",
@@ -39462,6 +39470,26 @@
           "url": "https://www.sekoia.com/blog/the-cold-chain-on-fire-unpatched-danfoss-controllers-exploited",
           "date": "2026-11-09",
           "image": "https://cdn.prod.website-files.com/69b190e7f47e4c44b0ee07d8/6af1d77c89973bb77f3a8887_b31236ef-7eb7-43e3-aec8-74fe1e349e06.png"
+        },
+        {
+          "titre": "France blames Iran for fridge cyberattacks, says some caused fires",
+          "site": "The Record",
+          "url": "https://therecord.media/france-blames-iran-for-fridge-cyberattacks",
+          "date": "2026-11-09",
+          "image": "https://cms.therecord.media/uploads/fridge_eeb57556f3.jpg"
+        },
+        {
+          "titre": "Piratage des systèmes de réfrigération : l'enquête s'oriente vers Téhéran",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366654713/Piratage-des-systemes-de-refrigeration-lenquete-soriente-vers-Teheran",
+          "date": "2026-11-09",
+          "image": "https://www.lemagit.fr/visuals/German/HERO-Gefahr-STOCKYE-STUDIO-hacker-in-a-dark-room-Adobe-05.jpg"
+        },
+        {
+          "titre": "France blames Iranian hackers for supermarket attacks that sparked fires",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/france-blames-iranian-hackers-for-supermarket-attacks-that-sparked-fires/",
+          "image": "https://www.bleepstatic.com/content/hl-images/2024/04/23/Iranian_hacker.jpg"
         }
       ]
     },
@@ -39799,6 +39827,92 @@
           "url": "https://thehackernews.com/2026/11/hackers-exploit-quboles-trusted-aws.html",
           "date": "2026-11-09",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjj3p_1P-Ko_l_HuUr2Doq9kJOQa3Y5dCrkiVWqjJXzvQfYgKvgJXyvdBqLH2hp7s_ZY2kk-hhaCQhjf_v9SdjSbNpaDV2Eohk6-NEFUZp_ROjMJf_Q1xUSKcrqNj-Dd5ZrfjV6uP1blo579IaZ6hgHxOFAUhyJVgdGop-KVIWCjWQIYOKku3iN1N1EIUk/s1700-nu-rw-lo-l85-e365/aws-hacked.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-09-vanderbilt-byod",
+      "title": "Vanderbilt University : le gang BYOD revendique une attaque",
+      "created": "2026-11-09T19:30:00+00:00",
+      "updated": "2026-11-09T19:30:00+00:00",
+      "version": 1,
+      "resume": "Vanderbilt University a annoncé une cyberattaque pouvant toucher les appareils et systèmes du campus [1]. Le gang BYOD a ajouté l'université à son site de fuite en affirmant avoir volé des données [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Revendication",
+          "texte": "Le gang BYOD ajoute l'université à son site de fuite → affirmation d'un vol de données [1]."
+        },
+        {
+          "etape": "Réaction de l'université",
+          "texte": "Annonce de l'attaque, enquête et confinement en cours → consigne d'éteindre les appareils et de se déconnecter du réseau sans fil [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (gang BYOD)",
+            "note": ""
+          },
+          {
+            "id": "uni",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes du campus",
+            "note": "Peuvent être touchés"
+          },
+          {
+            "id": "leak",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Site de fuite du gang",
+            "note": "Revendication"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "uni",
+            "etape": 1,
+            "texte": "Accès non précisé par la source"
+          },
+          {
+            "de": "att",
+            "vers": "leak",
+            "etape": 2,
+            "texte": "Université ajoutée, vol de données affirmé"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas comment l'accès a été obtenu, ni si des données ont été chiffrées ou volées, ni lesquelles [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Gang de rançongiciel BYOD, auteur de la revendication [1]"
+      ],
+      "cibles": [
+        "Vanderbilt University, étudiants et employés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "BYOD",
+          "definition": "Nom du groupe de rançongiciel qui revendique l'attaque"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Vanderbilt cybersecurity incident impacting campus devices and systems",
+          "site": "The Record",
+          "url": "https://therecord.media/vanderbilt-cyberattack-ransomware-alert",
+          "date": "2026-11-09",
+          "image": "https://cms.therecord.media/uploads/Vanderbilt_University_56a944465a.jpg"
         }
       ]
     }

@@ -38178,9 +38178,9 @@
       "id": "2026-11-09-amplifon-americas-fuite",
       "title": "Amplifon Americas : fuite de données touchant plus de 1,3 million de personnes",
       "created": "2026-11-09T12:30:00+00:00",
-      "updated": "2026-11-09T12:30:00+00:00",
-      "version": 1,
-      "resume": "Des pirates sont entrés dans les systèmes internes d'Amplifon Americas en janvier 2026 et ont copié des fichiers contenant des données personnelles, de santé et d'assurance de plus de 1,3 million de personnes [1].",
+      "updated": "2026-11-09T21:07:20+00:00",
+      "version": 2,
+      "resume": "Des pirates ont eu accès aux fichiers d'Amplifon Americas du 18 janvier au 8 février 2026 et copié des données personnelles, de santé et d'assurance [1, 2]. Le nombre de victimes dépasse 1,3 million selon les sources [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -38188,11 +38188,15 @@
         },
         {
           "etape": "Intrusion",
-          "texte": "Pénétration des systèmes internes de l'entreprise en janvier 2026 → accès aux systèmes [1]."
+          "texte": "Pénétration des systèmes internes de l'entreprise en janvier 2026 → accès aux fichiers [1, 2]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Copie de fichiers entre le 18 janvier et le 8 février 2026 → données personnelles, de santé et d'assurance extraites [1]."
+          "texte": "Copie de fichiers entre le 18 janvier et le 8 février 2026 → noms, pièces d'identité, informations médicales, d'assurance et financières exposées [1, 2]."
+        },
+        {
+          "etape": "Détection",
+          "texte": "Activité suspecte détectée le 11 février 2026 → enquête puis notification des régulateurs [2]."
         }
       ],
       "parcours": {
@@ -38234,12 +38238,12 @@
           }
         ]
       },
-      "limites": "Le vecteur d'accès, l'auteur de l'attaque et la date de détection ne sont pas précisés [1].",
+      "limites": "Le vecteur d'accès n'est pas précisé [1, 2]. Aucun groupe n'a revendiqué l'attaque [2]. Le total de 1 332 826 victimes vient d'un dépôt au Texas [1] ou de cabinets d'avocats, sans confirmation d'Amplifon [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Amplifon Americas, filiale américaine d'Amplifon : 1 332 826 personnes concernées selon un dépôt au Texas [1]"
+        "Amplifon Americas, filiale américaine : 1 332 826 personnes selon un dépôt au Texas [1] ; 85 804 au Texas selon les notifications [2]"
       ],
       "abreviations": [],
       "sources": [
@@ -38249,6 +38253,13 @@
           "url": "https://www.securityweek.com/amplifon-americas-data-breach-impacts-1-3-million/",
           "date": "2026-11-09",
           "image": "https://www.securityweek.com/wp-content/uploads/2025/10/bank-finance-lender-credit-union-hack.jpeg"
+        },
+        {
+          "titre": "Data breach at hearing aid giant Amplifon impacts thousands",
+          "site": "The Record",
+          "url": "https://therecord.media/amplifon-hearing-aid-company-data-breach",
+          "date": "2026-11-09",
+          "image": "https://cms.therecord.media/uploads/amplifon_sign_0b2aa19c9e.jpeg"
         }
       ]
     },

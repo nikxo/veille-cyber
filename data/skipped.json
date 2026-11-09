@@ -1,29 +1,5 @@
 [
   {
-    "id": "a11a9a88106812da",
-    "title": "Revolut outage disrupts online banking operations worldwide",
-    "link": "https://www.bleepingcomputer.com/news/security/revolut-outage-disrupts-online-banking-operations-worldwide/",
-    "source": "BleepingComputer",
-    "raison": "panne sans attaque établie",
-    "date": "2026-10-20T10:30:00+00:00"
-  },
-  {
-    "id": "54e0151368b2b407",
-    "title": "Contrôle à l’export: la Chine laisse planer le doute sur le sort des modèles frontières ouverts",
-    "link": "https://www.lemagit.fr/actualites/366652420/Controle-a-lexport-la-Chine-laisse-planer-le-doute-sur-le-sort-des-modeles-frontieres-ouverts",
-    "source": "LeMagIT",
-    "raison": "sans lien avec une attaque (réglementation export IA)",
-    "date": "2026-10-20T12:30:00+00:00"
-  },
-  {
-    "id": "b766480fc8c7c9d1",
-    "title": "Violations de données applicatives - Retour d’expérience du CERT-FR (20 octobre 2026)",
-    "link": "https://www.cert.ssi.gouv.fr/cti/CERTFR-2026-CTI-008/",
-    "source": "CERT-FR (menaces et incidents)",
-    "raison": "bilan statistique sans détail sur la méthode d'attaque",
-    "date": "2026-10-20T12:30:00+00:00"
-  },
-  {
     "id": "d297e6e17d42578d",
     "title": "Microsoft Targets Rogue AI Agents With Dynamic Permissions, Risk Scoring",
     "link": "https://www.securityweek.com/microsoft-targets-rogue-ai-agents-with-dynamic-permissions-risk-scoring/",
@@ -3998,5 +3974,29 @@
     "source": "LeMagIT",
     "raison": "annonce produit, pas une attaque",
     "date": "2026-11-09T19:30:00+00:00"
+  },
+  {
+    "id": "527a69512361fba2",
+    "title": "Black Hat India 2026 Makes a Landmark Debut in Bengaluru",
+    "link": "https://www.darkreading.com/cybersecurity-operations/black-hat-india-2026-landmark-debut",
+    "source": "Dark Reading",
+    "raison": "annonce d'événement",
+    "date": "2026-11-09T21:07:20+00:00"
+  },
+  {
+    "id": "8f6133c5e5aef3d5",
+    "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/11/09/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+    "source": "CISA Advisories",
+    "raison": "liste de CVE sans détail sur la méthode d'attaque",
+    "date": "2026-11-09T21:07:20+00:00"
+  },
+  {
+    "id": "d5e08ba0cd484918",
+    "title": "N-able Disables Cloud Services Following Disclosure of \"Able2Shell\" Exploit Chains",
+    "link": "https://www.huntress.com/blog/n-able-disables-cloud-services-following-disclosure-of-able2shell-exploit-chains",
+    "source": "Huntress",
+    "raison": "vulnérabilités sans exploitation constatée",
+    "date": "2026-11-09T21:07:20+00:00"
   }
 ]

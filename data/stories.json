@@ -39001,9 +39001,9 @@
       "id": "2026-11-09-openssh-sshole-musl",
       "title": "OpenSSH « SSHole » : contournement d'authentification exploité par des botnets et mineurs de cryptomonnaie",
       "created": "2026-11-09T13:30:00+00:00",
-      "updated": "2026-11-09T13:30:00+00:00",
-      "version": 1,
-      "resume": "Une faille d'OpenSSH (CVE-2026-123158, « SSHole ») permet de se connecter sans le bon mot de passe sur des systèmes utilisant musl. Des botnets et des mineurs de cryptomonnaie l'exploitent déjà [1].",
+      "updated": "2026-11-09T16:30:00+00:00",
+      "version": 2,
+      "resume": "Une faille d'OpenSSH (CVE-2026-123158, « SSHole ») permet de se connecter sans le bon mot de passe sur des systèmes utilisant musl. Des attaquants l'exploitent déjà [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -39016,6 +39016,10 @@
         {
           "etape": "Accès au compte",
           "texte": "Authentification acceptée → accès au compte ciblé, par exemple root [1]."
+        },
+        {
+          "etape": "Actions après connexion",
+          "texte": "Exploitation de la faille → exécution de commandes, vol d'identifiants et accès persistant [2]."
         }
       ],
       "parcours": {
@@ -39047,10 +39051,16 @@
             "vers": "ssh",
             "etape": 3,
             "texte": "Authentification acceptée, accès au compte"
+          },
+          {
+            "de": "att",
+            "vers": "ssh",
+            "etape": 4,
+            "texte": "Commandes, vol d'identifiants, accès persistant"
           }
         ]
       },
-      "limites": "Les sources ne décrivent pas ce que les attaquants font après la connexion ni les victimes touchées [1].",
+      "limites": "Les sources ne détaillent pas comment les commandes, le vol d'identifiants et la persistance sont réalisés, ni les victimes touchées [1, 2].",
       "cves": [
         {
           "id": "CVE-2026-123158",
@@ -39081,6 +39091,13 @@
           "url": "https://www.securityweek.com/hackers-exploiting-sshole-authentication-bypass-in-openssh/",
           "date": "2026-11-09",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/11/SSH.webp"
+        },
+        {
+          "titre": "Hackers exploit SSHole OpenSSH flaw to breach Linux systems",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/",
+          "date": "2026-11-09",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/09/openssh.jpg"
         }
       ]
     },
@@ -39089,25 +39106,25 @@
       "id": "2026-11-09-ukraine-arnaque-crypto",
       "title": "Ukraine : réseau de centres d'appel d'arnaque à l'investissement crypto démantelé, 4,3 millions d'euros volés",
       "created": "2026-11-09T13:30:00+00:00",
-      "updated": "2026-11-09T13:30:00+00:00",
-      "version": 1,
-      "resume": "La police ukrainienne a arrêté quatre suspects d'un réseau de centres d'appel d'arnaque à l'investissement en cryptomonnaies, qui a volé plus de 4,3 millions d'euros à 135 victimes allemandes [1].",
+      "updated": "2026-11-09T16:30:00+00:00",
+      "version": 2,
+      "resume": "La police ukrainienne a arrêté quatre suspects, dont le chef présumé, d'un réseau de centres d'appel d'arnaque à l'investissement en cryptomonnaies, qui a volé plus de 4,3 millions d'euros à 135 victimes allemandes [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Contact des victimes par téléphone et messageries, ainsi que par réseaux sociaux et sites de rencontre → confiance gagnée par ingénierie sociale [1]."
+          "texte": "Contact des victimes par téléphone et messageries, réseaux sociaux et sites de rencontre → confiance gagnée par ingénierie sociale [1]. Les escrocs se faisaient passer pour des conseillers financiers [2]."
         },
         {
           "etape": "Fausses plateformes",
-          "texte": "Incitation à investir sur de fausses plateformes de trading → victimes aidées à acheter des actifs numériques [1]."
+          "texte": "Incitation à investir sur de fausses plateformes en ligne → victimes aidées à ouvrir des comptes d'échange et à acheter des actifs numériques [1, 2]."
         },
         {
           "etape": "Détournement des fonds",
-          "texte": "Actifs transférés vers des comptes contrôlés par le groupe ; parfois accès aux comptes bancaires en ligne des victimes [1]."
+          "texte": "Actifs transférés vers des portefeuilles contrôlés par le groupe ; parfois accès aux comptes bancaires en ligne des victimes [1, 2]."
         },
         {
           "etape": "Blanchiment",
-          "texte": "Fonds passés par comptes bancaires, plateformes d'échange et portefeuilles de transit → convertis puis répartis entre les membres [1]."
+          "texte": "Fonds passés par comptes bancaires et portefeuilles crypto → origine masquée, puis argent réparti entre les membres [1, 2]."
         }
       ],
       "parcours": {
@@ -39162,14 +39179,14 @@
           }
         ]
       },
-      "limites": "Les sources ne donnent ni le nom du chef ni les dates exactes des perquisitions et arrestations [1].",
+      "limites": "Les sources ne donnent ni le nom du chef ni les dates exactes des arrestations [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Organisation criminelle basée en Ukraine, dirigée par un chef non nommé [1]"
       ],
       "cibles": [
-        "135 victimes allemandes, dans un ciblage plus large de l'Union européenne [1]"
+        "135 victimes allemandes, dans un ciblage plus large de l'Union européenne [1, 2]"
       ],
       "abreviations": [],
       "sources": [
@@ -39179,6 +39196,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/ukraine-dismantles-crypto-scam-network-that-stole-43-million/",
           "date": "2026-11-09",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/04/29/Law_enforcement_arrest.jpg"
+        },
+        {
+          "titre": "Ukraine arrests four in $5 million crypto scam targeting Germans",
+          "site": "The Record",
+          "url": "https://therecord.media/ukraine-arrests-scam-call-centers-germany",
+          "date": "2026-11-09",
+          "image": "https://cms.therecord.media/uploads/ukraine_police_scam_call_center_crackdow_47917126a9.jpg"
         }
       ]
     },
@@ -39265,6 +39289,128 @@
           "url": "https://therecord.media/cyberattack-germany-ai-mittwald",
           "date": "2026-11-09",
           "image": "https://cms.therecord.media/uploads/Mittwald_CM_Service_c430f4d1f0.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-09-bitter-paprat",
+      "title": "Bitter déploie le nouveau cheval de Troie PapRAT contre des organisations d'Asie du Sud",
+      "created": "2026-11-09T16:30:00+00:00",
+      "updated": "2026-11-09T16:30:00+00:00",
+      "version": 1,
+      "resume": "Le groupe d'espionnage Bitter cible des organisations d'Asie du Sud avec PapRAT, un cheval de Troie d'accès à distance non documenté auparavant, en versions C++ et Rust [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Trois chaînes d'infection : raccourci Windows, image disque ou raccourci URL → déploiement de PapRAT, notamment via un paquet MSI ; livraison initiale non précisée [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Le raccourci détourne ftp.exe pour lancer des scripts et créer des tâches planifiées → contact maintenu avec le serveur de commande [1]."
+        },
+        {
+          "etape": "Reconnaissance",
+          "texte": "Collecte de listes de dossiers, tâches, antivirus et lecteurs, enregistrée dans abc.pdf → fichier envoyé au serveur de commande puis supprimé [1]."
+        },
+        {
+          "etape": "Contrôle à distance",
+          "texte": "PapRAT exécute des commandes, transfère des fichiers et capture l'écran → contrôle de la machine ; il dépose aussi WmRAT dans une chaîne [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Bitter)",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes d'organisations sud-asiatiques",
+            "note": "PapRAT installé"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de commande",
+            "note": "Reçoit les données"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Fichiers piégés, installation de PapRAT"
+          },
+          {
+            "de": "pc",
+            "vers": "c2",
+            "etape": 2,
+            "texte": "Tâches planifiées, contact maintenu"
+          },
+          {
+            "de": "pc",
+            "vers": "c2",
+            "etape": 3,
+            "texte": "Envoi du fichier de reconnaissance"
+          },
+          {
+            "de": "c2",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Commandes envoyées à PapRAT"
+          }
+        ]
+      },
+      "limites": "La source ne précise pas le mode de livraison initial, les secteurs visés ni les dates de la campagne, et ne cite aucune technique MITRE [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Bitter, aussi suivi sous d'autres noms dont Hazy Tiger et Orange Yali [1]"
+      ],
+      "cibles": [
+        "Organisations d'Asie du Sud, secteurs non précisés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "LNK",
+          "definition": "Fichier raccourci Windows"
+        },
+        {
+          "sigle": "MSI",
+          "definition": "Paquet d'installation Windows"
+        },
+        {
+          "sigle": "VHDX",
+          "definition": "Format d'image de disque virtuel Windows"
+        },
+        {
+          "sigle": "WebDAV",
+          "definition": "Protocole d'accès à des fichiers distants via le web"
+        },
+        {
+          "sigle": "RAT",
+          "definition": "Remote Access Trojan : cheval de Troie de contrôle à distance"
+        },
+        {
+          "sigle": "URL",
+          "definition": "Adresse web"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Bitter Hackers Deploy New PapRAT Backdoor in Cyberespionage Campaign Targeting South Asia",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/bitter-hackers-deploy-new-paprat.html",
+          "date": "2026-11-09",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQwQpjbb2oT57o807l7YmQ31V2RbyxqqO4hENkKlfikKKH-LeqSUiYz5AaPCCFWml-l_RaN1JMiwbJa9lJe7z7Ijzdk66icRP70eETLZ7lLomkSa3JjezoxbRNeDEkTv0K-26dSzHKxAjc7xyLA9RbIiERPLqyRu5QzfyrPeyIA4dfLzMil5wDkYN9n4sG/s1700-nu-rw-lo-l85-e365/command.jpg"
         }
       ]
     }

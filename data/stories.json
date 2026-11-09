@@ -39990,6 +39990,127 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/09/york.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-09-sega-arara-newsletter",
+      "title": "SEGA : fuite chez son prestataire de newsletters ARARA, 2,2 millions d'adresses e-mail exposées",
+      "created": "2026-11-09T23:10:00+00:00",
+      "updated": "2026-11-09T23:10:00+00:00",
+      "version": 1,
+      "resume": "Le prestataire d'e-mailing ARARA a subi une violation touchant 77 millions d'adresses de près de 380 clients, dont 2,2 millions d'abonnés aux newsletters de SEGA [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Une vulnérabilité de serveur web et des problèmes de l'environnement système d'ARARA ont contribué à l'incident ; la méthode d'intrusion exacte reste en cours d'investigation [1]."
+        },
+        {
+          "etape": "Compromission du service",
+          "texte": "Compromission du service de distribution d'e-mails d'ARARA → accès à 77 millions d'adresses de près de 380 clients [1]."
+        },
+        {
+          "etape": "Envoi d'e-mails frauduleux",
+          "texte": "Utilisation de l'accès au service → plus de 7 millions d'e-mails se faisant passer pour des sociétés de cartes de crédit [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Extraction des adresses e-mail des abonnés SEGA → 2,2 millions d'adresses et 92 300 enregistrements au contenu à déterminer [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur web d'ARARA",
+            "note": "Vulnérabilité citée"
+          },
+          {
+            "id": "mail",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Service d'envoi d'e-mails ARARA",
+            "note": "77 millions d'adresses"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Adresses des abonnés SEGA",
+            "note": "2,2 millions"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 1,
+            "texte": "Vulnérabilité de serveur web citée"
+          },
+          {
+            "de": "att",
+            "vers": "mail",
+            "etape": 2,
+            "texte": "Compromission du service d'envoi"
+          },
+          {
+            "de": "att",
+            "vers": "mail",
+            "etape": 3,
+            "texte": "Plus de 7 millions d'e-mails frauduleux envoyés"
+          },
+          {
+            "de": "mail",
+            "vers": "don",
+            "etape": 4,
+            "texte": "Adresses des abonnés SEGA extraites"
+          }
+        ]
+      },
+      "limites": "La méthode d'intrusion exacte et l'auteur ne sont pas précisés ; le contenu des 92 300 enregistrements reste à déterminer [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non mentionné par la source [1]"
+      ],
+      "cibles": [
+        "ARARA (e-mailing), SEGA (jeux vidéo), MOS Burger, Shochiku Multiplex Theatres, TKC, IIJmio [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ARARA",
+          "definition": "Nom du prestataire d'e-mailing compromis"
+        },
+        {
+          "sigle": "SEGA",
+          "definition": "Éditeur japonais de jeux vidéo, client d'ARARA"
+        },
+        {
+          "sigle": "MOS",
+          "definition": "Début du nom de MOS Burger, client d'ARARA"
+        },
+        {
+          "sigle": "TKC",
+          "definition": "Nom d'un client d'ARARA touché"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "SEGA newsletter data breach exposes 2.2 million email addresses",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/sega-newsletter-data-breach-exposes-22-million-email-addresses/",
+          "date": "2026-11-09",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/09/SEGA.jpg"
+        }
+      ]
     }
   ]
 }

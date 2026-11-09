@@ -37970,9 +37970,9 @@
       "id": "2026-11-08-iris-ohyama-fuite-cloud",
       "title": "Iris Ohyama : accès non autorisé à un service cloud tiers, 7,7 millions de personnes concernées",
       "created": "2026-11-08T16:30:00+00:00",
-      "updated": "2026-11-08T16:30:00+00:00",
-      "version": 1,
-      "resume": "L'industriel japonais Iris Ohyama, exploitant de la boutique Iris Plaza, indique que les données d'environ 7,7 millions de personnes ont pu être exposées après un accès non autorisé à un service cloud tiers [1].",
+      "updated": "2026-11-09T13:30:00+00:00",
+      "version": 2,
+      "resume": "L'industriel japonais Iris Ohyama, exploitant de la boutique Iris Plaza, indique que les données d'environ 7,7 millions de personnes ont pu être exposées après un accès non autorisé à un service cloud tiers [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -37984,7 +37984,7 @@
         },
         {
           "etape": "Détection et réaction",
-          "texte": "Un fichier suspect est repéré dans ce service → une boutique en ligne du groupe et les systèmes associés sont suspendus le 28 octobre [1]."
+          "texte": "Fichier suspect repéré dans le service → boutique et systèmes suspendus le 28 octobre [1] ; accès des attaquants bloqué [2]."
         }
       ],
       "parcours": {
@@ -38026,14 +38026,14 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni le vecteur d'accès, ni l'auteur, ni le nombre exact de personnes touchées [1].",
+      "limites": "Les sources ne précisent ni le vecteur d'accès, ni l'auteur, ni les dates de l'intrusion [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Non identifié ; aucune demande de rançon connue [1]"
       ],
       "cibles": [
-        "Iris Ohyama (fabricant japonais), boutique en ligne Iris Plaza : membres, anciens membres et non-membres [1]"
+        "Iris Ohyama (fabricant japonais), boutique Iris Plaza : 5,8 millions de membres actuels ou anciens et 1,9 million de non-membres [2]"
       ],
       "abreviations": [],
       "sources": [
@@ -38043,6 +38043,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/iris-ohyama-data-cloud-breach-exposes-info-of-77-million-customers/",
           "date": "2026-11-08",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/06/iris.jpg"
+        },
+        {
+          "titre": "Iris Plaza Breach May Have Exposed Data of 7.7 Million Customers",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/iris-plaza-breach-may-have-exposed-data-of-7-7-million-customers/",
+          "date": "2026-11-09",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/Iris-Plaza.webp"
         }
       ]
     },
@@ -38914,6 +38921,192 @@
           "url": "https://thehackernews.com/2026/11/default-adminadmin-server-password.html",
           "date": "2026-11-09",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiI85M0pHHPiXe5ar2VpaGsBVRzxoYfZhpQTKgWqd8YGjK9Nyaca-z6XrGT3jT0lqh41qe-cAjb33_r7JErd7rB1CfuWkgTP_z-_IJkpQPWebz1GeEvSu9QpE5XYWRMOfhYTHmzhbkFB07hzSuV1FYARdaIWjfB_mUoX1_eMjl_3dOaSUFpTQvjt-34eQo/s1700-nu-rw-lo-l85-e365/login-car.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-09-openssh-sshole-musl",
+      "title": "OpenSSH « SSHole » : contournement d'authentification exploité par des botnets et mineurs de cryptomonnaie",
+      "created": "2026-11-09T13:30:00+00:00",
+      "updated": "2026-11-09T13:30:00+00:00",
+      "version": 1,
+      "resume": "Une faille d'OpenSSH (CVE-2026-123158, « SSHole ») permet de se connecter sans le bon mot de passe sur des systèmes utilisant musl. Des botnets et des mineurs de cryptomonnaie l'exploitent déjà [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Connexion SSH par mot de passe, avec un mot de passe de 257 à 1024 caractères sur un compte sans hash de mot de passe, comme root sous Alpine [1]."
+        },
+        {
+          "etape": "Contournement de l'authentification",
+          "texte": "La fonction crypt() de musl échoue au-delà de 256 octets et renvoie « * » → le hash correspond à celui stocké [1]."
+        },
+        {
+          "etape": "Accès au compte",
+          "texte": "Authentification acceptée → accès au compte ciblé, par exemple root [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Botnets et mineurs",
+            "note": ""
+          },
+          {
+            "id": "ssh",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur OpenSSH sous musl",
+            "note": "Mot de passe activé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ssh",
+            "etape": 1,
+            "texte": "Mot de passe de 257 à 1024 caractères"
+          },
+          {
+            "de": "att",
+            "vers": "ssh",
+            "etape": 3,
+            "texte": "Authentification acceptée, accès au compte"
+          }
+        ]
+      },
+      "limites": "Les sources ne décrivent pas ce que les attaquants font après la connexion ni les victimes touchées [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-123158",
+          "explication": "OpenSSH : contournement d'authentification (« SSHole ») dû à une mauvaise interprétation d'une chaîne (mot de passe ou hash), gravité élevée, corrigé en 10.6p2 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Botnets et mineurs de cryptomonnaie, seuls acteurs identifiés ; d'autres sont attendus [1]"
+      ],
+      "cibles": [
+        "Distributions avec musl et PAM désactivé : Alpine, Buildroot, OpenWrt, Yocto [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole de connexion sécurisée à distance"
+        },
+        {
+          "sigle": "PAM",
+          "definition": "Pluggable Authentication Modules : modules d'authentification de Linux"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers Exploiting ‘SSHole’ Authentication Bypass in OpenSSH",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/hackers-exploiting-sshole-authentication-bypass-in-openssh/",
+          "date": "2026-11-09",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/SSH.webp"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-09-ukraine-arnaque-crypto",
+      "title": "Ukraine : réseau de centres d'appel d'arnaque à l'investissement crypto démantelé, 4,3 millions d'euros volés",
+      "created": "2026-11-09T13:30:00+00:00",
+      "updated": "2026-11-09T13:30:00+00:00",
+      "version": 1,
+      "resume": "La police ukrainienne a arrêté quatre suspects d'un réseau de centres d'appel d'arnaque à l'investissement en cryptomonnaies, qui a volé plus de 4,3 millions d'euros à 135 victimes allemandes [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Contact des victimes par téléphone et messageries, ainsi que par réseaux sociaux et sites de rencontre → confiance gagnée par ingénierie sociale [1]."
+        },
+        {
+          "etape": "Fausses plateformes",
+          "texte": "Incitation à investir sur de fausses plateformes de trading → victimes aidées à acheter des actifs numériques [1]."
+        },
+        {
+          "etape": "Détournement des fonds",
+          "texte": "Actifs transférés vers des comptes contrôlés par le groupe ; parfois accès aux comptes bancaires en ligne des victimes [1]."
+        },
+        {
+          "etape": "Blanchiment",
+          "texte": "Fonds passés par comptes bancaires, plateformes d'échange et portefeuilles de transit → convertis puis répartis entre les membres [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Réseau de centres d'appel",
+            "note": ""
+          },
+          {
+            "id": "vic",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Victimes allemandes",
+            "note": "135 victimes"
+          },
+          {
+            "id": "pl",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Fausses plateformes de trading",
+            "note": ""
+          },
+          {
+            "id": "cpt",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Comptes et portefeuilles",
+            "note": "Contrôlés par le groupe"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "vic",
+            "etape": 1,
+            "texte": "Contact et confiance par ingénierie sociale"
+          },
+          {
+            "de": "vic",
+            "vers": "pl",
+            "etape": 2,
+            "texte": "Investissement sur fausses plateformes"
+          },
+          {
+            "de": "vic",
+            "vers": "cpt",
+            "etape": 3,
+            "texte": "Actifs transférés vers comptes du groupe"
+          }
+        ]
+      },
+      "limites": "Les sources ne donnent ni le nom du chef ni les dates exactes des perquisitions et arrestations [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Organisation criminelle basée en Ukraine, dirigée par un chef non nommé [1]"
+      ],
+      "cibles": [
+        "135 victimes allemandes, dans un ciblage plus large de l'Union européenne [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Ukraine dismantles crypto scam network that stole €4.3 million",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/ukraine-dismantles-crypto-scam-network-that-stole-43-million/",
+          "date": "2026-11-09",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/04/29/Law_enforcement_arrest.jpg"
         }
       ]
     }

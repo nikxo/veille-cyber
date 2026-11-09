@@ -38466,6 +38466,168 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhd53Ql49F0iuQEtdvfoxOLNTuQnYM5oGQkqnQ3ym4aIW-HVZuHtOqzyi0IdwUxpFj5qU_jbUEKzPXG4Wx7Uj7g2-UKDotvOh0_AlNlkEIpgLbEBDuQxDkuxDFlukNKKbWXXZv1xCeHEtoOQ_Z1XQUshkJmlBaOmGQzMbryg6KHbOdt8IR7MNQ5oADM-GM/s1700-nu-rw-lo-l85-e365/CYBER-AI.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-09-lnbits-extension-retraits",
+      "title": "LNbits : une faille d'extension exploitée pour vider des portefeuilles, le projet demande l'arrêt des serveurs",
+      "created": "2026-11-09T11:30:00+00:00",
+      "updated": "2026-11-09T11:30:00+00:00",
+      "version": 1,
+      "resume": "Le projet LNbits a demandé à tous les opérateurs d'arrêter leurs serveurs après une vague d'attaques. Sur un serveur, de nouveaux comptes ont retiré 2 285 545 satoshis [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploit visant une extension de LNbits, dont le nom n'est pas publié → accès aux fonds du serveur [1]."
+        },
+        {
+          "etape": "Vol de fonds",
+          "texte": "De nouveaux comptes utilisent l'exploit → retrait de 2 285 545 satoshis, soit environ 0,023 bitcoin, d'un serveur [1]."
+        },
+        {
+          "etape": "Réaction du projet",
+          "texte": "Demande d'arrêt de tous les serveurs LNbits et coupure des instances du service cloud my.lnbits.com → correctifs en préparation [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur LNbits d'un opérateur",
+            "note": "Extension exploitée"
+          },
+          {
+            "id": "fonds",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Fonds du portefeuille",
+            "note": "Satoshis retirés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 1,
+            "texte": "Exploit d'une extension via de nouveaux comptes"
+          },
+          {
+            "de": "srv",
+            "vers": "fonds",
+            "etape": 2,
+            "texte": "Retrait de 2 285 545 satoshis"
+          }
+        ]
+      },
+      "limites": "Le nom de l'extension, le mécanisme de l'exploit, l'auteur et le nombre total de serveurs touchés ne sont pas précisés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non précisé : seulement « de nouveaux comptes » [1]"
+      ],
+      "cibles": [
+        "Serveurs LNbits, dont celui d'un opérateur et les utilisateurs de BitTipBot [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "LNbits Urges All Operators to Shut Down Their Bitcoin Lightning Wallet Servers Amid Attacks",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/lnbits-urges-all-operators-to-shut-down.html",
+          "date": "2026-11-09",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPZfiSS8v6cUfSW1R2sbPNNfjluB-GvnXCxcAW_G6pKRNzYU2Be89Qyu9Zx0mnY7voaGpLXFtsajKS9tqYp74Qo05wPzzELg9ZpbVcoWa5l9AKhf4SmmNbnIvjOUrm4LsB9V-tGBxU-V0NxHzAoV2Cnlz6tHlcPewPh2ir8ipqn6Kj-phVDm5zraXs9ss/s1700-nu-rw-lo-l85-e365/crypto-bits.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-09-frontline-education-fuite",
+      "title": "Frontline Education : fuite touchant plus de 3 millions de personnes via un logiciel tiers",
+      "created": "2026-11-09T11:30:00+00:00",
+      "updated": "2026-11-09T11:30:00+00:00",
+      "version": 1,
+      "resume": "Frontline Education a déclaré à l'Indiana que sa fuite de données d'août touche 3 085 266 employés de districts scolaires et élèves [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation d'une vulnérabilité d'un produit logiciel tiers non nommé → intrusion dans une partie de l'environnement [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Accès à Frontline Central et School Health Management → vol de noms, numéros de sécurité sociale, pièces d'identité et données d'assurance santé [1]."
+        },
+        {
+          "etape": "Détection et confinement",
+          "texte": "Intrusion détectée le 14 août → attaque entièrement contenue le 15 août [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "tiers",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Logiciel tiers vulnérable",
+            "note": "Non nommé"
+          },
+          {
+            "id": "prod",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Frontline Central, School Health Management",
+            "note": "Données volées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "tiers",
+            "etape": 1,
+            "texte": "Exploitation d'une vulnérabilité"
+          },
+          {
+            "de": "tiers",
+            "vers": "prod",
+            "etape": 2,
+            "texte": "Vol de données personnelles"
+          }
+        ]
+      },
+      "limites": "Le produit tiers, la méthode de vol, la durée de présence des attaquants et l'auteur ne sont pas précisés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non précisé : aucun groupe n'a revendiqué l'attaque [1]"
+      ],
+      "cibles": [
+        "Frontline Education, employés de districts scolaires et élèves [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Over 3 Million People Hit by Frontline Education Data Breach",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/3-million-people-hit-by-frontline-education-data-breach/",
+          "date": "2026-11-09",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/07/data-tracking-report.jpeg"
+        }
+      ]
     }
   ]
 }

@@ -40480,9 +40480,9 @@
       "id": "2026-11-10-turla-cereal-exchange",
       "title": "Turla : l'outil Cereal intercepte les courriels de serveurs Exchange gouvernementaux",
       "created": "2026-11-10T10:30:00+00:00",
-      "updated": "2026-11-10T10:30:00+00:00",
-      "version": 1,
-      "resume": "Le groupe Turla a utilisé un nouvel ensemble d'outils, Cereal, pour intercepter des courriels sur des serveurs Exchange d'organismes gouvernementaux au Kazakhstan et en Roumanie [1].",
+      "updated": "2026-11-10T11:20:00+00:00",
+      "version": 2,
+      "resume": "Le groupe Turla a utilisé un nouvel ensemble d'outils, Cereal, pour intercepter des courriels sur des serveurs Exchange d'organismes gouvernementaux au Kazakhstan et en Roumanie [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -40494,15 +40494,15 @@
         },
         {
           "etape": "Collecte ciblée",
-          "texte": "Sélection des messages avec pièces jointes Word ou PDF selon expéditeur, destinataire et objet → espionnage ciblé [1]."
+          "texte": "Sélection des messages avec pièces jointes Word ou PDF selon expéditeur, destinataire et objet → espionnage ciblé [1, 2]."
         },
         {
           "etape": "Contrôle à distance",
-          "texte": "Requêtes web chiffrées reçues par le serveur Exchange sur des chemins imitant ses services → exécution de programmes chiffrés, résultats renvoyés aux attaquants [1]."
+          "texte": "Requêtes web chiffrées reçues par le serveur Exchange sur des chemins imitant ses services → exécution de programmes chiffrés, résultats renvoyés aux attaquants [1, 2]."
         },
         {
           "etape": "Actions possibles",
-          "texte": "Récupération de courriels, interrogation d'Active Directory, extraction d'identifiants stockés localement, lecture et suppression de fichiers [1]."
+          "texte": "Récupération de courriels, interrogation d'Active Directory, extraction d'identifiants stockés localement, lecture et suppression de fichiers [1, 2]."
         }
       ],
       "parcours": {
@@ -40544,14 +40544,14 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni l'accès initial, ni la persistance, ni le déplacement dans le réseau [1].",
+      "limites": "Les sources ne précisent ni l'accès initial, ni la persistance, ni le déplacement dans le réseau [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Turla, aussi appelé Snake, Secret Blizzard ou Waterbug, lié au FSB selon la source [1]"
       ],
       "cibles": [
-        "Organismes gouvernementaux au Kazakhstan et en Roumanie, échanges avec l'OTAN et l'UE [1]"
+        "Organismes gouvernementaux au Kazakhstan et en Roumanie, échanges avec l'OTAN et l'UE [1, 2]"
       ],
       "abreviations": [
         {
@@ -40582,6 +40582,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/turla-hackers-use-new-ceral-malware-to-spy-on-govt-exchange-servers/",
           "date": "2026-11-10",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/05/15/Russia.jpg"
+        },
+        {
+          "titre": "Russian Turla Hackers Use New Cereal Malware to Steal Emails From Government Exchange Servers",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/russian-turla-hackers-use-new-cereal.html",
+          "date": "2026-11-10",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5658vTd_mkm0NXhB4ueRe7z7purQPsvIa5Ik8qqEMo0dN5DU5bTpprIJeXFEj7XKLIOP3ykE4ZlNnixosysJ8YmGXzuRqEA1YoDvaQUFUgdXGfX2gj4f3hgUzop1wizxyv9olPYRDIb6CBW09bFVYAVqvpJk1zRqp3N5QCDBdfXTeoJuGCRkgy227_TgN/s1700-nu-rw-lo-l85-e365/russian-emails.jpg"
         }
       ]
     },
@@ -40681,6 +40688,95 @@
           "url": "https://www.securityweek.com/ibm-aspera-faspex-signalwire-freeswitch-vulnerabilities-exploited-in-attacks/",
           "date": "2026-11-10",
           "image": "https://www.securityweek.com/wp-content/uploads/2025/07/CISA-KEV.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-10-barracuda-esg-root",
+      "title": "Barracuda : deux failles de passerelle de sécurité des courriels exploitées pour obtenir les droits root",
+      "created": "2026-11-10T11:20:00+00:00",
+      "updated": "2026-11-10T11:20:00+00:00",
+      "version": 1,
+      "resume": "Barracuda Networks a averti que des attaquants exploitent deux failles récemment corrigées de sa passerelle de sécurité des courriels, ce qui permet d'exécuter des commandes avec les droits root. Un petit nombre d'organisations est touché [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Accès à l'interface d'administration de l'appareil, condition de l'exploitation selon Barracuda [1]."
+        },
+        {
+          "etape": "Contournement de l'authentification",
+          "texte": "Exploitation de CVE-2026-116606 → modification de la configuration globale de l'appareil [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Injection de commandes par un attaquant non authentifié (CVE-2026-111560) → exécution avec les droits root [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "gw",
+            "type": "passerelle",
+            "zone": "victime",
+            "nom": "Passerelle de sécurité des courriels",
+            "note": "Droits root obtenus"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gw",
+            "etape": 1,
+            "texte": "Accès à l'interface d'administration"
+          },
+          {
+            "de": "att",
+            "vers": "gw",
+            "etape": 2,
+            "texte": "Modification de la configuration globale"
+          },
+          {
+            "de": "att",
+            "vers": "gw",
+            "etape": 3,
+            "texte": "Commandes exécutées avec les droits root"
+          }
+        ]
+      },
+      "limites": "La source ne décrit pas ce que les attaquants font après avoir obtenu les droits root, ni qui ils sont [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-116606",
+          "explication": "Passerelle de sécurité des courriels Barracuda : faiblesse d'authentification permettant de modifier la configuration globale de l'appareil [1]."
+        },
+        {
+          "id": "CVE-2026-111560",
+          "explication": "Produits Barracuda : injection de commandes système sans authentification, exécutées avec les droits root, correctifs publiés pour plusieurs produits [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non précisé [1]"
+      ],
+      "cibles": [
+        "Un petit nombre d'organisations clientes de Barracuda, non identifiées [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Hackers now exploit critical Barracuda ESG flaws to gain root access",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-barracuda-email-security-gateway-flaws-to-get-root-access/",
+          "date": "2026-11-10",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/10/Barracuda.jpg"
         }
       ]
     }

@@ -38473,8 +38473,8 @@
       "id": "2026-10-09-ahsaycbs-webshell-xmrig",
       "title": "Failles AhsayCBS exploitées pour déposer un webshell et un mineur XMRig",
       "created": "2026-10-09T08:20:00+00:00",
-      "updated": "2026-11-09T14:20:00+00:00",
-      "version": 6,
+      "updated": "2026-11-10T17:20:00+00:00",
+      "version": 7,
       "resume": "Des attaquants exploitent deux failles du logiciel de sauvegarde AhsayCBS exposé sur Internet pour exécuter du code, déposer un webshell et installer un mineur de Monero. Au moins cinq organisations sont touchées [1, 2, 3, 4].",
       "chaine": [
         {
@@ -38483,7 +38483,7 @@
         },
         {
           "etape": "Persistance",
-          "texte": "Webshell JSP et récepteur de réplication malveillant → accès maintenu [1]. Cinq familles de webshells JSP, dont un chargeur caché dans des images PNG [6]."
+          "texte": "Cinq familles de webshells JSP et récepteur de réplication malveillant → accès maintenu [1, 6]. Tunnels GOST et Chisel, logiciels AnyDesk, Atera et Splashtop → accès persistant [7]."
         },
         {
           "etape": "Téléchargement d'outils",
@@ -38499,7 +38499,7 @@
         },
         {
           "etape": "Implant et identifiants Veeam",
-          "texte": "Implant Python lié à l'identifiant de la machine, contactant un serveur C2 [6] ; commande cohérente avec un vol d'identifiants Veeam, lancée à distance via WMI [6]."
+          "texte": "Implant Python lié à l'identifiant machine, contactant un serveur C2 [6, 7] ; sur un serveur Veeam, script PowerShell apparemment lancé via WMI → déchiffrement des identifiants stockés [7]."
         }
       ],
       "parcours": {
@@ -38579,14 +38579,14 @@
             "texte": "Implant Python contactant le serveur C2"
           },
           {
-            "de": "ahsay",
+            "de": "att",
             "vers": "veeam",
             "etape": 6,
-            "texte": "Commande distante via WMI"
+            "texte": "Script PowerShell apparemment lancé via WMI"
           }
         ]
       },
-      "limites": "Aucun acteur nommé ni chiffrement [1, 2, 6]. Nombre d'identifiants Veeam récupérés inconnu [6]. Correctifs d'août incomplets selon Ahsay ; hotfix 10.3.4.45 et 9.15.2.70 publiés [5].",
+      "limites": "Aucun acteur nommé [1, 2, 6, 7]. Nombre d'identifiants Veeam récupérés inconnu [6, 7]. Correctifs d'août incomplets selon Ahsay ; hotfix 10.3.4.45 et 9.15.2.70 publiés [5].",
       "cves": [
         {
           "id": "CVE-2026-105133",
@@ -38653,6 +38653,10 @@
         {
           "sigle": "Veeam",
           "definition": "Logiciel de sauvegarde pour serveurs et machines virtuelles"
+        },
+        {
+          "sigle": "GOST",
+          "definition": "GO Simple Tunnel : outil de tunnel réseau"
         }
       ],
       "sources": [
@@ -38697,6 +38701,13 @@
           "url": "https://www.huntress.com/blog/ahsaycbs-webshells",
           "date": "2026-11-09",
           "image": "https://images.huntress.com/asset/file/35f4213723784bf2b6a8eb95acb9ab15"
+        },
+        {
+          "titre": "Attackers Exploit AhsayCBS Flaws to Deploy Sandbox-Evading Python Backdoor",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/attackers-exploit-ahsaycbs-flaws-to.html",
+          "date": "2026-11-10",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgT-Z8hFA8uMe4HXLf_4QRk4Z4VLuUCDRL89LcgpXfsj9YAwLsLHIZL46pn2SLz0BBhCKPUKBhChDRRsKYPSkZPwmsDIhozGQ-4YemxOSol0AiwBEgtGX9OSZ_L3SQZVoebBX1fWGkh8TQ_hNVYHho0eCrBQzLlhnjPhhymXqcWePyuhdQDCMb6KJi6pmIe/s1700-nu-rw-lo-l85-e365/cbs.jpg"
         }
       ]
     },
@@ -40368,27 +40379,27 @@
     {
       "schema": 3,
       "id": "2026-11-10-fireworks-ai-fournisseur-cloud",
-      "title": "Fireworks AI : machines de développement atteintes après le piratage d'un fournisseur cloud",
+      "title": "Fireworks AI : secrets de clients volés, puis machines de développement atteintes via un fournisseur cloud",
       "created": "2026-11-10T08:30:00+00:00",
-      "updated": "2026-11-10T08:30:00+00:00",
-      "version": 1,
-      "resume": "Fireworks AI a subi un second incident : des attaquants ont atteint ses machines de développement après la compromission d'un fournisseur cloud tiers, avec un impact sur des données de certains clients [1].",
+      "updated": "2026-11-10T17:20:00+00:00",
+      "version": 2,
+      "resume": "Fireworks AI a subi deux incidents en octobre : capture de secrets dans des comptes clients, puis accès à ses machines de développement via un fournisseur cloud tiers, avec un impact sur des données de certains clients [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Incident de sécurité, le 23 octobre, chez un fournisseur cloud tiers hébergeant les machines de recherche et développement de Fireworks ; méthode non précisée [1]."
+          "texte": "Usage non autorisé d'identifiants internes de Fireworks, détecté le 6 octobre → accès aux variables d'environnement de tâches d'évaluation, capture de clés d'API et de jetons de comptes clients [3]."
+        },
+        {
+          "etape": "Fournisseur cloud attaqué",
+          "texte": "Le 23 octobre, attaque d'un fournisseur cloud tiers hébergeant les machines de recherche et développement de Fireworks [1, 2, 3]."
         },
         {
           "etape": "Accès aux machines",
-          "texte": "Le 24 octobre, utilisation de cet accès par une partie non autorisée → atteinte des machines de développement de Fireworks [1]."
-        },
-        {
-          "etape": "Charge non autorisée",
-          "texte": "Exécution d'une charge de travail non autorisée → impact supplémentaire sur des données clients [1]."
+          "texte": "Le 24 octobre, utilisation de ce fournisseur → atteinte des machines de développement et exécution d'une charge de travail non autorisée [1, 2, 3]."
         },
         {
           "etape": "Données touchées",
-          "texte": "Métadonnées des ressources, informations de facturation, poids de modèles et jeux de données incomplets pour certains clients [1]."
+          "texte": "Métadonnées des ressources, informations de facturation, poids de modèles incomplets et jeux de données de certains clients [1, 3]."
         }
       ],
       "parcours": {
@@ -40399,6 +40410,13 @@
             "zone": "internet",
             "nom": "Attaquant",
             "note": ""
+          },
+          {
+            "id": "cpt",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Comptes clients Fireworks",
+            "note": "Clés et jetons"
           },
           {
             "id": "cld",
@@ -40425,21 +40443,21 @@
         "liens": [
           {
             "de": "att",
-            "vers": "cld",
+            "vers": "cpt",
             "etape": 1,
-            "texte": "Compromission du fournisseur cloud tiers"
+            "texte": "Identifiants internes utilisés, clés et jetons capturés"
+          },
+          {
+            "de": "att",
+            "vers": "cld",
+            "etape": 2,
+            "texte": "Attaque du fournisseur cloud tiers"
           },
           {
             "de": "cld",
             "vers": "dev",
-            "etape": 2,
-            "texte": "Accès utilisé pour atteindre les machines de développement"
-          },
-          {
-            "de": "att",
-            "vers": "dev",
             "etape": 3,
-            "texte": "Charge de travail non autorisée exécutée"
+            "texte": "Machines de développement atteintes, charge non autorisée"
           },
           {
             "de": "dev",
@@ -40449,14 +40467,15 @@
           }
         ]
       },
-      "limites": "La source ne décrit pas comment le fournisseur cloud a été compromis [1]. Un premier incident, début octobre, avait exposé des clés d'API et des jetons de comptes limités [1].",
+      "limites": "Les sources ne disent pas comment les identifiants internes ont été obtenus ni comment le fournisseur cloud a été compromis [1, 2, 3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Groupe cybercriminel non nommé, motivé financièrement ; Fireworks le relie au LLMjacking [1]"
+        "Groupe cybercriminel non nommé, motivé financièrement [1, 2, 3] ; Fireworks le relie au LLMjacking [1, 3]"
       ],
       "cibles": [
-        "Fireworks AI et certains de ses clients ; numéros de cartes de paiement non stockés par l'entreprise [1]"
+        "Fireworks AI et certains de ses clients ; numéros de cartes de paiement non stockés par l'entreprise [1, 3]",
+        "Notion, cliente, a déconnecté ses systèmes de Fireworks et supprimé ses données chez Fireworks [2]"
       ],
       "abreviations": [
         {
@@ -40470,6 +40489,10 @@
         {
           "sigle": "AI",
           "definition": "Artificial Intelligence : intelligence artificielle"
+        },
+        {
+          "sigle": "R&D",
+          "definition": "Recherche et développement"
         }
       ],
       "sources": [
@@ -40479,6 +40502,20 @@
           "url": "https://www.bleepingcomputer.com/news/security/fireworks-ai-discloses-new-breach-after-cloud-provider-hack/",
           "date": "2026-11-10",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/10/Fireworks-headpic.jpg"
+        },
+        {
+          "titre": "AI company Fireworks says hackers stole data, billing info during October breaches",
+          "site": "The Record",
+          "url": "https://therecord.media/ai-company-fireworks-says-hackers-stole-data-in-oct-attacks",
+          "date": "2026-11-10",
+          "image": "https://cms.therecord.media/uploads/fireworks_1_9c80b2da5e.jpg"
+        },
+        {
+          "titre": "Fireworks AI Breach Widens to Expose Customer Billing Data and Incomplete Model Weights",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/fireworks-ai-breach-widens-to-expose.html",
+          "date": "2026-11-10",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-mBJN_E4CjW3MXyjYYdeCGcyR052aVnG3uUWjaEfafvPAdatcJhn9LbtngqXBb5JsVwJVoorc8i41nTbYR9UcwVrwWNzU-WAfVk2yL32hYW1elVMJtwauW53nhRG37EwbovnFCW8InensI8tKoR9pqcWnZx54t6xOU_HsjjR9KWTLwVr_MBcknFeGShZU/s1700-nu-rw-lo-l85-e365/fire.jpg"
         }
       ]
     },
@@ -41038,6 +41075,220 @@
           "url": "https://therecord.media/spyware-cyber-crime-iverify",
           "date": "2026-11-10",
           "image": "https://cms.therecord.media/uploads/iphone_8675e4e6f4.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-10-blind-eagle-fausses-notifications-judiciaires",
+      "title": "Blind Eagle : fausses notifications judiciaires pour installer un cheval de Troie en Amérique latine",
+      "created": "2026-11-10T17:20:00+00:00",
+      "updated": "2026-11-10T17:20:00+00:00",
+      "version": 1,
+      "resume": "Le groupe Blind Eagle vise des organisations d'Amérique latine avec des courriels d'hameçonnage à thème judiciaire et administratif, pour installer un cheval de Troie d'accès à distance apparenté à AsyncRAT et DCRat [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Courriel d'hameçonnage avec une pièce jointe XHTML, image SVG piégée → affichage d'une fausse page du parquet général de Colombie [1]."
+        },
+        {
+          "etape": "Livraison de l'archive",
+          "texte": "La page assemble localement, dans le navigateur, une archive ZIP avec ZipCrypto → contournement des contrôles de messagerie [1]."
+        },
+        {
+          "etape": "Reconnaissance",
+          "texte": "Script JavaScript de l'archive, déguisé en outil d'audit de configuration réseau → collecte d'informations sur le système [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Script VBScript contournant AMSI et ETW, fausse citation pénale affichée en diversion, suppression du fichier XHTML d'origine et de la marque Mark of the Web [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Installation dans le dossier Démarrage de Windows → exécution au démarrage [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "PowerShell décode et lance en mémoire la charge finale, un dérivé d'AsyncRAT [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Blind Eagle)",
+            "note": ""
+          },
+          {
+            "id": "mail",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Boîte mail visée",
+            "note": "Pièce jointe XHTML"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de la cible",
+            "note": "Cheval de Troie"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "mail",
+            "etape": 1,
+            "texte": "Courriel d'hameçonnage à thème judiciaire"
+          },
+          {
+            "de": "mail",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Archive ZIP assemblée dans le navigateur"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 6,
+            "texte": "Dérivé d'AsyncRAT lancé en mémoire"
+          }
+        ]
+      },
+      "limites": "La source ne date pas la campagne et ne mentionne aucune compromission réussie contre des cibles réelles [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Blind Eagle, aussi appelé APT-C-36, estimé actif depuis 2018 [1]"
+      ],
+      "cibles": [
+        "Organisations judiciaires, fiscales, administratives et éducatives d'Amérique latine [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "XHTML",
+          "definition": "Format de page web écrit selon les règles du XML"
+        },
+        {
+          "sigle": "SVG",
+          "definition": "Scalable Vector Graphics : format d'image vectorielle pouvant contenir du code"
+        },
+        {
+          "sigle": "ZIP",
+          "definition": "Format d'archive compressée"
+        },
+        {
+          "sigle": "AMSI",
+          "definition": "Antimalware Scan Interface : interface Windows d'analyse des scripts par l'antivirus"
+        },
+        {
+          "sigle": "ETW",
+          "definition": "Event Tracing for Windows : journalisation d'événements de Windows"
+        },
+        {
+          "sigle": "VBScript",
+          "definition": "Langage de script de Microsoft pour Windows"
+        },
+        {
+          "sigle": "APT-C-36",
+          "definition": "Autre nom donné au groupe Blind Eagle"
+        },
+        {
+          "sigle": "ZipCrypto",
+          "definition": "Méthode de chiffrement historique du format ZIP"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Blind Eagle Uses Fake Court Notices to Deliver Remote Access Trojan Across Latin America",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/blind-eagle-uses-fake-court-notices-to.html",
+          "date": "2026-11-10",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhs4UHnKTj_NJCPa7Jqdntj8tEvZ2PgaY7s9kKK8_X2bxehTUcJeZPFfguJzvW_D0H9XD_q-qLZV2Qq6hqRYDQRYMXpyAzw-6T2yDjFjIY7zhGRLPDPjOalASUgX_Z-M2cEsNqiuys_4QjQ8vY_xl0fnWi2Y_9tT9aAH0WQOAB3D6uDf8yZY8VuphL4TRFG/s1700-nu-rw-lo-l85-e365/court-phish.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-10-xen-orchestra-contournement-authentification",
+      "title": "Xen Orchestra : faille critique de contournement d'authentification exploitée",
+      "created": "2026-11-10T17:20:00+00:00",
+      "updated": "2026-11-10T17:20:00+00:00",
+      "version": 1,
+      "resume": "Une faille critique de contournement d'authentification de Xen Orchestra, outil de gestion des environnements XCP-ng, est activement exploitée selon l'éditeur Vates [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Envoi d'un cookie forgé à l'interface de gestion, accessible par le réseau → connexion comme propriétaire d'un jeton d'authentification existant, sans identifiants valides [1]."
+        },
+        {
+          "etape": "Jetons réutilisables",
+          "texte": "Un point d'accès de l'interface fournit des identifiants de jetons de connexion réutilisables [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Selon Vates, la compromission peut mener à l'exécution de code sur les pools gérés et au contrôle complet d'un hôte XCP-ng en root [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "xo",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Interface Xen Orchestra",
+            "note": "Cookie forgé"
+          },
+          {
+            "id": "xcp",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Hôtes XCP-ng",
+            "note": "Contrôle root possible"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "xo",
+            "etape": 1,
+            "texte": "Cookie forgé, connexion sans identifiants"
+          },
+          {
+            "de": "xo",
+            "vers": "xcp",
+            "etape": 3,
+            "texte": "Exécution de code possible sur les pools gérés"
+          }
+        ]
+      },
+      "limites": "Aucun identifiant CVE n'est encore attribué ; la source ne nomme ni acteur ni victime et ne date pas le début de l'exploitation [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [],
+      "abreviations": [
+        {
+          "sigle": "XCP-ng",
+          "definition": "Plateforme libre de virtualisation fondée sur l'hyperviseur Xen"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Critical Xen Orchestra auth bypass flaw exploited to hijack VM servers",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/critical-xen-orchestra-auth-bypass-flaw-exploited-to-hijack-vm-servers/",
+          "date": "2026-11-10",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/10/xen-orchestrator-logo.jpg"
         }
       ]
     }

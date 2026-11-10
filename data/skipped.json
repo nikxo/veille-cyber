@@ -1,21 +1,5 @@
 [
  {
-  "id": "532771c4fc27cc06",
-  "title": "Tech Giants Block eMudhra Certificates Tied to 8 Compromised Keys",
-  "link": "https://www.darkreading.com/cyber-risk/tech-giants-emudhra-certificates-compromised-keys",
-  "source": "Dark Reading",
-  "raison": "article inaccessible (403), résumé du flux insuffisant pour décrire la méthode d'attaque",
-  "date": "2026-10-20T22:10:00+00:00"
- },
- {
-  "id": "6beb6d2ab265ae64",
-  "title": "Mozilla, Google, Apple block compromised eMudhra CA certificates",
-  "link": "https://www.bleepingcomputer.com/news/security/mozilla-google-apple-block-compromised-emudhra-ca-certificates/",
-  "source": "BleepingComputer",
-  "raison": "vulnérabilité sans exploitation constatée",
-  "date": "2026-10-21T02:00:00+00:00"
- },
- {
   "id": "a13fbe020fd9ac8d",
   "title": "Is the ad a scam? How to tell before you click",
   "link": "https://www.welivesecurity.com/en/social-media/is-ad-scam-how-tell-before-click/",
@@ -3998,5 +3982,21 @@
   "source": "Sophos Threat Research",
   "raison": "vulnérabilités sans exploitation constatée par Sophos",
   "date": "2026-11-10T16:20:00+00:00"
+ },
+ {
+  "id": "47f3c026ca26e705",
+  "title": "Google Widens Gemini 4 Carbon Access After AI Agents Verify Signal Code",
+  "link": "https://www.securityweek.com/google-widens-gemini-4-carbon-access-after-ai-agents-verify-signal-code/",
+  "source": "SecurityWeek",
+  "raison": "annonce produit, aucune attaque décrite",
+  "date": "2026-11-10T17:20:00+00:00"
+ },
+ {
+  "id": "92d383b2abc749cd",
+  "title": "Software Transparency Is Changing: Allan Friedman on SBOM, AI BOMs and What Comes Next",
+  "link": "https://www.securityweek.com/software-transparency-is-changing-allan-friedman-on-sbom-ai-boms-and-what-comes-next/",
+  "source": "SecurityWeek",
+  "raison": "podcast, contenu générique sans attaque",
+  "date": "2026-11-10T17:20:00+00:00"
  }
 ]

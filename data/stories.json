@@ -41316,8 +41316,8 @@
       "id": "2026-11-10-outlook-cve-2026-124194",
       "title": "Outlook : une faille exploitée pour voler des empreintes NTLM, corrigée au Patch Tuesday de novembre",
       "created": "2026-11-10T19:20:00+00:00",
-      "updated": "2026-11-10T21:08:32+00:00",
-      "version": 3,
+      "updated": "2026-11-10T22:15:00+00:00",
+      "version": 4,
       "resume": "Microsoft a corrigé lors de son Patch Tuesday de novembre 2026 une faille d'Outlook, CVE-2026-124194, exploitée dans des attaques pour voler des empreintes NTLM de comptes [1, 2].",
       "chaine": [
         {
@@ -41361,11 +41361,11 @@
           }
         ]
       },
-      "limites": "Les sources ne nomment ni attaquants ni victimes et ne détaillent pas les attaques [1, 2, 3]. Elles divergent sur le nombre de failles corrigées : 1 235 [1], 1 094 [2] ou 1 093 [3].",
+      "limites": "Les sources ne nomment ni attaquants ni victimes et ne détaillent pas les attaques [1, 2, 3, 4]. Elles divergent sur le nombre de failles : 1 235 [1], 1 094 [2] ou 1 093 [3, 4].",
       "cves": [
         {
           "id": "CVE-2026-124194",
-          "explication": "Microsoft Outlook : faille d'usurpation pouvant divulguer des informations d'authentification, exploitée activement [1] ; gravité modérée selon Microsoft, score 6,5 [2] ; ajoutée au catalogue américain des failles exploitées [3]."
+          "explication": "Microsoft Outlook : faille d'usurpation pouvant divulguer des informations d'authentification, exploitée activement [1, 4] ; gravité modérée selon Microsoft, score 6,5 [2] ; ajoutée au catalogue américain des failles exploitées [3]."
         }
       ],
       "mitre": [],
@@ -41398,6 +41398,12 @@
           "url": "https://therecord.media/patch-tuesday-microsoft-1000-bugs-again",
           "date": "2026-11-10",
           "image": "https://cms.therecord.media/uploads/dasharath_sunar_Zgg_U_Qp_H_Ik4_unsplash_8d073f1390.jpg"
+        },
+        {
+          "titre": "Microsoft Fixes Nearly 1,100 Security Vulnerabilities",
+          "site": "Krebs on Security",
+          "url": "https://krebsonsecurity.com/2026/11/microsoft-fixes-nearly-1100-security-vulnerabilities/",
+          "date": "2026-11-10"
         }
       ]
     },

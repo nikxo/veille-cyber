@@ -39024,9 +39024,9 @@
       "id": "2026-11-09-openssh-sshole-musl",
       "title": "OpenSSH « SSHole » : contournement d'authentification exploité par des botnets et mineurs de cryptomonnaie",
       "created": "2026-11-09T13:30:00+00:00",
-      "updated": "2026-11-09T16:30:00+00:00",
-      "version": 2,
-      "resume": "Une faille d'OpenSSH (CVE-2026-123158, « SSHole ») permet de se connecter sans le bon mot de passe sur des systèmes utilisant musl. Des attaquants l'exploitent déjà [1, 2].",
+      "updated": "2026-11-10T07:30:00+00:00",
+      "version": 3,
+      "resume": "Une faille d'OpenSSH (CVE-2026-123158, « SSHole ») permet de se connecter sans le bon mot de passe avec musl. Des attaquants l'exploitent [1, 2] et la CISA l'a listée comme exploitée [3].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -39042,7 +39042,15 @@
         },
         {
           "etape": "Actions après connexion",
-          "texte": "Exploitation de la faille → exécution de commandes, vol d'identifiants et accès persistant [2]."
+          "texte": "Reconnaissance, requêtes vers les services de métadonnées cloud, lecture tentée des hachages de mots de passe et des clés SSH root [3] ; vol d'identifiants [2]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Modification du fichier authorized_keys → accès persistant [3]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Déploiement du TAC Agent, agent C2 en Python, dans au moins un cas → exécution de commandes et transfert de fichiers [3]."
         }
       ],
       "parcours": {
@@ -39080,19 +39088,32 @@
             "vers": "ssh",
             "etape": 4,
             "texte": "Commandes, vol d'identifiants, accès persistant"
+          },
+          {
+            "de": "att",
+            "vers": "ssh",
+            "etape": 5,
+            "texte": "Modification de authorized_keys"
+          },
+          {
+            "de": "att",
+            "vers": "ssh",
+            "etape": 6,
+            "texte": "Déploiement du TAC Agent"
           }
         ]
       },
-      "limites": "Les sources ne détaillent pas comment les commandes, le vol d'identifiants et la persistance sont réalisés, ni les victimes touchées [1, 2].",
+      "limites": "Les sources ne précisent pas les victimes touchées [1, 2, 3].",
       "cves": [
         {
           "id": "CVE-2026-123158",
-          "explication": "OpenSSH : contournement d'authentification (« SSHole ») dû à une mauvaise interprétation d'une chaîne (mot de passe ou hash), gravité élevée, corrigé en 10.6p2 [1]."
+          "explication": "OpenSSH : contournement d'authentification (« SSHole ») dû à une mauvaise interprétation d'une chaîne (mot de passe ou hash), gravité élevée 8,1, corrigé en 10.6p2 [1, 3]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "Botnets et mineurs de cryptomonnaie, seuls acteurs identifiés ; d'autres sont attendus [1]"
+        "Botnets et mineurs de cryptomonnaie, seuls acteurs identifiés ; d'autres sont attendus [1]",
+        "Un petit nombre d'acteurs non identifiés, observés le 7 novembre [3]"
       ],
       "cibles": [
         "Distributions avec musl et PAM désactivé : Alpine, Buildroot, OpenWrt, Yocto [1]"
@@ -39105,6 +39126,18 @@
         {
           "sigle": "PAM",
           "definition": "Pluggable Authentication Modules : modules d'authentification de Linux"
+        },
+        {
+          "sigle": "C2",
+          "definition": "Commande et contrôle : serveur ou agent qui pilote la machine compromise à distance"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité qui tient un catalogue des failles exploitées"
+        },
+        {
+          "sigle": "TAC",
+          "definition": "TAC Agent : nom de l'agent C2 en Python cité par la source"
         }
       ],
       "sources": [
@@ -39121,6 +39154,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/",
           "date": "2026-11-09",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/09/openssh.jpg"
+        },
+        {
+          "titre": "CISA Warns of Active Exploitation of OpenSSH, GPUStack, FreeSWITCH, and IBM Flaws",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/cisa-warns-of-active-exploitation-of.html",
+          "date": "2026-11-10",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVAsrcYxVs8sJe7IiSD6WkTC4yPv0eLfup7dwcsS0NLcAAgoY__wyC3UFCR90PL2ziKCEW-vMNIEQXES-8uAG-MxuXlyIDdQGeNREm8yFv3tbvsCVXXRyRGT4ORirvcVKP_uD62XHYy9w3x_P0o7XzkguJPwq_1vV2jPxxnZWbhAHHUJ3YJ6HbTlXb0shyphenhyphen/s1700-nu-rw-lo-l85-e365/openssh.png"
         }
       ]
     },
@@ -40130,6 +40170,160 @@
           "url": "https://www.bleepingcomputer.com/news/security/sega-newsletter-data-breach-exposes-22-million-email-addresses/",
           "date": "2026-11-09",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/09/SEGA.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-10-chrome-xml-zero-day-cve-2026-125350",
+      "title": "Chrome : faille zero-day du composant XML exploitée dans la nature, corrigée dans Chrome 157",
+      "created": "2026-11-10T07:30:00+00:00",
+      "updated": "2026-11-10T07:30:00+00:00",
+      "version": 1,
+      "resume": "Google a corrigé dans Chrome une faille de gravité élevée du composant XML, déjà exploitée dans des attaques. Un chercheur anonyme l'a signalée le 6 novembre [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Exploitation de la faille",
+          "texte": "Utilisation de mémoire après libération dans le composant XML de Chrome → faille exploitée dans la nature [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "chr",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Navigateur Chrome",
+            "note": "Composant XML"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "chr",
+            "etape": 2,
+            "texte": "Exploitation de la faille du composant XML"
+          }
+        ]
+      },
+      "limites": "Google n'a pas partagé de détails : ni vecteur d'accès, ni acteur, ni victimes, ni nombre d'attaques [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-125350",
+          "explication": "Chrome : utilisation de mémoire après libération dans le composant XML, gravité élevée, exploitée dans la nature, corrigée dans Chrome 157 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [],
+      "abreviations": [
+        {
+          "sigle": "XML",
+          "definition": "Extensible Markup Language : format de données structurées"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Chrome Update Patches Exploited XML Zero-Day, Eighth This Year",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/chrome-update-patches-exploited-xml-zero-day-eighth-this-year/",
+          "date": "2026-11-10",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/06/Chrome.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-10-gpustack-cve-2026-102895",
+      "title": "GPUStack : contournement d'authentification exploité dans la nature, ajouté au catalogue de la CISA",
+      "created": "2026-11-10T07:30:00+00:00",
+      "updated": "2026-11-10T07:30:00+00:00",
+      "version": 1,
+      "resume": "Une faille d'authentification de GPUStack (CVE-2026-102895) donne un accès administrateur sans authentification. Son exploitation dans la nature a été rapportée et la CISA l'a ajoutée à son catalogue [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de la faille d'authentification de GPUStack → accès administrateur sans authentification [1]."
+        },
+        {
+          "etape": "Possibilités offertes",
+          "texte": "La faille permet de créer des clés API administrateur persistantes, de lire des secrets et d'exécuter du code [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "gpu",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur GPUStack",
+            "note": "Accès administrateur"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gpu",
+            "etape": 1,
+            "texte": "Exploitation du défaut d'authentification"
+          },
+          {
+            "de": "att",
+            "vers": "gpu",
+            "etape": 2,
+            "texte": "Clés API persistantes, secrets, code"
+          }
+        ]
+      },
+      "limites": "Les sources ne décrivent pas les attaques réelles, leurs auteurs ni leurs victimes. La CISA a aussi listé des failles FreeSWITCH et IBM Aspera Faspex sans détail d'exploitation [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-102895",
+          "explication": "GPUStack : défaut d'authentification donnant un accès administrateur sans authentification, gravité 9,8 sur 10, exploité dans la nature, corrigé en juillet 2026 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Interface de programmation permettant à des logiciels de communiquer"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité qui tient un catalogue des failles exploitées"
+        },
+        {
+          "sigle": "IBM",
+          "definition": "International Business Machines : éditeur d'Aspera Faspex"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CISA Warns of Active Exploitation of OpenSSH, GPUStack, FreeSWITCH, and IBM Flaws",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/cisa-warns-of-active-exploitation-of.html",
+          "date": "2026-11-10",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVAsrcYxVs8sJe7IiSD6WkTC4yPv0eLfup7dwcsS0NLcAAgoY__wyC3UFCR90PL2ziKCEW-vMNIEQXES-8uAG-MxuXlyIDdQGeNREm8yFv3tbvsCVXXRyRGT4ORirvcVKP_uD62XHYy9w3x_P0o7XzkguJPwq_1vV2jPxxnZWbhAHHUJ3YJ6HbTlXb0shyphenhyphen/s1700-nu-rw-lo-l85-e365/openssh.png"
         }
       ]
     }

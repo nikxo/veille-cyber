@@ -39846,21 +39846,25 @@
       "id": "2026-11-09-vanderbilt-byod",
       "title": "Vanderbilt University : le gang BYOD revendique une attaque",
       "created": "2026-11-09T19:30:00+00:00",
-      "updated": "2026-11-09T19:30:00+00:00",
-      "version": 1,
-      "resume": "Vanderbilt University a annoncé une cyberattaque pouvant toucher les appareils et systèmes du campus [1]. Le gang BYOD a ajouté l'université à son site de fuite en affirmant avoir volé des données [1].",
+      "updated": "2026-11-10T00:07:38+00:00",
+      "version": 2,
+      "resume": "Vanderbilt University a annoncé une cyberattaque pouvant toucher les appareils et systèmes du campus [1, 2]. Le gang BYOD affirme avoir chiffré des bases de données et volé des données sensibles [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé par les sources [1, 2]."
         },
         {
-          "etape": "Revendication",
-          "texte": "Le gang BYOD ajoute l'université à son site de fuite → affirmation d'un vol de données [1]."
+          "etape": "Chiffrement revendiqué",
+          "texte": "Le gang BYOD affirme avoir chiffré les bases de données et volé des données sensibles → université ajoutée à son site de fuite [1, 2]."
+        },
+        {
+          "etape": "Preuves et négociation",
+          "texte": "Photo d'écran, note de rançon README_BYOD_31.txt et message audio sur des appareils → la note renvoie vers le site de fuite et la messagerie SESSION [2]."
         },
         {
           "etape": "Réaction de l'université",
-          "texte": "Annonce de l'attaque, enquête et confinement en cours → consigne d'éteindre les appareils et de se déconnecter du réseau sans fil [1]."
+          "texte": "Annonce de l'attaque, enquête et confinement en cours → consigne d'éteindre les appareils et de se déconnecter du réseau sans fil [1, 2]."
         }
       ],
       "parcours": {
@@ -39892,17 +39896,23 @@
             "de": "att",
             "vers": "uni",
             "etape": 1,
-            "texte": "Accès non précisé par la source"
+            "texte": "Accès non précisé par les sources"
+          },
+          {
+            "de": "att",
+            "vers": "uni",
+            "etape": 2,
+            "texte": "Chiffrement et vol de données affirmés"
           },
           {
             "de": "att",
             "vers": "leak",
-            "etape": 2,
-            "texte": "Université ajoutée, vol de données affirmé"
+            "etape": 3,
+            "texte": "Note de rançon renvoyant au site de fuite"
           }
         ]
       },
-      "limites": "La source ne dit pas comment l'accès a été obtenu, ni si des données ont été chiffrées ou volées, ni lesquelles [1].",
+      "limites": "Les sources ne disent pas comment l'accès a été obtenu. L'université n'a pas confirmé l'implication de BYOD ni le vol de données [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -39915,6 +39925,10 @@
         {
           "sigle": "BYOD",
           "definition": "Nom du groupe de rançongiciel qui revendique l'attaque"
+        },
+        {
+          "sigle": "SESSION",
+          "definition": "Messagerie chiffrée indiquée dans la note de rançon"
         }
       ],
       "sources": [
@@ -39924,6 +39938,13 @@
           "url": "https://therecord.media/vanderbilt-cyberattack-ransomware-alert",
           "date": "2026-11-09",
           "image": "https://cms.therecord.media/uploads/Vanderbilt_University_56a944465a.jpg"
+        },
+        {
+          "titre": "Vanderbilt University hit in BYOD ransomware attack, data theft claimed",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/vanderbilt-university-hit-in-byod-ransomware-attack-data-theft-claimed/",
+          "date": "2026-11-09",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/09/vanderbilt-skyline.jpg"
         }
       ]
     },

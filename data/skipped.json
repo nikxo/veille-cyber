@@ -1,29 +1,5 @@
 [
   {
-    "id": "efce0051e7baa0ca",
-    "title": "The Risk of AI-Powered Antidetect Browsers in Online Fraud and Influence Operations",
-    "link": "https://research.checkpoint.com/2026/the-risk-of-ai-powered-antidetect-browsers-in-online-fraud-and-influence-operations/",
-    "source": "Check Point Research",
-    "raison": "analyse générale d'outils, sans campagne précise ni victime nommée",
-    "date": "2026-10-20T15:30:00+00:00"
-  },
-  {
-    "id": "37b85c3ffeefc126",
-    "title": "There's only so much code: the rise in vulnerability numbers",
-    "link": "https://blog.talosintelligence.com/theres-only-so-much-code-the-rise-in-vulnerability-numbers/",
-    "source": "Cisco Talos",
-    "raison": "statistiques de vulnérabilités sans exploitation constatée",
-    "date": "2026-10-20T16:30:00+00:00"
-  },
-  {
-    "id": "a3b2d45fb596653f",
-    "title": "US Agencies Detail Incident Response Practices for Rogue AI Agents",
-    "link": "https://www.securityweek.com/us-agencies-detail-incident-response-practices-for-rogue-ai-agents/",
-    "source": "SecurityWeek",
-    "raison": "conseils génériques",
-    "date": "2026-10-20T16:30:00+00:00"
-  },
-  {
     "id": "09ef0eb1501b7543",
     "title": "RISC-V : quand l’indépendance de l’Europe passe par des processeurs… chinois",
     "link": "https://www.lemagit.fr/dessin/RISC-V-quand-lindependance-de-lEurope-passe-par-des-processeurs-chinois",
@@ -3998,5 +3974,29 @@
     "source": "The Hacker News",
     "raison": "contenu sponsorisé / conseil générique",
     "date": "2026-11-10T12:10:00+00:00"
+  },
+  {
+    "id": "1c2cb82e02d8d6f7",
+    "title": "Anthropic Rolls Out Mythos 5.2 With Improved Bug Hunting, Fewer Sandbox Escapes",
+    "link": "https://www.securityweek.com/anthropic-rolls-out-mythos-5-2-with-improved-bug-hunting-fewer-sandbox-escapes/",
+    "source": "SecurityWeek",
+    "raison": "annonce produit",
+    "date": "2026-11-10T13:15:00+00:00"
+  },
+  {
+    "id": "b18e440d8eb0f6bd",
+    "title": "AI Makes Reverse Engineering Mainstream Software & Malware Far Easier",
+    "link": "https://www.darkreading.com/application-security/ai-reverse-engineering-apps",
+    "source": "Dark Reading",
+    "raison": "recherche sans attaque décrite (WebFetch 403, résumé du flux seul)",
+    "date": "2026-11-10T13:15:00+00:00"
+  },
+  {
+    "id": "4271579ddeba7964",
+    "title": "Binance Warns of iOS Sandbox Escape That Could Expose Crypto Wallet Keys, No Fix Confirmed",
+    "link": "https://thehackernews.com/2026/11/binance-warns-of-ios-sandbox-escape.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée dans la nature",
+    "date": "2026-11-10T13:15:00+00:00"
   }
 ]

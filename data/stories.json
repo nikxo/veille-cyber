@@ -39782,17 +39782,17 @@
       "id": "2026-11-09-qubole-aws-comptes-clients",
       "title": "Qubole : un attaquant entre dans les comptes AWS de clients et vole des secrets",
       "created": "2026-11-09T18:08:52+00:00",
-      "updated": "2026-11-09T18:08:52+00:00",
-      "version": 1,
-      "resume": "Entre le 14 et le 26 octobre, un attaquant a pénétré dans les comptes AWS de plusieurs clients de Qubole et volé des secrets et des données [1].",
+      "updated": "2026-11-10T14:20:00+00:00",
+      "version": 2,
+      "resume": "Entre le 14 et le 26 octobre, un attaquant a pénétré dans les comptes AWS de plus d'une douzaine de clients de Qubole et volé des secrets et des données [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Identifiants d'un compte AWS que Qubole utilise pour joindre ses clients ; la façon de les obtenir n'est pas divulguée [1]."
+          "texte": "Identifiants d'un compte AWS lié à Qubole compromis ; la façon de les obtenir n'est pas divulguée [1, 2]."
         },
         {
           "etape": "Prise de rôles",
-          "texte": "Rôles de gestion des accès endossés chez les clients, car ils faisaient encore confiance au compte Qubole → accès aux comptes clients [1]."
+          "texte": "Rôles des clients endossés, car ils faisaient encore confiance au compte Qubole, certains restés en place sans usage de Qubole → accès aux comptes clients [1, 2]."
         },
         {
           "etape": "Recherche de secrets",
@@ -39804,7 +39804,7 @@
         },
         {
           "etape": "Vol de données",
-          "texte": "Récupération des données de tout espace S3 accessible au rôle, parfois un espace entier en une session [1]."
+          "texte": "Récupération des données de tout espace S3 accessible au rôle, parfois un espace entier en une session [1, 2]."
         }
       ],
       "parcours": {
@@ -39865,14 +39865,14 @@
           }
         ]
       },
-      "limites": "Origine des identifiants non divulguée ; lien avec une campagne distincte du 8 au 11 octobre non établi ; aucune déclaration de Qubole au moment de l'article [1].",
+      "limites": "Origine des identifiants non divulguée ; acteur non identifié [1, 2] ; aucune déclaration de Qubole au moment du premier article [1].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Attaquant non nommé, non relié à une activité publique connue [1]"
+        "Attaquant non nommé, non relié à une activité publique connue ; Wiz le décrit comme opportuniste [1, 2]"
       ],
       "cibles": [
-        "Plusieurs clients de Qubole disposant de comptes AWS [1]"
+        "Plus d'une douzaine d'organisations clientes de Qubole disposant de comptes AWS [1, 2]"
       ],
       "abreviations": [
         {
@@ -39895,6 +39895,13 @@
           "url": "https://thehackernews.com/2026/11/hackers-exploit-quboles-trusted-aws.html",
           "date": "2026-11-09",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjj3p_1P-Ko_l_HuUr2Doq9kJOQa3Y5dCrkiVWqjJXzvQfYgKvgJXyvdBqLH2hp7s_ZY2kk-hhaCQhjf_v9SdjSbNpaDV2Eohk6-NEFUZp_ROjMJf_Q1xUSKcrqNj-Dd5ZrfjV6uP1blo579IaZ6hgHxOFAUhyJVgdGop-KVIWCjWQIYOKku3iN1N1EIUk/s1700-nu-rw-lo-l85-e365/aws-hacked.jpg"
+        },
+        {
+          "titre": "Over a Dozen Organizations Hit in Qubole Supply Chain Attack",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/over-a-dozen-organizations-hit-in-qubole-supply-chain-attack/",
+          "date": "2026-11-10",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supply-chain-attack.jpeg"
         }
       ]
     },
@@ -40480,13 +40487,13 @@
       "id": "2026-11-10-turla-cereal-exchange",
       "title": "Turla : l'outil Cereal intercepte les courriels de serveurs Exchange gouvernementaux",
       "created": "2026-11-10T10:30:00+00:00",
-      "updated": "2026-11-10T11:20:00+00:00",
-      "version": 2,
-      "resume": "Le groupe Turla a utilisé un nouvel ensemble d'outils, Cereal, pour intercepter des courriels sur des serveurs Exchange d'organismes gouvernementaux au Kazakhstan et en Roumanie [1, 2].",
+      "updated": "2026-11-10T14:20:00+00:00",
+      "version": 3,
+      "resume": "Le groupe Turla a utilisé un nouvel ensemble d'outils, Cereal, pour intercepter des courriels sur des serveurs Exchange d'organismes gouvernementaux au Kazakhstan et en Roumanie [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé par les sources [1, 3]."
         },
         {
           "etape": "Interception des courriels",
@@ -40498,7 +40505,7 @@
         },
         {
           "etape": "Contrôle à distance",
-          "texte": "Requêtes web chiffrées reçues par le serveur Exchange sur des chemins imitant ses services → exécution de programmes chiffrés, résultats renvoyés aux attaquants [1, 2]."
+          "texte": "Requêtes web chiffrées reçues par le serveur Exchange, qui sert de centre de commande sans serveur externe → exécution de programmes chiffrés [1, 2, 3]."
         },
         {
           "etape": "Actions possibles",
@@ -40544,14 +40551,14 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni l'accès initial, ni la persistance, ni le déplacement dans le réseau [1, 2].",
+      "limites": "Les sources ne précisent ni l'accès initial, ni la persistance, ni le déplacement dans le réseau [1, 2, 3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Turla, aussi appelé Snake, Secret Blizzard ou Waterbug, lié au FSB selon la source [1]"
       ],
       "cibles": [
-        "Organismes gouvernementaux au Kazakhstan et en Roumanie, échanges avec l'OTAN et l'UE [1, 2]"
+        "Organismes gouvernementaux au Kazakhstan et en Roumanie, échanges avec l'OTAN et l'UE [1, 2, 3]"
       ],
       "abreviations": [
         {
@@ -40589,6 +40596,13 @@
           "url": "https://thehackernews.com/2026/11/russian-turla-hackers-use-new-cereal.html",
           "date": "2026-11-10",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5658vTd_mkm0NXhB4ueRe7z7purQPsvIa5Ik8qqEMo0dN5DU5bTpprIJeXFEj7XKLIOP3ykE4ZlNnixosysJ8YmGXzuRqEA1YoDvaQUFUgdXGfX2gj4f3hgUzop1wizxyv9olPYRDIb6CBW09bFVYAVqvpJk1zRqp3N5QCDBdfXTeoJuGCRkgy227_TgN/s1700-nu-rw-lo-l85-e365/russian-emails.jpg"
+        },
+        {
+          "titre": "Russian hackers compromised government email servers to steal NATO, EU correspondence",
+          "site": "The Record",
+          "url": "https://therecord.media/russia-hackers-espionage-romania-kazakhstan",
+          "date": "2026-11-10",
+          "image": "https://cms.therecord.media/uploads/Email_55c6595c21.jpg"
         }
       ]
     },
@@ -40777,6 +40791,150 @@
           "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-barracuda-email-security-gateway-flaws-to-get-root-access/",
           "date": "2026-11-10",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/10/Barracuda.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-10-copperdragon-sparrow",
+      "title": "CopperDragon : le framework Sparrow derrière trois campagnes d'espionnage",
+      "created": "2026-11-10T14:20:00+00:00",
+      "updated": "2026-11-10T14:20:00+00:00",
+      "version": 1,
+      "resume": "Check Point relie trois campagnes d'intrusion visant des organisations en Amérique latine, en Asie et en Europe à un fournisseur présumé d'outils, CopperDragon, lié à des groupes chinois [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Sites légitimes compromis affichant une fausse erreur de certificat Chrome → installation d'un utilitaire piégé ; ailleurs, serveur Linux vulnérable exposé sur Internet [1]."
+        },
+        {
+          "etape": "Exécution",
+          "texte": "Installeur piégé → déploiement de la porte dérobée SquadC ou d'une variante de SparrowDoor [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Clé de registre Run « WindowsUpdateAssist » pour SquadC ; porte dérobée AnnobinDoor avec tunnel SSH sur le serveur Linux [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Client et serveur SSH remplacés par des versions piégées ; module malveillant dans LSASS captant NTLM et Kerberos [1]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "Identifiants volés → propagation vers d'autres hôtes Linux ; essais RDP jusqu'à l'ouverture d'un compte administrateur ; transferts SMB [1]."
+        },
+        {
+          "etape": "Collecte",
+          "texte": "Inventaire et compression des fichiers pour l'exfiltration, enregistrement des frappes → informations opérationnelles sensibles visées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (CopperDragon)",
+            "note": ""
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Sites légitimes compromis",
+            "note": "Fausse erreur de certificat"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes des visiteurs",
+            "note": "SquadC installé"
+          },
+          {
+            "id": "lin",
+            "type": "serveur",
+            "zone": "expose",
+            "nom": "Serveur Linux vulnérable",
+            "note": "AnnobinDoor"
+          },
+          {
+            "id": "lin2",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Autres hôtes Linux",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Sites légitimes compromis"
+          },
+          {
+            "de": "web",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Installeur piégé, porte dérobée SquadC"
+          },
+          {
+            "de": "att",
+            "vers": "lin",
+            "etape": 1,
+            "texte": "Exploitation d'un serveur Linux exposé"
+          },
+          {
+            "de": "lin",
+            "vers": "lin2",
+            "etape": 5,
+            "texte": "Propagation avec les identifiants volés"
+          }
+        ]
+      },
+      "limites": "Faille du serveur Linux non identifiée ; accès initial de la campagne DarkWire non mentionné ; aucune technique MITRE citée avec identifiant [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "CopperDragon, fournisseur présumé du framework Sparrow, utilisé par des groupes liés à la Chine [1]"
+      ],
+      "cibles": [
+        "Télécoms, gouvernements, militaires, recherche et infrastructures critiques dans plusieurs pays [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SSH",
+          "definition": "Protocole d'accès distant sécurisé à un serveur"
+        },
+        {
+          "sigle": "LSASS",
+          "definition": "Processus Windows qui garde les identifiants en mémoire"
+        },
+        {
+          "sigle": "NTLM",
+          "definition": "Protocole d'authentification Windows"
+        },
+        {
+          "sigle": "Kerberos",
+          "definition": "Protocole d'authentification des domaines Windows"
+        },
+        {
+          "sigle": "RDP",
+          "definition": "Bureau à distance de Windows"
+        },
+        {
+          "sigle": "SMB",
+          "definition": "Protocole Windows de partage de fichiers"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Not All That Glitters Is Gold: Tracking CopperDragon's Sparrow Framework Around the Globe",
+          "site": "Check Point Research",
+          "url": "https://research.checkpoint.com/2026/not-all-that-glitters-is-gold-tracking-copperdragons-sparrow-framework-around-the-globe/",
+          "date": "2026-11-10",
+          "image": "https://research.checkpoint.com/wp-content/uploads/2026/11/Generated-image-3-1024x512.png"
         }
       ]
     }

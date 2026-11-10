@@ -39396,8 +39396,8 @@
       "id": "2026-11-09-frigos-francais-unite-iranienne",
       "title": "Frigos de commerces français piratés en octobre : Paris vise une unité iranienne",
       "created": "2026-11-09T17:20:00+00:00",
-      "updated": "2026-11-09T19:30:00+00:00",
-      "version": 3,
+      "updated": "2026-11-10T08:30:00+00:00",
+      "version": 4,
       "resume": "Dans la nuit du 11 au 12 octobre, environ 700 commerces français ont subi une attaque sur leurs contrôleurs de réfrigération : pertes alimentaires et une vingtaine de départs de feu [1]. Le CERT-FR l'attribue à des unités iraniennes [2].",
       "chaine": [
         {
@@ -39418,7 +39418,7 @@
         },
         {
           "etape": "Conséquences",
-          "texte": "Pertes alimentaires importantes et une vingtaine de départs de feu [1]."
+          "texte": "Pertes alimentaires importantes et une vingtaine de départs de feu [1] ; températures à 50 °C pendant environ six heures [7]."
         }
       ],
       "parcours": {
@@ -39485,12 +39485,14 @@
         "Unité Shahid Shoostari, citée par le CERT-FR [2]",
         "Autorités françaises (9 novembre) : IRGC, unité Shahid Kaveh, alias public CyberAveng3rs [3]",
         "Revendication NoName057(16) jugée non fondée par Sekoia [3]",
-        "Indices d'attribution : traces de farsi [5, 6], adresses de connexion vers l'Iran [5] ; un faux drapeau n'est pas exclu [5]"
+        "Indices d'attribution : traces de farsi [5, 6], adresses de connexion vers l'Iran [5] ; un faux drapeau n'est pas exclu [5]",
+        "La France convoque l'ambassadeur d'Iran et annonce chercher des sanctions européennes contre les responsables [7]"
       ],
       "cibles": [
         "Environ 700 commerces de la grande distribution française [1]",
         "Contrôleurs de réfrigération industriels français [2]",
-        "Supermarchés dont Intermarché et Coopérative U, trois sites de l'Établissement français du sang, une douzaine de pays européens [3]"
+        "Supermarchés dont Intermarché et Coopérative U, trois sites de l'Établissement français du sang, une douzaine de pays européens [3]",
+        "Plusieurs banques de sang : tentative de hausse des températures déjouée, sans dommage sur les produits sanguins [7]"
       ],
       "abreviations": [
         {
@@ -39541,6 +39543,13 @@
           "site": "BleepingComputer",
           "url": "https://www.bleepingcomputer.com/news/security/france-blames-iranian-hackers-for-supermarket-attacks-that-sparked-fires/",
           "image": "https://www.bleepstatic.com/content/hl-images/2024/04/23/Iranian_hacker.jpg"
+        },
+        {
+          "titre": "France Blames Iran for a Cyberattack That Heated Supermarket Refrigerators",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/france-blames-iran-for-a-cyberattack-that-heated-supermarket-refrigerators/",
+          "date": "2026-11-10",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/03/Irianian-cyberattacks-hacks.jpg"
         }
       ]
     },
@@ -40178,8 +40187,8 @@
       "id": "2026-11-10-chrome-xml-zero-day-cve-2026-125350",
       "title": "Chrome : faille zero-day du composant XML exploitée dans la nature, corrigée dans Chrome 157",
       "created": "2026-11-10T07:30:00+00:00",
-      "updated": "2026-11-10T07:30:00+00:00",
-      "version": 1,
+      "updated": "2026-11-10T08:30:00+00:00",
+      "version": 2,
       "resume": "Google a corrigé dans Chrome une faille de gravité élevée du composant XML, déjà exploitée dans des attaques. Un chercheur anonyme l'a signalée le 6 novembre [1].",
       "chaine": [
         {
@@ -40188,7 +40197,7 @@
         },
         {
           "etape": "Exploitation de la faille",
-          "texte": "Utilisation de mémoire après libération dans le composant XML de Chrome → faille exploitée dans la nature [1]."
+          "texte": "Utilisation de mémoire après libération dans le composant XML de Chrome → faille exploitée dans la nature [1, 2]."
         }
       ],
       "parcours": {
@@ -40217,11 +40226,11 @@
           }
         ]
       },
-      "limites": "Google n'a pas partagé de détails : ni vecteur d'accès, ni acteur, ni victimes, ni nombre d'attaques [1].",
+      "limites": "Google n'a pas partagé de détails : ni vecteur d'accès, ni acteur, ni victimes, ni nombre d'attaques [1, 2].",
       "cves": [
         {
           "id": "CVE-2026-125350",
-          "explication": "Chrome : utilisation de mémoire après libération dans le composant XML, gravité élevée, exploitée dans la nature, corrigée dans Chrome 157 [1]."
+          "explication": "Chrome : utilisation de mémoire après libération dans le composant XML, gravité élevée, exploitée dans la nature, corrigée dans Chrome 157 [1] ; exécution de code arbitraire possible [2]."
         }
       ],
       "mitre": [],
@@ -40240,6 +40249,13 @@
           "url": "https://www.securityweek.com/chrome-update-patches-exploited-xml-zero-day-eighth-this-year/",
           "date": "2026-11-10",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/06/Chrome.jpeg"
+        },
+        {
+          "titre": "Google Issues Chrome Security Update for Eighth Actively Exploited Zero-Day of 2026",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/google-issues-chrome-security-update.html",
+          "date": "2026-11-10",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjk5S9J891bQS8W6TgyoiEPQ7geGia8FqqWjckFlo9qMH2wXIXv-7gyod1XKUpI9BfgcliN2Re8A85rJ121jxqgfnw1LsjYBvAYtX7694GVgMF7B94G0n5MzqMaKqLAbr-No1nqrN0gyF8MFR_bYQIYlqiTh_FzobmWrq4NOCLbcW_78uEMMW5FE4eqJoo/s1700-nu-rw-lo-l85-e365/chrome-0day.jpg"
         }
       ]
     },
@@ -40324,6 +40340,123 @@
           "url": "https://thehackernews.com/2026/11/cisa-warns-of-active-exploitation-of.html",
           "date": "2026-11-10",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVAsrcYxVs8sJe7IiSD6WkTC4yPv0eLfup7dwcsS0NLcAAgoY__wyC3UFCR90PL2ziKCEW-vMNIEQXES-8uAG-MxuXlyIDdQGeNREm8yFv3tbvsCVXXRyRGT4ORirvcVKP_uD62XHYy9w3x_P0o7XzkguJPwq_1vV2jPxxnZWbhAHHUJ3YJ6HbTlXb0shyphenhyphen/s1700-nu-rw-lo-l85-e365/openssh.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-10-fireworks-ai-fournisseur-cloud",
+      "title": "Fireworks AI : machines de développement atteintes après le piratage d'un fournisseur cloud",
+      "created": "2026-11-10T08:30:00+00:00",
+      "updated": "2026-11-10T08:30:00+00:00",
+      "version": 1,
+      "resume": "Fireworks AI a subi un second incident : des attaquants ont atteint ses machines de développement après la compromission d'un fournisseur cloud tiers, avec un impact sur des données de certains clients [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Incident de sécurité, le 23 octobre, chez un fournisseur cloud tiers hébergeant les machines de recherche et développement de Fireworks ; méthode non précisée [1]."
+        },
+        {
+          "etape": "Accès aux machines",
+          "texte": "Le 24 octobre, utilisation de cet accès par une partie non autorisée → atteinte des machines de développement de Fireworks [1]."
+        },
+        {
+          "etape": "Charge non autorisée",
+          "texte": "Exécution d'une charge de travail non autorisée → impact supplémentaire sur des données clients [1]."
+        },
+        {
+          "etape": "Données touchées",
+          "texte": "Métadonnées des ressources, informations de facturation, poids de modèles et jeux de données incomplets pour certains clients [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "cld",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Fournisseur cloud tiers",
+            "note": "Machines de R&D"
+          },
+          {
+            "id": "dev",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Machines de développement",
+            "note": "Charge non autorisée"
+          },
+          {
+            "id": "dat",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données de clients",
+            "note": "Facturation, modèles"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cld",
+            "etape": 1,
+            "texte": "Compromission du fournisseur cloud tiers"
+          },
+          {
+            "de": "cld",
+            "vers": "dev",
+            "etape": 2,
+            "texte": "Accès utilisé pour atteindre les machines de développement"
+          },
+          {
+            "de": "att",
+            "vers": "dev",
+            "etape": 3,
+            "texte": "Charge de travail non autorisée exécutée"
+          },
+          {
+            "de": "dev",
+            "vers": "dat",
+            "etape": 4,
+            "texte": "Données de certains clients touchées"
+          }
+        ]
+      },
+      "limites": "La source ne décrit pas comment le fournisseur cloud a été compromis [1]. Un premier incident, début octobre, avait exposé des clés d'API et des jetons de comptes limités [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Groupe cybercriminel non nommé, motivé financièrement ; Fireworks le relie au LLMjacking [1]"
+      ],
+      "cibles": [
+        "Fireworks AI et certains de ses clients ; numéros de cartes de paiement non stockés par l'entreprise [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Interface de programmation permettant à des logiciels de communiquer"
+        },
+        {
+          "sigle": "LLMjacking",
+          "definition": "Revente de jetons de modèles de langage obtenus illégalement"
+        },
+        {
+          "sigle": "AI",
+          "definition": "Artificial Intelligence : intelligence artificielle"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Fireworks AI discloses new breach after cloud provider hack",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fireworks-ai-discloses-new-breach-after-cloud-provider-hack/",
+          "date": "2026-11-10",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/10/Fireworks-headpic.jpg"
         }
       ]
     }

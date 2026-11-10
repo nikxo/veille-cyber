@@ -39793,29 +39793,29 @@
       "id": "2026-11-09-qubole-aws-comptes-clients",
       "title": "Qubole : un attaquant entre dans les comptes AWS de clients et vole des secrets",
       "created": "2026-11-09T18:08:52+00:00",
-      "updated": "2026-11-10T14:20:00+00:00",
-      "version": 2,
-      "resume": "Entre le 14 et le 26 octobre, un attaquant a pénétré dans les comptes AWS de plus d'une douzaine de clients de Qubole et volé des secrets et des données [1, 2].",
+      "updated": "2026-11-10T20:09:00+00:00",
+      "version": 3,
+      "resume": "Entre le 14 et le 26 octobre, un attaquant a pénétré dans les comptes AWS de clients de Qubole et volé des secrets et des données : plus d'une douzaine d'organisations [1, 2], des dizaines selon une autre source [3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Identifiants d'un compte AWS lié à Qubole compromis ; la façon de les obtenir n'est pas divulguée [1, 2]."
+          "texte": "Identifiants de deux utilisateurs du compte AWS de Qubole compromis ; la façon de les obtenir n'est pas divulguée [1, 2, 3]."
         },
         {
           "etape": "Prise de rôles",
-          "texte": "Rôles des clients endossés, car ils faisaient encore confiance au compte Qubole, certains restés en place sans usage de Qubole → accès aux comptes clients [1, 2]."
+          "texte": "Rôles des clients endossés, car ils faisaient encore confiance au compte Qubole, certains restés en place sans usage de Qubole → accès aux comptes clients [1, 2, 3]."
         },
         {
           "etape": "Recherche de secrets",
-          "texte": "Lecture des variables des fonctions Lambda, de Secrets Manager et de Parameter Store → secrets récupérés [1]."
+          "texte": "Lecture des variables Lambda, de Secrets Manager et de Parameter Store → secrets récupérés : 100 mots de passe et clés en sept minutes selon Sentra [1, 3]."
         },
         {
           "etape": "Validation des identifiants",
-          "texte": "TruffleHog utilisé pour tester les identifiants trouvés : clés AWS, secrets Entra ID, identifiants Okta [1]."
+          "texte": "TruffleHog utilisé pour tester les identifiants trouvés : clés AWS, secrets Entra ID, identifiants Okta [1, 3]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Récupération des données de tout espace S3 accessible au rôle, parfois un espace entier en une session [1, 2]."
+          "texte": "Récupération des données de tout espace S3 accessible au rôle, parfois un espace entier en une session [1, 2, 3]."
         }
       ],
       "parcours": {
@@ -39876,14 +39876,14 @@
           }
         ]
       },
-      "limites": "Origine des identifiants non divulguée ; acteur non identifié [1, 2] ; aucune déclaration de Qubole au moment du premier article [1].",
+      "limites": "Origine des identifiants non divulguée ; acteur non identifié [1, 2, 3] ; aucune déclaration de Qubole au moment du premier article [1] ; nombre de victimes différent selon les sources [2, 3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Attaquant non nommé, non relié à une activité publique connue ; Wiz le décrit comme opportuniste [1, 2]"
+        "Attaquant non nommé, non relié à une activité publique connue ; Wiz le décrit comme opportuniste [1, 2, 3]"
       ],
       "cibles": [
-        "Plus d'une douzaine d'organisations clientes de Qubole disposant de comptes AWS [1, 2]"
+        "Plus d'une douzaine d'organisations clientes de Qubole [1, 2] ; des dizaines selon Sentra, avec des millions de fichiers volés chez un seul client [3]"
       ],
       "abreviations": [
         {
@@ -39913,6 +39913,13 @@
           "url": "https://www.securityweek.com/over-a-dozen-organizations-hit-in-qubole-supply-chain-attack/",
           "date": "2026-11-10",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supply-chain-attack.jpeg"
+        },
+        {
+          "titre": "Hackers exploit trusted AWS access to breach multiple cloud environments",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-trusted-aws-access-to-breach-multiple-cloud-environments/",
+          "date": "2026-11-10",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/08/21/awskey.jpg"
         }
       ]
     },
@@ -40836,21 +40843,21 @@
       "id": "2026-11-10-copperdragon-sparrow",
       "title": "CopperDragon : le framework Sparrow derrière trois campagnes d'espionnage",
       "created": "2026-11-10T14:20:00+00:00",
-      "updated": "2026-11-10T14:20:00+00:00",
-      "version": 1,
-      "resume": "Check Point relie trois campagnes d'intrusion visant des organisations en Amérique latine, en Asie et en Europe à un fournisseur présumé d'outils, CopperDragon, lié à des groupes chinois [1].",
+      "updated": "2026-11-10T20:09:00+00:00",
+      "version": 2,
+      "resume": "Check Point relie trois campagnes d'intrusion visant des organisations en Amérique latine, en Asie et en Europe à un fournisseur présumé d'outils, CopperDragon, lié à des groupes chinois [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Sites légitimes compromis affichant une fausse erreur de certificat Chrome → installation d'un utilitaire piégé ; ailleurs, serveur Linux vulnérable exposé sur Internet [1]."
+          "texte": "Sites légitimes compromis affichant une fausse erreur de certificat Chrome → installation d'un utilitaire piégé ; ailleurs, serveur Linux exposé sur Internet [1, 2]."
         },
         {
           "etape": "Exécution",
-          "texte": "Installeur piégé → déploiement de la porte dérobée SquadC ou d'une variante de SparrowDoor [1]."
+          "texte": "Installeur piégé → porte dérobée SquadC ou variante de SparrowDoor ; dans la campagne DarkWire, chargement latéral de bibliothèques et porte dérobée CopperDoor [1, 2]."
         },
         {
           "etape": "Persistance",
-          "texte": "Clé de registre Run « WindowsUpdateAssist » pour SquadC ; porte dérobée AnnobinDoor avec tunnel SSH sur le serveur Linux [1]."
+          "texte": "Clé de registre Run « WindowsUpdateAssist », imitant un assistant de mise à jour Windows, pour SquadC [1, 2]."
         },
         {
           "etape": "Vol d'identifiants",
@@ -40858,11 +40865,11 @@
         },
         {
           "etape": "Déplacement dans le réseau",
-          "texte": "Identifiants volés → propagation vers d'autres hôtes Linux ; essais RDP jusqu'à l'ouverture d'un compte administrateur ; transferts SMB [1]."
+          "texte": "Sur le serveur Linux, porte dérobée AnnobinDoor ; identifiants volés → propagation vers d'autres hôtes Linux ; essais RDP jusqu'à l'ouverture d'un compte administrateur [1]."
         },
         {
           "etape": "Collecte",
-          "texte": "Inventaire et compression des fichiers pour l'exfiltration, enregistrement des frappes → informations opérationnelles sensibles visées [1]."
+          "texte": "Inventaire des fichiers, compressé et préparé pour l'exfiltration, enregistrement des frappes → informations opérationnelles sensibles visées [1]."
         }
       ],
       "parcours": {
@@ -40930,11 +40937,11 @@
           }
         ]
       },
-      "limites": "Faille du serveur Linux non identifiée ; accès initial de la campagne DarkWire non mentionné ; aucune technique MITRE citée avec identifiant [1].",
+      "limites": "Faille du serveur Linux non identifiée ; accès initial de la campagne DarkWire non mentionné ; aucune technique MITRE citée avec identifiant [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "CopperDragon, fournisseur présumé du framework Sparrow, utilisé par des groupes liés à la Chine [1]"
+        "CopperDragon, fournisseur présumé d'outils pour des acteurs liés à la Chine, dont FamousSparrow, Earth Estries et Tropic Trooper [1, 2]"
       ],
       "cibles": [
         "Télécoms, gouvernements, militaires, recherche et infrastructures critiques dans plusieurs pays [1]"
@@ -40959,10 +40966,6 @@
         {
           "sigle": "RDP",
           "definition": "Bureau à distance de Windows"
-        },
-        {
-          "sigle": "SMB",
-          "definition": "Protocole Windows de partage de fichiers"
         }
       ],
       "sources": [
@@ -40972,6 +40975,13 @@
           "url": "https://research.checkpoint.com/2026/not-all-that-glitters-is-gold-tracking-copperdragons-sparrow-framework-around-the-globe/",
           "date": "2026-11-10",
           "image": "https://research.checkpoint.com/wp-content/uploads/2026/11/Generated-image-3-1024x512.png"
+        },
+        {
+          "titre": "Three China-Nexus Espionage Campaigns Linked Through Sparrow Malware Ecosystem",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/three-china-nexus-espionage-campaigns.html",
+          "date": "2026-11-10",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJzh3KQXtsNe_Hb53sMmMSiGIRHL-ybly73FQY1F-RNeFR181cAeiYkvBDi80Upvlea0WqHLNW6ydto2DhfeD3PlISviNhaTUtVBdQMziXOtKybeWLKj7O3UmmeKP0vGX5ufVBkf1dbShyphenhyphenXgawm2sMttXPfbTTDtmYxbXo7Lw0jkGXtt-E-X7W7PtNxfD-/s1700-nu-rw-lo-l85-e365/chinese-telecom.jpg"
         }
       ]
     },
@@ -41215,21 +41225,21 @@
       "id": "2026-11-10-xen-orchestra-contournement-authentification",
       "title": "Xen Orchestra : faille critique de contournement d'authentification exploitée",
       "created": "2026-11-10T17:20:00+00:00",
-      "updated": "2026-11-10T17:20:00+00:00",
-      "version": 1,
-      "resume": "Une faille critique de contournement d'authentification de Xen Orchestra, outil de gestion des environnements XCP-ng, est activement exploitée selon l'éditeur Vates [1].",
+      "updated": "2026-11-10T20:09:00+00:00",
+      "version": 2,
+      "resume": "Une faille critique de contournement d'authentification de Xen Orchestra, outil de gestion des environnements XCP-ng, est activement exploitée selon l'éditeur Vates [1, 2]. Les versions 6.9.1 et 6.10.0 la corrigent [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Envoi d'un cookie forgé à l'interface de gestion, accessible par le réseau → connexion comme propriétaire d'un jeton d'authentification existant, sans identifiants valides [1]."
+          "texte": "Cookie forgé envoyé à l'interface de gestion → connexion comme propriétaire du premier jeton d'authentification non expiré, sans identifiants valides [1, 2]."
         },
         {
           "etape": "Jetons réutilisables",
-          "texte": "Un point d'accès de l'interface fournit des identifiants de jetons de connexion réutilisables [1]."
+          "texte": "Actions possibles avec les privilèges Admin ; un point d'accès de l'interface fournit des identifiants de jetons de connexion réutilisables [1, 2]."
         },
         {
           "etape": "Prise de contrôle",
-          "texte": "Selon Vates, la compromission peut mener à l'exécution de code sur les pools gérés et au contrôle complet d'un hôte XCP-ng en root [1]."
+          "texte": "Selon Vates, la compromission peut mener à l'exécution de code sur les pools gérés et au contrôle complet d'un hôte XCP-ng en root [1, 2]."
         }
       ],
       "parcours": {
@@ -41271,10 +41281,12 @@
           }
         ]
       },
-      "limites": "Aucun identifiant CVE n'est encore attribué ; la source ne nomme ni acteur ni victime et ne date pas le début de l'exploitation [1].",
+      "limites": "Pas encore d'identifiant CVE ; ni acteur nommé ni victime, début de l'exploitation non daté [1, 2]. Rôle des fichiers cron et de la machine « pivot2 », cités comme indicateurs, non précisé [2].",
       "cves": [],
       "mitre": [],
-      "acteurs": [],
+      "acteurs": [
+        "Acteur non identifié ; une adresse liée est signalée sur VirusTotal comme serveur de commande de RedLine Stealer [2]"
+      ],
       "cibles": [],
       "abreviations": [
         {
@@ -41289,6 +41301,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/critical-xen-orchestra-auth-bypass-flaw-exploited-to-hijack-vm-servers/",
           "date": "2026-11-10",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/10/xen-orchestrator-logo.jpg"
+        },
+        {
+          "titre": "Hackers Exploit Critical Xen Orchestra Auth Bypass Flaw to Gain Admin Access",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-xen-orchestra.html",
+          "date": "2026-11-10",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMH_u7t-U3KIejAItsfC_js20xJgxT2ITYLsR0DAxzfcwDvPrzBHkpZlDuALWPnACOoknX2IALwHIUxIzfhbA24M7e8cGWTZpBMWqpX-wn6xqe8_U3fAtnR-9RsRdFHMCjvNnBsMXrEUKhVYS5bbTGL3B50UMO0aydtHIomY89s2iDAQMq0jXJJ3vh4Nvi/s1700-nu-rw-lo-l85-e365/XEN-attack.jpg"
         }
       ]
     },
@@ -41297,17 +41316,17 @@
       "id": "2026-11-10-outlook-cve-2026-124194",
       "title": "Outlook : une faille exploitée pour voler des empreintes NTLM, corrigée au Patch Tuesday de novembre",
       "created": "2026-11-10T19:20:00+00:00",
-      "updated": "2026-11-10T19:20:00+00:00",
-      "version": 1,
-      "resume": "Microsoft a corrigé lors de son Patch Tuesday de novembre 2026 une faille d'Outlook, CVE-2026-124194, exploitée dans des attaques pour voler des empreintes NTLM de comptes [1].",
+      "updated": "2026-11-10T20:09:00+00:00",
+      "version": 2,
+      "resume": "Microsoft a corrigé lors de son Patch Tuesday de novembre 2026 une faille d'Outlook, CVE-2026-124194, exploitée dans des attaques pour voler des empreintes NTLM de comptes [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Envoi d'un fichier de message piégé que la victime doit ouvrir dans Outlook, sans que l'attaquant ait besoin d'être authentifié [1]."
+          "texte": "Fichier de message piégé envoyé par un attaquant non authentifié, que la victime doit ouvrir dans Outlook ; le volet de prévisualisation ne déclenche pas la faille [1, 2]."
         },
         {
           "etape": "Vol d'identifiants",
-          "texte": "À l'ouverture, Outlook peut se connecter à un emplacement réseau contrôlé par l'attaquant, sans l'avertissement habituel → divulgation possible d'informations d'authentification [1]."
+          "texte": "À l'ouverture, Outlook peut se connecter à un emplacement réseau contrôlé par l'attaquant, sans l'avertissement habituel → divulgation possible d'informations d'authentification [1, 2]."
         }
       ],
       "parcours": {
@@ -41342,11 +41361,11 @@
           }
         ]
       },
-      "limites": "La source ne nomme ni les attaquants ni les victimes et ne détaille pas les attaques observées [1].",
+      "limites": "Les sources ne nomment ni attaquants ni victimes et ne détaillent pas les attaques [1, 2]. Elles divergent sur le nombre de failles corrigées : 1 235 [1] ou 1 094 [2].",
       "cves": [
         {
           "id": "CVE-2026-124194",
-          "explication": "Microsoft Outlook : faille d'usurpation pouvant divulguer des informations d'authentification qui permettent de se faire passer pour l'utilisateur, exploitée activement [1]."
+          "explication": "Microsoft Outlook : faille d'usurpation pouvant divulguer des informations d'authentification, exploitée activement [1] ; gravité modérée selon Microsoft, score 6,5 [2]."
         }
       ],
       "mitre": [],
@@ -41365,6 +41384,13 @@
           "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-november-2026-patch-tuesday-fixes-1-235-flaws-outlook-zero-day/",
           "date": "2026-11-10",
           "image": "https://www.bleepstatic.com/content/hl-images/2024/10/08/patch_tuesday_microsoft.jpg"
+        },
+        {
+          "titre": "Exploited Outlook Zero-Day Among 1,094 Flaws Patched by Microsoft",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/exploited-outlook-zero-day-among-1094-flaws-patched-by-microsoft/",
+          "date": "2026-11-10",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/03/Microsoft-Outlook-CVE-2023-23397.jpg"
         }
       ]
     },
@@ -41436,6 +41462,113 @@
           "url": "https://www.sophos.com/en-us/blog/artex-attackers-apply-agentic-ai",
           "date": "2026-11-10",
           "image": "https://images.contentstack.io/v3/assets/blt38f1f401b66100ad/bltb4b6c0750dc5846c/6aad5e6160452d9f5056a4ef/logo.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-10-near-ai-sglang",
+      "title": "NEAR AI : une faille de SGLang exploitée sur un serveur d'inférence, données de 18 agents et d'environ 100 utilisateurs volées",
+      "created": "2026-11-10T20:09:00+00:00",
+      "updated": "2026-11-10T20:09:00+00:00",
+      "version": 1,
+      "resume": "Un attaquant a exploité une faille d'exécution de code à distance de SGLang pour entrer chez NEAR AI, puis a pris des données d'environ 100 utilisateurs et de 18 agents [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation d'une faille d'exécution de code à distance de SGLang, moteur d'inférence open source → exécution de code sur un serveur d'inférence de NEAR AI [1]."
+        },
+        {
+          "etape": "Accès aux requêtes",
+          "texte": "Selon l'entreprise, l'attaquant pouvait aussi voir les requêtes traitées ce jour-là sur ce serveur, y compris celles envoyées en mode confidentiel [1]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "Accès à un système interne derrière Private Chat, produit déjà abandonné → détails de compte d'environ 100 utilisateurs téléchargés [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Accès à 18 agents d'un déploiement plus ancien → historiques de discussion, paramètres et journaux pris ; deux clés d'accès de clients apparaissaient dans des journaux [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inf",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur d'inférence SGLang",
+            "note": "Code exécuté"
+          },
+          {
+            "id": "pc",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Système interne Private Chat",
+            "note": "Comptes téléchargés"
+          },
+          {
+            "id": "ag",
+            "type": "application",
+            "zone": "victime",
+            "nom": "18 agents",
+            "note": "Historiques et journaux"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inf",
+            "etape": 1,
+            "texte": "Exploitation de la faille de SGLang"
+          },
+          {
+            "de": "inf",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Accès au système interne"
+          },
+          {
+            "de": "att",
+            "vers": "ag",
+            "etape": 4,
+            "texte": "Accès à 18 agents"
+          }
+        ]
+      },
+      "limites": "Faille sans identifiant CVE ni description ; attaquant non identifié ; la source ne détaille pas comment il est passé du serveur aux systèmes internes [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Attaquant non identifié [1]"
+      ],
+      "cibles": [
+        "NEAR AI : environ 100 utilisateurs de Private Chat, 18 agents et deux clients dont une clé d'accès a été exposée [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "NEAR",
+          "definition": "Partie du nom de l'entreprise NEAR AI, pas un sigle technique"
+        },
+        {
+          "sigle": "AI",
+          "definition": "Artificial Intelligence : intelligence artificielle, partie du nom NEAR AI"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "SGLang RCE Exploit Breaches NEAR AI, Steals Data From 18 Agents and About 100 Users",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/sglang-rce-exploit-breaches-near-ai.html",
+          "date": "2026-11-10",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifQOwa1ngLZRATbbZyg_iud4SNx-9ugjo2iOG6crnJzatc_uS9FjGScBnNUy-uNIuOEE3Y6kJTpUVMVtOR1bW5sse_pRNJA1SQALCGjshDx6-CF1t8HXlUI2CCb6yp7Uepz6uk3ctMLUlSx4Q36Q7pZcx1nb9wPgbYAZqvd6CnSJ6WM6Kn_ZENtHpESoM/s1700-nu-rw-lo-l85-e365/nearai.jpg"
         }
       ]
     }

@@ -41316,8 +41316,8 @@
       "id": "2026-11-10-outlook-cve-2026-124194",
       "title": "Outlook : une faille exploitée pour voler des empreintes NTLM, corrigée au Patch Tuesday de novembre",
       "created": "2026-11-10T19:20:00+00:00",
-      "updated": "2026-11-10T20:09:00+00:00",
-      "version": 2,
+      "updated": "2026-11-10T21:08:32+00:00",
+      "version": 3,
       "resume": "Microsoft a corrigé lors de son Patch Tuesday de novembre 2026 une faille d'Outlook, CVE-2026-124194, exploitée dans des attaques pour voler des empreintes NTLM de comptes [1, 2].",
       "chaine": [
         {
@@ -41326,7 +41326,7 @@
         },
         {
           "etape": "Vol d'identifiants",
-          "texte": "À l'ouverture, Outlook peut se connecter à un emplacement réseau contrôlé par l'attaquant, sans l'avertissement habituel → divulgation possible d'informations d'authentification [1, 2]."
+          "texte": "À l'ouverture, Outlook peut se connecter à un emplacement réseau de l'attaquant, sans l'avertissement habituel → divulgation d'informations d'authentification permettant d'usurper l'identité de l'utilisateur [1, 2, 3]."
         }
       ],
       "parcours": {
@@ -41361,11 +41361,11 @@
           }
         ]
       },
-      "limites": "Les sources ne nomment ni attaquants ni victimes et ne détaillent pas les attaques [1, 2]. Elles divergent sur le nombre de failles corrigées : 1 235 [1] ou 1 094 [2].",
+      "limites": "Les sources ne nomment ni attaquants ni victimes et ne détaillent pas les attaques [1, 2, 3]. Elles divergent sur le nombre de failles corrigées : 1 235 [1], 1 094 [2] ou 1 093 [3].",
       "cves": [
         {
           "id": "CVE-2026-124194",
-          "explication": "Microsoft Outlook : faille d'usurpation pouvant divulguer des informations d'authentification, exploitée activement [1] ; gravité modérée selon Microsoft, score 6,5 [2]."
+          "explication": "Microsoft Outlook : faille d'usurpation pouvant divulguer des informations d'authentification, exploitée activement [1] ; gravité modérée selon Microsoft, score 6,5 [2] ; ajoutée au catalogue américain des failles exploitées [3]."
         }
       ],
       "mitre": [],
@@ -41391,6 +41391,13 @@
           "url": "https://www.securityweek.com/exploited-outlook-zero-day-among-1094-flaws-patched-by-microsoft/",
           "date": "2026-11-10",
           "image": "https://www.securityweek.com/wp-content/uploads/2023/03/Microsoft-Outlook-CVE-2023-23397.jpg"
+        },
+        {
+          "titre": "Microsoft’s Patch Tuesday surpasses 1,000 bugs for second month in a row",
+          "site": "The Record",
+          "url": "https://therecord.media/patch-tuesday-microsoft-1000-bugs-again",
+          "date": "2026-11-10",
+          "image": "https://cms.therecord.media/uploads/dasharath_sunar_Zgg_U_Qp_H_Ik4_unsplash_8d073f1390.jpg"
         }
       ]
     },
@@ -41569,6 +41576,195 @@
           "url": "https://thehackernews.com/2026/11/sglang-rce-exploit-breaches-near-ai.html",
           "date": "2026-11-10",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifQOwa1ngLZRATbbZyg_iud4SNx-9ugjo2iOG6crnJzatc_uS9FjGScBnNUy-uNIuOEE3Y6kJTpUVMVtOR1bW5sse_pRNJA1SQALCGjshDx6-CF1t8HXlUI2CCb6yp7Uepz6uk3ctMLUlSx4Q36Q7pZcx1nb9wPgbYAZqvd6CnSJ6WM6Kn_ZENtHpESoM/s1700-nu-rw-lo-l85-e365/nearai.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-10-nitori-fuite-clients",
+      "title": "Nitori : accès non autorisé à un système, jusqu'à 37,62 millions d'enregistrements clients possiblement divulgués",
+      "created": "2026-11-10T21:08:32+00:00",
+      "updated": "2026-11-10T21:08:32+00:00",
+      "version": 1,
+      "resume": "Le distributeur japonais de meubles Nitori a annoncé qu'un tiers a accédé sans autorisation à un système de son réseau ; jusqu'à 37,62 millions d'enregistrements de données personnelles de clients ont pu être divulgués [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Accès au système",
+          "texte": "Accès non autorisé d'un tiers à un système géré par Nitori ; l'attaquant y aurait eu accès depuis la mi-octobre [1]."
+        },
+        {
+          "etape": "Fuite de données",
+          "texte": "Données personnelles conservées sur les serveurs → jusqu'à 37,62 millions d'enregistrements possiblement divulgués à l'extérieur ; mots de passe et cartes bancaires non exposés selon Nitori [1]."
+        },
+        {
+          "etape": "Détection",
+          "texte": "Nitori dit avoir confirmé l'accès non autorisé le 6 novembre 2026 ; l'entreprise indique avoir bloqué cet accès et corrigé des vulnérabilités de ses systèmes [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Système géré par Nitori",
+            "note": "Accès non autorisé"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données personnelles de clients",
+            "note": "37,62 millions d'enregistrements"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Accès non autorisé depuis la mi-octobre"
+          },
+          {
+            "de": "sys",
+            "vers": "don",
+            "etape": 3,
+            "texte": "Données possiblement divulguées à l'extérieur"
+          }
+        ]
+      },
+      "limites": "La source ne nomme pas l'attaquant et ne décrit ni le vecteur d'entrée, ni les vulnérabilités corrigées, ni la façon dont les données sont sorties [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non précisé [1]"
+      ],
+      "cibles": [
+        "Nitori, distributeur japonais de meubles et d'articles pour la maison : clients particuliers, membres entreprises et acheteurs non membres [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Japanese furniture giant Nitori says hackers stole 37.6M customer records",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/japanese-furniture-giant-nitori-says-hackers-stole-376m-customer-records/",
+          "date": "2026-11-10",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/10/nitori.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-10-cisa-kev-broadworks-openwave",
+      "title": "Cisco BroadWorks et Openwave Webtop : deux failles exploitées ajoutées au catalogue de la CISA",
+      "created": "2026-11-10T21:08:32+00:00",
+      "updated": "2026-11-10T21:08:32+00:00",
+      "version": 1,
+      "resume": "La CISA a ajouté le 10 novembre 2026 six failles à son catalogue des vulnérabilités exploitées, sur la base de preuves d'exploitation active, dont une de Cisco BroadWorks et une d'Openwave Webtop Media Transcoder [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Faille BroadWorks",
+          "texte": "Message XML forgé visant l'analyseur XML de l'Open Client Interface, par un attaquant distant non authentifié → lecture d'informations de configuration sensibles [2]."
+        },
+        {
+          "etape": "Faille Openwave",
+          "texte": "Restrictions de types de fichiers définies par l'administrateur non appliquées → un utilisateur authentifié peut faire traiter et convertir des types de documents non prévus [3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "bw",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Cisco BroadWorks",
+            "note": "Open Client Interface"
+          },
+          {
+            "id": "ow",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Openwave Webtop Media Transcoder",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "bw",
+            "etape": 2,
+            "texte": "Message XML forgé, configuration lue"
+          },
+          {
+            "de": "att",
+            "vers": "ow",
+            "etape": 3,
+            "texte": "Conversion de documents non prévus"
+          }
+        ]
+      },
+      "limites": "Les sources ne décrivent ni les attaques observées, ni les acteurs, ni les victimes : les étapes reprennent seulement le mécanisme des failles [1, 2, 3].",
+      "cves": [
+        {
+          "id": "CVE-2026-20320",
+          "explication": "Cisco BroadWorks : résolution d'entités externes XML activée par défaut, permettant à un attaquant distant non authentifié de lire des informations de configuration sensibles, gravité 7,5 sur 10 [2]."
+        },
+        {
+          "id": "CVE-2026-111793",
+          "explication": "Openwave Webtop Media Transcoder avant 1.1.22.0 : restrictions de types de fichiers non appliquées, conversion de documents non prévus par un utilisateur authentifié, gravité 4,3 sur 10 [3]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [],
+      "abreviations": [
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité qui tient un catalogue des failles exploitées"
+        },
+        {
+          "sigle": "XML",
+          "definition": "Extensible Markup Language : format de données structurées"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CISA Adds Six Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/10/cisa-adds-six-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-10"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-20320",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20320"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-111793",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111793"
         }
       ]
     }

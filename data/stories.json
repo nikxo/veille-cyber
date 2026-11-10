@@ -40937,6 +40937,109 @@
           "image": "https://research.checkpoint.com/wp-content/uploads/2026/11/Generated-image-3-1024x512.png"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-10-iverify-spyware-iphone-cybercriminels",
+      "title": "iVerify : des cybercriminels infectent des iPhone de particuliers avec des kits d'exploitation",
+      "created": "2026-11-10T16:20:00+00:00",
+      "updated": "2026-11-10T16:20:00+00:00",
+      "version": 1,
+      "resume": "Selon un rapport d'iVerify, des cybercriminels infectent à grande échelle des appareils de particuliers et d'employés avec des logiciels espions, à un taux de 1,07 infection pour 1 000 scans grand public [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Visite d'un site compromis (DarkSword, sans clic) ou de sites malveillants (Coruna) ; le rapport cite aussi des publicités en ligne [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Kits d'exploitation iOS déclenchant des failles WebKit et du noyau (Coruna) → accès aux messages, photos, e-mails, micro et caméra [1]."
+        },
+        {
+          "etape": "Vol de cryptomonnaies",
+          "texte": "Redirection vers de faux sites financiers en chinois (Coruna) → vol de cryptomonnaies sur plus de 42 000 appareils iOS [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (cybercriminels)",
+            "note": ""
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Sites compromis ou malveillants",
+            "note": "Publicités citées"
+          },
+          {
+            "id": "ios",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "iPhone de particuliers",
+            "note": "Contrôle obtenu"
+          },
+          {
+            "id": "fake",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux sites financiers",
+            "note": "En chinois"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Sites compromis, malveillants ou publicités"
+          },
+          {
+            "de": "web",
+            "vers": "ios",
+            "etape": 2,
+            "texte": "Failles WebKit et du noyau déclenchées"
+          },
+          {
+            "de": "ios",
+            "vers": "fake",
+            "etape": 3,
+            "texte": "Redirection vers de faux sites financiers"
+          }
+        ]
+      },
+      "limites": "Le rapport ne donne aucun identifiant CVE pour les failles WebKit et du noyau [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Cybercriminels utilisant DarkSword et Coruna, 75 % des détections [1]"
+      ],
+      "cibles": [
+        "Particuliers et employés d'entreprise, majoritairement de base [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "iOS",
+          "definition": "Système d'exploitation des iPhone d'Apple"
+        },
+        {
+          "sigle": "WebKit",
+          "definition": "Moteur de navigation web utilisé par Safari et iOS"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Cybercriminals are increasingly infecting regular people with spyware",
+          "site": "The Record",
+          "url": "https://therecord.media/spyware-cyber-crime-iverify",
+          "date": "2026-11-10",
+          "image": "https://cms.therecord.media/uploads/iphone_8675e4e6f4.jpg"
+        }
+      ]
     }
   ]
 }

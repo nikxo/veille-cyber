@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-11-10T15:08:19+00:00",
+  "feed_summary": "Overview On November 9, 2026, N-able announced that it was responding to the public disclosure of critical vulnerabilities affecting N-central , its remote monitoring and management (RMM) platform. In a public disclosure titled Able2Shell, an independent researcher has published details and proof-of-concept (PoC) code covering 33 issues. According to the disclosure, the issues include unauthenticated remote code execution (RCE), privilege escalation to root, credential disclosure, and unauthorized account creation. One unauthenticated chain combines XML external entity (XXE) and session-handling weaknesses to execute code as the nable service account. Other demonstrated chains involve an administrator viewing malicious patch metadata or use ProductAdmin credentials. Rapid7 Intelligence is ",
+  "id": "16c64913506b4d36",
+  "image": "https://www.rapid7.com/cdn/images/blt65a432ba319f4043/6846abddaf18306debe6cf4d/ETR.webp",
+  "lang": "en",
+  "link": "https://www.rapid7.com/blog/post/etr-critical-vulnerabilities-in-n-able-n-central-prompt-hosted-shutdown",
+  "published": "2026-11-10T14:20:34+00:00",
+  "source": "Rapid7",
+  "source_type": "analyse",
+  "title": "Critical vulnerabilities in N-able N-central prompt hosted shutdown"
+}

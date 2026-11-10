@@ -41291,6 +41291,153 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/10/xen-orchestrator-logo.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-10-outlook-cve-2026-124194",
+      "title": "Outlook : une faille exploitée pour voler des empreintes NTLM, corrigée au Patch Tuesday de novembre",
+      "created": "2026-11-10T19:20:00+00:00",
+      "updated": "2026-11-10T19:20:00+00:00",
+      "version": 1,
+      "resume": "Microsoft a corrigé lors de son Patch Tuesday de novembre 2026 une faille d'Outlook, CVE-2026-124194, exploitée dans des attaques pour voler des empreintes NTLM de comptes [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Envoi d'un fichier de message piégé que la victime doit ouvrir dans Outlook, sans que l'attaquant ait besoin d'être authentifié [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "À l'ouverture, Outlook peut se connecter à un emplacement réseau contrôlé par l'attaquant, sans l'avertissement habituel → divulgation possible d'informations d'authentification [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste avec Outlook",
+            "note": "Fichier ouvert"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Fichier de message piégé"
+          },
+          {
+            "de": "pc",
+            "vers": "att",
+            "etape": 2,
+            "texte": "Connexion vers l'emplacement de l'attaquant"
+          }
+        ]
+      },
+      "limites": "La source ne nomme ni les attaquants ni les victimes et ne détaille pas les attaques observées [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-124194",
+          "explication": "Microsoft Outlook : faille d'usurpation pouvant divulguer des informations d'authentification qui permettent de se faire passer pour l'utilisateur, exploitée activement [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [],
+      "abreviations": [
+        {
+          "sigle": "NTLM",
+          "definition": "NT LAN Manager : protocole d'authentification Windows fondé sur des empreintes de mots de passe"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Microsoft November 2026 Patch Tuesday fixes 1,235 flaws, Outlook zero-day",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-november-2026-patch-tuesday-fixes-1-235-flaws-outlook-zero-day/",
+          "date": "2026-11-10",
+          "image": "https://www.bleepstatic.com/content/hl-images/2024/10/08/patch_tuesday_microsoft.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-10-sophos-artex-clients",
+      "title": "Sophos observe chez des clients une activité compatible avec le framework d'intrusion ARTEX",
+      "created": "2026-11-10T19:20:00+00:00",
+      "updated": "2026-11-10T19:20:00+00:00",
+      "version": 1,
+      "resume": "Sophos a relevé chez un petit nombre de clients une activité compatible avec ARTEX, un framework open source de test d'intrusion agentique utilisé par plusieurs attaquants, ou avec d'autres outils offensifs assistés par intelligence artificielle [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Activité observée",
+          "texte": "Exécution de commandes par porte dérobée web et par SQL Server, vol d'identifiants et tentatives de passer d'un système à un autre [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes de clients Sophos",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Commandes, vol d'identifiants, tentatives de déplacement"
+          }
+        ]
+      },
+      "limites": "Sophos ne donne ni le nombre exact de clients, ni la période, ni l'identité des attaquants, ni l'ordre des actions, et ne dit pas si toutes les attaques ont été bloquées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Un petit nombre de clients de Sophos [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ARTEX",
+          "definition": "Framework open source de test d'intrusion piloté par des agents d'intelligence artificielle"
+        },
+        {
+          "sigle": "SQL",
+          "definition": "Structured Query Language : langage de requête des bases de données"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "ARTEX: Attackers apply agentic AI",
+          "site": "Sophos Threat Research",
+          "url": "https://www.sophos.com/en-us/blog/artex-attackers-apply-agentic-ai",
+          "date": "2026-11-10",
+          "image": "https://images.contentstack.io/v3/assets/blt38f1f401b66100ad/bltb4b6c0750dc5846c/6aad5e6160452d9f5056a4ef/logo.png"
+        }
+      ]
     }
   ]
 }

@@ -1,45 +1,5 @@
 [
  {
-  "id": "a13fbe020fd9ac8d",
-  "title": "Is the ad a scam? How to tell before you click",
-  "link": "https://www.welivesecurity.com/en/social-media/is-ad-scam-how-tell-before-click/",
-  "source": "WeLiveSecurity (ESET)",
-  "raison": "conseils génériques",
-  "date": "2026-10-21T04:10:00+00:00"
- },
- {
-  "id": "7596636d7e8f23f0",
-  "title": "Accenture, Dragos, SANS Launch $10M Initiative to Defend Small US Utilities",
-  "link": "https://www.securityweek.com/accenture-dragos-sans-launch-10m-initiative-to-defend-small-us-utilities/",
-  "source": "SecurityWeek",
-  "raison": "annonce d'initiative, aucune attaque décrite",
-  "date": "2026-10-21T05:10:00+00:00"
- },
- {
-  "id": "1bbde50985fb84ab",
-  "title": "IA agentique : Couchbase décline les briques de son Data Plane en services managés",
-  "link": "https://www.lemagit.fr/actualites/366652504/IA-agentique-Couchbase-decline-les-briques-de-son-Data-Plane-en-services-manages",
-  "source": "LeMagIT",
-  "raison": "annonce produit",
-  "date": "2026-10-21T06:20:00+00:00"
- },
- {
-  "id": "705a2aee0bf394a3",
-  "title": "PHP2Shell: Two Unpatched Critical PHP RCE Flaws (CVSS 9.2) Trigger Emergency Security Alert",
-  "link": "https://thehackernews.com/2026/10/php2shell-two-unpatched-critical-php.html",
-  "source": "The Hacker News",
-  "raison": "vulnérabilités sans exploitation constatée",
-  "date": "2026-10-21T06:20:00+00:00"
- },
- {
-  "id": "48f0244eeee486bb",
-  "title": "Rapid Response: php2shell, Leaked Critical PHP Vulnerabilities (CVE-2026-109618 & CVE-2026-109619)",
-  "link": "https://www.huntress.com/blog/php2shell-leaked-critical-php-vulnerabilities",
-  "source": "Huntress",
-  "raison": "vulnérabilité sans exploitation constatée",
-  "date": "2026-10-21T07:15:00+00:00"
- },
- {
   "id": "b1b88f8a979ae4c4",
   "title": "PHP2Shell: Mass Exploitation Looms for Leaked Critical PHP Flaws",
   "link": "https://www.securityweek.com/php2shell-mass-exploitation-looms-for-leaked-critical-php-flaws/",
@@ -3998,5 +3958,45 @@
   "source": "SecurityWeek",
   "raison": "podcast, contenu générique sans attaque",
   "date": "2026-11-10T17:20:00+00:00"
+ },
+ {
+  "id": "6eeba36a8858031a",
+  "title": "Adobe Patches 110 Vulnerabilities Across 9 Products",
+  "link": "https://www.securityweek.com/adobe-patches-110-vulnerabilities-across-9-products/",
+  "source": "SecurityWeek",
+  "raison": "correctifs Adobe, aucune exploitation constatée",
+  "date": "2026-11-10T19:20:00+00:00"
+ },
+ {
+  "id": "80496ac2144fe73b",
+  "title": "AI Coding Agents Leak Thousands of Secrets to GitHub",
+  "link": "https://www.darkreading.com/cyber-risk/ai-coding-agents-leak-secrets-github",
+  "source": "Dark Reading",
+  "raison": "fuite accidentelle de secrets par un outil, aucune attaque décrite (article inaccessible, résumé du flux)",
+  "date": "2026-11-10T19:20:00+00:00"
+ },
+ {
+  "id": "ccb5982c41df557c",
+  "title": "Étude : les RSSI sous pression avec l’adoption rapide de l’IA",
+  "link": "https://www.lemagit.fr/actualites/366654681/Etude-les-RSSI-sous-pression-avec-ladoption-rapide-de-lIA",
+  "source": "LeMagIT",
+  "raison": "étude sur les RSSI, aucune attaque décrite",
+  "date": "2026-11-10T19:20:00+00:00"
+ },
+ {
+  "id": "e22b6495757a7468",
+  "title": "Windows 11 KB5132061 & KB5131087 cumulative updates released",
+  "link": "https://www.bleepingcomputer.com/news/microsoft/windows-11-kb5132061-and-kb5131087-cumulative-updates-released/",
+  "source": "BleepingComputer",
+  "raison": "mises à jour Windows 11, aucune exploitation décrite",
+  "date": "2026-11-10T19:20:00+00:00"
+ },
+ {
+  "id": "e82e4b1146b0c744",
+  "title": "NIS 2 est enfin arrivé à l’Assemblée",
+  "link": "https://www.lemagit.fr/actualites/366654660/NIS-2-est-enfin-arrive-a-lAssemblee",
+  "source": "LeMagIT",
+  "raison": "actualité législative (NIS 2), aucune attaque décrite",
+  "date": "2026-11-10T19:20:00+00:00"
  }
 ]

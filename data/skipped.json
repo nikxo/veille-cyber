@@ -1,21 +1,5 @@
 [
   {
-    "id": "acd4ea5ac4f868fa",
-    "title": "Violations de données à répétition : l'Anssi fait son bilan et donne ses conseils",
-    "link": "https://www.lemagit.fr/actualites/366652500/Violations-de-donnees-a-repetition-lAnssi-fait-son-bilan-et-donne-ses-conseils",
-    "source": "LeMagIT",
-    "raison": "bilan et conseils généraux de l'Anssi, sans détail d'attaque précis",
-    "date": "2026-10-20T14:30:00+00:00"
-  },
-  {
-    "id": "3c0f73605b8f05a3",
-    "title": "Hacker gets 8 years for stealing $3.3 million from taxpayers",
-    "link": "https://www.bleepingcomputer.com/news/security/hacker-gets-8-years-for-stealing-33-million-from-taxpayers/",
-    "source": "BleepingComputer",
-    "raison": "actualité judiciaire (condamnation), article inaccessible",
-    "date": "2026-10-20T14:30:00+00:00"
-  },
-  {
     "id": "00cd83ad26004f65",
     "title": "DHS bans DeepSeek products across US federal civilian agencies",
     "link": "https://www.bleepingcomputer.com/news/security/dhs-bans-deepseek-products-across-us-federal-civilian-agencies/",
@@ -3998,5 +3982,21 @@
     "source": "The Hacker News",
     "raison": "annonce produit",
     "date": "2026-11-10T09:07:14+00:00"
+  },
+  {
+    "id": "ce0b470d4dea056e",
+    "title": "SAP Patches Four CVSS 10.0 Flaws, Including Two Enabling Remote Code Execution",
+    "link": "https://thehackernews.com/2026/11/sap-patches-four-cvss-100-flaws.html",
+    "source": "The Hacker News",
+    "raison": "correctifs de failles sans exploitation constatée",
+    "date": "2026-11-10T10:30:00+00:00"
+  },
+  {
+    "id": "dbd8ed39a088a9b7",
+    "title": "N-able Takes N-central Offline as Researcher Drops Over 30 Zero-Days",
+    "link": "https://www.securityweek.com/n-able-takes-n-central-offline-as-researcher-drops-over-30-zero-days/",
+    "source": "SecurityWeek",
+    "raison": "failles publiées sans exploitation constatée",
+    "date": "2026-11-10T10:30:00+00:00"
   }
 ]

@@ -41316,9 +41316,9 @@
       "id": "2026-11-10-outlook-cve-2026-124194",
       "title": "Outlook : une faille exploitée pour voler des empreintes NTLM, corrigée au Patch Tuesday de novembre",
       "created": "2026-11-10T19:20:00+00:00",
-      "updated": "2026-11-10T22:15:00+00:00",
-      "version": 4,
-      "resume": "Microsoft a corrigé lors de son Patch Tuesday de novembre 2026 une faille d'Outlook, CVE-2026-124194, exploitée dans des attaques pour voler des empreintes NTLM de comptes [1, 2].",
+      "updated": "2026-11-10T23:15:00+00:00",
+      "version": 5,
+      "resume": "Microsoft a corrigé lors de son Patch Tuesday de novembre 2026 une faille d'Outlook, CVE-2026-124194, exploitée dans des attaques pour voler des empreintes NTLM de comptes [1, 2, 5].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -41403,6 +41403,12 @@
           "titre": "Microsoft Fixes Nearly 1,100 Security Vulnerabilities",
           "site": "Krebs on Security",
           "url": "https://krebsonsecurity.com/2026/11/microsoft-fixes-nearly-1100-security-vulnerabilities/",
+          "date": "2026-11-10"
+        },
+        {
+          "titre": "November Patch Tuesday: An Overflowing Cornucopia of CVEs",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/vulnerabilities-threats/november-patch-tuesday-cornucopia-cves",
           "date": "2026-11-10"
         }
       ]
@@ -41771,6 +41777,135 @@
           "titre": "Fiche NVD CVE-2026-111793",
           "site": "NVD (NIST)",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111793"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-10-railway-secrets-clients-usage-ia",
+      "title": "Railway : failles de l'infrastructure exploitées, secrets de clients volés et 740 000 dollars d'usage frauduleux d'IA",
+      "created": "2026-11-10T23:15:00+00:00",
+      "updated": "2026-11-10T23:15:00+00:00",
+      "version": 1,
+      "resume": "Des pirates ont exploité des failles de l'infrastructure de l'hébergeur cloud Railway pour voler des secrets d'authentification de clients, puis généré environ 740 000 dollars d'usage frauduleux de services d'intelligence artificielle [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Le 20 octobre, exploitation d'une faille jusque-là inconnue de l'infrastructure de build, permettant de sortir de l'isolation du système de fichiers → obtention d'un identifiant interne [1]."
+        },
+        {
+          "etape": "Vol du code source",
+          "texte": "Identifiant interne utilisé → accès aux historiques de build et copie du code source interne de Railway, analysé pour trouver d'autres moyens de compromettre la plateforme [1]."
+        },
+        {
+          "etape": "Extension de l'accès",
+          "texte": "Exploitation d'une relation de confiance mal configurée → accès plus étendu à l'infrastructure de Railway et identifiants servant à déchiffrer les variables d'environnement des clients [1]."
+        },
+        {
+          "etape": "Recherche de secrets",
+          "texte": "Recherche ciblée d'identifiants de fournisseurs d'intelligence artificielle ; certaines requêtes visaient aussi des identifiants de services cloud, de bases de données et de paiement [1]."
+        },
+        {
+          "etape": "Usage frauduleux",
+          "texte": "Identifiants volés utilisés → environ 740 000 dollars d'usage non autorisé de services d'intelligence artificielle [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "bld",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Infrastructure de build Railway",
+            "note": "Identifiant interne obtenu"
+          },
+          {
+            "id": "src",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Historiques de build",
+            "note": "Code source copié"
+          },
+          {
+            "id": "env",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Variables d'environnement des clients",
+            "note": "Identifiants de déchiffrement"
+          },
+          {
+            "id": "ia",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Fournisseurs d'intelligence artificielle",
+            "note": "Usage non autorisé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "bld",
+            "etape": 1,
+            "texte": "Faille inconnue de l'infrastructure de build"
+          },
+          {
+            "de": "bld",
+            "vers": "src",
+            "etape": 2,
+            "texte": "Identifiant interne, historiques consultés"
+          },
+          {
+            "de": "att",
+            "vers": "env",
+            "etape": 3,
+            "texte": "Relation de confiance mal configurée exploitée"
+          },
+          {
+            "de": "env",
+            "vers": "ia",
+            "etape": 5,
+            "texte": "Identifiants volés utilisés"
+          }
+        ]
+      },
+      "limites": "La source ne nomme pas les attaquants et ne donne aucun identifiant public pour les failles ; 100 000 est un maximum, pas le nombre confirmé d'espaces de travail aux secrets volés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifiés ; l'article rattache l'incident à une vague d'attaques, nommée Black October par Wiz, ayant visé Northflank, OpenCode, Warp et Lightning AI [1]"
+      ],
+      "cibles": [
+        "Railway, hébergeur cloud : jusqu'à 100 000 espaces de travail potentiellement concernés, soit 1,85 % au maximum [1]",
+        "1 852 utilisateurs dont des jetons de comptes liés ont été exposés, dont des jetons OAuth GitHub [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "OAuth",
+          "definition": "Open Authorization : protocole qui délègue un accès à un compte par jeton"
+        },
+        {
+          "sigle": "AI",
+          "definition": "Artificial Intelligence : intelligence artificielle"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Railway breach leads to $740,000 in fraudulent AI charges",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/apple/railway-breach-leads-to-740-000-in-fraudulent-ai-charges/",
+          "date": "2026-11-10",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/22/railway.jpg"
         }
       ]
     }

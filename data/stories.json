@@ -40187,8 +40187,8 @@
       "id": "2026-11-10-chrome-xml-zero-day-cve-2026-125350",
       "title": "Chrome : faille zero-day du composant XML exploitée dans la nature, corrigée dans Chrome 157",
       "created": "2026-11-10T07:30:00+00:00",
-      "updated": "2026-11-10T08:30:00+00:00",
-      "version": 2,
+      "updated": "2026-11-10T09:07:14+00:00",
+      "version": 3,
       "resume": "Google a corrigé dans Chrome une faille de gravité élevée du composant XML, déjà exploitée dans des attaques. Un chercheur anonyme l'a signalée le 6 novembre [1].",
       "chaine": [
         {
@@ -40197,7 +40197,7 @@
         },
         {
           "etape": "Exploitation de la faille",
-          "texte": "Utilisation de mémoire après libération dans le composant XML de Chrome → faille exploitée dans la nature [1, 2]."
+          "texte": "Utilisation de mémoire après libération dans le composant XML de Chrome → faille exploitée dans la nature [1, 2, 3]."
         }
       ],
       "parcours": {
@@ -40226,11 +40226,11 @@
           }
         ]
       },
-      "limites": "Google n'a pas partagé de détails : ni vecteur d'accès, ni acteur, ni victimes, ni nombre d'attaques [1, 2].",
+      "limites": "Google n'a pas partagé de détails : ni vecteur d'accès, ni acteur, ni victimes, ni nombre d'attaques [1, 2, 3].",
       "cves": [
         {
           "id": "CVE-2026-125350",
-          "explication": "Chrome : utilisation de mémoire après libération dans le composant XML, gravité élevée, exploitée dans la nature, corrigée dans Chrome 157 [1] ; exécution de code arbitraire possible [2]."
+          "explication": "Chrome : utilisation de mémoire après libération dans le composant XML, gravité élevée, exploitée dans la nature, corrigée dans Chrome 157 [1, 3] ; exécution de code arbitraire possible [2, 3]."
         }
       ],
       "mitre": [],
@@ -40256,6 +40256,13 @@
           "url": "https://thehackernews.com/2026/11/google-issues-chrome-security-update.html",
           "date": "2026-11-10",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjk5S9J891bQS8W6TgyoiEPQ7geGia8FqqWjckFlo9qMH2wXIXv-7gyod1XKUpI9BfgcliN2Re8A85rJ121jxqgfnw1LsjYBvAYtX7694GVgMF7B94G0n5MzqMaKqLAbr-No1nqrN0gyF8MFR_bYQIYlqiTh_FzobmWrq4NOCLbcW_78uEMMW5FE4eqJoo/s1700-nu-rw-lo-l85-e365/chrome-0day.jpg"
+        },
+        {
+          "titre": "Google patches eighth Chrome zero-day exploited in attacks this year",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/google-patches-eighth-chrome-zero-day-exploited-in-attacks-this-year/",
+          "date": "2026-11-10",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/10/Chrome.jpg"
         }
       ]
     },

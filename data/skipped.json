@@ -1,13 +1,5 @@
 [
   {
-    "id": "ec416d3cb4043387",
-    "title": "Arnaque au bitcoin : un réseau piloté depuis des prisons",
-    "link": "https://www.zataz.com/arnaque-au-bitcoin-un-reseau-pilote-depuis-des-prisons/",
-    "source": "ZATAZ",
-    "raison": "arnaque téléphonique sans intrusion informatique, actualité judiciaire",
-    "date": "2026-10-21T10:30:00+00:00"
-  },
-  {
     "id": "04f40d50aa39ba51",
     "title": "Multiples vulnérabilités dans PHP (21 octobre 2026)",
     "link": "https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-014/",
@@ -3998,5 +3990,13 @@
     "source": "Dark Reading",
     "raison": "article général sur l'outil Artex et ses dérivés, aucune attaque précise décrite (page inaccessible, résumé du flux)",
     "date": "2026-11-10T22:15:00+00:00"
+  },
+  {
+    "id": "841055f88e0326a2",
+    "title": "Detecting sleeper agents hiding in AI model neurons",
+    "link": "https://www.microsoft.com/en-us/security/blog/2026/11/10/detecting-sleeper-agents-hiding-in-ai-model-neurons/",
+    "source": "Microsoft Threat Intelligence",
+    "raison": "recherche en laboratoire sur des portes dérobées dans des modèles d'IA, aucune exploitation observée selon Microsoft",
+    "date": "2026-11-11T02:12:00+00:00"
   }
 ]

@@ -41316,8 +41316,8 @@
       "id": "2026-11-10-outlook-cve-2026-124194",
       "title": "Outlook : une faille exploitée pour voler des empreintes NTLM, corrigée au Patch Tuesday de novembre",
       "created": "2026-11-10T19:20:00+00:00",
-      "updated": "2026-11-11T00:10:00+00:00",
-      "version": 6,
+      "updated": "2026-11-11T02:12:00+00:00",
+      "version": 7,
       "resume": "Microsoft a corrigé lors de son Patch Tuesday de novembre 2026 une faille d'Outlook, CVE-2026-124194, exploitée dans des attaques pour voler des empreintes NTLM de comptes [1, 2, 5].",
       "chaine": [
         {
@@ -41361,11 +41361,11 @@
           }
         ]
       },
-      "limites": "Les sources ne nomment ni attaquants ni victimes et ne détaillent pas les attaques [1, 2, 3, 4, 6]. Elles divergent sur le nombre de failles : 1 235 [1], 1 094 [2], 1 093 [3, 4] ou 1 092 [6].",
+      "limites": "Les sources ne nomment ni attaquants ni victimes et ne détaillent pas les attaques [1, 2, 3, 4, 6]. Nombre de failles divergent : 1 235 [1], 1 094 [2], 1 093 [3, 4], 1 092 [6], 1 095 [7].",
       "cves": [
         {
           "id": "CVE-2026-124194",
-          "explication": "Microsoft Outlook : faille d'usurpation pouvant divulguer des informations d'authentification, exploitée activement [1, 4] ; gravité modérée selon Microsoft, score 6,5 [2] ; ajoutée au catalogue américain des failles exploitées [3]."
+          "explication": "Microsoft Outlook : faille d'usurpation pouvant divulguer des informations d'authentification, exploitée activement [1, 4] ; gravité modérée selon Microsoft, score 6,5 [2, 7] ; ajoutée au catalogue américain des failles exploitées [3]."
         }
       ],
       "mitre": [],
@@ -41417,6 +41417,13 @@
           "url": "https://www.rapid7.com/blog/post/em-patch-tuesday-november-2026",
           "date": "2026-11-10",
           "image": "https://www.rapid7.com/cdn/images/blt9952397815d84355/6849acff3860836b5c360685/patch-tuesday-repeated.webp"
+        },
+        {
+          "titre": "Microsoft Patch Tuesday for November 2026 — Snort rules and prominent vulnerabilities",
+          "site": "Cisco Talos",
+          "url": "https://blog.talosintelligence.com/microsoft-patch-tuesday-for-november-2026/",
+          "date": "2026-11-11",
+          "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2022/10/GnericCiscoTalos-Header-1.jpg"
         }
       ]
     },

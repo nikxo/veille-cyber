@@ -41695,9 +41695,9 @@
       "id": "2026-11-10-cisa-kev-broadworks-openwave",
       "title": "Cisco BroadWorks et Openwave Webtop : deux failles exploitées ajoutées au catalogue de la CISA",
       "created": "2026-11-10T21:08:32+00:00",
-      "updated": "2026-11-10T21:08:32+00:00",
-      "version": 1,
-      "resume": "La CISA a ajouté le 10 novembre 2026 six failles à son catalogue des vulnérabilités exploitées, sur la base de preuves d'exploitation active, dont une de Cisco BroadWorks et une d'Openwave Webtop Media Transcoder [1].",
+      "updated": "2026-11-11T07:10:00+00:00",
+      "version": 2,
+      "resume": "La CISA a ajouté le 10 novembre 2026 six failles à son catalogue des vulnérabilités exploitées, sur preuves d'exploitation active, dont une de Cisco BroadWorks et une d'Openwave Webtop Media Transcoder [1]. Des correctifs existaient depuis août et octobre 2026 [4].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -41751,7 +41751,7 @@
           }
         ]
       },
-      "limites": "Les sources ne décrivent ni les attaques observées, ni les acteurs, ni les victimes : les étapes reprennent seulement le mécanisme des failles [1, 2, 3].",
+      "limites": "Il n'existe pas de détails sur la manière dont les failles sont exploitées [4]. Les étapes reprennent seulement le mécanisme des failles [1, 2, 3].",
       "cves": [
         {
           "id": "CVE-2026-20320",
@@ -41791,6 +41791,13 @@
           "titre": "Fiche NVD CVE-2026-111793",
           "site": "NVD (NIST)",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111793"
+        },
+        {
+          "titre": "Cisco BroadWorks and Openwave Flaws Actively Exploited Despite Available Patches",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/cisco-broadworks-and-openwave-flaws.html",
+          "date": "2026-11-11",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4aXykaOroazGO_7IuXugse9ynGpt1PkKJDM8lKL4by93ixX28cs23KAZZRF2dCN2cogu1ti8q5kmqfqSBLmOXWkVi7ZGWmwYMkeCOUXsOXwLoF07FbzmVnlr9DoeqtCboI_9LKWgohgWi2jIB1TzGO6uEkp5lsMnq5fSVqrN-NZGJjAQE2kIUyHsdkw6J/s1700-nu-rw-lo-l85-e365/cisa-cisco.jpg"
         }
       ]
     },

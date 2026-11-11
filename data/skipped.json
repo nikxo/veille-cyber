@@ -1,13 +1,5 @@
 [
   {
-    "id": "04f40d50aa39ba51",
-    "title": "Multiples vulnérabilités dans PHP (21 octobre 2026)",
-    "link": "https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-014/",
-    "source": "CERT-FR (alertes)",
-    "raison": "vulnérabilités sans exploitation constatée",
-    "date": "2026-10-21T11:07:09+00:00"
-  },
-  {
     "id": "36782d65b106d12c",
     "title": "Sekoia + Zimperium: investigate mobile threats in your SOC",
     "link": "https://www.sekoia.com/blog/from-mobile-threat-detection-to-autonomous-investigation-connecting-zimperium-with-sekoia",
@@ -3998,5 +3990,13 @@
     "source": "Microsoft Threat Intelligence",
     "raison": "recherche en laboratoire sur des portes dérobées dans des modèles d'IA, aucune exploitation observée selon Microsoft",
     "date": "2026-11-11T02:12:00+00:00"
+  },
+  {
+    "id": "9532b0011c04827e",
+    "title": "Bluetooth, AirPlay Pairing Vulnerabilities Patched Across Apple Platforms",
+    "link": "https://www.securityweek.com/bluetooth-airplay-pairing-vulnerabilities-patched-across-apple-platforms/",
+    "source": "SecurityWeek",
+    "raison": "correctifs Apple sans exploitation constatée sur les produits Apple ; la faille Brotli exploitée ailleurs n'est pas décrite",
+    "date": "2026-11-11T07:10:00+00:00"
   }
 ]

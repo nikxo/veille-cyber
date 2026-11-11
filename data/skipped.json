@@ -1,21 +1,5 @@
 [
   {
-    "id": "36782d65b106d12c",
-    "title": "Sekoia + Zimperium: investigate mobile threats in your SOC",
-    "link": "https://www.sekoia.com/blog/from-mobile-threat-detection-to-autonomous-investigation-connecting-zimperium-with-sekoia",
-    "source": "Sekoia",
-    "raison": "annonce produit",
-    "date": "2026-10-21T11:07:09+00:00"
-  },
-  {
-    "id": "7554ab6fc8d5fc05",
-    "title": "Microsoft says October updates didn’t actually fix VPN issues",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-didnt-actually-fix-vpn-issues-caused-by-windows-updates/",
-    "source": "BleepingComputer",
-    "raison": "bogue logiciel, pas une attaque",
-    "date": "2026-10-21T11:07:09+00:00"
-  },
-  {
     "id": "82831d7f8107d4a1",
     "title": "Microsoft intègre l’IA dans Azure en local, mais Bleu reste la seule option souveraine",
     "link": "https://www.lemagit.fr/actualites/366652526/Microsoft-integre-lIA-dans-Azure-en-local-mais-Bleu-reste-la-seule-option-souveraine",
@@ -3998,5 +3982,21 @@
     "source": "SecurityWeek",
     "raison": "correctifs Apple sans exploitation constatée sur les produits Apple ; la faille Brotli exploitée ailleurs n'est pas décrite",
     "date": "2026-11-11T07:10:00+00:00"
+  },
+  {
+    "id": "6ccbba1d201a8084",
+    "title": "Chipmaker Patch Tuesday: Over 200 Vulnerabilities Addressed by Intel, AMD",
+    "link": "https://www.securityweek.com/chipmaker-patch-tuesday-over-200-vulnerabilities-addressed-by-intel-amd/",
+    "source": "SecurityWeek",
+    "raison": "vulnérabilités sans exploitation constatée",
+    "date": "2026-11-11T09:20:00+00:00"
+  },
+  {
+    "id": "e23f07d99f928138",
+    "title": "Microsoft Researchers Show AI Agents Can Be Backdoored by Editing Fewer Than 10 Neurons",
+    "link": "https://thehackernews.com/2026/11/microsoft-researchers-show-ai-agents.html",
+    "source": "The Hacker News",
+    "raison": "recherche sans attaque constatée dans la nature",
+    "date": "2026-11-11T09:20:00+00:00"
   }
 ]

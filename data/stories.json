@@ -41316,8 +41316,8 @@
       "id": "2026-11-10-outlook-cve-2026-124194",
       "title": "Outlook : une faille exploitée pour voler des empreintes NTLM, corrigée au Patch Tuesday de novembre",
       "created": "2026-11-10T19:20:00+00:00",
-      "updated": "2026-11-10T23:15:00+00:00",
-      "version": 5,
+      "updated": "2026-11-11T00:10:00+00:00",
+      "version": 6,
       "resume": "Microsoft a corrigé lors de son Patch Tuesday de novembre 2026 une faille d'Outlook, CVE-2026-124194, exploitée dans des attaques pour voler des empreintes NTLM de comptes [1, 2, 5].",
       "chaine": [
         {
@@ -41326,7 +41326,7 @@
         },
         {
           "etape": "Vol d'identifiants",
-          "texte": "À l'ouverture, Outlook peut se connecter à un emplacement réseau de l'attaquant, sans l'avertissement habituel → divulgation d'informations d'authentification permettant d'usurper l'identité de l'utilisateur [1, 2, 3]."
+          "texte": "À l'ouverture, Outlook peut se connecter sans avertissement à un emplacement de l'attaquant → divulgation de l'empreinte NTLM v2 de l'utilisateur, pouvant servir à usurper son identité [1, 2, 3, 6]."
         }
       ],
       "parcours": {
@@ -41361,7 +41361,7 @@
           }
         ]
       },
-      "limites": "Les sources ne nomment ni attaquants ni victimes et ne détaillent pas les attaques [1, 2, 3, 4]. Elles divergent sur le nombre de failles : 1 235 [1], 1 094 [2] ou 1 093 [3, 4].",
+      "limites": "Les sources ne nomment ni attaquants ni victimes et ne détaillent pas les attaques [1, 2, 3, 4, 6]. Elles divergent sur le nombre de failles : 1 235 [1], 1 094 [2], 1 093 [3, 4] ou 1 092 [6].",
       "cves": [
         {
           "id": "CVE-2026-124194",
@@ -41410,6 +41410,13 @@
           "site": "Dark Reading",
           "url": "https://www.darkreading.com/vulnerabilities-threats/november-patch-tuesday-cornucopia-cves",
           "date": "2026-11-10"
+        },
+        {
+          "titre": "Patch Tuesday - November 2026",
+          "site": "Rapid7",
+          "url": "https://www.rapid7.com/blog/post/em-patch-tuesday-november-2026",
+          "date": "2026-11-10",
+          "image": "https://www.rapid7.com/cdn/images/blt9952397815d84355/6849acff3860836b5c360685/patch-tuesday-repeated.webp"
         }
       ]
     },

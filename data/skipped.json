@@ -1,13 +1,5 @@
 [
   {
-    "id": "82831d7f8107d4a1",
-    "title": "Microsoft intègre l’IA dans Azure en local, mais Bleu reste la seule option souveraine",
-    "link": "https://www.lemagit.fr/actualites/366652526/Microsoft-integre-lIA-dans-Azure-en-local-mais-Bleu-reste-la-seule-option-souveraine",
-    "source": "LeMagIT",
-    "raison": "actualité sur la souveraineté, pas d'attaque",
-    "date": "2026-10-21T11:07:09+00:00"
-  },
-  {
     "id": "e891e3abd6651321",
     "title": "China Defends DeepSeek After US Ban of Its AI From Government Systems",
     "link": "https://www.securityweek.com/china-defends-deepseek-after-us-ban-of-its-ai-from-government-systems/",
@@ -3998,5 +3990,13 @@
     "source": "The Hacker News",
     "raison": "recherche sans attaque constatée dans la nature",
     "date": "2026-11-11T09:20:00+00:00"
+  },
+  {
+    "id": "ba110c77735afade",
+    "title": "Microsoft fixes Exchange sign-ins broken by Windows Server updates",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-exchange-sign-ins-broken-by-october-windows-server-updates/",
+    "source": "BleepingComputer",
+    "raison": "correctif de bug produit, aucune attaque décrite",
+    "date": "2026-11-11T10:20:00+00:00"
   }
 ]

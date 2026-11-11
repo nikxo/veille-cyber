@@ -41248,11 +41248,11 @@
     {
       "schema": 3,
       "id": "2026-11-10-xen-orchestra-contournement-authentification",
-      "title": "Xen Orchestra : faille critique de contournement d'authentification exploitée",
+      "title": "Xen Orchestra : faille critique de contournement d'authentification exploitée, une seconde faille sans correctif",
       "created": "2026-11-10T17:20:00+00:00",
-      "updated": "2026-11-10T20:09:00+00:00",
-      "version": 2,
-      "resume": "Une faille critique de contournement d'authentification de Xen Orchestra, outil de gestion des environnements XCP-ng, est activement exploitée selon l'éditeur Vates [1, 2]. Les versions 6.9.1 et 6.10.0 la corrigent [2].",
+      "updated": "2026-11-11T16:09:20+00:00",
+      "version": 3,
+      "resume": "Une faille critique de contournement d'authentification de Xen Orchestra, outil de gestion des environnements XCP-ng, est exploitée selon l'éditeur Vates [1, 2, 3]. Le même acteur a exploité une seconde faille, dont le correctif est encore en développement [3].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -41263,8 +41263,12 @@
           "texte": "Actions possibles avec les privilèges Admin ; un point d'accès de l'interface fournit des identifiants de jetons de connexion réutilisables [1, 2]."
         },
         {
+          "etape": "Seconde faille",
+          "texte": "Avec les privilèges administrateur, le même acteur a exploité une seconde faille permettant des imports de machines virtuelles malveillantes qui peuvent compromettre les hôtes XCP-ng [3]."
+        },
+        {
           "etape": "Prise de contrôle",
-          "texte": "Selon Vates, la compromission peut mener à l'exécution de code sur les pools gérés et au contrôle complet d'un hôte XCP-ng en root [1, 2]."
+          "texte": "Selon Vates, la compromission peut mener à l'exécution de code sur les pools gérés et au contrôle complet d'un hôte XCP-ng en root [1, 2, 3]."
         }
       ],
       "parcours": {
@@ -41302,15 +41306,22 @@
             "de": "xo",
             "vers": "xcp",
             "etape": 3,
+            "texte": "Imports de machines virtuelles malveillantes"
+          },
+          {
+            "de": "xo",
+            "vers": "xcp",
+            "etape": 4,
             "texte": "Exécution de code possible sur les pools gérés"
           }
         ]
       },
-      "limites": "Pas encore d'identifiant CVE ; ni acteur nommé ni victime, début de l'exploitation non daté [1, 2]. Rôle des fichiers cron et de la machine « pivot2 », cités comme indicateurs, non précisé [2].",
+      "limites": "Pas d'identifiant CVE, ni acteur nommé ni victime [1, 2, 3]. Correctif en 6.9.1 et 6.10.0 selon [2] ; versions antérieures à 6.9.2 et 6.10.1 touchées selon [3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Acteur non identifié ; une adresse liée est signalée sur VirusTotal comme serveur de commande de RedLine Stealer [2]"
+        "Acteur non identifié ; une adresse liée est signalée sur VirusTotal comme serveur de commande de RedLine Stealer [2]",
+        "Selon Vates, l'acteur opère initialement depuis l'adresse 91.211.251.112:8001 et via le réseau Tor [3]"
       ],
       "cibles": [],
       "abreviations": [
@@ -41333,6 +41344,13 @@
           "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-xen-orchestra.html",
           "date": "2026-11-10",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMH_u7t-U3KIejAItsfC_js20xJgxT2ITYLsR0DAxzfcwDvPrzBHkpZlDuALWPnACOoknX2IALwHIUxIzfhbA24M7e8cGWTZpBMWqpX-wn6xqe8_U3fAtnR-9RsRdFHMCjvNnBsMXrEUKhVYS5bbTGL3B50UMO0aydtHIomY89s2iDAQMq0jXJJ3vh4Nvi/s1700-nu-rw-lo-l85-e365/XEN-attack.jpg"
+        },
+        {
+          "titre": "Critical Xen Orchestra Flaws Exploited in Attacks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/critical-xen-orchestra-flaws-exploited-in-attacks/",
+          "date": "2026-11-11",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/01/Veeam-backup-cloud-storage.jpeg"
         }
       ]
     },
@@ -42537,6 +42555,266 @@
           "titre": "Fiche NVD CVE-2024-40711",
           "site": "NVD (NIST)",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-40711"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-11-falcon-navigateurs-gouvernements",
+      "title": "Falcon : un framework d'attaque par le navigateur compromet des entités gouvernementales au Moyen-Orient et en Asie du Sud-Est",
+      "created": "2026-11-11T16:09:20+00:00",
+      "updated": "2026-11-11T16:09:20+00:00",
+      "version": 1,
+      "resume": "Selon Unit 42, un acteur a utilisé le framework Falcon, qui exécute du JavaScript malveillant dans le navigateur, pour compromettre des entités gouvernementales d'un pays du Moyen-Orient et de quatre pays d'Asie du Sud-Est entre mars et mai 2026 [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Script Falcon injecté dans l'en-tête du webmail Roundcube d'un ministère au Moyen-Orient et déployé dans une application web de police en Asie du Sud-Est [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Sur Roundcube, le script intercepte les identifiants à la connexion et donne à l'opérateur l'accès à la boîte de réception et aux paramètres du compte [1]."
+        },
+        {
+          "etape": "Fausse mise à jour",
+          "texte": "Sur l'application de la police, fausse invite de mise à jour Adobe Flash Player portant un nom d'utilisateur précis ; le bouton de mise à jour délivre l'implant Antino [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Antino s'ajoute à la clé Run du registre Windows et utilise Microsoft OneDrive comme canal de commande [1]."
+        },
+        {
+          "etape": "Extension piégée",
+          "texte": "Entité affiliée à un département national de la justice : extension Chrome imitant un lecteur PDF, chargée en mode développeur → vol d'identifiants en clair et capture d'écran d'un document [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "rc",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Webmail Roundcube d'un ministère",
+            "note": "Script Falcon injecté"
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Application web de police",
+            "note": "Falcon déployé"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes des utilisateurs ciblés",
+            "note": "Implant Antino"
+          },
+          {
+            "id": "od",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Microsoft OneDrive",
+            "note": "Canal de commande"
+          },
+          {
+            "id": "nav",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Navigateur Chrome (Justice)",
+            "note": "Extension piégée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "rc",
+            "etape": 1,
+            "texte": "Script injecté dans l'en-tête"
+          },
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 1,
+            "texte": "Falcon déployé dans l'application"
+          },
+          {
+            "de": "rc",
+            "vers": "att",
+            "etape": 2,
+            "texte": "Identifiants interceptés à la connexion"
+          },
+          {
+            "de": "app",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Fausse mise à jour Flash, implant Antino"
+          },
+          {
+            "de": "pc",
+            "vers": "od",
+            "etape": 4,
+            "texte": "Commandes échangées via OneDrive"
+          },
+          {
+            "de": "nav",
+            "vers": "att",
+            "etape": 5,
+            "texte": "Identifiants et capture d'écran volés"
+          }
+        ]
+      },
+      "limites": "Unit 42 dit ignorer comment les extensions de navigateur sont déployées ; son analyse ne nomme aucun acteur [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Acteur non nommé ; selon Unit 42, Falcon et PeckBirdy (décrit par Trend Micro en janvier 2026) sont des variantes du même framework [1]"
+      ],
+      "cibles": [
+        "Ministère des Affaires étrangères d'un pays du Moyen-Orient, via son webmail Roundcube [1]",
+        "Entité de police d'Asie du Sud-Est [1]",
+        "Entité affiliée à un département national de la justice d'un pays d'Asie du Sud-Est [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "PDF",
+          "definition": "Portable Document Format : format de document"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "The XG Files: Falcon C2 Flying Under The (Browser) Radar",
+          "site": "Unit 42 (Palo Alto Networks)",
+          "url": "https://unit42.paloaltonetworks.com/falcon-c2-browser-compromise/",
+          "date": "2026-11-11",
+          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/11/06_Malware_Category_1920x900-8.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-11-antifox-agents-ia-aws",
+      "title": "AntiFox : des agents d'intelligence artificielle utilisés pour voler des secrets dans des environnements AWS",
+      "created": "2026-11-11T16:09:20+00:00",
+      "updated": "2026-11-11T16:09:20+00:00",
+      "version": 1,
+      "resume": "Selon Arctic Wolf, des attaquants hébergent sur Alibaba Cloud des instances d'AntiFox, plateforme open source de test d'intrusion agentique, pour cibler des services web et des environnements AWS ; des secrets de production ont été obtenus [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Porte dérobée web ASPX déposée sur un serveur IIS exposé sur Internet → exécution de commandes système [1]."
+        },
+        {
+          "etape": "Collecte",
+          "texte": "Accès aux paramètres de l'application et aux chaînes de connexion aux bases ; fichiers de configuration et journaux copiés dans un répertoire accessible depuis le web [1]."
+        },
+        {
+          "etape": "Vol de secrets",
+          "texte": "Identités AWS valides utilisées pour des centaines de requêtes en environ 30 minutes ; la plupart bloquées, certaines réussies → secrets de production obtenus [1]."
+        },
+        {
+          "etape": "Incident distinct",
+          "texte": "Dans un incident distinct, une identité AWS valide a servi à lire, copier et supprimer des objets S3 [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "iis",
+            "type": "serveur",
+            "zone": "expose",
+            "nom": "Serveur IIS",
+            "note": "Porte dérobée web"
+          },
+          {
+            "id": "aws",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Environnement AWS",
+            "note": "Secrets de production"
+          },
+          {
+            "id": "s3",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Objets S3",
+            "note": "Incident distinct"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "iis",
+            "etape": 2,
+            "texte": "Porte dérobée web, exécution de commandes"
+          },
+          {
+            "de": "att",
+            "vers": "aws",
+            "etape": 4,
+            "texte": "Centaines de requêtes avec des identités valides"
+          },
+          {
+            "de": "att",
+            "vers": "s3",
+            "etape": 5,
+            "texte": "Objets lus, copiés et supprimés"
+          }
+        ]
+      },
+      "limites": "L'article ne nomme ni acteur ni victime et ne date pas les intrusions [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [],
+      "abreviations": [
+        {
+          "sigle": "AWS",
+          "definition": "Amazon Web Services : services cloud d'Amazon"
+        },
+        {
+          "sigle": "ASPX",
+          "definition": "Format de page web dynamique de la technologie ASP.NET de Microsoft"
+        },
+        {
+          "sigle": "ASP.NET",
+          "definition": "Technologie Microsoft de création d'applications web"
+        },
+        {
+          "sigle": "IIS",
+          "definition": "Internet Information Services : serveur web de Microsoft"
+        },
+        {
+          "sigle": "S3",
+          "definition": "Simple Storage Service : stockage d'objets d'AWS"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers use AntiFox AI agents in AWS credential-theft attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-use-antifox-ai-agents-in-aws-credential-theft-attacks/",
+          "date": "2026-11-11",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/robot-hacker.jpg"
         }
       ]
     }

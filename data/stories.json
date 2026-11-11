@@ -42991,6 +42991,353 @@
           "date": "2026-11-09"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-11-unit42-artex-intrusions-cloud",
+      "title": "Unit 42 : avec ARTEX, des pages de réinitialisation de mot de passe et des interfaces exposées deviennent un chemin vers le cloud",
+      "created": "2026-11-11T23:08:37+00:00",
+      "updated": "2026-11-11T23:08:37+00:00",
+      "version": 1,
+      "resume": "Unit 42 a enquêté sur plusieurs intrusions menées avec ARTEX, un framework de test d'intrusion à agents d'intelligence artificielle, et suit une campagne coordonnée contre des environnements cloud de clients [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Pages publiques de réinitialisation de mot de passe et interfaces de programmation exposées transformées en chemin vers l'accès au cloud, parfois en moins d'une journée [1]."
+        },
+        {
+          "etape": "Comportements observés",
+          "texte": "Routes tirées de spécifications OpenAPI visées presque immédiatement, plus de 200 secrets d'application validés en environ trois minutes, écritures puis suppressions de test sur des espaces de stockage [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Framework ARTEX"
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "expose",
+            "nom": "Pages de réinitialisation, interfaces",
+            "note": "Exposées publiquement"
+          },
+          {
+            "id": "cloud",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Environnement cloud",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 1,
+            "texte": "Réinitialisation de mot de passe et interfaces exposées"
+          },
+          {
+            "de": "app",
+            "vers": "cloud",
+            "etape": 1,
+            "texte": "Chemin vers l'accès au cloud"
+          }
+        ]
+      },
+      "limites": "Unit 42 ne nomme ni attaquants ni victimes et liste des comportements sans donner leur ordre [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Secteurs du monde entier, notamment commerce de détail et conseil, pour la campagne visant le cloud [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ARTEX",
+          "definition": "Framework de test d'intrusion piloté par des agents d'intelligence artificielle"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "ARTEX and AI-Powered Red Teaming Tools: What Defenders Need to Know",
+          "site": "Unit 42 (Palo Alto Networks)",
+          "url": "https://unit42.paloaltonetworks.com/artex-and-ai-powered-red-teaming-tools/",
+          "date": "2026-11-11",
+          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/11/02_General_Category_1505x922.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-11-screenconnect-prestataires-clients-pirates",
+      "title": "ScreenConnect : des prestataires informatiques compromis servent à installer des clients d'accès à distance pirates",
+      "created": "2026-11-11T23:08:37+00:00",
+      "updated": "2026-11-11T23:08:37+00:00",
+      "version": 1,
+      "resume": "Des attaquants se servent d'environnements ScreenConnect compromis de prestataires de services managés pour installer des clients d'accès à distance pirates chez leurs clients ; Huntress compte 6 prestataires, 286 machines et 47 organisations touchés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non déterminé par Huntress : sa télémétrie pointe vers des identifiants compromis et des sessions de support détournées [1]."
+        },
+        {
+          "etape": "Clients pirates installés",
+          "texte": "Fonction Run Command de ScreenConnect utilisée pour installer des clients ScreenConnect pirates sur les machines gérées → accès à distance hors de l'environnement légitime du prestataire [1]."
+        },
+        {
+          "etape": "Rebond vers technicien",
+          "texte": "Le poste d'un technicien du prestataire peut être compromis quand il ouvre une session avec une machine infectée, par un mécanisme inconnu [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sc",
+            "type": "application",
+            "zone": "victime",
+            "nom": "ScreenConnect du prestataire",
+            "note": "Environnement compromis"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines gérées des clients",
+            "note": "Clients pirates installés"
+          },
+          {
+            "id": "tech",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste d'un technicien",
+            "note": "Compromission possible"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sc",
+            "etape": 1,
+            "texte": "Identifiants compromis ou sessions détournées, selon la télémétrie"
+          },
+          {
+            "de": "sc",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Installation de clients pirates via Run Command"
+          },
+          {
+            "de": "pc",
+            "vers": "tech",
+            "etape": 3,
+            "texte": "Session ouverte avec une machine infectée"
+          }
+        ]
+      },
+      "limites": "L'accès initial n'est pas établi, ConnectWise enquête encore et les chiffres de Huntress continuent d'augmenter [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Prestataires de services managés utilisant ScreenConnect et machines de leurs clients [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Active ScreenConnect attacks breach MSPs, impact dozens of organizations",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/active-screenconnect-attacks-breach-msps-impact-dozens-of-organizations/",
+          "date": "2026-11-11",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/09/16/ScreenConnect.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-11-gsocket-serveurs-linux",
+      "title": "GSocket : des attaquants gardent un accès chiffré à des serveurs Linux compromis, même après correction de la faille",
+      "created": "2026-11-11T23:08:37+00:00",
+      "updated": "2026-11-11T23:08:37+00:00",
+      "version": 1,
+      "resume": "Selon Microsoft, plusieurs attaquants sans lien entre eux installent GSocket, un outil open source d'accès à distance, sur des serveurs Linux compromis, surtout des applications web et de l'hébergement [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation d'applications web exposées sur Internet → exécution de code à distance, puis téléchargement et exécution d'un script avec curl [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Le script installe le client GSocket adapté à la machine → canal de commande chiffré via un relais public que les deux extrémités joignent en connexion sortante [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Tâches cron, services systemd, profils de shell et copies redondantes → l'accès survit à l'arrêt du processus et à la correction de la faille initiale [1]."
+        },
+        {
+          "etape": "Dissimulation",
+          "texte": "Processus déguisés en threads du noyau, fichiers de dépôt supprimés, permissions et horodatages modifiés [1]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Dans quelques incidents, tentative d'exploiter CVE-2026-43284 pour passer du compte du service web à root [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "relais",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Relais public GSocket",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "expose",
+            "nom": "Serveur Linux",
+            "note": "Application web exposée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 1,
+            "texte": "Exploitation d'une application web exposée"
+          },
+          {
+            "de": "srv",
+            "vers": "relais",
+            "etape": 2,
+            "texte": "Connexion sortante chiffrée vers le relais"
+          },
+          {
+            "de": "att",
+            "vers": "relais",
+            "etape": 2,
+            "texte": "Connexion sortante vers le relais"
+          }
+        ]
+      },
+      "limites": "Microsoft ne précise pas les failles exploitées pour l'accès initial, ne nomme pas les attaquants et ne dit pas si l'élévation de privilèges a abouti [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-43284",
+          "explication": "Noyau Linux : faille surnommée « Dirty Frag », que des attaquants ont tenté d'exploiter pour obtenir les droits root [1]."
+        }
+      ],
+      "mitre": [
+        "T1190 : Exploit Public-Facing Application, exploitation d'une application exposée sur Internet [1]",
+        "T1059.004 : Unix Shell, exécution de commandes par le shell Unix [1]",
+        "T1105 : Ingress Tool Transfer, téléchargement d'outils sur la machine compromise [1]",
+        "T1053.003 : Cron, persistance par tâche planifiée cron [1]",
+        "T1543.002 : Systemd Service, persistance par service systemd [1]",
+        "T1036 : Masquerading, processus déguisés sous un autre nom [1]",
+        "T1564.001 : Hidden Files and Directories, fichiers et dossiers cachés [1]",
+        "T1222.002 : Linux and Mac File and Directory Permissions Modification, modification des permissions de fichiers [1]",
+        "T1070.006 : Timestomp, modification des horodatages [1]",
+        "T1070.004 : File Deletion, suppression de fichiers [1]",
+        "T1090.002 : External Proxy, communication par un relais externe [1]"
+      ],
+      "acteurs": [
+        "Plusieurs attaquants sans lien entre eux, non nommés [1]"
+      ],
+      "cibles": [
+        "Applications web et hébergement : 87,1 % des incidents attribuables [1]",
+        "Éducation et recherche (30,7 % des organisations touchées), technologies et télécommunications (22,9 %) [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "The global socket: how threat actors are weaponizing GSocket for stealthy C2",
+          "site": "Microsoft Threat Intelligence",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/11/global-socket-how-threat-actors-weaponizing-gsocket-stealthy-c2/",
+          "date": "2026-11-11",
+          "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/11/MS_Actional-Insights_Cybercrime.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-11-baker-tilly-prestataire-fuite",
+      "title": "Baker Tilly : des données de clients obtenues sur la plateforme d'un prestataire tiers",
+      "created": "2026-11-11T23:08:37+00:00",
+      "updated": "2026-11-11T23:08:37+00:00",
+      "version": 1,
+      "resume": "Baker Tilly, cabinet d'audit et de conseil, prévient des clients qu'un acteur non autorisé a obtenu des informations personnelles sur eux et leurs personnes à charge, stockées sur une plateforme exploitée par un prestataire tiers [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Un acteur non autorisé obtient des données de certains clients sur la plateforme d'un prestataire tiers, sans activité non autorisée constatée sur le réseau de Baker Tilly [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "plat",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateforme du prestataire tiers",
+            "note": "Données de clients"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "plat",
+            "etape": 2,
+            "texte": "Données de certains clients obtenues"
+          }
+        ]
+      },
+      "limites": "Ni le prestataire, ni l'attaquant, ni le nombre total de personnes touchées ne sont connus [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Clients de Baker Tilly et leurs personnes à charge ; 10 456 personnes au Texas selon le portail du procureur général de l'État [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Baker Tilly notifies clients of data breach at third-party provider",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/baker-tilly-notifies-clients-of-data-breach-at-third-party-provider/",
+          "date": "2026-11-11",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/11/bakertilly.jpg"
+        }
+      ]
     }
   ]
 }

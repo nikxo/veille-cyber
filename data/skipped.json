@@ -1,21 +1,5 @@
 [
   {
-    "id": "e9c882959cb5fc06",
-    "title": "Claude transmet une fausse piste à la police",
-    "link": "https://www.zataz.com/claude-transmet-une-fausse-piste-a-la-police/",
-    "source": "ZATAZ",
-    "raison": "test interne, pas d'attaque",
-    "date": "2026-10-21T16:20:00+00:00"
-  },
-  {
-    "id": "ce8b3bbcd62b9794",
-    "title": "Survey Finds High-Profile Executives Feel Untouchable as Digital Exposure Turns Into Physical Risk",
-    "link": "https://www.darkreading.com/cybersecurity-operations/360-privacy-survey-high-profile-executives-feel-untouchable",
-    "source": "Dark Reading",
-    "raison": "sondage",
-    "date": "2026-10-21T16:20:00+00:00"
-  },
-  {
     "id": "b716aa6739b48d77",
     "title": "Optiv Launches CyberBOT Cybersecurity Awareness Training Program",
     "link": "https://www.darkreading.com/cybersecurity-operations/optiv-launches-cyberbot-cybersecurity-awareness-training-program",
@@ -3998,5 +3982,21 @@
     "source": "Dark Reading",
     "raison": "vulnérabilités sans exploitation constatée",
     "date": "2026-11-11T21:07:30+00:00"
+  },
+  {
+    "id": "c5c797f8dc8751d8",
+    "title": "AI Raises the Stakes for Cyber Resilience",
+    "link": "https://www.darkreading.com/cyber-risk/ai-raises-stakes-cyber-resilience",
+    "source": "Dark Reading",
+    "raison": "conseils génériques sur la résilience, aucune attaque décrite (page inaccessible, résumé du flux seul)",
+    "date": "2026-11-11T22:10:00+00:00"
+  },
+  {
+    "id": "cd232505f6b81f6a",
+    "title": "eMudhra revokes 8 more CA certificates after private key mishap",
+    "link": "https://www.bleepingcomputer.com/news/security/emudhra-revokes-8-more-ca-certificates-after-private-key-mishap/",
+    "source": "BleepingComputer",
+    "raison": "révocation de certificats après une mauvaise gestion interne de clés privées, aucune attaque décrite (page inaccessible, résumé du flux seul)",
+    "date": "2026-11-11T22:10:00+00:00"
   }
 ]

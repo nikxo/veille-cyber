@@ -42349,6 +42349,77 @@
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-1337"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-11-pologne-epuap-cyberattaque",
+      "title": "Pologne : la plateforme de services administratifs ePUAP mise hors ligne après une cyberattaque",
+      "created": "2026-11-11T14:20:00+00:00",
+      "updated": "2026-11-11T14:20:00+00:00",
+      "version": 1,
+      "resume": "La Pologne a mis hors ligne par précaution ePUAP, sa plateforme nationale de démarches administratives en ligne, après une cyberattaque détectée et stoppée [1]. Les autorités n'ont pas dit qui en est responsable [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Attaque de la plateforme",
+          "texte": "Cyberattaque visant ePUAP, détectée et stoppée selon le ministre du Numérique ; les autorités n'ont pas divulgué la méthode employée [1]."
+        },
+        {
+          "etape": "Arrêt préventif",
+          "texte": "Plateforme désactivée par précaution par les autorités ; les boîtes électroniques ePUAP sont indisponibles pour les citoyens et les institutions publiques [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "ep",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateforme ePUAP",
+            "note": "Désactivée par précaution"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ep",
+            "etape": 2,
+            "texte": "Cyberattaque détectée et stoppée"
+          }
+        ]
+      },
+      "limites": "Les autorités n'ont divulgué ni la méthode ni le responsable ; aucun accès aux systèmes gouvernementaux ni vol d'informations sensibles n'est confirmé publiquement, et aucune date de rétablissement n'est donnée [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "ePUAP, plateforme polonaise de démarches administratives en ligne utilisée par les citoyens et les entreprises [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ePUAP",
+          "definition": "Plateforme nationale polonaise de démarches administratives en ligne"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Poland shuts down government services platform ePUAP following cyberattack",
+          "site": "The Record",
+          "url": "https://therecord.media/poland-shuts-down-government-services-platform-cyberattack",
+          "date": "2026-11-11",
+          "image": "https://cms.therecord.media/uploads/poland_1_e70a3806d1.jpg"
+        }
+      ]
     }
   ]
 }

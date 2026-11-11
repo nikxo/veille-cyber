@@ -1,45 +1,5 @@
 [
   {
-    "id": "07d0d486a6cb7b2a",
-    "title": "Browsers Block eMudhra Intermediate CAs Over Recoverable Private Keys",
-    "link": "https://www.securityweek.com/browsers-block-emudhra-intermediate-cas-over-recoverable-private-keys/",
-    "source": "SecurityWeek",
-    "raison": "faiblesse de clés sans exploitation constatée",
-    "date": "2026-10-21T12:20:00+00:00"
-  },
-  {
-    "id": "ec0fd993c8b5e31a",
-    "title": "PHP2Shell: What Actually Protects You Before the 14:00 UTC PHP RCE Patch, and What Doesn't",
-    "link": "https://thehackernews.com/2026/10/php2shell-what-actually-protects-you.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-21T12:20:00+00:00"
-  },
-  {
-    "id": "f31f85df952cebdb",
-    "title": "The Harness Is the Hard Part of Agentic Pentesting",
-    "link": "https://thehackernews.com/2026/10/the-harness-is-hard-part-of-agentic.html",
-    "source": "The Hacker News",
-    "raison": "contenu sponsorisé",
-    "date": "2026-10-21T12:20:00+00:00"
-  },
-  {
-    "id": "21884b32b0298bb2",
-    "title": "Memory Bugs Account for Most of Chrome's 353 New Security Fixes",
-    "link": "https://www.securityweek.com/memory-bugs-account-for-most-of-chromes-353-new-security-fixes/",
-    "source": "SecurityWeek",
-    "raison": "vulnérabilités sans exploitation constatée",
-    "date": "2026-10-21T13:30:00+00:00"
-  },
-  {
-    "id": "56afd8eee8f90f65",
-    "title": "OpenAI Agents Silenced Security Team Alerts, Removed Misalignment Monitor",
-    "link": "https://www.securityweek.com/openai-agents-silenced-security-team-alerts-removed-misalignment-monitor/",
-    "source": "SecurityWeek",
-    "raison": "incident interne d'agents IA, pas une attaque",
-    "date": "2026-10-21T13:30:00+00:00"
-  },
-  {
     "id": "b81260804ad32989",
     "title": "Generative AI Is Erasing Behavioral Tells, Weakening Behavior-Only Detection, Proofpoint Reports",
     "link": "https://thehackernews.com/2026/10/generative-ai-is-erasing-behavioral.html",
@@ -3998,5 +3958,45 @@
     "source": "SecurityWeek",
     "raison": "tour d'horizon d'avis de correctifs industriels, aucune attaque décrite",
     "date": "2026-11-11T11:16:52+00:00"
+  },
+  {
+    "id": "2ea575bad44bc9b5",
+    "title": "Bay Raises $50 Million to Control What Enterprise AI Agents Can Do",
+    "link": "https://www.securityweek.com/bay-raises-50-million-to-control-what-enterprise-ai-agents-can-do/",
+    "source": "SecurityWeek",
+    "raison": "levée de fonds, aucune attaque décrite",
+    "date": "2026-11-11T12:15:00+00:00"
+  },
+  {
+    "id": "bc2cee1dbd2c0d39",
+    "title": "Dreeze Emerges From Stealth With $33M to Rebuild Cloud Apps After Cyberattacks",
+    "link": "https://www.securityweek.com/dreeze-emerges-from-stealth-with-33m-to-rebuild-cloud-apps-after-cyberattacks/",
+    "source": "SecurityWeek",
+    "raison": "levée de fonds et lancement produit, aucune attaque décrite",
+    "date": "2026-11-11T12:15:00+00:00"
+  },
+  {
+    "id": "972eb5c163be44e3",
+    "title": "Microsoft fixes audio issues caused by September security updates",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-usb-audio-issues-caused-by-september-security-updates/",
+    "source": "BleepingComputer",
+    "raison": "correctif de bug produit, aucune attaque décrite",
+    "date": "2026-11-11T12:15:00+00:00"
+  },
+  {
+    "id": "b80a24c89312068e",
+    "title": "eMudhra Revokes 8 More CAs It Previously Declared Unaffected by Key Compromise",
+    "link": "https://thehackernews.com/2026/11/emudhra-revokes-8-more-cas-it.html",
+    "source": "The Hacker News",
+    "raison": "erreur interne de gestion de clés et révocation de certificats, aucune attaque ni exploitation constatée",
+    "date": "2026-11-11T12:15:00+00:00"
+  },
+  {
+    "id": "de18400249b3b348",
+    "title": "We Built An Agent That Broke All of Our Security Rules. Here's What We Learned.",
+    "link": "https://thehackernews.com/2026/11/we-built-agent-that-broke-all-of-our.html",
+    "source": "The Hacker News",
+    "raison": "tribune d'éditeur et conseils génériques, aucune attaque décrite",
+    "date": "2026-11-11T12:15:00+00:00"
   }
 ]

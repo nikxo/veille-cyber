@@ -42420,6 +42420,125 @@
           "image": "https://cms.therecord.media/uploads/poland_1_e70a3806d1.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-11-qlik-sense-shell-inverse",
+      "title": "Qlik Sense : des serveurs visés par des shells inversés PowerShell, exploits ActiveMQ et Veeam tenus en réserve",
+      "created": "2026-11-11T15:20:00+00:00",
+      "updated": "2026-11-11T15:20:00+00:00",
+      "version": 1,
+      "resume": "En octobre 2026, des attaquants ont visé des serveurs Qlik Sense chez plusieurs clients de Cynet basés dans l'Union européenne pour y lancer un shell inversé PowerShell, sans succès [1]. Leur serveur hébergeait aussi des outils d'exploitation d'ActiveMQ et de Veeam [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Serveurs Qlik Sense visés ; la faille exploitée pour s'y introduire n'est pas connue à ce jour [1]."
+        },
+        {
+          "etape": "Shell inversé",
+          "texte": "Commande PowerShell de shell inversé exécutée sous scheduler.exe → tentatives bloquées [1]."
+        },
+        {
+          "etape": "Persistance prévue",
+          "texte": "D'après un test de Cynet en environnement contrôlé, ce canal sert à la reconnaissance et à livrer un script PowerShell de persistance [1]."
+        },
+        {
+          "etape": "Accès durable",
+          "texte": "Une variante du script tente d'installer OpenSSH et crée la tâche planifiée « WinUpdCheck », qui relance un shell inversé toutes les cinq minutes [1]."
+        },
+        {
+          "etape": "Outils en réserve",
+          "texte": "Répertoire exposé sur le serveur de l'attaquant : porte dérobée Go pour Windows, scripts de persistance SSH, exploit ActiveMQ et outils Veeam modifiés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de l'attaquant",
+            "note": "Répertoire d'outils exposé"
+          },
+          {
+            "id": "qlik",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveurs Qlik Sense",
+            "note": "Shell inversé bloqué"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "qlik",
+            "etape": 1,
+            "texte": "Serveurs visés, faille exploitée inconnue"
+          },
+          {
+            "de": "att",
+            "vers": "qlik",
+            "etape": 2,
+            "texte": "Shell inversé PowerShell, tentatives bloquées"
+          },
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 5,
+            "texte": "Répertoire exposé : porte dérobée, exploits ActiveMQ et Veeam"
+          }
+        ]
+      },
+      "limites": "Faille d'entrée inconnue, acteur non nommé, nombre de clients non chiffré [1]. La source relève seulement un recoupement partiel avec une campagne de novembre 2023 attribuée au rançongiciel Cactus [1].",
+      "cves": [
+        {
+          "id": "CVE-2023-46604",
+          "explication": "Apache ActiveMQ : désérialisation dans le protocole OpenWire permettant à un attaquant distant d'exécuter des commandes, gravité critique [2]. Un exploit figurait dans le répertoire de l'attaquant [1]."
+        },
+        {
+          "id": "CVE-2024-40711",
+          "explication": "Veeam Backup and Replication : désérialisation de données non fiables permettant d'exécuter du code à distance sans authentification, gravité critique 9,8 [3]. Outils modifiés trouvés chez l'attaquant [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Acteur non identifié ; commande exécutée sous scheduler.exe, ce qui ressemble aux intrusions Cactus de 2023 contre Qlik [1]"
+      ],
+      "cibles": [
+        "Serveurs Qlik Sense de plusieurs clients de Cynet basés dans l'Union européenne [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole d'accès à distance chiffré à une machine"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers Target Qlik Sense Servers With Reverse Shells, Stage ActiveMQ and Veeam Exploits",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-target-qlik-sense-servers-with.html",
+          "date": "2026-11-11",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5L1m-CqPOrgk9otByC4blBWuqDylovaSyHYhirRHQvzjjSUB0DBWbxnF_8cNIsONC6yoL3h-ydX61vmnsctKr_IbcnvmwRLAMqch16Ru5oMVuDWy1bilEt6EAgEerB7mUxICRgck1NkoJeA7Y2lvV0oqLkw12-f1xMhC7Dw5F1aK35NhVf3oZwj4WbfOT/s1700-nu-rw-lo-l85-e365/qliksense.jpg"
+        },
+        {
+          "titre": "Fiche NVD CVE-2023-46604",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-46604"
+        },
+        {
+          "titre": "Fiche NVD CVE-2024-40711",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-40711"
+        }
+      ]
     }
   ]
 }

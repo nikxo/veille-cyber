@@ -1,13 +1,5 @@
 [
   {
-    "id": "5c04ab6f74d64909",
-    "title": "LibreOffice et OpenOffice piégés par des tableurs",
-    "link": "https://www.zataz.com/libreoffice-et-openoffice-pieges-par-des-tableurs/",
-    "source": "ZATAZ",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-21T16:20:00+00:00"
-  },
-  {
     "id": "e9c882959cb5fc06",
     "title": "Claude transmet une fausse piste à la police",
     "link": "https://www.zataz.com/claude-transmet-une-fausse-piste-a-la-police/",
@@ -3998,5 +3990,13 @@
     "source": "Krebs on Security",
     "raison": "enquête sur l'identité de l'administrateur de Qilin, sans détail sur la méthode d'attaque",
     "date": "2026-11-11T19:10:00+00:00"
+  },
+  {
+    "id": "e2b7ebdc245e2a53",
+    "title": "N-able Takes N-central Platform Offline After Discovery of 33 Flaws",
+    "link": "https://www.darkreading.com/endpoint-security/n-able-n-central-offline-33-flaws",
+    "source": "Dark Reading",
+    "raison": "vulnérabilités sans exploitation constatée",
+    "date": "2026-11-11T21:07:30+00:00"
   }
 ]

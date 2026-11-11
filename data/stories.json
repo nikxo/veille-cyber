@@ -40754,21 +40754,21 @@
       "id": "2026-11-10-barracuda-esg-root",
       "title": "Barracuda : deux failles de passerelle de sécurité des courriels exploitées pour obtenir les droits root",
       "created": "2026-11-10T11:20:00+00:00",
-      "updated": "2026-11-10T11:20:00+00:00",
-      "version": 1,
-      "resume": "Barracuda Networks a averti que des attaquants exploitent deux failles récemment corrigées de sa passerelle de sécurité des courriels, ce qui permet d'exécuter des commandes avec les droits root. Un petit nombre d'organisations est touché [1].",
+      "updated": "2026-11-11T08:15:00+00:00",
+      "version": 2,
+      "resume": "Des attaquants exploitent deux failles récemment corrigées de produits Barracuda contre un petit nombre d'organisations [1, 2]. Combinées, elles pourraient permettre de contourner les contrôles d'autorisation et d'obtenir un accès root [1, 2]. Previdian a observé 17 tentatives contre CVE-2026-116606 du 9 au 11 novembre [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Accès à l'interface d'administration de l'appareil, condition de l'exploitation selon Barracuda [1]."
+          "texte": "Accès à l'interface d'administration de l'appareil, condition de l'exploitation [1, 2]."
         },
         {
           "etape": "Contournement de l'authentification",
-          "texte": "Exploitation de CVE-2026-116606 → modification de la configuration globale de l'appareil [1]."
+          "texte": "CVE-2026-116606 permet de faire restaurer une archive de sauvegarde forgée [2] et de modifier la configuration de l'appareil [1, 2]."
         },
         {
           "etape": "Prise de contrôle",
-          "texte": "Injection de commandes par un attaquant non authentifié (CVE-2026-111560) → exécution avec les droits root [1]."
+          "texte": "CVE-2026-111560 permet d'injecter des commandes système exécutées avec les droits root [1, 2]."
         }
       ],
       "parcours": {
@@ -40785,7 +40785,7 @@
             "type": "passerelle",
             "zone": "victime",
             "nom": "Passerelle de sécurité des courriels",
-            "note": "Droits root obtenus"
+            "note": "Accès root possible"
           }
         ],
         "liens": [
@@ -40799,33 +40799,33 @@
             "de": "att",
             "vers": "gw",
             "etape": 2,
-            "texte": "Modification de la configuration globale"
+            "texte": "CVE-2026-116606 : configuration modifiable"
           },
           {
             "de": "att",
             "vers": "gw",
             "etape": 3,
-            "texte": "Commandes exécutées avec les droits root"
+            "texte": "CVE-2026-111560 : commandes exécutées en root"
           }
         ]
       },
-      "limites": "La source ne décrit pas ce que les attaquants font après avoir obtenu les droits root, ni qui ils sont [1].",
+      "limites": "Les sources divergent sur CVE-2026-111560 : exploitable sans authentification [1] ou avec un accès administrateur [2]. Elles ne décrivent pas le déroulement des attaques observées [1, 2].",
       "cves": [
         {
           "id": "CVE-2026-116606",
-          "explication": "Passerelle de sécurité des courriels Barracuda : faiblesse d'authentification permettant de modifier la configuration globale de l'appareil [1]."
+          "explication": "Passerelle de sécurité des courriels Barracuda : contournement d'authentification permettant de restaurer une sauvegarde forgée et de modifier la configuration, gravité 9,3 [2]."
         },
         {
           "id": "CVE-2026-111560",
-          "explication": "Produits Barracuda : injection de commandes système sans authentification, exécutées avec les droits root, correctifs publiés pour plusieurs produits [1]."
+          "explication": "Six produits Barracuda : injection de commandes système exécutées avec les droits root, gravité 8,6 [2] ; sans authentification selon [1], avec un accès administrateur selon [2]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "Non précisé [1]"
+        "Non précisé [1, 2]"
       ],
       "cibles": [
-        "Un petit nombre d'organisations clientes de Barracuda, non identifiées [1]"
+        "Un petit nombre d'organisations, non identifiées [1, 2]"
       ],
       "abreviations": [],
       "sources": [
@@ -40835,6 +40835,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-barracuda-email-security-gateway-flaws-to-get-root-access/",
           "date": "2026-11-10",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/10/Barracuda.jpg"
+        },
+        {
+          "titre": "Recently Patched Barracuda Vulnerabilities Exploited in Attacks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/",
+          "date": "2026-11-11",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/Barracuda.webp"
         }
       ]
     },
@@ -41927,6 +41934,121 @@
           "url": "https://www.bleepingcomputer.com/news/apple/railway-breach-leads-to-740-000-in-fraudulent-ai-charges/",
           "date": "2026-11-10",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/22/railway.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-11-clickfix-huntress-controleur-domaine",
+      "title": "ClickFix : d'une fausse vérification au contrôleur de domaine, selon Huntress",
+      "created": "2026-11-11T08:15:00+00:00",
+      "updated": "2026-11-11T08:15:00+00:00",
+      "version": 1,
+      "resume": "Huntress décrit des chaînes d'attaque ClickFix, menées par des acteurs sans lien entre eux, qui établissent une persistance et permettent le déplacement dans le réseau [1]. L'une, début septembre, a atteint le contrôleur de domaine principal [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "La commande ClickFix télécharge l'archive cf_verify.zip, dont le contenu est ensuite extrait [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Le script 1.bat crée une clé Run et une tâche planifiée → lancement de CertEnrollCtrl.exe, livré avec une bibliothèque malveillante CertEnroll.dll [1]."
+        },
+        {
+          "etape": "Reconnaissance",
+          "texte": "Script PowerShell utilisant nltest, net et whoami → recensement des relations d'approbation, des contrôleurs de domaine et des membres du groupe Domain Admins [1]."
+        },
+        {
+          "etape": "Accès distant",
+          "texte": "Commande PowerShell encodée : dépôt d'une clé privée SSH, tunnel SSH inverse vers l'adresse 23.227.199[.]41 et création de la tâche planifiée SysyService [1]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "Passage par WinRM vers le contrôleur de domaine principal → création d'un compte, tentative d'ajout aux administrateurs locaux et second tunnel SSH inverse [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur 23.227.199[.]41",
+            "note": "Tunnel SSH inverse"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de la victime",
+            "note": "Clé Run, tâche planifiée"
+          },
+          {
+            "id": "dc",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Contrôleur de domaine principal",
+            "note": "Compte créé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Commande ClickFix, archive téléchargée"
+          },
+          {
+            "de": "pc",
+            "vers": "srv",
+            "etape": 4,
+            "texte": "Tunnel SSH inverse"
+          },
+          {
+            "de": "pc",
+            "vers": "dc",
+            "etape": 5,
+            "texte": "Passage par WinRM"
+          }
+        ]
+      },
+      "limites": "L'article décrit aussi d'autres chaînes (exécutables cachés dans des images PNG, outil Node.js DuskDesk, fichier placé dans le cache du navigateur), non détaillées ici [1]. L'issue de l'intrusion de septembre n'est pas précisée [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non nommés : acteurs ou groupes sans lien entre eux [1]"
+      ],
+      "cibles": [
+        "Non précisées [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole de connexion distante chiffrée à une machine"
+        },
+        {
+          "sigle": "WinRM",
+          "definition": "Windows Remote Management : service d'administration à distance de Windows"
+        },
+        {
+          "sigle": "PNG",
+          "definition": "Portable Network Graphics : format de fichier image"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Beyond the clipboard: The evolving tradecraft of ClickFix",
+          "site": "Huntress",
+          "url": "https://www.huntress.com/blog/the-evolving-tradecraft-of-clickfix",
+          "date": "2026-11-10",
+          "image": "https://images.huntress.com/asset/file/f4fa7a7e631749c3b577ac5524769d48"
         }
       ]
     }

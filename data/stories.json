@@ -42704,21 +42704,21 @@
       "id": "2026-11-11-antifox-agents-ia-aws",
       "title": "AntiFox : des agents d'intelligence artificielle utilisés pour voler des secrets dans des environnements AWS",
       "created": "2026-11-11T16:09:20+00:00",
-      "updated": "2026-11-11T16:09:20+00:00",
-      "version": 1,
-      "resume": "Selon Arctic Wolf, des attaquants hébergent sur Alibaba Cloud des instances d'AntiFox, plateforme open source de test d'intrusion agentique, pour cibler des services web et des environnements AWS ; des secrets de production ont été obtenus [1].",
+      "updated": "2026-11-11T17:12:00+00:00",
+      "version": 2,
+      "resume": "Selon Arctic Wolf, des attaquants hébergent sur Alibaba Cloud des instances d'AntiFox, plateforme open source de test d'intrusion agentique, pour cibler des services web et des environnements AWS ; des secrets de production ont été obtenus [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Application IIS exposée sur Internet compromise par une faille non connue ; dans d'autres attaques, identifiant AWS valide obtenu par un moyen indéterminé [2]."
         },
         {
           "etape": "Prise de contrôle",
-          "texte": "Porte dérobée web ASPX déposée sur un serveur IIS exposé sur Internet → exécution de commandes système [1]."
+          "texte": "Porte dérobée web ASPX créée sur le serveur IIS → exécution de commandes système [1, 2]."
         },
         {
           "etape": "Collecte",
-          "texte": "Accès aux paramètres de l'application et aux chaînes de connexion aux bases ; fichiers de configuration et journaux copiés dans un répertoire accessible depuis le web [1]."
+          "texte": "Paramètres d'application et chaînes de connexion lus, fichiers de configuration et journaux copiés dans un répertoire web ; connexion tentée à une base de production interne [1, 2]."
         },
         {
           "etape": "Vol de secrets",
@@ -42764,6 +42764,12 @@
           {
             "de": "att",
             "vers": "iis",
+            "etape": 1,
+            "texte": "Application web compromise, faille non connue"
+          },
+          {
+            "de": "att",
+            "vers": "iis",
             "etape": 2,
             "texte": "Porte dérobée web, exécution de commandes"
           },
@@ -42781,7 +42787,7 @@
           }
         ]
       },
-      "limites": "L'article ne nomme ni acteur ni victime et ne date pas les intrusions [1].",
+      "limites": "L'article ne nomme ni acteur ni victime et ne date pas les intrusions [1]. La faille utilisée sur le serveur IIS n'est pas connue [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
@@ -42815,6 +42821,94 @@
           "url": "https://www.bleepingcomputer.com/news/security/hackers-use-antifox-ai-agents-in-aws-credential-theft-attacks/",
           "date": "2026-11-11",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/robot-hacker.jpg"
+        },
+        {
+          "titre": "AntiFox AI Pentesting Platform Linked to Attacks That Accessed AWS Production Secrets",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/antifox-ai-pentesting-platform-linked.html",
+          "date": "2026-11-11",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi08pEbJ7-HNwC0kJf517wnB6y8HwgKhMU-vxbhnCEh9KpWk1kmIjp_bb71k7GYfiTZNep3bcejvN7RmriF9_0RJnGGe9T5WB_nihCgxiDYOMl8mgDmI0Pm6ZFmPzf8HulQUxHjX3TncwmvqJIDPLyZBoHZpOahcMl7fehtwvT-oCxLzPec-KRtiScHT7wk/s1700-nu-rw-lo-l85-e365/aws-secrets.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-11-maersk-whitearmor-fuite",
+      "title": "Maersk : vol de données sur un système hérité d'une acquisition, WhiteArmor réclame 5 millions de dollars",
+      "created": "2026-11-11T17:12:00+00:00",
+      "updated": "2026-11-11T17:12:00+00:00",
+      "version": 1,
+      "resume": "Maersk annonce qu'un attaquant a obtenu un accès non autorisé à un système local ancien, hérité d'une acquisition antérieure, et en a extrait des données ; le rançongiciel WhiteArmor réclame 5 millions de dollars [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Accès non autorisé à un système local ancien hérité d'une acquisition antérieure → extraction de données [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Le rançongiciel WhiteArmor réclame 5 millions de dollars [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Système local ancien",
+            "note": "Hérité d'une acquisition"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Accès non autorisé, données extraites"
+          }
+        ]
+      },
+      "limites": "Article complet non consulté (accès refusé) : synthèse limitée au titre et au résumé du flux, qui ne décrivent ni le vecteur d'accès ni les données extraites [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "WhiteArmor, rançongiciel qui réclame 5 millions de dollars [1]"
+      ],
+      "cibles": [
+        "Maersk [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Maersk confirms data breach as WhiteArmor ransomware demands $5 million",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/maersk-confirms-data-breach-as-whitearmor-ransomware-demands-5-million/",
+          "date": "2026-11-11",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/11/maersk.jpg"
         }
       ]
     }

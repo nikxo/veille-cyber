@@ -41727,21 +41727,25 @@
       "id": "2026-11-10-cisa-kev-broadworks-openwave",
       "title": "Cisco BroadWorks et Openwave Webtop : deux failles exploitées ajoutées au catalogue de la CISA",
       "created": "2026-11-10T21:08:32+00:00",
-      "updated": "2026-11-11T09:20:00+00:00",
-      "version": 3,
+      "updated": "2026-11-11T11:16:52+00:00",
+      "version": 4,
       "resume": "La CISA a ajouté le 10 novembre 2026 six failles à son catalogue des vulnérabilités exploitées, sur preuves d'exploitation active, dont une de Cisco BroadWorks et une d'Openwave Webtop Media Transcoder [1]. Des correctifs existaient depuis août et octobre 2026 [4].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 5]."
+          "texte": "Selon Malbear Labs, requête forgée envoyée au port 2208 de BroadWorks → l'analyseur XML lit des fichiers arbitraires du serveur [6]."
         },
         {
-          "etape": "Faille BroadWorks",
-          "texte": "Message XML forgé visant l'analyseur XML de l'Open Client Interface, par un attaquant distant non authentifié → lecture d'informations de configuration sensibles [2, 5]."
+          "etape": "Vol de clés",
+          "texte": "L'agent récupère la clé privée d'identité du système, trois jeux d'identifiants SSL et trois autres clés privées [6]."
+        },
+        {
+          "etape": "Serveur de provisionnement",
+          "texte": "Le serveur de provisionnement BroadWorks, qui stocke la configuration des abonnés, était aussi exposé par un listage de répertoire sans authentification [6]."
         },
         {
           "etape": "Campagne contre un opérateur",
-          "texte": "Selon Malbear Labs, un acteur sinophone exploite cette faille, avec un outil d'intrusion autonome à intelligence artificielle, contre un opérateur télécom européen et ses clients [5]."
+          "texte": "Selon Malbear Labs, un acteur sinophone, aidé d'un modèle DeepSeek Flash débridé, exploite la faille contre un opérateur télécom européen [5, 6]."
         },
         {
           "etape": "Objectifs de la campagne",
@@ -41766,7 +41770,7 @@
             "type": "serveur",
             "zone": "victime",
             "nom": "Cisco BroadWorks",
-            "note": "Open Client Interface"
+            "note": "Clés privées lues"
           },
           {
             "id": "ow",
@@ -41780,18 +41784,18 @@
           {
             "de": "att",
             "vers": "bw",
-            "etape": 2,
-            "texte": "Message XML forgé, configuration lue"
+            "etape": 1,
+            "texte": "Requête forgée au port 2208, fichiers lus"
           },
           {
             "de": "att",
             "vers": "ow",
-            "etape": 5,
-            "texte": "Fichier forgé téléversé, informations sensibles"
+            "etape": 6,
+            "texte": "Téléversement possible d'un fichier forgé"
           }
         ]
       },
-      "limites": "Une source indique qu'il n'existe pas de détails sur l'exploitation [4] ; une autre décrit une campagne sans en donner les étapes ni les résultats [5].",
+      "limites": "Une source indique qu'il n'existe pas de détails sur l'exploitation [4] ; les détails de la campagne viennent du rapport de Malbear Labs, la CISA n'en donnant pas [6].",
       "cves": [
         {
           "id": "CVE-2026-20320",
@@ -41804,10 +41808,11 @@
       ],
       "mitre": [],
       "acteurs": [
-        "Acteur sinophone non nommé, selon Malbear Labs, pour la faille BroadWorks [5]"
+        "Acteur sinophone, selon Malbear Labs, aidé d'un modèle DeepSeek Flash débridé, pour la faille BroadWorks [5, 6]"
       ],
       "cibles": [
-        "Un opérateur télécom européen et ses clients ; au moins 13 organisations clientes ont pu être visées [5]"
+        "Un opérateur télécom européen et treize organisations utilisant ses centres de données et son infrastructure cloud [6]",
+        "Au moins 13 organisations clientes de l'opérateur ont pu être visées [5]"
       ],
       "abreviations": [
         {
@@ -41821,6 +41826,10 @@
         {
           "sigle": "JVN",
           "definition": "Japan Vulnerability Notes : portail japonais d'information sur les vulnérabilités"
+        },
+        {
+          "sigle": "SSL",
+          "definition": "Secure Sockets Layer : protocole de chiffrement des communications réseau"
         }
       ],
       "sources": [
@@ -41853,6 +41862,13 @@
           "url": "https://www.securityweek.com/threat-actors-exploit-openwave-cisco-broadworks-vulnerabilities/",
           "date": "2026-11-11",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/07/Cisco-switches-network.jpeg"
+        },
+        {
+          "titre": "CISA flags Cisco BroadWorks flaw as actively exploited in attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-cisco-broadworks-flaw-as-actively-exploited-in-attacks/",
+          "date": "2026-11-11",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/28/CISA.jpg"
         }
       ]
     },
@@ -42139,6 +42155,198 @@
           "url": "https://www.huntress.com/blog/the-evolving-tradecraft-of-clickfix",
           "date": "2026-11-10",
           "image": "https://images.huntress.com/asset/file/f4fa7a7e631749c3b577ac5524769d48"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-11-citrus-ransomware-sn00py",
+      "title": "Citrus Ransomware : entrée par des prestataires compromis, tunnels VLESS et rançongiciel Sn00py contre des entreprises russes",
+      "created": "2026-11-11T11:16:52+00:00",
+      "updated": "2026-11-11T11:16:52+00:00",
+      "version": 1,
+      "resume": "Kaspersky décrit Citrus Ransomware, un groupe russophone jusqu'ici non documenté qui attaque uniquement des entreprises russes : il entre par des prestataires compromis, vole des données puis chiffre les fichiers avec le rançongiciel Sn00py [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Identifiants volés à des employés de prestataires compromis → connexion aux VPN d'entreprise ou directement à des serveurs de terminaux exposés sur Internet en RDP [1]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Tentatives d'exploitation de la faille Certighost → comptes machine créés dans Active Directory ; en cas de succès, un certificat permet de s'authentifier comme contrôleur de domaine [1]."
+        },
+        {
+          "etape": "Tunnels et contrôle",
+          "texte": "Xray crée des tunnels VLESS inversés vers le serveur de commande, sur le port 443 pour se fondre dans le trafic HTTPS ; AnyDesk donne le contrôle à distance [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Consoles de gestion centralisée des solutions de sécurité attaquées → protection désactivée en masse ; journaux d'événements effacés sur certains systèmes [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Script lancé sur un contrôleur de domaine → archives de données d'application de messagerie de systèmes distants, envoyées vers un service web externe via Google Chrome [1]."
+        },
+        {
+          "etape": "Chiffrement",
+          "texte": "Archive du rançongiciel copiée dans SYSVOL et stratégie de groupe liée au domaine → Sn00py chiffre les fichiers utilisateur, avec l'extension .citrus [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Citrus Ransomware)",
+            "note": ""
+          },
+          {
+            "id": "pre",
+            "type": "utilisateur",
+            "zone": "internet",
+            "nom": "Prestataires compromis",
+            "note": "Identifiants volés"
+          },
+          {
+            "id": "vpn",
+            "type": "passerelle",
+            "zone": "victime",
+            "nom": "VPN d'entreprise",
+            "note": ""
+          },
+          {
+            "id": "ts",
+            "type": "serveur",
+            "zone": "expose",
+            "nom": "Serveurs de terminaux",
+            "note": "RDP exposé"
+          },
+          {
+            "id": "dc",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Domaine Active Directory",
+            "note": "SYSVOL, stratégie de groupe"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines du réseau",
+            "note": "Fichiers chiffrés"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de commande",
+            "note": "Tunnels VLESS"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pre",
+            "etape": 1,
+            "texte": "Usage d'identifiants d'employés volés"
+          },
+          {
+            "de": "pre",
+            "vers": "vpn",
+            "etape": 1,
+            "texte": "Connexion avec ces identifiants"
+          },
+          {
+            "de": "pre",
+            "vers": "ts",
+            "etape": 1,
+            "texte": "Connexion directe en RDP"
+          },
+          {
+            "de": "att",
+            "vers": "dc",
+            "etape": 2,
+            "texte": "Tentatives Certighost, comptes machine créés"
+          },
+          {
+            "de": "pc",
+            "vers": "c2",
+            "etape": 3,
+            "texte": "Tunnels VLESS inversés, port 443"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Protection désactivée en masse"
+          },
+          {
+            "de": "dc",
+            "vers": "pc",
+            "etape": 6,
+            "texte": "Sn00py diffusé par stratégie de groupe"
+          }
+        ]
+      },
+      "limites": "Aucune victime nommée ni date d'incident ; la source parle de tentatives d'exploitation de Certighost et juge l'usage de modèles de langage par le groupe très probable, sans certitude [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-54121",
+          "explication": "Services de certificats Active Directory : autorisation incorrecte permettant à un attaquant autorisé d'élever ses privilèges via le réseau, gravité 8,8 sur 10 [2] ; contournement d'authentification selon Kaspersky [1]."
+        },
+        {
+          "id": "CVE-2020-1337",
+          "explication": "Spouleur d'impression Windows : élévation de privilèges par écriture arbitraire dans le système de fichiers, gravité 7,8 sur 10 [3] ; un exploit figurait dans des scripts PowerShell du groupe [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Citrus Ransomware, groupe russophone jusqu'ici non documenté [1]",
+        "Toy Ghouls : méthodes et outils semblables, même infrastructure parfois compromise simultanément, sans recoupement direct des infrastructures des deux groupes [1]"
+      ],
+      "cibles": [
+        "Entreprises russes uniquement [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "VPN",
+          "definition": "Réseau privé virtuel permettant un accès distant sécurisé"
+        },
+        {
+          "sigle": "RDP",
+          "definition": "Remote Desktop Protocol : protocole de bureau à distance de Windows"
+        },
+        {
+          "sigle": "VLESS",
+          "definition": "Protocole de tunnel chiffré utilisé par l'outil Xray"
+        },
+        {
+          "sigle": "HTTPS",
+          "definition": "Protocole web chiffré"
+        },
+        {
+          "sigle": "SYSVOL",
+          "definition": "Dossier partagé répliqué sur les contrôleurs de domaine Windows"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Citrus Ransomware: VLESS for traffic, Sn00py for encryption, and LLMs lending a hand",
+          "site": "Securelist (Kaspersky)",
+          "url": "https://securelist.com/citrus-ransomware/121879/",
+          "date": "2026-11-11",
+          "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/11/10223610/citrus1_securelist-featured_1200x600_x2.jpg"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-54121",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54121"
+        },
+        {
+          "titre": "Fiche NVD CVE-2020-1337",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-1337"
         }
       ]
     }

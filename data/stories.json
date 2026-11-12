@@ -32667,9 +32667,9 @@
       "id": "2026-11-02-tradertraitor-binance",
       "title": "TraderTraitor : vol de plus de 6,3 milliards de dollars chez Binance",
       "created": "2026-11-02T09:20:00+00:00",
-      "updated": "2026-11-09T19:30:00+00:00",
-      "version": 5,
-      "resume": "Binance a perdu environ 6,3 milliards de dollars de cryptomonnaies [4]. Le FBI attribue le vol à TraderTraitor [1, 2] ; Binance parle d'une campagne de plusieurs mois [3].",
+      "updated": "2026-11-12T22:15:00+00:00",
+      "version": 6,
+      "resume": "Binance a perdu environ 6,3 milliards de dollars de cryptomonnaies [4]. Le FBI attribue le vol à TraderTraitor [1, 2, 7]. Le ministère américain de la Justice a obtenu l'autorisation judiciaire de saisir ou geler plus de 1,2 milliard de dollars [7].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -32841,6 +32841,13 @@
           "url": "https://www.lemagit.fr/actualites/366654657/Comment-Binance-sest-fait-voler-plusieurs-milliards",
           "date": "2026-11-09",
           "image": "https://www.lemagit.fr/visuals/German/HERO-Gefahr-STOCKYE-STUDIO-hacker-in-a-dark-room-Adobe-05.jpg"
+        },
+        {
+          "titre": "Feds announce seizure of $1.2 billion from Binance theft; also takedown of ‘FaceStealer’ tools",
+          "site": "The Record",
+          "url": "https://therecord.media/stolen-binance-crypto-recovered-doj-facestealer-disrupted",
+          "date": "2026-11-12",
+          "image": "https://cms.therecord.media/uploads/doj_logo_green_code_f20ed46844.jpg"
         }
       ]
     },
@@ -44993,6 +45000,132 @@
           "site": "Dark Reading",
           "url": "https://www.darkreading.com/data-privacy/extortion-luna-moth-law-firms-second-time",
           "date": "2026-11-12"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-12-facestealer-fausses-reunions-video",
+      "title": "FaceStealer : de fausses réunions vidéo pour voler des cryptomonnaies, l'infrastructure perturbée par les autorités américaines",
+      "created": "2026-11-12T22:15:00+00:00",
+      "updated": "2026-11-12T22:15:00+00:00",
+      "version": 1,
+      "resume": "Les autorités américaines ont perturbé l'infrastructure cloud de FaceStealer, une campagne attribuée au groupe APT38 qui a volé plus de 400 millions de dollars de cryptomonnaies en 18 mois grâce à de fausses réunions vidéo [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Invitations Calendly à des réunions Zoom ou Teams, envoyées depuis des comptes volés à d'anciennes victimes ; les liens mènent à de faux domaines contenant des logiciels malveillants [1]."
+        },
+        {
+          "etape": "Mise en scène",
+          "texte": "Vidéos d'anciennes victimes diffusées pour simuler de nombreux participants ; la webcam de la cible est enregistrée pour servir contre ses contacts de confiance [1]."
+        },
+        {
+          "etape": "Installation des logiciels malveillants",
+          "texte": "Fausse erreur technique, puis lien de correction → installe généralement collecteur de cookies, enregistreurs de frappe, outils de capture d'écran et porte dérobée [1]."
+        },
+        {
+          "etape": "Vol et détournement",
+          "texte": "Dans plusieurs cas, cryptomonnaies de la victime volées et comptes détournés, notamment sur Telegram, LinkedIn, Slack et Discord [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (APT38)",
+            "note": ""
+          },
+          {
+            "id": "dom",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux domaines",
+            "note": "Logiciels malveillants"
+          },
+          {
+            "id": "cib",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Personne ciblée",
+            "note": "Webcam enregistrée"
+          },
+          {
+            "id": "cpt",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Comptes de la victime",
+            "note": "Détournés"
+          },
+          {
+            "id": "cry",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Cryptomonnaies de la victime",
+            "note": "Volées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cib",
+            "etape": 1,
+            "texte": "Invitation Calendly depuis un compte volé"
+          },
+          {
+            "de": "cib",
+            "vers": "dom",
+            "etape": 1,
+            "texte": "Lien vers un faux domaine"
+          },
+          {
+            "de": "att",
+            "vers": "cib",
+            "etape": 3,
+            "texte": "Fausse erreur technique, lien de correction piégé"
+          },
+          {
+            "de": "att",
+            "vers": "cpt",
+            "etape": 4,
+            "texte": "Comptes détournés, notamment Telegram, LinkedIn, Slack, Discord"
+          },
+          {
+            "de": "att",
+            "vers": "cry",
+            "etape": 4,
+            "texte": "Cryptomonnaies volées"
+          }
+        ]
+      },
+      "limites": "Selon un agent du FBI, il n'est pas établi que FaceStealer ait fait partie des méthodes utilisées pour pénétrer chez Binance [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "APT38, groupe auquel la campagne FaceStealer est attribuée [1]"
+      ],
+      "cibles": [
+        "Victimes de FaceStealer, dont plus de 900 vidéos de webcam font l'objet d'un mandat de saisie obtenu par le FBI [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "APT38",
+          "definition": "Nom d'un groupe d'attaquants lié à la Corée du Nord"
+        },
+        {
+          "sigle": "FBI",
+          "definition": "Federal Bureau of Investigation : police fédérale américaine"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Feds announce seizure of $1.2 billion from Binance theft; also takedown of ‘FaceStealer’ tools",
+          "site": "The Record",
+          "url": "https://therecord.media/stolen-binance-crypto-recovered-doj-facestealer-disrupted",
+          "date": "2026-11-12",
+          "image": "https://cms.therecord.media/uploads/doj_logo_green_code_f20ed46844.jpg"
         }
       ]
     }

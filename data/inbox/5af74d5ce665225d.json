@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-11-12T13:08:07+00:00",
+  "feed_summary": "Google Cloud VMs on AMD Turin chips need a guest OS patch and a stop-and-start to protect against three CPU side-channel flaws, Google said this week. The company has already applied mitigations against attacks between VMs, and between VMs and the host. Inside a VM, the flaws may let an attacker with code on the same processor core infer data from other processes or the kernel. The affected",
+  "id": "5af74d5ce665225d",
+  "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikEkIc_eg4_tE5XE6CQrLFl74Gk0QwxcqaGXBnDAlitVIbzreq8faf57QtAqFh8rEn7HgTJzvGUZl2yNBhWVKOKo9KqnJHfduQfoT_HqUTlKhE-FzshzDrpIskiMQ3_Lz2hImNMbt9VdCj0O725_WyZsDXDB91phFceXh6Y_qzHgv1nJPMNjv8a7AU52c/s1700-nu-rw-lo-l85-e365/amd.jpg",
+  "lang": "en",
+  "link": "https://thehackernews.com/2026/11/google-cloud-warns-three-amd-turin-cpu.html",
+  "published": "2026-11-12T17:39:14+05:30",
+  "source": "The Hacker News",
+  "source_type": "actu",
+  "title": "Google Cloud Warns Three AMD Turin CPU Flaws Could Leak Data Across Processes in VMs"
+}

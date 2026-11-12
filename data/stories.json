@@ -43077,9 +43077,9 @@
       "id": "2026-11-11-screenconnect-prestataires-clients-pirates",
       "title": "ScreenConnect : des prestataires informatiques compromis servent à installer des clients d'accès à distance pirates",
       "created": "2026-11-11T23:08:37+00:00",
-      "updated": "2026-11-11T23:08:37+00:00",
-      "version": 1,
-      "resume": "Des attaquants se servent d'environnements ScreenConnect compromis de prestataires de services managés pour installer des clients d'accès à distance pirates chez leurs clients ; Huntress compte 6 prestataires, 286 machines et 47 organisations touchés [1].",
+      "updated": "2026-11-12T01:25:00+00:00",
+      "version": 2,
+      "resume": "Des attaquants se servent d'environnements ScreenConnect compromis de prestataires de services managés pour installer des clients d'accès à distance pirates chez leurs clients ; Huntress compte 6 prestataires, 286 machines et 47 organisations touchés [1]. ConnectWise a confirmé l'incident [2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -43088,6 +43088,10 @@
         {
           "etape": "Clients pirates installés",
           "texte": "Fonction Run Command de ScreenConnect utilisée pour installer des clients ScreenConnect pirates sur les machines gérées → accès à distance hors de l'environnement légitime du prestataire [1]."
+        },
+        {
+          "etape": "Déroulé observé par Sophos",
+          "texte": "Dans un cas, curl.exe télécharge l'installateur ScreenConnect puis msiexec.exe l'installe en silence [2]. Sophos voit aussi PowerShell récupérer un script de second niveau [2]."
         },
         {
           "etape": "Rebond vers technicien",
@@ -43139,14 +43143,20 @@
             "texte": "Installation de clients pirates via Run Command"
           },
           {
+            "de": "sc",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Installateur téléchargé puis installé en silence"
+          },
+          {
             "de": "pc",
             "vers": "tech",
-            "etape": 3,
+            "etape": 4,
             "texte": "Session ouverte avec une machine infectée"
           }
         ]
       },
-      "limites": "L'accès initial n'est pas établi, ConnectWise enquête encore et les chiffres de Huntress continuent d'augmenter [1].",
+      "limites": "L'accès initial n'est pas établi et les chiffres de Huntress continuent d'augmenter [1]. ConnectWise examine des extensions tierces possiblement liées à l'activité et recommande de les désactiver par précaution [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
@@ -43161,6 +43171,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/active-screenconnect-attacks-breach-msps-impact-dozens-of-organizations/",
           "date": "2026-11-11",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/09/16/ScreenConnect.jpg"
+        },
+        {
+          "titre": "Malicious ScreenConnect deployments observed",
+          "site": "Sophos Threat Research",
+          "url": "https://www.sophos.com/en-us/blog/malicious-screenconnect-deployments-observed",
+          "date": "2026-11-11",
+          "image": "https://images.contentstack.io/v3/assets/blt38f1f401b66100ad/bltb4b6c0750dc5846c/6aad5e6160452d9f5056a4ef/logo.png"
         }
       ]
     },

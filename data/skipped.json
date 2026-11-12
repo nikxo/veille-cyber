@@ -1,37 +1,5 @@
 [
   {
-    "id": "f6f763b9dab26a6f",
-    "title": "Marvell, Microsoft & Oracle Work to Standardize Data Center Hardware Security",
-    "link": "https://www.darkreading.com/cloud-security/marvell-microsoft-oracle-standardize-data-center-hardware-security",
-    "source": "Dark Reading",
-    "raison": "annonce de standardisation matérielle",
-    "date": "2026-10-21T21:20:00+00:00"
-  },
-  {
-    "id": "7bcbd743c3f71fbe",
-    "title": "TiDB Breach Exposes Flawed Cloud Security Assumptions",
-    "link": "https://www.darkreading.com/cloud-security/tidb-breach-flawed-cloud-security",
-    "source": "Dark Reading",
-    "raison": "article inaccessible, résumé sans détail sur la méthode d'attaque",
-    "date": "2026-10-21T22:20:00+00:00"
-  },
-  {
-    "id": "220c5a92b525ad46",
-    "title": "Google Chrome adds Gemini-powered scam detection, warns users of ClickFix attacks",
-    "link": "https://www.bleepingcomputer.com/news/google/google-chrome-adds-gemini-powered-scam-detection-warns-users-of-clickfix-attacks/",
-    "source": "BleepingComputer",
-    "raison": "annonce produit",
-    "date": "2026-10-21T23:10:00+00:00"
-  },
-  {
-    "id": "a734856ab1edb465",
-    "title": "UAE Transitions 50% of Gov't Services to Agentic AI",
-    "link": "https://www.darkreading.com/cybersecurity-operations/uae-transitions-50-government-services-agentic-ai",
-    "source": "Dark Reading",
-    "raison": "aucune attaque décrite (actualité sur la transformation des services publics)",
-    "date": "2026-10-22T05:06:24+00:00"
-  },
-  {
     "id": "b63a9e158fffc432",
     "title": "SAP et l’IA : l’éditeur et ses clients n’ont pas encore trouvé la formule idéale",
     "link": "https://www.lemagit.fr/actualites/366652555/SAP-et-lIA-lediteur-et-ses-clients-nont-pas-encore-trouve-la-formule-ideale",
@@ -3998,5 +3966,37 @@
     "source": "LeMagIT",
     "raison": "annonce de projets open source admis à la CNCF, aucune attaque détaillée",
     "date": "2026-11-12T12:12:00+00:00"
+  },
+  {
+    "id": "5af74d5ce665225d",
+    "title": "Google Cloud Warns Three AMD Turin CPU Flaws Could Leak Data Across Processes in VMs",
+    "link": "https://thehackernews.com/2026/11/google-cloud-warns-three-amd-turin-cpu.html",
+    "source": "The Hacker News",
+    "raison": "failles de processeurs AMD sans exploitation constatée",
+    "date": "2026-11-12T13:20:00+00:00"
+  },
+  {
+    "id": "988b46d175c69a81",
+    "title": "PTC Patches Critical Windchill and FlexPLM Flaw That Could Enable Remote Code Execution",
+    "link": "https://thehackernews.com/2026/11/ptc-patches-critical-windchill-and.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité CVE-2026-126325 corrigée, sans exploitation constatée",
+    "date": "2026-11-12T13:20:00+00:00"
+  },
+  {
+    "id": "a933d7397d9daaac",
+    "title": "Microsoft: Recent Windows updates cause SQL Server performance issues",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-recent-windows-updates-cause-sql-server-performance-issues/",
+    "source": "BleepingComputer",
+    "raison": "problème de performances lié à des mises à jour Windows, aucune attaque décrite",
+    "date": "2026-11-12T13:20:00+00:00"
+  },
+  {
+    "id": "f7cf57082e209fd8",
+    "title": "Calendar Invites and Live Proxies: Inside a Google Session Hijacking Campaign",
+    "link": "https://thehackernews.com/2026/11/calendar-invites-and-live-proxies.html",
+    "source": "The Hacker News",
+    "raison": "contenu sponsorisé (article fourni par un partenaire, Material Security)",
+    "date": "2026-11-12T13:20:00+00:00"
   }
 ]

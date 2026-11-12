@@ -43832,6 +43832,220 @@
           "date": "2026-11-12"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-12-silent-lynx-agent-hermes-asie-centrale",
+      "title": "Silent Lynx : un agent d'intelligence artificielle au service de l'espionnage de gouvernements d'Asie centrale",
+      "created": "2026-11-12T13:20:00+00:00",
+      "updated": "2026-11-12T13:20:00+00:00",
+      "version": 1,
+      "resume": "Selon CloudSEK, le groupe Silent Lynx, soupçonné d'être lié au Kazakhstan, a espionné des gouvernements d'Asie centrale avec l'aide d'un agent d'intelligence artificielle et volé des documents gouvernementaux au Tadjikistan [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources pour le réseau ferroviaire national tadjik, où l'accès a duré au moins de la mi-août à début octobre [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Accès à plusieurs serveurs du réseau ferroviaire et extraction de bases de données → identifiants de connexion, documents internes et rapports opérationnels volés [1]."
+        },
+        {
+          "etape": "Plateforme documentaire nationale",
+          "texte": "Connexion avec les identifiants d'un seul employé des chemins de fer → accès à la plateforme nationale de gestion électronique des documents, utilisée par les ministères [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Outils automatisés de téléchargement de fichiers en masse, visant notamment des milliers de documents envoyés au ministère de la Défense ou traités par lui en 2026 [1]."
+        },
+        {
+          "etape": "Agent d'intelligence artificielle",
+          "texte": "Agent open source Hermes, piloté à distance par un bot Telegram → aide à la reconnaissance, à la collecte de données et à l'effacement des traces [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Silent Lynx)",
+            "note": "Agent Hermes"
+          },
+          {
+            "id": "rail",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Réseau ferroviaire tadjik",
+            "note": "Entrée non précisée"
+          },
+          {
+            "id": "ged",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateforme documentaire nationale",
+            "note": "Utilisée par ministères"
+          },
+          {
+            "id": "docs",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Documents ministère Défense",
+            "note": "Milliers visés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "rail",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "rail",
+            "vers": "att",
+            "etape": 2,
+            "texte": "Identifiants, documents internes et rapports volés"
+          },
+          {
+            "de": "rail",
+            "vers": "ged",
+            "etape": 3,
+            "texte": "Connexion avec les identifiants d'un employé"
+          },
+          {
+            "de": "docs",
+            "vers": "att",
+            "etape": 4,
+            "texte": "Téléchargement en masse automatisé"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas comment le groupe est entré dans le réseau ferroviaire, ni dans quelle intrusion précise l'agent a servi ; le succès des fichiers piégés visant le Turkménistan n'est pas établi [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Silent Lynx, aussi appelé Cavalry Werewolf et YoroTrooper, actif depuis au moins 2022 ; lien avec le Kazakhstan évalué avec une confiance moyenne par CloudSEK [1]"
+      ],
+      "cibles": [
+        "Tadjikistan : réseau ferroviaire national, plateforme documentaire des ministères, documents du ministère de la Défense [1]",
+        "Ouzbékistan : serveur d'une initiative gouvernementale de gestion forestière, selon des indices de compromission [1]",
+        "Turkménistan : fichiers piégés déguisés en documents officiels, créés et testés en octobre [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Kazakhstan-linked hackers used AI agent to spy on Central Asian governments",
+          "site": "The Record",
+          "url": "https://therecord.media/kazakhstan-hackers-central-asia",
+          "date": "2026-11-12",
+          "image": "https://cms.therecord.media/uploads/Central_Asia_7feabe2c24.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-12-n-central-4everable2shell-tentatives",
+      "title": "N-able N-central : tentatives d'exploitation de 4EverAble2Shell, une faille qui fonctionne contre des serveurs corrigés",
+      "created": "2026-11-12T13:20:00+00:00",
+      "updated": "2026-11-12T13:20:00+00:00",
+      "version": 1,
+      "resume": "Des attaquants sondent des serveurs N-able N-central avec 4EverAble2Shell, une faille publiée par un chercheur et qui fonctionne contre la version corrigée 2026.4 Hotfix 2 ; aucune exploitation réussie n'est constatée [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Tentative d'exécution de code via la faille CVE-2026-90436 d'Apache Axis ; aucune preuve d'exploitation réussie [1]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Tentative d'obtenir les droits root avec 4EverAble2Shell, sondée quelques heures après la publication de sa preuve de concept [1]."
+        },
+        {
+          "etape": "Téléchargement d'un script",
+          "texte": "Tentative de télécharger et d'exécuter, avec curl, un script shell hébergé à l'adresse 157.20.241.16 [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "nc",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur N-central",
+            "note": "Aucun succès constaté"
+          },
+          {
+            "id": "ext",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Adresse 157.20.241.16",
+            "note": "Script shell"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "nc",
+            "etape": 1,
+            "texte": "Tentative via la faille Apache Axis"
+          },
+          {
+            "de": "att",
+            "vers": "nc",
+            "etape": 2,
+            "texte": "Tentative de droits root (4EverAble2Shell)"
+          },
+          {
+            "de": "ext",
+            "vers": "nc",
+            "etape": 3,
+            "texte": "Tentative de téléchargement d'un script shell"
+          }
+        ]
+      },
+      "limites": "La source ne nomme ni les auteurs des tentatives ni les serveurs visés ; selon N-able, la faille exige l'interface Legacy API activée et exposée sur Internet, réglage non par défaut [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-90436",
+          "explication": "Apache Axis 1.x : désérialisation d'une erreur SOAP entrante permettant d'instancier des classes à distance sans authentification, gravité critique 9,8 sur 10 [1, 2]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Serveurs N-central installés sur site ; les environnements hébergés ne sont pas touchés selon N-able [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Application Programming Interface : interface permettant à des programmes de communiquer entre eux"
+        },
+        {
+          "sigle": "SOAP",
+          "definition": "Simple Object Access Protocol : protocole d'échange de messages entre services web"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "New N-central Exploits Work Against Patched Servers, Enable Root RCE and Windows SYSTEM Access",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/new-n-central-exploits-work-against.html",
+          "date": "2026-11-12",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhR4KdRS0v77uQIdhC0i5aopa8XIAZIRnTzVCVqto7dEdfUH2QyWgrAy1EKu-hARXS4pxNGQQEFroRHOtwSq_9Q8b92tmgw_97JMJoBfC72sl8pOcUYM9nU6YCJht4yD7ALWfERwhUwLsN8wo9t8YnKyIWzHhEAux5ox5WV4wvxe6l1cUmf58P1md2Ekziy/s1700-nu-rw-lo-l85-e365/nable.jpg"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-90436",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90436"
+        }
+      ]
     }
   ]
 }

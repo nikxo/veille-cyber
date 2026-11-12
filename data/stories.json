@@ -44936,6 +44936,65 @@
           "image": "https://cms.therecord.media/uploads/polizei_9dea82a5d6.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-12-luna-moth-cabinets-avocats-seconde-fois",
+      "title": "Luna Moth : des cabinets d'avocats ayant refusé de payer sont visés une seconde fois",
+      "created": "2026-11-12T21:12:00+00:00",
+      "updated": "2026-11-12T21:12:00+00:00",
+      "version": 1,
+      "resume": "Le groupe d'extorsion Luna Moth s'en prend de nouveau à des cabinets d'avocats qui avaient refusé de payer sa première rançon, pour leur voler des jetons d'accès Microsoft [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Manœuvre d'ingénierie sociale contre des cabinets d'avocats déjà rançonnés, destinée à voler des jetons d'accès Microsoft [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Luna Moth)",
+            "note": ""
+          },
+          {
+            "id": "cab",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Cabinets d'avocats",
+            "note": "Déjà rançonnés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cab",
+            "etape": 1,
+            "texte": "Ingénierie sociale visant des jetons d'accès Microsoft"
+          }
+        ]
+      },
+      "limites": "L'article complet n'a pas pu être consulté : le déroulement de la manœuvre, le nombre de victimes et les dates ne sont pas connus ici [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Luna Moth, groupe d'extorsion [1]"
+      ],
+      "cibles": [
+        "Cabinets d'avocats ayant refusé de payer une première rançon [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Extortion Group Luna Moth Flits Into Law Firms a Second Time",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/data-privacy/extortion-luna-moth-law-firms-second-time",
+          "date": "2026-11-12"
+        }
+      ]
     }
   ]
 }

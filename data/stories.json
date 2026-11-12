@@ -43095,11 +43095,11 @@
         },
         {
           "etape": "Ancrage sur la machine",
-          "texte": "Un script ajoute des exclusions Defender et installe un second client pirate ; TrapWatch crée une tâche planifiée et arrête le client légitime → copie pirate prête à le remplacer [4]."
+          "texte": "Un script pose des exclusions Defender et un second client pirate ; TrapWatch crée une tâche planifiée et arrête le client légitime → copie pirate prête à le remplacer [4]."
         },
         {
           "etape": "Rebond vers technicien",
-          "texte": "Quand un technicien se connecte à une machine infectée, son poste peut être atteint [1, 3] ; le maliciel peut alors voler sessions de navigateur enregistrées et jetons d'authentification [3]."
+          "texte": "Si un technicien se connecte à une machine infectée, son poste peut être atteint [1, 3] ; le maliciel peut alors voler sessions de navigateur et jetons d'authentification [3]."
         },
         {
           "etape": "Diffusion par le panneau",

@@ -1,13 +1,5 @@
 [
   {
-    "id": "19756bf008108ddb",
-    "title": "Compromised eMudhra intermediate certificates",
-    "link": "https://blog.talosintelligence.com/compromised-intermediate-certificates/",
-    "source": "Cisco Talos",
-    "raison": "certificats compromis sans exploitation constatée",
-    "date": "2026-10-21T21:20:00+00:00"
-  },
-  {
     "id": "565842927b1427b6",
     "title": "Meta on the spot for $25 billion under New Mexico privacy ruling",
     "link": "https://therecord.media/meta-new-mexico-penalty-cambridge-analytica-privacy-case",
@@ -3998,5 +3990,13 @@
     "source": "Securelist (Kaspersky)",
     "raison": "article méthodologique sur les tests d'intrusion cloud, aucune attaque réelle décrite",
     "date": "2026-11-12T10:07:52+00:00"
+  },
+  {
+    "id": "d6a7aefd33114f62",
+    "title": "Microsoft confirms Windows security updates installation issues",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-confirms-kb5132061-installation-issues-0x80070306-0x800f0989-0x800f0993-errors/",
+    "source": "BleepingComputer",
+    "raison": "problème d'installation de mises à jour Windows, aucune attaque décrite",
+    "date": "2026-11-12T11:09:24+00:00"
   }
 ]

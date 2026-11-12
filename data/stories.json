@@ -43103,13 +43103,13 @@
       "id": "2026-11-11-screenconnect-prestataires-clients-pirates",
       "title": "ScreenConnect : des panneaux de prestataires compromis servent à installer des clients d'accès à distance pirates",
       "created": "2026-11-11T23:08:37+00:00",
-      "updated": "2026-11-12T08:15:00+00:00",
-      "version": 4,
-      "resume": "Des attaquants se servent de panneaux ScreenConnect compromis de prestataires de services managés pour installer des clients d'accès à distance pirates chez leurs clients [1]. Huntress compte 286 machines dans 47 organisations selon [1], au moins 288 dans 48 selon [3, 4].",
+      "updated": "2026-11-12T11:09:24+00:00",
+      "version": 5,
+      "resume": "Des attaquants se servent de panneaux ScreenConnect compromis de prestataires de services managés pour installer des clients d'accès à distance pirates chez leurs clients [1]. Huntress compte au moins 288 machines dans 48 organisations [3, 4, 5], touchées en 90 minutes [5] ; 286 dans 47 selon [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non confirmé : identifiants compromis ou sessions détournées selon la télémétrie [1, 3] ; l'activité semble liée à l'extension RMM+, qui acceptait une clé d'accès vide si elle n'était pas configurée [4]."
+          "texte": "Non confirmé : identifiants compromis ou sessions détournées selon la télémétrie [1, 3] ; journaux sans connexion correspondante, renvoyant à l'extension RMM+, qui acceptait une clé d'accès vide si non configurée [4, 5]."
         },
         {
           "etape": "Clients pirates installés",
@@ -43201,7 +43201,8 @@
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Prestataires de services managés utilisant ScreenConnect et machines de leurs clients [1]"
+        "Prestataires de services managés utilisant ScreenConnect et machines de leurs clients [1]",
+        "Au moins 6 prestataires de services managés touchés selon Huntress [5]"
       ],
       "abreviations": [
         {
@@ -43237,6 +43238,13 @@
           "url": "https://www.huntress.com/blog/sckit-worm-rogue-screenconnect",
           "date": "2026-11-12",
           "image": "https://images.huntress.com/asset/file/266936e4b61b4dd6821599adf741b9db"
+        },
+        {
+          "titre": "Hackers Deploy Malware in Fresh ScreenConnect Campaign",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/hackers-deploy-malware-in-fresh-screenconnect-campaign/",
+          "date": "2026-11-12",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/02/ConnectWise.jpeg"
         }
       ]
     },
@@ -43584,6 +43592,236 @@
           "url": "https://thehackernews.com/2026/11/4837-hijacked-github-accounts-ran-ci.html",
           "date": "2026-11-12",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1-4OiOkGLcK3fAr2HdhALOfc_BqR21440TsjUIuCNzv4YL0lWRC3lvUjE1vu2RdVfjunxi80gMQyGpjvUdWzMRtthW8_-hFOJ79YhFzJrNGgoKDPYXm2OaWOsN8kgBELqOPs5s9QKL4qzQzu_3NEEqHygpfQzKYxDRIQeFgMHj24oyPyaslUemke-loU/s1700-nu-rw-lo-l85-e365/github.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-12-reactiv-violations-donnees-etat-octobre",
+      "title": "Opération REACTIV : l'ANSSI détaille de nouvelles violations de données dans les services de l'État",
+      "created": "2026-11-12T11:09:24+00:00",
+      "updated": "2026-11-12T11:09:24+00:00",
+      "version": 1,
+      "resume": "L'ANSSI a eu connaissance de 64 nouvelles violations de données depuis le 30 septembre 2026, dont 5 concernent des ministères ou des organismes sous tutelle [2]. Le Premier ministre a demandé le 1er septembre 2026 une capacité renforcée de réaction [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Technique récurrente relevée par l'ANSSI : réutilisation de secrets volés pour accéder à des applications ministérielles → extraction des données qu'elles hébergent [2]."
+        },
+        {
+          "etape": "Portail vacances des caisses",
+          "texte": "Identifiants de comptes de partenaires issus de logiciels voleurs, sans double authentification, et adresse exposant les identifiants des dossiers → extraction automatisée, près de 1,2 million de dossiers concernés [2]."
+        },
+        {
+          "etape": "France Travail",
+          "texte": "Compromission du compte d'un agent, avec validation du second facteur → exfiltration de données, dont la vente a été revendiquée sur un forum cybercriminel [2]."
+        },
+        {
+          "etape": "Permis de chasser",
+          "texte": "Exploitation d'une faille de type IDOR sur l'interface de paiement du portail d'inscription → données de plus de mille personnes exposées et publiées en accès libre [2]."
+        },
+        {
+          "etape": "Portail DEFI",
+          "texte": "Compte usurpé et exploitation d'une vulnérabilité sur le portail de rémunération des stagiaires → exfiltration concernant 30 500 usagers [2]."
+        },
+        {
+          "etape": "Portail des bibliothèques",
+          "texte": "Comptes techniques volés en amont sur un serveur compromis → un tiers aurait accédé aux données d'une centaine d'utilisateurs ; tentatives d'élévation de privilèges bloquées [2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquants",
+            "note": ""
+          },
+          {
+            "id": "vacaf",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateforme d'aide aux vacances",
+            "note": "1,2 million de dossiers"
+          },
+          {
+            "id": "ft",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Compte d'agent France Travail",
+            "note": "Second facteur validé"
+          },
+          {
+            "id": "ofb",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Portail du permis de chasser",
+            "note": "Données publiées"
+          },
+          {
+            "id": "defi",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Portail DEFI",
+            "note": "30 500 usagers"
+          },
+          {
+            "id": "bib",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Portail des bibliothèques",
+            "note": "Élévation bloquée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "vacaf",
+            "etape": 2,
+            "texte": "Identifiants de partenaires volés, puis extraction automatisée"
+          },
+          {
+            "de": "att",
+            "vers": "ft",
+            "etape": 3,
+            "texte": "Compromission du compte, exfiltration de données"
+          },
+          {
+            "de": "att",
+            "vers": "ofb",
+            "etape": 4,
+            "texte": "Faille IDOR sur l'interface de paiement"
+          },
+          {
+            "de": "att",
+            "vers": "defi",
+            "etape": 5,
+            "texte": "Compte usurpé et vulnérabilité exploitée"
+          },
+          {
+            "de": "att",
+            "vers": "bib",
+            "etape": 6,
+            "texte": "Comptes techniques volés en amont"
+          }
+        ]
+      },
+      "limites": "Aucun acteur n'est nommé ; l'ANSSI prévient que ses éléments et chiffres peuvent évoluer, les investigations étant en cours [2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "France Travail : vente des données de plus de 60 000 agents et professionnels revendiquée sur un forum cybercriminel [2]",
+        "Plateforme vacaf.org des caisses d'allocations familiales : près de 1,2 million de dossiers [2]",
+        "Office français de la biodiversité : portail d'inscription à l'examen du permis de chasser [2]",
+        "Agence de service et de paiement : portail DEFI, 30 500 usagers [2]",
+        "Ministère de l'Europe et des Affaires étrangères : portail des bibliothèques [2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ANSSI",
+          "definition": "Agence nationale de la sécurité des systèmes d'information"
+        },
+        {
+          "sigle": "REACTIV",
+          "definition": "Réponse et action interministérielle face aux violations de données, dispositif de l'ANSSI"
+        },
+        {
+          "sigle": "IDOR",
+          "definition": "Faille donnant accès à un objet auquel le compte utilisé n'a normalement pas droit"
+        },
+        {
+          "sigle": "DEFI",
+          "definition": "Portail de l'Agence de service et de paiement pour la rémunération des stagiaires"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Point de situation de l’opération REACTIV – octobre 2026 (12 novembre 2026)",
+          "site": "CERT-FR (menaces et incidents)",
+          "url": "https://www.cert.cyber.gouv.fr/cti/CERTFR-2026-CTI-010/",
+          "date": "2026-11-12"
+        },
+        {
+          "titre": "REACTIV : point de situation, octobre 2026 (rapport CERTFR-2026-CTI-010)",
+          "site": "CERT-FR (ANSSI)",
+          "url": "https://www.cert.cyber.gouv.fr/uploads/CERTFR-2026-CTI-010.pdf",
+          "date": "2026-11-12"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-12-distributeur-americain-scripts-generes",
+      "title": "Distributeur américain : un attaquant passe à des scripts générés par intelligence artificielle pour son déplacement latéral",
+      "created": "2026-11-12T11:09:24+00:00",
+      "updated": "2026-11-12T11:09:24+00:00",
+      "version": 1,
+      "resume": "Un attaquant a visé un distributeur américain en s'appuyant sur des scripts générés par intelligence artificielle [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Déplacement latéral",
+          "texte": "Les commandes saisies à la main ayant échoué, l'attaquant se tourne vers des scripts générés par intelligence artificielle → déplacement latéral obtenu en quelques minutes [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée non précisé",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Systèmes du distributeur",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Déplacement latéral par scripts générés"
+          }
+        ]
+      },
+      "limites": "Synthèse fondée sur le seul résumé de l'article : accès initial, acteur, nom de la victime et suite de l'attaque n'y figurent pas [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Un distributeur américain, non nommé dans le résumé [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Inside an AI Attack Against a US Retailer",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/cyberattacks-data-breaches/inside-ai-attack-us-retailer",
+          "date": "2026-11-12"
         }
       ]
     }

@@ -43077,17 +43077,17 @@
       "id": "2026-11-11-screenconnect-prestataires-clients-pirates",
       "title": "ScreenConnect : des panneaux de prestataires compromis servent à installer des clients d'accès à distance pirates",
       "created": "2026-11-11T23:08:37+00:00",
-      "updated": "2026-11-12T05:07:35+00:00",
-      "version": 3,
-      "resume": "Des attaquants se servent de panneaux ScreenConnect compromis de prestataires de services managés pour installer des clients d'accès à distance pirates chez leurs clients [1, 3]. Huntress compte 286 machines dans 47 organisations selon [1], au moins 288 dans 48 selon [3].",
+      "updated": "2026-11-12T08:15:00+00:00",
+      "version": 4,
+      "resume": "Des attaquants se servent de panneaux ScreenConnect compromis de prestataires de services managés pour installer des clients d'accès à distance pirates chez leurs clients [1]. Huntress compte 286 machines dans 47 organisations selon [1], au moins 288 dans 48 selon [3, 4].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non déterminé : Huntress évoque des identifiants compromis ou des sessions détournées [1, 3], ConnectWise un abus d'extensions tierces exposant une interface d'exécution de commandes à distance [3]."
+          "texte": "Non confirmé : identifiants compromis ou sessions détournées selon la télémétrie [1, 3] ; l'activité semble liée à l'extension RMM+, qui acceptait une clé d'accès vide si elle n'était pas configurée [4]."
         },
         {
           "etape": "Clients pirates installés",
-          "texte": "Fonction Run Command d'un panneau ScreenConnect compromis utilisée pour installer des clients pirates sur les machines gérées → porte dérobée indépendante du panneau d'origine [1, 3]."
+          "texte": "Fonction Run Command de panneaux ScreenConnect utilisée pour installer des clients pirates sur les machines gérées [1, 3, 4] → porte dérobée persistante qui ne dépend plus du panneau d'origine [3]."
         },
         {
           "etape": "Déroulé observé par Sophos",
@@ -43095,15 +43095,15 @@
         },
         {
           "etape": "Ancrage sur la machine",
-          "texte": "Selon Huntress, la boîte à outils SCKit fournit un accès distant persistant et pose un piège destiné à intercepter les cookies de session [3]."
+          "texte": "Un script ajoute des exclusions Defender et installe un second client pirate ; TrapWatch crée une tâche planifiée et arrête le client légitime → copie pirate prête à le remplacer [4]."
         },
         {
           "etape": "Rebond vers technicien",
-          "texte": "Quand un technicien se connecte à une machine infectée, son poste peut être atteint [1, 3] → vol de sessions de navigateur enregistrées et de jetons d'authentification [3]."
+          "texte": "Quand un technicien se connecte à une machine infectée, son poste peut être atteint [1, 3] ; le maliciel peut alors voler sessions de navigateur enregistrées et jetons d'authentification [3]."
         },
         {
           "etape": "Diffusion par le panneau",
-          "texte": "Fonction reconstituée par Huntress : tentative de rejeu du cookie volé sur le panneau, puis script déposé dans la Shared Toolbox et lancé sur toutes les sessions joignables [3]."
+          "texte": "Fonction reconstituée par Huntress : tentative de rejeu du cookie volé sur le panneau, puis script déposé dans la Shared Toolbox et lancé sur toutes les sessions joignables [3, 4]."
         }
       ],
       "parcours": {
@@ -43142,7 +43142,7 @@
             "de": "att",
             "vers": "sc",
             "etape": 1,
-            "texte": "Identifiants compromis, sessions détournées ou extensions tierces"
+            "texte": "Identifiants compromis, sessions détournées ou extension RMM+"
           },
           {
             "de": "sc",
@@ -43170,14 +43170,19 @@
           }
         ]
       },
-      "limites": "Accès initial non établi [1, 3]. Huntress n'a observé aucun saut réussi d'une machine infectée vers un poste de technicien, ni de ce poste vers d'autres machines [3]. ConnectWise a désactivé cinq extensions tierces [3].",
+      "limites": "Accès initial non confirmé [1, 3, 4]. Huntress n'a observé aucun saut réussi vers un poste de technicien [3, 4] ; la prise de contrôle de la console a échoué sur les hôtes examinés [4].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
       "cibles": [
         "Prestataires de services managés utilisant ScreenConnect et machines de leurs clients [1]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "RMM",
+          "definition": "Remote Monitoring and Management : supervision à distance ; RMM+ est une extension ScreenConnect"
+        }
+      ],
       "sources": [
         {
           "titre": "Active ScreenConnect attacks breach MSPs, impact dozens of organizations",
@@ -43199,6 +43204,13 @@
           "url": "https://thehackernews.com/2026/11/screenconnect-attacks-target-at-least.html",
           "date": "2026-11-12",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEfz7InYm8UO-p35K6B4j009BxA-MO7DdZ2x1d-xhyphenhyphenPxNnVs848IlgAGelmuW-sPbEZbE8-L9_KWEYNH_M5HaTMy14MFd87A7YkqHAzDKaamKOdpZKR9owL3nK3gbqAngvWa6A4NC1KK1l0ie9FK731LfKPI0lguiGQ1b71sHIZj2kR2H3I-GJjSPY4kJU/s1700-nu-rw-lo-l85-e365/screenconnect-hack.jpg"
+        },
+        {
+          "titre": "SCKit Worm Installs Rogue ScreenConnect Clients and Session Cookie Relays Across Hundreds of Endpoints",
+          "site": "Huntress",
+          "url": "https://www.huntress.com/blog/sckit-worm-rogue-screenconnect",
+          "date": "2026-11-12",
+          "image": "https://images.huntress.com/asset/file/266936e4b61b4dd6821599adf741b9db"
         }
       ]
     },
@@ -43374,6 +43386,171 @@
           "url": "https://www.bleepingcomputer.com/news/security/baker-tilly-notifies-clients-of-data-breach-at-third-party-provider/",
           "date": "2026-11-11",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/11/bakertilly.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-12-github-comptes-voleur-secrets-ci",
+      "title": "GitHub : 4 837 comptes détournés servent à exécuter un voleur de secrets dans plus de 1 806 dépôts",
+      "created": "2026-11-12T08:15:00+00:00",
+      "updated": "2026-11-12T08:15:00+00:00",
+      "version": 1,
+      "resume": "Un attaquant a utilisé les identifiants volés de 4 837 comptes GitHub pour placer un voleur de secrets dans les dépôts où ils peuvent écrire ; il s'est exécuté dans au moins 1 806 dépôts, selon Aikido Security [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Identifiants volés de 4 837 comptes GitHub, obtenus d'une façon que l'analyse n'explique pas → accès aux dépôts où ces comptes peuvent écrire [1]."
+        },
+        {
+          "etape": "Test des droits",
+          "texte": "Pull request « docs: dependency audit notes » ouverte depuis une branche wfx-docs dans 61 764 dépôts → vérification que le compte peut écrire dans le dépôt [1]."
+        },
+        {
+          "etape": "Injection du voleur",
+          "texte": "Voleur ajouté à un workflow existant dans 7 309 dépôts ou en hook postinstall npm dans 771 ; la modification est généralement annulée quelques minutes après [1]."
+        },
+        {
+          "etape": "Vol de secrets",
+          "texte": "Collecte des secrets GitHub Actions, de jetons et de fichiers d'identifiants cloud, npm, PyPI et SSH → envoi par requête HTTP à des serveurs ou vers un canal Telegram [1]."
+        },
+        {
+          "etape": "Accès au cloud",
+          "texte": "Le voleur échange les jetons OIDC de GitHub contre des sessions AWS, GCP et Azure ; sur AWS, il peut créer des clés d'accès de longue durée [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Le voleur peut ouvrir un rôle AWS à tout compte AWS et ajouter des identifiants fédérés à des applications Azure AD → connexion possible même après rotation des jetons [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "cpt",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Comptes GitHub détournés",
+            "note": "4 837 comptes"
+          },
+          {
+            "id": "dep",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Dépôts GitHub et workflows",
+            "note": "Voleur injecté"
+          },
+          {
+            "id": "exf",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveurs et canal Telegram",
+            "note": "Secrets reçus"
+          },
+          {
+            "id": "cl",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Comptes AWS, GCP, Azure",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cpt",
+            "etape": 1,
+            "texte": "Connexion avec des identifiants volés"
+          },
+          {
+            "de": "cpt",
+            "vers": "dep",
+            "etape": 2,
+            "texte": "Pull request de test d'écriture"
+          },
+          {
+            "de": "cpt",
+            "vers": "dep",
+            "etape": 3,
+            "texte": "Voleur ajouté aux workflows ou en hook npm"
+          },
+          {
+            "de": "dep",
+            "vers": "exf",
+            "etape": 4,
+            "texte": "Secrets et identifiants envoyés"
+          },
+          {
+            "de": "dep",
+            "vers": "cl",
+            "etape": 5,
+            "texte": "Jetons OIDC échangés contre des sessions cloud"
+          },
+          {
+            "de": "dep",
+            "vers": "cl",
+            "etape": 6,
+            "texte": "Rôle AWS ouvert, identifiants fédérés ajoutés (capacités du voleur)"
+          }
+        ]
+      },
+      "limites": "L'analyse n'explique pas comment l'attaquant a obtenu les identifiants ; Aikido n'attribue pas, à ce stade, cette vague à l'acteur de la vague GhostAction d'octobre [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Aikido n'attribue pas cette vague à l'acteur de GhostAction (octobre) à ce stade [1]"
+      ],
+      "cibles": [
+        "4 837 comptes GitHub et les dépôts où ils peuvent écrire [1]",
+        "28 dépôts WebdriverIO atteints via des commits au nom du compte robot wdio-bot [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "npm",
+          "definition": "Gestionnaire de paquets de l'écosystème JavaScript"
+        },
+        {
+          "sigle": "PyPI",
+          "definition": "Python Package Index : dépôt public de paquets Python"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole de connexion distante chiffrée"
+        },
+        {
+          "sigle": "HTTP",
+          "definition": "Protocole de communication du web"
+        },
+        {
+          "sigle": "OIDC",
+          "definition": "OpenID Connect : jetons d'identité permettant une connexion sans secret stocké"
+        },
+        {
+          "sigle": "AWS",
+          "definition": "Amazon Web Services : plateforme cloud d'Amazon"
+        },
+        {
+          "sigle": "GCP",
+          "definition": "Google Cloud Platform : plateforme cloud de Google"
+        },
+        {
+          "sigle": "Azure AD",
+          "definition": "Azure Active Directory : service d'identités cloud de Microsoft"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Attacker Used 4,837 Hijacked GitHub Accounts to Run a CI Secret Stealer in 1,806+ Repositories",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/4837-hijacked-github-accounts-ran-ci.html",
+          "date": "2026-11-12",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1-4OiOkGLcK3fAr2HdhALOfc_BqR21440TsjUIuCNzv4YL0lWRC3lvUjE1vu2RdVfjunxi80gMQyGpjvUdWzMRtthW8_-hFOJ79YhFzJrNGgoKDPYXm2OaWOsN8kgBELqOPs5s9QKL4qzQzu_3NEEqHygpfQzKYxDRIQeFgMHj24oyPyaslUemke-loU/s1700-nu-rw-lo-l85-e365/github.jpg"
         }
       ]
     }

@@ -40388,9 +40388,9 @@
       "id": "2026-11-10-fireworks-ai-fournisseur-cloud",
       "title": "Fireworks AI : secrets de clients volés, puis machines de développement atteintes via un fournisseur cloud",
       "created": "2026-11-10T08:30:00+00:00",
-      "updated": "2026-11-11T21:07:30+00:00",
-      "version": 3,
-      "resume": "Fireworks AI a subi deux incidents en octobre : secrets capturés dans des comptes clients, puis machines de développement atteintes via un fournisseur cloud tiers [1, 2, 3]. Des conversations Notion AI ont été exposées [4].",
+      "updated": "2026-11-12T12:12:00+00:00",
+      "version": 4,
+      "resume": "Fireworks AI a subi deux incidents en octobre : secrets capturés dans des comptes clients, puis machines de développement atteintes via un fournisseur cloud tiers [1, 2, 3]. Des conversations Notion AI ont été exposées [4, 5].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -40406,7 +40406,7 @@
         },
         {
           "etape": "Données touchées",
-          "texte": "Métadonnées des ressources, informations de facturation, poids de modèles incomplets et jeux de données de certains clients [1, 3]. Transcriptions de conversations Notion AI exposées [4]."
+          "texte": "Métadonnées des ressources, informations de facturation, poids de modèles incomplets et jeux de données de certains clients [1, 3]. Transcriptions de conversations Notion AI exposées [4, 5]."
         }
       ],
       "parcours": {
@@ -40483,7 +40483,8 @@
       "cibles": [
         "Fireworks AI et certains de ses clients ; numéros de cartes de paiement non stockés par l'entreprise [1, 3]",
         "Notion, cliente, a déconnecté ses systèmes de Fireworks et supprimé ses données chez Fireworks [2]",
-        "Notion : moins de 1 % des utilisateurs touchés, dans un petit nombre d'espaces de travail [4]"
+        "Notion : moins de 1 % des utilisateurs touchés, dans un petit nombre d'espaces de travail [4]",
+        "Notion : prévenue par Fireworks le 2 novembre ; transcriptions servant à la fonction Insights ; moins de 1 % des espaces de travail touchés [5]"
       ],
       "abreviations": [
         {
@@ -40531,6 +40532,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/notion-says-fireworks-breach-exposed-customer-ai-chat-transcripts/",
           "date": "2026-11-11",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/11/Notion.jpg"
+        },
+        {
+          "titre": "Notion Customer Data Compromised in Fireworks AI Hack",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/notion-customer-data-compromised-in-fireworks-ai-hack/",
+          "date": "2026-11-12",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/10/bank-finance-lender-credit-union-hack.jpeg"
         }
       ]
     },

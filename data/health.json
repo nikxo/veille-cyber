@@ -1,17 +1,17 @@
 {
   "BleepingComputer": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:22+00:00",
+    "checked_at": "2026-11-12T18:07:00+00:00",
     "entries": 15,
     "http": 200,
-    "new": 1,
+    "new": 0,
     "ok": true,
     "parser": "xml",
     "url": "https://www.bleepingcomputer.com/feed/"
   },
   "CERT-FR (alertes)": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:23+00:00",
+    "checked_at": "2026-11-12T18:07:04+00:00",
     "entries": 40,
     "http": 200,
     "new": 0,
@@ -21,7 +21,7 @@
   },
   "CERT-FR (menaces et incidents)": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:24+00:00",
+    "checked_at": "2026-11-12T18:07:04+00:00",
     "entries": 40,
     "http": 200,
     "new": 0,
@@ -31,17 +31,17 @@
   },
   "CISA Advisories": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:24+00:00",
+    "checked_at": "2026-11-12T18:07:04+00:00",
     "entries": 30,
     "http": 200,
-    "new": 0,
+    "new": 5,
     "ok": true,
     "parser": "xml",
     "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml"
   },
   "Check Point Research": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:20+00:00",
+    "checked_at": "2026-11-12T18:06:58+00:00",
     "entries": 15,
     "http": 200,
     "new": 0,
@@ -51,7 +51,7 @@
   },
   "Cisco Talos": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:16+00:00",
+    "checked_at": "2026-11-12T18:06:30+00:00",
     "entries": 15,
     "http": 200,
     "new": 0,
@@ -61,7 +61,7 @@
   },
   "Dark Reading": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:22+00:00",
+    "checked_at": "2026-11-12T18:07:02+00:00",
     "entries": 50,
     "http": 200,
     "new": 0,
@@ -71,7 +71,7 @@
   },
   "Elastic Security Labs": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:21+00:00",
+    "checked_at": "2026-11-12T18:06:59+00:00",
     "entries": 311,
     "http": 200,
     "new": 0,
@@ -80,18 +80,14 @@
     "url": "https://www.elastic.co/security-labs/rss/feed.xml"
   },
   "Google Threat Intelligence (Mandiant)": {
-    "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:16+00:00",
-    "entries": 20,
-    "http": 200,
-    "new": 0,
-    "ok": true,
-    "parser": "xml",
+    "checked_at": "2026-11-12T18:06:31+00:00",
+    "error": "TimeoutError: The read operation timed out",
+    "ok": false,
     "url": "https://cloudblog.withgoogle.com/topics/threat-intelligence/rss/"
   },
   "Huntress": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:19+00:00",
+    "checked_at": "2026-11-12T18:06:58+00:00",
     "entries": 756,
     "http": 200,
     "new": 0,
@@ -101,7 +97,7 @@
   },
   "Krebs on Security": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:23+00:00",
+    "checked_at": "2026-11-12T18:07:02+00:00",
     "entries": 10,
     "http": 200,
     "new": 0,
@@ -111,17 +107,17 @@
   },
   "LeMagIT": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:23+00:00",
+    "checked_at": "2026-11-12T18:07:03+00:00",
     "entries": 20,
     "http": 200,
-    "new": 0,
+    "new": 3,
     "ok": true,
     "parser": "xml",
     "url": "https://www.lemagit.fr/rss/ContentSyndication.xml"
   },
   "Microsoft Threat Intelligence": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:16+00:00",
+    "checked_at": "2026-11-12T18:06:30+00:00",
     "entries": 10,
     "http": 200,
     "new": 0,
@@ -131,7 +127,7 @@
   },
   "Proofpoint Threat Insight": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:20+00:00",
+    "checked_at": "2026-11-12T18:06:58+00:00",
     "entries": 10,
     "http": 200,
     "new": 0,
@@ -141,7 +137,7 @@
   },
   "Rapid7": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:21+00:00",
+    "checked_at": "2026-11-12T18:07:00+00:00",
     "entries": 20,
     "http": 200,
     "new": 0,
@@ -151,7 +147,7 @@
   },
   "Red Canary": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:20+00:00",
+    "checked_at": "2026-11-12T18:06:59+00:00",
     "entries": 10,
     "http": 200,
     "new": 0,
@@ -161,7 +157,7 @@
   },
   "Securelist (Kaspersky)": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:18+00:00",
+    "checked_at": "2026-11-12T18:06:56+00:00",
     "entries": 10,
     "http": 200,
     "new": 0,
@@ -171,17 +167,17 @@
   },
   "SecurityWeek": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:22+00:00",
+    "checked_at": "2026-11-12T18:07:02+00:00",
     "entries": 10,
     "http": 200,
-    "new": 1,
+    "new": 0,
     "ok": true,
     "parser": "xml",
     "url": "https://www.securityweek.com/feed/"
   },
   "Sekoia": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:20+00:00",
+    "checked_at": "2026-11-12T18:06:58+00:00",
     "entries": 100,
     "http": 200,
     "new": 0,
@@ -191,7 +187,7 @@
   },
   "SentinelLABS": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:20+00:00",
+    "checked_at": "2026-11-12T18:06:58+00:00",
     "entries": 10,
     "http": 200,
     "new": 0,
@@ -201,7 +197,7 @@
   },
   "Sophos Threat Research": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:21+00:00",
+    "checked_at": "2026-11-12T18:06:59+00:00",
     "entries": 15,
     "http": 200,
     "new": 0,
@@ -211,7 +207,7 @@
   },
   "The DFIR Report": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:16+00:00",
+    "checked_at": "2026-11-12T18:06:30+00:00",
     "entries": 10,
     "http": 200,
     "new": 0,
@@ -221,33 +217,33 @@
   },
   "The Hacker News": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:22+00:00",
+    "checked_at": "2026-11-12T18:07:01+00:00",
     "entries": 50,
     "http": 200,
-    "new": 0,
+    "new": 4,
     "ok": true,
     "parser": "xml",
     "url": "https://feeds.feedburner.com/TheHackersNews"
   },
   "The Record": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:22+00:00",
+    "checked_at": "2026-11-12T18:07:01+00:00",
     "entries": 5,
     "http": 200,
-    "new": 0,
+    "new": 2,
     "ok": true,
     "parser": "xml",
     "url": "https://therecord.media/feed"
   },
   "Trend Micro Research": {
-    "checked_at": "2026-11-12T16:07:22+00:00",
+    "checked_at": "2026-11-12T18:07:00+00:00",
     "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
     "ok": false,
     "url": "http://feeds.trendmicro.com/TrendMicroResearch"
   },
   "Unit 42 (Palo Alto Networks)": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:16+00:00",
+    "checked_at": "2026-11-12T18:06:30+00:00",
     "entries": 15,
     "http": 200,
     "new": 0,
@@ -257,7 +253,7 @@
   },
   "Volexity": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:21+00:00",
+    "checked_at": "2026-11-12T18:06:59+00:00",
     "entries": 10,
     "http": 200,
     "new": 0,
@@ -267,7 +263,7 @@
   },
   "WeLiveSecurity (ESET)": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:19+00:00",
+    "checked_at": "2026-11-12T18:06:57+00:00",
     "entries": 100,
     "http": 200,
     "new": 0,
@@ -277,7 +273,7 @@
   },
   "ZATAZ": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:23+00:00",
+    "checked_at": "2026-11-12T18:07:03+00:00",
     "entries": 10,
     "http": 200,
     "new": 0,
@@ -287,7 +283,7 @@
   },
   "watchTowr Labs": {
     "bootstrap": false,
-    "checked_at": "2026-11-12T16:07:21+00:00",
+    "checked_at": "2026-11-12T18:06:59+00:00",
     "entries": 15,
     "http": 200,
     "new": 0,

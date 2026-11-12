@@ -1,45 +1,5 @@
 [
   {
-    "id": "4925fd9d122bd539",
-    "title": "Hacker Conversations: Corey Thuen and the Evil Bit",
-    "link": "https://www.securityweek.com/hacker-conversations-corey-thuen-and-the-evil-bit/",
-    "source": "SecurityWeek",
-    "raison": "interview sans attaque",
-    "date": "2026-10-22T15:20:00+00:00"
-  },
-  {
-    "id": "51edf4785e1ea11b",
-    "title": "Collaboratif : Rainbow se dote de fonctions d'IA hébergées en Europe",
-    "link": "https://www.lemagit.fr/actualites/366652632/Collaboratif-Rainbow-ajoute-des-fonctions-dIA-hebergees-en-Europe",
-    "source": "LeMagIT",
-    "raison": "annonce produit",
-    "date": "2026-10-22T15:20:00+00:00"
-  },
-  {
-    "id": "c145f24074c2801f",
-    "title": "INTERPOL Arrests 1,462 Suspects, Disrupts 10,909 Cybercrime Networks in Global Crackdown",
-    "link": "https://thehackernews.com/2026/10/interpol-arrests-1462-suspects-disrupts.html",
-    "source": "The Hacker News",
-    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
-    "date": "2026-10-22T15:20:00+00:00"
-  },
-  {
-    "id": "5edd87a48e7caccf",
-    "title": "DSX Pod : Nvidia se lance dans la conception de data centers préfabriqués",
-    "link": "https://www.lemagit.fr/actualites/366652349/DSX-Pod-Nvidia-se-lance-dans-la-conception-de-data-centers-prefabriques",
-    "source": "LeMagIT",
-    "raison": "annonce produit",
-    "date": "2026-10-22T16:20:00+00:00"
-  },
-  {
-    "id": "0d9cbd61a8c281af",
-    "title": "Shadow convertit ses PC gamers en cloud en services d’IA utilisables le jour",
-    "link": "https://www.lemagit.fr/actualites/366652546/Shadow-convertit-ses-PC-gamers-en-cloud-en-services-dIA-utilisables-le-jour",
-    "source": "LeMagIT",
-    "raison": "annonce produit",
-    "date": "2026-10-22T16:20:00+00:00"
-  },
-  {
     "id": "f5a2a815ed79363b",
     "title": "Selon Moody's, l'IA va faire grimper le coût d'une mauvaise posture de sécurité",
     "link": "https://www.lemagit.fr/actualites/366652543/Selon-Moodys-lIA-va-faire-grimper-le-cout-dune-mauvaise-posture-de-securite",
@@ -3998,5 +3958,45 @@
     "source": "LeMagIT",
     "raison": "étude de marché sur les éditeurs de logiciels et l'IA, aucune attaque décrite",
     "date": "2026-11-12T18:20:00+00:00"
+  },
+  {
+    "id": "0215fb6873aed2b7",
+    "title": "ThreatsDay: 59 Linux Kernel Bugs, Falcon Spyware, GSocket Backdoors + 17 More Stories",
+    "link": "https://thehackernews.com/2026/11/threatsday-59-linux-kernel-bugs-falcon.html",
+    "source": "The Hacker News",
+    "raison": "récapitulatif hebdomadaire d'une vingtaine de sujets sans lien entre eux, impossible à regrouper en un sujet",
+    "date": "2026-11-12T19:20:00+00:00"
+  },
+  {
+    "id": "1acaa8e77a2e5854",
+    "title": "New SignDrop Zero-Day Exploit Turns Windows CLFS Security Feature Into SYSTEM Access",
+    "link": "https://thehackernews.com/2026/11/new-signdrop-zero-day-exploit-turns.html",
+    "source": "The Hacker News",
+    "raison": "code d'exploitation public SignDrop (Windows CLFS), aucune exploitation constatée dans la nature",
+    "date": "2026-11-12T19:20:00+00:00"
+  },
+  {
+    "id": "1db6496180d42520",
+    "title": "Trained to betray: How post-training supply chain attacks hijack coding agents",
+    "link": "https://www.microsoft.com/en-us/security/blog/2026/11/12/trained-to-betray-how-post-training-supply-chain-attacks-hijack-coding-agents/",
+    "source": "Microsoft Threat Intelligence",
+    "raison": "recherche en laboratoire sur l'empoisonnement de jeux de données et de modèles, aucune attaque réelle décrite",
+    "date": "2026-11-12T19:20:00+00:00"
+  },
+  {
+    "id": "760c6e74df0d9cb0",
+    "title": "Red Hat voit l’IA comme un cheval de Troie pour OpenShift",
+    "link": "https://www.lemagit.fr/actualites/366654664/Red-Hat-voit-lIA-comme-un-cheval-de-Troie-pour-OpenShift",
+    "source": "LeMagIT",
+    "raison": "stratégie produit de Red Hat, aucune attaque décrite",
+    "date": "2026-11-12T19:20:00+00:00"
+  },
+  {
+    "id": "a03140a674501e35",
+    "title": "Never be afraid to ask questions",
+    "link": "https://blog.talosintelligence.com/never-be-afraid-to-ask-questions/",
+    "source": "Cisco Talos",
+    "raison": "newsletter hebdomadaire sans attaque détaillée",
+    "date": "2026-11-12T19:20:00+00:00"
   }
 ]

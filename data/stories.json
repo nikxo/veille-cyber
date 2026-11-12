@@ -42867,9 +42867,9 @@
       "id": "2026-11-11-maersk-whitearmor-fuite",
       "title": "Maersk : vol de données sur un système hérité d'une acquisition, WhiteArmor réclame 5 millions de dollars",
       "created": "2026-11-11T17:12:00+00:00",
-      "updated": "2026-11-12T09:10:00+00:00",
-      "version": 2,
-      "resume": "Maersk confirme que des pirates ont extrait des données d'un système local hérité d'une acquisition [1, 2]. Le groupe WhiteArmor revendique le vol d'environ 100 Go et réclame 5 millions de dollars ; Maersk ne confirme pas son implication [2].",
+      "updated": "2026-11-12T19:20:00+00:00",
+      "version": 3,
+      "resume": "Maersk confirme que des pirates ont extrait des données d'un système local hérité d'une acquisition [1, 2] ; ses constats suggèrent qu'aucune donnée sensible n'a été divulguée [3]. WhiteArmor revendique environ 100 Go et réclame 5 millions de dollars [2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -42877,11 +42877,11 @@
         },
         {
           "etape": "Vol de données",
-          "texte": "Compromission d'un système local hérité d'une acquisition antérieure → extraction de données [1, 2]. WhiteArmor revendique environ 100 Go [2]."
+          "texte": "Système local hérité d'une acquisition compromis → extraction de données [1, 2], environ 100 Go selon WhiteArmor [2] ; aucun indice d'impact sur d'autres systèmes selon Maersk [3]."
         },
         {
           "etape": "Extorsion",
-          "texte": "Le 7 novembre, WhiteArmor inscrit Maersk sur son site de fuite et menace de publier les données sans paiement de 5 millions de dollars [2]."
+          "texte": "Le 7 novembre, WhiteArmor inscrit Maersk sur son site de fuite et menace de publier les données [2] ; 5 millions de dollars exigés sous 30 jours [3]."
         }
       ],
       "parcours": {
@@ -42936,15 +42936,15 @@
           }
         ]
       },
-      "limites": "Maersk ne dit pas comment les attaquants sont entrés et ne confirme ni l'implication de WhiteArmor ni le type de données volées ; les chiffres du groupe ne sont pas vérifiés [2].",
+      "limites": "Maersk ne dit pas comment les attaquants sont entrés et ne confirme pas l'implication de WhiteArmor [2] ; selon le groupe, les données concerneraient chauffeurs, entrepôts et clients de LF Logistics [3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "WhiteArmor, groupe de rançongiciel qui revendique le vol [1, 2] ; implication non confirmée par Maersk [2]"
+        "WhiteArmor, groupe de rançongiciel qui revendique le vol [1, 2, 3] ; implication non confirmée par Maersk [2]"
       ],
       "cibles": [
         "Maersk, géant du transport maritime [1, 2]",
-        "Selon WhiteArmor, une plateforme associée à LF Logistics, société de Hong Kong acquise par Maersk en 2022 [2]"
+        "Selon WhiteArmor, une plateforme associée à LF Logistics, société de Hong Kong acquise par Maersk en 2022 [2, 3]"
       ],
       "abreviations": [
         {
@@ -42966,6 +42966,13 @@
           "url": "https://www.securityweek.com/maersk-confirms-data-theft-amid-5-million-extortion-attempt/",
           "date": "2026-11-12",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/11/Maersk.jpeg"
+        },
+        {
+          "titre": "Shipping giant Maersk says recent cyber incident affected legacy system",
+          "site": "The Record",
+          "url": "https://therecord.media/shipping-giant-maersk-says-recent-incident-affected-legacy-system",
+          "date": "2026-11-12",
+          "image": "https://cms.therecord.media/uploads/ship_03c3b365ad.jpg"
         }
       ]
     },

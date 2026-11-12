@@ -42844,21 +42844,21 @@
       "id": "2026-11-11-maersk-whitearmor-fuite",
       "title": "Maersk : vol de données sur un système hérité d'une acquisition, WhiteArmor réclame 5 millions de dollars",
       "created": "2026-11-11T17:12:00+00:00",
-      "updated": "2026-11-11T17:12:00+00:00",
-      "version": 1,
-      "resume": "Maersk annonce qu'un attaquant a obtenu un accès non autorisé à un système local ancien, hérité d'une acquisition antérieure, et en a extrait des données ; le rançongiciel WhiteArmor réclame 5 millions de dollars [1].",
+      "updated": "2026-11-12T09:10:00+00:00",
+      "version": 2,
+      "resume": "Maersk confirme que des pirates ont extrait des données d'un système local hérité d'une acquisition [1, 2]. Le groupe WhiteArmor revendique le vol d'environ 100 Go et réclame 5 millions de dollars ; Maersk ne confirme pas son implication [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé par les sources [1, 2]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Accès non autorisé à un système local ancien hérité d'une acquisition antérieure → extraction de données [1]."
+          "texte": "Compromission d'un système local hérité d'une acquisition antérieure → extraction de données [1, 2]. WhiteArmor revendique environ 100 Go [2]."
         },
         {
           "etape": "Extorsion",
-          "texte": "Le rançongiciel WhiteArmor réclame 5 millions de dollars [1]."
+          "texte": "Le 7 novembre, WhiteArmor inscrit Maersk sur son site de fuite et menace de publier les données sans paiement de 5 millions de dollars [2]."
         }
       ],
       "parcours": {
@@ -42868,7 +42868,7 @@
             "type": "attaquant",
             "zone": "internet",
             "nom": "Attaquant",
-            "note": ""
+            "note": "Revendication WhiteArmor"
           },
           {
             "id": "inc",
@@ -42881,8 +42881,15 @@
             "id": "sys",
             "type": "serveur",
             "zone": "victime",
-            "nom": "Système local ancien",
+            "nom": "Système local",
             "note": "Hérité d'une acquisition"
+          },
+          {
+            "id": "fuite",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Site de fuite WhiteArmor",
+            "note": "Menace de publication"
           }
         ],
         "liens": [
@@ -42896,20 +42903,32 @@
             "de": "inc",
             "vers": "sys",
             "etape": 2,
-            "texte": "Accès non autorisé, données extraites"
+            "texte": "Données extraites du système"
+          },
+          {
+            "de": "sys",
+            "vers": "fuite",
+            "etape": 3,
+            "texte": "Maersk inscrit sur le site, 5 millions réclamés"
           }
         ]
       },
-      "limites": "Article complet non consulté (accès refusé) : synthèse limitée au titre et au résumé du flux, qui ne décrivent ni le vecteur d'accès ni les données extraites [1].",
+      "limites": "Maersk ne dit pas comment les attaquants sont entrés et ne confirme ni l'implication de WhiteArmor ni le type de données volées ; les chiffres du groupe ne sont pas vérifiés [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "WhiteArmor, rançongiciel qui réclame 5 millions de dollars [1]"
+        "WhiteArmor, groupe de rançongiciel qui revendique le vol [1, 2] ; implication non confirmée par Maersk [2]"
       ],
       "cibles": [
-        "Maersk [1]"
+        "Maersk, géant du transport maritime [1, 2]",
+        "Selon WhiteArmor, une plateforme associée à LF Logistics, société de Hong Kong acquise par Maersk en 2022 [2]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "LF",
+          "definition": "Élément du nom de la société de logistique LF Logistics"
+        }
+      ],
       "sources": [
         {
           "titre": "Maersk confirms data breach as WhiteArmor ransomware demands $5 million",
@@ -42917,6 +42936,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/maersk-confirms-data-breach-as-whitearmor-ransomware-demands-5-million/",
           "date": "2026-11-11",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/11/maersk.jpg"
+        },
+        {
+          "titre": "Maersk Confirms Data Theft Amid $5 Million Extortion Attempt",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/maersk-confirms-data-theft-amid-5-million-extortion-attempt/",
+          "date": "2026-11-12",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/Maersk.jpeg"
         }
       ]
     },

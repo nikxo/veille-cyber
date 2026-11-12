@@ -1,69 +1,5 @@
 [
   {
-    "id": "b3d99a3d973f9b77",
-    "title": "Cisco Patches 34 Vulnerabilities Across Multiple Products",
-    "link": "https://www.securityweek.com/cisco-patches-34-vulnerabilities-across-multiple-products/",
-    "source": "SecurityWeek",
-    "raison": "correctifs sans exploitation constatée",
-    "date": "2026-10-22T10:30:00+00:00"
-  },
-  {
-    "id": "eff3ebf7d52ffb89",
-    "title": "New QPACK Flaws Can Crash HTTP/3 Servers, Trigger Up to 4,000-Fold Memory Amplification",
-    "link": "https://thehackernews.com/2026/10/new-qpack-flaws-can-crash-http3-servers.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-22T10:30:00+00:00"
-  },
-  {
-    "id": "4b6924db1f21c59d",
-    "title": "Splunk, SolarWinds Release Fresh Security Updates",
-    "link": "https://www.securityweek.com/splunk-solarwinds-release-fresh-security-updates/",
-    "source": "SecurityWeek",
-    "raison": "correctifs sans exploitation constatée",
-    "date": "2026-10-22T11:10:00+00:00"
-  },
-  {
-    "id": "1d3516a0d0a60e24",
-    "title": "OpenCode Flaw Lets Malicious MCP Servers Execute Code During Sign-In on Windows and WSL",
-    "link": "https://thehackernews.com/2026/10/opencode-flaw-lets-malicious-mcp.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-22T12:30:00+00:00"
-  },
-  {
-    "id": "714f74b84a8a6126",
-    "title": "GitLab warns of new max severity code execution vulnerability",
-    "link": "https://www.bleepingcomputer.com/news/security/gitlab-warns-of-new-max-severity-code-execution-vulnerability/",
-    "source": "BleepingComputer",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-22T12:30:00+00:00"
-  },
-  {
-    "id": "e30cc7a02f52c06a",
-    "title": "Signal Vulnerability Lets Malicious Callers Block Hang-Ups",
-    "link": "https://www.securityweek.com/signal-vulnerability-lets-malicious-callers-block-hang-ups/",
-    "source": "SecurityWeek",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-22T13:40:00+00:00"
-  },
-  {
-    "id": "e567cd97708b8d86",
-    "title": "Indurex Raises $8 Million to Expand Industrial Cybersecurity Platform",
-    "link": "https://www.securityweek.com/indurex-raises-8-million-to-expand-industrial-cybersecurity-platform/",
-    "source": "SecurityWeek",
-    "raison": "levée de fonds",
-    "date": "2026-10-22T13:40:00+00:00"
-  },
-  {
-    "id": "14aa600d7f566f55",
-    "title": "Cybercrime crackdown across Africa leads to 1,462 arrests, $105 million seized",
-    "link": "https://therecord.media/africa-cybercrime-interpol-arrests",
-    "source": "The Record",
-    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
-    "date": "2026-10-22T14:15:00+00:00"
-  },
-  {
     "id": "4925fd9d122bd539",
     "title": "Hacker Conversations: Corey Thuen and the Evil Bit",
     "link": "https://www.securityweek.com/hacker-conversations-corey-thuen-and-the-evil-bit/",
@@ -3998,5 +3934,69 @@
     "source": "SecurityWeek",
     "raison": "vulnérabilité sans exploitation constatée",
     "date": "2026-11-12T16:07:22+00:00"
+  },
+  {
+    "id": "0326dcbca7c7fa26",
+    "title": "Siemens Industrial Edge Management",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-316-03",
+    "source": "CISA Advisories",
+    "raison": "avis de vulnérabilité (Node2Shell dans Siemens Industrial Edge) sans exploitation constatée",
+    "date": "2026-11-12T18:20:00+00:00"
+  },
+  {
+    "id": "0b6d9bcd8811c95a",
+    "title": "Siemens Building Automation and Energy Products",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-316-01",
+    "source": "CISA Advisories",
+    "raison": "avis de vulnérabilité (php2shell dans des produits Siemens) sans exploitation constatée dans l'avis",
+    "date": "2026-11-12T18:20:00+00:00"
+  },
+  {
+    "id": "3fc70062a296fc32",
+    "title": "Siemens Desigo, Gridscale",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-316-02",
+    "source": "CISA Advisories",
+    "raison": "avis de vulnérabilité (Node2Shell dans Siemens Desigo et Gridscale) sans exploitation constatée",
+    "date": "2026-11-12T18:20:00+00:00"
+  },
+  {
+    "id": "3fea90422b4e52d4",
+    "title": "Siemens RUGGEDCOM APE1808",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-316-04",
+    "source": "CISA Advisories",
+    "raison": "avis de vulnérabilité (Node2Shell dans Siemens RUGGEDCOM APE1808) sans exploitation constatée",
+    "date": "2026-11-12T18:20:00+00:00"
+  },
+  {
+    "id": "d1b92d164acb5a89",
+    "title": "Siemens RUGGEDCOM APE1808",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-316-05",
+    "source": "CISA Advisories",
+    "raison": "avis de vulnérabilité (PHP2Shell dans Siemens RUGGEDCOM APE1808) sans exploitation constatée dans l'avis",
+    "date": "2026-11-12T18:20:00+00:00"
+  },
+  {
+    "id": "093b008afb96e695",
+    "title": "Critical Red Hat Quay Flaw Lets Attackers Read and Overwrite All Private Container Images in a Registry",
+    "link": "https://thehackernews.com/2026/11/critical-red-hat-quay-flaw-lets.html",
+    "source": "The Hacker News",
+    "raison": "failles Red Hat Quay corrigées, sans exploitation constatée",
+    "date": "2026-11-12T18:20:00+00:00"
+  },
+  {
+    "id": "c398aa3e92265ca6",
+    "title": "Citrix Patches 12 NetScaler and Secure Access Client Flaws, Including Authentication Bypass",
+    "link": "https://thehackernews.com/2026/11/citrix-patches-12-netscaler-and-secure.html",
+    "source": "The Hacker News",
+    "raison": "correctifs Citrix NetScaler, aucun exploit connu selon Citrix",
+    "date": "2026-11-12T18:20:00+00:00"
+  },
+  {
+    "id": "60f106dc068d9f9b",
+    "title": "« Les tokens ont un impact important sur les marges des éditeurs » (Jean-Philippe Couturier, Numeum)",
+    "link": "https://www.lemagit.fr/actualites/366654706/Les-tokens-ont-un-impact-important-sur-nos-marges-brutes-Jean-Philippe-Couturier-Numeum",
+    "source": "LeMagIT",
+    "raison": "étude de marché sur les éditeurs de logiciels et l'IA, aucune attaque décrite",
+    "date": "2026-11-12T18:20:00+00:00"
   }
 ]

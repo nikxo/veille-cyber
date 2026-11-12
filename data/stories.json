@@ -41383,13 +41383,13 @@
       "id": "2026-11-10-outlook-cve-2026-124194",
       "title": "Outlook : une faille exploitée pour voler des empreintes NTLM, corrigée au Patch Tuesday de novembre",
       "created": "2026-11-10T19:20:00+00:00",
-      "updated": "2026-11-11T09:20:00+00:00",
-      "version": 8,
+      "updated": "2026-11-12T18:20:00+00:00",
+      "version": 9,
       "resume": "Microsoft a corrigé lors de son Patch Tuesday de novembre 2026 une faille d'Outlook, CVE-2026-124194, exploitée dans des attaques pour voler des empreintes NTLM de comptes [1, 2, 5].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Fichier de message piégé envoyé par un attaquant non authentifié, que la victime doit ouvrir dans Outlook ; le volet de prévisualisation ne déclenche pas la faille [1, 2, 8]."
+          "texte": "Fichier de message piégé envoyé par un attaquant non authentifié, à ouvrir dans Outlook, sans effet par le volet de prévisualisation [1, 2, 8] ; fichier Office malveillant selon Tenable [9]."
         },
         {
           "etape": "Vol d'identifiants",
@@ -41432,7 +41432,7 @@
       "cves": [
         {
           "id": "CVE-2026-124194",
-          "explication": "Microsoft Outlook : faille d'usurpation pouvant divulguer des informations d'authentification, exploitée activement [1, 4] ; gravité modérée selon Microsoft, score 6,5 [2, 7] ; ajoutée au catalogue américain des failles exploitées [3]."
+          "explication": "Microsoft Outlook : faille d'usurpation pouvant divulguer des informations d'authentification, exploitée activement [1, 4, 9] ; gravité modérée selon Microsoft, score 6,5 [2, 7, 9] ; ajoutée au catalogue américain des failles exploitées [3]."
         }
       ],
       "mitre": [],
@@ -41498,6 +41498,13 @@
           "url": "https://thehackernews.com/2026/11/microsoft-patches-1259-flaws-including.html",
           "date": "2026-11-11",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_nfFO2Zf-R2XyVzQHP43rc0OLAtUtRKWYV0VIaoHZW8EeH78h2Id9FmfJQVfzFdmBD6ugVGeCehX1Nq6jlmXlMG4AmnV3Tib3YvClKGaplVg5Ngk_KlpqwHx6Pd_oYQTCj2O3HfOpt_MoSGQD-4Nv-pju5sqS7U9-rAJdpKTn-xnhA1QSmmTiQWnAFjGp/s1700-nu-rw-lo-l85-e365/patch-ms.jpg"
+        },
+        {
+          "titre": "Patch Tuesday de Novembre : encore une cuvée spectaculaire",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366654645/Patch-Tuesday-de-Novembre-encore-une-cuvee-spectaculaire",
+          "date": "2026-11-12",
+          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/HeroImages/sea-ocean-wave-surf-artifirsov-adobe.jpg"
         }
       ]
     },
@@ -43119,13 +43126,13 @@
       "id": "2026-11-11-screenconnect-prestataires-clients-pirates",
       "title": "ScreenConnect : des panneaux de prestataires compromis servent à installer des clients d'accès à distance pirates",
       "created": "2026-11-11T23:08:37+00:00",
-      "updated": "2026-11-12T11:09:24+00:00",
-      "version": 5,
+      "updated": "2026-11-12T18:20:00+00:00",
+      "version": 6,
       "resume": "Des attaquants se servent de panneaux ScreenConnect compromis de prestataires de services managés pour installer des clients d'accès à distance pirates chez leurs clients [1]. Huntress compte au moins 288 machines dans 48 organisations [3, 4, 5], touchées en 90 minutes [5] ; 286 dans 47 selon [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non confirmé : identifiants compromis ou sessions détournées selon la télémétrie [1, 3] ; journaux sans connexion correspondante, renvoyant à l'extension RMM+, qui acceptait une clé d'accès vide si non configurée [4, 5]."
+          "texte": "Non confirmé : identifiants compromis ou sessions détournées selon la télémétrie [1, 3, 6] ; journaux sans connexion correspondante, renvoyant à l'extension RMM+, qui acceptait une clé d'accès vide si non configurée [4, 5, 7]."
         },
         {
           "etape": "Clients pirates installés",
@@ -43141,7 +43148,7 @@
         },
         {
           "etape": "Rebond vers technicien",
-          "texte": "Si un technicien se connecte à une machine infectée, son poste peut être atteint [1, 3] ; le maliciel peut alors voler sessions de navigateur et jetons d'authentification [3]."
+          "texte": "Si un technicien se connecte à une machine infectée, le maliciel tente d'exploiter CVE-2026-84869 contre son poste [7] → vol possible de sessions de navigateur et jetons d'authentification [3]."
         },
         {
           "etape": "Diffusion par le panneau",
@@ -43212,13 +43219,19 @@
           }
         ]
       },
-      "limites": "Accès initial non confirmé [1, 3, 4]. Huntress n'a observé aucun saut réussi vers un poste de technicien [3, 4] ; la prise de contrôle de la console a échoué sur les hôtes examinés [4].",
-      "cves": [],
+      "limites": "Accès initial non confirmé [1, 3, 4, 6, 7] ; ConnectWise relie l'activité à un abus de l'extension tierce RMM+ [6]. Aucun saut réussi vers un poste de technicien n'a été observé [3, 4, 7].",
+      "cves": [
+        {
+          "id": "CVE-2026-84869",
+          "explication": "ScreenConnect : autorisation manquante permettant de transférer et d'exécuter des fichiers par une session active sans confirmation de l'hôte, score 9,9 [7] ; le correctif bloque l'exploit selon Blackpoint [6, 7]."
+        }
+      ],
       "mitre": [],
       "acteurs": [],
       "cibles": [
         "Prestataires de services managés utilisant ScreenConnect et machines de leurs clients [1]",
-        "Au moins 6 prestataires de services managés touchés selon Huntress [5]"
+        "Au moins 6 prestataires de services managés touchés selon Huntress [5]",
+        "Environ 400 environnements de partenaires ont au moins une extension tierce installée ; leur seule présence n'établit pas une compromission selon ConnectWise [6]"
       ],
       "abreviations": [
         {
@@ -43261,6 +43274,20 @@
           "url": "https://www.securityweek.com/hackers-deploy-malware-in-fresh-screenconnect-campaign/",
           "date": "2026-11-12",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/02/ConnectWise.jpeg"
+        },
+        {
+          "titre": "ConnectWise investigates ScreenConnect breaches after reports of incidents at nearly 50 organizations",
+          "site": "The Record",
+          "url": "https://therecord.media/connectwise-screenconnect-breaches-third-party-tool",
+          "date": "2026-11-12",
+          "image": "https://cms.therecord.media/uploads/connectwise_logo_df3804ab18.jpg"
+        },
+        {
+          "titre": "SCKit Malware Turns ScreenConnect Support Sessions Into Potential MSP Attack Paths",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/sckit-malware-targets-screenconnect.html",
+          "date": "2026-11-12",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4r5n0I6Rd7yb3jS6hfXTyM5foZU5uEiCD1I2Kgth1qgf_pzohrD9jPeDesEopB6Gjo0VaQZF2XesdqU6W32eFADzI3_xhBF4026h6uGqn6eExdfS_A29SvYA3cdIJkhWmPG-k15_DdsGGcqFfWS-E3cgyKkdEQ3Sxa9gayFkkMXggVJpkeH7DoLNLZxm9/s1700-nu-rw-lo-l85-e365/screen.jpg"
         }
       ]
     },
@@ -44645,6 +44672,243 @@
           "url": "https://therecord.media/europe-hoax-email-threats",
           "date": "2026-11-12",
           "image": "https://cms.therecord.media/uploads/Garda_6ee6f55714.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-12-typoprompting-faux-domaines-ia",
+      "title": "TypoPrompting : 186 faux domaines d'outils d'intelligence artificielle mènent à des leurres ClickFix et à des détourneurs de navigateur",
+      "created": "2026-11-12T18:20:00+00:00",
+      "updated": "2026-11-12T18:20:00+00:00",
+      "version": 1,
+      "resume": "Selon Island, 186 domaines imitant 27 marques d'intelligence artificielle redirigent les internautes vers des leurres ClickFix, un maliciel détournant le navigateur et des extensions qui détournent les recherches [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Domaines à une lettre près de l'adresse d'un outil d'intelligence artificielle connu → la page parquée lance une chaîne de redirections [1]."
+        },
+        {
+          "etape": "Profilage du visiteur",
+          "texte": "La chaîne de redirections relève l'empreinte du navigateur et l'adresse publique de la victime, puis affiche une fausse page de vérification Cloudflare [1]."
+        },
+        {
+          "etape": "Leurre ClickFix",
+          "texte": "Fausses vérifications sous Windows, fausses mises à jour sous macOS → la victime exécute elle-même une commande, ou extrait et lance un exécutable d'une archive téléchargée [1]."
+        },
+        {
+          "etape": "Détournement du navigateur",
+          "texte": "Huit domaines mènent, par de fausses pages de vérification, à Net Guard, qui peut changer le moteur de recherche pendant l'inactivité, exécuter du JavaScript de l'attaquant, installer des extensions [1]."
+        },
+        {
+          "etape": "Détournement des recherches",
+          "texte": "Le domaine preplexity[.]ai mène à l'extension Chrome Quick Search, qui remplace le moteur de recherche par défaut → requêtes de l'utilisateur envoyées à un tiers [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "dom",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Domaines imitateurs",
+            "note": "186 domaines"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de l'internaute",
+            "note": ""
+          },
+          {
+            "id": "tiers",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Service tiers",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "dom",
+            "etape": 1,
+            "texte": "Domaines imitant des outils connus"
+          },
+          {
+            "de": "pc",
+            "vers": "dom",
+            "etape": 1,
+            "texte": "Domaine imitateur, redirections"
+          },
+          {
+            "de": "dom",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Leurre ClickFix, commande exécutée par la victime"
+          },
+          {
+            "de": "dom",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Application Net Guard"
+          },
+          {
+            "de": "pc",
+            "vers": "tiers",
+            "etape": 5,
+            "texte": "Requêtes de recherche envoyées à un tiers"
+          }
+        ]
+      },
+      "limites": "La source ne nomme aucun acteur et ne donne ni nombre de victimes ni date de début de la campagne [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Marques imitées : Claude, ChatGPT, Gemini, Copilot, Grok, DeepSeek, Mistral, Perplexity, entre autres [1]",
+        "Seize extensions de la même famille sur le Chrome Web Store, 972 000 utilisateurs déclarés au 3 novembre 2026 [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "186 Fake AI Domains Redirect Users to ClickFix Lures, Browser Malware, and Search Hijackers",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/186-fake-ai-domains-redirect-users-to.html",
+          "date": "2026-11-12",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirJnc36Fxj4oKOmKhcPvspB_xQpv3VgpXjYnu29SOv8NbVJHeaGNKT26851QIPQbHozxeF5vmq5otdRbJBKEaN9557MtuxLwp5fxX-pQVDVKwvZJtPR9ayT2Njx83svW7TVsVkVpFUOt5JHqhdSkSI7uV0d4dxlf5pWAmHISttTHWjURyOpuuy0CzVCSmK/s1700-nu-rw-lo-l85-e365/lauce.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-12-endgame-gootloader-castlerat-stealc",
+      "title": "Opération Endgame : l'infrastructure de Gootloader, CastleRAT et StealC démantelée",
+      "created": "2026-11-12T18:20:00+00:00",
+      "updated": "2026-11-12T18:20:00+00:00",
+      "version": 1,
+      "resume": "L'opération Endgame a visé 235 serveurs et 257 noms de domaine utilisés par Gootloader, CastleRAT et StealC [1, 2]. Plus de 6 millions d'identifiants de victimes ont été identifiés [1] ; environ 6,4 millions, provenant de plus de 40 000 victimes, selon [2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Résultats de recherche empoisonnés → la victime arrive notamment sur un site WordPress compromis par l'opérateur de Gootloader [1]."
+        },
+        {
+          "etape": "Exécution du chargeur",
+          "texte": "Exécution du code JavaScript de Gootloader, caché dans une archive ZIP → lancement de lignes PowerShell, ordinateur de la victime compromis [1]."
+        },
+        {
+          "etape": "Exploitation de l'accès",
+          "texte": "L'ordinateur compromis devient un point d'entrée sur le réseau ; Vanilla Tempest exploite ces accès pour déclencher des rançongiciels, selon Microsoft en 2024 [1]."
+        },
+        {
+          "etape": "Riposte policière",
+          "texte": "Une interface d'administration de Gootloader hébergée en Afrique du Sud a été compromise → point de départ des saisies ; 681 sites WordPress nettoyés [1]."
+        },
+        {
+          "etape": "Infrastructure StealC rebâtie",
+          "texte": "Après un premier démantèlement en juin, le réseau StealC reconstruit a été retracé jusqu'à l'hébergeur Virtualine, saisi par le FBI en octobre [2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Opérateur de Gootloader",
+            "note": ""
+          },
+          {
+            "id": "wp",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Site WordPress compromis",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Ordinateur de la victime",
+            "note": "Chargeur exécuté"
+          },
+          {
+            "id": "res",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Réseau de la victime",
+            "note": "Rançongiciel"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "wp",
+            "etape": 1,
+            "texte": "Site compromis, recherches empoisonnées"
+          },
+          {
+            "de": "wp",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Archive ZIP contenant du JavaScript"
+          },
+          {
+            "de": "pc",
+            "vers": "res",
+            "etape": 3,
+            "texte": "Point d'entrée exploité par Vanilla Tempest"
+          }
+        ]
+      },
+      "limites": "Les sources ne décrivent pas le fonctionnement de CastleRAT [1, 2] ; StealC est seulement présenté comme un voleur de mots de passe [2]. Aucune arrestation n'a accompagné l'opération [2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Opérateur de Gootloader [1]",
+        "Vanilla Tempest, qui exploite les accès fournis par Gootloader pour déclencher des rançongiciels, Vice Society puis INC [1]"
+      ],
+      "cibles": [
+        "Internautes piégés par des résultats de recherche empoisonnés [1]",
+        "681 sites WordPress compromis, nettoyés lors de l'opération [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ZIP",
+          "definition": "Format d'archive compressée regroupant plusieurs fichiers"
+        },
+        {
+          "sigle": "FBI",
+          "definition": "Federal Bureau of Investigation : police fédérale des États-Unis"
+        },
+        {
+          "sigle": "INC",
+          "definition": "Nom d'un rançongiciel"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Opération Endgame : la saison 4 commence avec Gootloader",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366654643/Operation-Endgame-la-saison-4-commence-avec-Gootloader",
+          "date": "2026-11-12",
+          "image": "https://www.lemagit.fr/rms/LeMagIT/endgame_s04e01.jpg"
+        },
+        {
+          "titre": "European authorities take down SteaIC malware servers for second time this year",
+          "site": "The Record",
+          "url": "https://therecord.media/european-authorities-take-down-stealic-malware-second-time",
+          "date": "2026-11-12",
+          "image": "https://cms.therecord.media/uploads/polizei_9dea82a5d6.jpg"
         }
       ]
     }

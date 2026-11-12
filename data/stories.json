@@ -44370,6 +44370,283 @@
           "image": "https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/bltddb9abc04b8735ee/6af599b96166e406af197daa/image1.png"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-12-cairn-cl-sta-1238-attaques-autonomes",
+      "title": "CL-STA-1238 : le framework d'intelligence artificielle Cairn mène seul des intrusions contre les semi-conducteurs, la défense et la société civile",
+      "created": "2026-11-12T15:11:50+00:00",
+      "updated": "2026-11-12T15:11:50+00:00",
+      "version": 1,
+      "resume": "Des attaquants sinophones ont confié au framework libre de test d'intrusion Cairn 25 opérations contre au moins 19 organisations en août et septembre 2026 ; 10 ont subi un accès non autorisé ou une récupération de données [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Les attaquants donnent à Cairn une cible et un objectif ; entrée selon les cas par mots de passe faibles, force brute ou contournement de la création de compte [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Chez un organisme de normalisation : dizaines d'identifiants valides obtenus, accès à des bases non publiques de données d'annuaire interne, document de vote d'une norme écrasé [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Chez une entreprise de semi-conducteurs : création de comptes administrateurs non autorisés et d'un jeton d'API persistant dans le système de production [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Chez un syndicat d'enseignants américain : accès journalisé à plus d'un million d'enregistrements de membres et à des empreintes de mots de passe du personnel [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (CL-STA-1238) avec Cairn",
+            "note": "Cible et objectif fournis"
+          },
+          {
+            "id": "norm",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Organisme de normalisation",
+            "note": "Identifiants valides obtenus"
+          },
+          {
+            "id": "semi",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Système de production",
+            "note": "Entreprise de semi-conducteurs"
+          },
+          {
+            "id": "synd",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Enregistrements de membres",
+            "note": "Syndicat d'enseignants"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "norm",
+            "etape": 2,
+            "texte": "Identifiants obtenus, document de vote écrasé"
+          },
+          {
+            "de": "att",
+            "vers": "semi",
+            "etape": 3,
+            "texte": "Comptes administrateurs et jeton persistant créés"
+          },
+          {
+            "de": "att",
+            "vers": "synd",
+            "etape": 4,
+            "texte": "Accès journalisé à plus d'un million d'enregistrements"
+          }
+        ]
+      },
+      "limites": "La source ne cite aucune faille précise ni technique MITRE ; l'attribution à une collecte de renseignement liée à la Chine est donnée avec une confiance modérée [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "CL-STA-1238 : attaquants sinophones, rattachés par Unit 42 à une collecte de renseignement liée à la Chine avec une confiance modérée [1]"
+      ],
+      "cibles": [
+        "Semi-conducteurs et fabrication avancée (7 organisations), défense et politique de défense (3), droits humains et société civile (4) [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Application Programming Interface : interface qui permet à des programmes de dialoguer entre eux"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Attackers Use Autonomous AI to Target Semiconductor, Defense and Civil Society Sectors",
+          "site": "Unit 42 (Palo Alto Networks)",
+          "url": "https://unit42.paloaltonetworks.com/cairn-framework-ai-autonomous-attacks/",
+          "date": "2026-11-12",
+          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/11/AdobeStock_992950050-5.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-12-apify-acces-systemes-internes",
+      "title": "Apify : accès non autorisé à des systèmes internes, jetons renouvelés et double authentification à réinitialiser",
+      "created": "2026-11-12T15:11:50+00:00",
+      "updated": "2026-11-12T15:11:50+00:00",
+      "version": 1,
+      "resume": "Apify, plateforme tchèque de collecte de données web, a détecté un accès non autorisé à une partie de ses systèmes internes, puis a renouvelé des secrets et des jetons d'API [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources : un tiers non autorisé a accédé à une partie des systèmes internes d'Apify les 9 et 10 novembre [1]."
+        },
+        {
+          "etape": "Secrets exposés",
+          "texte": "Les codes de double authentification de clients concernés ont pu être exposés ; les mots de passe sont présentés comme non compromis [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes internes d'Apify",
+            "note": "Vecteur non précisé"
+          },
+          {
+            "id": "codes",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Codes de double authentification",
+            "note": "Possiblement exposés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Accès non autorisé à une partie des systèmes"
+          },
+          {
+            "de": "sys",
+            "vers": "codes",
+            "etape": 2,
+            "texte": "Codes de clients possiblement exposés"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni le vecteur d'accès, ni l'auteur, ni le nombre de clients concernés ; Apify dit n'avoir trouvé aucun signe d'atteinte aux données de compte [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Apify, plateforme tchèque de collecte de données web et d'automatisation de navigateur, qui revendique 80 000 clients [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Application Programming Interface : interface qui permet à des programmes de dialoguer entre eux"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Apify rotates API tokens, prompts 2FA resets after breach",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/apify-rotates-api-tokens-prompts-2fa-resets-after-breach/",
+          "date": "2026-11-12",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/12/Apify.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-12-fausses-alertes-bombe-comptes-messagerie",
+      "title": "Fausses alertes à la bombe en Europe : des comptes de messagerie piratés servent à l'envoi des menaces",
+      "created": "2026-11-12T15:11:50+00:00",
+      "updated": "2026-11-12T15:11:50+00:00",
+      "version": 1,
+      "resume": "Des menaces d'attentat à la bombe ont été envoyées à des milliers d'écoles en Europe depuis un compte de messagerie compromis d'une université taïwanaise ; aucun gouvernement n'a désigné d'auteur [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Compromission de comptes de messagerie légitimes, par une méthode que la source ne précise pas → messages qui passent les contrôles d'authentification et évitent les filtres antispam [1]."
+        },
+        {
+          "etape": "Envoi massif",
+          "texte": "Menaces envoyées à des milliers d'écoles en Europe depuis un compte compromis d'une université taïwanaise [1]."
+        },
+        {
+          "etape": "Nouvelle vague",
+          "texte": "Jeudi matin, nouvelle menace envoyée à des écoles italiennes depuis une adresse appartenant au ministère philippin de l'Éducation [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "uni",
+            "type": "messagerie",
+            "zone": "internet",
+            "nom": "Compte d'université taïwanaise",
+            "note": "Compromis"
+          },
+          {
+            "id": "min",
+            "type": "messagerie",
+            "zone": "internet",
+            "nom": "Adresse du ministère philippin",
+            "note": ""
+          },
+          {
+            "id": "ecoles",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Écoles en Europe",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "uni",
+            "etape": 1,
+            "texte": "Compte compromis, méthode non précisée"
+          },
+          {
+            "de": "uni",
+            "vers": "ecoles",
+            "etape": 2,
+            "texte": "Menaces envoyées à des milliers d'écoles"
+          },
+          {
+            "de": "min",
+            "vers": "ecoles",
+            "etape": 3,
+            "texte": "Nouvelle menace aux écoles italiennes"
+          }
+        ]
+      },
+      "limites": "Aucun gouvernement n'a attribué les envois ; les signatures des messages n'établissent pas l'auteur et le lien entre les vagues n'est pas établi [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non attribué : selon Proofpoint, certains aspects pourraient correspondre à un acteur aligné sur un État, sans preuves suffisantes [1]"
+      ],
+      "cibles": [
+        "Écoles d'Italie, d'Écosse, d'Irlande du Nord et de République d'Irlande ; aéroports et rédactions selon Proofpoint [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Hijacked email accounts complicate investigations into European bomb hoaxes",
+          "site": "The Record",
+          "url": "https://therecord.media/europe-hoax-email-threats",
+          "date": "2026-11-12",
+          "image": "https://cms.therecord.media/uploads/Garda_6ee6f55714.jpg"
+        }
+      ]
     }
   ]
 }

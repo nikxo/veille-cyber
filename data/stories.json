@@ -43140,13 +43140,13 @@
       "id": "2026-11-11-screenconnect-prestataires-clients-pirates",
       "title": "ScreenConnect : des panneaux de prestataires compromis servent à installer des clients d'accès à distance pirates",
       "created": "2026-11-11T23:08:37+00:00",
-      "updated": "2026-11-12T18:20:00+00:00",
-      "version": 6,
+      "updated": "2026-11-12T23:15:00+00:00",
+      "version": 7,
       "resume": "Des attaquants se servent de panneaux ScreenConnect compromis de prestataires de services managés pour installer des clients d'accès à distance pirates chez leurs clients [1]. Huntress compte au moins 288 machines dans 48 organisations [3, 4, 5], touchées en 90 minutes [5] ; 286 dans 47 selon [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non confirmé : identifiants compromis ou sessions détournées selon la télémétrie [1, 3, 6] ; journaux sans connexion correspondante, renvoyant à l'extension RMM+, qui acceptait une clé d'accès vide si non configurée [4, 5, 7]."
+          "texte": "Non confirmé : identifiants compromis ou sessions détournées selon la télémétrie [1, 3, 6] ; journaux sans connexion correspondante, renvoyant à l'extension RMM+, qui acceptait une clé d'accès vide si non configurée [4, 5, 7, 8]."
         },
         {
           "etape": "Clients pirates installés",
@@ -43162,7 +43162,7 @@
         },
         {
           "etape": "Rebond vers technicien",
-          "texte": "Si un technicien se connecte à une machine infectée, le maliciel tente d'exploiter CVE-2026-84869 contre son poste [7] → vol possible de sessions de navigateur et jetons d'authentification [3]."
+          "texte": "À la connexion d'un technicien à une machine infectée, RelayTrap, substitué au processus Guest, tente d'exploiter CVE-2026-84869 contre son poste [7, 8] → vol possible des cookies ScreenConnect du navigateur [8]."
         },
         {
           "etape": "Diffusion par le panneau",
@@ -43233,7 +43233,7 @@
           }
         ]
       },
-      "limites": "Accès initial non confirmé [1, 3, 4, 6, 7] ; ConnectWise relie l'activité à un abus de l'extension tierce RMM+ [6]. Aucun saut réussi vers un poste de technicien n'a été observé [3, 4, 7].",
+      "limites": "Accès initial non confirmé [1, 3, 4, 6, 7] ; ConnectWise relie l'activité à un abus de l'extension tierce RMM+ [6]. Aucun saut réussi vers un poste de technicien n'a été observé [3, 4, 7, 8].",
       "cves": [
         {
           "id": "CVE-2026-84869",
@@ -43241,11 +43241,13 @@
         }
       ],
       "mitre": [],
-      "acteurs": [],
+      "acteurs": [
+        "La boîte à outils SCKit regroupe 16 scripts et composants ; le code de RelayTrap semble généré par un modèle de langage selon Huntress [8]"
+      ],
       "cibles": [
         "Prestataires de services managés utilisant ScreenConnect et machines de leurs clients [1]",
         "Au moins 6 prestataires de services managés touchés selon Huntress [5]",
-        "Environ 400 environnements de partenaires ont au moins une extension tierce installée ; leur seule présence n'établit pas une compromission selon ConnectWise [6]"
+        "ConnectWise a désactivé cinq extensions tierces dans environ 400 environnements de partenaires ; leur seule présence n'établit pas une compromission [6, 8]"
       ],
       "abreviations": [
         {
@@ -43302,6 +43304,13 @@
           "url": "https://thehackernews.com/2026/11/sckit-malware-targets-screenconnect.html",
           "date": "2026-11-12",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4r5n0I6Rd7yb3jS6hfXTyM5foZU5uEiCD1I2Kgth1qgf_pzohrD9jPeDesEopB6Gjo0VaQZF2XesdqU6W32eFADzI3_xhBF4026h6uGqn6eExdfS_A29SvYA3cdIJkhWmPG-k15_DdsGGcqFfWS-E3cgyKkdEQ3Sxa9gayFkkMXggVJpkeH7DoLNLZxm9/s1700-nu-rw-lo-l85-e365/screen.jpg"
+        },
+        {
+          "titre": "New worm-like 'SCKit' malware targets MSPs in ScreenConnect attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/new-worm-like-sckit-malware-targets-msps-in-screenconnect-attacks/",
+          "date": "2026-11-12",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/09/16/ScreenConnect-headpic.jpg"
         }
       ]
     },
@@ -43492,9 +43501,9 @@
       "id": "2026-11-12-github-comptes-voleur-secrets-ci",
       "title": "GitHub : 4 837 comptes détournés servent à exécuter un voleur de secrets dans plus de 1 806 dépôts",
       "created": "2026-11-12T08:15:00+00:00",
-      "updated": "2026-11-12T14:15:00+00:00",
-      "version": 2,
-      "resume": "Un attaquant a utilisé les identifiants volés de 4 837 comptes GitHub pour exécuter un voleur de secrets dans au moins 1 806 dépôts, selon Aikido Security [1]. Aikido nomme cette campagne wfx-loot et la fait débuter le 10 novembre [2].",
+      "updated": "2026-11-12T23:15:00+00:00",
+      "version": 3,
+      "resume": "Avec les identifiants volés de 4 837 comptes GitHub, un attaquant a exécuté un voleur de secrets dans au moins 1 806 dépôts [1] ; secrets volés chez au moins 1 835 cibles selon [3]. Campagne wfx-loot, débutée le 10 novembre [2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -43506,7 +43515,7 @@
         },
         {
           "etape": "Injection du voleur",
-          "texte": "Voleur ajouté à un workflow existant dans 7 309 dépôts ou en hook postinstall npm dans 771 ; la modification est généralement annulée quelques minutes après [1]."
+          "texte": "Voleur ajouté à un workflow existant (7 309 dépôts) ou en hook npm (771), généralement retiré quelques minutes après [1] ; retrait et journaux supprimés en moins d'une minute selon [3]."
         },
         {
           "etape": "Vol de secrets",
@@ -43608,7 +43617,9 @@
         "4 837 comptes GitHub et les dépôts où ils peuvent écrire [1]",
         "28 dépôts WebdriverIO atteints via des commits au nom du compte robot wdio-bot [1]",
         "8 093 dépôts publics ont reçu des commits malveillants selon SafeDep, sans que cela prouve une exécution réussie [2]",
-        "Un paquet Packagist et des versions de deux modules Go figurent parmi les logiciels touchés [2]"
+        "Un paquet Packagist et des versions de deux modules Go figurent parmi les logiciels touchés [2]",
+        "Des comptes détournés appartiennent à des organisations du Fortune 100, à la General Services Administration américaine, au gouvernement français et à Nextcloud [3]",
+        "Environ 50 comptes semblent avoir des droits de publication sur npm, PyPI, Go, crates ou Packagist [3]"
       ],
       "abreviations": [
         {
@@ -43654,6 +43665,13 @@
           "url": "https://www.securityweek.com/attacker-targets-60000-github-repositories-in-credential-theft-campaign/",
           "date": "2026-11-12",
           "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Low-Code-No-Code-Security.jpg"
+        },
+        {
+          "titre": "Hackers compromise 4,800 GitHub accounts to steal cloud credentials",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-compromise-4-800-github-accounts-to-steal-cloud-credentials/",
+          "date": "2026-11-12",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/08/github.jpg"
         }
       ]
     },

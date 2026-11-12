@@ -40547,13 +40547,13 @@
       "id": "2026-11-10-turla-cereal-exchange",
       "title": "Turla : l'outil Cereal intercepte les courriels de serveurs Exchange gouvernementaux",
       "created": "2026-11-10T10:30:00+00:00",
-      "updated": "2026-11-11T09:20:00+00:00",
-      "version": 4,
-      "resume": "Le groupe Turla a utilisé un nouvel ensemble d'outils, Cereal, pour intercepter des courriels sur des serveurs Exchange d'organismes gouvernementaux au Kazakhstan et en Roumanie [1, 2, 3, 4].",
+      "updated": "2026-11-12T14:15:00+00:00",
+      "version": 5,
+      "resume": "Le groupe Turla a utilisé un nouvel ensemble d'outils, Cereal, pour intercepter des courriels sur des serveurs Exchange d'organismes gouvernementaux au Kazakhstan et en Roumanie [1, 2, 3, 4]. Le renseignement roumain dit avoir stoppé l'attaque [5].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 3, 4]."
+          "texte": "Non précisé par les sources [1, 3, 4] ; le renseignement roumain évoque l'exploitation de failles de systèmes Microsoft, sans autre détail [5]."
         },
         {
           "etape": "Chargement des outils",
@@ -40621,15 +40621,16 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni l'accès initial, ni le déplacement dans le réseau [1, 2, 3, 4].",
+      "limites": "Les sources ne précisent ni l'accès initial, ni le déplacement dans le réseau [1, 2, 3, 4]. Le renseignement roumain dit n'avoir identifié aucune exfiltration de données sensibles [5].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Turla, aussi appelé Snake, Secret Blizzard ou Waterbug, lié au FSB selon les sources [1, 4]"
+        "Turla, aussi appelé Snake, Secret Blizzard, Waterbug ou Venomous Bear, lié au FSB selon les sources [1, 4, 5]"
       ],
       "cibles": [
         "Organismes gouvernementaux au Kazakhstan et en Roumanie, échanges avec l'OTAN et l'UE [1, 2, 3, 4]",
-        "Outils découverts le 28 novembre 2025 au Kazakhstan ; organisation roumaine compromise le 23 décembre 2025 [4]"
+        "Outils découverts le 28 novembre 2025 au Kazakhstan ; organisation roumaine compromise le 23 décembre 2025 [4]",
+        "Institution gouvernementale roumaine non nommée : intrusion détectée en décembre 2025 par le renseignement roumain, attaque contenue et systèmes rétablis [5]"
       ],
       "abreviations": [
         {
@@ -40681,6 +40682,13 @@
           "url": "https://www.welivesecurity.com/en/eset-research/exchange-for-breakfast-turlas-cereal-tricks-are-not-for-kids/",
           "date": "2026-11-10",
           "image": "https://web-assets.esetstatic.com/wls/2026/11-26/turla-cereal/exchange-turla-cereal-tricks.jpg"
+        },
+        {
+          "titre": "Romania says it stopped Russian cyberattack targeting government emails",
+          "site": "The Record",
+          "url": "https://therecord.media/romania-russia-cyberattack-emails",
+          "date": "2026-11-12",
+          "image": "https://cms.therecord.media/uploads/Romania_European_Commission_8f0c949789.jpg"
         }
       ]
     },
@@ -43443,13 +43451,13 @@
       "id": "2026-11-12-github-comptes-voleur-secrets-ci",
       "title": "GitHub : 4 837 comptes détournés servent à exécuter un voleur de secrets dans plus de 1 806 dépôts",
       "created": "2026-11-12T08:15:00+00:00",
-      "updated": "2026-11-12T08:15:00+00:00",
-      "version": 1,
-      "resume": "Un attaquant a utilisé les identifiants volés de 4 837 comptes GitHub pour placer un voleur de secrets dans les dépôts où ils peuvent écrire ; il s'est exécuté dans au moins 1 806 dépôts, selon Aikido Security [1].",
+      "updated": "2026-11-12T14:15:00+00:00",
+      "version": 2,
+      "resume": "Un attaquant a utilisé les identifiants volés de 4 837 comptes GitHub pour exécuter un voleur de secrets dans au moins 1 806 dépôts, selon Aikido Security [1]. Aikido nomme cette campagne wfx-loot et la fait débuter le 10 novembre [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Identifiants volés de 4 837 comptes GitHub, obtenus d'une façon que l'analyse n'explique pas → accès aux dépôts où ces comptes peuvent écrire [1]."
+          "texte": "Identifiants volés de 4 837 comptes GitHub, d'origine inexpliquée [1] ; 173 pull requests de test proviennent de jetons émis pour l'application GitHub de Fly.io [2]."
         },
         {
           "etape": "Test des droits",
@@ -43461,7 +43469,7 @@
         },
         {
           "etape": "Vol de secrets",
-          "texte": "Collecte des secrets GitHub Actions, de jetons et de fichiers d'identifiants cloud, npm, PyPI et SSH → envoi par requête HTTP à des serveurs ou vers un canal Telegram [1]."
+          "texte": "Collecte de secrets GitHub Actions, jetons et identifiants cloud, npm, PyPI, SSH [1] et mémoire du processus runner [2] → envoi à des serveurs ou un canal Telegram [1]."
         },
         {
           "etape": "Accès au cloud",
@@ -43549,15 +43557,17 @@
           }
         ]
       },
-      "limites": "L'analyse n'explique pas comment l'attaquant a obtenu les identifiants ; Aikido n'attribue pas, à ce stade, cette vague à l'acteur de la vague GhostAction d'octobre [1].",
+      "limites": "L'analyse n'explique pas comment l'attaquant a obtenu les identifiants [1]. StepSecurity n'a trouvé aucune preuve d'une compromission de l'infrastructure de Fly.io [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Aikido n'attribue pas cette vague à l'acteur de GhostAction (octobre) à ce stade [1]"
+        "Aikido n'attribue pas cette vague à l'acteur de GhostAction (octobre) [1] ; malgré des similitudes, il juge probable qu'il s'agisse d'acteurs différents [2]"
       ],
       "cibles": [
         "4 837 comptes GitHub et les dépôts où ils peuvent écrire [1]",
-        "28 dépôts WebdriverIO atteints via des commits au nom du compte robot wdio-bot [1]"
+        "28 dépôts WebdriverIO atteints via des commits au nom du compte robot wdio-bot [1]",
+        "8 093 dépôts publics ont reçu des commits malveillants selon SafeDep, sans que cela prouve une exécution réussie [2]",
+        "Un paquet Packagist et des versions de deux modules Go figurent parmi les logiciels touchés [2]"
       ],
       "abreviations": [
         {
@@ -43571,10 +43581,6 @@
         {
           "sigle": "SSH",
           "definition": "Secure Shell : protocole de connexion distante chiffrée"
-        },
-        {
-          "sigle": "HTTP",
-          "definition": "Protocole de communication du web"
         },
         {
           "sigle": "OIDC",
@@ -43600,6 +43606,13 @@
           "url": "https://thehackernews.com/2026/11/4837-hijacked-github-accounts-ran-ci.html",
           "date": "2026-11-12",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1-4OiOkGLcK3fAr2HdhALOfc_BqR21440TsjUIuCNzv4YL0lWRC3lvUjE1vu2RdVfjunxi80gMQyGpjvUdWzMRtthW8_-hFOJ79YhFzJrNGgoKDPYXm2OaWOsN8kgBELqOPs5s9QKL4qzQzu_3NEEqHygpfQzKYxDRIQeFgMHj24oyPyaslUemke-loU/s1700-nu-rw-lo-l85-e365/github.jpg"
+        },
+        {
+          "titre": "Attacker Targets 60,000 GitHub Repositories in Credential Theft Campaign",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/attacker-targets-60000-github-repositories-in-credential-theft-campaign/",
+          "date": "2026-11-12",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/04/Low-Code-No-Code-Security.jpg"
         }
       ]
     },
@@ -44044,6 +44057,317 @@
           "titre": "Fiche NVD CVE-2026-90436",
           "site": "NVD (NIST)",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90436"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-12-check-point-php2shell-effaceur-esxi",
+      "title": "PHP2Shell sur des passerelles Check Point : organisations israéliennes visées, effaceur lancé sur un hôte ESXi",
+      "created": "2026-11-12T14:15:00+00:00",
+      "updated": "2026-11-12T14:15:00+00:00",
+      "version": 1,
+      "resume": "Fin octobre 2026, une activité a visé des organisations israéliennes via des portails Mobile Access vulnérables de passerelles Check Point, avec des actions destructrices contre certaines d'entre elles [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de PHP2Shell sur des portails Mobile Access de passerelles Check Point non corrigées → accès avec le compte de service du portail [1]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Faille locale de l'interface DynamicCLI (CVE-2026-123039) → exécution de commandes privilégiées, droits root [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Webshells déposés dans les modèles du portail, puis implant TSGA relancé dans le répertoire de persistance au démarrage → exécution de commandes et accès distant chiffré [1]."
+        },
+        {
+          "etape": "Reconnaissance interne",
+          "texte": "Outil de scan gogo déployé sur la passerelle → découverte des machines et services internes du réseau [1]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "Connexion SSH à un hôte VMware ESXi avec le compte de service vpxuser [1]."
+        },
+        {
+          "etape": "Destruction",
+          "texte": "Effaceur destroy_v6 lancé sur l'hôte ESXi → fichiers supprimés, note DREAM_ANNEXATION.txt écrite dans chaque dossier traité, rejetant toute négociation de rançon [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "gw",
+            "type": "passerelle",
+            "zone": "victime",
+            "nom": "Passerelle Check Point",
+            "note": "Portail Mobile Access"
+          },
+          {
+            "id": "int",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines et services internes",
+            "note": ""
+          },
+          {
+            "id": "esx",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Hôte VMware ESXi",
+            "note": "Fichiers effacés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gw",
+            "etape": 1,
+            "texte": "Exploitation de PHP2Shell sur le portail"
+          },
+          {
+            "de": "gw",
+            "vers": "int",
+            "etape": 4,
+            "texte": "Scan avec l'outil gogo"
+          },
+          {
+            "de": "gw",
+            "vers": "esx",
+            "etape": 5,
+            "texte": "Connexion SSH avec le compte vpxuser"
+          },
+          {
+            "de": "gw",
+            "vers": "esx",
+            "etape": 6,
+            "texte": "Effaceur destroy_v6 lancé"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas comment les identifiants du compte vpxuser ont été obtenus, ni combien d'organisations ont subi la destruction [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-109618",
+          "explication": "PHP : mémoire de requête non initialisée après une erreur de mémoire insuffisante, pouvant mener à l'exécution de code à distance, gravité critique 9,8 [2]. Associée à PHP2Shell [1]."
+        },
+        {
+          "id": "CVE-2026-109619",
+          "explication": "PHP : états globaux référençant une mémoire déjà libérée, pouvant mener à l'exécution de code à distance [3]. Associée à PHP2Shell [1]."
+        },
+        {
+          "id": "CVE-2026-123039",
+          "explication": "Passerelles Check Point : faille locale d'élévation de privilèges dans l'interface DynamicCLI, exploitée pour passer du compte de service du portail à root [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Attribution non concluante selon Check Point : outils de la famille PhiliKit, qu'ESET associe à UNC5221, lié à la Chine [1]"
+      ],
+      "cibles": [
+        "Première vague le 30 octobre 2026 : organisations israéliennes, avec activité destructrice contre certaines [1]",
+        "Seconde vague le 2 novembre : certaines organisations israéliennes déjà visées et d'autres dans plusieurs pays et secteurs, sans preuve de destruction [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "PHP",
+          "definition": "Langage de programmation très utilisé pour les sites et applications web"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole de connexion distante chiffrée"
+        },
+        {
+          "sigle": "TSGA",
+          "definition": "Nom donné par Check Point à un implant Linux de la famille PhiliKit"
+        },
+        {
+          "sigle": "UNC5221",
+          "definition": "Nom de suivi d'un groupe d'attaquants lié à la Chine"
+        },
+        {
+          "sigle": "ESET",
+          "definition": "Éditeur européen de logiciels de sécurité"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "PHP2Shell Exploitation on Check Point Gateway",
+          "site": "Check Point Research",
+          "url": "https://research.checkpoint.com/2026/php2shell-exploitation-on-check-point-gateway/",
+          "date": "2026-11-12",
+          "image": "https://research.checkpoint.com/wp-content/uploads/2026/11/PHP2Shell-Exploitation.png"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-109618",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109618"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-109619",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109619"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-12-sansar-cryptominage-linux-ray",
+      "title": "SANSAR : un agent Ray sans authentification mène à du cryptominage caché sur des hôtes Linux à processeurs graphiques",
+      "created": "2026-11-12T14:15:00+00:00",
+      "updated": "2026-11-12T14:15:00+00:00",
+      "version": 1,
+      "resume": "Elastic Security Labs décrit REF3364, une intrusion de cryptominage sur trois hôtes Linux dotés de GPU, pilotée via Tor par l'orchestrateur SANSAR et masquée par un rootkit noyau [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Agent de jobs Ray joignable depuis Internet, acceptant des soumissions sans authentification → exécution de jobs, inventaire des GPU envoyé à un serveur externe [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Job Python ouvrant un shell inversé sous le compte local de la session Ray, puis ajout d'une clé SSH à ce compte [1]."
+        },
+        {
+          "etape": "Dissimulation",
+          "texte": "Après obtention de root, module noyau acpi_thermal_mgr installé et chargé au démarrage → processus, fichiers et entrées de sockets masqués [1]."
+        },
+        {
+          "etape": "Mesures GPU falsifiées",
+          "texte": "Bibliothèque NVML remplacée par une version qui modifie les résultats → utilisation GPU affichée à 0 %, température et consommation aléatoires [1]."
+        },
+        {
+          "etape": "Cryptominage",
+          "texte": "SANSAR joint un service onion via Tor → supervision des mineurs XMRig (processeur) et SRBMiner-MULTI (GPU) [1]."
+        },
+        {
+          "etape": "Porte dérobée",
+          "texte": "Service systemd netns : lit une adresse IPv4 dans un contrat Ethereum et s'y connecte sur le port 8080 → shell distant [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (REF3364)",
+            "note": ""
+          },
+          {
+            "id": "ray",
+            "type": "application",
+            "zone": "expose",
+            "nom": "Agent de jobs Ray",
+            "note": "Sans authentification"
+          },
+          {
+            "id": "h",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Trois hôtes Linux GPU",
+            "note": "Rootkit et mineurs"
+          },
+          {
+            "id": "tor",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Service onion (Tor)",
+            "note": "Pilotage des mineurs"
+          },
+          {
+            "id": "eth",
+            "type": "inconnu",
+            "zone": "internet",
+            "nom": "Contrat Ethereum",
+            "note": "Adresse de commande"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ray",
+            "etape": 1,
+            "texte": "Soumission de jobs sans authentification"
+          },
+          {
+            "de": "ray",
+            "vers": "h",
+            "etape": 2,
+            "texte": "Shell inversé, clé SSH ajoutée"
+          },
+          {
+            "de": "h",
+            "vers": "tor",
+            "etape": 5,
+            "texte": "SANSAR supervise les mineurs via Tor"
+          },
+          {
+            "de": "h",
+            "vers": "eth",
+            "etape": 6,
+            "texte": "Porte dérobée netns : lecture de l'adresse"
+          }
+        ]
+      },
+      "limites": "La source ne décrit ni la méthode d'obtention des droits root, ni la façon dont les autres hôtes ont été atteints ; aucune victime n'est nommée [1].",
+      "cves": [],
+      "mitre": [
+        "T1190 : Exploit Public-Facing Application, exploitation d'une application accessible depuis Internet [1]",
+        "T1059.006 : Command and Scripting Interpreter: Python, exécution de code avec l'interpréteur Python [1]",
+        "T1098.004 : Account Manipulation: SSH Authorized Keys, ajout d'une clé SSH autorisée à un compte [1]",
+        "T1547.006 : Boot or Logon Autostart Execution: Kernel Modules and Extensions, module noyau chargé au démarrage [1]",
+        "T1014 : Rootkit, programme qui masque la présence de l'attaquant sur le système [1]",
+        "T1543.002 : Create or Modify System Process: Systemd Service, service systemd créé ou modifié [1]",
+        "T1090.003 : Proxy: Multi-hop Proxy, communications relayées par plusieurs intermédiaires [1]",
+        "T1102.001 : Web Service: Dead Drop Resolver, adresse de commande récupérée sur un service web tiers [1]",
+        "T1496.001 : Resource Hijacking: Compute Hijacking, détournement de la puissance de calcul de la victime [1]"
+      ],
+      "acteurs": [
+        "REF3364, identifiant de suivi d'Elastic Security Labs, sans attribution [1]"
+      ],
+      "cibles": [
+        "Trois hôtes Linux dotés de GPU ; premières sondes le 22 octobre 2026, shell inversé le 25 octobre 2026 [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "GPU",
+          "definition": "Graphics Processing Unit : processeur graphique, aussi utilisé pour le calcul intensif"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole de connexion distante chiffrée"
+        },
+        {
+          "sigle": "NVML",
+          "definition": "NVIDIA Management Library : bibliothèque qui fournit les mesures des cartes graphiques NVIDIA"
+        },
+        {
+          "sigle": "NVIDIA",
+          "definition": "Fabricant de processeurs graphiques"
+        },
+        {
+          "sigle": "SANSAR",
+          "definition": "Nom de l'orchestrateur de cryptominage analysé par Elastic"
+        },
+        {
+          "sigle": "REF3364",
+          "definition": "Identifiant de suivi donné par Elastic à cette intrusion"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "0% GPU utilization: How SANSAR hides Linux cryptomining",
+          "site": "Elastic Security Labs",
+          "url": "https://www.elastic.co/security-labs/threat-command/sansar-linux-cryptomining-malware",
+          "date": "2026-11-12",
+          "image": "https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/bltddb9abc04b8735ee/6af599b96166e406af197daa/image1.png"
         }
       ]
     }

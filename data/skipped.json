@@ -1,21 +1,5 @@
 [
   {
-    "id": "24485f7e482bbeb2",
-    "title": "Authorities disrupt nearly 11,000 cybercrime networks in Africa",
-    "link": "https://www.bleepingcomputer.com/news/security/authorities-disrupt-nearly-11-000-cybercrime-networks-in-africa/",
-    "source": "BleepingComputer",
-    "raison": "opération policière sans détail sur la méthode d'attaque",
-    "date": "2026-10-22T09:30:00+00:00"
-  },
-  {
-    "id": "29143f2ae20d3391",
-    "title": "Node.js Brotli Decoder Bug Could Allow Remote Code Execution in All Supported Versions",
-    "link": "https://thehackernews.com/2026/10/nodejs-brotli-decoder-bug-could-allow.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-22T10:30:00+00:00"
-  },
-  {
     "id": "b3d99a3d973f9b77",
     "title": "Cisco Patches 34 Vulnerabilities Across Multiple Products",
     "link": "https://www.securityweek.com/cisco-patches-34-vulnerabilities-across-multiple-products/",
@@ -3998,5 +3982,21 @@
     "source": "SentinelLABS",
     "raison": "rediffusion de conférence, pas d'attaque décrite (page inaccessible, d'après le résumé du flux)",
     "date": "2026-11-12T15:11:50+00:00"
+  },
+  {
+    "id": "1fe252b0a65e12c9",
+    "title": "New Windows SignDrop zero-day gives hackers SYSTEM privileges",
+    "link": "https://www.bleepingcomputer.com/news/security/new-windows-signdrop-zero-day-gives-hackers-system-privileges/",
+    "source": "BleepingComputer",
+    "raison": "article inaccessible (403), résumé du flux ne mentionne qu'une publication d'exploit, sans exploitation constatée",
+    "date": "2026-11-12T16:07:22+00:00"
+  },
+  {
+    "id": "ef88bdf45c7769c6",
+    "title": "Apache Patches Critical HTTP Server RCE Found by Anthropic, Google",
+    "link": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/",
+    "source": "SecurityWeek",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-12T16:07:22+00:00"
   }
 ]

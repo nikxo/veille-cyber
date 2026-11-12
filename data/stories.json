@@ -43245,9 +43245,9 @@
       "id": "2026-11-11-gsocket-serveurs-linux",
       "title": "GSocket : des attaquants gardent un accès chiffré à des serveurs Linux compromis, même après correction de la faille",
       "created": "2026-11-11T23:08:37+00:00",
-      "updated": "2026-11-11T23:08:37+00:00",
-      "version": 1,
-      "resume": "Selon Microsoft, plusieurs attaquants sans lien entre eux installent GSocket, un outil open source d'accès à distance, sur des serveurs Linux compromis, surtout des applications web et de l'hébergement [1].",
+      "updated": "2026-11-12T10:07:52+00:00",
+      "version": 2,
+      "resume": "Selon Microsoft, plusieurs attaquants sans lien entre eux installent GSocket, un outil open source d'accès à distance, sur des serveurs Linux compromis, surtout des applications web et de l'hébergement [1]. Les détections ont augmenté de 356,2 % entre mars et août [2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -43259,7 +43259,7 @@
         },
         {
           "etape": "Persistance",
-          "texte": "Tâches cron, services systemd, profils de shell et copies redondantes → l'accès survit à l'arrêt du processus et à la correction de la faille initiale [1]."
+          "texte": "Tâches cron, services systemd, profils de shell et copies redondantes → l'accès survit à l'arrêt du processus et à la correction de la faille initiale [1, 2]."
         },
         {
           "etape": "Dissimulation",
@@ -43339,7 +43339,7 @@
         "Plusieurs attaquants sans lien entre eux, non nommés [1]"
       ],
       "cibles": [
-        "Applications web et hébergement : 87,1 % des incidents attribuables [1]",
+        "Applications web et hébergement : 87,1 % des incidents attribuables [1, 2]",
         "Éducation et recherche (30,7 % des organisations touchées), technologies et télécommunications (22,9 %) [1]"
       ],
       "abreviations": [],
@@ -43350,6 +43350,13 @@
           "url": "https://www.microsoft.com/en-us/security/blog/2026/11/11/global-socket-how-threat-actors-weaponizing-gsocket-stealthy-c2/",
           "date": "2026-11-11",
           "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/11/MS_Actional-Insights_Cybercrime.jpg"
+        },
+        {
+          "titre": "Hackers plant GSocket on Linux servers for persistent access",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-plant-gsocket-on-linux-servers-for-persistent-access/",
+          "date": "2026-11-12",
+          "image": "https://www.bleepstatic.com/content/hl-images/2024/03/05/hand.jpg"
         }
       ]
     },

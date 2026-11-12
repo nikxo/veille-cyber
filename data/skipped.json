@@ -1,45 +1,5 @@
 [
   {
-    "id": "14b2da242e2e673d",
-    "title": "Democrat lawmakers say Russia is aiming to undermine party ahead of midterms",
-    "link": "https://therecord.media/democrat-lawmakers-say-russia-is-aiming-to-undermine-party",
-    "source": "The Record",
-    "raison": "actualité politique, opération d'influence sans méthode d'intrusion",
-    "date": "2026-10-21T19:07:43+00:00"
-  },
-  {
-    "id": "548b69cacce8fab2",
-    "title": "Tech trio launches $10 million initiative to help under-resourced utilities bolster cybersecurity",
-    "link": "https://therecord.media/utilities-cybersecurity-initiative-accenture",
-    "source": "The Record",
-    "raison": "annonce d'initiative, aucune attaque décrite",
-    "date": "2026-10-21T20:08:10+00:00"
-  },
-  {
-    "id": "5f2ddb413304d4e7",
-    "title": "'PHP2Shell' Bugs Signal Red Alert for Security Industry",
-    "link": "https://www.darkreading.com/application-security/php2shell-bugs-red-alert-security-industry",
-    "source": "Dark Reading",
-    "raison": "page inaccessible (403), sujet déjà couvert par la synthèse PHP2Shell (14 sources)",
-    "date": "2026-10-21T20:08:10+00:00"
-  },
-  {
-    "id": "a9726704f0fa70f0",
-    "title": "Critical GitLab Flaw (CVSS 10.0) Could Allow Unauthenticated RCE Across 12 Years of Releases",
-    "link": "https://thehackernews.com/2026/10/critical-gitlab-flaw-cvss-100-could.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-21T20:08:10+00:00"
-  },
-  {
-    "id": "04b5c5ae91501621",
-    "title": "Cloud Security Alliance Survey Finds Data Loss Prevention Often Detects Data Loss Only After It Happens",
-    "link": "https://www.darkreading.com/cloud-security/cloud-security-alliance-survey-data-loss-prevention-detects-data-loss",
-    "source": "Dark Reading",
-    "raison": "enquête sur la prévention des pertes de données, sans attaque décrite",
-    "date": "2026-10-21T21:20:00+00:00"
-  },
-  {
     "id": "19756bf008108ddb",
     "title": "Compromised eMudhra intermediate certificates",
     "link": "https://blog.talosintelligence.com/compromised-intermediate-certificates/",
@@ -3998,5 +3958,45 @@
     "source": "The Hacker News",
     "raison": "vulnérabilité sans exploitation constatée",
     "date": "2026-11-12T06:12:00+00:00"
+  },
+  {
+    "id": "0bba49a341bfd9be",
+    "title": "Hackers Target N-central Zero-Days as N-able Rushes Patches",
+    "link": "https://www.securityweek.com/hackers-target-n-central-zero-days-as-n-able-rushes-patches/",
+    "source": "SecurityWeek",
+    "raison": "vulnérabilités divulguées et corrigées, scans et sondages seulement, aucune compromission constatée",
+    "date": "2026-11-12T10:07:52+00:00"
+  },
+  {
+    "id": "26d811aac83d6968",
+    "title": "Critical Pre-Auth MongoDB Flaw (CVE-2026-118383) Can Crash Lagging Servers on Failover",
+    "link": "https://thehackernews.com/2026/11/critical-pre-auth-mongodb-flaw-cve-2026.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-12T10:07:52+00:00"
+  },
+  {
+    "id": "3fbe6eacf171b3d4",
+    "title": "Critical Red Hat Quay Vulnerability Could Expose Private Container Images",
+    "link": "https://www.securityweek.com/critical-red-hat-quay-vulnerability-could-expose-private-container-images/",
+    "source": "SecurityWeek",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-12T10:07:52+00:00"
+  },
+  {
+    "id": "c2d283cd7530758c",
+    "title": "Node.js Fixes 16 Flaws, Including HTTP/2 Bugs That Crash Servers and Leak Other Connections' Data",
+    "link": "https://thehackernews.com/2026/11/nodejs-fixes-16-flaws-including-http2.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilités corrigées sans exploitation constatée",
+    "date": "2026-11-12T10:07:52+00:00"
+  },
+  {
+    "id": "ca4b7fcf869f788b",
+    "title": "Transcending the trust boundaries: how a cloud pentest works",
+    "link": "https://securelist.com/how-a-cloud-pentest-works/121921/",
+    "source": "Securelist (Kaspersky)",
+    "raison": "article méthodologique sur les tests d'intrusion cloud, aucune attaque réelle décrite",
+    "date": "2026-11-12T10:07:52+00:00"
   }
 ]

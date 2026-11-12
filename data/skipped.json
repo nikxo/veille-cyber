@@ -1,21 +1,5 @@
 [
   {
-    "id": "f5a2a815ed79363b",
-    "title": "Selon Moody's, l'IA va faire grimper le coût d'une mauvaise posture de sécurité",
-    "link": "https://www.lemagit.fr/actualites/366652543/Selon-Moodys-lIA-va-faire-grimper-le-cout-dune-mauvaise-posture-de-securite",
-    "source": "LeMagIT",
-    "raison": "analyse sans méthode d'attaque",
-    "date": "2026-10-22T16:20:00+00:00"
-  },
-  {
-    "id": "3d72565b6918f9f7",
-    "title": "Microsoft shares how to fix broken Exchange Online EWS apps",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-shares-how-to-fix-broken-exchange-online-ews-apps/",
-    "source": "BleepingComputer",
-    "raison": "conseil technique sans attaque",
-    "date": "2026-10-22T16:20:00+00:00"
-  },
-  {
     "id": "bc5a0931a98f83ba",
     "title": "Le cloud Bleu est là",
     "link": "https://www.lemagit.fr/actualites/366652544/Le-cloud-Bleu-est-la",
@@ -3998,5 +3982,21 @@
     "source": "Cisco Talos",
     "raison": "newsletter hebdomadaire sans attaque détaillée",
     "date": "2026-11-12T19:20:00+00:00"
+  },
+  {
+    "id": "86013c2901eeeb33",
+    "title": "Apache HTTP Server patches critical HTTP/2 remote code execution flaw",
+    "link": "https://www.bleepingcomputer.com/news/security/apache-http-server-patches-critical-http-2-remote-code-execution-flaw/",
+    "source": "BleepingComputer",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-12T20:07:41+00:00"
+  },
+  {
+    "id": "bb48d6f8868d0053",
+    "title": "United to block customers from using AI agents, citing cyber threats",
+    "link": "https://therecord.media/united-airlines-to-block-customers-using-ai-agents",
+    "source": "The Record",
+    "raison": "mesure préventive d'une entreprise, aucune attaque décrite",
+    "date": "2026-11-12T20:07:41+00:00"
   }
 ]

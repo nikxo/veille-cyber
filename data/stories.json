@@ -46749,6 +46749,75 @@
           "image": "https://cms.therecord.media/uploads/fbi_1_c4c06390db.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-13-arcticrat-android-controle-appareil",
+      "title": "ArcticRAT : le maliciel Android passe du vol de cryptomonnaies au contrôle complet de l'appareil",
+      "created": "2026-11-13T23:15:00+00:00",
+      "updated": "2026-11-13T23:15:00+00:00",
+      "version": 1,
+      "resume": "Le maliciel Android ArcticRAT, d'abord centré sur le vol de cryptomonnaies, permet désormais le contrôle complet de l'appareil ; le groupe cybercriminel profile les finances des victimes avec l'intelligence artificielle [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Le maliciel Android, auparavant centré sur le vol de cryptomonnaies, donne désormais le contrôle complet de l'appareil [1]."
+        },
+        {
+          "etape": "Analyse des données volées",
+          "texte": "Les attaquants ont ajouté une analyse avancée des informations volées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (groupe ArcticRAT)",
+            "note": ""
+          },
+          {
+            "id": "tel",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Appareil Android",
+            "note": "Contrôle complet"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "tel",
+            "etape": 2,
+            "texte": "Maliciel ArcticRAT, contrôle complet de l'appareil"
+          },
+          {
+            "de": "tel",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Informations volées puis analysées"
+          }
+        ]
+      },
+      "limites": "Article complet inaccessible : synthèse fondée sur son seul résumé, qui ne précise ni le mode d'infection, ni les victimes, ni les dates [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "ArcticRAT Cybercrime Gang Profiles Victim Finances With AI",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/mobile-security/arcticrat-cybercrime-gang-profiles-victim-finances-ai",
+          "date": "2026-11-13"
+        }
+      ]
     }
   ]
 }

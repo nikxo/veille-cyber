@@ -46083,6 +46083,163 @@
           "image": "https://cms.therecord.media/uploads/TSMC_logo_on_Taichung_factory_building_4ac5558127.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-13-universite-texas-arlington-qilin",
+      "title": "Université du Texas à Arlington : des informations personnelles volées, le groupe Qilin revendique l'attaque",
+      "created": "2026-11-13T18:15:00+00:00",
+      "updated": "2026-11-13T18:15:00+00:00",
+      "version": 1,
+      "resume": "L'université du Texas à Arlington avertit ses étudiants et employés que des informations personnelles ont été volées par des pirates entrés dans ses systèmes [1]. Le groupe de rançongiciel Qilin a revendiqué l'attaque [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Intrusion dans les systèmes de l'université → vol d'informations personnelles, dont la nature n'est pas précisée [1]."
+        },
+        {
+          "etape": "Revendication",
+          "texte": "Le groupe de rançongiciel Qilin revendique l'attaque [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Qilin)",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes de l'université",
+            "note": "Entrée non précisée"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Informations personnelles",
+            "note": "Volées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "sys",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Vol d'informations personnelles"
+          }
+        ]
+      },
+      "limites": "La source ne dit ni comment les attaquants sont entrés ni quelles données ont été volées ; le portail MachForms a été mis hors ligne à l'annonce de l'attaque [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Qilin, groupe de rançongiciel qui a revendiqué l'attaque [1]"
+      ],
+      "cibles": [
+        "Université du Texas à Arlington, qui compte plus de 41 000 étudiants [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "University of Texas at Arlington warns personal information stolen during cyberattack",
+          "site": "The Record",
+          "url": "https://therecord.media/university-of-texas-arlington-warns-data-breach",
+          "date": "2026-11-13",
+          "image": "https://cms.therecord.media/uploads/University_of_Texas_at_Arlington_March_2021_103_Gateway_Tower_1_1b860ea19f.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-13-quantum-systems-mise-a-jour-qbase",
+      "title": "Quantum Systems : le fabricant allemand de drones visé par une cyberattaque, une mise à jour malveillante de QBase évoquée par la presse",
+      "created": "2026-11-13T18:15:00+00:00",
+      "updated": "2026-11-13T18:15:00+00:00",
+      "version": 1,
+      "resume": "Le fabricant allemand de drones Quantum Systems confirme avoir détecté fin octobre un incident lié à une cyberattaque active d'« acteurs hostiles » [1]. Selon des informations de presse, l'armée allemande a cloué ses drones au sol par précaution [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Selon Der Spiegel et le Financial Times, compromission via un fichier de mise à jour QBase malveillant ; d'après l'article, par le serveur de distribution de l'éditeur [1]."
+        },
+        {
+          "etape": "Diffusion aux clients",
+          "texte": "Selon Der Spiegel, une mise à jour non planifiée a été livrée aux clients ; le nombre de ceux qui l'ont installée est inconnu [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur de mises à jour",
+            "note": "Selon l'article"
+          },
+          {
+            "id": "cli",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Clients de QBase",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 1,
+            "texte": "Fichier de mise à jour malveillant, selon la presse"
+          },
+          {
+            "de": "srv",
+            "vers": "cli",
+            "etape": 2,
+            "texte": "Mise à jour non planifiée, selon Der Spiegel"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas comment le serveur de mises à jour a été atteint ni ce que fait le fichier malveillant ; l'entreprise ne désigne aucun responsable [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Quantum Systems, fabricant allemand de drones, qui pense avoir été visé pour son soutien à l'Ukraine [1]",
+        "Armée allemande, qui utilise les drones de l'entreprise [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "German military drone operations disrupted by cyberattack",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/german-military-drone-operations-disrupted-by-cyberattack/",
+          "date": "2026-11-13",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/13/quantumsystems.jpg"
+        }
+      ]
     }
   ]
 }

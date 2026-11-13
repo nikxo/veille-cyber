@@ -1,37 +1,5 @@
 [
   {
-    "id": "c650147aa521510d",
-    "title": "HPE patches eight max severity RCE and auth bypass AOS flaws",
-    "link": "https://www.bleepingcomputer.com/news/security/hpe-patches-eight-max-severity-rce-and-auth-bypass-aos-flaws/",
-    "source": "BleepingComputer",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-23T13:25:00+00:00"
-  },
-  {
-    "id": "3c321f073d2095b2",
-    "title": "As AI Risks Grow, Insurers Split on Covering the Damage",
-    "link": "https://www.darkreading.com/cyber-risk/cyber-insurance-covering-ai-damage",
-    "source": "Dark Reading",
-    "raison": "actualité assurance, aucune attaque décrite",
-    "date": "2026-10-23T13:25:00+00:00"
-  },
-  {
-    "id": "b49db17578fd765a",
-    "title": "UK proposes 14-year prison terms for undersea cable sabotage",
-    "link": "https://therecord.media/uk-undersea-cables-sabotage-new-sentencing-guidelines",
-    "source": "The Record",
-    "raison": "actualité politique/judiciaire sans méthode d'attaque",
-    "date": "2026-10-23T14:10:00+00:00"
-  },
-  {
-    "id": "bd43f4cf3245ccee",
-    "title": "Why Caribbean Threats Cascade Into Global Cyber-Risk",
-    "link": "https://www.darkreading.com/cyber-risk/why-caribbean-threats-cascade-global-cyber-risk",
-    "source": "Dark Reading",
-    "raison": "article d'analyse générale sans attaque décrite",
-    "date": "2026-10-23T14:10:00+00:00"
-  },
-  {
     "id": "ff1522ac28cbf7ce",
     "title": "Cyber Insurance's New Reality: Underwriting Isn't Enough",
     "link": "https://www.darkreading.com/cyber-risk/cyber-insurances-underwriting-isnt-enough",
@@ -3998,5 +3966,37 @@
     "source": "The Hacker News",
     "raison": "recherche académique sur des failles AMD SEV-SNP, sans exploitation constatée dans la nature",
     "date": "2026-11-13T16:26:37+00:00"
+  },
+  {
+    "id": "19ad942142494871",
+    "title": "Inside the loop: Five AI attack frameworks that never ask permission",
+    "link": "https://www.elastic.co/security-labs/threat-command/agentic-offensive-frameworks-detection-artex",
+    "source": "Elastic Security Labs",
+    "raison": "analyse de frameworks offensifs et règles de détection, aucune intrusion décrite en détail",
+    "date": "2026-11-13T17:07:28+00:00"
+  },
+  {
+    "id": "862c3998dd63db20",
+    "title": "MDR Pricing: Comparing Asset-Based and Ingestion-Based Costs",
+    "link": "https://www.rapid7.com/blog/post/dr-mdr-pricing-comparing-asset-ingestion-based-ingestion-costs",
+    "source": "Rapid7",
+    "raison": "conseils génériques sur la tarification des offres de détection managée",
+    "date": "2026-11-13T17:07:28+00:00"
+  },
+  {
+    "id": "f6d06bee472cc946",
+    "title": "German parliament passes law giving spy agencies hacking, sabotage powers",
+    "link": "https://therecord.media/german-parliament-passes-law-giving-spy-agencies-hacking-power",
+    "source": "The Record",
+    "raison": "actualité politique et législative sans détail sur une méthode d'attaque",
+    "date": "2026-11-13T17:07:28+00:00"
+  },
+  {
+    "id": "f9fe19e18ef77038",
+    "title": "Chez Databricks, l’ontologie n’est pas si automatique",
+    "link": "https://www.lemagit.fr/actualites/366654799/Chez-Databricks-lontologie-nest-pas-si-automatique",
+    "source": "LeMagIT",
+    "raison": "annonce produit",
+    "date": "2026-11-13T17:07:28+00:00"
   }
 ]

@@ -1,37 +1,5 @@
 [
   {
-    "id": "eebdb3f4f6ae3ff9",
-    "title": "Two CVSS 9.0 Linux KSMBD RCE Flaws Disclosed on Public Mailing Lists Before Kernel Fixes",
-    "link": "https://thehackernews.com/2026/10/two-cvss-90-linux-ksmbd-rce-flaws.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilités sans exploitation constatée",
-    "date": "2026-10-22T19:30:00+00:00"
-  },
-  {
-    "id": "f74ce17a74d9601f",
-    "title": "eMudhra to Exit Global SSL/TLS Business After 8 Intermediate CA Keys Found Easily Guessable",
-    "link": "https://thehackernews.com/2026/10/emudhra-to-exit-global-ssltls-business.html",
-    "source": "The Hacker News",
-    "raison": "faiblesse de clés sans exploitation constatée",
-    "date": "2026-10-22T19:30:00+00:00"
-  },
-  {
-    "id": "0a62902654cebc5f",
-    "title": "What We Missed: Feds Lasso Texas Laptop Farms",
-    "link": "https://www.darkreading.com/insider-threats/texas-laptop-farms-north-korean-it-workers",
-    "source": "Dark Reading",
-    "raison": "opération judiciaire sans détail sur la méthode d'attaque (page inaccessible)",
-    "date": "2026-10-22T21:20:00+00:00"
-  },
-  {
-    "id": "a0b44de98d51fea9",
-    "title": "Les supermarchés de l'UE paient d'un firmware de réfrigérateur non mis à jour",
-    "link": "https://www.darkreading.com/ics-ot-security/eu-grocers-unpatched-fridge-firmware-french",
-    "source": "Dark Reading",
-    "raison": "page inaccessible, résumé sans détail d'attaque",
-    "date": "2026-10-22T21:20:00+00:00"
-  },
-  {
     "id": "fdce8a7d1bd72cd3",
     "title": "State Bank of India Suffers a Customer PII Data Leak",
     "link": "https://www.darkreading.com/cyberattacks-data-breaches/state-bank-india-customer-pii-data-leak",
@@ -3998,5 +3966,37 @@
     "source": "SecurityWeek",
     "raison": "publication d'un code d'exploitation par un chercheur, aucune exploitation constatée dans la nature selon l'article",
     "date": "2026-11-13T09:15:00+00:00"
+  },
+  {
+    "id": "1a7dbc24032cb870",
+    "title": "OpenAI Unveils Daybreak Red Team, Defense Factory Security Tools",
+    "link": "https://www.securityweek.com/openai-unveils-daybreak-red-team-defense-factory-security-tools/",
+    "source": "SecurityWeek",
+    "raison": "annonce produit",
+    "date": "2026-11-13T10:10:00+00:00"
+  },
+  {
+    "id": "52f5d90ba5d5aaea",
+    "title": "Microsoft confirms Windows activation failures after November updates",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-confirms-windows-activation-failures-after-november-updates/",
+    "source": "BleepingComputer",
+    "raison": "bogue de mise à jour Windows, aucune attaque décrite",
+    "date": "2026-11-13T10:10:00+00:00"
+  },
+  {
+    "id": "884f319d841d0d29",
+    "title": "Citrix Patches 10 Critical NetScaler Vulnerabilities",
+    "link": "https://www.securityweek.com/citrix-patches-10-critical-netscaler-vulnerabilities/",
+    "source": "SecurityWeek",
+    "raison": "vulnérabilités sans exploitation constatée",
+    "date": "2026-11-13T10:10:00+00:00"
+  },
+  {
+    "id": "df6469e2d32be45c",
+    "title": "Analytique : l’écosystème veut « recycler » les GPU délaissés par les fournisseurs de LLM",
+    "link": "https://www.lemagit.fr/dessin/Analytique-lecosysteme-veut-recycler-les-GPU-delaisses-par-les-fournisseurs-de-LLM",
+    "source": "LeMagIT",
+    "raison": "hors sujet (analytique sur GPU), aucune attaque décrite",
+    "date": "2026-11-13T10:10:00+00:00"
   }
 ]

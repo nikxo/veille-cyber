@@ -1,13 +1,5 @@
 [
   {
-    "id": "78c5b91003ba2b37",
-    "title": "PHP shares mitigation for new RCE vulnerability with no patch",
-    "link": "https://www.bleepingcomputer.com/news/security/php-shares-mitigation-for-new-and-unpatched-rce-vulnerability/",
-    "source": "BleepingComputer",
-    "raison": "vulnérabilité CVE-2026-115560 sans exploitation constatée ; tentatives PHP2Shell déjà couvertes par un sujet existant",
-    "date": "2026-10-23T16:20:00+00:00"
-  },
-  {
     "id": "c260633dc5067f8e",
     "title": "Zoom ouvre sa « couche de contexte » aux assistants IA, y compris ceux des autres",
     "link": "https://www.lemagit.fr/actualites/366652676/Zoom-ouvre-sa-couche-de-contexte-aux-assistants-IA-tiers",
@@ -3998,5 +3990,13 @@
     "source": "The Hacker News",
     "raison": "vulnérabilités corrigées sans exploitation constatée",
     "date": "2026-11-13T18:15:00+00:00"
+  },
+  {
+    "id": "cf42b36aeb3f1a4f",
+    "title": "NYC to bar surveillance pricing as momentum for bans grows nationwide",
+    "link": "https://therecord.media/nyc-council-passes-bill-ban-surveillance-pricing",
+    "source": "The Record",
+    "raison": "actualité politique et réglementaire (loi sur la tarification de surveillance), aucune attaque",
+    "date": "2026-11-13T19:15:00+00:00"
   }
 ]

@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-11-13T18:06:36+00:00",
+  "feed_summary": "A type confusion flaw in PostgreSQL lets a database user who can create objects run code on the server. Updates released yesterday fix it, along with 51 other security flaws. Full protection from this flaw also requires rebuilding any C-language extensions installed on the server. The flaw, tracked as CVE-2026-6460, has a CVSS score of 8.8. Any code run this way has the rights of the operating",
+  "id": "e05f7a78ce38d83c",
+  "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhj8XOS7IKEt2ZhrwwdlDSpQ5hAyI46wHZpPkTQ3_hA6yUtMQpzaM50fm2v9x0O7NCt5z9vdrTsYM3iPOmu9fmmMTQDViu-rQjCfSxfCQhwZQazr4ZYayvEn5MQfUdTBVODtAay6RIaTqJGUj-HVzbtMqNPdNFiQHExhO9sitJX0GrvTx_EhWmslA-87ds/s1700-nu-rw-lo-l85-e365/postgresql.jpg",
+  "lang": "en",
+  "link": "https://thehackernews.com/2026/11/postgresql-patches-52-flaws-including.html",
+  "published": "2026-11-13T22:23:08+05:30",
+  "source": "The Hacker News",
+  "source_type": "actu",
+  "title": "PostgreSQL Patches 52 Flaws, Including 22-Year-Old Bug Enabling Authenticated RCE"
+}

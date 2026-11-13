@@ -44194,9 +44194,9 @@
       "id": "2026-11-12-check-point-php2shell-effaceur-esxi",
       "title": "PHP2Shell sur des passerelles Check Point : organisations israéliennes visées, effaceur lancé sur un hôte ESXi",
       "created": "2026-11-12T14:15:00+00:00",
-      "updated": "2026-11-13T16:26:37+00:00",
-      "version": 5,
-      "resume": "Fin octobre 2026, une activité a visé des organisations israéliennes via des portails Mobile Access vulnérables de passerelles Check Point, avec des actions destructrices contre certaines d'entre elles [1].",
+      "updated": "2026-11-13T21:15:00+00:00",
+      "version": 6,
+      "resume": "Fin octobre 2026, une activité a visé des organisations israéliennes via des portails Mobile Access vulnérables de passerelles Check Point, avec des actions destructrices contre certaines d'entre elles [1]. La CISA a ajouté CVE-2026-123039 à son catalogue des failles exploitées [8].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -44328,6 +44328,10 @@
         {
           "sigle": "ESET",
           "definition": "Éditeur européen de logiciels de sécurité"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
         }
       ],
       "sources": [
@@ -44375,6 +44379,12 @@
           "url": "https://www.bleepingcomputer.com/news/security/check-point-gateways-hacked-via-php2shell-to-deploy-vmware-esxi-wiper/",
           "date": "2026-11-13",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/26/PHP.jpg"
+        },
+        {
+          "titre": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/13/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-13"
         }
       ]
     },
@@ -46271,6 +46281,336 @@
           "url": "https://www.bleepingcomputer.com/news/security/german-military-drone-operations-disrupted-by-cyberattack/",
           "date": "2026-11-13",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/13/quantumsystems.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-13-geovision-xmrig-cryptomineur",
+      "title": "GeoVision : un logiciel de caméras exposé sur Internet détourné pour installer le mineur XMRig dans 13 organisations",
+      "created": "2026-11-13T21:15:00+00:00",
+      "updated": "2026-11-13T21:15:00+00:00",
+      "version": 1,
+      "resume": "Des attaquants ont exploité un logiciel de caméras GeoVision exposé publiquement dans 13 organisations, tenté de désactiver Microsoft Defender et installé le mineur de cryptomonnaie XMRig [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation d'un logiciel de caméras GeoVision exposé publiquement → toute l'activité malveillante part du service GeoStartupAgentService.exe, sur de nombreuses machines sous le compte SYSTEM [1]."
+        },
+        {
+          "etape": "Exécution de scripts",
+          "texte": "Le service lance un interpréteur de commandes puis PowerShell, qui télécharge des scripts → recherche de dossiers accessibles en écriture et vérification de l'état de Defender [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Téléchargement d'un pilote noyau déjà détourné dans des attaques BYOVD et redirection de trois composants de sécurité vers systray.exe : tentative de désactiver Microsoft Defender [1]."
+        },
+        {
+          "etape": "Installation du chargeur",
+          "texte": "Téléchargement et lancement d'update.exe, chargeur sur mesure avec client BitTorrent et résolveur PKARR → l'opérateur peut déplacer son infrastructure sans enregistrer de domaine ni perdre l'accès [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Sur certaines machines, update.exe crée une tâche planifiée qui le lance toutes les 15 minutes ; une autre tâche s'exécute au démarrage du système [1]."
+        },
+        {
+          "etape": "Minage",
+          "texte": "Le chargeur télécharge XMRig sous le nom ApplyUpdate.exe → minage de cryptomonnaie [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur distant",
+            "note": "Scripts PowerShell"
+          },
+          {
+            "id": "geo",
+            "type": "postes",
+            "zone": "expose",
+            "nom": "Machines avec logiciel GeoVision",
+            "note": "Exposées publiquement"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "geo",
+            "etape": 1,
+            "texte": "Exploitation du logiciel GeoVision exposé"
+          },
+          {
+            "de": "c2",
+            "vers": "geo",
+            "etape": 2,
+            "texte": "Scripts PowerShell téléchargés"
+          }
+        ]
+      },
+      "limites": "Huntress ne nomme ni la faille exploitée ni l'attaquant, et ne dit pas si le pilote a été chargé [1].",
+      "cves": [],
+      "mitre": [
+        "T1190 Exploit Public-Facing Application : exploitation du logiciel GeoVision exposé [1]",
+        "T1059.001 PowerShell : scripts téléchargés et exécutés [1]",
+        "T1059.003 Windows Command Shell : interpréteur lancé par le service GeoVision [1]",
+        "T1112 Modify Registry : redirection de composants de sécurité [1]",
+        "T1685 Disable or Modify Tools : technique citée par Huntress [1]",
+        "T1083 File and Directory Discovery : recherche de dossiers accessibles en écriture [1]",
+        "T1518.001 Security Software Discovery : vérification de Defender [1]",
+        "T1105 Ingress Tool Transfer : technique citée par Huntress [1]",
+        "T1053.005 Scheduled Task : tâches planifiées relançant update.exe [1]",
+        "T1568 Dynamic Resolution : technique citée par Huntress [1]",
+        "T1608.001 Stage Capabilities, Upload Malware : technique citée par Huntress [1]",
+        "T1496.001 Compute Hijacking : minage de cryptomonnaie [1]"
+      ],
+      "acteurs": [],
+      "cibles": [
+        "Activité observée sur dix comptes et 13 organisations, neuf comptes selon un autre passage de l'article [1]",
+        "L'essentiel des attaques a eu lieu entre le 8 et le 10 novembre [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SYSTEM",
+          "definition": "Compte NT AUTHORITY\\SYSTEM de Windows"
+        },
+        {
+          "sigle": "BYOVD",
+          "definition": "Bring Your Own Vulnerable Driver : apporter un pilote vulnérable pour s'en servir"
+        },
+        {
+          "sigle": "PKARR",
+          "definition": "Nom du résolveur intégré au chargeur, utilisé avec le client BitTorrent"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "GeoVision Camera Software Abused to Deploy XMRig Cryptominer",
+          "site": "Huntress",
+          "url": "https://www.huntress.com/blog/geovision-camera-software-xmrig-cryptominer",
+          "date": "2026-11-13",
+          "image": "https://images.huntress.com/asset/file/d0f2eecb96d24faaa5a9ae527886ba4d"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-13-unrealircd-cve-2026-114713-kev",
+      "title": "UnrealIRCd : la faille CVE-2026-114713 ajoutée au catalogue américain des failles exploitées",
+      "created": "2026-11-13T21:15:00+00:00",
+      "updated": "2026-11-13T21:15:00+00:00",
+      "version": 1,
+      "resume": "La CISA a ajouté à son catalogue des failles exploitées CVE-2026-114713, qui touche le logiciel UnrealIRCd, sur la base de preuves d'exploitation active [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Injection de commandes",
+          "texte": "Selon la fiche de la faille, une étiquette « label » non échappée permet à un utilisateur d'injecter des commandes entre serveurs, exécutées avec l'autorité du serveur [2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "irc",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur UnrealIRCd",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "irc",
+            "etape": 2,
+            "texte": "Étiquette non échappée, commandes entre serveurs injectées"
+          }
+        ]
+      },
+      "limites": "La CISA ne dit ni qui exploite la faille, ni contre qui, ni comment [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-114713",
+          "explication": "UnrealIRCd avant 6.2.7.1, module labeled-response : étiquette « label » non échappée, injection de commandes entre serveurs sur un réseau d'au moins deux serveurs liés, gravité élevée 8,6 [2]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [],
+      "abreviations": [
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/13/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-13"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-114713",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114713"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-13-talos-artex-campagnes",
+      "title": "Cisco Talos : le framework de test d'intrusion ARTEX détourné dans des campagnes criminelles et d'espionnage",
+      "created": "2026-11-13T21:15:00+00:00",
+      "updated": "2026-11-13T21:15:00+00:00",
+      "version": 1,
+      "resume": "Cisco Talos recense des campagnes criminelles et d'intrusion ciblée menées avec ARTEX, framework de test d'intrusion assisté par intelligence artificielle, et a identifié plus de 2 500 adresses de serveurs de commande associées [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Faiblesses exploitées dans ces attaques : identifiants d'administration faibles ou codés en dur, interfaces de programmation sans authentification, téléversement anonyme de fichiers, injection de commandes [1]."
+        },
+        {
+          "etape": "Tentatives de connexion",
+          "texte": "Storm-0940 : après la compromission d'identifiants d'application ConnectWise, ARTEX accélère les tentatives de connexion contre plus de 2 250 locataires Microsoft 365 en aval [1]."
+        },
+        {
+          "etape": "Vol de secrets",
+          "texte": "Des agents ARTEX cherchent des secrets exposés sur GitHub puis les utilisent → dans un cas, données d'Azure Key Vault exfiltrées en cinq minutes [1]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Vapor Panda forge un jeton d'administrateur à partir d'anciens éléments d'authentification → lecture de boîtes mail et accès au réseau interne grâce à des informations VPN récupérées [1]."
+        },
+        {
+          "etape": "Persistance et déplacement",
+          "texte": "Storm-3358, selon Microsoft : exploitation de systèmes exposés et déploiement de WISP, VShell et AdaptixC2 pour la persistance et le déplacement latéral [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "gh",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "GitHub",
+            "note": "Secrets exposés"
+          },
+          {
+            "id": "m365",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Locataires Microsoft 365",
+            "note": ""
+          },
+          {
+            "id": "res",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Réseau interne",
+            "note": ""
+          },
+          {
+            "id": "kv",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Azure Key Vault",
+            "note": "Données exfiltrées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "m365",
+            "etape": 2,
+            "texte": "Tentatives de connexion accélérées par ARTEX"
+          },
+          {
+            "de": "att",
+            "vers": "gh",
+            "etape": 3,
+            "texte": "Recherche de secrets exposés"
+          },
+          {
+            "de": "gh",
+            "vers": "kv",
+            "etape": 3,
+            "texte": "Dans un cas, données exfiltrées en cinq minutes"
+          },
+          {
+            "de": "att",
+            "vers": "res",
+            "etape": 4,
+            "texte": "Accès grâce à des informations VPN récupérées"
+          },
+          {
+            "de": "att",
+            "vers": "res",
+            "etape": 5,
+            "texte": "Systèmes exposés exploités, WISP, VShell et AdaptixC2 déployés"
+          }
+        ]
+      },
+      "limites": "Les étapes viennent de campagnes distinctes, rapportées par CrowdStrike et Microsoft ; selon Talos, les comportements varient selon la campagne et ne forment pas un mode opératoire unique [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Vapor Panda, acteur lié à la Chine auquel CrowdStrike attribue une campagne d'espionnage [1]",
+        "Storm-0940, décrit par Microsoft comme aligné sur l'État chinois [1]",
+        "Storm-3358, motivé financièrement et décrit comme basé au Cambodge [1]"
+      ],
+      "cibles": [
+        "Vapor Panda : plus de 200 organisations dans au moins 14 pays ; activité après compromission confirmée par CrowdStrike dans neuf organisations [1]",
+        "Storm-3358 : surtout des organisations financières d'Asie du Sud-Est [1]",
+        "Organisations financières sud-coréennes, campagne non attribuée avec exfiltration de données selon CrowdStrike ; les artefacts ARTEX ne prouvent pas seuls son usage [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ARTEX",
+          "definition": "Framework de test d'intrusion assisté par intelligence artificielle, publié sur GitHub"
+        },
+        {
+          "sigle": "VPN",
+          "definition": "Virtual Private Network : accès distant chiffré au réseau d'une organisation"
+        },
+        {
+          "sigle": "WISP",
+          "definition": "Outil déployé par Storm-3358 pour la persistance et le déplacement"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "ARTEX and beyond: AI-enabled penetration testing platforms",
+          "site": "Cisco Talos",
+          "url": "https://blog.talosintelligence.com/artex-and-beyond/",
+          "date": "2026-11-13",
+          "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2022/10/GnericCiscoTalos-Header-1.jpg"
         }
       ]
     }

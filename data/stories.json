@@ -44606,19 +44606,23 @@
     {
       "schema": 3,
       "id": "2026-11-12-apify-acces-systemes-internes",
-      "title": "Apify : accès non autorisé à des systèmes internes, jetons renouvelés et double authentification à réinitialiser",
+      "title": "Apify : systèmes internes et comptes clients compromis, des données de clients consultées",
       "created": "2026-11-12T15:11:50+00:00",
-      "updated": "2026-11-12T15:11:50+00:00",
-      "version": 1,
-      "resume": "Apify, plateforme tchèque de collecte de données web, a détecté un accès non autorisé à une partie de ses systèmes internes, puis a renouvelé des secrets et des jetons d'API [1].",
+      "updated": "2026-11-13T14:51:20+00:00",
+      "version": 2,
+      "resume": "Apify, plateforme tchèque de collecte de données web, a confirmé qu'un intrus avait accédé à des systèmes internes et à des comptes, et consulté des données personnelles ou stockées de certains clients [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources : un tiers non autorisé a accédé à une partie des systèmes internes d'Apify les 9 et 10 novembre [1]."
+          "texte": "Les 9 et 10 novembre, un tiers non autorisé accède à une partie des systèmes internes d'Apify [1]."
         },
         {
-          "etape": "Secrets exposés",
-          "texte": "Les codes de double authentification de clients concernés ont pu être exposés ; les mots de passe sont présentés comme non compromis [1]."
+          "etape": "Identifiant compromis",
+          "texte": "L'attaquant a utilisé un identifiant compromis pour obtenir d'autres identifiants et accéder à des comptes Apify liés [2]."
+        },
+        {
+          "etape": "Accès aux données",
+          "texte": "Données personnelles ou stockées de certains clients consultées [2] ; les codes de double authentification de clients concernés ont pu être exposés [1]."
         }
       ],
       "parcours": {
@@ -44632,17 +44636,24 @@
           },
           {
             "id": "sys",
-            "type": "inconnu",
+            "type": "serveur",
             "zone": "victime",
             "nom": "Systèmes internes d'Apify",
-            "note": "Vecteur non précisé"
+            "note": ""
           },
           {
-            "id": "codes",
+            "id": "cpt",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Comptes Apify liés",
+            "note": ""
+          },
+          {
+            "id": "don",
             "type": "donnees",
             "zone": "victime",
-            "nom": "Codes de double authentification",
-            "note": "Possiblement exposés"
+            "nom": "Données de clients",
+            "note": "Consultées"
           }
         ],
         "liens": [
@@ -44653,26 +44664,27 @@
             "texte": "Accès non autorisé à une partie des systèmes"
           },
           {
-            "de": "sys",
-            "vers": "codes",
+            "de": "att",
+            "vers": "cpt",
             "etape": 2,
-            "texte": "Codes de clients possiblement exposés"
+            "texte": "Identifiant compromis, autres identifiants obtenus"
+          },
+          {
+            "de": "cpt",
+            "vers": "don",
+            "etape": 3,
+            "texte": "Données personnelles ou stockées consultées"
           }
         ]
       },
-      "limites": "La source ne précise ni le vecteur d'accès, ni l'auteur, ni le nombre de clients concernés ; Apify dit n'avoir trouvé aucun signe d'atteinte aux données de compte [1].",
+      "limites": "Apify n'a pas communiqué le nombre de comptes clients compromis [2]. Selon [1], Apify n'avait trouvé aucun signe d'atteinte aux données de compte ; selon [2], elle a confirmé le 12 novembre que des données avaient été consultées.",
       "cves": [],
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Apify, plateforme tchèque de collecte de données web et d'automatisation de navigateur, qui revendique 80 000 clients [1]"
+        "Apify, plateforme tchèque de collecte de données web et d'automatisation, qui compte 80 000 clients selon [1] et 91 000 selon [2]"
       ],
-      "abreviations": [
-        {
-          "sigle": "API",
-          "definition": "Application Programming Interface : interface qui permet à des programmes de dialoguer entre eux"
-        }
-      ],
+      "abreviations": [],
       "sources": [
         {
           "titre": "Apify rotates API tokens, prompts 2FA resets after breach",
@@ -44680,6 +44692,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/apify-rotates-api-tokens-prompts-2fa-resets-after-breach/",
           "date": "2026-11-12",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/12/Apify.jpg"
+        },
+        {
+          "titre": "Apify Confirms Customer Data Accessed in Cyberattack",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/apify-confirms-customer-data-accessed-in-cyberattack/",
+          "date": "2026-11-13",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/02/data_breach.jpeg"
         }
       ]
     },
@@ -45492,9 +45511,9 @@
       "id": "2026-11-13-silentair-operateurs-mobiles-taiwan",
       "title": "SilentAir : des équipements d'opérateurs mobiles asiatiques piratés pour intercepter appels et SMS, surtout à Taïwan",
       "created": "2026-11-13T12:20:00+00:00",
-      "updated": "2026-11-13T12:20:00+00:00",
-      "version": 1,
-      "resume": "Selon Enea, le groupe d'espionnage SilentAir a utilisé des équipements piratés chez des opérateurs mobiles asiatiques pour intercepter les appels et SMS de personnes choisies, surtout à Taïwan [1].",
+      "updated": "2026-11-13T14:51:20+00:00",
+      "version": 2,
+      "resume": "Selon Enea, le groupe d'espionnage SilentAir a utilisé des équipements piratés chez des opérateurs mobiles asiatiques pour intercepter les appels et SMS de personnes choisies, surtout à Taïwan [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -45502,11 +45521,11 @@
         },
         {
           "etape": "Équipements piratés",
-          "texte": "Des équipements situés chez des opérateurs mobiles asiatiques sont piratés ; Enea a vu l'un d'eux envoyer et recevoir des commandes d'attaque [1]."
+          "texte": "Des équipements situés chez des opérateurs mobiles asiatiques sont piratés [1, 2] ; Enea a vu l'un d'eux envoyer et recevoir des commandes d'attaque [1]."
         },
         {
           "etape": "Détournement des communications",
-          "texte": "Message UpdateLocation, ou son équivalent Diameter, envoyé au réseau d'origine de la cible → s'il est accepté, ses appels et SMS sont détournés vers les attaquants [1]."
+          "texte": "Message UpdateLocation, ou son équivalent Diameter, envoyé au réseau d'origine de la cible → s'il est accepté, appels et SMS détournés [1] ; attaques surtout SS7, parfois Diameter [2]."
         },
         {
           "etape": "SMS silencieux",
@@ -45579,14 +45598,14 @@
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "SilentAir : acteur de niveau étatique selon Enea, avec une confiance élevée ; rattaché à la Chine avec une confiance faible seulement [1]",
-        "Liminal Panda : lien avec SilentAir jugé possible mais non confirmé par Enea [1]"
+        "SilentAir, suivi par Enea depuis début 2025 [2] : acteur de niveau étatique avec une confiance élevée, rattaché à la Chine avec une confiance faible [1, 2]",
+        "Liminal Panda : lien avec SilentAir jugé possible par Enea, mais preuves insuffisantes [1, 2]"
       ],
       "cibles": [
-        "Abonnés mobiles surtout à Taïwan [1]",
+        "Personnes ciblées surtout à Taïwan [1, 2]",
         "Certaines cibles sont des personnalités politiques et gouvernementales de premier plan dans leur propre pays [1]",
         "Hors de Taïwan : surtout des réseaux d'Asie du Sud-Est et de l'Est, parfois Afrique de l'Est, Asie centrale, Moyen-Orient et Europe [1]",
-        "Opérateurs mobiles d'au moins six pays asiatiques, où Enea a trouvé les sources d'attaque [1]"
+        "Opérateurs mobiles d'au moins six pays asiatiques, où Enea a trouvé les sources d'attaque [1, 2]"
       ],
       "abreviations": [
         {
@@ -45596,6 +45615,10 @@
         {
           "sigle": "Diameter",
           "definition": "Protocole de signalisation échangé entre opérateurs mobiles"
+        },
+        {
+          "sigle": "SS7",
+          "definition": "Signalling System 7 : protocole de signalisation entre réseaux téléphoniques"
         }
       ],
       "sources": [
@@ -45605,6 +45628,223 @@
           "url": "https://thehackernews.com/2026/11/silentair-hijacks-asian-telecom.html",
           "date": "2026-11-13",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjskRPNlV_kYE1N2eF2J_J0fBvF_nQxnvtaS78Grj04KqkEauvr-R5jO-ynD9nm51SgF2XtCCAsWUbJrHU0wGRnXC9yHmblhNCF8Jt9NdVahMju3voR2z9xb2uqoSi7Nc085UqDBelqg4XDRdjJ2lsF7EeN28rjq7oBc_NpBUWRqLWXiOh9FBRIH28teHM/s1700-nu-rw-lo-l85-e365/telecom-hack.jpg"
+        },
+        {
+          "titre": "SilentAir Hackers Intercept Calls, SMS From Inside Mobile Networks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/silentair-hackers-intercept-calls-sms-from-inside-mobile-networks/",
+          "date": "2026-11-13",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/12/telecoms-communications.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-13-cyberstrikeai-comptes-aws",
+      "title": "CyberStrikeAI : un serveur de l'outil d'attaque utilise huit identités dans quatre comptes AWS",
+      "created": "2026-11-13T14:51:20+00:00",
+      "updated": "2026-11-13T14:51:20+00:00",
+      "version": 1,
+      "resume": "Selon Elastic Security Labs, un serveur exposant une interface web CyberStrikeAI a utilisé les identifiants de huit identités dans quatre comptes AWS, où il a lu des secrets et envoyé une commande à distance [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Identifiants de cinq utilisateurs IAM et de trois rôles d'instances EC2 utilisés depuis une adresse externe ; la source ne sait pas comment ils ont été obtenus [1]."
+        },
+        {
+          "etape": "Validation des identifiants",
+          "texte": "Le 30 septembre, appels GetCallerIdentity pour quatre utilisateurs IAM dans trois comptes en 51 minutes, et deux appels GetSessionToken [1]."
+        },
+        {
+          "etape": "Lecture de secrets",
+          "texte": "Un rôle d'instance lit un secret dans Secrets Manager, puis les données de démarrage des instances, dont 56 appels DescribeInstanceAttribute en 141 millisecondes [1]."
+        },
+        {
+          "etape": "Commande à distance",
+          "texte": "Le 2 octobre, un autre rôle lit un paramètre SSM chiffré en demandant son déchiffrement, puis envoie une commande via SSM 29 secondes plus tard [1]."
+        },
+        {
+          "etape": "Retour",
+          "texte": "Le 16 octobre, après 14 jours sans activité, le serveur revalide des identifiants, dont ceux d'un utilisateur d'un quatrième compte, jamais apparu auparavant [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Serveur CyberStrikeAI",
+            "note": ""
+          },
+          {
+            "id": "aws",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Quatre comptes AWS",
+            "note": "Huit identités utilisées"
+          },
+          {
+            "id": "sec",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Secrets et données de démarrage",
+            "note": "Lus"
+          },
+          {
+            "id": "inst",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Instances gérées par SSM",
+            "note": "Commande envoyée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "aws",
+            "etape": 1,
+            "texte": "Identifiants utilisés depuis une adresse externe"
+          },
+          {
+            "de": "aws",
+            "vers": "sec",
+            "etape": 3,
+            "texte": "Lecture de secrets et de données de démarrage"
+          },
+          {
+            "de": "aws",
+            "vers": "inst",
+            "etape": 4,
+            "texte": "Commande envoyée via SSM"
+          }
+        ]
+      },
+      "limites": "La source ignore l'origine des identifiants, le contenu et le succès de la commande ; elle ne peut pas prouver qu'un modèle de langage décidait des actions [1].",
+      "cves": [],
+      "mitre": [
+        "T1078.004 Valid Accounts: Cloud Accounts : utilisation de comptes cloud valides, citée pour l'accès initial [1]",
+        "T1087.004 Account Discovery: Cloud Account : découverte des comptes cloud [1]",
+        "T1552.005 Unsecured Credentials: Cloud Instance Metadata API : identifiants obtenus par l'interface de métadonnées des instances cloud [1]",
+        "T1555.006 Credentials from Password Stores: Cloud Secrets Management Stores : identifiants lus dans un coffre de secrets cloud [1]",
+        "T1651 Cloud Administration Command : exécution par une commande d'administration cloud [1]"
+      ],
+      "acteurs": [
+        "La source ne nomme pas l'opérateur ; serveur rattaché à l'outil CyberStrikeAI, que Team Cymru a recensé début 2026 sur 21 adresses visant des équipements Fortinet [1]"
+      ],
+      "cibles": [
+        "Quatre comptes AWS que la source ne nomme pas [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "AWS",
+          "definition": "Amazon Web Services : plateforme cloud d'Amazon"
+        },
+        {
+          "sigle": "IAM",
+          "definition": "Identity and Access Management : gestion des identités et des droits dans AWS"
+        },
+        {
+          "sigle": "EC2",
+          "definition": "Elastic Compute Cloud : service de machines virtuelles d'AWS"
+        },
+        {
+          "sigle": "SSM",
+          "definition": "AWS Systems Manager : service d'administration à distance des machines"
+        },
+        {
+          "sigle": "API",
+          "definition": "Application Programming Interface : interface qui permet à des programmes de dialoguer entre eux"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "56 AWS API calls in 141 milliseconds: Inside an AI-run intrusion",
+          "site": "Elastic Security Labs",
+          "url": "https://www.elastic.co/security-labs/threat-command/cyberstrikeai-aws-cloudtrail-intrusion",
+          "date": "2026-11-13",
+          "image": "https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/blt6563bd994d897304/6af5db091380e64ad87e1178/image2.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-13-activecloud-rancongiciel-bielorussie",
+      "title": "ActiveCloud : une attaque par rançongiciel chiffre une partie du cloud de l'hébergeur biélorusse",
+      "created": "2026-11-13T14:51:20+00:00",
+      "updated": "2026-11-13T14:51:20+00:00",
+      "version": 1,
+      "resume": "Le fournisseur de cloud biélorusse ActiveCloud a annoncé que des pirates avaient pénétré ses systèmes et chiffré une partie de son infrastructure, privant ses clients de services clés pendant plusieurs jours [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources : ActiveCloud n'a pas expliqué comment les attaquants sont entrés dans ses systèmes [1]."
+        },
+        {
+          "etape": "Chiffrement",
+          "texte": "Chiffrement de parties de l'infrastructure cloud → hébergement cloud, messagerie d'entreprise et canaux d'assistance aux clients inaccessibles [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes d'ActiveCloud",
+            "note": "Vecteur non précisé"
+          },
+          {
+            "id": "cl",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Infrastructure cloud",
+            "note": "Chiffrée en partie"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Intrusion, méthode non précisée"
+          },
+          {
+            "de": "sys",
+            "vers": "cl",
+            "etape": 2,
+            "texte": "Chiffrement de parties de l'infrastructure"
+          }
+        ]
+      },
+      "limites": "ActiveCloud n'a pas identifié les auteurs et dit n'avoir trouvé aucune preuve de vol de données clients ; aucun lien confirmé avec les attaques contre les hébergeurs russes ESTT et Beget [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "ActiveCloud, fournisseur biélorusse de cloud, de serveurs virtuels et de messagerie pour des entreprises de Biélorussie et de Russie [1]",
+        "Smartpress, média biélorusse dont le site est hébergé chez ActiveCloud, touché par la perturbation [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ESTT",
+          "definition": "Nom d'un hébergeur russe, cité tel quel par la source"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Ransomware attack on Belarusian cloud firm disrupts businesses for days",
+          "site": "The Record",
+          "url": "https://therecord.media/belarus-cloud-provider-activecloud-ransomware-attack",
+          "date": "2026-11-13",
+          "image": "https://cms.therecord.media/uploads/server_getty_images_unsplash_bba164f23e.jpg"
         }
       ]
     }

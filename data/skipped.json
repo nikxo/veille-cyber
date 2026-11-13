@@ -1,45 +1,5 @@
 [
   {
-    "id": "a2a9e372db7b0e08",
-    "title": "Researchers Demonstrate Node2Shell RCE Exploit on Node.js Build Using Crafted Brotli Data",
-    "link": "https://thehackernews.com/2026/10/researchers-demonstrate-node2shell-rce.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-23T08:08:29+00:00"
-  },
-  {
-    "id": "4644906284e5f1c1",
-    "title": "Contrôle à l’export : la Chine laisse planer le doute sur le sort des modèles frontières ouverts",
-    "link": "https://www.lemagit.fr/dessin/Controle-a-lexport-la-Chine-laisse-planer-le-doute-sur-le-sort-des-modeles-frontieres-ouverts",
-    "source": "LeMagIT",
-    "raison": "actualité politique sans attaque",
-    "date": "2026-10-23T09:30:00+00:00"
-  },
-  {
-    "id": "6f084559d703b49d",
-    "title": "Critical x402 SDK Flaw Could Let Malicious APIs Drain AI Agents’ Token Balances",
-    "link": "https://thehackernews.com/2026/10/critical-x402-sdk-flaw-could-let.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-23T10:20:00+00:00"
-  },
-  {
-    "id": "3a89e69463ceb5d0",
-    "title": "Critical Flaw in Python’s Popular Pillow Image Library Allows Code Execution via a Crafted Image",
-    "link": "https://thehackernews.com/2026/10/critical-flaw-in-pythons-popular-pillow.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-23T11:30:00+00:00"
-  },
-  {
-    "id": "1b22bb719f63187b",
-    "title": "Fraude bancaire : deux mails pour installer la peur",
-    "link": "https://www.zataz.com/fraude-bancaire-deux-mails-pour-installer-la-peur/",
-    "source": "ZATAZ",
-    "raison": "témoignage sans attaque constatée",
-    "date": "2026-10-23T11:30:00+00:00"
-  },
-  {
     "id": "00ea73fcffe480a3",
     "title": "Cyberhebdo du 23 octobre 2026 : encore une semaine intense",
     "link": "https://www.lemagit.fr/actualites/366652693/Cyberhebdo-du-23-octobre-2026-encore-une-semaine-intense",
@@ -3998,5 +3958,45 @@
     "source": "The Hacker News",
     "raison": "contenu sponsorisé (Keeper Security), conseils génériques, aucune attaque décrite",
     "date": "2026-11-13T12:20:00+00:00"
+  },
+  {
+    "id": "c80de89ef4b4d17c",
+    "title": "Microsoft says November security updates cause printing issues",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-says-november-security-updates-cause-printing-issues/",
+    "source": "BleepingComputer",
+    "raison": "dysfonctionnement d'impression après des mises à jour, aucune attaque décrite",
+    "date": "2026-11-13T14:51:20+00:00"
+  },
+  {
+    "id": "f88082b89135d1a8",
+    "title": "Record number of cyber incidents reported to UK privacy regulator",
+    "link": "https://therecord.media/record-number-of-cyber-incidents-reported-to-uk-regulator",
+    "source": "The Record",
+    "raison": "statistiques générales de signalements au régulateur britannique, aucune méthode d'attaque décrite",
+    "date": "2026-11-13T14:51:20+00:00"
+  },
+  {
+    "id": "df1817dfc39a7f33",
+    "title": "Microsoft Struggles to Restore Email and Other Services in a Global Outage",
+    "link": "https://www.securityweek.com/microsoft-struggles-to-restore-email-and-other-services-in-a-global-outage/",
+    "source": "SecurityWeek",
+    "raison": "panne de services Microsoft, aucun indice d'activité malveillante selon Microsoft",
+    "date": "2026-11-13T14:51:20+00:00"
+  },
+  {
+    "id": "fff233faf327955c",
+    "title": "Attackers in Binance Breach Targeted Known Weakness, Missing Controls",
+    "link": "https://www.darkreading.com/cybersecurity-operations/attackers-binance-breach-targeted-weakness-missing-controls",
+    "source": "Dark Reading",
+    "raison": "page inaccessible (HTTP 403) et résumé du flux trop général pour en tirer des faits sur l'attaque",
+    "date": "2026-11-13T14:51:20+00:00"
+  },
+  {
+    "id": "2cf87a19124d5e79",
+    "title": "As Test Takers Turn to AI for Answers, Exam Security Must Catch Up",
+    "link": "https://www.darkreading.com/cybersecurity-operations/test-takers-ai-exam-security-catch-up",
+    "source": "Dark Reading",
+    "raison": "page inaccessible (HTTP 403) ; d'après le résumé du flux, sujet général sur la triche aux examens, aucune attaque décrite",
+    "date": "2026-11-13T14:51:20+00:00"
   }
 ]

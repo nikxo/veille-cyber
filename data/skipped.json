@@ -1,13 +1,5 @@
 [
   {
-    "id": "ae3a132dc890ea10",
-    "title": "I had plans for that second",
-    "link": "https://blog.talosintelligence.com/i-had-plans-for-that-second/",
-    "source": "Cisco Talos",
-    "raison": "newsletter hebdomadaire sans attaque détaillée",
-    "date": "2026-10-22T18:30:00+00:00"
-  },
-  {
     "id": "a45e553ca30bdb4a",
     "title": "ThreatsDay: AI Secrets Leak, PingCAP Source Theft, Signal Hang-Up Flaw, Laravel Auth Bypass + 21 More",
     "link": "https://thehackernews.com/2026/10/threatsday-ai-secrets-leak-pingcap.html",
@@ -3998,5 +3990,13 @@
     "source": "Dark Reading",
     "raison": "actualité politique et budgétaire sans détail sur une méthode d'attaque (article inaccessible, d'après le résumé du flux)",
     "date": "2026-11-12T22:15:00+00:00"
+  },
+  {
+    "id": "e9f16b1caffc5770",
+    "title": "Getting Past the Post-Quantum Cryptography Discovery Phase",
+    "link": "https://www.darkreading.com/cybersecurity-operations/getting-past-post-quantum-cryptography-discovery",
+    "source": "Dark Reading",
+    "raison": "conseils génériques sur la cryptographie post-quantique, aucune attaque décrite (WebFetch en erreur 403, jugé sur le résumé du flux)",
+    "date": "2026-11-13T03:07:26+00:00"
   }
 ]

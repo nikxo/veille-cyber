@@ -44268,7 +44268,7 @@
         },
         {
           "id": "CVE-2026-123039",
-          "explication": "Gaia : le démon DynamicCLI, exécuté en root, n'authentifie pas les processus connectés à son socket local ; un utilisateur local authentifié exécute des commandes en root [6], gravité 7,8 [5]."
+          "explication": "Gaia : démon DynamicCLI, exécuté en root, n'authentifie pas les processus connectés à son socket local ; un utilisateur local authentifié exécute des commandes en root [6]. Gravité 7,8 [5]."
         }
       ],
       "mitre": [],

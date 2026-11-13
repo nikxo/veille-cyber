@@ -44027,8 +44027,8 @@
       "id": "2026-11-12-n-central-4everable2shell-tentatives",
       "title": "N-able N-central : la faille 4EverAble2Shell exploitée pour installer des mineurs de cryptomonnaie sur 21 serveurs, dont 19 avec Hotfix 2",
       "created": "2026-11-12T13:20:00+00:00",
-      "updated": "2026-11-13T06:07:48+00:00",
-      "version": 3,
+      "updated": "2026-11-13T08:15:00+00:00",
+      "version": 4,
       "resume": "Des attaquants exploitent 4EverAble2Shell contre des serveurs N-able N-central et y installent des mineurs de cryptomonnaie : 21 serveurs touchés, dont 19 avec Hotfix 2 [3, 4]. N-able restreint par précaution certaines fonctions de N-central [4]. Une autre source ne constatait aucune exploitation réussie [1].",
       "chaine": [
         {
@@ -44042,6 +44042,10 @@
         {
           "etape": "Installation du mineur",
           "texte": "Téléchargement du script shell « jup.sh » → installation d'un mineur XMRig réglé sur environ la moitié des cœurs du processeur [3, 4]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Mineur XMRig déployé avec une persistance par systemd ou cron [5]."
         },
         {
           "etape": "Envoi de données",
@@ -44094,7 +44098,7 @@
           {
             "de": "nc",
             "vers": "ext",
-            "etape": 4,
+            "etape": 5,
             "texte": "Script demandé, données de diagnostic envoyées"
           }
         ]
@@ -44111,7 +44115,8 @@
       "cibles": [
         "Serveurs N-central installés sur site ; les environnements hébergés ne sont pas touchés selon N-able [1]",
         "21 serveurs aux États-Unis, en Afrique du Sud, au Canada, au Royaume-Uni, en Allemagne, en France et en Suède [3, 4]",
-        "Environnements hébergés : Legacy API désactivée par défaut et intégration Intune coupée par N-able [4]"
+        "Environnements hébergés : Legacy API désactivée par défaut et intégration Intune coupée par N-able [4]",
+        "Serveurs compromis environ 5 heures après la publication du code d'exploitation, selon Lupovis et Huntback [5]"
       ],
       "abreviations": [
         {
@@ -44149,6 +44154,13 @@
           "url": "https://thehackernews.com/2026/11/hackers-exploit-n-central-flaws-to.html",
           "date": "2026-11-13",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhA4jxlXpPBPhD5o3IHy80Fn7fSHUtcqH3iXQlU-jDUL5C3zJcf1_Zb-GAYxuW6P6q647p9JAT_opImlj-v-USDNhZ_z83mYC3ISKtN72pe_3XLwf5EyMRuK4OdXCFnYxGMhOAvN_i4UFqk5vJLriRnkbRRwILuT5JUpExx9Tm74sXSCQ0g7jjsOzWV1cqk/s1700-nu-rw-lo-l85-e365/nable-hacks.jpg"
+        },
+        {
+          "titre": "Hackers Exploit New N-central Zero-Day Hours After PoC Publication",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/hackers-exploit-new-n-central-zero-day-hours-after-poc-publication/",
+          "date": "2026-11-13",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/vulnerability-software-bug.webp"
         }
       ]
     },
@@ -44157,8 +44169,8 @@
       "id": "2026-11-12-check-point-php2shell-effaceur-esxi",
       "title": "PHP2Shell sur des passerelles Check Point : organisations israéliennes visées, effaceur lancé sur un hôte ESXi",
       "created": "2026-11-12T14:15:00+00:00",
-      "updated": "2026-11-12T14:15:00+00:00",
-      "version": 1,
+      "updated": "2026-11-13T08:15:00+00:00",
+      "version": 2,
       "resume": "Fin octobre 2026, une activité a visé des organisations israéliennes via des portails Mobile Access vulnérables de passerelles Check Point, avec des actions destructrices contre certaines d'entre elles [1].",
       "chaine": [
         {
@@ -44261,7 +44273,9 @@
       ],
       "mitre": [],
       "acteurs": [
-        "Attribution non concluante selon Check Point : outils de la famille PhiliKit, qu'ESET associe à UNC5221, lié à la Chine [1]"
+        "Attribution non concluante selon Check Point : outils de la famille PhiliKit, qu'ESET associe à UNC5221, lié à la Chine [1]",
+        "Selon Check Point, les opérateurs agissaient aux heures de travail chinoises habituelles, mais une opération sous fausse bannière reste possible [4]",
+        "La note laissée par les attaquants mentionne l'entreprise de cybersécurité Dream Security [4]"
       ],
       "cibles": [
         "Première vague le 30 octobre 2026 : organisations israéliennes, avec activité destructrice contre certaines [1]",
@@ -44306,6 +44320,13 @@
           "titre": "Fiche NVD CVE-2026-109619",
           "site": "NVD (NIST)",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109619"
+        },
+        {
+          "titre": "PHP2Shell Exploited in Destructive Check Point Gateway Attacks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/php2shell-exploited-in-destructive-check-point-gateway-attacks/",
+          "date": "2026-11-13",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/08/Check-Point-Software.jpg"
         }
       ]
     },
@@ -45159,6 +45180,125 @@
           "url": "https://therecord.media/stolen-binance-crypto-recovered-doj-facestealer-disrupted",
           "date": "2026-11-12",
           "image": "https://cms.therecord.media/uploads/doj_logo_green_code_f20ed46844.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-13-teams-reservation-code-appareil",
+      "title": "Fausse réservation de réunion Microsoft Teams : un hameçonnage par code d'appareil vise une entreprise de construction",
+      "created": "2026-11-13T08:15:00+00:00",
+      "updated": "2026-11-13T08:15:00+00:00",
+      "version": 1,
+      "resume": "Mi-octobre, une entreprise du secteur de la construction a été visée par un hameçonnage par code d'appareil caché derrière une fausse réservation de réunion Microsoft Teams ; Huntress a contenu l'incident [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Courriel usurpant un vice-président senior d'une autre entreprise de construction, lien passant par Safe Links et des redirections Google → contrôles de réputation des liens contournés [1]."
+        },
+        {
+          "etape": "Leurre de réunion",
+          "texte": "Page de réservation d'une réunion Teams sur un domaine typosquatté → code d'appareil Microsoft présenté comme une référence de réservation à copier [1]."
+        },
+        {
+          "etape": "Autorisation de l'attaquant",
+          "texte": "La victime saisit ce code sur la vraie page de connexion d'appareil de Microsoft → session de l'attaquant autorisée, jetons d'accès obtenus [1]."
+        },
+        {
+          "etape": "Dissimulation",
+          "texte": "Redirection finale vers ce qui ressemble à une vraie page de réservation → la victime n'a pas de raison de se méfier [1]."
+        },
+        {
+          "etape": "Utilisation de la session",
+          "texte": "Connexion par code d'appareil relayée par un proxy résidentiel ; session capturée rejouée depuis l'infrastructure de l'attaquant [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "mail",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Boîte mail de la victime",
+            "note": "Courriel usurpé"
+          },
+          {
+            "id": "leurre",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Fausse réservation Teams",
+            "note": "Domaine typosquatté"
+          },
+          {
+            "id": "m365",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Compte Microsoft 365",
+            "note": "Session autorisée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "mail",
+            "etape": 1,
+            "texte": "Courriel avec lien redirigé"
+          },
+          {
+            "de": "mail",
+            "vers": "leurre",
+            "etape": 2,
+            "texte": "Code présenté comme référence de réservation"
+          },
+          {
+            "de": "leurre",
+            "vers": "m365",
+            "etape": 3,
+            "texte": "Code saisi sur la vraie page Microsoft"
+          },
+          {
+            "de": "att",
+            "vers": "m365",
+            "etape": 5,
+            "texte": "Session rejouée depuis son infrastructure"
+          }
+        ]
+      },
+      "limites": "La source ne nomme pas l'acteur et ne dit pas si l'attaquant a accédé à la messagerie ou à des fichiers [1].",
+      "cves": [],
+      "mitre": [
+        "T1583.001 : Acquire Infrastructure: Domains, enregistrement d'un domaine pour l'attaque [1]",
+        "T1608.005 : Stage Capabilities: Link Target, répertoires de leurres sur le thème de Teams préparés [1]",
+        "T1566.002 : Phishing: Spearphishing Link, courriel ciblé contenant un lien [1]",
+        "T1204.001 : User Execution: Malicious Link, la victime clique sur le lien [1]",
+        "T1027.013 : Obfuscated Files or Information: Encrypted/Encoded File, kit d'hameçonnage stocké chiffré et déchiffré dans le navigateur [1]",
+        "T1078.004 : Valid Accounts: Cloud Accounts, usage du compte Microsoft 365 compromis [1]",
+        "T1528 : Steal Application Access Token, vol de jetons d'accès [1]",
+        "T1539 : Steal Web Session Cookie, vol de la session web [1]",
+        "T1557 : Adversary-in-the-Middle, technique citée par la source [1]",
+        "T1550.004 : Use Alternate Authentication Material: Web Session Cookie, session capturée rejouée par l'attaquant [1]",
+        "T1090 : Proxy, connexion relayée par un proxy résidentiel [1]",
+        "T1684.001 : Social Engineering: Impersonation, usurpation de l'identité d'un dirigeant d'une autre entreprise [1]"
+      ],
+      "acteurs": [],
+      "cibles": [
+        "Une entreprise du secteur de la construction, non nommée [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Crafty Microsoft Teams Booking Flow Disguises Device Code Phishing",
+          "site": "Huntress",
+          "url": "https://www.huntress.com/blog/crafty-microsoft-teams-booking-flow-disguises-device-code-phishing",
+          "date": "2026-11-12",
+          "image": "https://images.huntress.com/asset/file/c0a6d43294c64abcb1259bd20c0052d8"
         }
       ]
     }

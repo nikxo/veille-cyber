@@ -44677,7 +44677,7 @@
           }
         ]
       },
-      "limites": "Apify n'a pas communiqué le nombre de comptes clients compromis [2]. Selon [1], Apify n'avait trouvé aucun signe d'atteinte aux données de compte ; selon [2], elle a confirmé le 12 novembre que des données avaient été consultées.",
+      "limites": "Apify n'a pas communiqué le nombre de comptes clients compromis [2]. Selon [1], Apify n'avait trouvé aucun signe d'atteinte aux données de compte ; selon [2], elle a confirmé que des données avaient été consultées.",
       "cves": [],
       "mitre": [],
       "acteurs": [],
@@ -45730,7 +45730,7 @@
         "T1651 Cloud Administration Command : exécution par une commande d'administration cloud [1]"
       ],
       "acteurs": [
-        "La source ne nomme pas l'opérateur ; serveur rattaché à l'outil CyberStrikeAI, que Team Cymru a recensé début 2026 sur 21 adresses visant des équipements Fortinet [1]"
+        "La source ne nomme pas l'opérateur ; serveur rattaché à CyberStrikeAI, outil que Team Cymru a recensé début 2026 sur 21 adresses visant des équipements Fortinet [1]"
       ],
       "cibles": [
         "Quatre comptes AWS que la source ne nomme pas [1]"

@@ -44169,8 +44169,8 @@
       "id": "2026-11-12-check-point-php2shell-effaceur-esxi",
       "title": "PHP2Shell sur des passerelles Check Point : organisations israéliennes visées, effaceur lancé sur un hôte ESXi",
       "created": "2026-11-12T14:15:00+00:00",
-      "updated": "2026-11-13T08:15:00+00:00",
-      "version": 2,
+      "updated": "2026-11-13T09:15:00+00:00",
+      "version": 3,
       "resume": "Fin octobre 2026, une activité a visé des organisations israéliennes via des portails Mobile Access vulnérables de passerelles Check Point, avec des actions destructrices contre certaines d'entre elles [1].",
       "chaine": [
         {
@@ -44179,7 +44179,7 @@
         },
         {
           "etape": "Élévation de privilèges",
-          "texte": "Faille locale de l'interface DynamicCLI (CVE-2026-123039) → exécution de commandes privilégiées, droits root [1]."
+          "texte": "Faille d'autorisation manquante du processus DynamicCLI (CVE-2026-123039) → passage du compte de service du portail aux droits root [1, 5]."
         },
         {
           "etape": "Persistance",
@@ -44195,7 +44195,7 @@
         },
         {
           "etape": "Destruction",
-          "texte": "Effaceur destroy_v6 lancé sur l'hôte ESXi → fichiers supprimés, note DREAM_ANNEXATION.txt écrite dans chaque dossier traité, rejetant toute négociation de rançon [1]."
+          "texte": "Effaceur destroy_v6 lancé sur l'hôte ESXi → fichiers supprimés après une tentative d'écrasement par des zéros [5], note DREAM_ANNEXATION.txt écrite dans chaque dossier traité [1, 5]."
         }
       ],
       "parcours": {
@@ -44268,12 +44268,13 @@
         },
         {
           "id": "CVE-2026-123039",
-          "explication": "Passerelles Check Point : faille locale d'élévation de privilèges dans l'interface DynamicCLI, exploitée pour passer du compte de service du portail à root [1]."
+          "explication": "Check Point : autorisation manquante dans le processus DynamicCLI, tout utilisateur local authentifié peut exécuter des commandes en root, gravité 7,8 ; exploitée contre environ deux douzaines de clients [5]."
         }
       ],
       "mitre": [],
       "acteurs": [
         "Attribution non concluante selon Check Point : outils de la famille PhiliKit, qu'ESET associe à UNC5221, lié à la Chine [1]",
+        "The Hacker News présente ce groupe lié à la Chine sous le nom Armory Castle, anciennement UNC5221 [5]",
         "Selon Check Point, les opérateurs agissaient aux heures de travail chinoises habituelles, mais une opération sous fausse bannière reste possible [4]",
         "La note laissée par les attaquants mentionne l'entreprise de cybersécurité Dream Security [4]"
       ],
@@ -44327,6 +44328,13 @@
           "url": "https://www.securityweek.com/php2shell-exploited-in-destructive-check-point-gateway-attacks/",
           "date": "2026-11-13",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/08/Check-Point-Software.jpg"
+        },
+        {
+          "titre": "Hackers Exploit PHP2Shell Flaws in Check Point Gateways to Deploy TSGA Backdoor and Wipe ESXi Files",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-php2shell-flaws-in.html",
+          "date": "2026-11-13",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjP3B9ZQG1BXlSPUWzwVJ5qgwh899Ngm9u2GAbWiX5HDqhhT6q6gsmva9-TR2upR0fepas2i0k53VUxh1CH21LeUUv1Ipczl9huExytcqNdlqIoHP64CRYJuGyHe-OgLoov-JR6GziUT4JDJ92Ne83CshfWn9pr9Bt2HPKkv4phQJ2esJHcV6eZqzRretVu/s1700-nu-rw-lo-l85-e365/php.jpg"
         }
       ]
     },
@@ -45299,6 +45307,151 @@
           "url": "https://www.huntress.com/blog/crafty-microsoft-teams-booking-flow-disguises-device-code-phishing",
           "date": "2026-11-12",
           "image": "https://images.huntress.com/asset/file/c0a6d43294c64abcb1259bd20c0052d8"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-13-blacknevas-esxi-vcenter-profil-hote",
+      "title": "BlackNevas : un parc ESXi détruit en dix jours en passant par vCenter et ses profils d'hôte",
+      "created": "2026-11-13T09:15:00+00:00",
+      "updated": "2026-11-13T09:15:00+00:00",
+      "version": 1,
+      "resume": "Kaspersky décrit un incident où un attaquant, désigné comme BlackNevas par les notes de rançon, a détruit en dix jours le parc de virtualisation d'une organisation : quatre hôtes ESXi, leurs machines virtuelles, deux serveurs vCenter et les sauvegardes [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par la source, qui ne relève aucune preuve d'une faille ESXi comme voie d'entrée [1]."
+        },
+        {
+          "etape": "Prise du vCenter",
+          "texte": "Identifiants obtenus sur des systèmes non virtualisés → accès aux serveurs vCenter ; connexion SSH en root, puis installation de MeshAgent et d'un tunnel Ligolo-ng déguisé en service VMware [1]."
+        },
+        {
+          "etape": "Sabotage des sauvegardes",
+          "texte": "Antivirus désactivé sur l'environnement de sauvegarde, puis services de sauvegarde arrêtés et infrastructure de restauration chiffrée, avant l'attaque des hôtes ESXi [1]."
+        },
+        {
+          "etape": "Accès aux hyperviseurs",
+          "texte": "Modification d'un profil d'hôte dans vCenter pour activer SSH → connexions SSH directes aux hôtes ESXi depuis l'adresse du serveur vCenter [1]."
+        },
+        {
+          "etape": "Destruction",
+          "texte": "Binaire esx64 déposé par SFTP, testé, puis lancé avec l'option /wipe → environ les 2 premiers kilooctets des fichiers de disques virtuels écrasés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (BlackNevas)",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes non virtualisés",
+            "note": "Identifiants obtenus"
+          },
+          {
+            "id": "vc",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveurs vCenter",
+            "note": "MeshAgent, tunnel Ligolo-ng"
+          },
+          {
+            "id": "bak",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Infrastructure de sauvegarde",
+            "note": "Chiffrée"
+          },
+          {
+            "id": "esx",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Hôtes ESXi",
+            "note": "Disques virtuels écrasés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "sys",
+            "vers": "vc",
+            "etape": 2,
+            "texte": "Identifiants obtenus, connexion SSH en root"
+          },
+          {
+            "de": "att",
+            "vers": "bak",
+            "etape": 3,
+            "texte": "Antivirus désactivé, restauration chiffrée"
+          },
+          {
+            "de": "vc",
+            "vers": "esx",
+            "etape": 4,
+            "texte": "Profil d'hôte modifié, SSH activé"
+          },
+          {
+            "de": "att",
+            "vers": "esx",
+            "etape": 5,
+            "texte": "Binaire esx64 déposé par SFTP et lancé"
+          }
+        ]
+      },
+      "limites": "La source ne nomme pas l'organisation, ne date pas l'incident, ignore comment les machines virtuelles ont été arrêtées et n'a pas pu analyser le binaire, indisponible [1].",
+      "cves": [],
+      "mitre": [
+        "T1078 Valid Accounts : comptes valides, cité par Kaspersky [1]",
+        "T1021.004 Remote Services: SSH : connexions SSH, cité par Kaspersky [1]",
+        "T1543.002 Systemd Service : tunnel Ligolo-ng installé comme service sur vCenter [1]",
+        "T1572 Protocol Tunneling : tunnel réseau, cité par Kaspersky [1]",
+        "T1490 Inhibit System Recovery : restauration empêchée, cité par Kaspersky [1]",
+        "T1486 Data Encrypted for Impact : chiffrement comme impact, cité par Kaspersky [1]"
+      ],
+      "acteurs": [
+        "BlackNevas, d'après les notes de rançon ; groupe observé pour la première fois en novembre 2024 [1]"
+      ],
+      "cibles": [
+        "Organisation non nommée : quatre hôtes ESXi, toutes leurs machines virtuelles, deux serveurs vCenter et l'infrastructure de sauvegarde [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ESXi",
+          "definition": "Hyperviseur VMware qui fait tourner des machines virtuelles"
+        },
+        {
+          "sigle": "vCenter",
+          "definition": "Serveur VMware qui administre de façon centralisée les hôtes ESXi"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : connexion d'administration à distance chiffrée"
+        },
+        {
+          "sigle": "SFTP",
+          "definition": "SSH File Transfer Protocol : transfert de fichiers par une connexion SSH"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Ransomware at the hypervisor layer: how attackers use ESXi and vCenter features for malicious purposes",
+          "site": "Securelist (Kaspersky)",
+          "url": "https://securelist.com/esxi-ransomware/121959/",
+          "date": "2026-11-13",
+          "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/11/12200032/esxi-3_securelist-featured_1200x600_x2.jpg"
         }
       ]
     }

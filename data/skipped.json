@@ -1,21 +1,5 @@
 [
   {
-    "id": "a45e553ca30bdb4a",
-    "title": "ThreatsDay: AI Secrets Leak, PingCAP Source Theft, Signal Hang-Up Flaw, Laravel Auth Bypass + 21 More",
-    "link": "https://thehackernews.com/2026/10/threatsday-ai-secrets-leak-pingcap.html",
-    "source": "The Hacker News",
-    "raison": "bulletin hebdomadaire multi-sujets, sans sujet unique à synthétiser",
-    "date": "2026-10-22T19:30:00+00:00"
-  },
-  {
-    "id": "afb644b2382c30d4",
-    "title": "Indian tech company eMudhra announces withdrawal from certificate business after security incident",
-    "link": "https://therecord.media/indian-tech-company-announces-withdrawal-certificate-business-incident",
-    "source": "The Record",
-    "raison": "faiblesse de clés sans exploitation constatée",
-    "date": "2026-10-22T19:30:00+00:00"
-  },
-  {
     "id": "eebdb3f4f6ae3ff9",
     "title": "Two CVSS 9.0 Linux KSMBD RCE Flaws Disclosed on Public Mailing Lists Before Kernel Fixes",
     "link": "https://thehackernews.com/2026/10/two-cvss-90-linux-ksmbd-rce-flaws.html",
@@ -3998,5 +3982,21 @@
     "source": "Dark Reading",
     "raison": "conseils génériques sur la cryptographie post-quantique, aucune attaque décrite (WebFetch en erreur 403, jugé sur le résumé du flux)",
     "date": "2026-11-13T03:07:26+00:00"
+  },
+  {
+    "id": "4f93ae13a3f8f781",
+    "title": "Police arrest 354 suspects in dark web cybercrime crackdown",
+    "link": "https://www.bleepingcomputer.com/news/security/police-arrest-354-vendors-buyers-in-global-cybercrime-crackdown/",
+    "source": "BleepingComputer",
+    "raison": "actualité judiciaire (arrestations liées à des places de marché du dark web) sans détail sur une méthode d'attaque (WebFetch en erreur 403, jugé sur le résumé du flux)",
+    "date": "2026-11-13T09:15:00+00:00"
+  },
+  {
+    "id": "d7c55e021d75f936",
+    "title": "Nightmare Eclipse Drops Windows Zero-Day Exploit ‘SignDrop’",
+    "link": "https://www.securityweek.com/nightmare-eclipse-drops-windows-zero-day-exploit-signdrop/",
+    "source": "SecurityWeek",
+    "raison": "publication d'un code d'exploitation par un chercheur, aucune exploitation constatée dans la nature selon l'article",
+    "date": "2026-11-13T09:15:00+00:00"
   }
 ]

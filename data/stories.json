@@ -40111,11 +40111,11 @@
     {
       "schema": 3,
       "id": "2026-11-09-sega-arara-newsletter",
-      "title": "SEGA : fuite chez son prestataire de newsletters ARARA, 2,2 millions d'adresses e-mail exposées",
+      "title": "ARARA : fuite chez le prestataire d'e-mailing, les adresses d'abonnés SEGA et d'usagers de la ville d'Osaka exposées",
       "created": "2026-11-09T23:10:00+00:00",
-      "updated": "2026-11-09T23:10:00+00:00",
-      "version": 1,
-      "resume": "Le prestataire d'e-mailing ARARA a subi une violation touchant 77 millions d'adresses de près de 380 clients, dont 2,2 millions d'abonnés aux newsletters de SEGA [1].",
+      "updated": "2026-11-13T20:20:00+00:00",
+      "version": 2,
+      "resume": "Le prestataire d'e-mailing ARARA a subi une violation exposant 77 millions d'adresses de près de 380 clients [1] ou près de 400 [2]. SEGA compte 2,2 millions d'adresses exposées [1], la ville d'Osaka plus d'un million [2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -40123,15 +40123,19 @@
         },
         {
           "etape": "Compromission du service",
-          "texte": "Compromission du service de distribution d'e-mails d'ARARA → accès à 77 millions d'adresses de près de 380 clients [1]."
+          "texte": "Compromission du service de distribution d'e-mails d'ARARA → 77 millions d'adresses exposées, de près de 380 clients [1] ou près de 400 [2]."
         },
         {
           "etape": "Envoi d'e-mails frauduleux",
-          "texte": "Utilisation de l'accès au service → plus de 7 millions d'e-mails se faisant passer pour des sociétés de cartes de crédit [1]."
+          "texte": "Utilisation du service d'envoi → plus de 7 millions d'e-mails se faisant passer pour des sociétés de cartes de crédit [1] et des institutions financières [2]."
         },
         {
-          "etape": "Vol de données",
-          "texte": "Extraction des adresses e-mail des abonnés SEGA → 2,2 millions d'adresses et 92 300 enregistrements au contenu à déterminer [1]."
+          "etape": "Exposition chez SEGA",
+          "texte": "Adresses e-mail des abonnés aux newsletters de SEGA exposées → 2,2 millions d'adresses et 92 300 enregistrements au contenu à déterminer [1]."
+        },
+        {
+          "etape": "Exposition à Osaka",
+          "texte": "Le service ARARA est utilisé par TKC, qui maintient la plateforme de services administratifs en ligne d'Osaka → plus d'un million d'adresses e-mail exposées [2]."
         }
       ],
       "parcours": {
@@ -40147,7 +40151,7 @@
             "id": "srv",
             "type": "serveur",
             "zone": "victime",
-            "nom": "Serveur web d'ARARA",
+            "nom": "Serveur web",
             "note": "Vulnérabilité citée"
           },
           {
@@ -40163,6 +40167,13 @@
             "zone": "victime",
             "nom": "Adresses des abonnés SEGA",
             "note": "2,2 millions"
+          },
+          {
+            "id": "osa",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Adresses e-mail d'Osaka",
+            "note": "Plus d'un million"
           }
         ],
         "liens": [
@@ -40188,18 +40199,25 @@
             "de": "mail",
             "vers": "don",
             "etape": 4,
-            "texte": "Adresses des abonnés SEGA extraites"
+            "texte": "Adresses des abonnés SEGA exposées"
+          },
+          {
+            "de": "mail",
+            "vers": "osa",
+            "etape": 5,
+            "texte": "Adresses de la plateforme d'Osaka exposées"
           }
         ]
       },
-      "limites": "La méthode d'intrusion exacte et l'auteur ne sont pas précisés ; le contenu des 92 300 enregistrements reste à déterminer [1].",
+      "limites": "Méthode d'intrusion, auteur, calendrier et ordre des étapes non établis [1]. Le 2 novembre est la date de divulgation selon [1], celle de l'attaque selon [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Non mentionné par la source [1]"
       ],
       "cibles": [
-        "ARARA (e-mailing), SEGA (jeux vidéo), MOS Burger, Shochiku Multiplex Theatres, TKC, IIJmio [1]"
+        "ARARA (e-mailing), SEGA (jeux vidéo), MOS Burger, Shochiku Multiplex Theatres, TKC, IIJmio [1]",
+        "Ville d'Osaka : personnes ayant reçu un e-mail de sa plateforme de services administratifs entre juillet 2026 et le 31 octobre [2]"
       ],
       "abreviations": [
         {
@@ -40216,7 +40234,7 @@
         },
         {
           "sigle": "TKC",
-          "definition": "Nom d'un client d'ARARA touché"
+          "definition": "Société cliente d'ARARA, chargée de maintenir la plateforme administrative d'Osaka"
         }
       ],
       "sources": [
@@ -40226,6 +40244,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/sega-newsletter-data-breach-exposes-22-million-email-addresses/",
           "date": "2026-11-09",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/09/SEGA.jpg"
+        },
+        {
+          "titre": "City of Osaka warns of data breach impacting 1 million as Japan reels from dozens of cyber incidents",
+          "site": "The Record",
+          "url": "https://therecord.media/city-of-osaka-japan-email-data-breach",
+          "date": "2026-11-13",
+          "image": "https://cms.therecord.media/uploads/Osaka_City_Hall_2026_19ba5dd07a.jpg"
         }
       ]
     },
@@ -45912,9 +45937,9 @@
       "id": "2026-11-13-trezor-implants-confirmes-safe-5",
       "title": "Trezor confirme des implants matériels dans trois portefeuilles Safe 5 vendus par CryptoBilis",
       "created": "2026-11-13T16:01:44+00:00",
-      "updated": "2026-11-13T16:01:44+00:00",
-      "version": 1,
-      "resume": "Trezor confirme que trois portefeuilles matériels Safe 5 achetés chez le revendeur CryptoBilis contiennent un implant capable de copier la phrase de récupération ; aucune perte de fonds ne lui a été signalée [1].",
+      "updated": "2026-11-13T20:20:00+00:00",
+      "version": 2,
+      "resume": "Trezor confirme que trois portefeuilles matériels Safe 5 achetés chez le revendeur CryptoBilis contiennent un implant capable de copier la phrase de récupération ; aucune perte de fonds ne lui a été signalée [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -45922,11 +45947,11 @@
         },
         {
           "etape": "Copie de la phrase",
-          "texte": "L'implant copie la phrase de récupération affichée lors de la sauvegarde ou saisie lors d'une restauration, et une phrase de passe si elle apparaît à l'écran [1]."
+          "texte": "Sans modifier le micrologiciel, l'implant observe l'écran → copie de la phrase de récupération lors d'une sauvegarde ou d'une restauration, et d'une phrase de passe affichée [1, 2]."
         },
         {
           "etape": "Envoi aux attaquants",
-          "texte": "Données chiffrées puis envoyées par le réseau mobile à un serveur contrôlé par les attaquants ; sans connexion, l'implant les garde et réessaie [1]."
+          "texte": "Données chiffrées puis envoyées par le réseau mobile à un serveur contrôlé par les attaquants ; sans connexion, l'implant les garde et réessaie [1, 2]."
         }
       ],
       "parcours": {
@@ -45981,13 +46006,14 @@
           }
         ]
       },
-      "limites": "Trezor ne publiera pas les détails techniques qui pourraient aider des attaquants ; sa mise à jour 2.13.1 bloque les implants trouvés jusqu'ici, mais ne protège pas une sauvegarde déjà capturée [1].",
+      "limites": "Trezor ne publiera pas les détails utiles à des attaquants [1] ; sa mise à jour 2.13.1 du 11 novembre bloque les implants trouvés, sans protéger une sauvegarde déjà capturée [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
       "cibles": [
         "Acheteurs de portefeuilles Trezor chez CryptoBilis, y compris dans ses boutiques Tokopedia et Shopee [1]",
-        "Trois Safe 5 achetés entre le 20 août et le 23 septembre [1]"
+        "Trois Safe 5 achetés entre le 20 août et le 23 septembre [1]",
+        "48 clients de CryptoBilis ont contacté Trezor après l'alerte d'octobre ; appareils examinés en laboratoire ou sur photos [2]"
       ],
       "abreviations": [],
       "sources": [
@@ -45997,6 +46023,13 @@
           "url": "https://thehackernews.com/2026/11/trezor-confirms-hidden-hardware.html",
           "date": "2026-11-13",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivDE4uIn_bV4GUrsw0LjzqBnnNaQM_0lzJhrSy89nrShmwNlFcsVucCFpzzZ2LMkkSMF-XMb8rp0e7_Maemyj5sypkVIf4s2Wx5pbJXkOwf0vMkG9ThBQAHhvJ_mKWHq78f_iJYhAM2l1Hp_Zk3VtB_bVvYFmZTX4WakIpC_Zib0rlFnDG-H674JSP5Mg/s1700-nu-rw-lo-l85-e365/implant.jpg"
+        },
+        {
+          "titre": "Trezor confirms crypto-stealing implants in three wallets, releases fix",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/cryptocurrency/trezor-confirms-crypto-stealing-implants-in-three-wallets-releases-fix/",
+          "date": "2026-11-13",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/09/07/Trezor.jpg"
         }
       ]
     },

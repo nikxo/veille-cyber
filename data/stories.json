@@ -44169,8 +44169,8 @@
       "id": "2026-11-12-check-point-php2shell-effaceur-esxi",
       "title": "PHP2Shell sur des passerelles Check Point : organisations israéliennes visées, effaceur lancé sur un hôte ESXi",
       "created": "2026-11-12T14:15:00+00:00",
-      "updated": "2026-11-13T11:15:00+00:00",
-      "version": 4,
+      "updated": "2026-11-13T16:26:37+00:00",
+      "version": 5,
       "resume": "Fin octobre 2026, une activité a visé des organisations israéliennes via des portails Mobile Access vulnérables de passerelles Check Point, avec des actions destructrices contre certaines d'entre elles [1].",
       "chaine": [
         {
@@ -44187,7 +44187,7 @@
         },
         {
           "etape": "Reconnaissance interne",
-          "texte": "Outil de scan gogo déployé sur la passerelle → découverte des machines et services internes du réseau [1]."
+          "texte": "Outil de scan gogo déployé sur la passerelle → découverte des machines et services internes du réseau [1], dont les hôtes VMware ESXi [7]."
         },
         {
           "etape": "Déplacement dans le réseau",
@@ -44343,6 +44343,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/check-point-patches-zero-day-that-lets-hackers-get-root-access/",
           "date": "2026-11-13",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/09/18/Check-Point-headpic.jpg"
+        },
+        {
+          "titre": "Check Point gateways hacked via PHP2Shell to deploy VMware ESXi wiper",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/check-point-gateways-hacked-via-php2shell-to-deploy-vmware-esxi-wiper/",
+          "date": "2026-11-13",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/26/PHP.jpg"
         }
       ]
     },
@@ -44914,8 +44921,8 @@
       "id": "2026-11-12-endgame-gootloader-castlerat-stealc",
       "title": "Opération Endgame : l'infrastructure de Gootloader, CastleRAT et StealC démantelée",
       "created": "2026-11-12T18:20:00+00:00",
-      "updated": "2026-11-13T12:20:00+00:00",
-      "version": 3,
+      "updated": "2026-11-13T16:26:37+00:00",
+      "version": 4,
       "resume": "L'opération Endgame a visé 235 serveurs et 257 noms de domaine utilisés par Gootloader, CastleRAT et StealC [1, 2, 4]. Plus de 6 millions d'identifiants de victimes ont été identifiés [1] ; environ 6,4 millions, provenant de plus de 40 000 victimes, selon [2, 4].",
       "chaine": [
         {
@@ -44928,7 +44935,7 @@
         },
         {
           "etape": "Exploitation de l'accès",
-          "texte": "Point d'entrée exploité par Vanilla Tempest pour des rançongiciels, selon Microsoft en 2024 [1] ; accès aux machines infectées ensuite vendu à des criminels du rançongiciel, selon la justice américaine [4]."
+          "texte": "Point d'entrée exploité par Vanilla Tempest pour des rançongiciels, selon Microsoft en 2024 [1] ; accès aux machines infectées ensuite vendu à des criminels du rançongiciel [4, 5]."
         },
         {
           "etape": "Rôle de CastleRAT",
@@ -45006,7 +45013,9 @@
         "Internautes piégés par des résultats de recherche empoisonnés [1]",
         "681 sites compromis nettoyés lors de l'opération [1, 4], animés par WordPress [1]",
         "Selon l'unité danoise NSK, ces sites auraient été piratés avec des mots de passe volés, puis dotés d'une porte dérobée [4]",
-        "Gootloader : plus de 25 000 ordinateurs infectés, environ 28,8 millions de dollars de dommages aux États-Unis selon le ministère américain de la Justice [3]"
+        "Gootloader : plus de 25 000 ordinateurs infectés, environ 28,8 millions de dollars de dommages aux États-Unis selon le ministère américain de la Justice [3]",
+        "Plus de 44 victimes américaines de rançongiciel d'abord infectées par Gootloader, actif depuis 2018, selon le ministère américain de la Justice [5]",
+        "Selon Kenneth DeChellis, du ministère américain de la Défense, les attaques ont visé ce ministère et la base industrielle de défense [5]"
       ],
       "abreviations": [
         {
@@ -45054,6 +45063,13 @@
           "url": "https://thehackernews.com/2026/11/operation-endgame-takes-down-gootloader.html",
           "date": "2026-11-13",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsu6ZFyYFr1dxp2XHIaG_pyTwkoH58ICgyXLuTthkuYSJVcqAwX_O_bEJYfheyxpYmI7nnok1xrj97q7s-9l8JHFt1ogBAOJAEUqM8_vf6H3a8eYPKzB34d6XrvnkRu8zGaoKMgSJqWsE6u2zYXLdJKTtcDvk3beN6_o40ygJ4MVSMomS3Q1aEFV_jSq8/s1700-nu-rw-lo-l85-e365/gootloader.jpg"
+        },
+        {
+          "titre": "DOJ: Gootloader used in at least 44 ransomware attacks costing $29 million since 2018",
+          "site": "The Record",
+          "url": "https://therecord.media/gootloader-ransomware-doj-details",
+          "date": "2026-11-13",
+          "image": "https://cms.therecord.media/uploads/gootloader_page_operation_endgame_d490d02942.png"
         }
       ]
     },

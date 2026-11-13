@@ -1,21 +1,5 @@
 [
   {
-    "id": "3575373436c90bc2",
-    "title": "Réseau : Huawei pousse des solutions plus abouties face aux Américains",
-    "link": "https://www.lemagit.fr/actualites/366652694/Reseau-Huawei-pousse-des-solutions-plus-abouties-face-aux-Americains",
-    "source": "LeMagIT",
-    "raison": "annonce produit",
-    "date": "2026-10-23T13:25:00+00:00"
-  },
-  {
-    "id": "caf88bb93910daba",
-    "title": "Technostress : une faille pour l’ingénierie sociale",
-    "link": "https://www.zataz.com/technostress-une-faille-pour-lingenierie-sociale/",
-    "source": "ZATAZ",
-    "raison": "conseil générique, aucune attaque décrite",
-    "date": "2026-10-23T13:25:00+00:00"
-  },
-  {
     "id": "c650147aa521510d",
     "title": "HPE patches eight max severity RCE and auth bypass AOS flaws",
     "link": "https://www.bleepingcomputer.com/news/security/hpe-patches-eight-max-severity-rce-and-auth-bypass-aos-flaws/",
@@ -3998,5 +3982,21 @@
     "source": "LeMagIT",
     "raison": "annonce produit (partenariat Workday et Zuora), aucune attaque décrite",
     "date": "2026-11-13T16:01:44+00:00"
+  },
+  {
+    "id": "6cf54e7f734ad481",
+    "title": "Sauvegarde : Commvault enrichit l’intelligence des restaurations",
+    "link": "https://www.lemagit.fr/actualites/366654776/Sauvegarde-Commvault-enrichit-lintelligence-des-restaurations",
+    "source": "LeMagIT",
+    "raison": "annonce produit (outils de restauration Commvault), aucune attaque décrite",
+    "date": "2026-11-13T16:26:37+00:00"
+  },
+  {
+    "id": "fb5ac890be2a0d21",
+    "title": "New Mior and Skyfall Attacks Let Rogue Cloud Hosts Steal Secrets From AMD SEV-SNP VMs",
+    "link": "https://thehackernews.com/2026/11/new-mior-and-skyfall-attacks-let-rogue.html",
+    "source": "The Hacker News",
+    "raison": "recherche académique sur des failles AMD SEV-SNP, sans exploitation constatée dans la nature",
+    "date": "2026-11-13T16:26:37+00:00"
   }
 ]

@@ -43172,8 +43172,8 @@
       "id": "2026-11-11-screenconnect-prestataires-clients-pirates",
       "title": "ScreenConnect : des panneaux de prestataires compromis servent à installer des clients d'accès à distance pirates",
       "created": "2026-11-11T23:08:37+00:00",
-      "updated": "2026-11-12T23:15:00+00:00",
-      "version": 7,
+      "updated": "2026-11-13T22:15:00+00:00",
+      "version": 8,
       "resume": "Des attaquants se servent de panneaux ScreenConnect compromis de prestataires de services managés pour installer des clients d'accès à distance pirates chez leurs clients [1]. Huntress compte au moins 288 machines dans 48 organisations [3, 4, 5], touchées en 90 minutes [5] ; 286 dans 47 selon [1].",
       "chaine": [
         {
@@ -43185,12 +43185,12 @@
           "texte": "Fonction Run Command de panneaux ScreenConnect utilisée pour installer des clients pirates sur les machines gérées [1, 3, 4] → porte dérobée persistante qui ne dépend plus du panneau d'origine [3]."
         },
         {
-          "etape": "Déroulé observé par Sophos",
-          "texte": "Dans un cas, curl.exe télécharge l'installateur ScreenConnect puis msiexec.exe l'installe en silence [2]. Sophos voit aussi PowerShell récupérer un script de second niveau [2]."
+          "etape": "Installation silencieuse",
+          "texte": "curl.exe télécharge l'installateur ScreenConnect, ensuite installé en silence [2, 9] → canal d'accès à distance séparé de l'instance approuvée du prestataire [9]."
         },
         {
           "etape": "Ancrage sur la machine",
-          "texte": "Un script pose des exclusions Defender et un second client pirate ; TrapWatch crée une tâche planifiée et arrête le client légitime → copie pirate prête à le remplacer [4]."
+          "texte": "Exclusions Defender, second client pirate et tâche planifiée posés [4] ; sauf option contraire, le mode nettoyage du décodeur relance le déploiement de la boîte à outils [9]."
         },
         {
           "etape": "Rebond vers technicien",
@@ -43198,7 +43198,7 @@
         },
         {
           "etape": "Diffusion par le panneau",
-          "texte": "Fonction reconstituée par Huntress : tentative de rejeu du cookie volé sur le panneau, puis script déposé dans la Shared Toolbox et lancé sur toutes les sessions joignables [3, 4]."
+          "texte": "Fonction du kit : rejeu du cookie volé sur le panneau [3, 4], puis charge déposée dans la Shared Toolbox pour exécution sur les sessions accessibles [3, 4, 9]."
         }
       ],
       "parcours": {
@@ -43265,7 +43265,7 @@
           }
         ]
       },
-      "limites": "Accès initial non confirmé [1, 3, 4, 6, 7] ; ConnectWise relie l'activité à un abus de l'extension tierce RMM+ [6]. Aucun saut réussi vers un poste de technicien n'a été observé [3, 4, 7, 8].",
+      "limites": "Accès initial non confirmé [1, 3, 4, 6, 7, 9] ; ConnectWise relie l'activité à un abus de l'extension tierce RMM+ [6]. Aucun saut réussi vers un poste de technicien n'a été observé [3, 4, 7, 8].",
       "cves": [
         {
           "id": "CVE-2026-84869",
@@ -43274,7 +43274,8 @@
       ],
       "mitre": [],
       "acteurs": [
-        "La boîte à outils SCKit regroupe 16 scripts et composants ; le code de RelayTrap semble généré par un modèle de langage selon Huntress [8]"
+        "La boîte à outils SCKit regroupe 16 scripts et composants ; le code de RelayTrap semble généré par un modèle de langage selon Huntress [8]",
+        "Microsoft confirme l'activité signalée par ConnectWise, sans nommer d'acteur [9]"
       ],
       "cibles": [
         "Prestataires de services managés utilisant ScreenConnect et machines de leurs clients [1]",
@@ -43343,6 +43344,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/new-worm-like-sckit-malware-targets-msps-in-screenconnect-attacks/",
           "date": "2026-11-12",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/09/16/ScreenConnect-headpic.jpg"
+        },
+        {
+          "titre": "SCKit abuses ScreenConnect to deploy remote access and target technician sessions",
+          "site": "Microsoft Threat Intelligence",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/",
+          "date": "2026-11-13",
+          "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/06/MS_Actional-Insights_Malware-ransomware-2.jpg"
         }
       ]
     },
@@ -46611,6 +46619,134 @@
           "url": "https://blog.talosintelligence.com/artex-and-beyond/",
           "date": "2026-11-13",
           "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2022/10/GnericCiscoTalos-Header-1.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-13-fbi-alerte-flash-artex",
+      "title": "Alerte flash du FBI : l'outil Artex automatise des intrusions « à la vitesse de la machine »",
+      "created": "2026-11-13T22:15:00+00:00",
+      "updated": "2026-11-13T22:15:00+00:00",
+      "version": 1,
+      "resume": "Le FBI alerte sur Artex, outil d'intelligence artificielle open source utilisé pour des attaques de reconnaissance et d'exfiltration de données, notamment contre les services financiers et des gouvernements [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Intrusion automatisée",
+          "texte": "Artex automatise plusieurs phases d'intrusion, de la reconnaissance à l'exfiltration de données ; il exploite des systèmes moins surveillés : portails partenaires et fournisseurs, backends mobiles, applications d'employés [1]."
+        },
+        {
+          "etape": "Fournisseurs tiers",
+          "texte": "Les agents d'Artex ont montré une capacité à cartographier les relations de confiance entre organisations et à compromettre des fournisseurs tiers faibles [1]."
+        },
+        {
+          "etape": "Accès privilégié",
+          "texte": "Certaines intrusions passent du ciblage initial à un accès privilégié en moins de trois heures, selon le FBI [1]."
+        },
+        {
+          "etape": "Vol de clés",
+          "texte": "Campagne décrite par Amazon : vol massif d'identifiants d'accès à des modèles d'intelligence artificielle → les clés volées paient l'inférence qui alimente la recherche d'autres identifiants [1]."
+        },
+        {
+          "etape": "Contournement d'identité",
+          "texte": "Selon Amazon, injection de deepfakes en temps réel contre des plateformes d'échange de cryptomonnaies pour contourner la vérification d'identité des clients [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Outil Artex"
+          },
+          {
+            "id": "sys",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Portails partenaires et fournisseurs",
+            "note": ""
+          },
+          {
+            "id": "four",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Fournisseurs tiers",
+            "note": ""
+          },
+          {
+            "id": "ia",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Modèles d'intelligence artificielle",
+            "note": "Clés volées"
+          },
+          {
+            "id": "ex",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateformes d'échange de cryptomonnaies",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Reconnaissance et exfiltration automatisées"
+          },
+          {
+            "de": "att",
+            "vers": "four",
+            "etape": 3,
+            "texte": "Capacité à compromettre des fournisseurs tiers faibles"
+          },
+          {
+            "de": "att",
+            "vers": "ia",
+            "etape": 5,
+            "texte": "Vol d'identifiants d'accès aux modèles"
+          },
+          {
+            "de": "att",
+            "vers": "ex",
+            "etape": 6,
+            "texte": "Injection de deepfakes en temps réel"
+          }
+        ]
+      },
+      "limites": "L'article ne décrit ni le vecteur d'entrée ni la méthode d'obtention de l'accès privilégié [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Groupes disparates liés à la Chine, selon Amazon [1]",
+        "Acteurs soutenus par l'État chinois dans une attaque de chaîne d'approvisionnement récente visant ConnectWise, selon Microsoft [1]",
+        "Outil publié en août sur GitHub ; son développeur a déclaré le 8 octobre qu'il était détourné, puis a retiré le dépôt [1]"
+      ],
+      "cibles": [
+        "Services financiers et gouvernement, entre autres secteurs [1]",
+        "Institutions financières sud-coréennes et japonaises [1]",
+        "Censys recense plus de 1 600 consoles Artex exposées publiquement [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "FBI",
+          "definition": "Federal Bureau of Investigation : police fédérale des États-Unis"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "FBI flash alert says Artex tool automating cyberattacks at ‘machine speed’",
+          "site": "The Record",
+          "url": "https://therecord.media/artex-ai-tool-fbi-flash-alert",
+          "date": "2026-11-13",
+          "image": "https://cms.therecord.media/uploads/fbi_1_c4c06390db.jpg"
         }
       ]
     }

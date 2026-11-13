@@ -44175,11 +44175,11 @@
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Exploitation de PHP2Shell sur des portails Mobile Access de passerelles Check Point non corrigées → accès avec le compte de service du portail [1]."
+          "texte": "Exploitation de PHP2Shell sur des portails Mobile Access de passerelles Check Point non corrigées [1]."
         },
         {
           "etape": "Élévation de privilèges",
-          "texte": "Faille d'autorisation manquante du processus DynamicCLI (CVE-2026-123039) → passage du compte de service du portail aux droits root [1, 5]."
+          "texte": "Faille d'autorisation manquante de l'interface DynamicCLI (CVE-2026-123039) → passage du compte de service du portail aux droits root [1, 5]."
         },
         {
           "etape": "Persistance",
@@ -44268,7 +44268,7 @@
         },
         {
           "id": "CVE-2026-123039",
-          "explication": "Check Point : autorisation manquante dans le processus DynamicCLI, tout utilisateur local authentifié peut exécuter des commandes en root, gravité 7,8 ; exploitée contre environ deux douzaines de clients [5]."
+          "explication": "Check Point : autorisation manquante dans l'interface DynamicCLI, tout utilisateur local authentifié peut exécuter des commandes en root, gravité 7,8 ; exploitée contre environ deux douzaines de clients [5]."
         }
       ],
       "mitre": [],
@@ -45317,7 +45317,7 @@
       "created": "2026-11-13T09:15:00+00:00",
       "updated": "2026-11-13T09:15:00+00:00",
       "version": 1,
-      "resume": "Kaspersky décrit un incident où un attaquant, désigné comme BlackNevas par les notes de rançon, a détruit en dix jours le parc de virtualisation d'une organisation : quatre hôtes ESXi, leurs machines virtuelles, deux serveurs vCenter et les sauvegardes [1].",
+      "resume": "Kaspersky décrit un incident où un attaquant, désigné comme BlackNevas par les notes de rançon, a détruit en dix jours le parc de virtualisation d'une organisation, en visant quatre hôtes ESXi, leurs machines virtuelles, les deux serveurs vCenter et les sauvegardes [1].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -45325,7 +45325,7 @@
         },
         {
           "etape": "Prise du vCenter",
-          "texte": "Identifiants obtenus sur des systèmes non virtualisés → accès aux serveurs vCenter ; connexion SSH en root, puis installation de MeshAgent et d'un tunnel Ligolo-ng déguisé en service VMware [1]."
+          "texte": "Identifiants obtenus sur des systèmes hors virtualisation → accès aux serveurs vCenter ; sur celui de reprise d'activité : SSH en root, puis MeshAgent et tunnel Ligolo-ng installé comme service [1]."
         },
         {
           "etape": "Sabotage des sauvegardes",
@@ -45333,11 +45333,11 @@
         },
         {
           "etape": "Accès aux hyperviseurs",
-          "texte": "Modification d'un profil d'hôte dans vCenter pour activer SSH → connexions SSH directes aux hôtes ESXi depuis l'adresse du serveur vCenter [1]."
+          "texte": "Profils d'hôte utilisés dans vCenter pour activer SSH sur les hôtes ESXi ; les connexions SSH directes aux hôtes provenaient de l'adresse du serveur vCenter [1]."
         },
         {
           "etape": "Destruction",
-          "texte": "Binaire esx64 déposé par SFTP, testé, puis lancé avec l'option /wipe → environ les 2 premiers kilooctets des fichiers de disques virtuels écrasés [1]."
+          "texte": "Binaire esx64 déposé par SFTP, exécuté avec /selftest, puis lancé avec l'option /wipe → environ les 2 premiers kilooctets des fichiers de disques virtuels écrasés [1]."
         }
       ],
       "parcours": {
@@ -45353,7 +45353,7 @@
             "id": "sys",
             "type": "inconnu",
             "zone": "victime",
-            "nom": "Systèmes non virtualisés",
+            "nom": "Systèmes hors virtualisation",
             "note": "Identifiants obtenus"
           },
           {
@@ -45361,7 +45361,7 @@
             "type": "serveur",
             "zone": "victime",
             "nom": "Serveurs vCenter",
-            "note": "MeshAgent, tunnel Ligolo-ng"
+            "note": ""
           },
           {
             "id": "bak",
@@ -45389,7 +45389,7 @@
             "de": "sys",
             "vers": "vc",
             "etape": 2,
-            "texte": "Identifiants obtenus, connexion SSH en root"
+            "texte": "Identifiants obtenus, accès aux vCenter"
           },
           {
             "de": "att",
@@ -45401,7 +45401,7 @@
             "de": "vc",
             "vers": "esx",
             "etape": 4,
-            "texte": "Profil d'hôte modifié, SSH activé"
+            "texte": "Profils d'hôte utilisés, SSH activé"
           },
           {
             "de": "att",
@@ -45411,10 +45411,10 @@
           }
         ]
       },
-      "limites": "La source ne nomme pas l'organisation, ne date pas l'incident, ignore comment les machines virtuelles ont été arrêtées et n'a pas pu analyser le binaire, indisponible [1].",
+      "limites": "La source ne nomme pas l'organisation, ne date pas l'incident, ignore comment les machines virtuelles ont été arrêtées et ne fournit pas d'empreinte du chiffreur ESXi [1].",
       "cves": [],
       "mitre": [
-        "T1078 Valid Accounts : comptes valides, cité par Kaspersky [1]",
+        "T1078 / T1078.002 Valid Accounts / Domain Accounts : comptes valides, cité par Kaspersky [1]",
         "T1021.004 Remote Services: SSH : connexions SSH, cité par Kaspersky [1]",
         "T1543.002 Systemd Service : tunnel Ligolo-ng installé comme service sur vCenter [1]",
         "T1572 Protocol Tunneling : tunnel réseau, cité par Kaspersky [1]",

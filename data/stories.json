@@ -45325,7 +45325,7 @@
         },
         {
           "etape": "Prise du vCenter",
-          "texte": "Identifiants obtenus sur des systèmes hors virtualisation → accès aux serveurs vCenter ; sur celui de reprise d'activité : SSH en root, puis MeshAgent et tunnel Ligolo-ng installé comme service [1]."
+          "texte": "Identifiants obtenus sur des systèmes hors virtualisation → accès aux serveurs vCenter ; sur celui de reprise d'activité : SSH root, puis MeshAgent et tunnel Ligolo-ng installé comme service [1]."
         },
         {
           "etape": "Sabotage des sauvegardes",

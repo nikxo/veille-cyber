@@ -44169,8 +44169,8 @@
       "id": "2026-11-12-check-point-php2shell-effaceur-esxi",
       "title": "PHP2Shell sur des passerelles Check Point : organisations israéliennes visées, effaceur lancé sur un hôte ESXi",
       "created": "2026-11-12T14:15:00+00:00",
-      "updated": "2026-11-13T09:15:00+00:00",
-      "version": 3,
+      "updated": "2026-11-13T11:15:00+00:00",
+      "version": 4,
       "resume": "Fin octobre 2026, une activité a visé des organisations israéliennes via des portails Mobile Access vulnérables de passerelles Check Point, avec des actions destructrices contre certaines d'entre elles [1].",
       "chaine": [
         {
@@ -44179,7 +44179,7 @@
         },
         {
           "etape": "Élévation de privilèges",
-          "texte": "Faille d'autorisation manquante de l'interface DynamicCLI (CVE-2026-123039) → passage du compte de service du portail aux droits root [1, 5]."
+          "texte": "Faille d'autorisation manquante de l'interface DynamicCLI (CVE-2026-123039) → passage du compte de service du portail aux droits root [1, 5] ; correctifs d'urgence publiés [6]."
         },
         {
           "etape": "Persistance",
@@ -44268,7 +44268,7 @@
         },
         {
           "id": "CVE-2026-123039",
-          "explication": "Check Point : autorisation manquante dans l'interface DynamicCLI, tout utilisateur local authentifié peut exécuter des commandes en root, gravité 7,8 ; exploitée contre environ deux douzaines de clients [5]."
+          "explication": "Gaia : le démon DynamicCLI, exécuté en root, n'authentifie pas les processus connectés à son socket local ; un utilisateur local authentifié exécute des commandes en root [6], gravité 7,8 [5]."
         }
       ],
       "mitre": [],
@@ -44280,7 +44280,8 @@
       ],
       "cibles": [
         "Première vague le 30 octobre 2026 : organisations israéliennes, avec activité destructrice contre certaines [1]",
-        "Seconde vague le 2 novembre : certaines organisations israéliennes déjà visées et d'autres dans plusieurs pays et secteurs, sans preuve de destruction [1]"
+        "Seconde vague le 2 novembre : certaines organisations israéliennes déjà visées et d'autres dans plusieurs pays et secteurs, sans preuve de destruction [1]",
+        "Faille CVE-2026-123039 exploitée contre environ deux douzaines de clients de Check Point [5, 6]"
       ],
       "abreviations": [
         {
@@ -44335,6 +44336,13 @@
           "url": "https://thehackernews.com/2026/11/hackers-exploit-php2shell-flaws-in.html",
           "date": "2026-11-13",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjP3B9ZQG1BXlSPUWzwVJ5qgwh899Ngm9u2GAbWiX5HDqhhT6q6gsmva9-TR2upR0fepas2i0k53VUxh1CH21LeUUv1Ipczl9huExytcqNdlqIoHP64CRYJuGyHe-OgLoov-JR6GziUT4JDJ92Ne83CshfWn9pr9Bt2HPKkv4phQJ2esJHcV6eZqzRretVu/s1700-nu-rw-lo-l85-e365/php.jpg"
+        },
+        {
+          "titre": "Check Point warns of zero-day flaw exploited for root access",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/check-point-patches-zero-day-that-lets-hackers-get-root-access/",
+          "date": "2026-11-13",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/09/18/Check-Point-headpic.jpg"
         }
       ]
     },
@@ -44887,13 +44895,13 @@
       "id": "2026-11-12-endgame-gootloader-castlerat-stealc",
       "title": "Opération Endgame : l'infrastructure de Gootloader, CastleRAT et StealC démantelée",
       "created": "2026-11-12T18:20:00+00:00",
-      "updated": "2026-11-12T18:20:00+00:00",
-      "version": 1,
+      "updated": "2026-11-13T11:15:00+00:00",
+      "version": 2,
       "resume": "L'opération Endgame a visé 235 serveurs et 257 noms de domaine utilisés par Gootloader, CastleRAT et StealC [1, 2]. Plus de 6 millions d'identifiants de victimes ont été identifiés [1] ; environ 6,4 millions, provenant de plus de 40 000 victimes, selon [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Résultats de recherche empoisonnés → la victime arrive notamment sur un site WordPress compromis par l'opérateur de Gootloader [1]."
+          "texte": "Résultats de recherche empoisonnés → la victime arrive sur un site compromis, notamment WordPress [1], contenant de faux documents juridiques [3]."
         },
         {
           "etape": "Exécution du chargeur",
@@ -44902,6 +44910,10 @@
         {
           "etape": "Exploitation de l'accès",
           "texte": "L'ordinateur compromis devient un point d'entrée sur le réseau ; Vanilla Tempest exploite ces accès pour déclencher des rançongiciels, selon Microsoft en 2024 [1]."
+        },
+        {
+          "etape": "Rôle de CastleRAT",
+          "texte": "CastleRAT donne le contrôle des machines infectées et a servi à déployer un rançongiciel chiffrant les fichiers [3]."
         },
         {
           "etape": "Riposte policière",
@@ -44964,7 +44976,7 @@
           }
         ]
       },
-      "limites": "Les sources ne décrivent pas le fonctionnement de CastleRAT [1, 2] ; StealC est seulement présenté comme un voleur de mots de passe [2]. Aucune arrestation n'a accompagné l'opération [2].",
+      "limites": "Les sources ne précisent pas comment CastleRAT et StealC arrivent sur les machines [1, 2, 3]. Aucune arrestation n'a accompagné l'opération [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -44973,7 +44985,8 @@
       ],
       "cibles": [
         "Internautes piégés par des résultats de recherche empoisonnés [1]",
-        "681 sites WordPress compromis, nettoyés lors de l'opération [1]"
+        "681 sites WordPress compromis, nettoyés lors de l'opération [1]",
+        "Gootloader : plus de 25 000 ordinateurs infectés, environ 28,8 millions de dollars de dommages aux États-Unis selon le ministère américain de la Justice [3]"
       ],
       "abreviations": [
         {
@@ -45003,6 +45016,13 @@
           "url": "https://therecord.media/european-authorities-take-down-stealic-malware-second-time",
           "date": "2026-11-12",
           "image": "https://cms.therecord.media/uploads/polizei_9dea82a5d6.jpg"
+        },
+        {
+          "titre": "Law Enforcement Disrupts Gootloader, CastleRAT, and StealC Infrastructure",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/law-enforcement-disrupts-gootloader-castlerat-and-stealc-infrastructure/",
+          "date": "2026-11-13",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/Gootloader-seized.webp"
         }
       ]
     },

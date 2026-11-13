@@ -45121,25 +45121,29 @@
       "id": "2026-11-12-facestealer-fausses-reunions-video",
       "title": "FaceStealer : de fausses réunions vidéo pour voler des cryptomonnaies, l'infrastructure perturbée par les autorités américaines",
       "created": "2026-11-12T22:15:00+00:00",
-      "updated": "2026-11-12T22:15:00+00:00",
-      "version": 1,
-      "resume": "Les autorités américaines ont perturbé l'infrastructure cloud de FaceStealer, une campagne attribuée au groupe APT38 qui a volé plus de 400 millions de dollars de cryptomonnaies en 18 mois grâce à de fausses réunions vidéo [1].",
+      "updated": "2026-11-13T16:01:44+00:00",
+      "version": 2,
+      "resume": "Les autorités américaines ont saisi l'infrastructure cloud de FaceStealer, une campagne attribuée au groupe nord-coréen BlueNoroff (APT38) qui a volé plus de 400 millions de dollars de cryptomonnaies en 18 mois grâce à de fausses réunions vidéo [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Invitations Calendly à des réunions Zoom ou Teams, envoyées depuis des comptes volés à d'anciennes victimes ; les liens mènent à de faux domaines contenant des logiciels malveillants [1]."
+          "texte": "Depuis le compte Telegram volé d'une ancienne victime : proposition de réunion, invitation Calendly, puis lien imitant Zoom ou Teams → la cible rejoint une fausse réunion [1, 2]."
         },
         {
           "etape": "Mise en scène",
-          "texte": "Vidéos d'anciennes victimes diffusées pour simuler de nombreux participants ; la webcam de la cible est enregistrée pour servir contre ses contacts de confiance [1]."
+          "texte": "Vidéo préenregistrée d'un contact de confiance et vidéos truquées pour simuler plusieurs participants et gagner la confiance ; la vidéo de la cible est enregistrée [1, 2]."
         },
         {
           "etape": "Installation des logiciels malveillants",
-          "texte": "Fausse erreur technique, puis lien de correction → installe généralement collecteur de cookies, enregistreurs de frappe, outils de capture d'écran et porte dérobée [1]."
+          "texte": "Fausse erreur technique, puis lien de mise à jour, script à lancer ou code à coller dans un terminal → logiciel malveillant installé sur le poste [1, 2]."
         },
         {
           "etape": "Vol et détournement",
-          "texte": "Dans plusieurs cas, cryptomonnaies de la victime volées et comptes détournés, notamment sur Telegram, LinkedIn, Slack et Discord [1]."
+          "texte": "Portefeuilles de cryptomonnaies et phrases de récupération collectés ; comptes Telegram, LinkedIn, Slack et Discord détournés [1, 2]."
+        },
+        {
+          "etape": "Propagation",
+          "texte": "Contrôle de l'appareil et des comptes de la victime → l'attaque est relancée vers ses contacts [2]."
         }
       ],
       "parcours": {
@@ -45148,22 +45152,29 @@
             "id": "att",
             "type": "attaquant",
             "zone": "internet",
-            "nom": "Attaquant (APT38)",
+            "nom": "Attaquant (BlueNoroff)",
             "note": ""
+          },
+          {
+            "id": "tg",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Compte Telegram volé",
+            "note": "Ancienne victime"
           },
           {
             "id": "dom",
             "type": "application",
             "zone": "internet",
-            "nom": "Faux domaines",
-            "note": "Logiciels malveillants"
+            "nom": "Fausse réunion vidéo",
+            "note": "Imite Zoom ou Teams"
           },
           {
             "id": "cib",
             "type": "utilisateur",
             "zone": "victime",
             "nom": "Personne ciblée",
-            "note": "Webcam enregistrée"
+            "note": "Vidéo enregistrée"
           },
           {
             "id": "cpt",
@@ -45176,40 +45187,59 @@
             "id": "cry",
             "type": "donnees",
             "zone": "victime",
-            "nom": "Cryptomonnaies de la victime",
-            "note": "Volées"
+            "nom": "Portefeuilles de cryptomonnaies",
+            "note": "Collectés"
+          },
+          {
+            "id": "con",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Contacts de la victime",
+            "note": ""
           }
         ],
         "liens": [
           {
             "de": "att",
+            "vers": "tg",
+            "etape": 1,
+            "texte": "Messages envoyés depuis un compte volé"
+          },
+          {
+            "de": "tg",
             "vers": "cib",
             "etape": 1,
-            "texte": "Invitation Calendly depuis un compte volé"
+            "texte": "Invitation Calendly puis faux lien de réunion"
           },
           {
             "de": "cib",
             "vers": "dom",
             "etape": 1,
-            "texte": "Lien vers un faux domaine"
+            "texte": "La cible rejoint la fausse réunion"
           },
           {
-            "de": "att",
+            "de": "dom",
             "vers": "cib",
             "etape": 3,
-            "texte": "Fausse erreur technique, lien de correction piégé"
-          },
-          {
-            "de": "att",
-            "vers": "cpt",
-            "etape": 4,
-            "texte": "Comptes détournés, notamment Telegram, LinkedIn, Slack, Discord"
+            "texte": "Fausse erreur technique, logiciel malveillant installé"
           },
           {
             "de": "att",
             "vers": "cry",
             "etape": 4,
-            "texte": "Cryptomonnaies volées"
+            "texte": "Portefeuilles et phrases de récupération collectés"
+          },
+          {
+            "de": "att",
+            "vers": "cpt",
+            "etape": 4,
+            "texte": "Comptes Telegram, LinkedIn, Slack, Discord détournés"
+          },
+          {
+            "de": "cpt",
+            "vers": "con",
+            "etape": 5,
+            "texte": "Attaque relancée vers les contacts"
           }
         ]
       },
@@ -45217,10 +45247,12 @@
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "APT38, groupe auquel la campagne FaceStealer est attribuée [1]"
+        "BlueNoroff, groupe lié à la Corée du Nord, aussi appelé APT38, Sapphire Sleet, Stardust Chollima ou UNC1069 [1, 2]"
       ],
       "cibles": [
-        "Victimes de FaceStealer, dont plus de 900 vidéos de webcam font l'objet d'un mandat de saisie obtenu par le FBI [1]"
+        "Victimes de FaceStealer, dont plus de 900 vidéos de webcam ont été saisies par le FBI [1, 2]",
+        "Personnes des secteurs des cryptomonnaies et du Web3 ; 677 cibles recensées dans 58 pays, à plus de 80 % des fondateurs et cadres dirigeants [2]",
+        "Développeurs et mainteneurs de logiciels libres, dont le mainteneur du paquet Axios [2]"
       ],
       "abreviations": [
         {
@@ -45230,6 +45262,10 @@
         {
           "sigle": "FBI",
           "definition": "Federal Bureau of Investigation : police fédérale américaine"
+        },
+        {
+          "sigle": "UNC1069",
+          "definition": "Autre nom donné au groupe BlueNoroff"
         }
       ],
       "sources": [
@@ -45239,6 +45275,13 @@
           "url": "https://therecord.media/stolen-binance-crypto-recovered-doj-facestealer-disrupted",
           "date": "2026-11-12",
           "image": "https://cms.therecord.media/uploads/doj_logo_green_code_f20ed46844.jpg"
+        },
+        {
+          "titre": "FBI Says North Korean Hackers Stole Over $400 Million in Crypto Using Deepfake Video Calls",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/fbi-says-north-korean-hackers-stole.html",
+          "date": "2026-11-13",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDmjJA-t4vvigohRIfUR6JExYEPR0Dohh29eooVagQOvRyRDgdisxAy3wSWni5iFHjf2Dk8X2BavSeGO8hJ-wCTbDuffsdtamOuqj1PVTb75EWNF5vNe3tCsS6pyS_pSzNhEELOVU0DxHdmGx4Kt8KNqwz8YheAM9kEoVmpnHeVV1qsofLCBYDEt0E2IqX/s1700-nu-rw-lo-l85-e365/flash.jpg"
         }
       ]
     },
@@ -45845,6 +45888,183 @@
           "url": "https://therecord.media/belarus-cloud-provider-activecloud-ransomware-attack",
           "date": "2026-11-13",
           "image": "https://cms.therecord.media/uploads/server_getty_images_unsplash_bba164f23e.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-13-trezor-implants-confirmes-safe-5",
+      "title": "Trezor confirme des implants matériels dans trois portefeuilles Safe 5 vendus par CryptoBilis",
+      "created": "2026-11-13T16:01:44+00:00",
+      "updated": "2026-11-13T16:01:44+00:00",
+      "version": 1,
+      "resume": "Trezor confirme que trois portefeuilles matériels Safe 5 achetés chez le revendeur CryptoBilis contiennent un implant capable de copier la phrase de récupération ; aucune perte de fonds ne lui a été signalée [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Circuit imprimé supplémentaire placé entre la carte principale du Safe 5 et son écran ; Trezor ne dit ni par qui ni où dans la chaîne d'approvisionnement [1]."
+        },
+        {
+          "etape": "Copie de la phrase",
+          "texte": "L'implant copie la phrase de récupération affichée lors de la sauvegarde ou saisie lors d'une restauration, et une phrase de passe si elle apparaît à l'écran [1]."
+        },
+        {
+          "etape": "Envoi aux attaquants",
+          "texte": "Données chiffrées puis envoyées par le réseau mobile à un serveur contrôlé par les attaquants ; sans connexion, l'implant les garde et réessaie [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "pf",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Portefeuille Trezor Safe 5",
+            "note": "Implant ajouté"
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Acheteur du portefeuille",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur des attaquants",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pf",
+            "etape": 1,
+            "texte": "Implant placé entre carte principale et écran"
+          },
+          {
+            "de": "usr",
+            "vers": "pf",
+            "etape": 2,
+            "texte": "Phrase de récupération affichée ou saisie, copiée"
+          },
+          {
+            "de": "pf",
+            "vers": "srv",
+            "etape": 3,
+            "texte": "Envoi chiffré par le réseau mobile"
+          }
+        ]
+      },
+      "limites": "Trezor ne publiera pas les détails techniques qui pourraient aider des attaquants ; sa mise à jour 2.13.1 bloque les implants trouvés jusqu'ici, mais ne protège pas une sauvegarde déjà capturée [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Acheteurs de portefeuilles Trezor chez CryptoBilis, y compris dans ses boutiques Tokopedia et Shopee [1]",
+        "Trois Safe 5 achetés entre le 20 août et le 23 septembre [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Trezor Confirms Hidden Implants in CryptoBilis-Sold Wallets That Can Steal Recovery Phrases",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/trezor-confirms-hidden-hardware.html",
+          "date": "2026-11-13",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivDE4uIn_bV4GUrsw0LjzqBnnNaQM_0lzJhrSy89nrShmwNlFcsVucCFpzzZ2LMkkSMF-XMb8rp0e7_Maemyj5sypkVIf4s2Wx5pbJXkOwf0vMkG9ThBQAHhvJ_mKWHq78f_iJYhAM2l1Hp_Zk3VtB_bVvYFmZTX4WakIpC_Zib0rlFnDG-H674JSP5Mg/s1700-nu-rw-lo-l85-e365/implant.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-13-tsmc-donnees-employes-fournisseur-cloud",
+      "title": "TSMC : des données d'employés volées chez un fournisseur de services cloud",
+      "created": "2026-11-13T16:01:44+00:00",
+      "updated": "2026-11-13T16:01:44+00:00",
+      "version": 1,
+      "resume": "TSMC, fabricant de semi-conducteurs, annonce qu'un de ses fournisseurs de services cloud a été piraté, ce qui a permis à des cybercriminels de voler des informations sur des employés actuels et anciens [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Intrusion chez un fournisseur cloud de TSMC, non nommé → vol de données d'employés ; selon l'enquête, aucun système de TSMC n'a été compromis [1]."
+        },
+        {
+          "etape": "Mise en vente",
+          "texte": "Le 8 novembre, un pirate propose sur un forum cybercriminel 6,9 gigaoctets de données d'employés et réclame 3 bitcoins, environ 200 000 dollars [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "cl",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Fournisseur cloud de TSMC",
+            "note": "Données d'employés"
+          },
+          {
+            "id": "for",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Forum cybercriminel",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cl",
+            "etape": 2,
+            "texte": "Vol de données d'employés"
+          },
+          {
+            "de": "att",
+            "vers": "for",
+            "etape": 3,
+            "texte": "Données proposées contre 3 bitcoins"
+          }
+        ]
+      },
+      "limites": "Le fournisseur cloud n'est pas nommé ; TSMC n'a pas commenté le contenu annoncé par le pirate : coordonnées, éléments d'identité et informations bancaires [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Employés actuels et anciens de TSMC [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "TSMC",
+          "definition": "Taiwan Semiconductor Manufacturing Company : fabricant taïwanais de semi-conducteurs"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "TSMC confirms employee data breach tied to cloud service provider",
+          "site": "The Record",
+          "url": "https://therecord.media/tsmc-confirms-employee-data-breach-cloud-provider",
+          "date": "2026-11-13",
+          "image": "https://cms.therecord.media/uploads/TSMC_logo_on_Taichung_factory_building_4ac5558127.jpg"
         }
       ]
     }

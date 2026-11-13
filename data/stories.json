@@ -44895,13 +44895,13 @@
       "id": "2026-11-12-endgame-gootloader-castlerat-stealc",
       "title": "Opération Endgame : l'infrastructure de Gootloader, CastleRAT et StealC démantelée",
       "created": "2026-11-12T18:20:00+00:00",
-      "updated": "2026-11-13T11:15:00+00:00",
-      "version": 2,
-      "resume": "L'opération Endgame a visé 235 serveurs et 257 noms de domaine utilisés par Gootloader, CastleRAT et StealC [1, 2]. Plus de 6 millions d'identifiants de victimes ont été identifiés [1] ; environ 6,4 millions, provenant de plus de 40 000 victimes, selon [2].",
+      "updated": "2026-11-13T12:20:00+00:00",
+      "version": 3,
+      "resume": "L'opération Endgame a visé 235 serveurs et 257 noms de domaine utilisés par Gootloader, CastleRAT et StealC [1, 2, 4]. Plus de 6 millions d'identifiants de victimes ont été identifiés [1] ; environ 6,4 millions, provenant de plus de 40 000 victimes, selon [2, 4].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Résultats de recherche empoisonnés → la victime arrive sur un site compromis, notamment WordPress [1], contenant de faux documents juridiques [3]."
+          "texte": "Résultats de recherche empoisonnés → la victime arrive sur un site piraté, souvent WordPress [1, 4], contenant de faux documents juridiques [3, 4]."
         },
         {
           "etape": "Exécution du chargeur",
@@ -44909,7 +44909,7 @@
         },
         {
           "etape": "Exploitation de l'accès",
-          "texte": "L'ordinateur compromis devient un point d'entrée sur le réseau ; Vanilla Tempest exploite ces accès pour déclencher des rançongiciels, selon Microsoft en 2024 [1]."
+          "texte": "Point d'entrée exploité par Vanilla Tempest pour des rançongiciels, selon Microsoft en 2024 [1] ; accès aux machines infectées ensuite vendu à des criminels du rançongiciel, selon la justice américaine [4]."
         },
         {
           "etape": "Rôle de CastleRAT",
@@ -44960,7 +44960,7 @@
             "de": "att",
             "vers": "wp",
             "etape": 1,
-            "texte": "Site compromis, recherches empoisonnées"
+            "texte": "Site piraté, recherches empoisonnées"
           },
           {
             "de": "wp",
@@ -44976,7 +44976,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent pas comment CastleRAT et StealC arrivent sur les machines [1, 2, 3]. Aucune arrestation n'a accompagné l'opération [2].",
+      "limites": "Les sources ne précisent pas comment CastleRAT et StealC arrivent sur les machines [1, 2, 3, 4]. Aucune arrestation n'a été annoncée [2, 4].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -44985,7 +44985,8 @@
       ],
       "cibles": [
         "Internautes piégés par des résultats de recherche empoisonnés [1]",
-        "681 sites WordPress compromis, nettoyés lors de l'opération [1]",
+        "681 sites compromis nettoyés lors de l'opération [1, 4], animés par WordPress [1]",
+        "Selon l'unité danoise NSK, ces sites auraient été piratés avec des mots de passe volés, puis dotés d'une porte dérobée [4]",
         "Gootloader : plus de 25 000 ordinateurs infectés, environ 28,8 millions de dollars de dommages aux États-Unis selon le ministère américain de la Justice [3]"
       ],
       "abreviations": [
@@ -45000,6 +45001,10 @@
         {
           "sigle": "INC",
           "definition": "Nom d'un rançongiciel"
+        },
+        {
+          "sigle": "NSK",
+          "definition": "Unité nationale danoise chargée de la criminalité spéciale"
         }
       ],
       "sources": [
@@ -45023,6 +45028,13 @@
           "url": "https://www.securityweek.com/law-enforcement-disrupts-gootloader-castlerat-and-stealc-infrastructure/",
           "date": "2026-11-13",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/11/Gootloader-seized.webp"
+        },
+        {
+          "titre": "Operation Endgame Takes Down Gootloader, CastleRAT and StealC Servers, Seizes 6.4M Stolen Logins",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/operation-endgame-takes-down-gootloader.html",
+          "date": "2026-11-13",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsu6ZFyYFr1dxp2XHIaG_pyTwkoH58ICgyXLuTthkuYSJVcqAwX_O_bEJYfheyxpYmI7nnok1xrj97q7s-9l8JHFt1ogBAOJAEUqM8_vf6H3a8eYPKzB34d6XrvnkRu8zGaoKMgSJqWsE6u2zYXLdJKTtcDvk3beN6_o40ygJ4MVSMomS3Q1aEFV_jSq8/s1700-nu-rw-lo-l85-e365/gootloader.jpg"
         }
       ]
     },
@@ -45472,6 +45484,127 @@
           "url": "https://securelist.com/esxi-ransomware/121959/",
           "date": "2026-11-13",
           "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/11/12200032/esxi-3_securelist-featured_1200x600_x2.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-13-silentair-operateurs-mobiles-taiwan",
+      "title": "SilentAir : des équipements d'opérateurs mobiles asiatiques piratés pour intercepter appels et SMS, surtout à Taïwan",
+      "created": "2026-11-13T12:20:00+00:00",
+      "updated": "2026-11-13T12:20:00+00:00",
+      "version": 1,
+      "resume": "Selon Enea, le groupe d'espionnage SilentAir a utilisé des équipements piratés chez des opérateurs mobiles asiatiques pour intercepter les appels et SMS de personnes choisies, surtout à Taïwan [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Équipements piratés",
+          "texte": "Des équipements situés chez des opérateurs mobiles asiatiques sont piratés ; Enea a vu l'un d'eux envoyer et recevoir des commandes d'attaque [1]."
+        },
+        {
+          "etape": "Détournement des communications",
+          "texte": "Message UpdateLocation, ou son équivalent Diameter, envoyé au réseau d'origine de la cible → s'il est accepté, ses appels et SMS sont détournés vers les attaquants [1]."
+        },
+        {
+          "etape": "SMS silencieux",
+          "texte": "Envoi massif de SMS silencieux, que le téléphone n'affiche pas ; un usage principal semble être de vérifier qu'un détournement a fonctionné [1]."
+        },
+        {
+          "etape": "Interception de codes",
+          "texte": "Pour certaines cibles, des codes d'authentification à deux facteurs sont interceptés juste après la prise d'effet du détournement [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (SilentAir)",
+            "note": ""
+          },
+          {
+            "id": "eq",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Équipements d'opérateurs mobiles",
+            "note": "Piratés"
+          },
+          {
+            "id": "res",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Réseau d'origine",
+            "note": "Opérateur de la cible"
+          },
+          {
+            "id": "tel",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Personne ciblée",
+            "note": "Appels, SMS détournés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "eq",
+            "etape": 2,
+            "texte": "Équipements piratés"
+          },
+          {
+            "de": "eq",
+            "vers": "res",
+            "etape": 3,
+            "texte": "Message UpdateLocation ou équivalent Diameter"
+          },
+          {
+            "de": "res",
+            "vers": "eq",
+            "etape": 3,
+            "texte": "Appels et SMS détournés vers les attaquants"
+          },
+          {
+            "de": "att",
+            "vers": "tel",
+            "etape": 4,
+            "texte": "SMS silencieux envoyés en masse"
+          }
+        ]
+      },
+      "limites": "Enea n'a pas pu analyser le logiciel malveillant qu'elle pense employé ; le rapport ne dit pas si un compte a été pris [1]. L'activité est perturbée pour l'instant mais pourrait reprendre [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "SilentAir : acteur de niveau étatique selon Enea, avec une confiance élevée ; rattaché à la Chine avec une confiance faible seulement [1]",
+        "Liminal Panda : lien avec SilentAir jugé possible mais non confirmé par Enea [1]"
+      ],
+      "cibles": [
+        "Abonnés mobiles surtout à Taïwan [1]",
+        "Certaines cibles sont des personnalités politiques et gouvernementales de premier plan dans leur propre pays [1]",
+        "Hors de Taïwan : surtout des réseaux d'Asie du Sud-Est et de l'Est, parfois Afrique de l'Est, Asie centrale, Moyen-Orient et Europe [1]",
+        "Opérateurs mobiles d'au moins six pays asiatiques, où Enea a trouvé les sources d'attaque [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SMS",
+          "definition": "Short Message Service : message texte court échangé entre téléphones mobiles"
+        },
+        {
+          "sigle": "Diameter",
+          "definition": "Protocole de signalisation échangé entre opérateurs mobiles"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "SilentAir Hijacks Asian Telecom Networks to Intercept SMS 2FA Codes and Spy on Taiwanese Users",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/silentair-hijacks-asian-telecom.html",
+          "date": "2026-11-13",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjskRPNlV_kYE1N2eF2J_J0fBvF_nQxnvtaS78Grj04KqkEauvr-R5jO-ynD9nm51SgF2XtCCAsWUbJrHU0wGRnXC9yHmblhNCF8Jt9NdVahMju3voR2z9xb2uqoSi7Nc085UqDBelqg4XDRdjJ2lsF7EeN28rjq7oBc_NpBUWRqLWXiOh9FBRIH28teHM/s1700-nu-rw-lo-l85-e365/telecom-hack.jpg"
         }
       ]
     }

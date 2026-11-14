@@ -45180,9 +45180,9 @@
       "id": "2026-11-12-facestealer-fausses-reunions-video",
       "title": "FaceStealer : de fausses réunions vidéo pour voler des cryptomonnaies, l'infrastructure perturbée par les autorités américaines",
       "created": "2026-11-12T22:15:00+00:00",
-      "updated": "2026-11-13T16:01:44+00:00",
-      "version": 2,
-      "resume": "Les autorités américaines ont saisi l'infrastructure cloud de FaceStealer, une campagne attribuée au groupe nord-coréen BlueNoroff (APT38) qui a volé plus de 400 millions de dollars de cryptomonnaies en 18 mois grâce à de fausses réunions vidéo [1, 2].",
+      "updated": "2026-11-14T16:15:00+00:00",
+      "version": 3,
+      "resume": "Les autorités américaines ont saisi l'infrastructure cloud de FaceStealer, une campagne attribuée au groupe nord-coréen BlueNoroff (APT38) qui a volé plus de 400 millions de dollars de cryptomonnaies en 18 mois grâce à de fausses réunions vidéo [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -45194,11 +45194,11 @@
         },
         {
           "etape": "Installation des logiciels malveillants",
-          "texte": "Fausse erreur technique, puis lien de mise à jour, script à lancer ou code à coller dans un terminal → logiciel malveillant installé sur le poste [1, 2]."
+          "texte": "Fausse erreur technique, puis lien de mise à jour, script à lancer ou code à coller dans un terminal → logiciel malveillant installé sur le poste [1, 2, 3]."
         },
         {
           "etape": "Vol et détournement",
-          "texte": "Portefeuilles de cryptomonnaies et phrases de récupération collectés ; comptes Telegram, LinkedIn, Slack et Discord détournés [1, 2]."
+          "texte": "Portefeuilles de cryptomonnaies, phrases de récupération et identifiants de plateformes de réunion vidéo volés ; comptes Telegram, LinkedIn, Slack et Discord détournés [1, 2, 3]."
         },
         {
           "etape": "Propagation",
@@ -45302,7 +45302,7 @@
           }
         ]
       },
-      "limites": "Selon un agent du FBI, il n'est pas établi que FaceStealer ait fait partie des méthodes utilisées pour pénétrer chez Binance [1].",
+      "limites": "Selon un agent du FBI, il n'est pas établi que FaceStealer ait servi à pénétrer chez Binance [1]. D'après le FBI, les attaquants attendaient parfois des mois, voire plus d'un an, après la compromission [3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -45311,7 +45311,7 @@
       "cibles": [
         "Victimes de FaceStealer, dont plus de 900 vidéos de webcam ont été saisies par le FBI [1, 2]",
         "Personnes des secteurs des cryptomonnaies et du Web3 ; 677 cibles recensées dans 58 pays, à plus de 80 % des fondateurs et cadres dirigeants [2]",
-        "Développeurs et mainteneurs de logiciels libres, dont le mainteneur du paquet Axios [2]"
+        "Développeurs et mainteneurs de logiciels libres, dont le mainteneur du paquet Axios [2] ; autres tentatives confirmées par le FBI dans les écosystèmes npm et Rust [3]"
       ],
       "abreviations": [
         {
@@ -45341,6 +45341,13 @@
           "url": "https://thehackernews.com/2026/11/fbi-says-north-korean-hackers-stole.html",
           "date": "2026-11-13",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDmjJA-t4vvigohRIfUR6JExYEPR0Dohh29eooVagQOvRyRDgdisxAy3wSWni5iFHjf2Dk8X2BavSeGO8hJ-wCTbDuffsdtamOuqj1PVTb75EWNF5vNe3tCsS6pyS_pSzNhEELOVU0DxHdmGx4Kt8KNqwz8YheAM9kEoVmpnHeVV1qsofLCBYDEt0E2IqX/s1700-nu-rw-lo-l85-e365/flash.jpg"
+        },
+        {
+          "titre": "US disrupts North Korean campaign behind $400 million crypto theft",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/us-disrupts-north-korean-campaign-behind-400-million-crypto-theft/",
+          "date": "2026-11-14",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/21/DPRK.jpg"
         }
       ]
     },

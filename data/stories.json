@@ -47062,6 +47062,140 @@
           "image": "https://web-assets.esetstatic.com/wls/2026/11-26/gta-vi-scams.png"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-14-cursor-intrusion-cle-fireworks",
+      "title": "Cursor : une clé volée chez Fireworks AI mène au vol de données et à l'extension Claude Code piégée",
+      "created": "2026-11-14T18:20:00+00:00",
+      "updated": "2026-11-14T18:20:00+00:00",
+      "version": 1,
+      "resume": "Cursor confirme une intrusion partie d'une clé d'accès stockée chez Fireworks AI : des données internes ont été volées et une extension Claude Code piégée a exposé jusqu'à 5 000 développeurs à une porte dérobée SSH [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Obtention d'une clé d'accès stockée chez Fireworks AI → copie des données d'un espace de stockage en lecture seule [1]."
+        },
+        {
+          "etape": "Rebond chez Cursor",
+          "texte": "Ce stockage contenait des traces d'agents de code, certaines avec des identifiants d'API non masqués → accès à d'autres systèmes de Cursor [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Vol de dépôts de code archivés hors production, d'échanges du support, de coordonnées de clients et d'identifiants transmis au support par des clients [1]."
+        },
+        {
+          "etape": "Accès à la marketplace",
+          "texte": "Identifiant volé dans les données exposées du système interne de Cursor → possibilité de distribuer des extensions via la marketplace [1]."
+        },
+        {
+          "etape": "Extension piégée",
+          "texte": "Le 29 octobre, copies malveillantes de l'extension Claude Code (2.1.312 et 2.1.313) placées dans le cache servant la marketplace → disponibles environ 11 heures [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Le JavaScript ajouté installe une clé SSH de l'attaquant, tente d'activer SSH et configure des mécanismes de persistance pour conserver l'accès distant [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "fw",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Stockage chez Fireworks AI",
+            "note": "Traces d'agents"
+          },
+          {
+            "id": "sys",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Autres systèmes de Cursor",
+            "note": "Données volées"
+          },
+          {
+            "id": "mp",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Cache de la marketplace",
+            "note": "Extension piégée"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes des développeurs",
+            "note": "Clé SSH installée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "fw",
+            "etape": 1,
+            "texte": "Clé d'accès obtenue, données copiées"
+          },
+          {
+            "de": "fw",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Identifiants d'API trouvés dans les traces"
+          },
+          {
+            "de": "att",
+            "vers": "mp",
+            "etape": 5,
+            "texte": "Copies malveillantes de l'extension placées dans le cache"
+          },
+          {
+            "de": "mp",
+            "vers": "pc",
+            "etape": 6,
+            "texte": "Clé SSH de l'attaquant installée"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas comment la clé stockée chez Fireworks AI a été obtenue et ne nomme pas l'acteur [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non nommé ; l'incident survient au milieu d'une vague d'attaques contre des plateformes de développement d'intelligence artificielle que Wiz appelle « Black October » [1]"
+      ],
+      "cibles": [
+        "Cursor : moins de 0,05 % des utilisateurs ont eu des traces d'agents exposées, moins de 0,01 % des clients des identifiants d'API compromis [1]",
+        "Jusqu'à 5 000 développeurs exposés au maliciel [1]",
+        "Selon des chercheurs, des erreurs de code ont probablement empêché la porte dérobée de fonctionner sur de nombreux Windows et macOS sans SSH déjà activé [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SSH",
+          "definition": "Protocole d'accès distant sécurisé à une machine"
+        },
+        {
+          "sigle": "API",
+          "definition": "Interface de programmation permettant à des logiciels de communiquer"
+        },
+        {
+          "sigle": "AI",
+          "definition": "Artificial Intelligence : intelligence artificielle"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Cursor confirms security breach led to malicious Claude Code extension",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cursor-confirms-security-breach-led-to-malicious-claude-code-extension/",
+          "date": "2026-11-14",
+          "image": "https://www.bleepstatic.com/content/hl-images/2025/07/13/cursor-header.jpg"
+        }
+      ]
     }
   ]
 }

@@ -46413,19 +46413,19 @@
     {
       "schema": 3,
       "id": "2026-11-13-unrealircd-cve-2026-114713-kev",
-      "title": "UnrealIRCd : la faille CVE-2026-114713 ajoutée au catalogue américain des failles exploitées",
+      "title": "UnrealIRCd : la faille CVE-2026-114713 exploitée, ajoutée au catalogue américain des failles exploitées",
       "created": "2026-11-13T21:15:00+00:00",
-      "updated": "2026-11-13T21:15:00+00:00",
-      "version": 1,
-      "resume": "La CISA a ajouté à son catalogue des failles exploitées CVE-2026-114713, qui touche le logiciel UnrealIRCd, sur la base de preuves d'exploitation active [1].",
+      "updated": "2026-11-14T13:20:00+00:00",
+      "version": 2,
+      "resume": "La CISA a ajouté à son catalogue des failles exploitées CVE-2026-114713, qui touche le serveur de discussion UnrealIRCd [1, 3]. Les tentatives d'exploitation auraient commencé un jour après la sortie du correctif, le 7 novembre 2026 [3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé par les sources [1, 3]."
         },
         {
           "etape": "Injection de commandes",
-          "texte": "Selon la fiche de la faille, une étiquette « label » non échappée permet à un utilisateur d'injecter des commandes entre serveurs, exécutées avec l'autorité du serveur [2]."
+          "texte": "Étiquette « label » non échappée → un utilisateur injecte des commandes entre serveurs, exécutées avec l'autorité du serveur [2, 3]."
         }
       ],
       "parcours": {
@@ -46454,7 +46454,7 @@
           }
         ]
       },
-      "limites": "La CISA ne dit ni qui exploite la faille, ni contre qui, ni comment [1].",
+      "limites": "Les sources ne disent ni qui exploite la faille ni contre qui [1, 3]. Le détail de l'activité malveillante et ses objectifs sont inconnus [3].",
       "cves": [
         {
           "id": "CVE-2026-114713",
@@ -46481,6 +46481,13 @@
           "titre": "Fiche NVD CVE-2026-114713",
           "site": "NVD (NIST)",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114713"
+        },
+        {
+          "titre": "Attackers Exploit UnrealIRCd Flaw That Enables Server-Level Command Injection",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html",
+          "date": "2026-11-14",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuvSsWcsJ9736KXp_0s-6__-CiI5PD71VReembVHAB4cfnv3Qti8td9WR54UnRH96bz30dvbTQxwG3WbxDkWRq_eFJPYLgxbAzRD5k3MJSISbW2VDI-Fr7nlX4j8NyJkXqLHylMZMXpynEHVV8ovZ2YPC-WGCFCcrOZOeGc5Wsy-jRjjbcyYTzojI9Nudw/s1700-nu-rw-lo-l85-e365/cisaa.jpg"
         }
       ]
     },

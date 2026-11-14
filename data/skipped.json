@@ -1,13 +1,5 @@
 [
   {
-    "id": "4645fb818a8e9e28",
-    "title": "Ruby Fixes Three Regex Engine Bugs Responsible for Four Critical GitLab RCE Flaws",
-    "link": "https://thehackernews.com/2026/10/ruby-fixes-three-regex-engine-bugs.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-23T18:30:00+00:00"
-  },
-  {
     "id": "90f70db295897a33",
     "title": "FCC bans two devices with surveillance chips linked to Huawei",
     "link": "https://therecord.media/fcc-bans-devices-huawei-surveillance-chips",
@@ -3998,5 +3990,13 @@
     "source": "SecurityWeek",
     "raison": "panne sans cyberattaque constatée, aucune méthode d'attaque décrite",
     "date": "2026-11-14T09:15:00+00:00"
+  },
+  {
+    "id": "645280530d29a7ba",
+    "title": "Apple Reveals How Secure Exclaves Shield Camera and Microphone Data",
+    "link": "https://www.securityweek.com/apple-reveals-how-secure-exclaves-shield-camera-and-microphone-data/",
+    "source": "SecurityWeek",
+    "raison": "présentation d'une architecture de sécurité, aucune attaque ni exploitation décrite",
+    "date": "2026-11-14T12:06:34+00:00"
   }
 ]

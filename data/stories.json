@@ -46818,6 +46818,102 @@
           "date": "2026-11-13"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-14-screenconnect-fausses-sessions-crypto",
+      "title": "ScreenConnect : de fausses sessions aux noms de plateformes crypto enregistrées sur plus de 100 serveurs",
+      "created": "2026-11-14T00:20:00+00:00",
+      "updated": "2026-11-14T00:20:00+00:00",
+      "version": 1,
+      "resume": "Huntress a trouvé de fausses sessions, nommées d'après des plateformes d'échange de cryptomonnaies, sur au moins 118 serveurs ScreenConnect auto-hébergés de 109 organisations, soit 2 408 sessions non autorisées au total [1]. Aucune activité malveillante liée à ces sessions n'a été observée [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Un client invité a besoin de l'adresse de relais du serveur, contenue dans son installateur invité ; celui du premier prestataire analysé était téléchargeable publiquement [1]."
+        },
+        {
+          "etape": "Faux clients invités",
+          "texte": "Un émulateur imitant un client Windows enregistre des sessions nommées comme KUCOIN-SRV ou LAPTOP-BINANCE, avec une miniature de ce qui semble être un bureau de trading [1]."
+        },
+        {
+          "etape": "Maintien en ligne",
+          "texte": "Sur 29 serveurs à l'historique de connexion complet, l'opérateur revient toutes les 151 secondes pour créer ou reconnecter des sessions [1]."
+        },
+        {
+          "etape": "Appât pour techniciens",
+          "texte": "Hypothèse de Huntress, non observée : les sessions attendraient qu'un technicien se connecte pour exploiter une faille côté client, comme CVE-2026-84869 [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sc",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Serveur ScreenConnect auto-hébergé",
+            "note": "Fausses sessions invitées"
+          },
+          {
+            "id": "tech",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste d'un technicien",
+            "note": "Cible possible"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sc",
+            "etape": 2,
+            "texte": "Enregistrement de faux clients invités"
+          },
+          {
+            "de": "att",
+            "vers": "sc",
+            "etape": 3,
+            "texte": "Retour toutes les 151 secondes"
+          },
+          {
+            "de": "sc",
+            "vers": "tech",
+            "etape": 4,
+            "texte": "Appât possible, non observé"
+          }
+        ]
+      },
+      "limites": "L'article cite aussi 2 223 fausses sessions, sans expliquer l'écart [1]. Aucun recoupement trouvé avec les indicateurs publiés de SCKit [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-84869",
+          "explication": "ScreenConnect : faille critique permettant à un invité malveillant de faire exécuter un fichier sur le poste d'un technicien non corrigé ; Huntress recommande la version 26.6.5 ou ultérieure [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Acteur non nommé ; 97,8 % des connexions d'invités à nom crypto, du 3 au 13 novembre 2026, viennent de l'adresse 74.208.158[.]106 [1]"
+      ],
+      "cibles": [
+        "Serveurs ScreenConnect auto-hébergés de 109 organisations protégées par Huntress [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Attackers use Crypto Exchange Names to Disguise Unauthorized Sessions on 100+ ScreenConnect Servers",
+          "site": "Huntress",
+          "url": "https://www.huntress.com/blog/fake-crypto-exchange-sessions-screenconnect",
+          "date": "2026-11-13",
+          "image": "https://images.huntress.com/asset/file/9d30f5f80495495a9cb9ee14e2c90d41"
+        }
+      ]
     }
   ]
 }

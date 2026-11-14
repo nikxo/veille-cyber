@@ -46914,6 +46914,140 @@
           "image": "https://images.huntress.com/asset/file/9d30f5f80495495a9cb9ee14e2c90d41"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-14-gta-vi-faux-installateurs-arnaques",
+      "title": "GTA VI : faux installateurs et fausses fuites diffusent Vidar, njRAT, DCRat et l'effaceur Chaos",
+      "created": "2026-11-14T09:15:00+00:00",
+      "updated": "2026-11-14T09:15:00+00:00",
+      "version": 1,
+      "resume": "Avant la sortie de GTA VI, des cybercriminels piègent les fans avec de faux installateurs et de faux accès anticipés : voleurs d'identifiants, outils de contrôle à distance, effaceur de fichiers, ou paiement en cryptomonnaie pour un jeu absent [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Faux sites usurpant Rockstar, images disque et prétendues versions fuitées présentés comme le jeu → un faux bouton « Play Now » mène à gta6_installer.exe [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Sur ces faux sites Rockstar, gta6_installer.exe contient Vidar, qui cible les mots de passe enregistrés et les données de remplissage automatique de 19 navigateurs [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Campagne distincte : une image disque de plus de 100 Go contient njRAT et DCRat → contrôle étendu de l'ordinateur infecté [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Mercurial Grabber, présent dans la même image disque, vise les jetons Discord, les mots de passe et les cookies de Chrome [1]."
+        },
+        {
+          "etape": "Destruction",
+          "texte": "Chaos chiffre les fichiers jusqu'à 200 Mo et écrase les plus gros avec des données aléatoires, sans moyen de paiement relevé par Huntress [1]."
+        },
+        {
+          "etape": "Escroquerie",
+          "texte": "Faux « Cyberleek Launcher » réclamant 100 dollars en cryptomonnaie pour débloquer le jeu ; faux accès anticipé à 250 dollars en cryptomonnaie, où seul le jeu manque [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "site",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux sites du jeu",
+            "note": "Fichiers piégés"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Ordinateur du joueur",
+            "note": "Contrôle étendu"
+          },
+          {
+            "id": "ident",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Identifiants des navigateurs",
+            "note": "Ciblés"
+          },
+          {
+            "id": "fich",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Fichiers du joueur",
+            "note": "Chiffrés ou écrasés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "site",
+            "etape": 1,
+            "texte": "Diffuse de faux installateurs du jeu"
+          },
+          {
+            "de": "site",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Faux bouton « Play Now » vers le fichier piégé"
+          },
+          {
+            "de": "pc",
+            "vers": "ident",
+            "etape": 2,
+            "texte": "Vidar cible les mots de passe enregistrés"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Contrôle étendu via njRAT et DCRat"
+          },
+          {
+            "de": "pc",
+            "vers": "fich",
+            "etape": 5,
+            "texte": "Chaos chiffre ou écrase les fichiers"
+          }
+        ]
+      },
+      "limites": "La source ne donne ni le nombre de victimes ni l'identité des auteurs, et ne date pas la campagne analysée par Huntress [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "CyberLeek, entité qui dit publier du matériel volé de GTA VI depuis le 18 août [1]"
+      ],
+      "cibles": [
+        "Fans de GTA VI et joueurs attirés par de fausses versions du jeu avant sa sortie [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "GTA",
+          "definition": "Grand Theft Auto : série de jeux vidéo éditée par Rockstar"
+        },
+        {
+          "sigle": "VI",
+          "definition": "Six en chiffres romains : sixième épisode de la série"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "GTA VI isn’t out yet – and the scams are already in full swing",
+          "site": "WeLiveSecurity (ESET)",
+          "url": "https://www.welivesecurity.com/en/cybersecurity/gta-vi-isnt-out-yet-scams-full-swing/",
+          "date": "2026-11-13",
+          "image": "https://web-assets.esetstatic.com/wls/2026/11-26/gta-vi-scams.png"
+        }
+      ]
     }
   ]
 }

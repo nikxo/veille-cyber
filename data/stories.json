@@ -47292,6 +47292,104 @@
           "date": "2026-11-15"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-15-fftt-compte-compromis-chimera",
+      "title": "FFTT : un compte compromis sert à récupérer en masse les données des licenciés, Chimera dit avoir vendu le lot",
+      "created": "2026-11-15T13:08:37+00:00",
+      "updated": "2026-11-15T13:08:37+00:00",
+      "version": 1,
+      "resume": "La Fédération française de tennis de table a confirmé le 9 novembre 2026 un nouveau vol de données de licenciés après la compromission d'un compte. Le vendeur Chimera revendique 2 220 815 lignes et 42 796 fichiers [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Compte compromis, que ZATAZ relie à des journaux de logiciels voleurs d'informations (infostealers) → récupération en masse d'informations sur les licenciés [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Données citées par la fédération : numéros de licence, noms, adresses, courriels, téléphones, copies de cartes d'identité, de passeports et de justificatifs de domicile [1]."
+        },
+        {
+          "etape": "Mise en vente",
+          "texte": "Offre signalée dès le 5 novembre 2026 sur un forum pirate et une messagerie → Chimera indique sur une messagerie chiffrée avoir vendu le lot le 7 novembre [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Chimera)",
+            "note": ""
+          },
+          {
+            "id": "cpt",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Compte compromis",
+            "note": ""
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données des licenciés",
+            "note": "Identités, coordonnées, copies"
+          },
+          {
+            "id": "for",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Forum pirate et messagerie",
+            "note": "Lot mis en vente"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cpt",
+            "etape": 1,
+            "texte": "Utilisation d'un compte compromis"
+          },
+          {
+            "de": "cpt",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Informations des licenciés récupérées en masse"
+          },
+          {
+            "de": "att",
+            "vers": "for",
+            "etape": 3,
+            "texte": "Lot proposé à la vente"
+          }
+        ]
+      },
+      "limites": "La date d'extraction des données reste inconnue. Les volumes sont ceux de l'annonce, et la fédération n'a pas pu vérifier toute l'archive [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Chimera, auparavant Chimeraz, vendeur du lot ; ZATAZ évoque deux complices sans précision [1]"
+      ],
+      "cibles": [
+        "Fédération française de tennis de table (FFTT) : 1 645 606 personnes selon l'annonce du vendeur [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "FFTT",
+          "definition": "Fédération française de tennis de table"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Le pirate qui « audite » la France",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/le-pirate-qui-audite-la-france/",
+          "date": "2026-11-15"
+        }
+      ]
     }
   ]
 }

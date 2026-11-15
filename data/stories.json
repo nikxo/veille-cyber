@@ -47209,6 +47209,89 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg16ACawbG7rP_kT-8Boo4xdTje3BeTWyFSnNXwHhr5cvy2-1X3Ljhrc1IuZlseWd55tN8E1yjQ9ldhTnjWTU-GJBpX_Zen36YiLQGsRSRAoteqHyxx7mn_w0QgLfMKDLItA4p_jpHajucbglLnCR_zWBY_t82YvFkLa9dQFBfjP1BrTlrNdYufsGMSZiGn/s1700-nu-rw-lo-l85-e365/cursor.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-15-maileva-base-suivi-envois",
+      "title": "Maileva : comptes clients détournés et base de suivi des envois consultée, 22 millions de destinataires touchés",
+      "created": "2026-11-15T12:07:31+00:00",
+      "updated": "2026-11-15T12:07:31+00:00",
+      "version": 1,
+      "resume": "Maileva, service de courriers professionnels de Docaposte (groupe La Poste), a subi une intrusion : les noms, prénoms et adresses postales de 22 millions de personnes ont été volés, et des informations de facturation exposées chez certains clients [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources : Maileva a détecté des accès non autorisés à des comptes clients [1]."
+        },
+        {
+          "etape": "Détournement de comptes",
+          "texte": "Tentatives d'utilisation frauduleuse de comptes clients pour expédier des courriers ; Maileva suspend ses services le 23 septembre 2026, pendant six jours [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Accès d'un tiers non autorisé à la base de suivi des envois → noms, prénoms et adresses postales de quelque 22 millions de destinataires distincts volés [1]."
+        },
+        {
+          "etape": "Informations de facturation",
+          "texte": "Chez certains clients, numéro de client, renseignements sur le logement, montant de facture ou relances de paiement hospitalières ont pu être consultés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "cpt",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Comptes clients Maileva",
+            "note": "Accès non autorisés"
+          },
+          {
+            "id": "base",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Base de suivi des envois",
+            "note": "22 millions de destinataires"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cpt",
+            "etape": 2,
+            "texte": "Utilisation frauduleuse pour expédier des courriers"
+          },
+          {
+            "de": "att",
+            "vers": "base",
+            "etape": 3,
+            "texte": "Accès d'un tiers non autorisé"
+          }
+        ]
+      },
+      "limites": "Vecteur d'accès initial et auteur non indiqués. Une chronologie relayée par la source date l'accès à la base du 9 octobre ; la source rappelle que consulté ne veut pas dire copié [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Maileva, service de courriers professionnels de Docaposte (groupe La Poste), et plusieurs milliers d'entreprises clientes [1]",
+        "Flandre Opale Habitat, bailleur Altéal, laboratoires du groupe Inovie, Hôpital Foch via Kiwee.care, partenaire de Maileva [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Cyberattaque Maileva, 22 millions de personnes touchées",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/cyberattaque-maileva-22-millions-de-personnes-touchees/",
+          "date": "2026-11-15"
+        }
+      ]
     }
   ]
 }

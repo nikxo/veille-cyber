@@ -47390,6 +47390,144 @@
           "date": "2026-11-15"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-15-entre-bievre-et-rhone-revendication",
+      "title": "Entre Bièvre et Rhône : des pirates revendiquent le piratage de l'intercommunalité et la publication de 605 Mo de fichiers",
+      "created": "2026-11-15T15:10:00+00:00",
+      "updated": "2026-11-15T15:10:00+00:00",
+      "version": 1,
+      "resume": "Des pirates, sous la signature BLACKHATSECT0R, revendiquent le piratage de la communauté de communes Entre Bièvre et Rhône, en Isère, et disent avoir publié 605 Mo d'archives contenant des données d'usagers [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Accès aux sauvegardes",
+          "texte": "Un partage de fichiers destiné aux sauvegardes aurait donné accès, selon les auteurs, à 95 To, soit 1 649 sauvegardes et 186 machines virtuelles [1]."
+        },
+        {
+          "etape": "Annuaire",
+          "texte": "Les auteurs évoquent 715 comptes dans l'annuaire informatique et disent posséder un « Golden Ticket », ticket d'authentification falsifié permettant en théorie d'usurper des identités [1]."
+        },
+        {
+          "etape": "Service de l'eau",
+          "texte": "Accès revendiqué à une base de 234 tables et à 128 Go de télémétrie de supervision industrielle, avec des données sur vannes et compteurs [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Les auteurs disent avoir publié 605 Mo de fichiers en douze archives et détenir des données sur 22 565 personnes ainsi que des relevés de passages en déchèterie [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (BLACKHATSECT0R)",
+            "note": ""
+          },
+          {
+            "id": "res",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Réseau de l'intercommunalité",
+            "note": "Entrée non précisée"
+          },
+          {
+            "id": "sav",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Partage de sauvegardes",
+            "note": "95 To revendiqués"
+          },
+          {
+            "id": "ad",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Annuaire informatique",
+            "note": "715 comptes"
+          },
+          {
+            "id": "eau",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Base du service de l'eau",
+            "note": "234 tables"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "res",
+            "etape": 1,
+            "texte": "Accès non précisé par les sources"
+          },
+          {
+            "de": "res",
+            "vers": "sav",
+            "etape": 2,
+            "texte": "Accès revendiqué aux sauvegardes"
+          },
+          {
+            "de": "res",
+            "vers": "ad",
+            "etape": 3,
+            "texte": "« Golden Ticket » revendiqué"
+          },
+          {
+            "de": "res",
+            "vers": "eau",
+            "etape": 4,
+            "texte": "Accès revendiqué à la base et à la télémétrie"
+          },
+          {
+            "de": "res",
+            "vers": "att",
+            "etape": 5,
+            "texte": "Publication revendiquée de douze archives"
+          }
+        ]
+      },
+      "limites": "L'article ne donne pas l'ordre des actions. Rien n'est vérifié : la possession du Golden Ticket, la durée d'accès et une intrusion chez Suez, Veolia et Amiens Métropole restent à établir [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "BLACKHATSECT0R, signature de la revendication ; l'article évoque trois signatures, puis deux pirates [1]"
+      ],
+      "cibles": [
+        "Communauté de communes Entre Bièvre et Rhône (Isère) ; le fichier qui lui est attribué couvrirait 40 communes [1]",
+        "Prestataire Symetri : les auteurs lui rattachent 888 835 contacts Mailjet et 1 336 234 messages archivés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "BLACKHATSECT0R",
+          "definition": "Signature sous laquelle le piratage est revendiqué"
+        },
+        {
+          "sigle": "Mo",
+          "definition": "Mégaoctet, unité de volume de données"
+        },
+        {
+          "sigle": "Go",
+          "definition": "Gigaoctet, soit environ mille mégaoctets"
+        },
+        {
+          "sigle": "To",
+          "definition": "Téraoctet, soit environ mille gigaoctets"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Entre Bièvre et Rhône visée par une revendication cyber",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/entre-bievre-et-rhone-visee-par-une-revendication-cyber/",
+          "date": "2026-11-15"
+        }
+      ]
     }
   ]
 }

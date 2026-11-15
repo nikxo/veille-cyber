@@ -1,21 +1,5 @@
 [
   {
-    "id": "78e6b44f5a3d5bff",
-    "title": "Trust Is Not What It Seems — And Fraudsters Are Counting on It",
-    "link": "https://www.darkreading.com/cyber-risk/trust-is-not-what-it-seems-and-fraudsters-are-counting-on-it",
-    "source": "Dark Reading",
-    "raison": "article d'opinion sans incident précis",
-    "date": "2026-10-23T22:30:00+00:00"
-  },
-  {
-    "id": "94d51fe2d20419a9",
-    "title": "Researchers Push Over 2 Million Updates to Remotely Disable Popcorn Time Updater That Could Fuel a Botnet",
-    "link": "https://thehackernews.com/2026/10/researchers-push-over-2-million-updates.html",
-    "source": "The Hacker News",
-    "raison": "aucune exploitation malveillante constatée (faille potentielle neutralisée par des chercheurs)",
-    "date": "2026-10-24T11:30:00+00:00"
-  },
-  {
     "id": "a0a9e49aec28c38a",
     "title": "Brotli Decoder Flaw Behind Node.js RCE Also Affects Bun, Python and Other Widely Used Software",
     "link": "https://thehackernews.com/2026/10/brotli-decoder-flaw-behind-nodejs-rce.html",
@@ -3998,5 +3982,21 @@
     "source": "SecurityWeek",
     "raison": "actualité politique et administrative, aucune attaque décrite",
     "date": "2026-11-15T13:08:37+00:00"
+  },
+  {
+    "id": "d2cce61bdaa70c80",
+    "title": "Aréas Assurances visé par une vente de données",
+    "link": "https://www.zataz.com/areas-assurances-vise-par-une-vente-de-donnees/",
+    "source": "ZATAZ",
+    "raison": "vente de données revendiquée, non vérifiée, aucune méthode d'attaque décrite",
+    "date": "2026-11-15T15:10:00+00:00"
+  },
+  {
+    "id": "dc9e3aad979ba689",
+    "title": "Techfive cité dans une annonce de vente de données",
+    "link": "https://www.zataz.com/techfive-cite-dans-une-annonce-de-vente-de-donnees/",
+    "source": "ZATAZ",
+    "raison": "annonce de vente non vérifiée, origine des données non établie, aucune intrusion décrite",
+    "date": "2026-11-15T15:10:00+00:00"
   }
 ]

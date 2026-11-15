@@ -1,13 +1,5 @@
 [
   {
-    "id": "a0a9e49aec28c38a",
-    "title": "Brotli Decoder Flaw Behind Node.js RCE Also Affects Bun, Python and Other Widely Used Software",
-    "link": "https://thehackernews.com/2026/10/brotli-decoder-flaw-behind-nodejs-rce.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée dans la nature",
-    "date": "2026-10-24T11:30:00+00:00"
-  },
-  {
     "id": "d9529625e8410d33",
     "title": "DeepSeek banni des agences fédérales US",
     "link": "https://www.zataz.com/deepseek-banni-des-agences-federales-civiles-americaines/",
@@ -3998,5 +3990,13 @@
     "source": "ZATAZ",
     "raison": "annonce de vente non vérifiée, origine des données non établie, aucune intrusion décrite",
     "date": "2026-11-15T15:10:00+00:00"
+  },
+  {
+    "id": "b6d00ac15edb9eb2",
+    "title": "Stripe va masquer ses clés API secrètes le 20 novembre",
+    "link": "https://www.zataz.com/stripe-va-masquer-ses-cles-api-secretes-le-20-novembre/",
+    "source": "ZATAZ",
+    "raison": "annonce produit (changement d'affichage des clés API Stripe), aucune attaque décrite",
+    "date": "2026-11-15T23:07:22+00:00"
   }
 ]

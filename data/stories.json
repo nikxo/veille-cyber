@@ -46063,9 +46063,9 @@
       "id": "2026-11-13-tsmc-donnees-employes-fournisseur-cloud",
       "title": "TSMC : des données d'employés volées chez un fournisseur de services cloud",
       "created": "2026-11-13T16:01:44+00:00",
-      "updated": "2026-11-13T16:01:44+00:00",
-      "version": 1,
-      "resume": "TSMC, fabricant de semi-conducteurs, annonce qu'un de ses fournisseurs de services cloud a été piraté, ce qui a permis à des cybercriminels de voler des informations sur des employés actuels et anciens [1].",
+      "updated": "2026-11-15T23:07:22+00:00",
+      "version": 2,
+      "resume": "TSMC annonce qu'un de ses fournisseurs de services cloud a été piraté, ce qui a permis de voler des informations sur des employés actuels et anciens [1]. TSMC confirme que des données personnelles d'employés ont été divulguées en ligne [2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -46078,6 +46078,10 @@
         {
           "etape": "Mise en vente",
           "texte": "Le 8 novembre, un pirate propose sur un forum cybercriminel 6,9 gigaoctets de données d'employés et réclame 3 bitcoins, environ 200 000 dollars [1]."
+        },
+        {
+          "etape": "Divulgation",
+          "texte": "TSMC confirme que des données personnelles d'employés ont été divulguées en ligne, après la mise aux enchères de 6,9 gigaoctets d'informations prétendument volées [2]."
         }
       ],
       "parcours": {
@@ -46139,6 +46143,13 @@
           "url": "https://therecord.media/tsmc-confirms-employee-data-breach-cloud-provider",
           "date": "2026-11-13",
           "image": "https://cms.therecord.media/uploads/TSMC_logo_on_Taichung_factory_building_4ac5558127.jpg"
+        },
+        {
+          "titre": "TSMC employee data breach linked to cloud provider",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/tsmc-employee-data-breach-linked-to-cloud-provider/",
+          "date": "2026-11-15",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/13/TSMC.jpg"
         }
       ]
     },
@@ -46641,9 +46652,9 @@
       "id": "2026-11-13-fbi-alerte-flash-artex",
       "title": "Alerte flash du FBI : l'outil Artex automatise des intrusions « à la vitesse de la machine »",
       "created": "2026-11-13T22:15:00+00:00",
-      "updated": "2026-11-13T22:15:00+00:00",
-      "version": 1,
-      "resume": "Le FBI alerte sur Artex, outil d'intelligence artificielle open source utilisé pour des attaques de reconnaissance et d'exfiltration de données, notamment contre les services financiers et des gouvernements [1].",
+      "updated": "2026-11-15T23:07:22+00:00",
+      "version": 2,
+      "resume": "Le FBI alerte sur Artex, outil d'intelligence artificielle open source utilisé pour des attaques de reconnaissance et d'exfiltration de données, notamment contre les services financiers et des gouvernements [1]. Il sert à automatiser des cyberattaques contre des organisations du monde entier [2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -46655,7 +46666,7 @@
         },
         {
           "etape": "Fournisseurs tiers",
-          "texte": "Les agents d'Artex ont montré une capacité à cartographier les relations de confiance entre organisations et à compromettre des fournisseurs tiers faibles [1]."
+          "texte": "Les agents d'Artex ont montré une capacité à compromettre des fournisseurs tiers faibles [1] ; l'attaque de chaîne d'approvisionnement ConnectWise a compromis des environnements Microsoft 365 de clients [2]."
         },
         {
           "etape": "Accès privilégié",
@@ -46706,6 +46717,13 @@
             "zone": "victime",
             "nom": "Plateformes d'échange de cryptomonnaies",
             "note": ""
+          },
+          {
+            "id": "m365",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Environnements Microsoft 365 clients",
+            "note": ""
           }
         ],
         "liens": [
@@ -46732,6 +46750,12 @@
             "vers": "ex",
             "etape": 6,
             "texte": "Injection de deepfakes en temps réel"
+          },
+          {
+            "de": "four",
+            "vers": "m365",
+            "etape": 3,
+            "texte": "Attaque de chaîne d'approvisionnement ConnectWise"
           }
         ]
       },
@@ -46761,6 +46785,13 @@
           "url": "https://therecord.media/artex-ai-tool-fbi-flash-alert",
           "date": "2026-11-13",
           "image": "https://cms.therecord.media/uploads/fbi_1_c4c06390db.jpg"
+        },
+        {
+          "titre": "FBI warns ARTEX AI hacking tool is powering global cyberattacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/",
+          "date": "2026-11-15",
+          "image": "https://www.bleepstatic.com/content/hl-images/2025/10/23/AI-2.jpg"
         }
       ]
     },

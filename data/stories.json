@@ -47068,21 +47068,21 @@
       "id": "2026-11-14-cursor-intrusion-cle-fireworks",
       "title": "Cursor : une clé volée chez Fireworks AI mène au vol de données et à l'extension Claude Code piégée",
       "created": "2026-11-14T18:20:00+00:00",
-      "updated": "2026-11-14T18:20:00+00:00",
-      "version": 1,
-      "resume": "Cursor confirme une intrusion partie d'une clé d'accès stockée chez Fireworks AI : des données internes ont été volées et une extension Claude Code piégée a exposé jusqu'à 5 000 développeurs à une porte dérobée SSH [1].",
+      "updated": "2026-11-15T10:20:00+00:00",
+      "version": 2,
+      "resume": "Cursor confirme une intrusion partie d'une clé d'accès exposée par Fireworks AI, lui-même piraté : des données internes ont été volées et une extension Claude Code piégée a exposé jusqu'à 5 000 développeurs à une porte dérobée SSH [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Obtention d'une clé d'accès stockée chez Fireworks AI → copie des données d'un espace de stockage en lecture seule [1]."
+          "texte": "Obtention d'une clé d'accès que Cursor avait émise pour Fireworks AI et que ce dernier a exposée → copie des données d'un espace de stockage en lecture seule [1, 2]."
         },
         {
           "etape": "Rebond chez Cursor",
-          "texte": "Ce stockage contenait des traces d'agents de code, certaines avec des identifiants d'API non masqués → accès à d'autres systèmes de Cursor [1]."
+          "texte": "Ce stockage contenait des traces d'agents de code, certaines avec des identifiants non masqués → point de départ pour atteindre certains outils SaaS de Cursor [1, 2]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Vol de dépôts de code archivés hors production, d'échanges du support, de coordonnées de clients et d'identifiants transmis au support par des clients [1]."
+          "texte": "Vol de dépôts de code archivés hors production, d'échanges du support, de coordonnées, de résumés de conversations d'agents et d'identifiants transmis au support [1, 2]."
         },
         {
           "etape": "Accès à la marketplace",
@@ -47117,7 +47117,7 @@
             "id": "sys",
             "type": "serveur",
             "zone": "victime",
-            "nom": "Autres systèmes de Cursor",
+            "nom": "Outils SaaS de Cursor",
             "note": "Données volées"
           },
           {
@@ -47162,7 +47162,7 @@
           }
         ]
       },
-      "limites": "La source ne dit pas comment la clé stockée chez Fireworks AI a été obtenue et ne nomme pas l'acteur [1].",
+      "limites": "Les sources ne disent pas comment l'attaquant a obtenu la clé exposée par Fireworks AI et ne nomment pas l'acteur [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -47171,7 +47171,9 @@
       "cibles": [
         "Cursor : moins de 0,05 % des utilisateurs ont eu des traces d'agents exposées, moins de 0,01 % des clients des identifiants d'API compromis [1]",
         "Jusqu'à 5 000 développeurs exposés au maliciel [1]",
-        "Selon des chercheurs, des erreurs de code ont probablement empêché la porte dérobée de fonctionner sur de nombreux Windows et macOS sans SSH déjà activé [1]"
+        "Selon des chercheurs, des erreurs de code ont probablement empêché la porte dérobée de fonctionner sur de nombreux Windows et macOS sans SSH déjà activé [1]",
+        "Uber : informations de permis de conduire de milliers de chauffeurs volées via un fournisseur, Fireworks AI selon TechCrunch [2]",
+        "Notion a confirmé le vol de ses données dans le piratage de Fireworks AI [2]"
       ],
       "abreviations": [
         {
@@ -47185,6 +47187,10 @@
         {
           "sigle": "AI",
           "definition": "Artificial Intelligence : intelligence artificielle"
+        },
+        {
+          "sigle": "SaaS",
+          "definition": "Software as a Service : logiciel utilisé en ligne, hébergé par son éditeur"
         }
       ],
       "sources": [
@@ -47194,6 +47200,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/cursor-confirms-security-breach-led-to-malicious-claude-code-extension/",
           "date": "2026-11-14",
           "image": "https://www.bleepstatic.com/content/hl-images/2025/07/13/cursor-header.jpg"
+        },
+        {
+          "titre": "Stolen Fireworks AI Key Led to Cursor Data Breach and Trojanized Claude Code Extension",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/stolen-fireworks-ai-key-led-to-cursor.html",
+          "date": "2026-11-15",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg16ACawbG7rP_kT-8Boo4xdTje3BeTWyFSnNXwHhr5cvy2-1X3Ljhrc1IuZlseWd55tN8E1yjQ9ldhTnjWTU-GJBpX_Zen36YiLQGsRSRAoteqHyxx7mn_w0QgLfMKDLItA4p_jpHajucbglLnCR_zWBY_t82YvFkLa9dQFBfjP1BrTlrNdYufsGMSZiGn/s1700-nu-rw-lo-l85-e365/cursor.jpg"
         }
       ]
     }

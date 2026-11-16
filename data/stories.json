@@ -48923,27 +48923,31 @@
     {
       "schema": 3,
       "id": "2026-11-16-barracuda-intrusion-artex",
-      "title": "Barracuda : une clé d'accès cloud exposée ouvre une intrusion menée avec Artex dans une dizaine de comptes cloud",
+      "title": "Barracuda : une clé d'accès cloud volée chez un prestataire ouvre une intrusion menée avec Artex dans une dizaine de comptes cloud",
       "created": "2026-11-16T16:09:46+00:00",
-      "updated": "2026-11-16T16:09:46+00:00",
-      "version": 1,
-      "resume": "Barracuda a subi, entre le 1er et le 2 novembre, une intrusion menée avec Artex, framework de test d'intrusion à agents d'intelligence artificielle : environ 10 comptes cloud touchés en 44 heures environ, identifiants et secrets exfiltrés [1].",
+      "updated": "2026-11-16T20:12:00+00:00",
+      "version": 2,
+      "resume": "Barracuda a subi, entre le 1er et le 2 novembre, une intrusion menée avec Artex, framework de test d'intrusion à intelligence artificielle : environ 10 comptes cloud touchés en 44 heures [1, 2]. L'attaquant a été détecté le 4 novembre [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Utilisation d'une clé d'accès cloud valide et exposée → cartographie de ce qu'elle permettait d'atteindre [1]."
+          "texte": "Clé d'accès cloud confiée à un prestataire d'intelligence artificielle pour un projet antérieur, stockée dans son dépôt GitHub et volée en octobre selon Barracuda → accès aux comptes cloud [2]."
         },
         {
           "etape": "Rebond par secrets",
-          "texte": "Réutilisation des secrets découverts → accès à d'autres systèmes et exfiltration d'identifiants et de secrets supplémentaires [1]."
+          "texte": "Réutilisation d'identifiants trouvés dans un système → accès à l'environnement d'analyse de données, aux dépôts de code source et aux clusters Kubernetes [1, 2]."
         },
         {
           "etape": "Collecte de secrets",
-          "texte": "Ciblage des coffres de secrets, des configurations, des comptes de service Kubernetes et des services de métadonnées des serveurs [1]."
+          "texte": "Ciblage des coffres de secrets, des configurations, des comptes de service Kubernetes et des services de métadonnées des serveurs → identifiants et secrets exfiltrés [1]."
         },
         {
           "etape": "Persistance",
-          "texte": "Porte dérobée laissée dans un cluster Kubernetes [1]."
+          "texte": "Porte dérobée laissée dans un cluster Kubernetes [1] ; tentative de persistance par un conteneur montant le système de fichiers de l'hôte et ses identifiants [2]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Tentative de création d'une nouvelle identité administrateur cloud → bloquée [2]."
         },
         {
           "etape": "Recherche de portefeuilles",
@@ -48960,6 +48964,13 @@
             "note": "Outil Artex"
           },
           {
+            "id": "gh",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Prestataire d'intelligence artificielle",
+            "note": "Clé sur GitHub"
+          },
+          {
             "id": "cl",
             "type": "cloud",
             "zone": "victime",
@@ -48970,7 +48981,7 @@
             "id": "k8",
             "type": "serveur",
             "zone": "victime",
-            "nom": "Cluster Kubernetes",
+            "nom": "Clusters Kubernetes",
             "note": "Porte dérobée"
           },
           {
@@ -48984,15 +48995,21 @@
         "liens": [
           {
             "de": "att",
-            "vers": "cl",
+            "vers": "gh",
             "etape": 1,
-            "texte": "Clé d'accès cloud valide et exposée"
+            "texte": "Clé d'accès cloud volée en octobre"
           },
           {
             "de": "att",
             "vers": "cl",
+            "etape": 1,
+            "texte": "Accès avec la clé volée"
+          },
+          {
+            "de": "cl",
+            "vers": "k8",
             "etape": 2,
-            "texte": "Secrets découverts réutilisés, identifiants exfiltrés"
+            "texte": "Identifiants trouvés réutilisés"
           },
           {
             "de": "att",
@@ -49002,24 +49019,37 @@
           },
           {
             "de": "att",
-            "vers": "srv",
+            "vers": "cl",
             "etape": 5,
+            "texte": "Création d'identité administrateur bloquée"
+          },
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 6,
             "texte": "Recherche d'informations de portefeuilles"
           }
         ]
       },
-      "limites": "La source ne dit pas comment la clé a été exposée, ni si des clients de Barracuda sont touchés [1].",
+      "limites": "Barracuda n'a trouvé aucune preuve d'accès aux identifiants d'intégration de clients de Barracuda XDR, stockés sur un système atteint [2]. Le prestataire n'est pas nommé [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Non attribué par Barracuda, qui note qu'Artex est utilisé par de nombreux groupes [1]",
-        "Selon Barracuda, les noms des sondes, l'ordre de progression et les routines de recherche d'identifiants et de portefeuilles correspondent à Artex [1]"
+        "Selon Barracuda, les noms des sondes, l'ordre de progression et les routines de recherche d'identifiants et de portefeuilles correspondent à Artex [1, 2]",
+        "Barracuda juge l'attaque motivée par l'argent, sans exclure une diversion [2]"
       ],
       "cibles": [
-        "Barracuda : environ 10 comptes cloud [1]",
+        "Barracuda : environ 10 comptes cloud [1, 2]",
+        "Clients Managed XDR Cloud ou Monitored Endpoint potentiellement concernés : invités à révoquer et recréer leurs identifiants d'intégration [2]",
         "Attaque similaire, selon Barracuda, à l'intrusion d'octobre chez Railway, plateforme d'hébergement d'applications cloud [1]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "XDR",
+          "definition": "Extended Detection and Response : service de détection et de réponse aux menaces"
+        }
+      ],
       "sources": [
         {
           "titre": "Barracuda Hacked Amid Surge in Artex-Powered Cyberattacks",
@@ -49027,6 +49057,13 @@
           "url": "https://www.securityweek.com/barracuda-hacked-amid-surge-in-artex-powered-cyberattacks/",
           "date": "2026-11-16",
           "image": "https://www.securityweek.com/wp-content/uploads/2023/05/Barracuda-zero-day-e1794841590191.jpg"
+        },
+        {
+          "titre": "Barracuda links cloud breach to ARTEX AI-powered cyberattack",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/barracuda-links-cloud-breach-to-artex-ai-powered-cyberattack/",
+          "date": "2026-11-16",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/16/robot.jpg"
         }
       ]
     },

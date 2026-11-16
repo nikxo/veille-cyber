@@ -47981,6 +47981,188 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigoyCtEKcD7TM_5vDkKiZYFdk_l4-js7HNuvMXzZbVqUbEgq1nnD2vEZgZ0kL9CdmOkITC0Rbd-ebTkSX-R4NPKwWZXzUD6zS0g9nEfnlXw3njm3oW2Se97qbT7lIfZEL56X3IIaZAildTni9-zQJu5sa4Lhvi_mVlbTeZFyFtezOMHJ_bDhJWfG7KQ8eh/s1700-nu-rw-lo-l85-e365/amazon.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-16-tor-relais-deni-de-service",
+      "title": "Tor : une attaque par déni de service vise les relais, les protections corrigées dans la version 0.4.9.17",
+      "created": "2026-11-16T09:20:00+00:00",
+      "updated": "2026-11-16T09:20:00+00:00",
+      "version": 1,
+      "resume": "Une attaque par déni de service en cours touche la plupart des opérateurs de relais Tor [1]. Tor 0.4.9.17, annoncé le 13 novembre, corrige notamment un problème lié à IPv6 dans les protections intégrées aux relais [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Saturation des relais",
+          "texte": "Inondation massive de circuits clients vers les relais Tor ; deux relais d'un opérateur ont perdu le statut HSDir avant la mise à jour [1]."
+        },
+        {
+          "etape": "Changement de forme",
+          "texte": "Selon cet opérateur, dix minutes environ après la mise à jour d'un autre relais visé, son trafic chute et il cesse régulièrement de répondre → statut HSDir perdu [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "rel",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Relais Tor",
+            "note": "Statut HSDir perdu"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "rel",
+            "etape": 2,
+            "texte": "Inondation de circuits clients"
+          },
+          {
+            "de": "att",
+            "vers": "rel",
+            "etape": 3,
+            "texte": "Attaque modifiée après la mise à jour"
+          }
+        ]
+      },
+      "limites": "L'auteur de l'attaque n'est pas nommé ; le changement de forme est rapporté par un seul opérateur de relais [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Opérateurs de relais Tor, réseau tenu par des bénévoles [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "HSDir",
+          "definition": "Hidden Service Directory : relais Tor qui sert d'annuaire aux services onion"
+        },
+        {
+          "sigle": "IPv6",
+          "definition": "Internet Protocol version 6 : version récente du protocole d'adressage d'Internet"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Tor Updates DoS Defenses Again as Relay Attacks Continue",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/tor-updates-dos-defenses-again-as-relay-attacks-continue/",
+          "date": "2026-11-16",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/01/Tor-Network-1.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-16-panne-microsoft-365-hameconnage",
+      "title": "Panne Microsoft 365 : de faux avis de service menacent de supprimer les courriels retenus",
+      "created": "2026-11-16T09:20:00+00:00",
+      "updated": "2026-11-16T09:20:00+00:00",
+      "version": 1,
+      "resume": "Après la panne de Microsoft 365 du 12 novembre, que Microsoft dit sans lien avec une cyberattaque, de faux avis de service citent l'incident réel EX1550543 [1]. Des messages similaires ont visé des organisations de plusieurs secteurs aux États-Unis [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Courriels imitant des avis de service Microsoft 365 et citant l'incident réel EX1550543, dans une campagne observée par Microsoft [1]."
+        },
+        {
+          "etape": "Incitation au clic",
+          "texte": "Dans des messages détectés le 13 novembre, menace de supprimer sous 24 heures les courriels retenus pendant la panne, sauf clic sur un lien pour les restaurer [1]."
+        },
+        {
+          "etape": "Redirection",
+          "texte": "Liens de suivi SendGrid propres à chaque destinataire → redirection vers le domaine reallifeaccounting[.]com [1]."
+        },
+        {
+          "etape": "Objectif",
+          "texte": "Activité cohérente avec un hameçonnage d'identifiants selon Microsoft, mais ni collecte d'identifiants ni livraison de maliciel ne sont confirmées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "mail",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Boîtes de messagerie visées",
+            "note": "Faux avis de service"
+          },
+          {
+            "id": "sg",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Liens de suivi SendGrid",
+            "note": "Un par destinataire"
+          },
+          {
+            "id": "site",
+            "type": "application",
+            "zone": "internet",
+            "nom": "reallifeaccounting[.]com",
+            "note": "Destination du lien"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "mail",
+            "etape": 1,
+            "texte": "Faux avis citant l'incident EX1550543"
+          },
+          {
+            "de": "mail",
+            "vers": "sg",
+            "etape": 2,
+            "texte": "Clic pour restaurer les messages"
+          },
+          {
+            "de": "sg",
+            "vers": "site",
+            "etape": 3,
+            "texte": "Redirection"
+          }
+        ]
+      },
+      "limites": "L'auteur de la campagne n'est pas nommé ; ni la collecte d'identifiants ni la livraison de maliciel ne sont confirmées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Organisations de plusieurs secteurs aux États-Unis [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "EX1550543",
+          "definition": "Identifiant sous lequel Microsoft suit l'incident Exchange Online lié à la panne"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Microsoft Rules Out Cyberattack in Outage, Warns of Phishing Campaign",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/microsoft-rules-out-cyberattack-in-outage-warns-of-phishing-campaign/",
+          "date": "2026-11-16",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/11/AI-phishing.jpeg"
+        }
+      ]
     }
   ]
 }

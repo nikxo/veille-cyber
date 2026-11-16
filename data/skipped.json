@@ -1,13 +1,5 @@
 [
   {
-    "id": "d9529625e8410d33",
-    "title": "DeepSeek banni des agences fédérales US",
-    "link": "https://www.zataz.com/deepseek-banni-des-agences-federales-civiles-americaines/",
-    "source": "ZATAZ",
-    "raison": "actualité politique sans méthode d'attaque",
-    "date": "2026-10-24T11:30:00+00:00"
-  },
-  {
     "id": "afec56c7243a9162",
     "title": "Google Says Gmail and Photos Data Shared With AI Search Could Be Used for Targeted Ads",
     "link": "https://thehackernews.com/2026/10/google-says-gmail-and-photos-data.html",
@@ -3998,5 +3990,13 @@
     "source": "ZATAZ",
     "raison": "annonce produit (changement d'affichage des clés API Stripe), aucune attaque décrite",
     "date": "2026-11-15T23:07:22+00:00"
+  },
+  {
+    "id": "7e3c2db368acc8d1",
+    "title": "Microsoft pushes Windows emergency updates to fix activation failures",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-new-windows-emergency-updates-fix-activation-licensing-failures/",
+    "source": "BleepingComputer",
+    "raison": "correctif d'un bogue d'activation Windows, aucune attaque décrite",
+    "date": "2026-11-16T09:20:00+00:00"
   }
 ]

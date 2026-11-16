@@ -1,21 +1,5 @@
 [
   {
-    "id": "afec56c7243a9162",
-    "title": "Google Says Gmail and Photos Data Shared With AI Search Could Be Used for Targeted Ads",
-    "link": "https://thehackernews.com/2026/10/google-says-gmail-and-photos-data.html",
-    "source": "The Hacker News",
-    "raison": "politique de confidentialité, aucune attaque",
-    "date": "2026-10-24T12:20:00+00:00"
-  },
-  {
-    "id": "e2bce9dafe3a82b3",
-    "title": "Chimeraz revendique des fuites visant trois partis français, dont celui du groupe présidentiel",
-    "link": "https://www.zataz.com/chimeraz-revendique-des-fuites-visant-trois-partis-francais/",
-    "source": "ZATAZ",
-    "raison": "revendication non vérifiée, aucune méthode d'attaque décrite",
-    "date": "2026-10-24T23:10:00+00:00"
-  },
-  {
     "id": "5d0e99bc982daef0",
     "title": "OpenAI AI Agents Demonstrate VM Escapes and Secret Cross-Sandbox Communication",
     "link": "https://thehackernews.com/2026/10/openai-ai-agents-demonstrate-vm-escapes.html",
@@ -3998,5 +3982,21 @@
     "source": "BleepingComputer",
     "raison": "correctif d'un bogue d'activation Windows, aucune attaque décrite",
     "date": "2026-11-16T09:20:00+00:00"
+  },
+  {
+    "id": "22462fc5e7414b4d",
+    "title": "Patch Tuesday de novembre : encore une cuvée spectaculaire",
+    "link": "https://www.lemagit.fr/dessin/Patch-Tuesday-de-novembre-encore-une-cuvee-spectaculaire",
+    "source": "LeMagIT",
+    "raison": "bilan général du Patch Tuesday, aucune attaque ni exploitation décrite",
+    "date": "2026-11-16T10:15:00+00:00"
+  },
+  {
+    "id": "dd88cdaa7c564ac2",
+    "title": "New NoisyTCP vulnerability lets attackers crash Linux servers",
+    "link": "https://www.bleepingcomputer.com/news/linux/new-noisytcp-linux-kernel-flaw-lets-attackers-crash-servers/",
+    "source": "BleepingComputer",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-16T10:15:00+00:00"
   }
 ]

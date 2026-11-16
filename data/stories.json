@@ -46554,7 +46554,7 @@
         },
         {
           "etape": "Accès privilégié",
-          "texte": "Storm-0940, selon Microsoft : accès privilégié à l'infrastructure cloud d'organisations, parfois moins de trois heures après le ciblage initial [2]."
+          "texte": "Storm-0940, selon Microsoft : accès privilégié à l'infrastructure cloud d'une organisation, parfois moins de trois heures après le ciblage initial [2]."
         },
         {
           "etape": "Vol de secrets",
@@ -46610,7 +46610,7 @@
             "id": "inf",
             "type": "cloud",
             "zone": "victime",
-            "nom": "Infrastructure cloud d'organisations",
+            "nom": "Infrastructure cloud d'une organisation",
             "note": "Accès privilégié"
           }
         ],
@@ -46665,7 +46665,7 @@
         "Vapor Panda : plus de 200 organisations dans au moins 14 pays ; activité après compromission confirmée par CrowdStrike dans neuf organisations [1]",
         "Storm-3358 : surtout des organisations financières d'Asie du Sud-Est [1]",
         "Organisations financières sud-coréennes, campagne non attribuée avec exfiltration de données selon CrowdStrike ; les artefacts ARTEX ne prouvent pas seuls son usage [1]",
-        "Check Point : une campagne a généré 400 791 messages d'agents sur 292 cibles, sans intervention supplémentaire de l'opérateur [2]"
+        "Check Point : une campagne a généré 400 791 messages d'agents sur 292 objectifs, sans autre incitation de l'opérateur [2]"
       ],
       "abreviations": [
         {
@@ -47618,7 +47618,7 @@
       "created": "2026-11-16T07:20:00+00:00",
       "updated": "2026-11-16T14:09:11+00:00",
       "version": 2,
-      "resume": "Un inconnu a repris les anciens domaines de commande du ver USB Retadup, neutralisé par la police française en 2019, et s'en sert pour installer le chargeur CoffeeLoader sur les machines infectées [1, 2].",
+      "resume": "Un inconnu a repris les anciens domaines de commande du ver USB Retadup, neutralisé par les autorités françaises en 2019, et s'en sert pour installer le chargeur CoffeeLoader sur les machines infectées [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -47630,7 +47630,7 @@
         },
         {
           "etape": "Livraison du chargeur",
-          "texte": "Le 10 août 2026, le serveur de commande ordonne au ver de télécharger update.exe, un installateur qui dépose une bibliothèque 7-Zip modifiée [1]."
+          "texte": "En août 2026, Kaspersky détecte une nouvelle variante de CoffeeLoader : un installateur dépose une bibliothèque 7-Zip modifiée [1]."
         },
         {
           "etape": "Persistance",
@@ -47696,7 +47696,7 @@
             "de": "c2",
             "vers": "pc",
             "etape": 3,
-            "texte": "Ordre de télécharger update.exe"
+            "texte": "Livraison de CoffeeLoader"
           },
           {
             "de": "c2b",
@@ -48607,7 +48607,7 @@
       "created": "2026-11-16T14:09:11+00:00",
       "updated": "2026-11-16T14:09:11+00:00",
       "version": 1,
-      "resume": "Un groupe suspecté d'être Midnight Neptune, lié à la Corée du Nord, a visé des organisations de cryptomonnaies en Amérique du Nord et en Europe [1]. BleepingComputer attribue ces attaques à UNC6836, aux liens suspectés avec Midnight Neptune [2].",
+      "resume": "Un groupe suspecté d'être Midnight Neptune a visé des organisations de cryptomonnaies en Amérique du Nord et en Europe [1]. BleepingComputer attribue ces attaques à UNC6836, aux liens suspectés avec Midnight Neptune [2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -48688,7 +48688,7 @@
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Groupe suspecté Midnight Neptune, lié à la Corée du Nord selon Google [1]",
+        "Groupe suspecté Midnight Neptune, selon Google [1]",
         "UNC6836, groupe d'activité aux liens suspectés avec Midnight Neptune, selon BleepingComputer [2]"
       ],
       "cibles": [

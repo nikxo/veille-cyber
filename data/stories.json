@@ -44401,9 +44401,9 @@
       "id": "2026-11-12-sansar-cryptominage-linux-ray",
       "title": "SANSAR : un agent Ray sans authentification mène à du cryptominage caché sur des hôtes Linux à processeurs graphiques",
       "created": "2026-11-12T14:15:00+00:00",
-      "updated": "2026-11-12T14:15:00+00:00",
-      "version": 1,
-      "resume": "Elastic Security Labs décrit REF3364, une intrusion de cryptominage sur trois hôtes Linux dotés de GPU, pilotée via Tor par l'orchestrateur SANSAR et masquée par un rootkit noyau [1].",
+      "updated": "2026-11-16T11:10:00+00:00",
+      "version": 2,
+      "resume": "Elastic Security Labs décrit REF3364, une intrusion de cryptominage sur trois hôtes Linux dotés de GPU, pilotée via Tor par l'orchestrateur SANSAR et masquée par un rootkit noyau [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -44419,15 +44419,15 @@
         },
         {
           "etape": "Mesures GPU falsifiées",
-          "texte": "Bibliothèque NVML remplacée par une version qui modifie les résultats → utilisation GPU affichée à 0 %, température et consommation aléatoires [1]."
+          "texte": "Bibliothèque NVML remplacée par une version qui modifie les résultats → utilisation GPU affichée à 0 %, température et consommation aléatoires [1, 2]."
         },
         {
           "etape": "Cryptominage",
-          "texte": "SANSAR joint un service onion via Tor → supervision des mineurs XMRig (processeur) et SRBMiner-MULTI (GPU) [1]."
+          "texte": "SANSAR joint un service onion via Tor → supervision des mineurs XMRig (processeur) et SRBMiner-MULTI (GPU), et lancement possible d'une tâche de trafic TCP SYN vers une adresse donnée [1, 2]."
         },
         {
           "etape": "Porte dérobée",
-          "texte": "Service systemd netns : lit une adresse IPv4 dans un contrat Ethereum et s'y connecte sur le port 8080 → shell distant [1]."
+          "texte": "Service systemd netns : lit une adresse IPv4 dans un contrat Ethereum et s'y connecte sur le port 8080 → shell distant [1, 2]."
         }
       ],
       "parcours": {
@@ -44509,7 +44509,8 @@
         "T1496.001 : Resource Hijacking: Compute Hijacking, détournement de la puissance de calcul de la victime [1]"
       ],
       "acteurs": [
-        "REF3364, identifiant de suivi d'Elastic Security Labs, sans attribution [1]"
+        "REF3364, identifiant de suivi d'Elastic Security Labs ; les responsables de l'opération ne sont pas identifiés [1, 2]",
+        "Commentaires en turc trouvés par Elastic dans le code source du rootkit, sans conclusion d'attribution [2]"
       ],
       "cibles": [
         "Trois hôtes Linux dotés de GPU ; premières sondes le 22 octobre 2026, shell inversé le 25 octobre 2026 [1]"
@@ -44538,6 +44539,10 @@
         {
           "sigle": "REF3364",
           "definition": "Identifiant de suivi donné par Elastic à cette intrusion"
+        },
+        {
+          "sigle": "TCP SYN",
+          "definition": "Paquet qui demande l'ouverture d'une connexion TCP"
         }
       ],
       "sources": [
@@ -44547,6 +44552,13 @@
           "url": "https://www.elastic.co/security-labs/threat-command/sansar-linux-cryptomining-malware",
           "date": "2026-11-12",
           "image": "https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/bltddb9abc04b8735ee/6af599b96166e406af197daa/image1.png"
+        },
+        {
+          "titre": "SANSAR Linux Cryptomining Malware Uses Modified NVIDIA Library to Hide GPU Activity",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/sansar-linux-cryptomining-malware-uses.html",
+          "date": "2026-11-16",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmpR04waLSDZNCb2048kfy5iSlIXa_Ek3PI5qLRaBksxvyI9k_8Z6bwl6Og4Mc-AGqmHcpL7YlYVd48895FJtKlOoaqgi658-H3FZTxdjf_w32w5eJYzm_BUdXlH7M7Vb40uPUI73CDbXtQCdZAEkFruSBXvc0_B84hCQ-em0ZQk2uTIIHxRdGCxQ6bx1C/s1700-nu-rw-lo-l85-e365/nv.jpg"
         }
       ]
     },

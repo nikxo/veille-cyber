@@ -47683,6 +47683,304 @@
           "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/11/12144618/retadup-1_securelist-featured_1200x600_x2.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-16-bo-team-log4shell-signature-code",
+      "title": "BO Team : un éditeur de logiciels russe compromis jusqu'à son serveur de signature de code, via SSH et Log4Shell",
+      "created": "2026-11-16T08:20:00+00:00",
+      "updated": "2026-11-16T08:20:00+00:00",
+      "version": 1,
+      "resume": "Selon Kaspersky, le groupe BO Team a compromis pendant plusieurs mois toute l'infrastructure informatique d'un éditeur de logiciels russe, dont son serveur de signature de code, et volé des informations confidentielles [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Utilisation d'un service SSH exposé → compromission du serveur terminal Linux de l'organisation [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Exploitation de Log4Shell (CVE-2021-44228) sur un serveur VMware vCenter 7.0.3 → ligne de commande distante avec privilèges root, puis connexion SSH à l'hyperviseur [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Script déposé dans le répertoire /etc/cron.hourly/ → téléchargement et exécution d'un second script, qui lance l'utilitaire GSocket [1]."
+        },
+        {
+          "etape": "Accès au code source",
+          "texte": "Secrets trouvés sur des machines virtuelles compromises → compromission de la machine GitLab, accès à du code source et vol de sa clé privée, utilisée pour se connecter à Ansible [1]."
+        },
+        {
+          "etape": "Domaine Windows",
+          "texte": "Connexion au contrôleur de domaine avec le compte d'un administrateur système et déchiffrement de la base Active Directory [1]. Un même mot de passe servait aux administrateurs de plusieurs domaines [1]."
+        },
+        {
+          "etape": "Serveur de signature",
+          "texte": "Compromission du serveur qui signe les versions compilées du logiciel commercial de la victime [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (BO Team)",
+            "note": ""
+          },
+          {
+            "id": "term",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur terminal Linux",
+            "note": "Service SSH exposé"
+          },
+          {
+            "id": "vc",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur VMware vCenter",
+            "note": "Accès root"
+          },
+          {
+            "id": "hyp",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Hyperviseur",
+            "note": ""
+          },
+          {
+            "id": "git",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Machine virtuelle GitLab",
+            "note": "Clé privée volée"
+          },
+          {
+            "id": "dc",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Contrôleur de domaine",
+            "note": "Base Active Directory"
+          },
+          {
+            "id": "sign",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur de signature",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "term",
+            "etape": 1,
+            "texte": "Service SSH exposé"
+          },
+          {
+            "de": "att",
+            "vers": "vc",
+            "etape": 2,
+            "texte": "Exploitation de Log4Shell"
+          },
+          {
+            "de": "att",
+            "vers": "hyp",
+            "etape": 2,
+            "texte": "Connexion SSH à l'hyperviseur"
+          },
+          {
+            "de": "att",
+            "vers": "git",
+            "etape": 4,
+            "texte": "Secrets trouvés sur des machines virtuelles compromises"
+          },
+          {
+            "de": "att",
+            "vers": "dc",
+            "etape": 5,
+            "texte": "Compte d'un administrateur système"
+          },
+          {
+            "de": "att",
+            "vers": "sign",
+            "etape": 6,
+            "texte": "Compromission du serveur de signature"
+          }
+        ]
+      },
+      "limites": "Kaspersky estime que BO Team a pu vouloir injecter du code malveillant dans un logiciel publié par la victime. Les attaquants ont perdu l'accès à l'infrastructure compromise [1].",
+      "cves": [
+        {
+          "id": "CVE-2021-44228",
+          "explication": "Apache Log4j2 : un attaquant qui contrôle un message journalisé peut faire exécuter du code chargé depuis un serveur LDAP, gravité critique 10 sur 10 [2]."
+        }
+      ],
+      "mitre": [
+        "T1003.003 NTDS : extraction des identifiants depuis la base Active Directory ntds.dit [1]"
+      ],
+      "acteurs": [
+        "BO Team, aussi appelé Black Owl, Hoody Hyena et Lifting Zmiy [1]"
+      ],
+      "cibles": [
+        "Un éditeur de logiciels russe, non nommé [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole de connexion à distance chiffrée"
+        },
+        {
+          "sigle": "LDAP",
+          "definition": "Lightweight Directory Access Protocol : protocole d'interrogation d'annuaires"
+        },
+        {
+          "sigle": "BO",
+          "definition": "Élément du nom du groupe BO Team, aussi appelé Black Owl"
+        },
+        {
+          "sigle": "NTDS",
+          "definition": "Base de données de l'annuaire Active Directory (fichier ntds.dit)"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "BO Team Exploits Log4Shell in VMware vCenter, Compromises Russian Firm's Code-Signing Server",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/bo-team-exploits-log4shell-in-vmware.html",
+          "date": "2026-11-16",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAvzoKykaMIpa6xx92YudipfUoEQnSkrE6p2CiWEVra5izr5GfuNQGOnfRuF0XV99v1IPRFe2Q6BF27UEq3BnWFS5onw97dt3hvszilQDANdtRdYi0_hTDOrKQvuwGn1mY_m-QTabV3jwWCNwXs_OizK2GLF3Eks5HJj5I7kbmA2IztruSBVjq5WOcxEM-/s1700-nu-rw-lo-l85-e365/log4shell.jpg"
+        },
+        {
+          "titre": "Fiche NVD CVE-2021-44228",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-44228"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-16-agents-ia-cles-applications-ia",
+      "title": "Amazon : des agents d'IA attaquent LiteLLM, One API et Dify pour voler les clés de fournisseurs d'IA",
+      "created": "2026-11-16T08:20:00+00:00",
+      "updated": "2026-11-16T08:20:00+00:00",
+      "version": 1,
+      "resume": "Selon des enregistrements d'agents captés par Amazon, des agents d'IA d'attaquants cherchent les points faibles d'applications d'IA exposées sur Internet, comme LiteLLM, One API et Dify, pour voler les clés de fournisseurs d'IA qui y sont stockées [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Points d'entrée listés dans un guide présent dans les enregistrements : identifiants d'administration par défaut, contournement d'authentification des systèmes de la famille One API, failles connues de Langflow et RAGFlow [1]."
+        },
+        {
+          "etape": "Vol des clés",
+          "texte": "Extraction des clés de fournisseurs stockées dans l'application, vérification de leur fonctionnement → ajout à une réserve partagée [1]."
+        },
+        {
+          "etape": "Réutilisation des clés",
+          "texte": "Les clés volées font tourner les modèles d'IA qui pilotent la recherche d'autres clés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Agents d'IA des attaquants",
+            "note": ""
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "expose",
+            "nom": "Applications d'IA exposées",
+            "note": "LiteLLM, One API, Dify"
+          },
+          {
+            "id": "cles",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Clés de fournisseurs d'IA",
+            "note": ""
+          },
+          {
+            "id": "mod",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Modèles d'IA",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 1,
+            "texte": "Identifiants par défaut, contournement, failles connues"
+          },
+          {
+            "de": "app",
+            "vers": "cles",
+            "etape": 2,
+            "texte": "Extraction et vérification des clés stockées"
+          },
+          {
+            "de": "cles",
+            "vers": "mod",
+            "etape": 3,
+            "texte": "Clés volées utilisées pour les modèles"
+          },
+          {
+            "de": "mod",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Modèles pilotant la recherche d'autres clés"
+          }
+        ]
+      },
+      "limites": "Amazon n'a pas observé l'activité au moment où elle se déroulait et ne peut pas vérifier les résultats rapportés par les agents, dont ses serveurs leurres ont capté les enregistrements [1].",
+      "cves": [
+        {
+          "id": "CVE-2025-3248",
+          "explication": "Langflow : authentification manquante permettant à un attaquant distant d'exécuter du code ; versions antérieures à 1.3.0 touchées [1]."
+        },
+        {
+          "id": "CVE-2026-28797",
+          "explication": "RAGFlow : injection de modèle côté serveur permettant à tout utilisateur connecté d'exécuter des commandes système ; l'inscription libre est activée par défaut [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Groupes distincts liés à la Chine, selon Amazon avec une confiance modérée [1]",
+        "Agents fonctionnant avec ARTEX, outil open source de test d'intrusion, selon Amazon avec une confiance modérée [1]"
+      ],
+      "cibles": [
+        "Passerelles et proxys de modèles de langage : One API, New API, Veloera, Sub2API, LiteLLM [1]",
+        "Plusieurs centaines de cibles, plateformes d'applications d'IA et autres systèmes [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "API",
+          "definition": "Application Programming Interface : interface permettant à des programmes de communiquer"
+        },
+        {
+          "sigle": "ARTEX",
+          "definition": "Nom d'un outil open source de test d'intrusion piloté par IA"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Amazon Uncovers AI Agent Campaign Targeting LiteLLM, Dify, and Other Apps for API Keys",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/amazon-uncovers-ai-agent-campaign.html",
+          "date": "2026-11-16",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigoyCtEKcD7TM_5vDkKiZYFdk_l4-js7HNuvMXzZbVqUbEgq1nnD2vEZgZ0kL9CdmOkITC0Rbd-ebTkSX-R4NPKwWZXzUD6zS0g9nEfnlXw3njm3oW2Se97qbT7lIfZEL56X3IIaZAildTni9-zQJu5sa4Lhvi_mVlbTeZFyFtezOMHJ_bDhJWfG7KQ8eh/s1700-nu-rw-lo-l85-e365/amazon.jpg"
+        }
+      ]
     }
   ]
 }

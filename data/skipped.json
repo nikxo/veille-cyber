@@ -1,21 +1,5 @@
 [
   {
-    "id": "4a8154151413dd37",
-    "title": "Unpatched Tailscale SSH Flaws Could Let a Hacked Device Reach Root on Other Servers",
-    "link": "https://thehackernews.com/2026/10/unpatched-tailscale-ssh-flaws-could-let.html",
-    "source": "The Hacker News",
-    "raison": "faille testée en laboratoire, aucune exploitation constatée",
-    "date": "2026-10-25T19:07:18+00:00"
-  },
-  {
-    "id": "5aed10a4ae18c60f",
-    "title": "Infrastructures IA : comment concevoir un datacenter pour l’inférence ?",
-    "link": "https://www.lemagit.fr/conseil/Infrastructures-IA-comment-concevoir-un-datacenter-pour-linference",
-    "source": "LeMagIT",
-    "raison": "conseil générique sans attaque",
-    "date": "2026-10-26T02:30:00+00:00"
-  },
-  {
     "id": "ee365f63abf45856",
     "title": "Processeur 100% européen : le Rhea2 de SiPearl sera développé avec Taiwan",
     "link": "https://www.lemagit.fr/actualites/366652772/Processeur-100-europeen-le-Rhea2-de-SiPearl-sera-developpe-avec-Taiwan",
@@ -3998,5 +3982,21 @@
     "source": "BleepingComputer",
     "raison": "article inaccessible (erreur 403) ; le résumé du flux mentionne seulement un incident de cybersécurité en cours d'enquête, sans détail sur une attaque",
     "date": "2026-11-16T12:15:00+00:00"
+  },
+  {
+    "id": "44f3c6d8a101a469",
+    "title": "IA : Gemini 4 Hydrogen pèche (lui aussi) par gourmandise",
+    "link": "https://www.lemagit.fr/actualites/366654780/IA-Gemini-4-Hydrogen-peche-lui-aussi-par-gourmandise",
+    "source": "LeMagIT",
+    "raison": "annonce produit (modèle d'IA Gemini 4 Hydrogen), aucune attaque décrite",
+    "date": "2026-11-16T13:20:00+00:00"
+  },
+  {
+    "id": "9019a38c65afeab4",
+    "title": "Microsoft: Windows Server 2016 reaches end of support in 60 days",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-server-2016-reaches-end-of-support-in-60-days/",
+    "source": "BleepingComputer",
+    "raison": "rappel de fin de support de Windows Server 2016, aucune attaque ni vulnérabilité exploitée",
+    "date": "2026-11-16T13:20:00+00:00"
   }
 ]

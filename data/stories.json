@@ -48380,6 +48380,98 @@
           "image": "https://www.securityweek.com/wp-content/uploads/2023/05/Uber-CSO_Convicted-Joe-Sullivan.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-16-telegram-widgets-webrat",
+      "title": "Telegram : Kaspersky soupçonne les nouveaux widgets de servir à diffuser le maliciel WebRAT",
+      "created": "2026-11-16T13:20:00+00:00",
+      "updated": "2026-11-16T13:20:00+00:00",
+      "version": 1,
+      "resume": "Kaspersky soupçonne qu'une faille des nouveaux widgets de Telegram a été exploitée pour diffuser le maliciel WebRAT [1]. Les chercheurs de V12 ont montré une exécution de code sur Android, et Pavel Durov rejette ces rapports [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Selon Kaspersky, l'exploitation survient lorsque des utilisateurs visitent certains canaux Telegram [1]."
+        },
+        {
+          "etape": "Exécution de code",
+          "texte": "Un script PowerShell s'exécute à l'insu de l'utilisateur → téléchargement et lancement de WebRAT, aussi appelé Salat Stealer [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "WebRAT, cheval de Troie écrit en Rust, donne le contrôle du système infecté et peut voler des données de portefeuilles de cryptomonnaies et de comptes Telegram [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "canal",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Canaux Telegram",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Appareil de l'utilisateur",
+            "note": "WebRAT lancé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "pc",
+            "vers": "canal",
+            "etape": 1,
+            "texte": "Visite de certains canaux Telegram"
+          },
+          {
+            "de": "canal",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Script PowerShell, téléchargement et lancement de WebRAT"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Contrôle du système, vol de données possible"
+          }
+        ]
+      },
+      "limites": "Kaspersky ne donne ni détail technique sur l'exploitation ni nombre d'utilisateurs ciblés [1]. Selon Durov, une attaque exige que l'utilisateur démarre d'abord un service tiers, scénario qu'il dit corrigé côté serveur [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié : la source n'attribue WebRAT à aucun groupe [1]"
+      ],
+      "cibles": [
+        "Utilisateurs de Telegram visitant certains canaux, nombre non précisé [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "V12",
+          "definition": "Nom sous lequel la source désigne les chercheurs auteurs des démonstrations"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Telegram Widgets Hit by RCE Demos, Malware Warning Days After Launch",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/telegram-widgets-hit-by-rce-demos-malware-warning-days-after-launch/",
+          "date": "2026-11-16",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/08/Telegram-legal-e1794833200840.jpg"
+        }
+      ]
     }
   ]
 }

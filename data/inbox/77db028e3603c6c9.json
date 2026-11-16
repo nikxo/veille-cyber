@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-11-16T17:06:02+00:00",
+  "feed_summary": "Overview As part of our research into Zimbra Collaboration Suite , Rapid7 reported five findings in ONLYOFFICE Docs. An attacker with view-only access to a document can chain vulnerabilities in ONLYOFFICE Docs to execute arbitrary operating system commands as root inside the official DocumentServer container. The findings also expose server files and document data that the viewer never displays, even when downloading is disabled. CVE Finding CVSS CVE-2026-113627 DocBuilder native file read and Session JWT forgery 7.1 High CVE-2026-110385 DocBuilder SaveFile conversion parameter injection and code execution 8.7 High CVE-2026-97727 Complete-save format path traversal and arbitrary file write 6.5 Medium CVE-2026-113630 Root-helper command injection 7.8 High CVE-2026-113631 View-only export of",
+  "id": "77db028e3603c6c9",
+  "image": "https://www.rapid7.com/cdn/images/bltbd9a93a704987023/69ca49e33a2be22fa16ee2f6/rapid7-logo.png",
+  "lang": "en",
+  "link": "https://www.rapid7.com/blog/post/ve-from-view-only-access-to-container-root-five-vulnerabilities-in-onlyoffice-docs-fixed",
+  "published": "2026-11-16T16:24:38+00:00",
+  "source": "Rapid7",
+  "source_type": "analyse",
+  "title": "From view-only access to container root: five vulnerabilities in ONLYOFFICE Docs (FIXED)"
+}

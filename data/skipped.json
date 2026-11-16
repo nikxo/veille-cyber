@@ -1,37 +1,5 @@
 [
   {
-    "id": "3576934612fc89d7",
-    "title": "Weekly Recap: This2Shell, That2Shell, Everything's an RCE? Rogue AI, Supply Chain Chaos and More",
-    "link": "https://thehackernews.com/2026/10/weekly-recap-this2shell-that2shell.html",
-    "source": "The Hacker News",
-    "raison": "récapitulatif hebdomadaire multi-sujets",
-    "date": "2026-10-26T15:17:10+00:00"
-  },
-  {
-    "id": "f7a9494122bc3719",
-    "title": "Stolen AI Reasoning Could Help China Build Cheaper Rivals",
-    "link": "https://www.securityweek.com/stolen-ai-reasoning-could-help-china-build-cheaper-rivals/",
-    "source": "SecurityWeek",
-    "raison": "recherche sans exploitation constatée",
-    "date": "2026-10-26T15:17:10+00:00"
-  },
-  {
-    "id": "177485d16a0af08a",
-    "title": "Microsoft releases emergency .NET patches for critical Brotli flaw",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-emergency-net-patches-for-critical-brotli-flaw/",
-    "source": "BleepingComputer",
-    "raison": "vulnérabilité sans exploitation constatée dans la nature",
-    "date": "2026-10-26T16:15:00+00:00"
-  },
-  {
-    "id": "01c3bcbb08d462b8",
-    "title": "Covéa mise sur le Virtual Patching pour faire face à l’explosion des vulnérabilités",
-    "link": "https://www.lemagit.fr/etude/Covea-mise-sur-le-Virtual-Patching-pour-faire-face-a-lexplosion-des-vulnerabilites",
-    "source": "LeMagIT",
-    "raison": "retour d'expérience sur une stratégie de sécurité, sans détail sur la méthode d'attaque",
-    "date": "2026-10-26T16:15:00+00:00"
-  },
-  {
     "id": "5d6b2a0bb6b07bae",
     "title": "Ukraine disputes Musk's claims of Starlink misuse as military connectivity restored",
     "link": "https://therecord.media/ukraine-disputes-musk-claims-of-starlink-misuse",
@@ -3998,5 +3966,37 @@
     "source": "ZATAZ",
     "raison": "opération d'influence présumée, aucune intrusion ni méthode d'attaque informatique décrite",
     "date": "2026-11-16T16:09:46+00:00"
+  },
+  {
+    "id": "77db028e3603c6c9",
+    "title": "From view-only access to container root: five vulnerabilities in ONLYOFFICE Docs (FIXED)",
+    "link": "https://www.rapid7.com/blog/post/ve-from-view-only-access-to-container-root-five-vulnerabilities-in-onlyoffice-docs-fixed",
+    "source": "Rapid7",
+    "raison": "vulnérabilités corrigées publiées par des chercheurs, aucune exploitation constatée dans la nature",
+    "date": "2026-11-16T17:12:00+00:00"
+  },
+  {
+    "id": "fea1e58f91c67b79",
+    "title": "Microsoft says months-old bug caused global Microsoft 365 outage",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-says-months-old-bug-caused-global-microsoft-365-outage/",
+    "source": "BleepingComputer",
+    "raison": "panne due à un bogue logiciel, aucune attaque décrite",
+    "date": "2026-11-16T17:12:00+00:00"
+  },
+  {
+    "id": "cb085db9c0140186",
+    "title": "UK leaves client-side scanning out of new child safety rules",
+    "link": "https://therecord.media/uk-ofcom-child-safety-rules-client-side-scanning-left-out",
+    "source": "The Record",
+    "raison": "actualité réglementaire, aucune attaque décrite",
+    "date": "2026-11-16T17:12:00+00:00"
+  },
+  {
+    "id": "b5a66be7cc09803c",
+    "title": "IA : les États-Unis veulent laisser les modèles jouer en paix",
+    "link": "https://www.lemagit.fr/actualites/366654711/IA-les-Etats-Unis-veulent-laisser-les-modeles-jouer-en-paix",
+    "source": "LeMagIT",
+    "raison": "actualité politique sur la régulation de l'IA, aucune méthode d'attaque décrite",
+    "date": "2026-11-16T17:12:00+00:00"
   }
 ]

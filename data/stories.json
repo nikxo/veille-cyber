@@ -40586,13 +40586,13 @@
       "id": "2026-11-10-turla-cereal-exchange",
       "title": "Turla : l'outil Cereal intercepte les courriels de serveurs Exchange gouvernementaux",
       "created": "2026-11-10T10:30:00+00:00",
-      "updated": "2026-11-12T14:15:00+00:00",
-      "version": 5,
-      "resume": "Le groupe Turla a utilisé un nouvel ensemble d'outils, Cereal, pour intercepter des courriels sur des serveurs Exchange d'organismes gouvernementaux au Kazakhstan et en Roumanie [1, 2, 3, 4]. Le renseignement roumain dit avoir stoppé l'attaque [5].",
+      "updated": "2026-11-16T17:12:00+00:00",
+      "version": 6,
+      "resume": "Le groupe Turla a utilisé un nouvel ensemble d'outils, Cereal, pour intercepter des courriels sur des serveurs Exchange d'organismes gouvernementaux au Kazakhstan et en Roumanie [1, 2, 3, 4]. Le renseignement roumain dit avoir stoppé l'attaque [5, 6] ; l'ambassade de Russie dément [6].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 3, 4] ; le renseignement roumain évoque l'exploitation de failles de systèmes Microsoft, sans autre détail [5]."
+          "texte": "Non précisé par les sources [1, 3, 4] ; le renseignement roumain évoque l'exploitation de failles de logiciels Microsoft en décembre 2025, sans autre détail [5, 6]."
         },
         {
           "etape": "Chargement des outils",
@@ -40660,7 +40660,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni l'accès initial, ni le déplacement dans le réseau [1, 2, 3, 4]. Le renseignement roumain dit n'avoir identifié aucune exfiltration de données sensibles [5].",
+      "limites": "Les sources ne précisent ni l'accès initial, ni le déplacement dans le réseau [1, 2, 3, 4]. Le renseignement roumain dit n'avoir trouvé aucune preuve de vol d'informations sensibles [5, 6].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -40728,6 +40728,13 @@
           "url": "https://therecord.media/romania-russia-cyberattack-emails",
           "date": "2026-11-12",
           "image": "https://cms.therecord.media/uploads/Romania_European_Commission_8f0c949789.jpg"
+        },
+        {
+          "titre": "Russia denies intercepting Romanian government emails",
+          "site": "The Record",
+          "url": "https://therecord.media/romania-russia-cyberattack-espionage",
+          "date": "2026-11-16",
+          "image": "https://cms.therecord.media/uploads/Romania_flag_8e4d3e5ecd.jpg"
         }
       ]
     },
@@ -46261,17 +46268,17 @@
       "id": "2026-11-13-quantum-systems-mise-a-jour-qbase",
       "title": "Quantum Systems : le fabricant allemand de drones visé par une cyberattaque, une mise à jour malveillante de QBase évoquée par la presse",
       "created": "2026-11-13T18:15:00+00:00",
-      "updated": "2026-11-13T18:15:00+00:00",
-      "version": 1,
-      "resume": "Le fabricant allemand de drones Quantum Systems confirme avoir détecté fin octobre un incident lié à une cyberattaque active d'« acteurs hostiles » [1]. Selon des informations de presse, l'armée allemande a cloué ses drones au sol par précaution [1].",
+      "updated": "2026-11-16T17:12:00+00:00",
+      "version": 2,
+      "resume": "Le fabricant allemand de drones Quantum Systems a reconnu le 12 novembre 2026 une cyberattaque découverte fin octobre, qu'il dit avoir contenue [1, 2]. Selon la presse, l'armée allemande a immobilisé des drones par précaution [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Selon Der Spiegel et le Financial Times, compromission via un fichier de mise à jour QBase malveillant ; d'après l'article, par le serveur de distribution de l'éditeur [1]."
+          "texte": "Selon Der Spiegel et le Financial Times, compromission via un fichier de mise à jour QBase malveillant [1, 2] ; d'après un article, par le serveur de distribution de l'éditeur [1]."
         },
         {
           "etape": "Diffusion aux clients",
-          "texte": "Selon Der Spiegel, une mise à jour non planifiée a été livrée aux clients ; le nombre de ceux qui l'ont installée est inconnu [1]."
+          "texte": "Selon la presse, une mise à jour inattendue a été livrée à des clients → alertes déclenchées [2] ; le nombre d'installations concernées est inconnu [1, 2]."
         }
       ],
       "parcours": {
@@ -46288,7 +46295,7 @@
             "type": "serveur",
             "zone": "victime",
             "nom": "Serveur de mises à jour",
-            "note": "Selon l'article"
+            "note": "Selon un article"
           },
           {
             "id": "cli",
@@ -46309,17 +46316,17 @@
             "de": "srv",
             "vers": "cli",
             "etape": 2,
-            "texte": "Mise à jour non planifiée, selon Der Spiegel"
+            "texte": "Mise à jour inattendue, selon la presse"
           }
         ]
       },
-      "limites": "La source ne dit pas comment le serveur de mises à jour a été atteint ni ce que fait le fichier malveillant ; l'entreprise ne désigne aucun responsable [1].",
+      "limites": "Les sources ne disent pas comment le serveur de mises à jour a été atteint [1, 2]. Aucun responsable n'est identifié ; l'immobilisation des drones ne figure pas dans le communiqué du fabricant [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
       "cibles": [
         "Quantum Systems, fabricant allemand de drones, qui pense avoir été visé pour son soutien à l'Ukraine [1]",
-        "Armée allemande, qui utilise les drones de l'entreprise [1]"
+        "Armée allemande, qui utilise les drones de l'entreprise [1] et les aurait écartés d'un exercice militaire selon la presse [2]"
       ],
       "abreviations": [],
       "sources": [
@@ -46329,6 +46336,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/german-military-drone-operations-disrupted-by-cyberattack/",
           "date": "2026-11-13",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/13/quantumsystems.jpg"
+        },
+        {
+          "titre": "Quantum Systems : une cyberattaque inquiète l’armée allemande",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/quantum-systems-une-cyberattaque-inquiete-larmee-allemande/",
+          "date": "2026-11-16",
+          "image": "https://www.zataz.com/wp-content/uploads/drone_all_patch.jpg"
         }
       ]
     },
@@ -49130,6 +49144,87 @@
           "url": "https://www.bleepingcomputer.com/news/security/fandango-says-hackers-stole-payment-card-details-from-checkout-pages/",
           "date": "2026-11-16",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/16/fandango.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-16-expedia-n0n-fournisseur-donnees",
+      "title": "Expedia : cyberattaque passant par un fournisseur de plateforme de données, le groupe n0n revendique près d'un milliard d'enregistrements",
+      "created": "2026-11-16T17:12:00+00:00",
+      "updated": "2026-11-16T17:12:00+00:00",
+      "version": 1,
+      "resume": "Expedia confirme une cyberattaque impliquant un fournisseur tiers de plateforme de données [1]. Le groupe d'extorsion n0n affirme avoir volé près d'un milliard d'enregistrements de voyageurs, de programmes de fidélité et de comptes de consommateurs, volumes qu'Expedia ne valide pas [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "L'attaque aurait commencé chez un fournisseur de données ayant des accès autorisés à plusieurs entreprises ; selon Wiz et Sentra, avec une clé compromise d'un fournisseur associé à Qubole [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "n0n affirme avoir récupéré plus de 830 millions d'enregistrements de programmes de fidélité, 58 millions de profils de voyageurs et plus de 333 millions d'enregistrements de comptes [1]."
+        },
+        {
+          "etape": "Vol de code source",
+          "texte": "Les pirates affirment aussi avoir obtenu du code source par l'intermédiaire d'identifiants actifs [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (n0n)",
+            "note": ""
+          },
+          {
+            "id": "four",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Fournisseur de services de données",
+            "note": ""
+          },
+          {
+            "id": "exp",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données liées à Expedia",
+            "note": "Vol revendiqué"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "four",
+            "etape": 1,
+            "texte": "Attaque commencée chez le fournisseur, selon l'article"
+          },
+          {
+            "de": "four",
+            "vers": "exp",
+            "etape": 2,
+            "texte": "Enregistrements récupérés, selon n0n"
+          }
+        ]
+      },
+      "limites": "Expedia ne valide pas les volumes, et les catégories revendiquées peuvent se recouper [1]. La source ne dit ni la date de l'intrusion ni comment la clé a été compromise [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "n0n, groupe d'extorsion apparu en septembre 2026, qui privilégie le vol de données au chiffrement et revendique 208 attaques [1]"
+      ],
+      "cibles": [
+        "Expedia : enregistrements de voyageurs, de programmes de fidélité et de comptes de consommateurs revendiqués par n0n [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Expedia : un pirate revendique un vol massif de données",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/expedia-un-pirate-revendique-un-vol-massif-de-donnees/",
+          "date": "2026-11-16",
+          "image": "https://www.zataz.com/wp-content/uploads/expedia_leak.jpg"
         }
       ]
     }

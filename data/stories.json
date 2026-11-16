@@ -47559,6 +47559,130 @@
           "date": "2026-11-15"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-16-retadup-coffeeloader",
+      "title": "Retadup : l'ancien ver USB, démantelé en 2019, sert désormais à diffuser CoffeeLoader",
+      "created": "2026-11-16T07:20:00+00:00",
+      "updated": "2026-11-16T07:20:00+00:00",
+      "version": 1,
+      "resume": "Un inconnu a repris les anciens domaines de commande du ver USB Retadup, neutralisé par la police française en 2019, et s'en sert pour installer le chargeur CoffeeLoader sur les machines infectées [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Le ver Retadup se copie sur les clés USB et disques externes connectés, sous forme de fichiers cachés et de raccourcis [1]."
+        },
+        {
+          "etape": "Reprise du botnet",
+          "texte": "Il y a deux ans, un inconnu a commencé à réenregistrer les anciens domaines de commande de Retadup ; ces serveurs distribuent CoffeeLoader depuis début 2025 [1]."
+        },
+        {
+          "etape": "Livraison du chargeur",
+          "texte": "Le 10 août 2026, le serveur de commande ordonne au ver de télécharger update.exe, un installateur qui dépose une bibliothèque 7-Zip modifiée [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Copie de la bibliothèque sur le disque et clé de registre Run → lancement automatique, qu'une autre clé empêche de désactiver dans le Gestionnaire des tâches [1]."
+        },
+        {
+          "etape": "Exécution de charges",
+          "texte": "CoffeeLoader s'injecte dans un processus Windows et télécharge son module principal en HTTPS ; ce module exécute les charges reçues [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (non identifié)",
+            "note": ""
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Anciens domaines de Retadup",
+            "note": "Réenregistrés"
+          },
+          {
+            "id": "c2b",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de CoffeeLoader",
+            "note": "Module principal"
+          },
+          {
+            "id": "usb",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Clés USB, disques externes",
+            "note": "Copie du ver"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines infectées par Retadup",
+            "note": "CoffeeLoader installé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "pc",
+            "vers": "usb",
+            "etape": 1,
+            "texte": "Le ver se copie en fichiers cachés et raccourcis"
+          },
+          {
+            "de": "att",
+            "vers": "c2",
+            "etape": 2,
+            "texte": "Réenregistrement des anciens domaines de commande"
+          },
+          {
+            "de": "c2",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Ordre de télécharger update.exe"
+          },
+          {
+            "de": "c2b",
+            "vers": "pc",
+            "etape": 5,
+            "texte": "Module principal téléchargé en HTTPS"
+          }
+        ]
+      },
+      "limites": "La source ne sait pas si l'auteur du ver ou quelqu'un d'autre a relancé les serveurs, et ne précise pas quelle charge finale est livrée [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Opérateur non identifié : auteur du ver ou tiers, la source l'ignore [1]"
+      ],
+      "cibles": [
+        "Environ 15 000 systèmes où Kaspersky a bloqué Retadup sur les trois premiers trimestres de 2026, surtout au Pérou, en Angola, Russie et Bolivie [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "USB",
+          "definition": "Universal Serial Bus : connectique des clés et disques amovibles"
+        },
+        {
+          "sigle": "HTTPS",
+          "definition": "Protocole du Web chiffré"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "A USB worm’s second life: Retadup spreading CoffeeLoader",
+          "site": "Securelist (Kaspersky)",
+          "url": "https://securelist.com/retadup-delivers-coffeeloader/121908/",
+          "date": "2026-11-16",
+          "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/11/12144618/retadup-1_securelist-featured_1200x600_x2.jpg"
+        }
+      ]
     }
   ]
 }

@@ -43172,9 +43172,9 @@
       "id": "2026-11-11-screenconnect-prestataires-clients-pirates",
       "title": "ScreenConnect : des panneaux de prestataires compromis servent à installer des clients d'accès à distance pirates",
       "created": "2026-11-11T23:08:37+00:00",
-      "updated": "2026-11-13T22:15:00+00:00",
-      "version": 8,
-      "resume": "Des attaquants se servent de panneaux ScreenConnect compromis de prestataires de services managés pour installer des clients d'accès à distance pirates chez leurs clients [1]. Huntress compte au moins 288 machines dans 48 organisations [3, 4, 5], touchées en 90 minutes [5] ; 286 dans 47 selon [1].",
+      "updated": "2026-11-16T16:09:46+00:00",
+      "version": 9,
+      "resume": "Des attaquants utilisent des panneaux ScreenConnect compromis de prestataires de services managés pour installer des clients d'accès à distance pirates chez leurs clients [1]. Huntress compte au moins 288 machines dans 48 organisations [3, 4, 5, 10], touchées en 90 minutes environ [5, 10] ; 286 dans 47 selon [1].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -43265,7 +43265,7 @@
           }
         ]
       },
-      "limites": "Accès initial non confirmé [1, 3, 4, 6, 7, 9] ; ConnectWise relie l'activité à un abus de l'extension tierce RMM+ [6]. Aucun saut réussi vers un poste de technicien n'a été observé [3, 4, 7, 8].",
+      "limites": "Accès initial non confirmé [1, 3, 4, 6, 7, 9, 10] ; ConnectWise relie l'activité à un abus de l'extension tierce RMM+ [6]. Aucun saut réussi vers un poste de technicien n'a été observé [3, 4, 7, 8].",
       "cves": [
         {
           "id": "CVE-2026-84869",
@@ -43275,12 +43275,15 @@
       "mitre": [],
       "acteurs": [
         "La boîte à outils SCKit regroupe 16 scripts et composants ; le code de RelayTrap semble généré par un modèle de langage selon Huntress [8]",
-        "Microsoft confirme l'activité signalée par ConnectWise, sans nommer d'acteur [9]"
+        "Microsoft confirme l'activité signalée par ConnectWise, sans nommer d'acteur [9]",
+        "Aucun responsable formellement identifié pour la campagne du 11 novembre [10]"
       ],
       "cibles": [
         "Prestataires de services managés utilisant ScreenConnect et machines de leurs clients [1]",
         "Au moins 6 prestataires de services managés touchés selon Huntress [5]",
-        "ConnectWise a désactivé cinq extensions tierces dans environ 400 environnements de partenaires ; leur seule présence n'établit pas une compromission [6, 8]"
+        "ConnectWise a désactivé cinq extensions tierces dans environ 400 environnements de partenaires ; leur seule présence n'établit pas une compromission [6, 8]",
+        "Environ un tiers des machines atteint dans les dix premières minutes [10]",
+        "ConnectWise n'a trouvé aucune preuve de compromission de sa propre infrastructure ni de faille dans ScreenConnect lui-même [10]"
       ],
       "abreviations": [
         {
@@ -43351,6 +43354,13 @@
           "url": "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/",
           "date": "2026-11-13",
           "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/06/MS_Actional-Insights_Malware-ransomware-2.jpg"
+        },
+        {
+          "titre": "Télémaintenance : 288 entreprises visées par une attaque",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/telemaintenance-288-entreprises-visees-par-une-attaque/",
+          "date": "2026-11-16",
+          "image": "https://www.zataz.com/wp-content/uploads/telemaintenance_288_entreprise.jpg"
         }
       ]
     },
@@ -47150,13 +47160,13 @@
       "id": "2026-11-14-cursor-intrusion-cle-fireworks",
       "title": "Cursor : une clé volée chez Fireworks AI mène au vol de données et à l'extension Claude Code piégée",
       "created": "2026-11-14T18:20:00+00:00",
-      "updated": "2026-11-15T10:20:00+00:00",
-      "version": 2,
+      "updated": "2026-11-16T16:09:46+00:00",
+      "version": 3,
       "resume": "Cursor confirme une intrusion partie d'une clé d'accès exposée par Fireworks AI, lui-même piraté : des données internes ont été volées et une extension Claude Code piégée a exposé jusqu'à 5 000 développeurs à une porte dérobée SSH [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Obtention d'une clé d'accès que Cursor avait émise pour Fireworks AI et que ce dernier a exposée → copie des données d'un espace de stockage en lecture seule [1, 2]."
+          "texte": "Clé d'accès émise par Cursor pour Fireworks AI, compromise lors d'un des deux incidents d'octobre chez Fireworks [3] → copie des données d'un espace de stockage en lecture seule [1, 2, 3]."
         },
         {
           "etape": "Rebond chez Cursor",
@@ -47164,7 +47174,7 @@
         },
         {
           "etape": "Vol de données",
-          "texte": "Vol de dépôts de code archivés hors production, d'échanges du support, de coordonnées, de résumés de conversations d'agents et d'identifiants transmis au support [1, 2]."
+          "texte": "Vol de dépôts de code archivés hors production, d'échanges du support, de coordonnées, de résumés de conversations d'agents et d'identifiants transmis au support [1, 2, 3]."
         },
         {
           "etape": "Accès à la marketplace",
@@ -47172,7 +47182,7 @@
         },
         {
           "etape": "Extension piégée",
-          "texte": "Le 29 octobre, copies malveillantes de l'extension Claude Code (2.1.312 et 2.1.313) placées dans le cache servant la marketplace → disponibles environ 11 heures [1]."
+          "texte": "Le 29 octobre, copies malveillantes de l'extension Claude Code (2.1.312 et 2.1.313) placées dans le cache servant la marketplace → disponibles environ 11 heures [1, 3]."
         },
         {
           "etape": "Persistance",
@@ -47244,18 +47254,20 @@
           }
         ]
       },
-      "limites": "Les sources ne disent pas comment l'attaquant a obtenu la clé exposée par Fireworks AI et ne nomment pas l'acteur [1, 2].",
+      "limites": "Les sources ne nomment pas l'acteur [1, 2, 3] ; la source ne dit pas lequel des deux incidents chez Fireworks AI a compromis la clé de Cursor [3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non nommé ; l'incident survient au milieu d'une vague d'attaques contre des plateformes de développement d'intelligence artificielle que Wiz appelle « Black October » [1]"
+        "Non nommé ; l'incident survient au milieu d'une vague d'attaques contre des plateformes de développement d'intelligence artificielle que Wiz appelle « Black October » [1]",
+        "Activité découverte le 29 octobre, accès aussitôt bloqué par Cursor ; aucune activité de l'attaquant observée depuis le 1er novembre [3]"
       ],
       "cibles": [
         "Cursor : moins de 0,05 % des utilisateurs ont eu des traces d'agents exposées, moins de 0,01 % des clients des identifiants d'API compromis [1]",
         "Jusqu'à 5 000 développeurs exposés au maliciel [1]",
         "Selon des chercheurs, des erreurs de code ont probablement empêché la porte dérobée de fonctionner sur de nombreux Windows et macOS sans SSH déjà activé [1]",
         "Uber : informations de permis de conduire de milliers de chauffeurs volées via un fournisseur, Fireworks AI selon TechCrunch [2]",
-        "Notion a confirmé le vol de ses données dans le piratage de Fireworks AI [2]"
+        "Notion a confirmé le vol de ses données dans le piratage de Fireworks AI [2]",
+        "Anthropic n'a pas été piraté : toute l'activité malveillante s'est déroulée dans l'environnement de Cursor [3]"
       ],
       "abreviations": [
         {
@@ -47289,6 +47301,13 @@
           "url": "https://thehackernews.com/2026/11/stolen-fireworks-ai-key-led-to-cursor.html",
           "date": "2026-11-15",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg16ACawbG7rP_kT-8Boo4xdTje3BeTWyFSnNXwHhr5cvy2-1X3Ljhrc1IuZlseWd55tN8E1yjQ9ldhTnjWTU-GJBpX_Zen36YiLQGsRSRAoteqHyxx7mn_w0QgLfMKDLItA4p_jpHajucbglLnCR_zWBY_t82YvFkLa9dQFBfjP1BrTlrNdYufsGMSZiGn/s1700-nu-rw-lo-l85-e365/cursor.jpg"
+        },
+        {
+          "titre": "Cursor Supply Chain Attack Started at Fireworks AI",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/cursor-supply-chain-attack-started-at-fireworks/",
+          "date": "2026-11-16",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
         }
       ]
     },
@@ -48826,6 +48845,291 @@
           "url": "https://therecord.media/lithuania-customs-agency-cyberattack",
           "date": "2026-11-16",
           "image": "https://cms.therecord.media/uploads/lithuanian_customs_vehicle_a3900e01a6.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-16-barracuda-intrusion-artex",
+      "title": "Barracuda : une clé d'accès cloud exposée ouvre une intrusion menée avec Artex dans une dizaine de comptes cloud",
+      "created": "2026-11-16T16:09:46+00:00",
+      "updated": "2026-11-16T16:09:46+00:00",
+      "version": 1,
+      "resume": "Barracuda a subi, entre le 1er et le 2 novembre, une intrusion menée avec Artex, framework de test d'intrusion à agents d'intelligence artificielle : environ 10 comptes cloud touchés en 44 heures environ, identifiants et secrets exfiltrés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Utilisation d'une clé d'accès cloud valide et exposée → cartographie de ce qu'elle permettait d'atteindre [1]."
+        },
+        {
+          "etape": "Rebond par secrets",
+          "texte": "Réutilisation des secrets découverts → accès à d'autres systèmes et exfiltration d'identifiants et de secrets supplémentaires [1]."
+        },
+        {
+          "etape": "Collecte de secrets",
+          "texte": "Ciblage des coffres de secrets, des configurations, des comptes de service Kubernetes et des services de métadonnées des serveurs [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Porte dérobée laissée dans un cluster Kubernetes [1]."
+        },
+        {
+          "etape": "Recherche de portefeuilles",
+          "texte": "Accès shell obtenu sur certains serveurs → recherche de fichiers de clés Ethereum, de phrases de récupération, de clés privées étendues et d'autres informations de portefeuilles [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Outil Artex"
+          },
+          {
+            "id": "cl",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Comptes cloud de Barracuda",
+            "note": "Environ 10 comptes"
+          },
+          {
+            "id": "k8",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Cluster Kubernetes",
+            "note": "Porte dérobée"
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Certains serveurs",
+            "note": "Accès shell"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cl",
+            "etape": 1,
+            "texte": "Clé d'accès cloud valide et exposée"
+          },
+          {
+            "de": "att",
+            "vers": "cl",
+            "etape": 2,
+            "texte": "Secrets découverts réutilisés, identifiants exfiltrés"
+          },
+          {
+            "de": "att",
+            "vers": "k8",
+            "etape": 4,
+            "texte": "Porte dérobée laissée"
+          },
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 5,
+            "texte": "Recherche d'informations de portefeuilles"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas comment la clé a été exposée, ni si des clients de Barracuda sont touchés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non attribué par Barracuda, qui note qu'Artex est utilisé par de nombreux groupes [1]",
+        "Selon Barracuda, les noms des sondes, l'ordre de progression et les routines de recherche d'identifiants et de portefeuilles correspondent à Artex [1]"
+      ],
+      "cibles": [
+        "Barracuda : environ 10 comptes cloud [1]",
+        "Attaque similaire, selon Barracuda, à l'intrusion d'octobre chez Railway, plateforme d'hébergement d'applications cloud [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Barracuda Hacked Amid Surge in Artex-Powered Cyberattacks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/barracuda-hacked-amid-surge-in-artex-powered-cyberattacks/",
+          "date": "2026-11-16",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/05/Barracuda-zero-day-e1794841590191.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-16-fraude-deepfakes-129-millions",
+      "title": "Fraude au faux dirigeant par deepfakes : trois hommes accusés d'avoir détourné au moins 129 millions de dollars",
+      "created": "2026-11-16T16:09:46+00:00",
+      "updated": "2026-11-16T16:09:46+00:00",
+      "version": 1,
+      "resume": "Trois hommes sont accusés d'une fraude au faux dirigeant, appuyée par des imitations de voix et d'apparence produites par intelligence artificielle, qui aurait coûté au moins 129 millions de dollars à des entreprises entre juillet 2024 et février 2026 [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Message présenté comme venant du dirigeant, envoyé à un salarié habilité à valider de gros virements, évoquant une transaction confidentielle, rapide et discrète [1]."
+        },
+        {
+          "etape": "Accord de confidentialité",
+          "texte": "Dans certains cas, accord de confidentialité présenté via un service de signature électronique, à signer avant de poursuivre ; cette confidentialité pouvait limiter les vérifications auprès d'autres collaborateurs [1]."
+        },
+        {
+          "etape": "Faux avocat",
+          "texte": "Victime orientée vers un prétendu avocat chargé du dossier ; selon l'accusation, des imitations d'apparence ou de voix produites par intelligence artificielle renforcent la crédibilité [1]."
+        },
+        {
+          "etape": "Virements",
+          "texte": "Fonds transférés vers des comptes contrôlés par des complices [1]."
+        },
+        {
+          "etape": "Blanchiment",
+          "texte": "Une partie des fonds convertie en cryptomonnaies, puis répartie entre les participants présumés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (trois accusés)",
+            "note": ""
+          },
+          {
+            "id": "sal",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Salarié de la comptabilité",
+            "note": "Valide les virements"
+          },
+          {
+            "id": "cpt",
+            "type": "inconnu",
+            "zone": "internet",
+            "nom": "Comptes de complices",
+            "note": ""
+          },
+          {
+            "id": "cry",
+            "type": "donnees",
+            "zone": "internet",
+            "nom": "Cryptomonnaies",
+            "note": "Fonds répartis"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sal",
+            "etape": 1,
+            "texte": "Message au nom du dirigeant"
+          },
+          {
+            "de": "att",
+            "vers": "sal",
+            "etape": 3,
+            "texte": "Faux avocat, imitations de voix ou d'apparence"
+          },
+          {
+            "de": "sal",
+            "vers": "cpt",
+            "etape": 4,
+            "texte": "Virements vers des comptes de complices"
+          },
+          {
+            "de": "cpt",
+            "vers": "cry",
+            "etape": 5,
+            "texte": "Conversion d'une partie des fonds"
+          }
+        ]
+      },
+      "limites": "Faits présumés : les trois hommes sont accusés et les avocats de Guy Sheetrit contestent sa participation ; l'outil d'imitation utilisé n'est pas nommé [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Jacob Soall, résidant à Marbella, arrêté le 17 juin 2026 ; il aurait incarné des avocats britanniques à l'aide d'un scénario manuscrit [1]",
+        "Sharon Hazan, arrêté en Espagne le 5 août 2026 [1]",
+        "Guy Sheetrit, arrêté au Royaume-Uni le 7 septembre 2026, rôle présumé dans le blanchiment [1]"
+      ],
+      "cibles": [
+        "Société britannique de technologies financières : près de 11,6 millions de dollars [1]",
+        "Entreprise de nourriture pour animaux de Floride : 5,2 millions de dollars ; système hospitalier du Missouri : 4,8 millions [1]",
+        "Société de fonds d'investissement du Massachusetts, établissement hospitalier de Californie, entreprise d'investissement de New York, banque du Rhode Island [1]",
+        "Virements vers les États-Unis, l'Espagne, le Portugal, la Grèce, les Émirats arabes unis, Singapour, l'Autriche, la Slovaquie et la Chine [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Deepfakes : une fraude présumée à 129 millions de dollars",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/deepfakes-une-fraude-presumee-a-129-millions-de-dollars/",
+          "date": "2026-11-16",
+          "image": "https://www.zataz.com/wp-content/uploads/deep_129.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-16-fandango-cartes-pages-paiement",
+      "title": "Fandango : des informations de cartes bancaires volées sur les pages de paiement",
+      "created": "2026-11-16T16:09:46+00:00",
+      "updated": "2026-11-16T16:09:46+00:00",
+      "version": 1,
+      "resume": "Le vendeur de billets Fandango Media prévient ses clients d'une violation de données qui a exposé les informations de carte de paiement saisies sur ses pages de paiement [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Des pirates ont volé des informations de cartes de paiement sur les pages de paiement de Fandango [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "pg",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Pages de paiement Fandango",
+            "note": "Cartes exposées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pg",
+            "etape": 2,
+            "texte": "Vol des informations de cartes de paiement"
+          }
+        ]
+      },
+      "limites": "Article complet inaccessible lors de la collecte : synthèse fondée sur le seul résumé du flux, qui ne décrit ni la méthode ni le nombre de clients touchés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Clients de Fandango Media ayant saisi leur carte sur les pages de paiement [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Fandango says hackers stole payment card details from checkout pages",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fandango-says-hackers-stole-payment-card-details-from-checkout-pages/",
+          "date": "2026-11-16",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/16/fandango.jpg"
         }
       ]
     }

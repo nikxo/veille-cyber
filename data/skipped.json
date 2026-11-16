@@ -1,29 +1,5 @@
 [
   {
-    "id": "a5411bb33d7fefff",
-    "title": "Two Critical Wasmtime Flaws Could Let Malicious WebAssembly Modules Escape Sandboxes",
-    "link": "https://thehackernews.com/2026/10/two-critical-wasmtime-flaws-could-let.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-26T13:40:00+00:00"
-  },
-  {
-    "id": "0d99ee2b282857bf",
-    "title": "10 Software Security Practices Built for the Next 250 Years",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/10-software-security-practices-built-250-years",
-    "source": "Dark Reading",
-    "raison": "conseils génériques",
-    "date": "2026-10-26T14:12:46+00:00"
-  },
-  {
-    "id": "2e738723ccebff2d",
-    "title": "Chinese man extradited for role in $36 million cryptocurrency scam",
-    "link": "https://www.bleepingcomputer.com/news/security/chinese-man-extradited-for-role-in-36-million-cryptocurrency-scam/",
-    "source": "BleepingComputer",
-    "raison": "actualité judiciaire (escroquerie financière, blanchiment)",
-    "date": "2026-10-26T14:12:46+00:00"
-  },
-  {
     "id": "3576934612fc89d7",
     "title": "Weekly Recap: This2Shell, That2Shell, Everything's an RCE? Rogue AI, Supply Chain Chaos and More",
     "link": "https://thehackernews.com/2026/10/weekly-recap-this2shell-that2shell.html",
@@ -3998,5 +3974,29 @@
     "source": "Check Point Research",
     "raison": "bulletin hebdomadaire, sujets déjà couverts",
     "date": "2026-11-16T15:12:00+00:00"
+  },
+  {
+    "id": "0bc1df88460080eb",
+    "title": "IA : la dépendance en accéléré (étude)",
+    "link": "https://www.lemagit.fr/actualites/366654834/IA-la-dependance-en-accelere-etude",
+    "source": "LeMagIT",
+    "raison": "étude sur la dépendance à l'IA, aucune attaque décrite",
+    "date": "2026-11-16T16:09:46+00:00"
+  },
+  {
+    "id": "d1014defae6b62ba",
+    "title": "Google Project Zero Sets Course for 30-Day Disclosure Deadline",
+    "link": "https://www.securityweek.com/google-project-zero-sets-course-for-30-day-disclosure-deadline/",
+    "source": "SecurityWeek",
+    "raison": "annonce d'une politique de divulgation de vulnérabilités, aucune attaque décrite",
+    "date": "2026-11-16T16:09:46+00:00"
+  },
+  {
+    "id": "e1eec7466124b754",
+    "title": "Je s’appelle GRU : Ingérence russe soupçonnée d’agir dans les manifestations en France",
+    "link": "https://www.zataz.com/je-sappelle-gru-ingerence-russe-soupconnee-dagir-dans-les-manifestations-en-france/",
+    "source": "ZATAZ",
+    "raison": "opération d'influence présumée, aucune intrusion ni méthode d'attaque informatique décrite",
+    "date": "2026-11-16T16:09:46+00:00"
   }
 ]

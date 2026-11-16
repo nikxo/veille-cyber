@@ -46445,17 +46445,21 @@
       "id": "2026-11-13-unrealircd-cve-2026-114713-kev",
       "title": "UnrealIRCd : la faille CVE-2026-114713 exploitée, ajoutée au catalogue américain des failles exploitées",
       "created": "2026-11-13T21:15:00+00:00",
-      "updated": "2026-11-14T13:20:00+00:00",
-      "version": 2,
-      "resume": "La CISA a ajouté à son catalogue des failles exploitées CVE-2026-114713, qui touche le serveur de discussion UnrealIRCd [1, 3]. Les tentatives d'exploitation auraient commencé un jour après la sortie du correctif, le 7 novembre 2026 [3].",
+      "updated": "2026-11-16T12:15:00+00:00",
+      "version": 3,
+      "resume": "La CISA a ajouté à son catalogue des failles exploitées CVE-2026-114713, qui touche le serveur de discussion UnrealIRCd [1, 3, 4]. Le 8 novembre, le mainteneur signalait que des pirates sondaient déjà les serveurs vulnérables [4].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 3]."
+          "texte": "Non précisé par les sources [1, 3, 4]."
         },
         {
           "etape": "Injection de commandes",
-          "texte": "Étiquette « label » non échappée → un utilisateur injecte des commandes entre serveurs, exécutées avec l'autorité du serveur [2, 3]."
+          "texte": "Étiquette « label » non échappée → un utilisateur injecte des commandes entre serveurs, exécutées avec l'autorité du serveur [2, 3, 4]."
+        },
+        {
+          "etape": "Correctif et sondes",
+          "texte": "Correctif publié le 7 novembre dans la version 6.2.7.1 ; le 8 novembre, des pirates sondent déjà les serveurs vulnérables, selon le mainteneur [4]."
         }
       ],
       "parcours": {
@@ -46484,7 +46488,7 @@
           }
         ]
       },
-      "limites": "Les sources ne disent ni qui exploite la faille ni contre qui [1, 3]. Le détail de l'activité malveillante et ses objectifs sont inconnus [3].",
+      "limites": "Les sources ne disent ni qui exploite la faille ni contre qui [1, 3, 4]. Le détail de l'activité malveillante et ses objectifs sont inconnus [3].",
       "cves": [
         {
           "id": "CVE-2026-114713",
@@ -46493,7 +46497,10 @@
       ],
       "mitre": [],
       "acteurs": [],
-      "cibles": [],
+      "cibles": [
+        "Agences fédérales américaines : trois jours pour traiter la faille [4]",
+        "UnrealIRCd 5 et versions antérieures : en fin de vie, sans correctif prévu [4]"
+      ],
       "abreviations": [
         {
           "sigle": "CISA",
@@ -46518,6 +46525,13 @@
           "url": "https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html",
           "date": "2026-11-14",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuvSsWcsJ9736KXp_0s-6__-CiI5PD71VReembVHAB4cfnv3Qti8td9WR54UnRH96bz30dvbTQxwG3WbxDkWRq_eFJPYLgxbAzRD5k3MJSISbW2VDI-Fr7nlX4j8NyJkXqLHylMZMXpynEHVV8ovZ2YPC-WGCFCcrOZOeGc5Wsy-jRjjbcyYTzojI9Nudw/s1700-nu-rw-lo-l85-e365/cisaa.jpg"
+        },
+        {
+          "titre": "Recent UnrealIRCd Vulnerability Exploited in Attacks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/recent-unrealircd-vulnerability-exploited-in-attacks/",
+          "date": "2026-11-16",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/11/NPM-code-software-development.jpeg"
         }
       ]
     },
@@ -48173,6 +48187,197 @@
           "url": "https://www.securityweek.com/microsoft-rules-out-cyberattack-in-outage-warns-of-phishing-campaign/",
           "date": "2026-11-16",
           "image": "https://www.securityweek.com/wp-content/uploads/2025/11/AI-phishing.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-16-copeland-xweb-evo-sondes",
+      "title": "Copeland XWEB EVO : des failles de contrôleurs de réfrigération visées moins de deux heures après leur publication",
+      "created": "2026-11-16T12:15:00+00:00",
+      "updated": "2026-11-16T12:15:00+00:00",
+      "version": 1,
+      "resume": "VulnCheck a divulgué 14 failles touchant les contrôleurs de réfrigération Copeland XWEB EVO [1]. Ses capteurs ont vu les premières tentatives d'exploitation en moins de deux heures [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Une seule adresse IP envoie 125 requêtes en une nuit contre CVE-2026-124014, faille d'écriture sans authentification dans le fichier de configuration système [1]."
+        },
+        {
+          "etape": "Seconde série de sondes",
+          "texte": "Le 13 novembre, une seconde adresse IP envoie quatre sondes visant CVE-2026-124010, faille d'exécution de commandes root sans authentification [1]."
+        },
+        {
+          "etape": "Chemin décrit par VulnCheck",
+          "texte": "Adresse MAC lisible sans authentification → mot de passe administrateur du jour calculable hors ligne, puis activation de SSH et connexion en root [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "cap",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Capteurs de VulnCheck",
+            "note": "Tentatives observées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cap",
+            "etape": 1,
+            "texte": "125 requêtes contre CVE-2026-124014"
+          },
+          {
+            "de": "att",
+            "vers": "cap",
+            "etape": 2,
+            "texte": "Quatre sondes contre CVE-2026-124010"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas qui envoie ces requêtes ni si un contrôleur a été compromis [1]. VulnCheck n'y voit pas une preuve de la campagne d'octobre contre des supermarchés français [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-124014",
+          "explication": "Contrôleurs Copeland XWEB EVO : permet à un attaquant non authentifié d'écrire dans le fichier de configuration système [1]."
+        },
+        {
+          "id": "CVE-2026-124010",
+          "explication": "Contrôleurs Copeland XWEB EVO : exécution de commandes root sans authentification [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié ; VulnCheck parle d'hôtes opportunistes agissant sur des avis tout juste publiés [1]"
+      ],
+      "cibles": [
+        "Contrôleurs Copeland XWEB EVO : près de 2 000 exposés sur Internet, selon des données Onyphe citées par VulnCheck [1]",
+        "Support logiciel de la gamme arrêté le 16 mars 2026 ; cinq failles, qui touchent aussi le dernier micrologiciel, ne seront pas corrigées [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IP",
+          "definition": "Internet Protocol : adresse numérique d'une machine sur un réseau"
+        },
+        {
+          "sigle": "MAC",
+          "definition": "Media Access Control : identifiant matériel d'une carte réseau"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole d'administration à distance en ligne de commande"
+        },
+        {
+          "sigle": "XWEB",
+          "definition": "Nom d'une gamme de contrôleurs de réfrigération Copeland, pas un sigle"
+        },
+        {
+          "sigle": "EVO",
+          "definition": "Partie du nom de produit XWEB EVO, pas un sigle"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers Probe Newly Disclosed Flaws in Copeland Refrigeration Controllers",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/hackers-probe-newly-disclosed-flaws-in-copeland-refrigeration-controllers/",
+          "date": "2026-11-16",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/freezer-refrigeration.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-16-uber-chauffeurs-fireworks-ai",
+      "title": "Uber : les données d'environ 150 000 chauffeurs volées avec des identifiants compromis de son prestataire Fireworks AI",
+      "created": "2026-11-16T12:15:00+00:00",
+      "updated": "2026-11-16T12:15:00+00:00",
+      "version": 1,
+      "resume": "Uber prévient environ 150 000 chauffeurs du vol de leurs informations personnelles, après l'utilisation d'identifiants compromis d'un prestataire [1]. Un porte-parole a confirmé à TechCrunch que l'incident implique Fireworks AI [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Le 7 octobre, utilisation d'identifiants compromis du prestataire ; ces identifiants étant valides, aucune des alertes activées ne s'est déclenchée [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Accès à des images de permis de conduire et à des informations personnelles comme les noms, adresses et numéros de permis [1]."
+        },
+        {
+          "etape": "Réaction d'Uber",
+          "texte": "Uber apprend l'incident le 9 octobre, coupe ses connexions de données avec le prestataire et ouvre une enquête [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "fw",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Prestataire Fireworks AI",
+            "note": "Identifiants compromis"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données de chauffeurs Uber",
+            "note": "Permis de conduire"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "fw",
+            "etape": 1,
+            "texte": "Identifiants compromis du prestataire"
+          },
+          {
+            "de": "fw",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Images de permis et informations personnelles"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas comment les identifiants du prestataire ont été compromis ni qui est l'attaquant ; l'enquête est toujours en cours [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Environ 150 000 chauffeurs Uber ; 149 346 personnes selon la notification au procureur général du Texas [1]",
+        "Selon Uber, les identifiants compromis ne donnaient pas accès à d'autres systèmes Uber [1]",
+        "Fireworks AI a reconnu le 9 novembre que sa violation touchait aussi facturation, jeux de données clients et modèles incomplets [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "AI",
+          "definition": "Artificial Intelligence : intelligence artificielle, ici dans le nom de l'entreprise"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Uber Data Breach Impacts 150,000 People",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/uber-data-breach-impacts-150000-people/",
+          "date": "2026-11-16",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/05/Uber-CSO_Convicted-Joe-Sullivan.jpg"
         }
       ]
     }

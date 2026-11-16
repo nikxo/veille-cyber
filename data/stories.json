@@ -47614,18 +47614,18 @@
             "note": "Module principal"
           },
           {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines infectées",
+            "note": "CoffeeLoader installé"
+          },
+          {
             "id": "usb",
             "type": "donnees",
             "zone": "victime",
             "nom": "Clés USB, disques externes",
             "note": "Copie du ver"
-          },
-          {
-            "id": "pc",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Machines infectées par Retadup",
-            "note": "CoffeeLoader installé"
           }
         ],
         "liens": [

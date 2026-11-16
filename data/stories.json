@@ -32667,9 +32667,9 @@
       "id": "2026-11-02-tradertraitor-binance",
       "title": "TraderTraitor : vol de plus de 6,3 milliards de dollars chez Binance",
       "created": "2026-11-02T09:20:00+00:00",
-      "updated": "2026-11-13T03:07:26+00:00",
-      "version": 7,
-      "resume": "Binance a perdu environ 6,3 milliards de dollars de cryptomonnaies [4, 8]. Le FBI attribue le vol à TraderTraitor [1, 2, 7, 8]. Plus de 2,7 milliards ont été gelés, dont plus de 1,2 milliard que la justice américaine autorise à saisir ou restreindre [8].",
+      "updated": "2026-11-16T18:09:47+00:00",
+      "version": 8,
+      "resume": "Binance a perdu environ 6,3 milliards de dollars de cryptomonnaies [4, 8], 6 milliards selon [9]. Le FBI attribue le vol à TraderTraitor [1, 2, 7, 8]. Plus de 2,7 milliards ont été gelés, dont plus de 1,2 milliard que la justice américaine autorise à saisir ou restreindre [8].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -32855,6 +32855,13 @@
           "url": "https://www.securityweek.com/fbi-says-us-seized-1-2-billion-worth-of-cryptocurrency-stolen-from-binance/",
           "date": "2026-11-13",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Binance-hacked.jpeg"
+        },
+        {
+          "titre": "Corée du Nord : Washington frappe les voleurs de cryptos",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/coree-du-nord-washington-frappe-les-voleurs-de-cryptos/",
+          "date": "2026-11-16",
+          "image": "https://www.zataz.com/wp-content/uploads/crypto_fbi_CN.jpg"
         }
       ]
     },
@@ -42913,9 +42920,9 @@
       "id": "2026-11-11-maersk-whitearmor-fuite",
       "title": "Maersk : vol de données sur un système hérité d'une acquisition, WhiteArmor réclame 5 millions de dollars",
       "created": "2026-11-11T17:12:00+00:00",
-      "updated": "2026-11-12T19:20:00+00:00",
-      "version": 3,
-      "resume": "Maersk confirme que des pirates ont extrait des données d'un système local hérité d'une acquisition [1, 2] ; ses constats suggèrent qu'aucune donnée sensible n'a été divulguée [3]. WhiteArmor revendique environ 100 Go et réclame 5 millions de dollars [2, 3].",
+      "updated": "2026-11-16T18:09:47+00:00",
+      "version": 4,
+      "resume": "Maersk confirme que des pirates ont extrait des données d'un système local hérité d'une acquisition [1, 2, 4] ; ses constats suggèrent qu'aucune donnée sensible n'a été divulguée [3]. WhiteArmor revendique environ 100 Go et réclame 5 millions de dollars [2, 3, 4].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -42923,11 +42930,11 @@
         },
         {
           "etape": "Vol de données",
-          "texte": "Système local hérité d'une acquisition compromis → extraction de données [1, 2], environ 100 Go selon WhiteArmor [2] ; aucun indice d'impact sur d'autres systèmes selon Maersk [3]."
+          "texte": "Système local hérité d'une acquisition compromis → extraction de données [1, 2, 4], environ 100 Go selon WhiteArmor [2, 4] ; aucun indice d'impact sur d'autres systèmes selon Maersk [3]."
         },
         {
           "etape": "Extorsion",
-          "texte": "Le 7 novembre, WhiteArmor inscrit Maersk sur son site de fuite et menace de publier les données [2] ; 5 millions de dollars exigés sous 30 jours [3]."
+          "texte": "Le 7 novembre, WhiteArmor inscrit Maersk sur son site de fuite [2] ; 5 millions de dollars exigés sous 30 jours [3, 4], diffusion annoncée pour le 7 décembre [4]."
         }
       ],
       "parcours": {
@@ -42990,7 +42997,8 @@
       ],
       "cibles": [
         "Maersk, géant du transport maritime [1, 2]",
-        "Selon WhiteArmor, une plateforme associée à LF Logistics, société de Hong Kong acquise par Maersk en 2022 [2, 3]"
+        "Selon WhiteArmor, une plateforme associée à LF Logistics, société de Hong Kong acquise par Maersk en 2022 [2, 3]",
+        "Selon WhiteArmor seul : près de 30 000 chauffeurs, mots de passe en clair, 33 comptes à privilèges élevés, preuves de livraison, commandes et inventaire [4]"
       ],
       "abreviations": [
         {
@@ -43019,6 +43027,13 @@
           "url": "https://therecord.media/shipping-giant-maersk-says-recent-incident-affected-legacy-system",
           "date": "2026-11-12",
           "image": "https://cms.therecord.media/uploads/ship_03c3b365ad.jpg"
+        },
+        {
+          "titre": "Maersk : un pirate réclame 5 millions de dollars",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/maersk-un-pirate-reclame-5-millions-de-dollars/",
+          "date": "2026-11-16",
+          "image": "https://www.zataz.com/wp-content/uploads/Maersk_leak_pirate.jpg"
         }
       ]
     },
@@ -44584,8 +44599,8 @@
       "id": "2026-11-12-cairn-cl-sta-1238-attaques-autonomes",
       "title": "CL-STA-1238 : le framework d'intelligence artificielle Cairn mène seul des intrusions contre les semi-conducteurs, la défense et la société civile",
       "created": "2026-11-12T15:11:50+00:00",
-      "updated": "2026-11-12T15:11:50+00:00",
-      "version": 1,
+      "updated": "2026-11-16T18:09:47+00:00",
+      "version": 2,
       "resume": "Des attaquants sinophones ont confié au framework libre de test d'intrusion Cairn 25 opérations contre au moins 19 organisations en août et septembre 2026 ; 10 ont subi un accès non autorisé ou une récupération de données [1].",
       "chaine": [
         {
@@ -44661,10 +44676,12 @@
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "CL-STA-1238 : attaquants sinophones, rattachés par Unit 42 à une collecte de renseignement liée à la Chine avec une confiance modérée [1]"
+        "CL-STA-1238 : attaquants sinophones, rattachés par Unit 42 à une collecte de renseignement liée à la Chine avec une confiance modérée [1]",
+        "Acteurs liés à la Chine ayant compromis 10 organisations, selon le titre de Dark Reading [2]"
       ],
       "cibles": [
-        "Semi-conducteurs et fabrication avancée (7 organisations), défense et politique de défense (3), droits humains et société civile (4) [1]"
+        "Semi-conducteurs et fabrication avancée (7 organisations), défense et politique de défense (3), droits humains et société civile (4) [1]",
+        "Fabrication avancée et défense, organisations civiles et de défense des droits humains [2]"
       ],
       "abreviations": [
         {
@@ -44679,6 +44696,12 @@
           "url": "https://unit42.paloaltonetworks.com/cairn-framework-ai-autonomous-attacks/",
           "date": "2026-11-12",
           "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/11/AdobeStock_992950050-5.jpg"
+        },
+        {
+          "titre": "China-Nexus Actors Breach 10 Organizations in AI-Driven Attacks",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/cyberattacks-data-breaches/china-nexus-actors-breach-10-organizations-ai-driven-attacks",
+          "date": "2026-11-16"
         }
       ]
     },
@@ -44993,8 +45016,8 @@
       "id": "2026-11-12-endgame-gootloader-castlerat-stealc",
       "title": "Opération Endgame : l'infrastructure de Gootloader, CastleRAT et StealC démantelée",
       "created": "2026-11-12T18:20:00+00:00",
-      "updated": "2026-11-13T16:26:37+00:00",
-      "version": 4,
+      "updated": "2026-11-16T18:09:47+00:00",
+      "version": 5,
       "resume": "L'opération Endgame a visé 235 serveurs et 257 noms de domaine utilisés par Gootloader, CastleRAT et StealC [1, 2, 4]. Plus de 6 millions d'identifiants de victimes ont été identifiés [1] ; environ 6,4 millions, provenant de plus de 40 000 victimes, selon [2, 4].",
       "chaine": [
         {
@@ -45015,7 +45038,7 @@
         },
         {
           "etape": "Riposte policière",
-          "texte": "Une interface d'administration de Gootloader hébergée en Afrique du Sud a été compromise → point de départ des saisies ; 681 sites WordPress nettoyés [1]."
+          "texte": "Interface d'administration de Gootloader hébergée en Afrique du Sud compromise → point de départ des saisies ; 681 sites WordPress nettoyés [1] ; Gootloader supprimé de plus de 100 serveurs [6]."
         },
         {
           "etape": "Infrastructure StealC rebâtie",
@@ -45142,6 +45165,13 @@
           "url": "https://therecord.media/gootloader-ransomware-doj-details",
           "date": "2026-11-13",
           "image": "https://cms.therecord.media/uploads/gootloader_page_operation_endgame_d490d02942.png"
+        },
+        {
+          "titre": "Gootloader : une opération frappe 100 serveurs infectés",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/gootloader-une-operation-frappe-100-serveurs-infectes/",
+          "date": "2026-11-16",
+          "image": "https://www.zataz.com/wp-content/uploads/100_euro_god.jpg"
         }
       ]
     },
@@ -45209,8 +45239,8 @@
       "id": "2026-11-12-facestealer-fausses-reunions-video",
       "title": "FaceStealer : de fausses réunions vidéo pour voler des cryptomonnaies, l'infrastructure perturbée par les autorités américaines",
       "created": "2026-11-12T22:15:00+00:00",
-      "updated": "2026-11-14T16:15:00+00:00",
-      "version": 3,
+      "updated": "2026-11-16T18:09:47+00:00",
+      "version": 4,
       "resume": "Les autorités américaines ont saisi l'infrastructure cloud de FaceStealer, une campagne attribuée au groupe nord-coréen BlueNoroff (APT38) qui a volé plus de 400 millions de dollars de cryptomonnaies en 18 mois grâce à de fausses réunions vidéo [1, 2, 3].",
       "chaine": [
         {
@@ -45231,7 +45261,7 @@
         },
         {
           "etape": "Propagation",
-          "texte": "Contrôle de l'appareil et des comptes de la victime → l'attaque est relancée vers ses contacts [2]."
+          "texte": "Contrôle de l'appareil et des comptes de la victime → attaque relancée vers ses contacts [2] ; nouvelles cibles repérées dans carnets d'adresses, messageries et réseaux sociaux [4]."
         }
       ],
       "parcours": {
@@ -45338,7 +45368,7 @@
         "BlueNoroff, groupe lié à la Corée du Nord, aussi appelé APT38, Sapphire Sleet, Stardust Chollima ou UNC1069 [1, 2]"
       ],
       "cibles": [
-        "Victimes de FaceStealer, dont plus de 900 vidéos de webcam ont été saisies par le FBI [1, 2]",
+        "Victimes de FaceStealer, dont plus de 900 vidéos de webcam ont été saisies par le FBI [1, 2] ; saisie aussi rapportée par [4]",
         "Personnes des secteurs des cryptomonnaies et du Web3 ; 677 cibles recensées dans 58 pays, à plus de 80 % des fondateurs et cadres dirigeants [2]",
         "Développeurs et mainteneurs de logiciels libres, dont le mainteneur du paquet Axios [2] ; autres tentatives confirmées par le FBI dans les écosystèmes npm et Rust [3]"
       ],
@@ -45377,6 +45407,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/us-disrupts-north-korean-campaign-behind-400-million-crypto-theft/",
           "date": "2026-11-14",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/21/DPRK.jpg"
+        },
+        {
+          "titre": "Corée du Nord : Washington frappe les voleurs de cryptos",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/coree-du-nord-washington-frappe-les-voleurs-de-cryptos/",
+          "date": "2026-11-16",
+          "image": "https://www.zataz.com/wp-content/uploads/crypto_fbi_CN.jpg"
         }
       ]
     },
@@ -49225,6 +49262,121 @@
           "url": "https://www.zataz.com/expedia-un-pirate-revendique-un-vol-massif-de-donnees/",
           "date": "2026-11-16",
           "image": "https://www.zataz.com/wp-content/uploads/expedia_leak.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-16-google-agents-ia-correctifs-papercut",
+      "title": "Google : des agents d'intelligence artificielle analysent les correctifs pour exploiter des failles PaperCut, des accès à des modèles volés puis revendus",
+      "created": "2026-11-16T18:09:47+00:00",
+      "updated": "2026-11-16T18:09:47+00:00",
+      "version": 1,
+      "resume": "Selon Google, des attaquants emploient des modèles de langage et des agents pour transformer des correctifs en attaques, comme contre PaperCut NG/MF en septembre, et volent des accès à des modèles dans des entreprises compromises [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Analyse des correctifs",
+          "texte": "Modèles de langage et agents comparent les versions d'un logiciel par analyse différentielle → failles de PaperCut NG/MF vite transformées en outils d'attaque, en septembre [1]."
+        },
+        {
+          "etape": "Intrusions automatisées",
+          "texte": "Outils à plusieurs agents ARTEX, CAIRN, CyberStrikeAI et PentAGI → phases et tâches d'intrusions en cours automatisées, vitesse d'opération accrue [1]."
+        },
+        {
+          "etape": "Vol d'accès aux modèles",
+          "texte": "Identifiants de modèles de langage et ressources cloud volés dans des environnements d'entreprise compromis → revendus à prix réduit via APIMart et JetNight [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Agents et modèles"
+          },
+          {
+            "id": "pap",
+            "type": "application",
+            "zone": "victime",
+            "nom": "PaperCut NG/MF",
+            "note": "Failles exploitées"
+          },
+          {
+            "id": "ent",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Environnements d'entreprise compromis",
+            "note": "Identifiants volés"
+          },
+          {
+            "id": "rev",
+            "type": "application",
+            "zone": "internet",
+            "nom": "APIMart et JetNight",
+            "note": "Revente"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pap",
+            "etape": 2,
+            "texte": "Failles exploitées après analyse des correctifs"
+          },
+          {
+            "de": "att",
+            "vers": "ent",
+            "etape": 4,
+            "texte": "Identifiants de modèles et ressources cloud volés"
+          },
+          {
+            "de": "ent",
+            "vers": "rev",
+            "etape": 4,
+            "texte": "Accès revendus à prix réduit"
+          }
+        ]
+      },
+      "limites": "La source ne nomme ni victime ni groupe, ne donne aucun identifiant de faille PaperCut et ne décrit aucune intrusion complète [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Acteurs à motivation financière et acteurs d'espionnage soupçonnés d'être alignés avec la Chine, vus expérimentant ces outils à plusieurs agents, non nommés [1]"
+      ],
+      "cibles": [
+        "Environnements d'entreprise compromis, sans victime nommée [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ARTEX",
+          "definition": "Nom d'un outil d'attaque à plusieurs agents d'intelligence artificielle"
+        },
+        {
+          "sigle": "CAIRN",
+          "definition": "Nom d'un outil d'attaque à plusieurs agents d'intelligence artificielle"
+        },
+        {
+          "sigle": "NG",
+          "definition": "Élément du nom du logiciel PaperCut NG"
+        },
+        {
+          "sigle": "MF",
+          "definition": "Élément du nom du logiciel PaperCut MF"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Google Finds Hackers Using AI Agents to Build and Run Exploits From Software Patches",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/google-finds-hackers-using-ai-agents-to.html",
+          "date": "2026-11-16",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpEBmKLWFpEn8sSoJLtj1ZR7FPMd8GxxKN2v4IzyBkydma_g4gXzaWEEkK5CTPwidrBPw6QPdoByiEC14ufVP2pvezWKtH_dmqHttARDKzDOopkw0vzUdTYZubCh9Qy76nlmVSbhtTSvDOuT1c70E4TVPw8T4hUhMdR-saHjQPW1S9IZNmg2_RfsMsmJLb/s1700-nu-rw-lo-l85-e365/google.jpg"
         }
       ]
     }

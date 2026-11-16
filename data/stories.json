@@ -46540,8 +46540,8 @@
       "id": "2026-11-13-talos-artex-campagnes",
       "title": "Cisco Talos : le framework de test d'intrusion ARTEX détourné dans des campagnes criminelles et d'espionnage",
       "created": "2026-11-13T21:15:00+00:00",
-      "updated": "2026-11-13T21:15:00+00:00",
-      "version": 1,
+      "updated": "2026-11-16T14:09:11+00:00",
+      "version": 2,
       "resume": "Cisco Talos recense des campagnes criminelles et d'intrusion ciblée menées avec ARTEX, framework de test d'intrusion assisté par intelligence artificielle, et a identifié plus de 2 500 adresses de serveurs de commande associées [1].",
       "chaine": [
         {
@@ -46551,6 +46551,10 @@
         {
           "etape": "Tentatives de connexion",
           "texte": "Storm-0940 : après la compromission d'identifiants d'application ConnectWise, ARTEX accélère les tentatives de connexion contre plus de 2 250 locataires Microsoft 365 en aval [1]."
+        },
+        {
+          "etape": "Accès privilégié",
+          "texte": "Storm-0940, selon Microsoft : accès privilégié à l'infrastructure cloud d'organisations, parfois moins de trois heures après le ciblage initial [2]."
         },
         {
           "etape": "Vol de secrets",
@@ -46601,6 +46605,13 @@
             "zone": "victime",
             "nom": "Azure Key Vault",
             "note": "Données exfiltrées"
+          },
+          {
+            "id": "inf",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Infrastructure cloud d'organisations",
+            "note": "Accès privilégié"
           }
         ],
         "liens": [
@@ -46612,26 +46623,32 @@
           },
           {
             "de": "att",
-            "vers": "gh",
+            "vers": "inf",
             "etape": 3,
+            "texte": "Accès privilégié, parfois en moins de trois heures"
+          },
+          {
+            "de": "att",
+            "vers": "gh",
+            "etape": 4,
             "texte": "Recherche de secrets exposés"
           },
           {
             "de": "gh",
             "vers": "kv",
-            "etape": 3,
+            "etape": 4,
             "texte": "Dans un cas, données exfiltrées en cinq minutes"
           },
           {
             "de": "att",
             "vers": "res",
-            "etape": 4,
+            "etape": 5,
             "texte": "Accès grâce à des informations VPN récupérées"
           },
           {
             "de": "att",
             "vers": "res",
-            "etape": 5,
+            "etape": 6,
             "texte": "Systèmes exposés exploités, WISP, VShell et AdaptixC2 déployés"
           }
         ]
@@ -46641,13 +46658,14 @@
       "mitre": [],
       "acteurs": [
         "Vapor Panda, acteur lié à la Chine auquel CrowdStrike attribue une campagne d'espionnage [1]",
-        "Storm-0940, décrit par Microsoft comme aligné sur l'État chinois [1]",
+        "Storm-0940, décrit par Microsoft comme aligné sur l'État chinois [1, 2]",
         "Storm-3358, motivé financièrement et décrit comme basé au Cambodge [1]"
       ],
       "cibles": [
         "Vapor Panda : plus de 200 organisations dans au moins 14 pays ; activité après compromission confirmée par CrowdStrike dans neuf organisations [1]",
         "Storm-3358 : surtout des organisations financières d'Asie du Sud-Est [1]",
-        "Organisations financières sud-coréennes, campagne non attribuée avec exfiltration de données selon CrowdStrike ; les artefacts ARTEX ne prouvent pas seuls son usage [1]"
+        "Organisations financières sud-coréennes, campagne non attribuée avec exfiltration de données selon CrowdStrike ; les artefacts ARTEX ne prouvent pas seuls son usage [1]",
+        "Check Point : une campagne a généré 400 791 messages d'agents sur 292 cibles, sans intervention supplémentaire de l'opérateur [2]"
       ],
       "abreviations": [
         {
@@ -46670,6 +46688,13 @@
           "url": "https://blog.talosintelligence.com/artex-and-beyond/",
           "date": "2026-11-13",
           "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2022/10/GnericCiscoTalos-Header-1.jpg"
+        },
+        {
+          "titre": "Test d'intrusion : ces framework agentiques détournés à des fins malveillantes",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366654832/Test-dintrusion-ces-framework-agentiques-detournes-a-des-fins-malveillantes",
+          "date": "2026-11-16",
+          "image": "https://www.lemagit.fr/visuals/LeMagIT/hero_article/AI-bot-AdobeStock_909560265.jpg"
         }
       ]
     },
@@ -47591,9 +47616,9 @@
       "id": "2026-11-16-retadup-coffeeloader",
       "title": "Retadup : l'ancien ver USB, démantelé en 2019, sert désormais à diffuser CoffeeLoader",
       "created": "2026-11-16T07:20:00+00:00",
-      "updated": "2026-11-16T07:20:00+00:00",
-      "version": 1,
-      "resume": "Un inconnu a repris les anciens domaines de commande du ver USB Retadup, neutralisé par la police française en 2019, et s'en sert pour installer le chargeur CoffeeLoader sur les machines infectées [1].",
+      "updated": "2026-11-16T14:09:11+00:00",
+      "version": 2,
+      "resume": "Un inconnu a repris les anciens domaines de commande du ver USB Retadup, neutralisé par la police française en 2019, et s'en sert pour installer le chargeur CoffeeLoader sur les machines infectées [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -47601,7 +47626,7 @@
         },
         {
           "etape": "Reprise du botnet",
-          "texte": "Il y a deux ans, un inconnu a commencé à réenregistrer les anciens domaines de commande de Retadup ; ces serveurs distribuent CoffeeLoader depuis début 2025 [1]."
+          "texte": "Il y a deux ans, un inconnu a commencé à réenregistrer les anciens domaines de commande de Retadup ; d'abord SmokeLoader, puis CoffeeLoader depuis début 2025 [1, 2]."
         },
         {
           "etape": "Livraison du chargeur",
@@ -47613,7 +47638,7 @@
         },
         {
           "etape": "Exécution de charges",
-          "texte": "CoffeeLoader s'injecte dans un processus Windows et télécharge son module principal en HTTPS ; ce module exécute les charges reçues [1]."
+          "texte": "CoffeeLoader s'injecte dans un processus Windows et télécharge son module principal en HTTPS [1] ; celui-ci lance la charge suivante par injection, exécutable ou bibliothèque via rundll32.exe [2]."
         }
       ],
       "parcours": {
@@ -47688,7 +47713,8 @@
         "Opérateur non identifié : auteur du ver ou tiers, la source l'ignore [1]"
       ],
       "cibles": [
-        "Environ 15 000 systèmes où Kaspersky a bloqué Retadup sur les trois premiers trimestres de 2026, surtout au Pérou, en Angola, Russie et Bolivie [1]"
+        "Environ 15 000 systèmes où Kaspersky a bloqué Retadup sur les trois premiers trimestres de 2026, surtout au Pérou, en Angola, Russie et Bolivie [1]",
+        "Retadup a déjà servi à déployer des mineurs de cryptomonnaies, le rançongiciel Stop et le voleur de mots de passe Arkei [2]"
       ],
       "abreviations": [
         {
@@ -47707,6 +47733,13 @@
           "url": "https://securelist.com/retadup-delivers-coffeeloader/121908/",
           "date": "2026-11-16",
           "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/11/12144618/retadup-1_securelist-featured_1200x600_x2.jpg"
+        },
+        {
+          "titre": "Retadup Worm Resurfaces 7 Years After Takedown to Spread CoffeeLoader Malware",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/retadup-worm-resurfaces-7-years-after.html",
+          "date": "2026-11-16",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxRuwbdQU-KyBsSrFlIZp4oczr_tJu53WrfB3nM6QYrO7kFgGAZO1NMSi7mziUOUaTrzq5C4KzCJqvYOf0Ry19ypJac-9mBYzYiqiTNl462i1uYo7DF9aAHxiVU_IOaByH3NtNlrF0hUhZtpItADKJauPVzWrz8r6YOQEHQrt_YiAmPba4CIOsSjZA2Wy_/s1700-nu-rw-lo-l85-e365/hacker-code.jpg"
         }
       ]
     },
@@ -48470,6 +48503,221 @@
           "url": "https://www.securityweek.com/telegram-widgets-hit-by-rce-demos-malware-warning-days-after-launch/",
           "date": "2026-11-16",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/08/Telegram-legal-e1794833200840.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-16-exploit-agent-sites-francais",
+      "title": "exploit_agent : un système d'agents d'intelligence artificielle trouve et exploite seul des failles, des sites web français visés",
+      "created": "2026-11-16T14:09:11+00:00",
+      "updated": "2026-11-16T14:09:11+00:00",
+      "version": 1,
+      "resume": "Google a découvert exploit_agent, un système à plusieurs agents d'intelligence artificielle qui trouve et exploite seul des failles, utilisé contre des sites web français des médias, du divertissement et de l'éducation [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Le système compare le code de logiciels web populaires avant et après l'annonce d'un correctif, rédige des exploits et les exécute automatiquement, sans intervention humaine [1]."
+        },
+        {
+          "etape": "Après la compromission",
+          "texte": "Des scripts servent à la reconnaissance interne, à la force brute, à l'installation de portes dérobées web et à la suppression de celles d'autres attaquants [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Le serveur de préparation de l'attaquant, laissé exposé, contenait des données volées à des victimes [1, 2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant avec exploit_agent",
+            "note": ""
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Logiciels web visés",
+            "note": "Portes dérobées web"
+          },
+          {
+            "id": "stg",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de préparation exposé",
+            "note": "Données volées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Exploits rédigés et exécutés automatiquement"
+          },
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 2,
+            "texte": "Reconnaissance interne, force brute, portes dérobées web"
+          },
+          {
+            "de": "web",
+            "vers": "stg",
+            "etape": 3,
+            "texte": "Données volées retrouvées sur le serveur"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment ni l'opérateur ni les victimes, et n'indiquent pas quelles failles ont été exploitées [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Opérateur non nommé ; un fichier de configuration du système contient des commentaires en russe [1]"
+      ],
+      "cibles": [
+        "Sites web français des médias, du divertissement et de l'éducation [1, 2]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "GTIG AI Threat Tracker: Agentic Threat Activity Crosses a Significant Threshold",
+          "site": "Google Threat Intelligence (Mandiant)",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold/",
+          "date": "2026-11-16",
+          "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
+        },
+        {
+          "titre": "Google warns that fully-automated AI attacks are coming soon",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/google-warns-that-fully-automated-ai-attacks-are-coming-soon/",
+          "date": "2026-11-16",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/robot-hacker.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-16-midnight-neptune-claude-code-sombermeme",
+      "title": "Midnight Neptune : de faux recruteurs mènent à des réglages Claude Code piégés chez des entreprises de cryptomonnaies",
+      "created": "2026-11-16T14:09:11+00:00",
+      "updated": "2026-11-16T14:09:11+00:00",
+      "version": 1,
+      "resume": "Un groupe suspecté d'être Midnight Neptune, lié à la Corée du Nord, a visé des organisations de cryptomonnaies en Amérique du Nord et en Europe [1]. BleepingComputer attribue ces attaques à UNC6836, aux liens suspectés avec Midnight Neptune [2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Faux profils de recruteurs, aux images générées par un modèle de langage, renvoyant vers de fausses plateformes de réunion [1]."
+        },
+        {
+          "etape": "Exécution de scripts",
+          "texte": "Des leurres ClickFix incitent les victimes à lancer des scripts de « diagnostic » → exécution de scripts de préparation [1]."
+        },
+        {
+          "etape": "Déplacement latéral",
+          "texte": "Modification des fichiers .claude/settings.json dans les dépôts de code internes → au démarrage de Claude Code, téléchargement automatique de la porte dérobée SOMBERMEME [1, 2]."
+        },
+        {
+          "etape": "Discrétion",
+          "texte": "Création de jetons d'accès personnels GitHub portant des noms liés à Microsoft Copilot [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Midnight Neptune suspecté)",
+            "note": "Faux recruteurs"
+          },
+          {
+            "id": "faux",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Fausses plateformes de réunion",
+            "note": "Leurres ClickFix"
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Victimes",
+            "note": "Scripts lancés"
+          },
+          {
+            "id": "dep",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Dépôts de code internes",
+            "note": "Réglages Claude Code modifiés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 1,
+            "texte": "Faux profils de recruteurs"
+          },
+          {
+            "de": "usr",
+            "vers": "faux",
+            "etape": 1,
+            "texte": "Renvoi vers de fausses plateformes de réunion"
+          },
+          {
+            "de": "faux",
+            "vers": "usr",
+            "etape": 2,
+            "texte": "Leurre ClickFix, scripts de « diagnostic » lancés"
+          },
+          {
+            "de": "usr",
+            "vers": "dep",
+            "etape": 3,
+            "texte": "Fichiers de réglages de Claude Code modifiés"
+          }
+        ]
+      },
+      "limites": "Les sources nomment l'acteur différemment et ne précisent ni les victimes ni ce que la porte dérobée a permis [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Groupe suspecté Midnight Neptune, lié à la Corée du Nord selon Google [1]",
+        "UNC6836, groupe d'activité aux liens suspectés avec Midnight Neptune, selon BleepingComputer [2]"
+      ],
+      "cibles": [
+        "Organisations de cryptomonnaies en Amérique du Nord et en Europe [1, 2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SOMBERMEME",
+          "definition": "Nom de la porte dérobée téléchargée, pas un sigle"
+        },
+        {
+          "sigle": "UNC6836",
+          "definition": "Identifiant d'un groupe d'activité malveillante suivi par Google"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "GTIG AI Threat Tracker: Agentic Threat Activity Crosses a Significant Threshold",
+          "site": "Google Threat Intelligence (Mandiant)",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold/",
+          "date": "2026-11-16",
+          "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
+        },
+        {
+          "titre": "Google warns that fully-automated AI attacks are coming soon",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/google-warns-that-fully-automated-ai-attacks-are-coming-soon/",
+          "date": "2026-11-16",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/robot-hacker.jpg"
         }
       ]
     }

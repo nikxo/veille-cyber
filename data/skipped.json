@@ -1,37 +1,5 @@
 [
   {
-    "id": "ee365f63abf45856",
-    "title": "Processeur 100% européen : le Rhea2 de SiPearl sera développé avec Taiwan",
-    "link": "https://www.lemagit.fr/actualites/366652772/Processeur-100-europeen-le-Rhea2-de-SiPearl-sera-developpe-avec-Taiwan",
-    "source": "LeMagIT",
-    "raison": "actualité matérielle sans attaque",
-    "date": "2026-10-26T02:30:00+00:00"
-  },
-  {
-    "id": "6415dafb20314d81",
-    "title": "Salesforce acquiert Braze pour aiguiser Marketing Cloud",
-    "link": "https://www.lemagit.fr/actualites/366652717/Salesforce-acquiert-Braze-pour-aiguiser-Marketing-Cloud",
-    "source": "LeMagIT",
-    "raison": "annonce commerciale (acquisition), pas d'attaque",
-    "date": "2026-10-26T08:08:11+00:00"
-  },
-  {
-    "id": "05b3e99093898346",
-    "title": "Le cloud Bleu est là",
-    "link": "https://www.lemagit.fr/dessin/Le-cloud-Bleu-est-la",
-    "source": "LeMagIT",
-    "raison": "annonce produit",
-    "date": "2026-10-26T10:30:00+00:00"
-  },
-  {
-    "id": "2cc4422f6700b8b4",
-    "title": "Deploying AI agents securely: how Kaspersky products mitigate AI threats",
-    "link": "https://securelist.com/tr/how-to-secure-ai-agents/121444/",
-    "source": "Securelist (Kaspersky)",
-    "raison": "conseils génériques",
-    "date": "2026-10-26T10:30:00+00:00"
-  },
-  {
     "id": "a89bd24578261a2e",
     "title": "Kali Linux 2026.3 released with 6 new tools, desktop updates",
     "link": "https://www.bleepingcomputer.com/news/linux/kali-linux-20263-released-with-6-new-tools-desktop-updates/",
@@ -3998,5 +3966,37 @@
     "source": "BleepingComputer",
     "raison": "rappel de fin de support de Windows Server 2016, aucune attaque ni vulnérabilité exploitée",
     "date": "2026-11-16T13:20:00+00:00"
+  },
+  {
+    "id": "07123c44dcb3e2c4",
+    "title": "The AI Arena: Huntress CTF 2026 Retro",
+    "link": "https://www.huntress.com/blog/ai-arena-huntress-ctf-2026-retro",
+    "source": "Huntress",
+    "raison": "retour d'événement (compétition CTF Huntress), aucune attaque réelle décrite",
+    "date": "2026-11-16T14:09:11+00:00"
+  },
+  {
+    "id": "5058392ba937a977",
+    "title": "New Huntress Security Insights Report & Reporting Center",
+    "link": "https://www.huntress.com/blog/security-insights-report",
+    "source": "Huntress",
+    "raison": "annonce produit (rapports Huntress), aucune attaque décrite",
+    "date": "2026-11-16T14:09:11+00:00"
+  },
+  {
+    "id": "98c16d8560d73272",
+    "title": "La démission de Jensen Huang pourrait sonner la fin des néoclouds",
+    "link": "https://www.lemagit.fr/actualites/366654781/La-demission-de-Jensen-Huang-pourrait-sonner-la-fin-des-neoclouds",
+    "source": "LeMagIT",
+    "raison": "actualité économique (démission du patron de Nvidia), aucune cyberattaque décrite",
+    "date": "2026-11-16T14:09:11+00:00"
+  },
+  {
+    "id": "119c79e2a8170634",
+    "title": "Six Unpatched Danfoss Refrigeration Controller Flaws Could Allow Remote Takeover Without Login",
+    "link": "https://thehackernews.com/2026/11/six-unpatched-danfoss-refrigeration.html",
+    "source": "The Hacker News",
+    "raison": "six failles Danfoss AK-SM800A sans exploitation constatée ; les attaques d'octobre et novembre ne sont citées qu'en contexte, sans lien établi ni méthode",
+    "date": "2026-11-16T14:09:11+00:00"
   }
 ]

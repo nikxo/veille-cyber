@@ -47707,11 +47707,11 @@
         },
         {
           "etape": "Accès au code source",
-          "texte": "Secrets trouvés sur des machines virtuelles compromises → compromission de la machine GitLab, accès à du code source et vol de sa clé privée, utilisée pour se connecter à Ansible [1]."
+          "texte": "Secrets trouvés sur des machines virtuelles → compromission de la machine GitLab, accès à du code source et vol de sa clé privée, utilisée pour se connecter à Ansible [1]."
         },
         {
           "etape": "Domaine Windows",
-          "texte": "Connexion au contrôleur de domaine avec le compte d'un administrateur système et déchiffrement de la base Active Directory [1]. Un même mot de passe servait aux administrateurs de plusieurs domaines [1]."
+          "texte": "Connexion au contrôleur de domaine avec le compte d'un administrateur et déchiffrement de la base Active Directory [1]. Un même mot de passe servait aux administrateurs de plusieurs domaines [1]."
         },
         {
           "etape": "Serveur de signature",
@@ -47793,13 +47793,13 @@
             "de": "att",
             "vers": "git",
             "etape": 4,
-            "texte": "Secrets trouvés sur des machines virtuelles compromises"
+            "texte": "Secrets trouvés sur des machines virtuelles"
           },
           {
             "de": "att",
             "vers": "dc",
             "etape": 5,
-            "texte": "Compte d'un administrateur système"
+            "texte": "Compte d'un administrateur"
           },
           {
             "de": "att",
@@ -47869,7 +47869,7 @@
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Points d'entrée listés dans un guide présent dans les enregistrements : identifiants d'administration par défaut, contournement d'authentification des systèmes de la famille One API, failles connues de Langflow et RAGFlow [1]."
+          "texte": "Points d'entrée listés dans un guide des enregistrements : identifiants d'administration par défaut, contournement d'authentification des systèmes de la famille One API, failles connues de Langflow et RAGFlow [1]."
         },
         {
           "etape": "Vol des clés",

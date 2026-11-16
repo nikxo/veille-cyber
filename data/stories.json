@@ -48720,6 +48720,114 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/robot-hacker.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-16-douanes-lituaniennes-portail-bap",
+      "title": "Douanes lituaniennes : le portail d'accès BAP fermé après une cyberattaque, fuite de données possible",
+      "created": "2026-11-16T15:12:00+00:00",
+      "updated": "2026-11-16T15:12:00+00:00",
+      "version": 1,
+      "resume": "Une attaque détectée le 10 novembre a conduit les douanes lituaniennes à fermer temporairement leur portail BAP [1]. Selon le chef des douanes, plusieurs centaines de particuliers et d'entreprises pourraient être concernés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Selon le chef des douanes, les pirates ont peut-être exploité une fonction technique mal sécurisée [1]. L'enquête a confirmé un accès non autorisé au portail BAP [1]."
+        },
+        {
+          "etape": "Tentative d'extension",
+          "texte": "Selon les premières constatations, les attaquants ont tenté d'accéder à d'autres systèmes gouvernementaux contenant des informations plus sensibles [1]."
+        },
+        {
+          "etape": "Données exposées",
+          "texte": "Une possible fuite de données touche les utilisateurs connectés les 9 et 10 novembre [1]."
+        },
+        {
+          "etape": "Impact",
+          "texte": "Fermeture temporaire du portail par les douanes → accès perturbé à plusieurs plateformes douanières de l'Union européenne [1]. Le système ICS2 de la Commission européenne est touché [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "bap",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Portail BAP des douanes",
+            "note": "Accès non autorisé"
+          },
+          {
+            "id": "gov",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Autres systèmes gouvernementaux",
+            "note": "Tentative d'accès"
+          },
+          {
+            "id": "ue",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateformes douanières européennes",
+            "note": "Accès perturbé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "bap",
+            "etape": 1,
+            "texte": "Accès non autorisé, vecteur non confirmé"
+          },
+          {
+            "de": "bap",
+            "vers": "gov",
+            "etape": 2,
+            "texte": "Tentative d'accès à des systèmes plus sensibles"
+          },
+          {
+            "de": "bap",
+            "vers": "ue",
+            "etape": 4,
+            "texte": "Portail fermé, accès aux plateformes perturbé"
+          }
+        ]
+      },
+      "limites": "Les autorités n'ont pas identifié les attaquants ni divulgué la faille utilisée [1]. Être identifié comme victime potentielle ne signifie pas forcément que les données ont été consultées, copiées ou volées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié par les autorités [1]"
+      ],
+      "cibles": [
+        "Douanes lituaniennes [1]",
+        "Plusieurs centaines de particuliers et d'entreprises, pour la plupart établis en Lituanie, selon le chef des douanes [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "BAP",
+          "definition": "Nom du principal portail de gestion des utilisateurs des douanes lituaniennes"
+        },
+        {
+          "sigle": "ICS2",
+          "definition": "Import Control System 2 : collecte les informations sur les marchandises entrant dans l'Union européenne"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Lithuanian customs agency restores services after cyberattack, possible data breach",
+          "site": "The Record",
+          "url": "https://therecord.media/lithuania-customs-agency-cyberattack",
+          "date": "2026-11-16",
+          "image": "https://cms.therecord.media/uploads/lithuanian_customs_vehicle_a3900e01a6.jpg"
+        }
+      ]
     }
   ]
 }

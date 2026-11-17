@@ -44092,8 +44092,8 @@
       "id": "2026-11-12-n-central-4everable2shell-tentatives",
       "title": "Apache Axis (CVE-2026-90436) : N-able N-central exploité pour installer des mineurs sur 21 serveurs, Confluence Data Center aussi attaqué",
       "created": "2026-11-12T13:20:00+00:00",
-      "updated": "2026-11-16T19:10:00+00:00",
-      "version": 5,
+      "updated": "2026-11-17T06:07:44+00:00",
+      "version": 6,
       "resume": "Des attaquants exploitent 4EverAble2Shell contre des serveurs N-able N-central et y installent des mineurs de cryptomonnaie, sur 21 serveurs dont 19 avec Hotfix 2 [3, 4]. Rapid7 a détecté le 13 novembre 2026 une exploitation de CVE-2026-90436 contre Confluence Data Center [6].",
       "chaine": [
         {
@@ -44195,7 +44195,8 @@
         "21 serveurs aux États-Unis, en Afrique du Sud, au Canada, au Royaume-Uni, en Allemagne, en France et en Suède [3, 4]",
         "Environnements hébergés : Legacy API désactivée par défaut et intégration Intune coupée par N-able [4]",
         "Serveurs compromis environ 5 heures après la publication du code d'exploitation, selon Lupovis et Huntback [5]",
-        "Confluence Data Center 1.x à 9.x avec l'option Remote API activée ; corrigé en 9.2.28, versions 10.x non vulnérables [6]"
+        "Confluence Data Center 1.x à 9.x avec l'option Remote API activée ; corrigé en 9.2.28, versions 10.x non vulnérables [6]",
+        "N-central 2026.4 Hotfix 3 supprime définitivement l'option Legacy API, ce qui ferme le vecteur de 4EverAble2Shell, et corrige 17 failles supplémentaires [7]"
       ],
       "abreviations": [
         {
@@ -44247,6 +44248,13 @@
           "url": "https://www.rapid7.com/blog/post/etr-rapid7-detected-exploitation-of-cve-2026-90436-against-atlassian-confluence-data-center-n-able-n-central-also-exploited",
           "date": "2026-11-16",
           "image": "https://www.rapid7.com/cdn/images/blt65a432ba319f4043/6846abddaf18306debe6cf4d/ETR.webp"
+        },
+        {
+          "titre": "N-able Patches 17 N-central Flaws as Attackers Exploit Earlier Bugs to Deploy Crypto Miners",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/n-able-patches-17-n-central-flaws-as.html",
+          "date": "2026-11-17",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8Tz3JQedMRmE0NpjmQ9KXm4AlgJ2GfBbA8pbKm3UARfJrN_vRlTywt0Zg80C-fM4hmacqlZTHV_wh0E-yoga-UjcSvpt2FHczR2AtGze3mvk0fmqeET4vvee-4f_RJEMIF-HL79HkXg_GD2Lg-U8jAPPJaPaqYDJmKTsJHn7GO0lS84zEU5SFQWll-qwv/s1700-nu-rw-lo-l85-e365/nn.jpg"
         }
       ]
     },

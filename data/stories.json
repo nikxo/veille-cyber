@@ -43194,8 +43194,8 @@
       "id": "2026-11-11-screenconnect-prestataires-clients-pirates",
       "title": "ScreenConnect : des panneaux de prestataires compromis servent à installer des clients d'accès à distance pirates",
       "created": "2026-11-11T23:08:37+00:00",
-      "updated": "2026-11-16T16:09:46+00:00",
-      "version": 9,
+      "updated": "2026-11-17T07:12:00+00:00",
+      "version": 10,
       "resume": "Des attaquants utilisent des panneaux ScreenConnect compromis de prestataires de services managés pour installer des clients d'accès à distance pirates chez leurs clients [1]. Huntress compte au moins 288 machines dans 48 organisations [3, 4, 5, 10], touchées en 90 minutes environ [5, 10] ; 286 dans 47 selon [1].",
       "chaine": [
         {
@@ -43212,7 +43212,7 @@
         },
         {
           "etape": "Ancrage sur la machine",
-          "texte": "Exclusions Defender, second client pirate et tâche planifiée posés [4] ; sauf option contraire, le mode nettoyage du décodeur relance le déploiement de la boîte à outils [9]."
+          "texte": "Exclusions Defender, second client pirate et tâche planifiée posés [4] ; dans un incident, client pirate installé comme service « Windows Update Agent » sous le compte LocalSystem [11]."
         },
         {
           "etape": "Rebond vers technicien",
@@ -43298,14 +43298,17 @@
       "acteurs": [
         "La boîte à outils SCKit regroupe 16 scripts et composants ; le code de RelayTrap semble généré par un modèle de langage selon Huntress [8]",
         "Microsoft confirme l'activité signalée par ConnectWise, sans nommer d'acteur [9]",
-        "Aucun responsable formellement identifié pour la campagne du 11 novembre [10]"
+        "Aucun responsable formellement identifié pour la campagne du 11 novembre [10]",
+        "Huntress et Blackpoint Cyber signalent que des acteurs inconnus semblent exploiter une faille d'authentification de RMM+ 1.0.31 et 1.0.32 [11]"
       ],
       "cibles": [
         "Prestataires de services managés utilisant ScreenConnect et machines de leurs clients [1]",
         "Au moins 6 prestataires de services managés touchés selon Huntress [5]",
         "ConnectWise a désactivé cinq extensions tierces dans environ 400 environnements de partenaires ; leur seule présence n'établit pas une compromission [6, 8]",
         "Environ un tiers des machines atteint dans les dix premières minutes [10]",
-        "ConnectWise n'a trouvé aucune preuve de compromission de sa propre infrastructure ni de faille dans ScreenConnect lui-même [10]"
+        "ConnectWise n'a trouvé aucune preuve de compromission de sa propre infrastructure ni de faille dans ScreenConnect lui-même [10]",
+        "Nouveau pic d'activité SCKit le 13 novembre : 205 machines dans 41 organisations selon Huntress [11]",
+        "Selon ConnectWise, désactiver les extensions et mettre à jour ne supprime pas les accès non autorisés déjà établis [11]"
       ],
       "abreviations": [
         {
@@ -43383,6 +43386,13 @@
           "url": "https://www.zataz.com/telemaintenance-288-entreprises-visees-par-une-attaque/",
           "date": "2026-11-16",
           "image": "https://www.zataz.com/wp-content/uploads/telemaintenance_288_entreprise.jpg"
+        },
+        {
+          "titre": "ConnectWise Warns ScreenConnect Attacks Continue as SCKit Targets Unpatched Systems",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/connectwise-warns-screenconnect-attacks.html",
+          "date": "2026-11-17",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjErwt0frcFKiESffCoP1OtYh0j23goqdMN0nz-RT02biCz30WlLG4PD5gTyGgbumOWB3Zh1PJfENQoRtOwQVm3Nbg8VsiRhvNk662qVFNGqO8DQ4bFrroSzWgsvfCYGLWFzD1A-f6fcTu_E_dm4o1iUJz96scWy7skw49vzD9hfIfVEILTVPKsvbsEpGca/s1700-nu-rw-lo-l85-e365/screenconnect-flaws.jpg"
         }
       ]
     },
@@ -50114,6 +50124,107 @@
           "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-delivers-malware-to-cnn-fox-news-bbc-salesforce-sites/",
           "date": "2026-11-16",
           "image": "https://www.bleepstatic.com/content/posts/2026/11/16/supply-chain-attack.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-17-rassemblement-national-seconde-fuite",
+      "title": "Rassemblement National : shin0bi revendique une nouvelle extraction de données d'adhérents et un accès à l'outil de gestion des adhésions",
+      "created": "2026-11-17T07:12:00+00:00",
+      "updated": "2026-11-17T07:12:00+00:00",
+      "version": 1,
+      "resume": "Le pirate shin0bi met en vente 500 782 enregistrements qu'il présente comme ceux d'adhérents du Rassemblement National, après une première divulgation en octobre 2026 [1]. Le parti a confirmé le 4 novembre 2026 une cyberattaque visant son dispositif de gestion des adhésions [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Première divulgation",
+          "texte": "En octobre 2026, shin0bi revendique 432 597 enregistrements d'un fichier présenté comme issu de la gestion des adhérents et diffuse gratuitement 150 000 lignes [1]."
+        },
+        {
+          "etape": "Second accès revendiqué",
+          "texte": "shin0bi présente 0tagada0 comme ayant accès à l'outil de gestion des adhésions ; il diffuse deux captures d'écran et affiche une autre adresse web du parti que celle d'octobre [1]."
+        },
+        {
+          "etape": "Export revendiqué",
+          "texte": "Selon le pirate, l'accès attribué à 0tagada0 a servi à exporter 500 782 enregistrements uniques après suppression des doublons [1]."
+        },
+        {
+          "etape": "Mise en vente",
+          "texte": "Base proposée à 300 dollars payables en Monero ; l'annonce désigne un fichier « Adherents_2025 » et propose un échantillon de 150 111 enregistrements [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (shin0bi, 0tagada0)",
+            "note": ""
+          },
+          {
+            "id": "outil",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Outil de gestion des adhésions",
+            "note": "Accès revendiqué"
+          },
+          {
+            "id": "base",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Enregistrements d'adhérents",
+            "note": "Mis en vente"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "outil",
+            "etape": 3,
+            "texte": "Accès revendiqué, attribué à 0tagada0"
+          },
+          {
+            "de": "outil",
+            "vers": "base",
+            "etape": 4,
+            "texte": "Export revendiqué de 500 782 enregistrements"
+          },
+          {
+            "de": "base",
+            "vers": "att",
+            "etape": 5,
+            "texte": "Base proposée à 300 dollars"
+          }
+        ]
+      },
+      "limites": "Les captures d'écran ne démontrent pas à elles seules l'authenticité de la connexion ; l'origine des données et leur caractère inédit restent à authentifier [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "shin0bi, pseudonyme auteur des deux revendications [1]",
+        "0tagada0, pseudonyme présenté par shin0bi comme ayant accès à l'outil de gestion des adhésions [1]"
+      ],
+      "cibles": [
+        "Rassemblement National et ses adhérents ; le parti indique avoir saisi la CNIL et déposé plainte auprès du parquet de Paris [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CNIL",
+          "definition": "Commission nationale de l'informatique et des libertés : autorité française de protection des données personnelles"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Rassemblement National : une seconde fuite de données ?",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/rassemblement-national-une-seconde-fuite-de-donnees/",
+          "date": "2026-11-17",
+          "image": "https://www.zataz.com/wp-content/uploads/rn_2_leak.jpg"
         }
       ]
     }

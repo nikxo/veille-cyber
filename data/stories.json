@@ -49993,9 +49993,9 @@
       "id": "2026-11-17-optimizely-scripts-pieges",
       "title": "Optimizely : des scripts piégés chargés sur les sites de 178 organisations visent cryptomonnaies et cartes bancaires",
       "created": "2026-11-17T03:06:55+00:00",
-      "updated": "2026-11-17T05:07:34+00:00",
-      "version": 2,
-      "resume": "Du code malveillant inséré dans les fichiers JavaScript d'Optimizely de 178 organisations, selon Scott Helme, a visé les visiteurs de sites comme Zoom, GitLab et Salesforce pour voler cryptomonnaies et cartes bancaires [1, 2]. Optimizely dit avoir corrigé la faille et retiré le code [2].",
+      "updated": "2026-11-17T08:08:02+00:00",
+      "version": 3,
+      "resume": "Du code malveillant inséré dans les fichiers JavaScript d'Optimizely de 178 organisations, selon Scott Helme, a visé les visiteurs de sites comme Zoom, GitLab et Salesforce pour voler cryptomonnaies et cartes bancaires [1, 2, 3]. Optimizely dit avoir corrigé la faille et retiré le code [2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -50003,7 +50003,7 @@
         },
         {
           "etape": "Diffusion du code",
-          "texte": "Les fichiers JavaScript d'Optimizely ainsi modifiés chargent le code malveillant sur les sites qui utilisent le service [1, 2]."
+          "texte": "Les fichiers JavaScript modifiés, toujours servis depuis cdn.optimizely.com, chargent le code malveillant sur les sites clients [1, 2, 3] ; Smartsheet, nettoyé, a été réinfecté par une version cachée [3]."
         },
         {
           "etape": "Chargement du script",
@@ -50019,7 +50019,7 @@
         },
         {
           "etape": "Exploits iPhone et iPad",
-          "texte": "Chargement de scripts visant iPhone et iPad, identifiés par Scott Helme comme les kits d'exploitation Coruna et DarkSword [1, 2]."
+          "texte": "Sur iPhone et iPad, un script ouvre dans un cadre caché les chaînes d'exploitation Coruna ou DarkSword [1, 2, 3] ; Cynet parle d'une livraison conditionnelle, pas d'une compromission réussie d'appareil physique [3]."
         }
       ],
       "parcours": {
@@ -50099,17 +50099,45 @@
           }
         ]
       },
-      "limites": "Les sources ne nomment pas les attaquants et ne détaillent pas la vulnérabilité exploitée [1, 2].",
+      "limites": "Les sources ne nomment pas les attaquants et ne détaillent pas la vulnérabilité exploitée [1, 2, 3]. Report URI ne peut pas voir combien de numéros de cartes ont été exposés [3].",
       "cves": [],
       "mitre": [],
-      "acteurs": [],
+      "acteurs": [
+        "Acteur non nommé ; certains chercheurs appellent la campagne OPTIMJACK [3]"
+      ],
       "cibles": [
         "Optimizely, plateforme d'expérimentation et de personnalisation de sites web [1]",
         "188 fichiers JavaScript infectés appartenant à 178 organisations, selon le chercheur Scott Helme [1, 2]",
         "Sites de Zoom, GitLab, Smartsheet, Stamps.com, Scheels et Salesforce, entre autres [2]",
-        "Sites de Fox News, Air France, Change.org et Bitly, entre autres [1]"
+        "Sites de Fox News, Air France, Change.org et Bitly, entre autres [1]",
+        "Sites de CNN, BBC, IKEA, HSBC, Equifax, Ledger et TalkTalk, entre autres [3]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "BBC",
+          "definition": "British Broadcasting Corporation : groupe audiovisuel public britannique"
+        },
+        {
+          "sigle": "CNN",
+          "definition": "Cable News Network : chaîne d'information américaine"
+        },
+        {
+          "sigle": "HSBC",
+          "definition": "Groupe bancaire international dont le siège est à Londres"
+        },
+        {
+          "sigle": "IKEA",
+          "definition": "Enseigne suédoise d'ameublement"
+        },
+        {
+          "sigle": "OPTIMJACK",
+          "definition": "Nom donné à cette campagne par certains chercheurs"
+        },
+        {
+          "sigle": "URI",
+          "definition": "Uniform Resource Identifier ; ici, élément du nom de la société Report URI"
+        }
+      ],
       "sources": [
         {
           "titre": "Optimizely supply chain attack infects major brands' sites with malware",
@@ -50124,6 +50152,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-delivers-malware-to-cnn-fox-news-bbc-salesforce-sites/",
           "date": "2026-11-16",
           "image": "https://www.bleepstatic.com/content/posts/2026/11/16/supply-chain-attack.jpg"
+        },
+        {
+          "titre": "Hijacked Optimizely Scripts Served Card Skimmer and iOS Exploit Kits to CNN, BBC and Zoom Visitors",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hijacked-optimizely-scripts-served-card.html",
+          "date": "2026-11-17",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCKDXT71QJSnAqaPKmcBticVRjN0Q1diDWoOGKhoZ-wL5WIgLAPHX6dmetOkddYjLcZGIfxDAfLLN1LwbOV4zHqzONN7i8cIyMJLR-rc2t6LF7MnTzJAAoN54aIPEYoWPBf01znenuq43oDLwcVksxZbvP5xPnFsC-G-sDSjpzDegalBNU87YIe7z0YcI/s1700-nu-rw-lo-l85-e365/Optimizely-hacked.jpg"
         }
       ]
     },
@@ -50225,6 +50260,109 @@
           "url": "https://www.zataz.com/rassemblement-national-une-seconde-fuite-de-donnees/",
           "date": "2026-11-17",
           "image": "https://www.zataz.com/wp-content/uploads/rn_2_leak.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-17-negociant-or-faux-policiers",
+      "title": "Négociant parisien en métaux précieux : des données clients volées servent à dépouiller des acheteurs d'or à domicile, au moins 765 000 euros de préjudice",
+      "created": "2026-11-17T08:08:02+00:00",
+      "updated": "2026-11-17T08:08:02+00:00",
+      "version": 1,
+      "resume": "Une cyberattaque contre un négociant parisien en métaux précieux a permis à des escrocs d'identifier des acheteurs d'or et de les dépouiller à domicile [1]. Le préjudice recensé atteint au minimum 765 000 euros [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Intrusion informatique en mai-juin 2026, découverte en août → récupération des noms, adresses postales et historiques d'achats des clients [1]."
+        },
+        {
+          "etape": "Prise de contact",
+          "texte": "À partir de septembre, les escrocs contactent des acheteurs en se faisant passer pour le service antifraude de la société, annoncent un piratage et conseillent de porter plainte [1]."
+        },
+        {
+          "etape": "Vol à domicile",
+          "texte": "Quelques heures après l'appel, un faux policier se présente au domicile de la victime → il récupère lingots, louis d'or et bijoux, puis disparaît [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Système d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données clients du négociant",
+            "note": "Noms, adresses, achats"
+          },
+          {
+            "id": "cli",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Acheteurs d'or",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Données clients récupérées"
+          },
+          {
+            "de": "att",
+            "vers": "cli",
+            "etape": 3,
+            "texte": "Faux service antifraude de la société"
+          },
+          {
+            "de": "att",
+            "vers": "cli",
+            "etape": 4,
+            "texte": "Faux policier au domicile"
+          }
+        ]
+      },
+      "limites": "La source ne nomme ni la société ni les auteurs, et ne décrit pas la méthode de l'intrusion [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Société parisienne de négoce d'or et de métaux précieux, non nommée [1]",
+        "Acheteurs d'or ; plaintes dans une douzaine de départements français [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Cyberattaque : 765 000 euros d’or dérobés à des clients",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/cyberattaque-765-000-euros-dor-derobes-a-des-clients/",
+          "date": "2026-11-17",
+          "image": "https://www.zataz.com/wp-content/uploads/or_leak.jpg"
         }
       ]
     }

@@ -44102,8 +44102,8 @@
       "id": "2026-11-12-n-central-4everable2shell-tentatives",
       "title": "Apache Axis (CVE-2026-90436) : N-able N-central exploité pour installer des mineurs sur 21 serveurs, Confluence Data Center aussi attaqué",
       "created": "2026-11-12T13:20:00+00:00",
-      "updated": "2026-11-17T06:07:44+00:00",
-      "version": 6,
+      "updated": "2026-11-17T13:08:56+00:00",
+      "version": 7,
       "resume": "Des attaquants exploitent 4EverAble2Shell contre des serveurs N-able N-central et y installent des mineurs de cryptomonnaie, sur 21 serveurs dont 19 avec Hotfix 2 [3, 4]. Rapid7 a détecté le 13 novembre 2026 une exploitation de CVE-2026-90436 contre Confluence Data Center [6].",
       "chaine": [
         {
@@ -44206,7 +44206,8 @@
         "Environnements hébergés : Legacy API désactivée par défaut et intégration Intune coupée par N-able [4]",
         "Serveurs compromis environ 5 heures après la publication du code d'exploitation, selon Lupovis et Huntback [5]",
         "Confluence Data Center 1.x à 9.x avec l'option Remote API activée ; corrigé en 9.2.28, versions 10.x non vulnérables [6]",
-        "N-central 2026.4 Hotfix 3 supprime définitivement l'option Legacy API, ce qui ferme le vecteur de 4EverAble2Shell, et corrige 17 failles supplémentaires [7]"
+        "N-central 2026.4 Hotfix 3 supprime définitivement l'option Legacy API, ce qui ferme le vecteur de 4EverAble2Shell, et corrige 17 failles supplémentaires [7]",
+        "Hotfix 3 corrige 17 failles, CVE-2026-129271 à CVE-2026-129287 ; Sean Bales a ensuite détaillé 24 autres failles N-central, corrigées selon lui [8]"
       ],
       "abreviations": [
         {
@@ -44265,6 +44266,13 @@
           "url": "https://thehackernews.com/2026/11/n-able-patches-17-n-central-flaws-as.html",
           "date": "2026-11-17",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8Tz3JQedMRmE0NpjmQ9KXm4AlgJ2GfBbA8pbKm3UARfJrN_vRlTywt0Zg80C-fM4hmacqlZTHV_wh0E-yoga-UjcSvpt2FHczR2AtGze3mvk0fmqeET4vvee-4f_RJEMIF-HL79HkXg_GD2Lg-U8jAPPJaPaqYDJmKTsJHn7GO0lS84zEU5SFQWll-qwv/s1700-nu-rw-lo-l85-e365/nn.jpg"
+        },
+        {
+          "titre": "N-able Kills Legacy APIs, Patches 17 N-central Zero-Days",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/n-able-kills-legacy-apis-patches-17-n-central-zero-days/",
+          "date": "2026-11-17",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/08/N-Able.jpeg"
         }
       ]
     },
@@ -50509,6 +50517,105 @@
           "url": "https://thehackernews.com/2026/11/new-gitdoor-and-graphdoor-backdoors.html",
           "date": "2026-11-17",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhGYnRRqAfAZ2q0dS56dC5lC86Kx69VT0moHy1Pxt67C0ic8RbLOL9LR68b4atQmvb7O6Gq3Btm1axv2aCRaNkhagPKbFHvThWlye3QPpK1xnEj4kovoJn8dsbTlCmAjXOIb8EHV3RJuhNQdVNKRxc4uwiuIfws_a63koiBaCQvs5jwbnTFG8EUwuA0RiA/s1700-nu-rw-lo-l85-e365/git-share.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-17-access-dental-management-worldleaks",
+      "title": "Access Dental Management : intrusion sur le réseau du prestataire dentaire texan, plus de 340 000 personnes touchées, WorldLeaks revendique",
+      "created": "2026-11-17T13:08:56+00:00",
+      "updated": "2026-11-17T13:08:56+00:00",
+      "version": 1,
+      "resume": "Des pirates ont accédé au réseau d'Access Dental Management, prestataire de soins dentaires au Texas, et y ont consulté ou copié certaines données [1]. L'entreprise a déclaré 341 049 personnes touchées, et le groupe de rançongiciel WorldLeaks a revendiqué l'intrusion [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Accès au réseau",
+          "texte": "Du 1er au 4 mai, des pirates accèdent au réseau d'Access Dental Management [1]."
+        },
+        {
+          "etape": "Consultation des données",
+          "texte": "Consultation ou copie de noms, adresses, dates de naissance, numéros de sécurité sociale, informations médicales et d'assurance santé [1]."
+        },
+        {
+          "etape": "Revendication",
+          "texte": "Le 5 juin, le groupe de rançongiciel WorldLeaks revendique l'intrusion [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Revendiqué par WorldLeaks"
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "net",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Réseau d'Access Dental Management",
+            "note": ""
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données personnelles et médicales",
+            "note": "Consultées ou copiées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "net",
+            "etape": 2,
+            "texte": "Accès au réseau du 1er au 4 mai"
+          },
+          {
+            "de": "net",
+            "vers": "don",
+            "etape": 3,
+            "texte": "Données consultées ou copiées"
+          }
+        ]
+      },
+      "limites": "La source ne décrit ni le vecteur d'accès initial ni la méthode employée sur le réseau, et ne mentionne aucun chiffrement [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "WorldLeaks, groupe de rançongiciel qui a revendiqué l'intrusion le 5 juin [1]"
+      ],
+      "cibles": [
+        "Access Dental Management, prestataire de soins dentaires au Texas, aussi présent en Illinois, en Indiana et au Nouveau-Mexique [1]",
+        "341 049 personnes touchées déclarées, dont 341 039 au Texas et 10 dans le Vermont ; le total pourrait dépasser 455 000 [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Access Dental Management Data Breach Impacts Over 340,000",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/access-dental-management-data-breach-impacts-over-340000/",
+          "date": "2026-11-17",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/07/data-breach-healthcare-medical.jpg"
         }
       ]
     }

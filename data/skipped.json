@@ -1,21 +1,5 @@
 [
   {
-    "id": "d75560f4cad5dfa1",
-    "title": "Anthropic's Unreleased AI Model Chains Flaws Into Working Chrome, Safari, Windows and Linux Exploits",
-    "link": "https://thehackernews.com/2026/10/anthropics-unreleased-ai-model-chains.html",
-    "source": "The Hacker News",
-    "raison": "exploits de laboratoire, aucune exploitation dans la nature",
-    "date": "2026-10-28T09:30:00+00:00"
-  },
-  {
-    "id": "3798bc905bf8fe18",
-    "title": "Ordinateur quantique : Fujitsu présente un prototype basé sur un diamant",
-    "link": "https://www.lemagit.fr/actualites/366652697/Ordinateur-quantique-Fujitsu-presente-un-prototype-base-sur-un-diamant",
-    "source": "LeMagIT",
-    "raison": "hors sujet (annonce technologique)",
-    "date": "2026-10-28T10:30:00+00:00"
-  },
-  {
     "id": "3f43bbab06c763bf",
     "title": "Nefilim and Hive ransomware affiliate gets 70 months in prison",
     "link": "https://www.bleepingcomputer.com/news/security/nefilim-and-hive-ransomware-affiliate-gets-70-months-in-prison/",
@@ -3998,5 +3982,21 @@
     "source": "Dark Reading",
     "raison": "présentation d'un kit d'hameçonnage commercial sans campagne ni victime décrite (article inaccessible, résumé seul)",
     "date": "2026-11-17T22:07:55+00:00"
+  },
+  {
+    "id": "04fced3604e31ac8",
+    "title": "Critical Java Vulnerability Requires Immediate Patching",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/11/17/critical-java-vulnerability-requires-immediate-patching",
+    "source": "CISA Advisories",
+    "raison": "vulnérabilité sans exploitation constatée dans la nature (Java4Shell, CVE-2026-114938)",
+    "date": "2026-11-17T23:06:42+00:00"
+  },
+  {
+    "id": "2345b8fdd7d85d2a",
+    "title": "Critical Java4Shell flaw allows RCE attacks on major Java applications",
+    "link": "https://www.bleepingcomputer.com/news/security/critical-java4shell-flaw-allows-rce-attacks-on-major-java-applications/",
+    "source": "BleepingComputer",
+    "raison": "vulnérabilité sans exploitation constatée dans la nature (Java4Shell, CVE-2026-114938)",
+    "date": "2026-11-17T23:06:42+00:00"
   }
 ]

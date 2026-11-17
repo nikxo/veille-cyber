@@ -148,8 +148,8 @@
       "id": "2026-11-17-optimizely-scripts-pieges",
       "title": "Optimizely : des scripts piégés chargés sur les sites de 178 organisations visent cryptomonnaies et cartes bancaires",
       "created": "2026-11-17T03:06:55+00:00",
-      "updated": "2026-11-17T22:07:55+00:00",
-      "version": 7,
+      "updated": "2026-11-17T23:06:42+00:00",
+      "version": 8,
       "resume": "Du code malveillant inséré dans les fichiers JavaScript d'Optimizely de 178 organisations, selon Scott Helme, a visé les visiteurs de sites comme Zoom, GitLab et Salesforce pour voler cryptomonnaies et cartes bancaires [1, 2, 3]. Optimizely dit avoir corrigé la faille et retiré le code [2, 3, 7].",
       "chaine": [
         {
@@ -263,6 +263,7 @@
       "cibles": [
         "Optimizely, plateforme d'expérimentation et de personnalisation de sites web [1]",
         "188 fichiers JavaScript infectés appartenant à 178 organisations, selon le chercheur Scott Helme [1, 2, 5]",
+        "Au moins 178 organisations, dont plusieurs grandes marques, ont exposé leurs visiteurs via une plateforme tierce [9]",
         "32 sites bancaires ou financiers parmi les 178, selon Report URI [8]",
         "Sites de Zoom, GitLab, Smartsheet, Stamps.com, Scheels et Salesforce, entre autres [2]",
         "Sites de Fox News, Air France, Change.org et Bitly, entre autres [1]",
@@ -353,6 +354,12 @@
           "url": "https://therecord.media/optimizely-malicious-code-customer-sites",
           "date": "2026-11-17",
           "image": "https://cms.therecord.media/uploads/optimizely_logo_a558e0b619.png"
+        },
+        {
+          "titre": "Optimizely Malware Attacks Highlight Third-Party Vendor Risks",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/cyber-risk/optimizely-malware-attacks-third-party-vendor-risks",
+          "date": "2026-11-17"
         }
       ]
     },

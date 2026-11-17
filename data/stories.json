@@ -49969,6 +49969,137 @@
           "image": "https://cms.therecord.media/uploads/uber_2_dfaed63c24.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-17-optimizely-scripts-pieges",
+      "title": "Optimizely : des scripts piégés chargés sur les sites de 178 organisations visent cryptomonnaies et cartes bancaires",
+      "created": "2026-11-17T03:06:55+00:00",
+      "updated": "2026-11-17T03:06:55+00:00",
+      "version": 1,
+      "resume": "Selon Scott Helme, du code malveillant a été inséré dans les fichiers JavaScript d'Optimizely de 178 organisations ; il a été chargé, ou a tenté de l'être, sur des sites comme Zoom, Salesforce et GitLab pour voler cryptomonnaies et cartes bancaires [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources : la façon dont les attaquants ont accédé aux projets Optimizely des clients est inconnue [1]."
+        },
+        {
+          "etape": "Injection du code",
+          "texte": "Selon Scott Helme, insertion de code malveillant dans les projets Optimizely de clients → les fichiers JavaScript hébergés par Optimizely chargent ce code sur les sites utilisant le service [1]."
+        },
+        {
+          "etape": "Chargement du script",
+          "texte": "Le code injecté charge le script track.js depuis un domaine externe ; selon Scott Helme, une variante exécute une copie embarquée si le script distant est bloqué [1]."
+        },
+        {
+          "etape": "Vol de cryptomonnaies",
+          "texte": "Remplacement des adresses de portefeuilles détectées sur les pages par celles des attaquants ; selon Scott Helme, leurs portefeuilles ont reçu environ 7 000 dollars le 16 novembre [1]."
+        },
+        {
+          "etape": "Vol de cartes bancaires",
+          "texte": "Recherche des numéros de carte, dates d'expiration et codes de sécurité saisis → tentative d'envoi vers le même domaine externe [1]."
+        },
+        {
+          "etape": "Exploits iPhone et iPad",
+          "texte": "Chargement de scripts visant iPhone et iPad, identifiés par Scott Helme comme les kits d'exploitation Coruna et DarkSword [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "dom",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Domaine externe",
+            "note": "Script track.js"
+          },
+          {
+            "id": "opt",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Projets Optimizely de clients",
+            "note": "Code malveillant inséré"
+          },
+          {
+            "id": "sites",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Sites web des clients",
+            "note": ""
+          },
+          {
+            "id": "vis",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Visiteurs des sites",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "opt",
+            "etape": 2,
+            "texte": "Insertion de code malveillant"
+          },
+          {
+            "de": "opt",
+            "vers": "sites",
+            "etape": 2,
+            "texte": "Fichiers JavaScript modifiés chargés"
+          },
+          {
+            "de": "dom",
+            "vers": "sites",
+            "etape": 3,
+            "texte": "Script track.js chargé"
+          },
+          {
+            "de": "sites",
+            "vers": "vis",
+            "etape": 4,
+            "texte": "Adresses de portefeuilles remplacées"
+          },
+          {
+            "de": "vis",
+            "vers": "dom",
+            "etape": 5,
+            "texte": "Tentative d'envoi des données de carte"
+          },
+          {
+            "de": "sites",
+            "vers": "vis",
+            "etape": 6,
+            "texte": "Scripts visant iPhone et iPad"
+          }
+        ]
+      },
+      "limites": "La source ne dit ni comment les attaquants ont accédé aux projets des clients, ni qui ils sont ; elle parle d'une attaque « suspectée » [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Optimizely, plateforme d'expérimentation et de personnalisation de sites web [1]",
+        "188 fichiers JavaScript infectés appartenant à 178 organisations, selon le chercheur Scott Helme [1]",
+        "Sites de Zoom, Fox News, Salesforce, GitLab, Air France, Change.org et Bitly, entre autres [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Optimizely supply chain attack infects major brands' sites with malware",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-infects-major-brands-sites-with-malware/",
+          "date": "2026-11-16",
+          "image": "https://www.bleepstatic.com/content/posts/2026/11/16/supply-chain-attack.jpg"
+        }
+      ]
     }
   ]
 }

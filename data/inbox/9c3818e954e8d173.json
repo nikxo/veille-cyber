@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-11-17T17:06:15+00:00",
+  "feed_summary": "View CSAF Summary The products listed below contain an authentication bypass vulnerability that could allow an on-path attacker to take over the session of a legitimate user and execute arbitrary code with the privileges of the victim user. Siemens is preparing fixes and recommends specific mitigations for products where fixes are not or not yet available. The following versions of Siemens SIMATIC are affected: SIMATIC BATCH V9.1 vers:all/* (CVE-2026-58114) SIMATIC Information Server 2020 vers:all/* (CVE-2026-58114) SIMATIC Information Server 2022 vers:all/* (CVE-2026-58114) SIMATIC PCS 7 V9.1 vers:all/* (CVE-2026-58114) SIMATIC Process Historian 2020 vers:all/* (CVE-2026-58114) SIMATIC Process Historian 2022 vers:all/* (CVE-2026-58114) SIMATIC WinCC Runtime Professional V17 vers:all/* (CV",
+  "id": "9c3818e954e8d173",
+  "image": null,
+  "lang": "en",
+  "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-321-08",
+  "published": "2026-11-17T12:00:00+00:00",
+  "source": "CISA Advisories",
+  "source_type": "officiel",
+  "title": "Siemens SIMATIC"
+}

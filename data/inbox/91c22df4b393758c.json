@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-11-17T17:06:14+00:00",
+  "feed_summary": "View CSAF Summary Mendix Studio Pro contains multiple vulnerabilities in the MCP Server, that could allow an attacker with network access to interact with the server remotely or trick a user's browser into sending unauthorized requests, potentially leading to unauthorized data access, tool execution, or system compromise. Siemens has released new versions for the affected products and recommends to update to the latest versions. The following versions of Siemens Mendix Studio Pro are affected: Mendix Studio Pro 11 vers:intdot/>=11.15.0|<11.16.0 (CVE-2026-112136, CVE-2026-112137) Mendix Studio Pro 11.12 vers:intdot/>=11.12.6|<11.12.7 (CVE-2026-112136, CVE-2026-112137) CVSS Vendor Equipment v3 8.8 Siemens Mendix Studio Pro 11 2 Vulnerabilities Binding to an Unrestricted IP Address, Cross-Sit",
+  "id": "91c22df4b393758c",
+  "image": null,
+  "lang": "en",
+  "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-321-05",
+  "published": "2026-11-17T12:00:00+00:00",
+  "source": "CISA Advisories",
+  "source_type": "officiel",
+  "title": "Siemens Mendix Studio Pro"
+}

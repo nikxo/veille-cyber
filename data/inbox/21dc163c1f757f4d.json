@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-11-17T17:06:14+00:00",
+  "feed_summary": "View CSAF Summary meta-iot2050 (https://github.com/siemens/meta-iot2050) from V01.03.01 contains a Command Injection vulnerability in the firmware update tool that could allow an attacker which is able to manipulate a configuration file to have arbitrary commands run as root. Siemens is preparing fixes and recommends mitigations for products where fixes are not or not yet available. The following versions of Siemens meta-iot2050 are affected: meta-iot2050 vers:intdot/>=01.03.01 (CVE-2026-109830) CVSS Vendor Equipment v3 7.3 Siemens meta-iot2050 1 Vulnerability Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') Background Critical Infrastructure Sectors: Critical Manufacturing, Energy, Information Technology Countries/Areas Deployed: Worldwide Company",
+  "id": "21dc163c1f757f4d",
+  "image": null,
+  "lang": "en",
+  "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-321-11",
+  "published": "2026-11-17T12:00:00+00:00",
+  "source": "CISA Advisories",
+  "source_type": "officiel",
+  "title": "Siemens meta-iot2050"
+}

@@ -2,6 +2,353 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-17-riken-fugaku-hors-ligne",
+      "title": "RIKEN : le supercalculateur japonais Fugaku mis hors ligne après une intrusion",
+      "created": "2026-11-17T21:30:00+00:00",
+      "updated": "2026-11-17T21:30:00+00:00",
+      "version": 1,
+      "resume": "Le supercalculateur Fugaku, exploité par le centre de calcul scientifique du RIKEN au Japon, a été mis hors ligne à la suite d'une faille de sécurité [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Mise hors ligne",
+          "texte": "Après la faille de sécurité → Fugaku retiré du service [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "fug",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Supercalculateur Fugaku",
+            "note": "Mis hors ligne"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "fug",
+            "etape": 1,
+            "texte": "Intrusion, vecteur non précisé"
+          }
+        ]
+      },
+      "limites": "Seul le résumé de l'article a pu être lu : ni le vecteur d'entrée, ni l'auteur, ni les données éventuellement touchées ne sont connus [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Centre de calcul scientifique du RIKEN, au Japon, qui exploite le supercalculateur Fugaku [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "RIKEN",
+          "definition": "Institut de recherche japonais dont dépend le centre exploitant Fugaku"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Japan takes Fugaku supercomputer offlline after cyberattack",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/japan-takes-fugaku-supercomputer-offlline-after-cyberattack/",
+          "date": "2026-11-17",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/17/RIKEN.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-17-puppet-enterprise-cve-2026-115731-kev",
+      "title": "Puppet Enterprise : la faille de désérialisation CVE-2026-115731 exploitée, ajoutée au catalogue de la CISA",
+      "created": "2026-11-17T21:30:00+00:00",
+      "updated": "2026-11-17T21:30:00+00:00",
+      "version": 1,
+      "resume": "La CISA a ajouté à son catalogue des failles exploitées CVE-2026-115731, une désérialisation de données non fiables dans Perforce Puppet Enterprise, sur la base de preuves d'exploitation active [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Exécution de code",
+          "texte": "Rapport forgé envoyé par un client muni d'un certificat d'agent signé → code arbitraire exécuté sur le serveur Puppet [2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "pup",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur Puppet",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pup",
+            "etape": 2,
+            "texte": "Rapport forgé, exécution de code arbitraire"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent ni qui exploite la faille, ni contre qui, ni comment les attaquants ont obtenu un certificat d'agent [1, 2].",
+      "cves": [
+        {
+          "id": "CVE-2026-115731",
+          "explication": "Puppet Server et Puppet Enterprise : désérialisation dans le traitement des rapports, exécution de code sur le serveur par un client certifié, gravité critique 9,9 sur 10 [2]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Agences fédérales civiles américaines, tenues de corriger la faille avant le 1er décembre 2026 [2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CISA Adds One Known Exploited Vulnerability to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/17/cisa-adds-one-known-exploited-vulnerability-catalog",
+          "date": "2026-11-17"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-115731",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115731"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-17-optimizely-scripts-pieges",
+      "title": "Optimizely : des scripts piégés chargés sur les sites de 178 organisations visent cryptomonnaies et cartes bancaires",
+      "created": "2026-11-17T03:06:55+00:00",
+      "updated": "2026-11-17T21:30:00+00:00",
+      "version": 6,
+      "resume": "Du code malveillant inséré dans les fichiers JavaScript d'Optimizely de 178 organisations, selon Scott Helme, a visé les visiteurs de sites comme Zoom, GitLab et Salesforce pour voler cryptomonnaies et cartes bancaires [1, 2, 3]. Optimizely dit avoir corrigé la faille et retiré le code [2, 3, 7].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Selon Optimizely, exploitation d'une vulnérabilité dans le parcours d'inscription aux comptes Experimentation → ajout de JavaScript malveillant à des projets de clients, le 16 novembre selon Unit 42 [2, 5, 6, 7]."
+        },
+        {
+          "etape": "Diffusion du code",
+          "texte": "Code placé dans un champ facultatif réservé au JavaScript du client, exécuté sur chaque page [4] ; fichiers modifiés servis depuis cdn.optimizely.com [1, 2, 3] ; Smartsheet, nettoyé, réinfecté par une version cachée [3]."
+        },
+        {
+          "etape": "Chargement du script",
+          "texte": "Le code injecté charge le script track.js depuis un domaine externe ; selon Scott Helme, une variante exécute une copie embarquée si le script distant est bloqué [1, 2]."
+        },
+        {
+          "etape": "Vol de cryptomonnaies",
+          "texte": "Remplacement des adresses de portefeuilles détectées sur les pages par celles des attaquants ; selon Scott Helme, leurs portefeuilles ont reçu environ 7 000 dollars au 16 novembre [1, 2]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Recherche des numéros, dates d'expiration et codes de sécurité de cartes saisis → tentative d'envoi vers le même domaine ; collecte possible de cookies et captures d'écran [2]."
+        },
+        {
+          "etape": "Exploits iPhone et iPad",
+          "texte": "Sur iPhone et iPad, un script ouvre dans un cadre caché les chaînes d'exploitation Coruna ou DarkSword [1, 2, 3] ; Cynet parle d'une livraison conditionnelle, pas d'une compromission réussie d'appareil physique [3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "dom",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Domaine externe",
+            "note": "Script track.js"
+          },
+          {
+            "id": "opt",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Projets Optimizely de clients",
+            "note": "Code malveillant inséré"
+          },
+          {
+            "id": "sites",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Sites web des clients",
+            "note": ""
+          },
+          {
+            "id": "vis",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Visiteurs des sites",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "opt",
+            "etape": 1,
+            "texte": "Faille du parcours d'inscription exploitée"
+          },
+          {
+            "de": "opt",
+            "vers": "sites",
+            "etape": 2,
+            "texte": "Fichiers JavaScript modifiés chargés"
+          },
+          {
+            "de": "dom",
+            "vers": "sites",
+            "etape": 3,
+            "texte": "Script track.js chargé"
+          },
+          {
+            "de": "sites",
+            "vers": "vis",
+            "etape": 4,
+            "texte": "Adresses de portefeuilles remplacées"
+          },
+          {
+            "de": "vis",
+            "vers": "dom",
+            "etape": 5,
+            "texte": "Tentative d'envoi des données de carte"
+          },
+          {
+            "de": "sites",
+            "vers": "vis",
+            "etape": 6,
+            "texte": "Scripts visant iPhone et iPad"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment pas les attaquants et ne détaillent pas la vulnérabilité exploitée [1, 2, 3, 4, 5, 6]. Report URI ne peut pas voir combien de numéros de cartes ont été exposés [3].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Acteur non nommé ; certains chercheurs, dont Unit 42, appellent la campagne OPTIMJACK [3, 7]"
+      ],
+      "cibles": [
+        "Optimizely, plateforme d'expérimentation et de personnalisation de sites web [1]",
+        "188 fichiers JavaScript infectés appartenant à 178 organisations, selon le chercheur Scott Helme [1, 2, 5]",
+        "Sites de Zoom, GitLab, Smartsheet, Stamps.com, Scheels et Salesforce, entre autres [2]",
+        "Sites de Fox News, Air France, Change.org et Bitly, entre autres [1]",
+        "Sites d'Ikea, Air France, Zoom et du site de la communauté cybersécurité de Thales, entre autres [6]",
+        "Sites de CNN, BBC, IKEA, HSBC, Equifax, Ledger et TalkTalk, entre autres [3]",
+        "Scripts de Kissmetrics, StorifyMe et Minute-ly diffusant un petit chargeur, première observation le 13 novembre ; entrée du code inconnue [4]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "BBC",
+          "definition": "British Broadcasting Corporation : groupe audiovisuel public britannique"
+        },
+        {
+          "sigle": "CNN",
+          "definition": "Cable News Network : chaîne d'information américaine"
+        },
+        {
+          "sigle": "HSBC",
+          "definition": "Groupe bancaire international dont le siège est à Londres"
+        },
+        {
+          "sigle": "IKEA",
+          "definition": "Enseigne suédoise d'ameublement"
+        },
+        {
+          "sigle": "OPTIMJACK",
+          "definition": "Nom donné à cette campagne par certains chercheurs"
+        },
+        {
+          "sigle": "URI",
+          "definition": "Uniform Resource Identifier ; ici, élément du nom de la société Report URI"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Optimizely supply chain attack infects major brands' sites with malware",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-infects-major-brands-sites-with-malware/",
+          "date": "2026-11-16",
+          "image": "https://www.bleepstatic.com/content/posts/2026/11/16/supply-chain-attack.jpg"
+        },
+        {
+          "titre": "Optimizely hack infected CNN, Fox News, BBC, Salesforce sites with malware",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-delivers-malware-to-cnn-fox-news-bbc-salesforce-sites/",
+          "date": "2026-11-16",
+          "image": "https://www.bleepstatic.com/content/posts/2026/11/16/supply-chain-attack.jpg"
+        },
+        {
+          "titre": "Hijacked Optimizely Scripts Served Card Skimmer and iOS Exploit Kits to CNN, BBC and Zoom Visitors",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hijacked-optimizely-scripts-served-card.html",
+          "date": "2026-11-17",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCKDXT71QJSnAqaPKmcBticVRjN0Q1diDWoOGKhoZ-wL5WIgLAPHX6dmetOkddYjLcZGIfxDAfLLN1LwbOV4zHqzONN7i8cIyMJLR-rc2t6LF7MnTzJAAoN54aIPEYoWPBf01znenuq43oDLwcVksxZbvP5xPnFsC-G-sDSjpzDegalBNU87YIe7z0YcI/s1700-nu-rw-lo-l85-e365/Optimizely-hacked.jpg"
+        },
+        {
+          "titre": "Optimizely Vulnerability Exploited to Serve Malware on Major Websites",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/optimizely-vulnerability-exploited-to-serve-malware-on-major-websites/",
+          "date": "2026-11-17",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/08/malware-infection.webp"
+        },
+        {
+          "titre": "Hijacked Optimizely snippets served malicious code on major websites",
+          "site": "Sophos Threat Research",
+          "url": "https://www.sophos.com/en-us/blog/hijacked-optimizely-snippets-served-malicious-code",
+          "date": "2026-11-17",
+          "image": "https://images.contentstack.io/v3/assets/blt38f1f401b66100ad/bltb4b6c0750dc5846c/6aad5e6160452d9f5056a4ef/logo.png"
+        },
+        {
+          "titre": "Un composant JavaScript malveillant distribué sur près de 180 sites Web majeurs",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366654823/Un-composant-JavaScript-malveillant-distribue-sur-pres-de-180-sites-Web-majeurs",
+          "date": "2026-11-17",
+          "image": "https://www.lemagit.fr/visuals/German/article/url_website_fotolia.jpg"
+        },
+        {
+          "titre": "Borrowed Code, Real Consequences: What OPTIMJACK Teaches Us",
+          "site": "Unit 42 (Palo Alto Networks)",
+          "url": "https://unit42.paloaltonetworks.com/optimjack-supply-chain-attack/",
+          "date": "2026-11-17",
+          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/11/09_Opinion_Category_1505x922.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-17-trigram-faux-recrutements-developpeurs",
       "title": "Trigram : de faux portails de recrutement aux couleurs d'environ 50 marques d'IA et de blockchain font exécuter un voleur de données aux développeurs",
       "created": "2026-11-17T20:30:00+00:00",
@@ -102,6 +449,481 @@
           "url": "https://thehackernews.com/2026/11/trigram-campaign-impersonates-about-50.html",
           "date": "2026-11-17",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXvywoP0qreCtUhDgAD1y24HevVHwAH9bGo904BuaQ7-amvdkk6Oi8gz8WjF-Hwiu3SinN266QM0KwUX6lDnayGOtMaSEff_b5vybBsdwvDhiai2uGsAlYfMgCdquPmKqaqM6eY54pG9HsMR7X5Sf7M4nkbIaHmWJMBG1uL3ggpJMMvfQR6FbMagqug2QG/s1700-nu-rw-lo-l85-e365/target.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-16-google-agents-ia-correctifs-papercut",
+      "title": "Google : des agents d'intelligence artificielle analysent les correctifs pour exploiter des failles PaperCut, des accès à des modèles volés puis revendus",
+      "created": "2026-11-16T18:09:47+00:00",
+      "updated": "2026-11-17T19:30:00+00:00",
+      "version": 2,
+      "resume": "Selon Google, des attaquants emploient des modèles de langage et des agents pour transformer des correctifs en attaques, comme contre PaperCut NG/MF en septembre, et volent des accès à des modèles dans des entreprises compromises [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Analyse des correctifs",
+          "texte": "Modèles de langage et agents comparent les versions d'un logiciel par analyse différentielle → failles de PaperCut NG/MF vite transformées en outils d'attaque, en septembre [1]."
+        },
+        {
+          "etape": "Intrusions automatisées",
+          "texte": "Outils à plusieurs agents ARTEX, CAIRN, CyberStrikeAI et PentAGI → phases et tâches d'intrusions en cours automatisées, vitesse d'opération accrue [1, 2]."
+        },
+        {
+          "etape": "Vol d'accès aux modèles",
+          "texte": "Identifiants de modèles de langage et ressources cloud volés dans des environnements d'entreprise compromis → revendus à prix réduit via APIMart et JetNight [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Agents et modèles"
+          },
+          {
+            "id": "pap",
+            "type": "application",
+            "zone": "victime",
+            "nom": "PaperCut NG/MF",
+            "note": "Failles exploitées"
+          },
+          {
+            "id": "ent",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Environnements d'entreprise compromis",
+            "note": "Identifiants volés"
+          },
+          {
+            "id": "rev",
+            "type": "application",
+            "zone": "internet",
+            "nom": "APIMart et JetNight",
+            "note": "Revente"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pap",
+            "etape": 2,
+            "texte": "Failles exploitées après analyse des correctifs"
+          },
+          {
+            "de": "att",
+            "vers": "ent",
+            "etape": 4,
+            "texte": "Identifiants de modèles et ressources cloud volés"
+          },
+          {
+            "de": "ent",
+            "vers": "rev",
+            "etape": 4,
+            "texte": "Accès revendus à prix réduit"
+          }
+        ]
+      },
+      "limites": "Aucune victime, aucun groupe ni identifiant de faille PaperCut nommés [1] ; selon [2], des chercheurs ont produit en un jour des exploits pour deux failles PaperCut de cet été [2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Acteurs à motivation financière et acteurs d'espionnage soupçonnés d'être alignés avec la Chine, vus expérimentant ces outils à plusieurs agents, non nommés [1]",
+        "Groupes gouvernementaux chinois qui développent leur propre version d'Artex, selon Google [2]"
+      ],
+      "cibles": [
+        "Environnements d'entreprise compromis, sans victime nommée [1]",
+        "Entreprises du secteur aérospatial américain, visées par des intrusions menées avec CAIRN [2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ARTEX",
+          "definition": "Nom d'un outil d'attaque à plusieurs agents d'intelligence artificielle"
+        },
+        {
+          "sigle": "CAIRN",
+          "definition": "Nom d'un outil d'attaque à plusieurs agents d'intelligence artificielle"
+        },
+        {
+          "sigle": "NG",
+          "definition": "Élément du nom du logiciel PaperCut NG"
+        },
+        {
+          "sigle": "MF",
+          "definition": "Élément du nom du logiciel PaperCut MF"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Google Finds Hackers Using AI Agents to Build and Run Exploits From Software Patches",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/google-finds-hackers-using-ai-agents-to.html",
+          "date": "2026-11-16",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpEBmKLWFpEn8sSoJLtj1ZR7FPMd8GxxKN2v4IzyBkydma_g4gXzaWEEkK5CTPwidrBPw6QPdoByiEC14ufVP2pvezWKtH_dmqHttARDKzDOopkw0vzUdTYZubCh9Qy76nlmVSbhtTSvDOuT1c70E4TVPw8T4hUhMdR-saHjQPW1S9IZNmg2_RfsMsmJLb/s1700-nu-rw-lo-l85-e365/google.jpg"
+        },
+        {
+          "titre": "Chinese state group developing automated attack tool for cyber espionage, Google says",
+          "site": "The Record",
+          "url": "https://therecord.media/chinese-state-group-developing-automated-attack-tool-espionage",
+          "date": "2026-11-17",
+          "image": "https://cms.therecord.media/uploads/red_digital_f1b63748b1.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-14-cursor-intrusion-cle-fireworks",
+      "title": "Cursor : une clé volée chez Fireworks AI mène au vol de données et à l'extension Claude Code piégée",
+      "created": "2026-11-14T18:20:00+00:00",
+      "updated": "2026-11-17T19:30:00+00:00",
+      "version": 4,
+      "resume": "Une clé compromise, émise pour Fireworks AI, a servi à accéder à des données et identifiants de Cursor [1, 4]. Une extension Claude Code piégée a exposé jusqu'à 5 000 développeurs à une porte dérobée SSH [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Clé d'accès émise par Cursor pour Fireworks AI, compromise lors d'un des deux incidents d'octobre chez Fireworks [3] → copie des données d'un espace de stockage en lecture seule [1, 2, 3]."
+        },
+        {
+          "etape": "Rebond chez Cursor",
+          "texte": "Ce stockage contenait des traces d'agents de code, certaines avec des identifiants non masqués → point de départ pour atteindre certains outils SaaS de Cursor [1, 2]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Vol de dépôts de code archivés hors production, d'échanges du support, de coordonnées, de résumés de conversations d'agents et d'identifiants transmis au support [1, 2, 3]."
+        },
+        {
+          "etape": "Accès à la marketplace",
+          "texte": "Identifiant volé dans les données exposées du système interne de Cursor → possibilité de distribuer des extensions via la marketplace [1]."
+        },
+        {
+          "etape": "Extension piégée",
+          "texte": "Le 29 octobre, copies malveillantes de l'extension Claude Code (2.1.312 et 2.1.313) placées dans le cache servant la marketplace → disponibles environ 11 heures [1, 3]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Le JavaScript ajouté installe une clé SSH de l'attaquant, tente d'activer SSH et configure des mécanismes de persistance pour conserver l'accès distant [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "fw",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Stockage chez Fireworks AI",
+            "note": "Traces d'agents"
+          },
+          {
+            "id": "sys",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Outils SaaS de Cursor",
+            "note": "Données volées"
+          },
+          {
+            "id": "mp",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Cache de la marketplace",
+            "note": "Extension piégée"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes des développeurs",
+            "note": "Clé SSH installée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "fw",
+            "etape": 1,
+            "texte": "Clé d'accès obtenue, données copiées"
+          },
+          {
+            "de": "fw",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Identifiants d'API trouvés dans les traces"
+          },
+          {
+            "de": "att",
+            "vers": "mp",
+            "etape": 5,
+            "texte": "Copies malveillantes de l'extension placées dans le cache"
+          },
+          {
+            "de": "mp",
+            "vers": "pc",
+            "etape": 6,
+            "texte": "Clé SSH de l'attaquant installée"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment pas l'acteur [1, 2, 3] ; la source ne dit pas lequel des deux incidents chez Fireworks AI a compromis la clé de Cursor [3].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non nommé ; l'incident survient au milieu d'une vague d'attaques contre des plateformes de développement d'intelligence artificielle que Wiz appelle « Black October » [1]",
+        "Activité découverte le 29 octobre, accès aussitôt bloqué par Cursor ; aucune activité de l'attaquant observée depuis le 1er novembre [3]"
+      ],
+      "cibles": [
+        "Cursor : moins de 0,05 % des utilisateurs ont eu des traces d'agents exposées, moins de 0,01 % des clients des identifiants d'API compromis [1]",
+        "Jusqu'à 5 000 développeurs exposés au maliciel [1]",
+        "Selon des chercheurs, des erreurs de code ont probablement empêché la porte dérobée de fonctionner sur de nombreux Windows et macOS sans SSH déjà activé [1]",
+        "Uber : informations de permis de conduire de milliers de chauffeurs volées via un fournisseur, Fireworks AI selon TechCrunch [2]",
+        "Notion a confirmé le vol de ses données dans le piratage de Fireworks AI [2]",
+        "Anthropic n'a pas été piraté : toute l'activité malveillante s'est déroulée dans l'environnement de Cursor [3]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SSH",
+          "definition": "Protocole d'accès distant sécurisé à une machine"
+        },
+        {
+          "sigle": "API",
+          "definition": "Interface de programmation permettant à des logiciels de communiquer"
+        },
+        {
+          "sigle": "AI",
+          "definition": "Artificial Intelligence : intelligence artificielle"
+        },
+        {
+          "sigle": "SaaS",
+          "definition": "Software as a Service : logiciel utilisé en ligne, hébergé par son éditeur"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Cursor confirms security breach led to malicious Claude Code extension",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cursor-confirms-security-breach-led-to-malicious-claude-code-extension/",
+          "date": "2026-11-14",
+          "image": "https://www.bleepstatic.com/content/hl-images/2025/07/13/cursor-header.jpg"
+        },
+        {
+          "titre": "Stolen Fireworks AI Key Led to Cursor Data Breach and Trojanized Claude Code Extension",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/stolen-fireworks-ai-key-led-to-cursor.html",
+          "date": "2026-11-15",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg16ACawbG7rP_kT-8Boo4xdTje3BeTWyFSnNXwHhr5cvy2-1X3Ljhrc1IuZlseWd55tN8E1yjQ9ldhTnjWTU-GJBpX_Zen36YiLQGsRSRAoteqHyxx7mn_w0QgLfMKDLItA4p_jpHajucbglLnCR_zWBY_t82YvFkLa9dQFBfjP1BrTlrNdYufsGMSZiGn/s1700-nu-rw-lo-l85-e365/cursor.jpg"
+        },
+        {
+          "titre": "Cursor Supply Chain Attack Started at Fireworks AI",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/cursor-supply-chain-attack-started-at-fireworks/",
+          "date": "2026-11-16",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+        },
+        {
+          "titre": "Cursor Traces Malicious Claude Code Extension to Third-Party Breach",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/application-security/cursor-malicious-claude-code-extension-third-party-breach",
+          "date": "2026-11-17"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-16-exploit-agent-sites-francais",
+      "title": "exploit_agent : un système d'agents d'intelligence artificielle trouve et exploite seul des failles, des sites web français visés",
+      "created": "2026-11-16T14:09:11+00:00",
+      "updated": "2026-11-17T19:30:00+00:00",
+      "version": 2,
+      "resume": "Google a découvert exploit_agent, un système à plusieurs agents d'intelligence artificielle qui trouve et exploite seul des failles, utilisé contre des sites web français des médias, du divertissement et de l'éducation [1, 2, 3].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Le système compare le code de logiciels web populaires avant et après l'annonce d'un correctif, rédige des exploits et les exécute automatiquement, sans intervention humaine [1, 3]."
+        },
+        {
+          "etape": "Après la compromission",
+          "texte": "Des scripts servent à la reconnaissance interne, à la force brute, à l'installation de portes dérobées web et à la suppression de celles d'autres attaquants [1, 3]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Le serveur de préparation de l'attaquant, laissé exposé, contenait des données volées à des victimes [1, 2, 3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant avec exploit_agent",
+            "note": ""
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Logiciels web visés",
+            "note": "Portes dérobées web"
+          },
+          {
+            "id": "stg",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de préparation exposé",
+            "note": "Données volées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Exploits rédigés et exécutés automatiquement"
+          },
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 2,
+            "texte": "Reconnaissance interne, force brute, portes dérobées web"
+          },
+          {
+            "de": "web",
+            "vers": "stg",
+            "etape": 3,
+            "texte": "Données volées retrouvées sur le serveur"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment ni l'opérateur ni les victimes, et n'indiquent pas quelles failles ont été exploitées [1, 2, 3].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Opérateur non nommé ; un fichier de configuration du système contient des commentaires en russe [1]"
+      ],
+      "cibles": [
+        "Sites web français des médias, du divertissement et de l'éducation [1, 2, 3]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "GTIG AI Threat Tracker: Agentic Threat Activity Crosses a Significant Threshold",
+          "site": "Google Threat Intelligence (Mandiant)",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold/",
+          "date": "2026-11-16",
+          "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
+        },
+        {
+          "titre": "Google warns that fully-automated AI attacks are coming soon",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/google-warns-that-fully-automated-ai-attacks-are-coming-soon/",
+          "date": "2026-11-16",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/robot-hacker.jpg"
+        },
+        {
+          "titre": "AI Framework Autonomously Weaponized Flaws in Real Attacks, Google Says",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/ai-framework-autonomously-weaponized-flaws-in-real-attacks-google-says/",
+          "date": "2026-11-17",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/07/AI-Chatbot-GenAI-artificial-intelligence.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-16-tor-relais-deni-de-service",
+      "title": "Tor : une attaque par déni de service vise les relais, les protections corrigées dans la version 0.4.9.17",
+      "created": "2026-11-16T09:20:00+00:00",
+      "updated": "2026-11-17T18:30:00+00:00",
+      "version": 2,
+      "resume": "Une attaque par déni de service en cours, par afflux massif de circuits clients, touche la plupart des opérateurs de relais Tor [1, 2]. La version 0.4.9.17 corrige notamment un problème lié à IPv6 dans les protections des relais [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Saturation des relais",
+          "texte": "Inondation massive de circuits clients vers les relais Tor → relais saturés [1, 2] ; deux relais d'un opérateur ont perdu le statut HSDir avant la mise à jour [1]."
+        },
+        {
+          "etape": "Changement de forme",
+          "texte": "Selon cet opérateur, dix minutes environ après la mise à jour d'un autre relais visé, son trafic chute et il cesse régulièrement de répondre → statut HSDir perdu [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "rel",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Relais Tor",
+            "note": "Statut HSDir perdu"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "rel",
+            "etape": 2,
+            "texte": "Inondation de circuits clients"
+          },
+          {
+            "de": "att",
+            "vers": "rel",
+            "etape": 3,
+            "texte": "Attaque modifiée après la mise à jour"
+          }
+        ]
+      },
+      "limites": "L'auteur de l'attaque n'est pas identifié et sa date de début n'est pas donnée [1, 2] ; le changement de forme est rapporté par un seul opérateur de relais [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Opérateurs de relais Tor, réseau tenu par des bénévoles ; la plupart sont touchés [1, 2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "HSDir",
+          "definition": "Hidden Service Directory : relais Tor qui sert d'annuaire aux services onion"
+        },
+        {
+          "sigle": "IPv6",
+          "definition": "Internet Protocol version 6 : version récente du protocole d'adressage d'Internet"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Tor Updates DoS Defenses Again as Relay Attacks Continue",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/tor-updates-dos-defenses-again-as-relay-attacks-continue/",
+          "date": "2026-11-16",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/01/Tor-Network-1.jpeg"
+        },
+        {
+          "titre": "Tor releases emergency update amid ongoing DDoS attack",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/tor-releases-emergency-update-amid-ongoing-ddos-attack/",
+          "date": "2026-11-17",
+          "image": "https://www.bleepstatic.com/content/hl-images/2020/08/19/Tor-headpic.jpg"
         }
       ]
     },
@@ -950,203 +1772,6 @@
           "url": "https://thehackernews.com/2026/11/new-gitdoor-and-graphdoor-backdoors.html",
           "date": "2026-11-17",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhGYnRRqAfAZ2q0dS56dC5lC86Kx69VT0moHy1Pxt67C0ic8RbLOL9LR68b4atQmvb7O6Gq3Btm1axv2aCRaNkhagPKbFHvThWlye3QPpK1xnEj4kovoJn8dsbTlCmAjXOIb8EHV3RJuhNQdVNKRxc4uwiuIfws_a63koiBaCQvs5jwbnTFG8EUwuA0RiA/s1700-nu-rw-lo-l85-e365/git-share.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-17-optimizely-scripts-pieges",
-      "title": "Optimizely : des scripts piégés chargés sur les sites de 178 organisations visent cryptomonnaies et cartes bancaires",
-      "created": "2026-11-17T03:06:55+00:00",
-      "updated": "2026-11-17T18:30:00+00:00",
-      "version": 5,
-      "resume": "Du code malveillant inséré dans les fichiers JavaScript d'Optimizely de 178 organisations, selon Scott Helme, a visé les visiteurs de sites comme Zoom, GitLab et Salesforce pour voler cryptomonnaies et cartes bancaires [1, 2, 3]. Optimizely dit avoir corrigé la faille et retiré le code [2, 3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Selon Optimizely, exploitation d'une vulnérabilité dans le parcours d'inscription aux comptes Experimentation → ajout de JavaScript malveillant à des projets de clients [2, 5, 6]."
-        },
-        {
-          "etape": "Diffusion du code",
-          "texte": "Code placé dans un champ facultatif réservé au JavaScript du client, exécuté sur chaque page [4] ; fichiers modifiés servis depuis cdn.optimizely.com [1, 2, 3] ; Smartsheet, nettoyé, réinfecté par une version cachée [3]."
-        },
-        {
-          "etape": "Chargement du script",
-          "texte": "Le code injecté charge le script track.js depuis un domaine externe ; selon Scott Helme, une variante exécute une copie embarquée si le script distant est bloqué [1, 2]."
-        },
-        {
-          "etape": "Vol de cryptomonnaies",
-          "texte": "Remplacement des adresses de portefeuilles détectées sur les pages par celles des attaquants ; selon Scott Helme, leurs portefeuilles ont reçu environ 7 000 dollars au 16 novembre [1, 2]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Recherche des numéros, dates d'expiration et codes de sécurité de cartes saisis → tentative d'envoi vers le même domaine ; collecte possible de cookies et captures d'écran [2]."
-        },
-        {
-          "etape": "Exploits iPhone et iPad",
-          "texte": "Sur iPhone et iPad, un script ouvre dans un cadre caché les chaînes d'exploitation Coruna ou DarkSword [1, 2, 3] ; Cynet parle d'une livraison conditionnelle, pas d'une compromission réussie d'appareil physique [3]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "dom",
-            "type": "serveur",
-            "zone": "internet",
-            "nom": "Domaine externe",
-            "note": "Script track.js"
-          },
-          {
-            "id": "opt",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Projets Optimizely de clients",
-            "note": "Code malveillant inséré"
-          },
-          {
-            "id": "sites",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Sites web des clients",
-            "note": ""
-          },
-          {
-            "id": "vis",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Visiteurs des sites",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "opt",
-            "etape": 1,
-            "texte": "Faille du parcours d'inscription exploitée"
-          },
-          {
-            "de": "opt",
-            "vers": "sites",
-            "etape": 2,
-            "texte": "Fichiers JavaScript modifiés chargés"
-          },
-          {
-            "de": "dom",
-            "vers": "sites",
-            "etape": 3,
-            "texte": "Script track.js chargé"
-          },
-          {
-            "de": "sites",
-            "vers": "vis",
-            "etape": 4,
-            "texte": "Adresses de portefeuilles remplacées"
-          },
-          {
-            "de": "vis",
-            "vers": "dom",
-            "etape": 5,
-            "texte": "Tentative d'envoi des données de carte"
-          },
-          {
-            "de": "sites",
-            "vers": "vis",
-            "etape": 6,
-            "texte": "Scripts visant iPhone et iPad"
-          }
-        ]
-      },
-      "limites": "Les sources ne nomment pas les attaquants et ne détaillent pas la vulnérabilité exploitée [1, 2, 3, 4, 5, 6]. Report URI ne peut pas voir combien de numéros de cartes ont été exposés [3].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Acteur non nommé ; certains chercheurs appellent la campagne OPTIMJACK [3]"
-      ],
-      "cibles": [
-        "Optimizely, plateforme d'expérimentation et de personnalisation de sites web [1]",
-        "188 fichiers JavaScript infectés appartenant à 178 organisations, selon le chercheur Scott Helme [1, 2, 5]",
-        "Sites de Zoom, GitLab, Smartsheet, Stamps.com, Scheels et Salesforce, entre autres [2]",
-        "Sites de Fox News, Air France, Change.org et Bitly, entre autres [1]",
-        "Sites d'Ikea, Air France, Zoom et du site de la communauté cybersécurité de Thales, entre autres [6]",
-        "Sites de CNN, BBC, IKEA, HSBC, Equifax, Ledger et TalkTalk, entre autres [3]",
-        "Scripts de Kissmetrics, StorifyMe et Minute-ly diffusant un petit chargeur, première observation le 13 novembre ; entrée du code inconnue [4]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "BBC",
-          "definition": "British Broadcasting Corporation : groupe audiovisuel public britannique"
-        },
-        {
-          "sigle": "CNN",
-          "definition": "Cable News Network : chaîne d'information américaine"
-        },
-        {
-          "sigle": "HSBC",
-          "definition": "Groupe bancaire international dont le siège est à Londres"
-        },
-        {
-          "sigle": "IKEA",
-          "definition": "Enseigne suédoise d'ameublement"
-        },
-        {
-          "sigle": "OPTIMJACK",
-          "definition": "Nom donné à cette campagne par certains chercheurs"
-        },
-        {
-          "sigle": "URI",
-          "definition": "Uniform Resource Identifier ; ici, élément du nom de la société Report URI"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Optimizely supply chain attack infects major brands' sites with malware",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-infects-major-brands-sites-with-malware/",
-          "date": "2026-11-16",
-          "image": "https://www.bleepstatic.com/content/posts/2026/11/16/supply-chain-attack.jpg"
-        },
-        {
-          "titre": "Optimizely hack infected CNN, Fox News, BBC, Salesforce sites with malware",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-delivers-malware-to-cnn-fox-news-bbc-salesforce-sites/",
-          "date": "2026-11-16",
-          "image": "https://www.bleepstatic.com/content/posts/2026/11/16/supply-chain-attack.jpg"
-        },
-        {
-          "titre": "Hijacked Optimizely Scripts Served Card Skimmer and iOS Exploit Kits to CNN, BBC and Zoom Visitors",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/hijacked-optimizely-scripts-served-card.html",
-          "date": "2026-11-17",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCKDXT71QJSnAqaPKmcBticVRjN0Q1diDWoOGKhoZ-wL5WIgLAPHX6dmetOkddYjLcZGIfxDAfLLN1LwbOV4zHqzONN7i8cIyMJLR-rc2t6LF7MnTzJAAoN54aIPEYoWPBf01znenuq43oDLwcVksxZbvP5xPnFsC-G-sDSjpzDegalBNU87YIe7z0YcI/s1700-nu-rw-lo-l85-e365/Optimizely-hacked.jpg"
-        },
-        {
-          "titre": "Optimizely Vulnerability Exploited to Serve Malware on Major Websites",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/optimizely-vulnerability-exploited-to-serve-malware-on-major-websites/",
-          "date": "2026-11-17",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/08/malware-infection.webp"
-        },
-        {
-          "titre": "Hijacked Optimizely snippets served malicious code on major websites",
-          "site": "Sophos Threat Research",
-          "url": "https://www.sophos.com/en-us/blog/hijacked-optimizely-snippets-served-malicious-code",
-          "date": "2026-11-17",
-          "image": "https://images.contentstack.io/v3/assets/blt38f1f401b66100ad/bltb4b6c0750dc5846c/6aad5e6160452d9f5056a4ef/logo.png"
-        },
-        {
-          "titre": "Un composant JavaScript malveillant distribué sur près de 180 sites Web majeurs",
-          "site": "LeMagIT",
-          "url": "https://www.lemagit.fr/actualites/366654823/Un-composant-JavaScript-malveillant-distribue-sur-pres-de-180-sites-Web-majeurs",
-          "date": "2026-11-17",
-          "image": "https://www.lemagit.fr/visuals/German/article/url_website_fotolia.jpg"
         }
       ]
     },
@@ -3094,130 +3719,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-11-16-google-agents-ia-correctifs-papercut",
-      "title": "Google : des agents d'intelligence artificielle analysent les correctifs pour exploiter des failles PaperCut, des accès à des modèles volés puis revendus",
-      "created": "2026-11-16T18:09:47+00:00",
-      "updated": "2026-11-17T19:30:00+00:00",
-      "version": 2,
-      "resume": "Selon Google, des attaquants emploient des modèles de langage et des agents pour transformer des correctifs en attaques, comme contre PaperCut NG/MF en septembre, et volent des accès à des modèles dans des entreprises compromises [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Analyse des correctifs",
-          "texte": "Modèles de langage et agents comparent les versions d'un logiciel par analyse différentielle → failles de PaperCut NG/MF vite transformées en outils d'attaque, en septembre [1]."
-        },
-        {
-          "etape": "Intrusions automatisées",
-          "texte": "Outils à plusieurs agents ARTEX, CAIRN, CyberStrikeAI et PentAGI → phases et tâches d'intrusions en cours automatisées, vitesse d'opération accrue [1, 2]."
-        },
-        {
-          "etape": "Vol d'accès aux modèles",
-          "texte": "Identifiants de modèles de langage et ressources cloud volés dans des environnements d'entreprise compromis → revendus à prix réduit via APIMart et JetNight [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": "Agents et modèles"
-          },
-          {
-            "id": "pap",
-            "type": "application",
-            "zone": "victime",
-            "nom": "PaperCut NG/MF",
-            "note": "Failles exploitées"
-          },
-          {
-            "id": "ent",
-            "type": "cloud",
-            "zone": "victime",
-            "nom": "Environnements d'entreprise compromis",
-            "note": "Identifiants volés"
-          },
-          {
-            "id": "rev",
-            "type": "application",
-            "zone": "internet",
-            "nom": "APIMart et JetNight",
-            "note": "Revente"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "pap",
-            "etape": 2,
-            "texte": "Failles exploitées après analyse des correctifs"
-          },
-          {
-            "de": "att",
-            "vers": "ent",
-            "etape": 4,
-            "texte": "Identifiants de modèles et ressources cloud volés"
-          },
-          {
-            "de": "ent",
-            "vers": "rev",
-            "etape": 4,
-            "texte": "Accès revendus à prix réduit"
-          }
-        ]
-      },
-      "limites": "Aucune victime, aucun groupe ni identifiant de faille PaperCut nommés [1] ; selon [2], des chercheurs ont produit en un jour des exploits pour deux failles PaperCut de cet été [2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Acteurs à motivation financière et acteurs d'espionnage soupçonnés d'être alignés avec la Chine, vus expérimentant ces outils à plusieurs agents, non nommés [1]",
-        "Groupes gouvernementaux chinois qui développent leur propre version d'Artex, selon Google [2]"
-      ],
-      "cibles": [
-        "Environnements d'entreprise compromis, sans victime nommée [1]",
-        "Entreprises du secteur aérospatial américain, visées par des intrusions menées avec CAIRN [2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "ARTEX",
-          "definition": "Nom d'un outil d'attaque à plusieurs agents d'intelligence artificielle"
-        },
-        {
-          "sigle": "CAIRN",
-          "definition": "Nom d'un outil d'attaque à plusieurs agents d'intelligence artificielle"
-        },
-        {
-          "sigle": "NG",
-          "definition": "Élément du nom du logiciel PaperCut NG"
-        },
-        {
-          "sigle": "MF",
-          "definition": "Élément du nom du logiciel PaperCut MF"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Google Finds Hackers Using AI Agents to Build and Run Exploits From Software Patches",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/google-finds-hackers-using-ai-agents-to.html",
-          "date": "2026-11-16",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpEBmKLWFpEn8sSoJLtj1ZR7FPMd8GxxKN2v4IzyBkydma_g4gXzaWEEkK5CTPwidrBPw6QPdoByiEC14ufVP2pvezWKtH_dmqHttARDKzDOopkw0vzUdTYZubCh9Qy76nlmVSbhtTSvDOuT1c70E4TVPw8T4hUhMdR-saHjQPW1S9IZNmg2_RfsMsmJLb/s1700-nu-rw-lo-l85-e365/google.jpg"
-        },
-        {
-          "titre": "Chinese state group developing automated attack tool for cyber espionage, Google says",
-          "site": "The Record",
-          "url": "https://therecord.media/chinese-state-group-developing-automated-attack-tool-espionage",
-          "date": "2026-11-17",
-          "image": "https://cms.therecord.media/uploads/red_digital_f1b63748b1.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-11-10-turla-cereal-exchange",
       "title": "Turla : l'outil Cereal intercepte les courriels de serveurs Exchange gouvernementaux",
       "created": "2026-11-10T10:30:00+00:00",
@@ -3534,168 +4035,6 @@
           "url": "https://www.zataz.com/expedia-un-pirate-revendique-un-vol-massif-de-donnees/",
           "date": "2026-11-16",
           "image": "https://www.zataz.com/wp-content/uploads/expedia_leak.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-14-cursor-intrusion-cle-fireworks",
-      "title": "Cursor : une clé volée chez Fireworks AI mène au vol de données et à l'extension Claude Code piégée",
-      "created": "2026-11-14T18:20:00+00:00",
-      "updated": "2026-11-17T19:30:00+00:00",
-      "version": 4,
-      "resume": "Une clé compromise, émise pour Fireworks AI, a servi à accéder à des données et identifiants de Cursor [1, 4]. Une extension Claude Code piégée a exposé jusqu'à 5 000 développeurs à une porte dérobée SSH [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Clé d'accès émise par Cursor pour Fireworks AI, compromise lors d'un des deux incidents d'octobre chez Fireworks [3] → copie des données d'un espace de stockage en lecture seule [1, 2, 3]."
-        },
-        {
-          "etape": "Rebond chez Cursor",
-          "texte": "Ce stockage contenait des traces d'agents de code, certaines avec des identifiants non masqués → point de départ pour atteindre certains outils SaaS de Cursor [1, 2]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Vol de dépôts de code archivés hors production, d'échanges du support, de coordonnées, de résumés de conversations d'agents et d'identifiants transmis au support [1, 2, 3]."
-        },
-        {
-          "etape": "Accès à la marketplace",
-          "texte": "Identifiant volé dans les données exposées du système interne de Cursor → possibilité de distribuer des extensions via la marketplace [1]."
-        },
-        {
-          "etape": "Extension piégée",
-          "texte": "Le 29 octobre, copies malveillantes de l'extension Claude Code (2.1.312 et 2.1.313) placées dans le cache servant la marketplace → disponibles environ 11 heures [1, 3]."
-        },
-        {
-          "etape": "Persistance",
-          "texte": "Le JavaScript ajouté installe une clé SSH de l'attaquant, tente d'activer SSH et configure des mécanismes de persistance pour conserver l'accès distant [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "fw",
-            "type": "cloud",
-            "zone": "victime",
-            "nom": "Stockage chez Fireworks AI",
-            "note": "Traces d'agents"
-          },
-          {
-            "id": "sys",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Outils SaaS de Cursor",
-            "note": "Données volées"
-          },
-          {
-            "id": "mp",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Cache de la marketplace",
-            "note": "Extension piégée"
-          },
-          {
-            "id": "pc",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Postes des développeurs",
-            "note": "Clé SSH installée"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "fw",
-            "etape": 1,
-            "texte": "Clé d'accès obtenue, données copiées"
-          },
-          {
-            "de": "fw",
-            "vers": "sys",
-            "etape": 2,
-            "texte": "Identifiants d'API trouvés dans les traces"
-          },
-          {
-            "de": "att",
-            "vers": "mp",
-            "etape": 5,
-            "texte": "Copies malveillantes de l'extension placées dans le cache"
-          },
-          {
-            "de": "mp",
-            "vers": "pc",
-            "etape": 6,
-            "texte": "Clé SSH de l'attaquant installée"
-          }
-        ]
-      },
-      "limites": "Les sources ne nomment pas l'acteur [1, 2, 3] ; la source ne dit pas lequel des deux incidents chez Fireworks AI a compromis la clé de Cursor [3].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non nommé ; l'incident survient au milieu d'une vague d'attaques contre des plateformes de développement d'intelligence artificielle que Wiz appelle « Black October » [1]",
-        "Activité découverte le 29 octobre, accès aussitôt bloqué par Cursor ; aucune activité de l'attaquant observée depuis le 1er novembre [3]"
-      ],
-      "cibles": [
-        "Cursor : moins de 0,05 % des utilisateurs ont eu des traces d'agents exposées, moins de 0,01 % des clients des identifiants d'API compromis [1]",
-        "Jusqu'à 5 000 développeurs exposés au maliciel [1]",
-        "Selon des chercheurs, des erreurs de code ont probablement empêché la porte dérobée de fonctionner sur de nombreux Windows et macOS sans SSH déjà activé [1]",
-        "Uber : informations de permis de conduire de milliers de chauffeurs volées via un fournisseur, Fireworks AI selon TechCrunch [2]",
-        "Notion a confirmé le vol de ses données dans le piratage de Fireworks AI [2]",
-        "Anthropic n'a pas été piraté : toute l'activité malveillante s'est déroulée dans l'environnement de Cursor [3]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "SSH",
-          "definition": "Protocole d'accès distant sécurisé à une machine"
-        },
-        {
-          "sigle": "API",
-          "definition": "Interface de programmation permettant à des logiciels de communiquer"
-        },
-        {
-          "sigle": "AI",
-          "definition": "Artificial Intelligence : intelligence artificielle"
-        },
-        {
-          "sigle": "SaaS",
-          "definition": "Software as a Service : logiciel utilisé en ligne, hébergé par son éditeur"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Cursor confirms security breach led to malicious Claude Code extension",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/cursor-confirms-security-breach-led-to-malicious-claude-code-extension/",
-          "date": "2026-11-14",
-          "image": "https://www.bleepstatic.com/content/hl-images/2025/07/13/cursor-header.jpg"
-        },
-        {
-          "titre": "Stolen Fireworks AI Key Led to Cursor Data Breach and Trojanized Claude Code Extension",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/stolen-fireworks-ai-key-led-to-cursor.html",
-          "date": "2026-11-15",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg16ACawbG7rP_kT-8Boo4xdTje3BeTWyFSnNXwHhr5cvy2-1X3Ljhrc1IuZlseWd55tN8E1yjQ9ldhTnjWTU-GJBpX_Zen36YiLQGsRSRAoteqHyxx7mn_w0QgLfMKDLItA4p_jpHajucbglLnCR_zWBY_t82YvFkLa9dQFBfjP1BrTlrNdYufsGMSZiGn/s1700-nu-rw-lo-l85-e365/cursor.jpg"
-        },
-        {
-          "titre": "Cursor Supply Chain Attack Started at Fireworks AI",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/cursor-supply-chain-attack-started-at-fireworks/",
-          "date": "2026-11-16",
-          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-        },
-        {
-          "titre": "Cursor Traces Malicious Claude Code Extension to Third-Party Breach",
-          "site": "Dark Reading",
-          "url": "https://www.darkreading.com/application-security/cursor-malicious-claude-code-extension-third-party-breach",
-          "date": "2026-11-17"
         }
       ]
     },
@@ -4212,107 +4551,6 @@
           "url": "https://thehackernews.com/2026/11/retadup-worm-resurfaces-7-years-after.html",
           "date": "2026-11-16",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxRuwbdQU-KyBsSrFlIZp4oczr_tJu53WrfB3nM6QYrO7kFgGAZO1NMSi7mziUOUaTrzq5C4KzCJqvYOf0Ry19ypJac-9mBYzYiqiTNl462i1uYo7DF9aAHxiVU_IOaByH3NtNlrF0hUhZtpItADKJauPVzWrz8r6YOQEHQrt_YiAmPba4CIOsSjZA2Wy_/s1700-nu-rw-lo-l85-e365/hacker-code.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-16-exploit-agent-sites-francais",
-      "title": "exploit_agent : un système d'agents d'intelligence artificielle trouve et exploite seul des failles, des sites web français visés",
-      "created": "2026-11-16T14:09:11+00:00",
-      "updated": "2026-11-17T19:30:00+00:00",
-      "version": 2,
-      "resume": "Google a découvert exploit_agent, un système à plusieurs agents d'intelligence artificielle qui trouve et exploite seul des failles, utilisé contre des sites web français des médias, du divertissement et de l'éducation [1, 2, 3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Le système compare le code de logiciels web populaires avant et après l'annonce d'un correctif, rédige des exploits et les exécute automatiquement, sans intervention humaine [1, 3]."
-        },
-        {
-          "etape": "Après la compromission",
-          "texte": "Des scripts servent à la reconnaissance interne, à la force brute, à l'installation de portes dérobées web et à la suppression de celles d'autres attaquants [1, 3]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Le serveur de préparation de l'attaquant, laissé exposé, contenait des données volées à des victimes [1, 2, 3]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant avec exploit_agent",
-            "note": ""
-          },
-          {
-            "id": "web",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Logiciels web visés",
-            "note": "Portes dérobées web"
-          },
-          {
-            "id": "stg",
-            "type": "serveur",
-            "zone": "internet",
-            "nom": "Serveur de préparation exposé",
-            "note": "Données volées"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "web",
-            "etape": 1,
-            "texte": "Exploits rédigés et exécutés automatiquement"
-          },
-          {
-            "de": "att",
-            "vers": "web",
-            "etape": 2,
-            "texte": "Reconnaissance interne, force brute, portes dérobées web"
-          },
-          {
-            "de": "web",
-            "vers": "stg",
-            "etape": 3,
-            "texte": "Données volées retrouvées sur le serveur"
-          }
-        ]
-      },
-      "limites": "Les sources ne nomment ni l'opérateur ni les victimes, et n'indiquent pas quelles failles ont été exploitées [1, 2, 3].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Opérateur non nommé ; un fichier de configuration du système contient des commentaires en russe [1]"
-      ],
-      "cibles": [
-        "Sites web français des médias, du divertissement et de l'éducation [1, 2, 3]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "GTIG AI Threat Tracker: Agentic Threat Activity Crosses a Significant Threshold",
-          "site": "Google Threat Intelligence (Mandiant)",
-          "url": "https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold/",
-          "date": "2026-11-16",
-          "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
-        },
-        {
-          "titre": "Google warns that fully-automated AI attacks are coming soon",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/google-warns-that-fully-automated-ai-attacks-are-coming-soon/",
-          "date": "2026-11-16",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/robot-hacker.jpg"
-        },
-        {
-          "titre": "AI Framework Autonomously Weaponized Flaws in Real Attacks, Google Says",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/ai-framework-autonomously-weaponized-flaws-in-real-attacks-google-says/",
-          "date": "2026-11-17",
-          "image": "https://www.securityweek.com/wp-content/uploads/2025/07/AI-Chatbot-GenAI-artificial-intelligence.jpg"
         }
       ]
     },
@@ -4892,94 +5130,6 @@
           "url": "https://thehackernews.com/2026/11/sansar-linux-cryptomining-malware-uses.html",
           "date": "2026-11-16",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmpR04waLSDZNCb2048kfy5iSlIXa_Ek3PI5qLRaBksxvyI9k_8Z6bwl6Og4Mc-AGqmHcpL7YlYVd48895FJtKlOoaqgi658-H3FZTxdjf_w32w5eJYzm_BUdXlH7M7Vb40uPUI73CDbXtQCdZAEkFruSBXvc0_B84hCQ-em0ZQk2uTIIHxRdGCxQ6bx1C/s1700-nu-rw-lo-l85-e365/nv.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-16-tor-relais-deni-de-service",
-      "title": "Tor : une attaque par déni de service vise les relais, les protections corrigées dans la version 0.4.9.17",
-      "created": "2026-11-16T09:20:00+00:00",
-      "updated": "2026-11-17T18:30:00+00:00",
-      "version": 2,
-      "resume": "Une attaque par déni de service en cours, par afflux massif de circuits clients, touche la plupart des opérateurs de relais Tor [1, 2]. La version 0.4.9.17 corrige notamment un problème lié à IPv6 dans les protections des relais [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Saturation des relais",
-          "texte": "Inondation massive de circuits clients vers les relais Tor → relais saturés [1, 2] ; deux relais d'un opérateur ont perdu le statut HSDir avant la mise à jour [1]."
-        },
-        {
-          "etape": "Changement de forme",
-          "texte": "Selon cet opérateur, dix minutes environ après la mise à jour d'un autre relais visé, son trafic chute et il cesse régulièrement de répondre → statut HSDir perdu [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": "Non identifié"
-          },
-          {
-            "id": "rel",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Relais Tor",
-            "note": "Statut HSDir perdu"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "rel",
-            "etape": 2,
-            "texte": "Inondation de circuits clients"
-          },
-          {
-            "de": "att",
-            "vers": "rel",
-            "etape": 3,
-            "texte": "Attaque modifiée après la mise à jour"
-          }
-        ]
-      },
-      "limites": "L'auteur de l'attaque n'est pas identifié et sa date de début n'est pas donnée [1, 2] ; le changement de forme est rapporté par un seul opérateur de relais [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Opérateurs de relais Tor, réseau tenu par des bénévoles ; la plupart sont touchés [1, 2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "HSDir",
-          "definition": "Hidden Service Directory : relais Tor qui sert d'annuaire aux services onion"
-        },
-        {
-          "sigle": "IPv6",
-          "definition": "Internet Protocol version 6 : version récente du protocole d'adressage d'Internet"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Tor Updates DoS Defenses Again as Relay Attacks Continue",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/tor-updates-dos-defenses-again-as-relay-attacks-continue/",
-          "date": "2026-11-16",
-          "image": "https://www.securityweek.com/wp-content/uploads/2024/01/Tor-Network-1.jpeg"
-        },
-        {
-          "titre": "Tor releases emergency update amid ongoing DDoS attack",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/tor-releases-emergency-update-amid-ongoing-ddos-attack/",
-          "date": "2026-11-17",
-          "image": "https://www.bleepstatic.com/content/hl-images/2020/08/19/Tor-headpic.jpg"
         }
       ]
     },

@@ -50003,8 +50003,8 @@
       "id": "2026-11-17-optimizely-scripts-pieges",
       "title": "Optimizely : des scripts piégés chargés sur les sites de 178 organisations visent cryptomonnaies et cartes bancaires",
       "created": "2026-11-17T03:06:55+00:00",
-      "updated": "2026-11-17T08:08:02+00:00",
-      "version": 3,
+      "updated": "2026-11-17T11:20:00+00:00",
+      "version": 4,
       "resume": "Du code malveillant inséré dans les fichiers JavaScript d'Optimizely de 178 organisations, selon Scott Helme, a visé les visiteurs de sites comme Zoom, GitLab et Salesforce pour voler cryptomonnaies et cartes bancaires [1, 2, 3]. Optimizely dit avoir corrigé la faille et retiré le code [2, 3].",
       "chaine": [
         {
@@ -50013,7 +50013,7 @@
         },
         {
           "etape": "Diffusion du code",
-          "texte": "Les fichiers JavaScript modifiés, toujours servis depuis cdn.optimizely.com, chargent le code malveillant sur les sites clients [1, 2, 3] ; Smartsheet, nettoyé, a été réinfecté par une version cachée [3]."
+          "texte": "Code placé dans un champ facultatif réservé au JavaScript du client, exécuté sur chaque page [4] ; fichiers modifiés servis depuis cdn.optimizely.com [1, 2, 3] ; Smartsheet, nettoyé, réinfecté par une version cachée [3]."
         },
         {
           "etape": "Chargement du script",
@@ -50109,7 +50109,7 @@
           }
         ]
       },
-      "limites": "Les sources ne nomment pas les attaquants et ne détaillent pas la vulnérabilité exploitée [1, 2, 3]. Report URI ne peut pas voir combien de numéros de cartes ont été exposés [3].",
+      "limites": "Les sources ne nomment pas les attaquants et ne détaillent pas la vulnérabilité exploitée [1, 2, 3, 4]. Report URI ne peut pas voir combien de numéros de cartes ont été exposés [3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -50120,7 +50120,8 @@
         "188 fichiers JavaScript infectés appartenant à 178 organisations, selon le chercheur Scott Helme [1, 2]",
         "Sites de Zoom, GitLab, Smartsheet, Stamps.com, Scheels et Salesforce, entre autres [2]",
         "Sites de Fox News, Air France, Change.org et Bitly, entre autres [1]",
-        "Sites de CNN, BBC, IKEA, HSBC, Equifax, Ledger et TalkTalk, entre autres [3]"
+        "Sites de CNN, BBC, IKEA, HSBC, Equifax, Ledger et TalkTalk, entre autres [3]",
+        "Scripts de Kissmetrics, StorifyMe et Minute-ly diffusant un petit chargeur, première observation le 13 novembre ; entrée du code inconnue [4]"
       ],
       "abreviations": [
         {
@@ -50169,6 +50170,13 @@
           "url": "https://thehackernews.com/2026/11/hijacked-optimizely-scripts-served-card.html",
           "date": "2026-11-17",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCKDXT71QJSnAqaPKmcBticVRjN0Q1diDWoOGKhoZ-wL5WIgLAPHX6dmetOkddYjLcZGIfxDAfLLN1LwbOV4zHqzONN7i8cIyMJLR-rc2t6LF7MnTzJAAoN54aIPEYoWPBf01znenuq43oDLwcVksxZbvP5xPnFsC-G-sDSjpzDegalBNU87YIe7z0YcI/s1700-nu-rw-lo-l85-e365/Optimizely-hacked.jpg"
+        },
+        {
+          "titre": "Optimizely Vulnerability Exploited to Serve Malware on Major Websites",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/optimizely-vulnerability-exploited-to-serve-malware-on-major-websites/",
+          "date": "2026-11-17",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/08/malware-infection.webp"
         }
       ]
     },

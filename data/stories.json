@@ -49252,17 +49252,21 @@
       "id": "2026-11-16-fandango-cartes-pages-paiement",
       "title": "Fandango : des informations de cartes bancaires volées sur les pages de paiement",
       "created": "2026-11-16T16:09:46+00:00",
-      "updated": "2026-11-16T16:09:46+00:00",
-      "version": 1,
-      "resume": "Le vendeur de billets Fandango Media prévient ses clients d'une violation de données qui a exposé les informations de carte de paiement saisies sur ses pages de paiement [1].",
+      "updated": "2026-11-17T15:08:09+00:00",
+      "version": 2,
+      "resume": "Le vendeur de billets Fandango prévient ses clients qu'un tiers non autorisé a pu accéder aux informations de cartes de paiement de certains achats passés sur sa page de paiement entre le 8 et le 11 octobre [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé par les sources : Fandango n'a pas dit comment l'incident s'est produit [2]."
+        },
+        {
+          "etape": "Injection de code",
+          "texte": "Code de vol de cartes injecté dans la page de paiement → interception des données de carte saisies lors des commandes, envoyées aux pirates [1]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Des pirates ont volé des informations de cartes de paiement sur les pages de paiement de Fandango [1]."
+          "texte": "Certains achats du 8 au 11 octobre concernés → numéro de carte, code CVV, date d'expiration, code postal de facturation et adresse électronique potentiellement exposés [1, 2]."
         }
       ],
       "parcours": {
@@ -49278,7 +49282,7 @@
             "id": "pg",
             "type": "application",
             "zone": "victime",
-            "nom": "Pages de paiement Fandango",
+            "nom": "Page de paiement Fandango",
             "note": "Cartes exposées"
           }
         ],
@@ -49287,18 +49291,29 @@
             "de": "att",
             "vers": "pg",
             "etape": 2,
-            "texte": "Vol des informations de cartes de paiement"
+            "texte": "Code de vol de cartes injecté"
+          },
+          {
+            "de": "pg",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Données de cartes envoyées aux pirates"
           }
         ]
       },
-      "limites": "Article complet inaccessible lors de la collecte : synthèse fondée sur le seul résumé du flux, qui ne décrit ni la méthode ni le nombre de clients touchés [1].",
+      "limites": "Les sources ne disent pas comment le code a été injecté [1, 2]. Nombre total de clients touchés non révélé ; les déclarations aux régulateurs comptent 913 résidents de l'Oregon et 18 du Vermont [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Clients de Fandango Media ayant saisi leur carte sur les pages de paiement [1]"
+        "Clients de Fandango dont certains achats sont passés par la page de paiement entre le 8 et le 11 octobre [1, 2]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "CVV",
+          "definition": "Card Verification Value : code de vérification à trois ou quatre chiffres d'une carte bancaire"
+        }
+      ],
       "sources": [
         {
           "titre": "Fandango says hackers stole payment card details from checkout pages",
@@ -49306,6 +49321,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/fandango-says-hackers-stole-payment-card-details-from-checkout-pages/",
           "date": "2026-11-16",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/16/fandango.jpg"
+        },
+        {
+          "titre": "Fandango Warns Ticket Buyers of Payment Card Data Exposure",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/fandango-warns-ticket-buyers-of-payment-card-data-exposure/",
+          "date": "2026-11-17",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/Fandango.jpeg"
         }
       ]
     },
@@ -50625,6 +50647,68 @@
           "url": "https://www.securityweek.com/access-dental-management-data-breach-impacts-over-340000/",
           "date": "2026-11-17",
           "image": "https://www.securityweek.com/wp-content/uploads/2025/07/data-breach-healthcare-medical.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-17-ipsos-systeme-interne",
+      "title": "Ipsos : le groupe d'études de marché enquête sur une intrusion dans l'un de ses systèmes internes",
+      "created": "2026-11-17T15:08:09+00:00",
+      "updated": "2026-11-17T15:08:09+00:00",
+      "version": 1,
+      "resume": "Le groupe français d'études de marché Ipsos enquête sur une intrusion qui a touché l'un de ses systèmes d'information internes, rendue publique le 16 novembre [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources : Ipsos n'a pas indiqué comment l'intrusion s'est produite [1]."
+        },
+        {
+          "etape": "Système interne touché",
+          "texte": "Un des systèmes d'information internes d'Ipsos a été touché, sans que l'entreprise précise lequel [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "si",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Système interne d'Ipsos",
+            "note": "Non identifié"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "si",
+            "etape": 2,
+            "texte": "Intrusion dans un système d'information interne"
+          }
+        ]
+      },
+      "limites": "Ipsos n'a révélé ni la date de détection, ni le système touché, ni si des données ont été consultées ou volées ; aucun groupe cybercriminel connu ne semble avoir revendiqué l'attaque [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Ipsos, cabinet d'études de marché fondé en France, près de 20 000 employés sur 90 marchés [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Market Research Giant Ipsos Investigating Breach of Internal System",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/market-research-giant-ipsos-investigating-breach-of-internal-system/",
+          "date": "2026-11-17",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/Ipsos.jpeg"
         }
       ]
     }

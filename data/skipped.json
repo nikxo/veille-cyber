@@ -1,29 +1,5 @@
 [
   {
-    "id": "a6006728be28909d",
-    "title": "Microsoft Authenticator Flaw Let Permissionless Android Apps Steal Work Account Tokens",
-    "link": "https://thehackernews.com/2026/10/microsoft-authenticator-flaw-let.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-27T12:40:00+00:00"
-  },
-  {
-    "id": "f9073ce810c93446",
-    "title": "An insecure neighbor: how a vulnerability chain led to an isolation bypass in cloud infrastructure",
-    "link": "https://securelist.com/cloud-infrastructure-isolation-bypass/121609/",
-    "source": "Securelist (Kaspersky)",
-    "raison": "test d'intrusion autorisé, pas d'attaque réelle",
-    "date": "2026-10-27T12:40:00+00:00"
-  },
-  {
-    "id": "fee12e9eb99da042",
-    "title": "Unexplained DreamHost Incident Prompts Email, FTP Password Resets",
-    "link": "https://www.securityweek.com/unexplained-dreamhost-incident-prompts-email-ftp-password-resets/",
-    "source": "SecurityWeek",
-    "raison": "incident sans méthode d'attaque décrite",
-    "date": "2026-10-27T12:40:00+00:00"
-  },
-  {
     "id": "0d87d49d4803d5d5",
     "title": "HPE Patches Dozens of Critical Flaws in Networking Products",
     "link": "https://www.securityweek.com/hpe-patches-dozens-of-critical-flaws-in-networking-products/",
@@ -3998,5 +3974,29 @@
     "source": "SecurityWeek",
     "raison": "levée de fonds et annonce produit",
     "date": "2026-11-17T14:08:00+00:00"
+  },
+  {
+    "id": "3dd23ca798a15ea7",
+    "title": "Autistic teen hacker pleads guilty to leak of Grand Theft Auto VI footage",
+    "link": "https://therecord.media/autistic-teen-hacker-guilty-plea-britain-gta6-leak",
+    "source": "The Record",
+    "raison": "actualité judiciaire (plaidoyer de culpabilité), aucun détail sur la méthode d'attaque",
+    "date": "2026-11-17T15:08:09+00:00"
+  },
+  {
+    "id": "46f2978c7d8e8db0",
+    "title": "Grok Bots Attempt to Access Corporate Data Without User Approval",
+    "link": "https://www.darkreading.com/application-security/grok-bots-corporate-data-without-user-approval",
+    "source": "Dark Reading",
+    "raison": "comportement d'agents d'IA sans attaque ni acteur malveillant décrit (article inaccessible, d'après le résumé du flux)",
+    "date": "2026-11-17T15:08:09+00:00"
+  },
+  {
+    "id": "ada4eb2a4b5215fa",
+    "title": "Who Has Access to Claude? Bring AI Identity and Access Context Into Surface Command",
+    "link": "https://www.rapid7.com/blog/post/em-claude-access-brings-ai-context-into-surface-command-asm-easm",
+    "source": "Rapid7",
+    "raison": "annonce produit",
+    "date": "2026-11-17T15:08:09+00:00"
   }
 ]

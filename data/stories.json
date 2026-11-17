@@ -853,13 +853,13 @@
       "id": "2026-11-17-optimizely-scripts-pieges",
       "title": "Optimizely : des scripts piégés chargés sur les sites de 178 organisations visent cryptomonnaies et cartes bancaires",
       "created": "2026-11-17T03:06:55+00:00",
-      "updated": "2026-11-17T11:20:00+00:00",
-      "version": 4,
+      "updated": "2026-11-17T18:30:00+00:00",
+      "version": 5,
       "resume": "Du code malveillant inséré dans les fichiers JavaScript d'Optimizely de 178 organisations, selon Scott Helme, a visé les visiteurs de sites comme Zoom, GitLab et Salesforce pour voler cryptomonnaies et cartes bancaires [1, 2, 3]. Optimizely dit avoir corrigé la faille et retiré le code [2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Selon Optimizely, exploitation d'une vulnérabilité dans le parcours d'inscription aux comptes Experimentation → ajout de JavaScript malveillant à des projets de clients [2]."
+          "texte": "Selon Optimizely, exploitation d'une vulnérabilité dans le parcours d'inscription aux comptes Experimentation → ajout de JavaScript malveillant à des projets de clients [2, 5, 6]."
         },
         {
           "etape": "Diffusion du code",
@@ -959,7 +959,7 @@
           }
         ]
       },
-      "limites": "Les sources ne nomment pas les attaquants et ne détaillent pas la vulnérabilité exploitée [1, 2, 3, 4]. Report URI ne peut pas voir combien de numéros de cartes ont été exposés [3].",
+      "limites": "Les sources ne nomment pas les attaquants et ne détaillent pas la vulnérabilité exploitée [1, 2, 3, 4, 5, 6]. Report URI ne peut pas voir combien de numéros de cartes ont été exposés [3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -967,9 +967,10 @@
       ],
       "cibles": [
         "Optimizely, plateforme d'expérimentation et de personnalisation de sites web [1]",
-        "188 fichiers JavaScript infectés appartenant à 178 organisations, selon le chercheur Scott Helme [1, 2]",
+        "188 fichiers JavaScript infectés appartenant à 178 organisations, selon le chercheur Scott Helme [1, 2, 5]",
         "Sites de Zoom, GitLab, Smartsheet, Stamps.com, Scheels et Salesforce, entre autres [2]",
         "Sites de Fox News, Air France, Change.org et Bitly, entre autres [1]",
+        "Sites d'Ikea, Air France, Zoom et du site de la communauté cybersécurité de Thales, entre autres [6]",
         "Sites de CNN, BBC, IKEA, HSBC, Equifax, Ledger et TalkTalk, entre autres [3]",
         "Scripts de Kissmetrics, StorifyMe et Minute-ly diffusant un petit chargeur, première observation le 13 novembre ; entrée du code inconnue [4]"
       ],
@@ -1027,6 +1028,20 @@
           "url": "https://www.securityweek.com/optimizely-vulnerability-exploited-to-serve-malware-on-major-websites/",
           "date": "2026-11-17",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/08/malware-infection.webp"
+        },
+        {
+          "titre": "Hijacked Optimizely snippets served malicious code on major websites",
+          "site": "Sophos Threat Research",
+          "url": "https://www.sophos.com/en-us/blog/hijacked-optimizely-snippets-served-malicious-code",
+          "date": "2026-11-17",
+          "image": "https://images.contentstack.io/v3/assets/blt38f1f401b66100ad/bltb4b6c0750dc5846c/6aad5e6160452d9f5056a4ef/logo.png"
+        },
+        {
+          "titre": "Un composant JavaScript malveillant distribué sur près de 180 sites Web majeurs",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366654823/Un-composant-JavaScript-malveillant-distribue-sur-pres-de-180-sites-Web-majeurs",
+          "date": "2026-11-17",
+          "image": "https://www.lemagit.fr/visuals/German/article/url_website_fotolia.jpg"
         }
       ]
     },
@@ -4758,9 +4773,9 @@
       "id": "2026-11-16-tor-relais-deni-de-service",
       "title": "Tor : une attaque par déni de service vise les relais, les protections corrigées dans la version 0.4.9.17",
       "created": "2026-11-16T09:20:00+00:00",
-      "updated": "2026-11-16T09:20:00+00:00",
-      "version": 1,
-      "resume": "Une attaque par déni de service en cours touche la plupart des opérateurs de relais Tor [1]. Tor 0.4.9.17, annoncé le 13 novembre, corrige notamment un problème lié à IPv6 dans les protections intégrées aux relais [1].",
+      "updated": "2026-11-17T18:30:00+00:00",
+      "version": 2,
+      "resume": "Une attaque par déni de service en cours, par afflux massif de circuits clients, touche la plupart des opérateurs de relais Tor [1, 2]. La version 0.4.9.17 corrige notamment un problème lié à IPv6 dans les protections des relais [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -4768,7 +4783,7 @@
         },
         {
           "etape": "Saturation des relais",
-          "texte": "Inondation massive de circuits clients vers les relais Tor ; deux relais d'un opérateur ont perdu le statut HSDir avant la mise à jour [1]."
+          "texte": "Inondation massive de circuits clients vers les relais Tor → relais saturés [1, 2] ; deux relais d'un opérateur ont perdu le statut HSDir avant la mise à jour [1]."
         },
         {
           "etape": "Changement de forme",
@@ -4807,12 +4822,12 @@
           }
         ]
       },
-      "limites": "L'auteur de l'attaque n'est pas nommé ; le changement de forme est rapporté par un seul opérateur de relais [1].",
+      "limites": "L'auteur de l'attaque n'est pas identifié et sa date de début n'est pas donnée [1, 2] ; le changement de forme est rapporté par un seul opérateur de relais [1].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Opérateurs de relais Tor, réseau tenu par des bénévoles [1]"
+        "Opérateurs de relais Tor, réseau tenu par des bénévoles ; la plupart sont touchés [1, 2]"
       ],
       "abreviations": [
         {
@@ -4831,6 +4846,13 @@
           "url": "https://www.securityweek.com/tor-updates-dos-defenses-again-as-relay-attacks-continue/",
           "date": "2026-11-16",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/01/Tor-Network-1.jpeg"
+        },
+        {
+          "titre": "Tor releases emergency update amid ongoing DDoS attack",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/tor-releases-emergency-update-amid-ongoing-ddos-attack/",
+          "date": "2026-11-17",
+          "image": "https://www.bleepstatic.com/content/hl-images/2020/08/19/Tor-headpic.jpg"
         }
       ]
     },

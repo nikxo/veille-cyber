@@ -49975,33 +49975,33 @@
       "id": "2026-11-17-optimizely-scripts-pieges",
       "title": "Optimizely : des scripts piégés chargés sur les sites de 178 organisations visent cryptomonnaies et cartes bancaires",
       "created": "2026-11-17T03:06:55+00:00",
-      "updated": "2026-11-17T03:06:55+00:00",
-      "version": 1,
-      "resume": "Selon Scott Helme, du code malveillant a été inséré dans les fichiers JavaScript d'Optimizely de 178 organisations ; il a été chargé, ou a tenté de l'être, sur des sites comme Zoom, Salesforce et GitLab pour voler cryptomonnaies et cartes bancaires [1].",
+      "updated": "2026-11-17T05:07:34+00:00",
+      "version": 2,
+      "resume": "Du code malveillant inséré dans les fichiers JavaScript d'Optimizely de 178 organisations, selon Scott Helme, a visé les visiteurs de sites comme Zoom, GitLab et Salesforce pour voler cryptomonnaies et cartes bancaires [1, 2]. Optimizely dit avoir corrigé la faille et retiré le code [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources : la façon dont les attaquants ont accédé aux projets Optimizely des clients est inconnue [1]."
+          "texte": "Selon Optimizely, exploitation d'une vulnérabilité dans le parcours d'inscription aux comptes Experimentation → ajout de JavaScript malveillant à des projets de clients [2]."
         },
         {
-          "etape": "Injection du code",
-          "texte": "Selon Scott Helme, insertion de code malveillant dans les projets Optimizely de clients → les fichiers JavaScript hébergés par Optimizely chargent ce code sur les sites utilisant le service [1]."
+          "etape": "Diffusion du code",
+          "texte": "Les fichiers JavaScript d'Optimizely ainsi modifiés chargent le code malveillant sur les sites qui utilisent le service [1, 2]."
         },
         {
           "etape": "Chargement du script",
-          "texte": "Le code injecté charge le script track.js depuis un domaine externe ; selon Scott Helme, une variante exécute une copie embarquée si le script distant est bloqué [1]."
+          "texte": "Le code injecté charge le script track.js depuis un domaine externe ; selon Scott Helme, une variante exécute une copie embarquée si le script distant est bloqué [1, 2]."
         },
         {
           "etape": "Vol de cryptomonnaies",
-          "texte": "Remplacement des adresses de portefeuilles détectées sur les pages par celles des attaquants ; selon Scott Helme, leurs portefeuilles ont reçu environ 7 000 dollars le 16 novembre [1]."
+          "texte": "Remplacement des adresses de portefeuilles détectées sur les pages par celles des attaquants ; selon Scott Helme, leurs portefeuilles ont reçu environ 7 000 dollars au 16 novembre [1, 2]."
         },
         {
-          "etape": "Vol de cartes bancaires",
-          "texte": "Recherche des numéros de carte, dates d'expiration et codes de sécurité saisis → tentative d'envoi vers le même domaine externe [1]."
+          "etape": "Vol de données",
+          "texte": "Recherche des numéros, dates d'expiration et codes de sécurité de cartes saisis → tentative d'envoi vers le même domaine ; collecte possible de cookies et captures d'écran [2]."
         },
         {
           "etape": "Exploits iPhone et iPad",
-          "texte": "Chargement de scripts visant iPhone et iPad, identifiés par Scott Helme comme les kits d'exploitation Coruna et DarkSword [1]."
+          "texte": "Chargement de scripts visant iPhone et iPad, identifiés par Scott Helme comme les kits d'exploitation Coruna et DarkSword [1, 2]."
         }
       ],
       "parcours": {
@@ -50046,8 +50046,8 @@
           {
             "de": "att",
             "vers": "opt",
-            "etape": 2,
-            "texte": "Insertion de code malveillant"
+            "etape": 1,
+            "texte": "Faille du parcours d'inscription exploitée"
           },
           {
             "de": "opt",
@@ -50081,14 +50081,15 @@
           }
         ]
       },
-      "limites": "La source ne dit ni comment les attaquants ont accédé aux projets des clients, ni qui ils sont ; elle parle d'une attaque « suspectée » [1].",
+      "limites": "Les sources ne nomment pas les attaquants et ne détaillent pas la vulnérabilité exploitée [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
       "cibles": [
         "Optimizely, plateforme d'expérimentation et de personnalisation de sites web [1]",
-        "188 fichiers JavaScript infectés appartenant à 178 organisations, selon le chercheur Scott Helme [1]",
-        "Sites de Zoom, Fox News, Salesforce, GitLab, Air France, Change.org et Bitly, entre autres [1]"
+        "188 fichiers JavaScript infectés appartenant à 178 organisations, selon le chercheur Scott Helme [1, 2]",
+        "Sites de Zoom, GitLab, Smartsheet, Stamps.com, Scheels et Salesforce, entre autres [2]",
+        "Sites de Fox News, Air France, Change.org et Bitly, entre autres [1]"
       ],
       "abreviations": [],
       "sources": [
@@ -50096,6 +50097,13 @@
           "titre": "Optimizely supply chain attack infects major brands' sites with malware",
           "site": "BleepingComputer",
           "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-infects-major-brands-sites-with-malware/",
+          "date": "2026-11-16",
+          "image": "https://www.bleepstatic.com/content/posts/2026/11/16/supply-chain-attack.jpg"
+        },
+        {
+          "titre": "Optimizely hack infected CNN, Fox News, BBC, Salesforce sites with malware",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-delivers-malware-to-cnn-fox-news-bbc-salesforce-sites/",
           "date": "2026-11-16",
           "image": "https://www.bleepstatic.com/content/posts/2026/11/16/supply-chain-attack.jpg"
         }

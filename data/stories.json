@@ -48218,25 +48218,29 @@
       "id": "2026-11-16-panne-microsoft-365-hameconnage",
       "title": "Panne Microsoft 365 : de faux avis de service menacent de supprimer les courriels retenus",
       "created": "2026-11-16T09:20:00+00:00",
-      "updated": "2026-11-16T09:20:00+00:00",
-      "version": 1,
-      "resume": "Après la panne de Microsoft 365 du 12 novembre, que Microsoft dit sans lien avec une cyberattaque, de faux avis de service citent l'incident réel EX1550543 [1]. Des messages similaires ont visé des organisations de plusieurs secteurs aux États-Unis [1].",
+      "updated": "2026-11-17T01:15:00+00:00",
+      "version": 2,
+      "resume": "Après la panne de Microsoft 365 du 12 novembre, que Microsoft dit sans lien avec une cyberattaque, de faux avis de service citent l'incident réel EX1550543 [1]. Microsoft a observé le 13 novembre une campagne à fort volume visant plusieurs secteurs dans le monde [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Courriels imitant des avis de service Microsoft 365 et citant l'incident réel EX1550543, dans une campagne observée par Microsoft [1]."
+          "texte": "Courriels imitant des avis de service Microsoft 365, envoyés depuis plusieurs domaines expéditeurs distincts [2] ; ils citent l'incident réel EX1550543 [1]."
+        },
+        {
+          "etape": "Contournement du filtrage",
+          "texte": "Fausse conversation de messagerie placée dans le message de façon à être cachée au destinataire, ce que Microsoft décrit comme une tentative apparente d'échapper au filtrage [2]."
         },
         {
           "etape": "Incitation au clic",
-          "texte": "Dans des messages détectés le 13 novembre, menace de supprimer sous 24 heures les courriels retenus pendant la panne, sauf clic sur un lien pour les restaurer [1]."
+          "texte": "Menace de supprimer sous 24 heures les courriels retenus pendant la panne, sauf clic sur un lien pour les restaurer [1, 2]."
         },
         {
           "etape": "Redirection",
-          "texte": "Liens de suivi SendGrid propres à chaque destinataire → redirection vers le domaine reallifeaccounting[.]com [1]."
+          "texte": "Liens de suivi SendGrid propres à chaque destinataire → redirection vers reallifeaccounting[.]com [1, 2] ; certains messages mènent à outagerestored[.]sbs ou outagefixed[.]sbs [2]."
         },
         {
           "etape": "Objectif",
-          "texte": "Activité cohérente avec un hameçonnage d'identifiants selon Microsoft, mais ni collecte d'identifiants ni livraison de maliciel ne sont confirmées [1]."
+          "texte": "Hameçonnage d'identifiants probable selon Microsoft, mais ni collecte d'identifiants, ni livraison de maliciel, ni activité après compromission ne sont confirmées [1, 2]."
         }
       ],
       "parcours": {
@@ -48267,7 +48271,14 @@
             "type": "application",
             "zone": "internet",
             "nom": "reallifeaccounting[.]com",
-            "note": "Destination du lien"
+            "note": "Destination principale"
+          },
+          {
+            "id": "alt",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Domaines en .sbs",
+            "note": "Dans certains messages"
           }
         ],
         "liens": [
@@ -48275,28 +48286,41 @@
             "de": "att",
             "vers": "mail",
             "etape": 1,
-            "texte": "Faux avis citant l'incident EX1550543"
+            "texte": "Faux avis de service Microsoft 365"
           },
           {
             "de": "mail",
             "vers": "sg",
-            "etape": 2,
+            "etape": 3,
             "texte": "Clic pour restaurer les messages"
           },
           {
             "de": "sg",
             "vers": "site",
-            "etape": 3,
+            "etape": 4,
             "texte": "Redirection"
+          },
+          {
+            "de": "mail",
+            "vers": "alt",
+            "etape": 4,
+            "texte": "Destination de certains messages"
           }
         ]
       },
-      "limites": "L'auteur de la campagne n'est pas nommé ; ni la collecte d'identifiants ni la livraison de maliciel ne sont confirmées [1].",
+      "limites": "L'auteur de la campagne n'est pas nommé [2]. Les cibles sont situées aux États-Unis par [1] et dans le monde par [2].",
       "cves": [],
-      "mitre": [],
-      "acteurs": [],
+      "mitre": [
+        "T1566.002 : Phishing: Spearphishing Link, hameçonnage par lien malveillant pour l'accès initial [2]",
+        "T1036 : Masquerading, déguisement en notification Microsoft 365 [2]",
+        "T1204.001 : User Execution: Malicious Link, clic du destinataire sur le lien [2]"
+      ],
+      "acteurs": [
+        "Non attribué : Microsoft ne relie la campagne à aucun acteur nommé [2]"
+      ],
       "cibles": [
-        "Organisations de plusieurs secteurs aux États-Unis [1]"
+        "Organisations de plusieurs secteurs aux États-Unis [1]",
+        "Organisations de plusieurs secteurs dans le monde [2]"
       ],
       "abreviations": [
         {
@@ -48311,6 +48335,13 @@
           "url": "https://www.securityweek.com/microsoft-rules-out-cyberattack-in-outage-warns-of-phishing-campaign/",
           "date": "2026-11-16",
           "image": "https://www.securityweek.com/wp-content/uploads/2025/11/AI-phishing.jpeg"
+        },
+        {
+          "titre": "High volume phishing campaign uses Microsoft 365 outage lures to target multiple industry sectors",
+          "site": "Microsoft Threat Intelligence",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2/",
+          "date": "2026-11-17",
+          "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/03/MS_Actional-Insights_Phishing-social-engineering.jpg"
         }
       ]
     },

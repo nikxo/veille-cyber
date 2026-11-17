@@ -2,6 +2,111 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-17-trigram-faux-recrutements-developpeurs",
+      "title": "Trigram : de faux portails de recrutement aux couleurs d'environ 50 marques d'IA et de blockchain font exécuter un voleur de données aux développeurs",
+      "created": "2026-11-17T20:30:00+00:00",
+      "updated": "2026-11-17T20:30:00+00:00",
+      "version": 1,
+      "resume": "La campagne Trigram usurpe environ 50 marques de l'intelligence artificielle et de la blockchain pour amener des développeurs à exécuter eux-mêmes un voleur de données, selon Stormshield [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Courriel d'offre d'emploi → faux portail de recrutement qui filtre les visiteurs et exige un code d'invitation [1]."
+        },
+        {
+          "etape": "Exécution par la victime",
+          "texte": "Fausse vérification technique : le candidat colle dans un terminal la commande placée dans son presse-papiers → téléchargement d'un script adapté à Windows, Linux ou macOS [1]."
+        },
+        {
+          "etape": "Préparation",
+          "texte": "Les chargeurs préparent l'environnement, installent Node.js si besoin et lancent le script install_guard.js récupéré sur un serveur distant [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "install_guard.js déploie un voleur de données → informations système, identifiants des navigateurs, portefeuilles de cryptomonnaies et fichiers sensibles collectés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Trigram)",
+            "note": ""
+          },
+          {
+            "id": "portail",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux portail de recrutement",
+            "note": "Code d'invitation exigé"
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur distant",
+            "note": "install_guard.js"
+          },
+          {
+            "id": "dev",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste du développeur",
+            "note": "Voleur de données"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "dev",
+            "etape": 1,
+            "texte": "Courriel d'offre d'emploi"
+          },
+          {
+            "de": "portail",
+            "vers": "dev",
+            "etape": 2,
+            "texte": "Commande piégée collée dans un terminal"
+          },
+          {
+            "de": "srv",
+            "vers": "dev",
+            "etape": 3,
+            "texte": "Lancement d'install_guard.js"
+          }
+        ]
+      },
+      "limites": "Les sources ne donnent ni le nombre de victimes ni la manière dont les données collectées parviennent aux attaquants [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Trigram, continuation du groupe UNK_DeadDrop selon Stormshield, avec une grande confiance [1]",
+        "Activité jugée proche de groupes liés à la Corée du Nord, notamment Kimsuky [1]"
+      ],
+      "cibles": [
+        "Secteurs de l'intelligence artificielle, de la blockchain et de la logistique, en Europe et aux États-Unis [1]",
+        "Développeurs visés par les leurres de recrutement [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Trigram Campaign Impersonates About 50 AI and Blockchain Brands to Target Devs with Infostealers",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/trigram-campaign-impersonates-about-50.html",
+          "date": "2026-11-17",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXvywoP0qreCtUhDgAD1y24HevVHwAH9bGo904BuaQ7-amvdkk6Oi8gz8WjF-Hwiu3SinN266QM0KwUX6lDnayGOtMaSEff_b5vybBsdwvDhiai2uGsAlYfMgCdquPmKqaqM6eY54pG9HsMR7X5Sf7M4nkbIaHmWJMBG1uL3ggpJMMvfQR6FbMagqug2QG/s1700-nu-rw-lo-l85-e365/target.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-17-cold-relic-super-admin-usurpation",
       "title": "COLD RELIC : l'espion russe vole un compte Super Admin, vide un espace cloud puis usurpe un employé pour toucher une seconde organisation",
       "created": "2026-11-17T17:30:00+00:00",

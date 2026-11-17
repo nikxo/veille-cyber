@@ -1,29 +1,5 @@
 [
   {
-    "id": "48026cc92494b22f",
-    "title": "OpenAI's GPT-6.1 Terra is safer overall, but shows more destructive-action flags in tests",
-    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openais-gpt-61-terra-is-safer-overall-but-shows-more-destructive-action-flags-in-tests/",
-    "source": "BleepingComputer",
-    "raison": "tests de sécurité d'un modèle, aucune attaque",
-    "date": "2026-10-27T23:10:00+00:00"
-  },
-  {
-    "id": "29b3dc6b3c9b9cde",
-    "title": "Data centers, entraînement, inférence, agents IA : les plans de Nebius pour devenir l’AWS de l’IA",
-    "link": "https://www.lemagit.fr/actualites/366652817/Data-centers-entrainement-inference-agents-IA-les-plans-de-Nebius-pour-devenir-lAWS-de-lIA",
-    "source": "LeMagIT",
-    "raison": "annonce produit / stratégie d'entreprise, aucune attaque",
-    "date": "2026-10-28T05:10:00+00:00"
-  },
-  {
-    "id": "271b83601f0c5aec",
-    "title": "Third Serengeti Sweep Tops 1,400 Arrests as Investigations Mature",
-    "link": "https://www.darkreading.com/cybersecurity-operations/third-serengeti-sweep-1400-arrests-investigations-mature",
-    "source": "Dark Reading",
-    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
-    "date": "2026-10-28T06:15:00+00:00"
-  },
-  {
     "id": "345dc53c49102d11",
     "title": "Tailscale Patches SSH Flaws That Could Let Hacked Devices Gain Root Access on Other Servers",
     "link": "https://thehackernews.com/2026/10/tailscale-patches-ssh-flaws-that-could.html",
@@ -3998,5 +3974,29 @@
     "source": "Rapid7",
     "raison": "vulnérabilité sans exploitation constatée",
     "date": "2026-11-17T19:30:00+00:00"
+  },
+  {
+    "id": "1e05409f353fa51b",
+    "title": "Kazakh ransomware hacking suspect extradited from Italy",
+    "link": "https://therecord.media/kazakh-suspected-extradited-charges-8-digits-team-inc-lynx",
+    "source": "The Record",
+    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
+    "date": "2026-11-17T20:30:00+00:00"
+  },
+  {
+    "id": "7a7b2eaa4aa991d0",
+    "title": "Oracle to Patch 11 Java Flaws Today as Critical OpenJDK RCE (CVE-2026-114938) Report Emerges",
+    "link": "https://thehackernews.com/2026/11/oracle-to-patch-11-java-flaws-today-as.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilités sans exploitation constatée",
+    "date": "2026-11-17T20:30:00+00:00"
+  },
+  {
+    "id": "ba1741af26380326",
+    "title": "Apple reports outages affecting iCloud Mail, AppleCare and more",
+    "link": "https://www.bleepingcomputer.com/news/apple/apple-reports-outages-affecting-icloud-mail-applecare-and-more/",
+    "source": "BleepingComputer",
+    "raison": "panne de service sans lien avec une attaque",
+    "date": "2026-11-17T20:30:00+00:00"
   }
 ]

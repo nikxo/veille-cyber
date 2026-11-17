@@ -48473,9 +48473,9 @@
       "id": "2026-11-16-uber-chauffeurs-fireworks-ai",
       "title": "Uber : les données d'environ 150 000 chauffeurs volées avec des identifiants compromis de son prestataire Fireworks AI",
       "created": "2026-11-16T12:15:00+00:00",
-      "updated": "2026-11-16T12:15:00+00:00",
-      "version": 1,
-      "resume": "Uber prévient environ 150 000 chauffeurs du vol de leurs informations personnelles, après l'utilisation d'identifiants compromis d'un prestataire [1]. Un porte-parole a confirmé à TechCrunch que l'incident implique Fireworks AI [1].",
+      "updated": "2026-11-17T09:20:00+00:00",
+      "version": 2,
+      "resume": "Uber prévient environ 150 000 chauffeurs du vol de leurs informations personnelles, après l'utilisation d'identifiants compromis d'un prestataire [1, 2]. Un porte-parole a confirmé à TechCrunch que l'incident implique Fireworks AI [1].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -48483,11 +48483,11 @@
         },
         {
           "etape": "Vol de données",
-          "texte": "Accès à des images de permis de conduire et à des informations personnelles comme les noms, adresses et numéros de permis [1]."
+          "texte": "Accès à des images de permis de conduire et à des informations personnelles : noms, adresses, numéros de permis, dates de naissance [1, 2]."
         },
         {
           "etape": "Réaction d'Uber",
-          "texte": "Uber apprend l'incident le 9 octobre, coupe ses connexions de données avec le prestataire et ouvre une enquête [1]."
+          "texte": "Prévenue le 9 octobre, Uber coupe ses connexions de données avec le prestataire et enquête [1, 2] ; le 13 octobre, l'enquête établit l'accès à ses données [2]."
         }
       ],
       "parcours": {
@@ -48529,14 +48529,17 @@
           }
         ]
       },
-      "limites": "La source ne dit pas comment les identifiants du prestataire ont été compromis ni qui est l'attaquant ; l'enquête est toujours en cours [1].",
+      "limites": "Les sources ne disent pas comment les identifiants du prestataire ont été compromis [1, 2]. Fireworks a été piraté après le piratage d'un fournisseur cloud tiers [2].",
       "cves": [],
       "mitre": [],
-      "acteurs": [],
+      "acteurs": [
+        "Fireworks attribue l'attaque à un groupe cybercriminel motivé par l'argent, lié à des détournements de grands modèles de langage [2]"
+      ],
       "cibles": [
-        "Environ 150 000 chauffeurs Uber ; 149 346 personnes selon la notification au procureur général du Texas [1]",
+        "Environ 150 000 chauffeurs Uber ; 149 346 personnes selon les notifications aux procureurs généraux du Texas [1] et du Maine [2]",
         "Selon Uber, les identifiants compromis ne donnaient pas accès à d'autres systèmes Uber [1]",
-        "Fireworks AI a reconnu le 9 novembre que sa violation touchait aussi facturation, jeux de données clients et modèles incomplets [1]"
+        "Fireworks AI a reconnu le 9 novembre que sa violation touchait aussi facturation, jeux de données clients et modèles incomplets [1]",
+        "Cursor et Notion ont aussi subi des incidents de sécurité liés à la violation de Fireworks [2]"
       ],
       "abreviations": [
         {
@@ -48551,6 +48554,13 @@
           "url": "https://www.securityweek.com/uber-data-breach-impacts-150000-people/",
           "date": "2026-11-16",
           "image": "https://www.securityweek.com/wp-content/uploads/2023/05/Uber-CSO_Convicted-Joe-Sullivan.jpg"
+        },
+        {
+          "titre": "Uber notifies drivers of data breach affecting nearly 150,000 people",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/uber-notifies-drivers-of-data-breach-affecting-nearly-150-000-people/",
+          "date": "2026-11-17",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/17/Uber.jpg"
         }
       ]
     },
@@ -50363,6 +50373,126 @@
           "url": "https://www.zataz.com/cyberattaque-765-000-euros-dor-derobes-a-des-clients/",
           "date": "2026-11-17",
           "image": "https://www.zataz.com/wp-content/uploads/or_leak.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-17-shadowcloud-gitdoor-graphdoor",
+      "title": "Opération ShadowCloud : les portes dérobées GitDoor et GraphDoor pilotées via GitHub, SharePoint et Ably contre des administrations d'Asie et d'Afrique",
+      "created": "2026-11-17T09:20:00+00:00",
+      "updated": "2026-11-17T09:20:00+00:00",
+      "version": 1,
+      "resume": "Kaspersky décrit l'opération ShadowCloud, repérée début 2026 : deux portes dérobées, GitDoor et GraphDoor, pilotées via GitHub, SharePoint et Ably, avec des victimes en Asie et en Afrique, surtout dans le secteur gouvernemental [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Point d'entrée inconnu ; les indices pointent vers la réutilisation d'une infection déjà présente sur le réseau [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Agent MeshCentral relié à un serveur distant → dépôt d'un exécutable légitime, d'une bibliothèque de chargement malveillante et d'un fichier chiffré contenant la charge [1]."
+        },
+        {
+          "etape": "Exécution de l'implant",
+          "texte": "L'exécutable légitime charge la bibliothèque malveillante → déchiffrement et exécution de la porte dérobée GitDoor [1]."
+        },
+        {
+          "etape": "Pilotage par le cloud",
+          "texte": "GitDoor reçoit ses commandes d'un dépôt GitHub et envoie les résultats vers un second [1] ; GraphDoor passe par des fichiers et listes SharePoint [2]."
+        },
+        {
+          "etape": "Espionnage",
+          "texte": "Greffons de capture d'écran, de liste des processus et d'enregistrement des frappes [1, 2] ; modules de vol de cookies de navigateurs et Mimikatz [1]."
+        },
+        {
+          "etape": "Relais réseau",
+          "texte": "Greffons de proxy, l'un dérivé du projet libre Erfrp, d'autres passant par Ably → relais du trafic [1, 2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "ent",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines de la victime",
+            "note": "GitDoor, GraphDoor"
+          },
+          {
+            "id": "cl",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "GitHub, SharePoint, Ably",
+            "note": "Canaux de commande"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ent",
+            "etape": 1,
+            "texte": "Point d'entrée inconnu"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Agent MeshCentral, dépôt de trois fichiers"
+          },
+          {
+            "de": "cl",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Commandes et greffons"
+          },
+          {
+            "de": "pc",
+            "vers": "cl",
+            "etape": 4,
+            "texte": "Résultats des commandes"
+          }
+        ]
+      },
+      "limites": "Kaspersky ignore comment l'agent MeshCentral a été déployé [1, 2]. L'acteur n'est pas identifié : des recoupements avec FamousSparrow et CopperTurtle sont relevés, sans lien direct établi [2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié ; recoupements avec FamousSparrow et CopperTurtle, deux groupes d'expression chinoise [2]"
+      ],
+      "cibles": [
+        "Victimes en Asie et en Afrique, principalement dans le secteur gouvernemental [1]",
+        "Deux instances de l'agent MeshCentral trouvées dans une organisation taïwanaise [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Operation ShadowCloud: cloud service–based backdoors targeting government networks in Asia and Africa. Part 1",
+          "site": "Securelist (Kaspersky)",
+          "url": "https://securelist.com/operation-shadowcloud-gitdoor/122004/",
+          "date": "2026-11-17",
+          "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/11/16202435/shadowcloud-2_securelist-featured_1200x600_x2.jpg"
+        },
+        {
+          "titre": "Operation ShadowCloud: cloud service–based backdoors targeting government networks in Asia and Africa. Part 2",
+          "site": "Securelist (Kaspersky)",
+          "url": "https://securelist.com/operation-shadowcloud-graphdoor/122005/",
+          "date": "2026-11-17",
+          "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/11/16202435/shadowcloud-2_securelist-featured_1200x600_x2.jpg"
         }
       ]
     }

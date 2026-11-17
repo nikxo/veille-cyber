@@ -148,8 +148,8 @@
       "id": "2026-11-17-optimizely-scripts-pieges",
       "title": "Optimizely : des scripts piégés chargés sur les sites de 178 organisations visent cryptomonnaies et cartes bancaires",
       "created": "2026-11-17T03:06:55+00:00",
-      "updated": "2026-11-17T21:30:00+00:00",
-      "version": 6,
+      "updated": "2026-11-17T22:07:55+00:00",
+      "version": 7,
       "resume": "Du code malveillant inséré dans les fichiers JavaScript d'Optimizely de 178 organisations, selon Scott Helme, a visé les visiteurs de sites comme Zoom, GitLab et Salesforce pour voler cryptomonnaies et cartes bancaires [1, 2, 3]. Optimizely dit avoir corrigé la faille et retiré le code [2, 3, 7].",
       "chaine": [
         {
@@ -170,7 +170,7 @@
         },
         {
           "etape": "Vol de données",
-          "texte": "Recherche des numéros, dates d'expiration et codes de sécurité de cartes saisis → tentative d'envoi vers le même domaine ; collecte possible de cookies et captures d'écran [2]."
+          "texte": "Capture des cartes saisies dans les formulaires propres aux sites, pas ceux des prestataires de paiement → envoi tenté vers le même domaine [2, 8] ; cookies et captures d'écran visés [2, 8]."
         },
         {
           "etape": "Exploits iPhone et iPad",
@@ -263,11 +263,13 @@
       "cibles": [
         "Optimizely, plateforme d'expérimentation et de personnalisation de sites web [1]",
         "188 fichiers JavaScript infectés appartenant à 178 organisations, selon le chercheur Scott Helme [1, 2, 5]",
+        "32 sites bancaires ou financiers parmi les 178, selon Report URI [8]",
         "Sites de Zoom, GitLab, Smartsheet, Stamps.com, Scheels et Salesforce, entre autres [2]",
         "Sites de Fox News, Air France, Change.org et Bitly, entre autres [1]",
         "Sites d'Ikea, Air France, Zoom et du site de la communauté cybersécurité de Thales, entre autres [6]",
         "Sites de CNN, BBC, IKEA, HSBC, Equifax, Ledger et TalkTalk, entre autres [3]",
-        "Scripts de Kissmetrics, StorifyMe et Minute-ly diffusant un petit chargeur, première observation le 13 novembre ; entrée du code inconnue [4]"
+        "Scripts de Kissmetrics, StorifyMe et Minute-ly diffusant un petit chargeur, première observation le 13 novembre ; entrée du code inconnue [4]",
+        "Sites turcs, où Scott Helme (Report URI) dit avoir vu ce code injecté pour la première fois en septembre [8]"
       ],
       "abreviations": [
         {
@@ -344,6 +346,13 @@
           "url": "https://unit42.paloaltonetworks.com/optimjack-supply-chain-attack/",
           "date": "2026-11-17",
           "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/11/09_Opinion_Category_1505x922.jpg"
+        },
+        {
+          "titre": "Website management platform Optimizely confirms hackers put malicious code into customer sites",
+          "site": "The Record",
+          "url": "https://therecord.media/optimizely-malicious-code-customer-sites",
+          "date": "2026-11-17",
+          "image": "https://cms.therecord.media/uploads/optimizely_logo_a558e0b619.png"
         }
       ]
     },
@@ -51169,6 +51178,113 @@
           }
         ]
       }
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-17-docker-hub-cles-cloud-volees",
+      "title": "Docker Hub : des clés cloud placées dans des images leurres volées et utilisées en quelques secondes",
+      "created": "2026-11-17T22:07:55+00:00",
+      "updated": "2026-11-17T22:07:55+00:00",
+      "version": 1,
+      "resume": "Des chercheurs de l'université Stony Brook ont publié 300 images leurres contenant des clés cloud : des robots d'analyse les ont extraites et utilisées, la première clé AWS en 7,86 secondes [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Analyse des couches des images publiques ou requêtes à l'API du registre, sans lancer les conteneurs → extraction des secrets embarqués [1]."
+        },
+        {
+          "etape": "Test des clés",
+          "texte": "Première clé AWS utilisée 7,86 secondes après publication, délai médian de 51,19 secondes ; les 100 clés AWS utilisées en moins de 15 minutes [1]."
+        },
+        {
+          "etape": "Exploitation des comptes",
+          "texte": "Clés AWS vérifiées puis ressources listées, parfois consommées ; soldes des comptes OpenAI et Anthropic épuisés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (ContainerBots)",
+            "note": "Robots d'analyse"
+          },
+          {
+            "id": "hub",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Images publiques Docker Hub",
+            "note": "Secrets embarqués"
+          },
+          {
+            "id": "aws",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Comptes AWS leurres",
+            "note": "Ressources listées"
+          },
+          {
+            "id": "ia",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Comptes OpenAI et Anthropic",
+            "note": "Soldes épuisés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "hub",
+            "etape": 1,
+            "texte": "Couches analysées, secrets extraits"
+          },
+          {
+            "de": "att",
+            "vers": "aws",
+            "etape": 2,
+            "texte": "Clés AWS testées en quelques secondes"
+          },
+          {
+            "de": "att",
+            "vers": "ia",
+            "etape": 3,
+            "texte": "Clés utilisées jusqu'à épuisement du solde"
+          }
+        ]
+      },
+      "limites": "L'étude repose sur des images leurres ; l'article ne détaille pas l'usage des identifiants SSH et de base de données factices [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "« ContainerBots » : regroupement informel de robots d'analyse, sans preuve de coordination entre leurs opérateurs [1]"
+      ],
+      "cibles": [
+        "Images publiques de Docker Hub et d'autres registres, dont Harbor ; clés AWS, OpenAI et Anthropic visées [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Application Programming Interface : interface d'accès programmatique à un service"
+        },
+        {
+          "sigle": "AWS",
+          "definition": "Amazon Web Services : services cloud d'Amazon"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole de connexion à distance chiffrée"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Cloud keys leaked in Docker Hub images are stolen within seconds",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cloud-keys-leaked-in-docker-hub-images-are-stolen-within-seconds/",
+          "date": "2026-11-17",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/17/Docker.jpg"
+        }
+      ]
     }
   ]
 }

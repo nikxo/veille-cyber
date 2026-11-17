@@ -49880,6 +49880,95 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/02/11/ai-extract.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-17-uber-prestataire-permis-conduire",
+      "title": "Uber : des identifiants volés chez un prestataire exposent les données de permis de conduire de près de 150 000 personnes",
+      "created": "2026-11-17T02:07:18+00:00",
+      "updated": "2026-11-17T02:07:18+00:00",
+      "version": 1,
+      "resume": "Uber a signalé une fuite exposant les noms et permis de conduire de 149 346 personnes aux États-Unis : des identifiants internes volés, ceux d'un prestataire tiers, ont servi à accéder au compte d'Uber [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Identifiants internes d'un prestataire tiers volés, selon la notification reçue par Uber le 9 octobre → accès au compte d'Uber [1]."
+        },
+        {
+          "etape": "Absence d'alerte",
+          "texte": "Utilisation d'identifiants valides → aucune alerte déclenchée [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Dans un stockage cloud créé par Uber pour le travail du prestataire : images de permis consultées, données textuelles extraites (noms, adresses, dates de naissance, numéros de permis) [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "pr",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Prestataire tiers d'Uber",
+            "note": "Identifiants volés"
+          },
+          {
+            "id": "st",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Stockage cloud d'Uber",
+            "note": "Permis de conduire"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pr",
+            "etape": 1,
+            "texte": "Vol d'identifiants internes"
+          },
+          {
+            "de": "pr",
+            "vers": "st",
+            "etape": 1,
+            "texte": "Accès au compte d'Uber avec des identifiants valides"
+          },
+          {
+            "de": "st",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Images consultées, données textuelles extraites"
+          }
+        ]
+      },
+      "limites": "Uber n'a pas répondu aux demandes de commentaire sur le nom du prestataire ; TechCrunch relie l'incident à une cyberattaque contre Fireworks [1]. La source ne dit pas comment les identifiants ont été volés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non nommé par la source [1]"
+      ],
+      "cibles": [
+        "Uber : 149 346 personnes aux États-Unis, incident signalé aux régulateurs de plusieurs États [1]",
+        "Selon Uber, les identifiants compromis du prestataire ne donnaient accès à aucun autre de ses systèmes [1]",
+        "Notion et Cursor, clients de Fireworks, ont averti avoir aussi été touchés par l'incident chez Fireworks [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Uber says nearly 150,000 impacted by third-party breach",
+          "site": "The Record",
+          "url": "https://therecord.media/uber-says-150000-impacted-third-party-breach",
+          "date": "2026-11-18",
+          "image": "https://cms.therecord.media/uploads/uber_2_dfaed63c24.jpg"
+        }
+      ]
     }
   ]
 }

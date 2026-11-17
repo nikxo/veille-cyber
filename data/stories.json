@@ -50389,9 +50389,9 @@
       "id": "2026-11-17-shadowcloud-gitdoor-graphdoor",
       "title": "Opération ShadowCloud : les portes dérobées GitDoor et GraphDoor pilotées via GitHub, SharePoint et Ably contre des administrations d'Asie et d'Afrique",
       "created": "2026-11-17T09:20:00+00:00",
-      "updated": "2026-11-17T09:20:00+00:00",
-      "version": 1,
-      "resume": "Kaspersky décrit l'opération ShadowCloud, repérée début 2026 : deux portes dérobées, GitDoor et GraphDoor, pilotées via GitHub, SharePoint et Ably, avec des victimes en Asie et en Afrique, surtout dans le secteur gouvernemental [1, 2].",
+      "updated": "2026-11-17T12:07:29+00:00",
+      "version": 2,
+      "resume": "Kaspersky décrit l'opération ShadowCloud, repérée début 2026 : deux portes dérobées, GitDoor et GraphDoor, avec des victimes en Asie et en Afrique, surtout dans le secteur gouvernemental [1, 2]. La date de création des dépôts GitHub suggère une préparation depuis au moins fin 2024 [3].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -50407,7 +50407,7 @@
         },
         {
           "etape": "Pilotage par le cloud",
-          "texte": "GitDoor reçoit ses commandes d'un dépôt GitHub et envoie les résultats vers un second [1] ; GraphDoor passe par des fichiers et listes SharePoint [2]."
+          "texte": "GitDoor reçoit ses commandes d'un dépôt GitHub public et envoie les résultats vers un dépôt privé [1, 3] ; GraphDoor passe par des fichiers et listes SharePoint [2]."
         },
         {
           "etape": "Espionnage",
@@ -50480,7 +50480,8 @@
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non identifié ; recoupements avec FamousSparrow et CopperTurtle, deux groupes d'expression chinoise [2]"
+        "Non identifié ; recoupements avec FamousSparrow et CopperTurtle, deux groupes d'expression chinoise [2]",
+        "Recoupement partiel avec l'activité Bronze Sandcastle décrite par Sophos, liée à la Chine [3]"
       ],
       "cibles": [
         "Victimes en Asie et en Afrique, principalement dans le secteur gouvernemental [1]",
@@ -50501,6 +50502,13 @@
           "url": "https://securelist.com/operation-shadowcloud-graphdoor/122005/",
           "date": "2026-11-17",
           "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/11/16202435/shadowcloud-2_securelist-featured_1200x600_x2.jpg"
+        },
+        {
+          "titre": "New GitDoor and GraphDoor Backdoors Turn GitHub and SharePoint Into Covert C2 Channels",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/new-gitdoor-and-graphdoor-backdoors.html",
+          "date": "2026-11-17",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhGYnRRqAfAZ2q0dS56dC5lC86Kx69VT0moHy1Pxt67C0ic8RbLOL9LR68b4atQmvb7O6Gq3Btm1axv2aCRaNkhagPKbFHvThWlye3QPpK1xnEj4kovoJn8dsbTlCmAjXOIb8EHV3RJuhNQdVNKRxc4uwiuIfws_a63koiBaCQvs5jwbnTFG8EUwuA0RiA/s1700-nu-rw-lo-l85-e365/git-share.jpg"
         }
       ]
     }

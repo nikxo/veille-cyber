@@ -1,29 +1,5 @@
 [
   {
-    "id": "d6f7bf0eae14f17c",
-    "title": "OpenSearch, ce fork d’Elastic Search que la Linux Foundation met en avant",
-    "link": "https://www.lemagit.fr/actualites/366652773/OpenSearch-ce-fork-dElastic-Search-que-la-Linux-Foundation-met-en-avant",
-    "source": "LeMagIT",
-    "raison": "présentation de produit, pas d'attaque",
-    "date": "2026-10-27T09:15:00+00:00"
-  },
-  {
-    "id": "b38fde355a96a874",
-    "title": "Dead Popcorn Time Updater Put Millions of Computers at Risk of Takeover",
-    "link": "https://www.securityweek.com/dead-popcorn-time-updater-put-millions-of-computers-at-risk-of-takeover/",
-    "source": "SecurityWeek",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-27T10:20:00+00:00"
-  },
-  {
-    "id": "3406c5830b0684d5",
-    "title": "PHP2Shell: What to know about two critical PHP flaws",
-    "link": "https://www.welivesecurity.com/en/videos/php2shell-what-know-two-critical-php-flaws/",
-    "source": "WeLiveSecurity (ESET)",
-    "raison": "vidéo résumé, aucun fait nouveau pour le sujet PHP2Shell existant",
-    "date": "2026-10-27T10:20:00+00:00"
-  },
-  {
     "id": "cd51a41d18512057",
     "title": "From federal SOCs to Talos: Ryan Fetterman on practical security research",
     "link": "https://blog.talosintelligence.com/from-federal-socs-to-talos-ryan-fetterman-on-practical-security-research/",
@@ -3998,5 +3974,29 @@
     "source": "ZATAZ",
     "raison": "escroquerie par appel téléphonique et faux coursier, actualité judiciaire sans attaque informatique",
     "date": "2026-11-17T11:20:00+00:00"
+  },
+  {
+    "id": "435aba56970730c7",
+    "title": "Is it safe to upload my passport or ID online?",
+    "link": "https://www.welivesecurity.com/en/privacy/is-it-safe-upload-passport-id-online/",
+    "source": "WeLiveSecurity (ESET)",
+    "raison": "conseils génériques sur l'envoi de pièces d'identité en ligne, incidents cités sans méthode d'attaque",
+    "date": "2026-11-17T12:07:29+00:00"
+  },
+  {
+    "id": "91a972abcaac8f50",
+    "title": "Microsoft testing Remote Lock for lost or stolen Windows devices",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-testing-remote-lock-for-lost-or-stolen-windows-devices/",
+    "source": "BleepingComputer",
+    "raison": "annonce produit (verrouillage à distance Windows en test), pas d'attaque",
+    "date": "2026-11-17T12:07:29+00:00"
+  },
+  {
+    "id": "cb74b2746cc6b172",
+    "title": "Apple Tightens macOS App Permissions to Limit Data Access Amid AI Agent Security Risks",
+    "link": "https://thehackernews.com/2026/11/apple-tightens-macos-app-permissions-to.html",
+    "source": "The Hacker News",
+    "raison": "annonce produit (permissions macOS), pas d'attaque ni de faille exploitée",
+    "date": "2026-11-17T12:07:29+00:00"
   }
 ]

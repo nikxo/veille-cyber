@@ -1,29 +1,5 @@
 [
   {
-    "id": "2db299f6a19064cf",
-    "title": "3 Frameworks to Protect CISOs & Orgs Against AI Liability",
-    "link": "https://www.darkreading.com/cyber-risk/3-frameworks-cisos-ai-liability",
-    "source": "Dark Reading",
-    "raison": "conseils génériques",
-    "date": "2026-10-27T22:15:00+00:00"
-  },
-  {
-    "id": "67aef7e7b7c4c14f",
-    "title": "SBOMs Alone Can't Reveal the Scope of a Supply Chain Attack",
-    "link": "https://www.darkreading.com/cyber-risk/sboms-alone-scope-supply-chain-attack",
-    "source": "Dark Reading",
-    "raison": "article d'analyse sans détail de la méthode d'attaque (page inaccessible)",
-    "date": "2026-10-27T22:15:00+00:00"
-  },
-  {
-    "id": "e7767410559634bd",
-    "title": "Email Bombing, External Teams Chats Form Repeatable Access Path",
-    "link": "https://www.darkreading.com/cloud-security/email-bombing-external-teams-chats-repeatable-access-path",
-    "source": "Dark Reading",
-    "raison": "page inaccessible, résumé sans détail exploitable",
-    "date": "2026-10-27T22:15:00+00:00"
-  },
-  {
     "id": "48026cc92494b22f",
     "title": "OpenAI's GPT-6.1 Terra is safer overall, but shows more destructive-action flags in tests",
     "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openais-gpt-61-terra-is-safer-overall-but-shows-more-destructive-action-flags-in-tests/",
@@ -3998,5 +3974,29 @@
     "source": "The Record",
     "raison": "sanction administrative pour non-respect d'une loi sur la vie privée, aucune attaque",
     "date": "2026-11-17T18:30:00+00:00"
+  },
+  {
+    "id": "929827d33908a8ac",
+    "title": "Researchers hijack Hugging Face account for popular Kokoro AI model",
+    "link": "https://www.bleepingcomputer.com/news/security/researchers-hijack-hugging-face-account-for-popular-kokoro-ai-model/",
+    "source": "BleepingComputer",
+    "raison": "démonstration de chercheurs sans exploitation constatée dans la nature",
+    "date": "2026-11-17T19:30:00+00:00"
+  },
+  {
+    "id": "b86bf3da50438b01",
+    "title": "Chiffrement postquantique : comment bâtir un inventaire cryptographique",
+    "link": "https://www.lemagit.fr/conseil/Chiffrement-postquantique-comment-batir-un-inventaire-cryptographique",
+    "source": "LeMagIT",
+    "raison": "conseils génériques",
+    "date": "2026-11-17T19:30:00+00:00"
+  },
+  {
+    "id": "fd7cfcb10974823f",
+    "title": "CVE-2026-114938: Reported Critical Pre-authentication Remote Code Execution in Java 17",
+    "link": "https://www.rapid7.com/blog/post/etr-cve-2026-114938-reported-critical-pre-authentication-remote-code-execution-java-17",
+    "source": "Rapid7",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-17T19:30:00+00:00"
   }
 ]

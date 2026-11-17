@@ -2992,8 +2992,8 @@
       "id": "2026-11-16-google-agents-ia-correctifs-papercut",
       "title": "Google : des agents d'intelligence artificielle analysent les correctifs pour exploiter des failles PaperCut, des accès à des modèles volés puis revendus",
       "created": "2026-11-16T18:09:47+00:00",
-      "updated": "2026-11-16T18:09:47+00:00",
-      "version": 1,
+      "updated": "2026-11-17T19:30:00+00:00",
+      "version": 2,
       "resume": "Selon Google, des attaquants emploient des modèles de langage et des agents pour transformer des correctifs en attaques, comme contre PaperCut NG/MF en septembre, et volent des accès à des modèles dans des entreprises compromises [1].",
       "chaine": [
         {
@@ -3006,7 +3006,7 @@
         },
         {
           "etape": "Intrusions automatisées",
-          "texte": "Outils à plusieurs agents ARTEX, CAIRN, CyberStrikeAI et PentAGI → phases et tâches d'intrusions en cours automatisées, vitesse d'opération accrue [1]."
+          "texte": "Outils à plusieurs agents ARTEX, CAIRN, CyberStrikeAI et PentAGI → phases et tâches d'intrusions en cours automatisées, vitesse d'opération accrue [1, 2]."
         },
         {
           "etape": "Vol d'accès aux modèles",
@@ -3065,14 +3065,16 @@
           }
         ]
       },
-      "limites": "La source ne nomme ni victime ni groupe, ne donne aucun identifiant de faille PaperCut et ne décrit aucune intrusion complète [1].",
+      "limites": "Aucune victime, aucun groupe ni identifiant de faille PaperCut nommés [1] ; selon [2], des chercheurs ont produit en un jour des exploits pour deux failles PaperCut de cet été [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Acteurs à motivation financière et acteurs d'espionnage soupçonnés d'être alignés avec la Chine, vus expérimentant ces outils à plusieurs agents, non nommés [1]"
+        "Acteurs à motivation financière et acteurs d'espionnage soupçonnés d'être alignés avec la Chine, vus expérimentant ces outils à plusieurs agents, non nommés [1]",
+        "Groupes gouvernementaux chinois qui développent leur propre version d'Artex, selon Google [2]"
       ],
       "cibles": [
-        "Environnements d'entreprise compromis, sans victime nommée [1]"
+        "Environnements d'entreprise compromis, sans victime nommée [1]",
+        "Entreprises du secteur aérospatial américain, visées par des intrusions menées avec CAIRN [2]"
       ],
       "abreviations": [
         {
@@ -3099,6 +3101,13 @@
           "url": "https://thehackernews.com/2026/11/google-finds-hackers-using-ai-agents-to.html",
           "date": "2026-11-16",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpEBmKLWFpEn8sSoJLtj1ZR7FPMd8GxxKN2v4IzyBkydma_g4gXzaWEEkK5CTPwidrBPw6QPdoByiEC14ufVP2pvezWKtH_dmqHttARDKzDOopkw0vzUdTYZubCh9Qy76nlmVSbhtTSvDOuT1c70E4TVPw8T4hUhMdR-saHjQPW1S9IZNmg2_RfsMsmJLb/s1700-nu-rw-lo-l85-e365/google.jpg"
+        },
+        {
+          "titre": "Chinese state group developing automated attack tool for cyber espionage, Google says",
+          "site": "The Record",
+          "url": "https://therecord.media/chinese-state-group-developing-automated-attack-tool-espionage",
+          "date": "2026-11-17",
+          "image": "https://cms.therecord.media/uploads/red_digital_f1b63748b1.jpg"
         }
       ]
     },
@@ -3428,9 +3437,9 @@
       "id": "2026-11-14-cursor-intrusion-cle-fireworks",
       "title": "Cursor : une clé volée chez Fireworks AI mène au vol de données et à l'extension Claude Code piégée",
       "created": "2026-11-14T18:20:00+00:00",
-      "updated": "2026-11-16T16:09:46+00:00",
-      "version": 3,
-      "resume": "Cursor confirme une intrusion partie d'une clé d'accès exposée par Fireworks AI, lui-même piraté : des données internes ont été volées et une extension Claude Code piégée a exposé jusqu'à 5 000 développeurs à une porte dérobée SSH [1, 2].",
+      "updated": "2026-11-17T19:30:00+00:00",
+      "version": 4,
+      "resume": "Une clé compromise, émise pour Fireworks AI, a servi à accéder à des données et identifiants de Cursor [1, 4]. Une extension Claude Code piégée a exposé jusqu'à 5 000 développeurs à une porte dérobée SSH [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -3576,6 +3585,12 @@
           "url": "https://www.securityweek.com/cursor-supply-chain-attack-started-at-fireworks/",
           "date": "2026-11-16",
           "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+        },
+        {
+          "titre": "Cursor Traces Malicious Claude Code Extension to Third-Party Breach",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/application-security/cursor-malicious-claude-code-extension-third-party-breach",
+          "date": "2026-11-17"
         }
       ]
     },
@@ -4100,21 +4115,21 @@
       "id": "2026-11-16-exploit-agent-sites-francais",
       "title": "exploit_agent : un système d'agents d'intelligence artificielle trouve et exploite seul des failles, des sites web français visés",
       "created": "2026-11-16T14:09:11+00:00",
-      "updated": "2026-11-16T14:09:11+00:00",
-      "version": 1,
-      "resume": "Google a découvert exploit_agent, un système à plusieurs agents d'intelligence artificielle qui trouve et exploite seul des failles, utilisé contre des sites web français des médias, du divertissement et de l'éducation [1, 2].",
+      "updated": "2026-11-17T19:30:00+00:00",
+      "version": 2,
+      "resume": "Google a découvert exploit_agent, un système à plusieurs agents d'intelligence artificielle qui trouve et exploite seul des failles, utilisé contre des sites web français des médias, du divertissement et de l'éducation [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Le système compare le code de logiciels web populaires avant et après l'annonce d'un correctif, rédige des exploits et les exécute automatiquement, sans intervention humaine [1]."
+          "texte": "Le système compare le code de logiciels web populaires avant et après l'annonce d'un correctif, rédige des exploits et les exécute automatiquement, sans intervention humaine [1, 3]."
         },
         {
           "etape": "Après la compromission",
-          "texte": "Des scripts servent à la reconnaissance interne, à la force brute, à l'installation de portes dérobées web et à la suppression de celles d'autres attaquants [1]."
+          "texte": "Des scripts servent à la reconnaissance interne, à la force brute, à l'installation de portes dérobées web et à la suppression de celles d'autres attaquants [1, 3]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Le serveur de préparation de l'attaquant, laissé exposé, contenait des données volées à des victimes [1, 2]."
+          "texte": "Le serveur de préparation de l'attaquant, laissé exposé, contenait des données volées à des victimes [1, 2, 3]."
         }
       ],
       "parcours": {
@@ -4162,14 +4177,14 @@
           }
         ]
       },
-      "limites": "Les sources ne nomment ni l'opérateur ni les victimes, et n'indiquent pas quelles failles ont été exploitées [1, 2].",
+      "limites": "Les sources ne nomment ni l'opérateur ni les victimes, et n'indiquent pas quelles failles ont été exploitées [1, 2, 3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Opérateur non nommé ; un fichier de configuration du système contient des commentaires en russe [1]"
       ],
       "cibles": [
-        "Sites web français des médias, du divertissement et de l'éducation [1, 2]"
+        "Sites web français des médias, du divertissement et de l'éducation [1, 2, 3]"
       ],
       "abreviations": [],
       "sources": [
@@ -4186,6 +4201,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/google-warns-that-fully-automated-ai-attacks-are-coming-soon/",
           "date": "2026-11-16",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/09/robot-hacker.jpg"
+        },
+        {
+          "titre": "AI Framework Autonomously Weaponized Flaws in Real Attacks, Google Says",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/ai-framework-autonomously-weaponized-flaws-in-real-attacks-google-says/",
+          "date": "2026-11-17",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/07/AI-Chatbot-GenAI-artificial-intelligence.jpg"
         }
       ]
     },

@@ -2,6 +2,221 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-18-uat-12643-overlord-solana",
+      "title": "UAT-12643 : de faux PDF installent le cheval de Troie Overlord, piloté via la blockchain Solana, et un voleur de données visant joueurs et détenteurs de cryptomonnaies",
+      "created": "2026-11-18T11:10:00+00:00",
+      "updated": "2026-11-18T11:10:00+00:00",
+      "version": 1,
+      "resume": "Cisco Talos décrit UAT-12643, groupe à motivation financière qui vise détenteurs de cryptomonnaies, joueurs en ligne et utilisateurs de téléphonie par Internet, avec des victimes potentiellement situées en Europe [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Raccourcis Windows déguisés en PDF, fichiers HTA ou projet MSBuild piégés → téléchargement de la charge malveillante ; leur mode de diffusion n'a pas été observé [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Cheval de Troie Overlord : droits administrateur demandés, processus rendu critique → toute tentative d'arrêt provoque un écran bleu [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Clé de démarrage du registre et dossier de l'environnement de récupération Windows → accès qui survit à une réinitialisation de Windows [1]."
+        },
+        {
+          "etape": "Pilotage via Solana",
+          "texte": "Adresses du serveur de commande chiffrées dans des transactions Solana → serveur changé sans mise à jour du maliciel [1, 2]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Voleur Good Game : navigateurs, jetons Discord, sessions de portefeuilles de cryptomonnaies et de lanceurs de jeux → archive envoyée sur gofile.io, alerte via Discord [1]."
+        },
+        {
+          "etape": "Détournement de paiements",
+          "texte": "Programme surveillant le presse-papiers toutes les 500 ms → adresses de portefeuilles remplacées par celles de l'attaquant [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (UAT-12643)",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de la victime",
+            "note": "Overlord, Good Game"
+          },
+          {
+            "id": "sol",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Blockchain Solana",
+            "note": "Adresses chiffrées"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de commande",
+            "note": ""
+          },
+          {
+            "id": "gof",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "gofile.io et Discord",
+            "note": "Données volées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Faux PDF, fichier HTA ou projet MSBuild"
+          },
+          {
+            "de": "att",
+            "vers": "sol",
+            "etape": 4,
+            "texte": "Adresses chiffrées publiées en transaction"
+          },
+          {
+            "de": "pc",
+            "vers": "sol",
+            "etape": 4,
+            "texte": "Lecture de l'historique du portefeuille"
+          },
+          {
+            "de": "pc",
+            "vers": "c2",
+            "etape": 4,
+            "texte": "Connexion au serveur de commande"
+          },
+          {
+            "de": "pc",
+            "vers": "gof",
+            "etape": 5,
+            "texte": "Archive de données volées envoyée"
+          }
+        ]
+      },
+      "limites": "Talos n'a pas observé comment les fichiers piégés sont distribués [1]. Le rattachement à la Corée du Nord reste de faible confiance [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "UAT-12643, groupe à motivation financière, rattaché avec une faible confiance à un groupe lié à la Corée du Nord [1]",
+        "Overlord déjà utilisé par UNK_DeadDrop ; pilotage via Solana déjà rapporté chez Lazarus, sous une autre forme [1]"
+      ],
+      "cibles": [
+        "Détenteurs de cryptomonnaies, joueurs en ligne, utilisateurs de téléphonie par Internet, notamment en centres d'appels [1]",
+        "Personnel financier et comptable visé par un faux relevé financier ; installateur Viber piégé [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "PDF",
+          "definition": "Portable Document Format : format courant de document"
+        },
+        {
+          "sigle": "HTA",
+          "definition": "Application Windows écrite comme une page web, lancée par mshta.exe"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "UAT-12643: Suspected North Korea-aligned actor blends blockchain resilience with targeted infostealing",
+          "site": "Cisco Talos",
+          "url": "https://blog.talosintelligence.com/uat-12643-suspected-north-korea-aligned-actor-blends-blockchain-resilience-with-targeted-infostealing/",
+          "date": "2026-11-18",
+          "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/11/threat_spotlight.jpg"
+        },
+        {
+          "titre": "The challenge of defending against bulletproof dead drops on public blockchains",
+          "site": "Cisco Talos",
+          "url": "https://blog.talosintelligence.com/the-challenge-of-defending-against-bulletproof-dead-drops-on-public-blockchains/",
+          "date": "2026-11-18",
+          "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/11/on_the_radar.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-18-apache-roller-cve-2026-129448",
+      "title": "Apache Roller : la faille de désérialisation CVE-2026-129448 exploitée pour exécuter du code sur des serveurs de blogs",
+      "created": "2026-11-18T11:10:00+00:00",
+      "updated": "2026-11-18T11:10:00+00:00",
+      "version": 1,
+      "resume": "Apache a corrigé une faille critique de Roller, serveur de blogs collaboratifs écrit en Java, que des attaquants exploitent pour exécuter du code sur les serveurs vulnérables [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Requête envoyée sans authentification au point d'accès XML-RPC, qui la désérialise avant d'authentifier le demandeur → code exécuté à distance [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur Apache Roller",
+            "note": "Code exécuté"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 1,
+            "texte": "Requête XML-RPC piégée sans authentification"
+          }
+        ]
+      },
+      "limites": "Apache ne donne pas de détails sur les attaques : ni leurs auteurs, ni leurs victimes, ni le nombre de serveurs compromis [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-129448",
+          "explication": "Apache Roller 4.0.0 à 6.1.4 : désérialisation non sécurisée via XML-RPC, exécution de code à distance sans authentification, critique ; corrigée en 6.1.6, même faille que CVE-2026-82384 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Serveurs Apache Roller vulnérables ; désactiver XML-RPC dans l'administration ne suffit pas sur les anciennes versions [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "XML-RPC",
+          "definition": "Protocole d'appel de fonctions à distance, avec des messages au format XML"
+        },
+        {
+          "sigle": "XML",
+          "definition": "eXtensible Markup Language : format de données structuré par balises"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Apache warns of Roller RCE vulnerability exploited in attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/apache-warns-of-roller-rce-vulnerability-exploited-in-attacks/",
+          "date": "2026-11-18",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/04/17/Apache.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-18-scattered-spider-buchanan-sms",
       "title": "Scattered Spider : six ans de prison pour un pirate britannique, des SMS piégés aux salariés puis 11,6 millions de dollars de cryptomonnaies volés",
       "created": "2026-11-18T10:15:00+00:00",
@@ -1044,17 +1259,25 @@
       "id": "2026-11-17-puppet-enterprise-cve-2026-115731-kev",
       "title": "Puppet Enterprise : la faille de désérialisation CVE-2026-115731 exploitée, ajoutée au catalogue de la CISA",
       "created": "2026-11-17T21:30:00+00:00",
-      "updated": "2026-11-18T10:15:00+00:00",
-      "version": 2,
-      "resume": "La CISA a ajouté à son catalogue des failles exploitées CVE-2026-115731, une désérialisation de données non fiables dans Perforce Puppet Enterprise, sur la base de preuves d'exploitation active [1]. Perforce l'avait corrigée le 3 novembre [3].",
+      "updated": "2026-11-18T11:10:00+00:00",
+      "version": 3,
+      "resume": "La CISA a ajouté à son catalogue des failles exploitées CVE-2026-115731, une désérialisation de données non fiables dans Perforce Puppet Enterprise, sur la base de preuves d'exploitation active [1]. Perforce l'avait corrigée le 3 novembre [3, 4] ; son exploitation est signalée le 4 novembre [4].",
       "chaine": [
         {
           "etape": "Accès initial",
           "texte": "Non précisé ; un utilisateur de Reddit dit avoir trouvé une autorité de certification gravement mal configurée dans son parc [3]."
         },
         {
+          "etape": "Obtention d'un certificat",
+          "texte": "Possible sans authentification si l'autorité de certification de Puppet signe automatiquement les demandes sans vérification forte [4]."
+        },
+        {
           "etape": "Exécution de code",
-          "texte": "Rapport piégé envoyé par un client muni d'un certificat d'agent signé → code exécuté sur le serveur Puppet avec les droits du compte de service [2, 3]."
+          "texte": "Rapport piégé envoyé par un client muni d'un certificat d'agent signé → code exécuté sur le serveur Puppet avec les droits du compte de service [2, 3, 4]."
+        },
+        {
+          "etape": "Impact possible",
+          "texte": "Selon Perforce : clé de signature des certificats exposée, certificats de confiance émis, logiciels et configurations des machines gérées modifiés [4]."
         }
       ],
       "parcours": {
@@ -1071,15 +1294,28 @@
             "type": "serveur",
             "zone": "victime",
             "nom": "Serveur Puppet",
-            "note": ""
+            "note": "Clé de signature exposée"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines gérées par Puppet",
+            "note": "Configurations modifiables"
           }
         ],
         "liens": [
           {
             "de": "att",
             "vers": "pup",
-            "etape": 2,
+            "etape": 3,
             "texte": "Rapport piégé, exécution de code"
+          },
+          {
+            "de": "pup",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Logiciels et configurations distribués modifiables"
           }
         ]
       },
@@ -1093,7 +1329,8 @@
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Agences fédérales civiles américaines, tenues d'appliquer les correctifs au plus tard le 1er décembre 2026 [1, 3]"
+        "Agences fédérales civiles américaines, tenues d'appliquer les correctifs au plus tard le 1er décembre 2026 [1, 3]",
+        "Utilisateurs d'OpenVox, aussi touché par la faille ; une preuve de concept le visant a été publiée [4]"
       ],
       "abreviations": [
         {
@@ -1119,6 +1356,13 @@
           "url": "https://thehackernews.com/2026/11/hackers-exploiting-critical-puppet-rce.html",
           "date": "2026-11-18",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoFKMFLPbzyM7RGi89XdpVFUfFqLH2C0QnAIyZfTSZIkvQNT8jhFEdMdW3D1qPXE0MjtV-q8fM1Alicz0wEuNJ6fnIjOs3BY8D7ABBRWNqPg6NGz9FjhbSQhapwUDZPDyg3kJEy9CZeUwbcmZ3N5nCU8bH6bkCo4BgLfhlE3R3AdDi9CvLVgjqlMW42Pm2/s320/puppet.jpg"
+        },
+        {
+          "titre": "Critical Perforce Puppet RCE Exploited in Attacks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/critical-perforce-puppet-rce-exploited-in-attacks/",
+          "date": "2026-11-18",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/cyberattack-vulnerability-exploited.jpeg"
         }
       ]
     },
@@ -2903,8 +3147,8 @@
       "id": "2026-11-17-uber-prestataire-permis-conduire",
       "title": "Uber : des identifiants volés chez un prestataire exposent les données de permis de conduire de près de 150 000 personnes",
       "created": "2026-11-17T02:07:18+00:00",
-      "updated": "2026-11-17T02:07:18+00:00",
-      "version": 1,
+      "updated": "2026-11-18T11:10:00+00:00",
+      "version": 2,
       "resume": "Uber a signalé une fuite exposant les noms et permis de conduire de 149 346 personnes aux États-Unis : des identifiants internes volés, ceux d'un prestataire tiers, ont servi à accéder au compte d'Uber [1].",
       "chaine": [
         {
@@ -2913,11 +3157,15 @@
         },
         {
           "etape": "Absence d'alerte",
-          "texte": "Utilisation d'identifiants valides → aucune alerte déclenchée [1]."
+          "texte": "Utilisation d'identifiants valides → aucune alerte déclenchée [1, 2]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Dans un stockage cloud créé par Uber pour le travail du prestataire : images de permis consultées, données textuelles extraites (noms, adresses, dates de naissance, numéros de permis) [1]."
+          "texte": "Dans un stockage cloud créé par Uber pour le travail du prestataire : images de permis consultées, données extraites (noms, adresses, dates de naissance, numéros de permis) [1, 2]."
+        },
+        {
+          "etape": "Réaction d'Uber",
+          "texte": "Après la notification, connexions de données avec le prestataire coupées, identifiants associés supprimés ou renouvelés [2]."
         }
       ],
       "parcours": {
@@ -2965,7 +3213,7 @@
           }
         ]
       },
-      "limites": "Uber n'a pas répondu aux demandes de commentaire sur le nom du prestataire ; TechCrunch relie l'incident à une cyberattaque contre Fireworks [1]. La source ne dit pas comment les identifiants ont été volés [1].",
+      "limites": "Uber n'a pas confirmé le nom du prestataire [1, 2] ; l'incident est relié à Fireworks [1, 2]. Les sources ne disent pas comment les identifiants ont été volés [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -2984,6 +3232,13 @@
           "url": "https://therecord.media/uber-says-150000-impacted-third-party-breach",
           "date": "2026-11-18",
           "image": "https://cms.therecord.media/uploads/uber_2_dfaed63c24.jpg"
+        },
+        {
+          "titre": "Uber : 149 346 personnes touchées par une fuite",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/uber-149-346-personnes-touchees-par-une-fuite/",
+          "date": "2026-11-18",
+          "image": "https://www.zataz.com/wp-content/uploads/urber_lea_ia.jpg"
         }
       ]
     },
@@ -4772,25 +5027,29 @@
       "id": "2026-11-16-douanes-lituaniennes-portail-bap",
       "title": "Douanes lituaniennes : le portail d'accès BAP fermé après une cyberattaque, fuite de données possible",
       "created": "2026-11-16T15:12:00+00:00",
-      "updated": "2026-11-16T15:12:00+00:00",
-      "version": 1,
-      "resume": "Une attaque détectée le 10 novembre a conduit les douanes lituaniennes à fermer temporairement leur portail BAP [1]. Selon le chef des douanes, plusieurs centaines de particuliers et d'entreprises pourraient être concernés [1].",
+      "updated": "2026-11-18T11:10:00+00:00",
+      "version": 2,
+      "resume": "Une attaque détectée le 10 novembre a conduit les douanes lituaniennes à fermer temporairement leur portail BAP [1, 2]. Selon le chef des douanes, plusieurs centaines de particuliers et d'entreprises pourraient être concernés [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Selon le chef des douanes, les pirates ont peut-être exploité une fonction technique mal sécurisée [1]. L'enquête a confirmé un accès non autorisé au portail BAP [1]."
+          "texte": "Selon le chef des douanes, les pirates ont peut-être exploité une fonction technique mal sécurisée [1]. L'enquête a confirmé un accès non autorisé au portail BAP [1, 2]."
         },
         {
           "etape": "Tentative d'extension",
-          "texte": "Selon les premières constatations, les attaquants ont tenté d'accéder à d'autres systèmes gouvernementaux contenant des informations plus sensibles [1]."
+          "texte": "Selon les premières constatations, les attaquants ont tenté d'accéder à d'autres systèmes gouvernementaux contenant des informations plus sensibles [1, 2]."
         },
         {
           "etape": "Données exposées",
-          "texte": "Une possible fuite de données touche les utilisateurs connectés les 9 et 10 novembre [1]."
+          "texte": "Possible fuite touchant les utilisateurs connectés les 9 et 10 novembre [1, 2] : noms, coordonnées postales, téléphones, adresses électroniques, identifiants personnels lituaniens [2]."
         },
         {
           "etape": "Impact",
-          "texte": "Fermeture temporaire du portail par les douanes → accès perturbé à plusieurs plateformes douanières de l'Union européenne [1]. Le système ICS2 de la Commission européenne est touché [1]."
+          "texte": "Fermeture temporaire du portail par les douanes → accès perturbé à plusieurs plateformes douanières de l'Union européenne [1, 2]. Le système ICS2 de la Commission européenne est touché [1]."
+        },
+        {
+          "etape": "Rétablissement partiel",
+          "texte": "Certaines fonctions rendues accessibles via le portail électronique du gouvernement lituanien ; authentification par certificat numérique encore indisponible [2]."
         }
       ],
       "parcours": {
@@ -4845,7 +5104,7 @@
           }
         ]
       },
-      "limites": "Les autorités n'ont pas identifié les attaquants ni divulgué la faille utilisée [1]. Être identifié comme victime potentielle ne signifie pas forcément que les données ont été consultées, copiées ou volées [1].",
+      "limites": "Les autorités n'ont pas identifié les attaquants ni divulgué la faille utilisée [1]. Aucun vol de données n'est confirmé et l'issue des tentatives d'extension n'est pas précisée [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -4872,6 +5131,13 @@
           "url": "https://therecord.media/lithuania-customs-agency-cyberattack",
           "date": "2026-11-16",
           "image": "https://cms.therecord.media/uploads/lithuanian_customs_vehicle_a3900e01a6.jpg"
+        },
+        {
+          "titre": "Cyberattaque contre les douanes lituaniennes",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/cyberattaque-contre-les-douanes-lituaniennes/",
+          "date": "2026-11-18",
+          "image": "https://www.zataz.com/wp-content/uploads/douanes_lith.jpg"
         }
       ]
     },
@@ -7230,9 +7496,9 @@
       "id": "2026-11-09-sega-arara-newsletter",
       "title": "ARARA : fuite chez le prestataire d'e-mailing, les adresses d'abonnés SEGA et d'usagers de la ville d'Osaka exposées",
       "created": "2026-11-09T23:10:00+00:00",
-      "updated": "2026-11-13T20:20:00+00:00",
-      "version": 2,
-      "resume": "Le prestataire d'e-mailing ARARA a subi une violation exposant 77 millions d'adresses de près de 380 clients [1] ou près de 400 [2]. SEGA compte 2,2 millions d'adresses exposées [1], la ville d'Osaka plus d'un million [2].",
+      "updated": "2026-11-18T11:10:00+00:00",
+      "version": 3,
+      "resume": "Le prestataire d'e-mailing ARARA a subi une violation exposant 77 millions d'adresses de près de 380 clients [1] ou près de 400 [2, 3]. SEGA compte 2,2 millions d'adresses exposées [1], la ville d'Osaka plus d'un million [2] ou environ un million [3].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -7240,11 +7506,11 @@
         },
         {
           "etape": "Compromission du service",
-          "texte": "Compromission du service de distribution d'e-mails d'ARARA → 77 millions d'adresses exposées, de près de 380 clients [1] ou près de 400 [2]."
+          "texte": "Compromission du service de distribution d'e-mails d'ARARA → 77 millions d'adresses exposées, de près de 380 clients [1] ou près de 400 [2, 3]."
         },
         {
           "etape": "Envoi d'e-mails frauduleux",
-          "texte": "Utilisation du service d'envoi → plus de 7 millions d'e-mails se faisant passer pour des sociétés de cartes de crédit [1] et des institutions financières [2]."
+          "texte": "Utilisation du service d'envoi → plus de 7 millions d'e-mails se faisant passer pour des sociétés de cartes de crédit [1, 3] et des institutions financières [2, 3]."
         },
         {
           "etape": "Exposition chez SEGA",
@@ -7326,7 +7592,7 @@
           }
         ]
       },
-      "limites": "Méthode d'intrusion, auteur, calendrier et ordre des étapes non établis [1]. Le 2 novembre est la date de divulgation selon [1], celle de l'attaque selon [2].",
+      "limites": "Méthode d'intrusion, auteur, calendrier et ordre des étapes non établis [1]. Le 2 novembre est la date de divulgation selon [1], celle de l'attaque selon [2, 3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -7368,6 +7634,13 @@
           "url": "https://therecord.media/city-of-osaka-japan-email-data-breach",
           "date": "2026-11-13",
           "image": "https://cms.therecord.media/uploads/Osaka_City_Hall_2026_19ba5dd07a.jpg"
+        },
+        {
+          "titre": "Osaka exposée à une fuite massive",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/osaka-exposee-a-une-fuite-massive/",
+          "date": "2026-11-18",
+          "image": "https://www.zataz.com/wp-content/uploads/japon_mail_leak.jpg"
         }
       ]
     },

@@ -855,8 +855,8 @@
       "id": "2026-11-17-cold-relic-super-admin-usurpation",
       "title": "COLD RELIC : l'espion russe vole un compte Super Admin, vide un espace cloud puis usurpe un employé pour toucher une seconde organisation",
       "created": "2026-11-17T17:30:00+00:00",
-      "updated": "2026-11-18T16:30:00+00:00",
-      "version": 4,
+      "updated": "2026-11-18T23:15:00+00:00",
+      "version": 5,
       "resume": "Le groupe d'espionnage russe COLD RELIC, anciennement COLDRIVER, a pénétré l'espace cloud d'une organisation américaine et en a exfiltré massivement les données, puis a usurpé l'un de ses employés pour compromettre une seconde organisation américaine [1, 2, 3].",
       "chaine": [
         {
@@ -978,7 +978,8 @@
         "Deux organisations américaines, la seconde atteinte via l'usurpation d'un employé de la première [1]",
         "Employés et relations professionnelles de la première victime, visés après l'expulsion via des comptes mail usurpant des employés [3]",
         "Cibles habituelles du groupe : responsables gouvernementaux, sous-traitants de la défense et organisations non gouvernementales en Europe et en Amérique du Nord [2]",
-        "Cibles souvent redirigées vers des pages d'hameçonnage via des sites web compromis ; nouvelles opérations observées « ce mois-ci » selon Google [4]"
+        "Cibles souvent redirigées vers des pages d'hameçonnage via des sites web compromis ; nouvelles opérations observées « ce mois-ci » selon Google [4]",
+        "Autres victimes visées grâce aux données volées chez une première, par usurpation crédible et ingénierie sociale [5]"
       ],
       "abreviations": [
         {
@@ -1030,6 +1031,12 @@
           "url": "https://therecord.media/russia-cyber-espionage-google",
           "date": "2026-11-18",
           "image": "https://cms.therecord.media/uploads/sajad_nori_21m_Jd5_NUGZU_unsplash_45dc9b8a8b.jpg"
+        },
+        {
+          "titre": "Cold Relic Turns One Cloud Breach Into Another",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/cyberattacks-data-breaches/cold-relic-turns-one-cloud-breach-into-another",
+          "date": "2026-11-18"
         }
       ]
     },

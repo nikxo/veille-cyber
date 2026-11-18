@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-11-18T21:05:58+00:00",
+  "feed_summary": "Versions 1.26.1 and 1.26.2 stole Azure, Azure DevOps and GitHub Actions tokens from a .pth hook that ran on every Python launch, so if either one touched a build agent or a laptop, assume every secret on that host is gone.",
+  "id": "adf648d81de894fe",
+  "image": "https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/blt9f0c85b0fbfc8440/6afdfa0277abc4ce81d3ae97/image2.png",
+  "lang": "en",
+  "link": "https://www.elastic.co/security-labs/threat-command/we-caught-the-agent-framework-pypi-compromise-six-minutes-after-it-published",
+  "published": "2026-11-18T00:00:00+00:00",
+  "source": "Elastic Security Labs",
+  "source_type": "analyse",
+  "title": "We caught the agent-framework PyPI compromise six minutes after it published"
+}

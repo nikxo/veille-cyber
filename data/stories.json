@@ -807,17 +807,21 @@
       "id": "2026-11-18-pypi-agent-framework-voleur-identifiants",
       "title": "Paquet PyPI agent-framework de Microsoft : deux versions piégées volent identifiants et jetons cloud",
       "created": "2026-11-18T08:15:00+00:00",
-      "updated": "2026-11-18T12:07:16+00:00",
-      "version": 2,
-      "resume": "Des attaquants ont publié le 17 novembre 2026 deux versions piégées, 1.26.1 et 1.26.2, du paquet PyPI agent-framework de Microsoft, qui volent identifiants et jetons cloud [1, 2]. Les deux versions ont été mises en quarantaine et Microsoft a ouvert une enquête [2].",
+      "updated": "2026-11-18T17:07:50+00:00",
+      "version": 3,
+      "resume": "Des attaquants ont publié le 17 novembre 2026 deux versions piégées, 1.26.1 et 1.26.2, du paquet PyPI agent-framework de Microsoft, qui volent identifiants et jetons cloud [1, 2, 3]. Les deux versions ont été mises en quarantaine et Microsoft a ouvert une enquête [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Moyen d'obtenir le droit de publication non établi [1, 2] ; selon OX Security, détournement de la fabrication des paquets → code malveillant ajouté [1]."
+          "texte": "Moyen d'obtenir le droit de publication non établi [1, 2, 3] ; selon OX Security, détournement de la fabrication des paquets → code malveillant ajouté [1]."
+        },
+        {
+          "etape": "Seconde publication",
+          "texte": "Après la quarantaine de la 1.26.1, publication de la 1.26.2 → accès à la publication conservé, quarantaine environ 8 minutes plus tard [3]."
         },
         {
           "etape": "Exécution automatique",
-          "texte": "Fichier .pth déposé dans site-packages → voleur lancé à chaque démarrage de Python, même sans import du paquet [1, 2]."
+          "texte": "Fichier .pth déposé dans site-packages → voleur lancé à chaque démarrage de Python, même sans import du paquet [1, 2, 3]."
         },
         {
           "etape": "Vol d'identifiants",
@@ -825,11 +829,11 @@
         },
         {
           "etape": "Nouveaux jetons",
-          "texte": "Le code demande des jetons neufs à Azure DevOps et à l'identité managée Azure [1, 2] ; selon SafeDep, la rotation des secrets stockés ne les couvre pas [1]."
+          "texte": "Le code demande des jetons neufs à Azure DevOps et à l'identité managée Azure [1, 2, 3] ; selon SafeDep, la rotation des secrets stockés ne les couvre pas [1]."
         },
         {
           "etape": "Exfiltration",
-          "texte": "Données compressées, encodées en Base64 puis envoyées en HTTPS vers une adresse webhook.site codée en dur [1]."
+          "texte": "Données compressées, encodées en Base64 puis envoyées en HTTPS vers une adresse webhook.site codée en dur [1], la même pour les deux versions [3]."
         }
       ],
       "parcours": {
@@ -880,31 +884,31 @@
           {
             "de": "pypi",
             "vers": "pc",
-            "etape": 2,
+            "etape": 3,
             "texte": "Installation, voleur lancé au démarrage de Python"
           },
           {
             "de": "pc",
             "vers": "az",
-            "etape": 4,
+            "etape": 5,
             "texte": "Demande de nouveaux jetons"
           },
           {
             "de": "pc",
             "vers": "wh",
-            "etape": 5,
+            "etape": 6,
             "texte": "Envoi des données volées"
           }
         ]
       },
-      "limites": "Les sources ne disent pas comment le droit de publier a été obtenu, ni combien de machines sont touchées [1, 2]. Le rôle du compte « vibiret », créé le jour même, n'est pas confirmé [2].",
+      "limites": "Les sources ne disent pas comment le droit de publier a été obtenu, ni combien de machines sont touchées [1, 2, 3]. Le rôle du compte « vibiret », créé le jour même, n'est pas confirmé [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non nommé par la source ; TeamPCP y est cité pour la compromission d'un autre paquet Microsoft en mai 2026 [1]"
+        "Non nommé par les sources [1, 3] ; TeamPCP y est cité pour la compromission d'un autre paquet Microsoft en mai 2026 [1]"
       ],
       "cibles": [
-        "Utilisateurs du paquet agent-framework, environ 190 000 téléchargements par mois [1]",
+        "Utilisateurs du paquet agent-framework : environ 190 000 téléchargements par mois [1], environ 200 000 selon BleepingComputer [3]",
         "Environnements Azure, Azure DevOps et GitHub Actions [1]"
       ],
       "abreviations": [
@@ -939,6 +943,13 @@
           "url": "https://www.securityweek.com/microsoft-agent-framework-releases-poisoned-with-credential-stealer/",
           "date": "2026-11-18",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supply-chain-attack.jpeg"
+        },
+        {
+          "titre": "Microsoft’s Agent Framework PyPI package compromised to steal credentials",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/microsofts-agent-framework-pypi-package-compromised-to-steal-credentials/",
+          "date": "2026-11-18",
+          "image": "https://www.bleepstatic.com/content/hl-images/2025/03/12/Microsoft-headpic.jpg"
         }
       ]
     },

@@ -2,6 +2,270 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-18-eggstreme-variante-silencieuse-philippines",
+      "title": "EggStreme : le groupe d'espionnage présumé chinois reconstruit son logiciel malveillant et vise toujours le gouvernement philippin",
+      "created": "2026-11-18T15:10:00+00:00",
+      "updated": "2026-11-18T15:10:00+00:00",
+      "version": 1,
+      "resume": "Un groupe d'espionnage soupçonné d'être chinois a reconstruit sa boîte à outils EggStreme après avoir été exposé et continue de viser des organisations gouvernementales aux Philippines [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Installation et persistance",
+          "texte": "EggStremeFuel profile le système et dépose EggStremeLoader → persistance installée, puis lancement de l'agent EggStremeAgent [1]."
+        },
+        {
+          "etape": "Exécution discrète",
+          "texte": "Bibliothèques malveillantes lancées par chargement détourné de DLL (DLL sideloading), sous des noms de bibliothèques système → exécution des charges [1]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "Charges préparées sur une machine non gérée, puis lancées à distance par un script VBScript via le partage de fichiers Windows (SMB) [1]."
+        },
+        {
+          "etape": "Reconnaissance et extension",
+          "texte": "EggStremeAgent → reconnaissance et déplacement latéral ; nouvelles commandes : reconnaissance Active Directory, relais de trafic réseau, exécution de PowerShell [1]."
+        },
+        {
+          "etape": "Discrétion",
+          "texte": "Nouvelle variante passive qui ouvre un port en écoute, sans contacter de serveur de commande externe [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (EggStreme)",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "nm",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Machine non gérée",
+            "note": "Charges préparées"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines gouvernementales",
+            "note": "EggStremeAgent installé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "EggStremeFuel puis EggStremeLoader déposés"
+          },
+          {
+            "de": "nm",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Script lancé à distance via SMB"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 5,
+            "texte": "Reconnaissance et nouvelles commandes"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni le vecteur d'accès initial ni les organisations précises touchées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Groupe APT soupçonné d'être chinois, à l'origine d'EggStreme, exposé en septembre 2025 [1]",
+        "Palo Alto Networks suit sous le nom CL-STA-1048 un acteur ayant utilisé EggStremeFuel et EggStremeLoader [1]"
+      ],
+      "cibles": [
+        "Organisations gouvernementales aux Philippines [1]",
+        "Taïwan possiblement visé, avec une confiance faible à moyenne selon Bitdefender [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "APT",
+          "definition": "Advanced Persistent Threat : groupe d'attaquants avancé, souvent lié à un État"
+        },
+        {
+          "sigle": "SMB",
+          "definition": "Server Message Block : protocole de partage de fichiers en réseau Windows"
+        },
+        {
+          "sigle": "DLL",
+          "definition": "Dynamic Link Library : bibliothèque de code chargée par les programmes Windows"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "New EggStreme Malware Variant Goes Silent to Evade Security Tools in Government Attacks",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/eggstreme-hackers-rebuild-malware-with.html",
+          "date": "2026-11-18",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYLKVaRRp02L2STeR4kakGeA1NJokTtxw2aLU4wBLS34vltviR8gV4eUjk0QJ9jDVbiS_2hSeDQCwIR_JoCzPzUt-FSNUNpaKNtHpKiMugkRAMwOIbl4FbcL5iE7KCe1hebNbJRTxqO5xQkEFBuDI6F8FnsnYfreljrQlHHXuKBEN0suJZeuIf8heda5wY/s1700-nu-rw-lo-l85-e365/chinese.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-18-ollama-serveurs-exposes-marqueurs",
+      "title": "Serveurs d'IA Ollama exposés sans authentification : plus de la moitié portent des traces de visiteurs, selon Rapid7",
+      "created": "2026-11-18T15:10:00+00:00",
+      "updated": "2026-11-18T15:10:00+00:00",
+      "version": 1,
+      "resume": "Rapid7 a relevé des traces d'activité de tiers sur 54,8 % des 7 675 serveurs Ollama exposés sans authentification, dont des tentatives de lecture de fichiers et de secrets [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Interfaces Ollama exposées sur Internet sans authentification → aucune protection à contourner [1]."
+        },
+        {
+          "etape": "Repérage",
+          "texte": "Lecture de la liste des modèles → modèles présents, modèles routés vers le cloud et traces des visiteurs précédents [1]."
+        },
+        {
+          "etape": "Test de sortie",
+          "texte": "Téléchargement d'un modèle depuis une adresse ou un tunnel contrôlé par l'attaquant → confirmation que le serveur joint l'extérieur [1]."
+        },
+        {
+          "etape": "Marquage",
+          "texte": "Création de modèles nommés d'après l'hôte, parfois avec son adresse IP → preuve d'un accès en écriture [1]."
+        },
+        {
+          "etape": "Tentatives de vol",
+          "texte": "Chemins encodés visant /etc/shadow, la configuration AWS ou les clés SSH autorisées, relevés sur 55 hôtes [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (non identifié)",
+            "note": ""
+          },
+          {
+            "id": "oll",
+            "type": "serveur",
+            "zone": "expose",
+            "nom": "Serveurs Ollama exposés",
+            "note": "Sans authentification"
+          },
+          {
+            "id": "tun",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Tunnel ou adresse attaquant",
+            "note": ""
+          },
+          {
+            "id": "fic",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Fichiers et secrets locaux",
+            "note": "55 hôtes visés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "oll",
+            "etape": 1,
+            "texte": "Accès direct, sans authentification"
+          },
+          {
+            "de": "att",
+            "vers": "oll",
+            "etape": 2,
+            "texte": "Liste des modèles lue"
+          },
+          {
+            "de": "oll",
+            "vers": "tun",
+            "etape": 3,
+            "texte": "Modèle téléchargé depuis l'attaquant"
+          },
+          {
+            "de": "att",
+            "vers": "oll",
+            "etape": 4,
+            "texte": "Modèles marqueurs créés"
+          },
+          {
+            "de": "oll",
+            "vers": "fic",
+            "etape": 5,
+            "texte": "Tentatives de lecture de fichiers"
+          }
+        ]
+      },
+      "limites": "Selon Rapid7, les tentatives de lecture de fichiers prouvent une intention, pas une réussite, car on ignore si les serveurs étaient encore vulnérables [1].",
+      "cves": [
+        {
+          "id": "CVE-2024-37032",
+          "explication": "Ollama : traversée de répertoire dans le champ digest d'un manifeste de modèle → écriture et lecture arbitraires de fichiers, exécution de code ; corrigée en version 0.1.34 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non identifiés : Rapid7 précise que sa liste de serveurs de rappel ne vaut pas attribution [1]"
+      ],
+      "cibles": [
+        "Serveurs Ollama exposés, Allemagne (1 306 hôtes), Chine et États-Unis en tête ; 65 % de l'échantillon étudié dans des réseaux d'hébergement ou cloud [1]",
+        "Autres services exposés relevés : Jupyter, JupyterHub, MLflow, Streamlit, Grafana [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "IP",
+          "definition": "Internet Protocol : adresse numérique d'une machine sur le réseau"
+        },
+        {
+          "sigle": "AWS",
+          "definition": "Amazon Web Services : plateforme cloud d'Amazon"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole de connexion à distance sécurisée"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Open by Default, Already Occupied: Threat Actors are Renting your Compute",
+          "site": "Rapid7",
+          "url": "https://www.rapid7.com/blog/post/tr-self-hosted-ai-renting-compute-exposed-servers",
+          "date": "2026-11-18",
+          "image": "https://www.rapid7.com/cdn/images/blt77f5564b49102b80/6abfb804cd0bd934c1d4e56b/Copy_of_Rapid7_intelligence_report_template.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-18-equinor-cyberattaque-services-internes",
       "title": "Equinor : une cyberattaque perturbe les services informatiques internes du géant norvégien de l'énergie, la production épargnée",
       "created": "2026-11-18T14:30:00+00:00",
@@ -366,9 +630,9 @@
       "id": "2026-11-18-scattered-spider-buchanan-sms",
       "title": "Scattered Spider : six ans de prison pour un pirate britannique, des SMS piégés aux salariés puis 11,6 millions de dollars de cryptomonnaies volés",
       "created": "2026-11-18T10:15:00+00:00",
-      "updated": "2026-11-18T14:30:00+00:00",
-      "version": 2,
-      "resume": "Tyler Robert Buchanan, pirate britannique lié à Scattered Spider, est condamné à six ans de prison ; des salariés étaient ciblés par SMS, puis des cryptomonnaies volées pour plus de 11,6 millions de dollars [1, 2].",
+      "updated": "2026-11-18T15:10:00+00:00",
+      "version": 3,
+      "resume": "Tyler Robert Buchanan, pirate britannique lié à Scattered Spider, est condamné à six ans de prison ; des salariés étaient ciblés par SMS, puis des cryptomonnaies volées pour plus de 11,6 millions de dollars [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -380,7 +644,7 @@
         },
         {
           "etape": "Intrusion dans les entreprises",
-          "texte": "Connexion aux comptes d'employés avec les identifiants volés → informations confidentielles extraites, servant à repérer les portefeuilles de cryptomonnaies de particuliers [2]."
+          "texte": "Connexion aux comptes d'employés avec les identifiants volés → informations confidentielles extraites, servant à repérer les portefeuilles de cryptomonnaies de particuliers [2, 3]."
         },
         {
           "etape": "Détournement de numéros",
@@ -482,17 +746,19 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni le rôle exact de Buchanan à chaque étape, ni l'identité des entreprises touchées [1, 2].",
+      "limites": "Les sources ne détaillent pas le rôle de Buchanan à chaque étape, au-delà de la gestion du canal Telegram, ni les dommages subis par chaque entreprise visée [1, 2, 3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Scattered Spider ; Tyler Robert Buchanan, actif de septembre 2021 à avril 2023, condamné à six ans ; Noah Michael Urban, condamné à dix ans [1]",
         "Autres condamnés : Ahmed Hossam Eldin Elbadawy et Evans Onyeaka Osiebo, 45 mois chacun ; Joel Martin Evans, deux ans [2]",
-        "Selon le FBI, le groupe recourt aussi à l'ingénierie sociale et au bombardement de notifications d'authentification multifacteur [1]"
+        "Selon le FBI, le groupe recourt aussi à l'ingénierie sociale et au bombardement de notifications d'authentification multifacteur [1]",
+        "Buchanan arrêté à l'aéroport de Palma, en Espagne, en juin 2024 ; groupe associé à l'attaque par rançongiciel contre MGM Resorts [3]"
       ],
       "cibles": [
         "Salariés des télécommunications, technologies, divertissement, services informatiques, externalisation de processus métiers et fournisseurs de communications dans le cloud [1]",
-        "Particuliers détenteurs de cryptomonnaies aux États-Unis et prestataires de cryptomonnaies [1, 2]"
+        "Particuliers détenteurs de cryptomonnaies aux États-Unis et prestataires de cryptomonnaies [1, 2]",
+        "Victimes visées citées dans l'affaire : Coinbase, Twilio, Mailchimp et LastPass [3]"
       ],
       "abreviations": [
         {
@@ -506,6 +772,10 @@
         {
           "sigle": "FBI",
           "definition": "Police fédérale américaine"
+        },
+        {
+          "sigle": "MGM",
+          "definition": "Nom de l'entreprise MGM Resorts, géant des casinos"
         }
       ],
       "sources": [
@@ -522,6 +792,13 @@
           "url": "https://www.securityweek.com/last-of-five-defendants-sentenced-in-us-scattered-spider-hacking-case/",
           "date": "2026-11-18",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/03/hacker-prison-sentenced.jpeg"
+        },
+        {
+          "titre": "British hacker gets 6 year sentence for $11.6M crypto theft scheme",
+          "site": "The Record",
+          "url": "https://therecord.media/british-hacker-gets-six-year-sentence-scattered-spider",
+          "date": "2026-11-18",
+          "image": "https://cms.therecord.media/uploads/jail_aa9e09fa90.jpg"
         }
       ]
     },

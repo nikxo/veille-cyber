@@ -1,21 +1,5 @@
 [
   {
-    "id": "bce30872ee07ee09",
-    "title": "Researcher Reveals How Logic Bugs Alone Cracked Microsoft Edge in $175,000 Pwn2Own Win",
-    "link": "https://thehackernews.com/2026/10/researcher-reveals-how-logic-bugs-alone.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité de concours Pwn2Own sans exploitation constatée dans la nature",
-    "date": "2026-10-28T18:15:00+00:00"
-  },
-  {
-    "id": "14a23a7a8041286c",
-    "title": "Formation interne à la cybersécurité : cinq erreurs à ne plus commettre",
-    "link": "https://www.lemagit.fr/conseil/Formation-interne-a-la-cybersecurite-cinq-erreurs-a-ne-plus-commettre",
-    "source": "LeMagIT",
-    "raison": "conseils génériques (formation)",
-    "date": "2026-10-28T18:15:00+00:00"
-  },
-  {
     "id": "22278c0bc2499d51",
     "title": "US sanctions Russians, North Koreans for laundering IT worker earnings",
     "link": "https://therecord.media/north-korea-russia-sanctions",
@@ -3998,5 +3982,21 @@
     "source": "CERT-FR (alertes)",
     "raison": "vulnérabilité sans exploitation constatée",
     "date": "2026-11-18T14:30:00+00:00"
+  },
+  {
+    "id": "4384f903e984a966",
+    "title": "The State of Ransomware Q3 2026",
+    "link": "https://research.checkpoint.com/2026/the-state-of-ransomware-q3-2026/",
+    "source": "Check Point Research",
+    "raison": "rapport statistique sur les rançongiciels, sans méthode d'attaque décrite",
+    "date": "2026-11-18T15:10:00+00:00"
+  },
+  {
+    "id": "d2026b05b886c464",
+    "title": "LABScon26 Replay | Governing Just-in-Time Intelligence: AI, Dual-Use Capabilities, and the Limits of Guardrails",
+    "link": "https://www.sentinelone.com/labs/labscon26-replay-governing-just-in-time-intelligence-ai-dual-use-capabilities-and-the-limits-of-guardrails/",
+    "source": "SentinelLABS",
+    "raison": "conférence sur la gouvernance de l'IA, sans attaque décrite",
+    "date": "2026-11-18T15:10:00+00:00"
   }
 ]

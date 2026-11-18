@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-11-18T14:06:24+00:00",
+  "feed_summary": "Le 17 novembre 2026, Oracle a publié un avis de sécurité concernant la vulnérabilité CVE-2026-114938, surnommée *java4shell*, qui affecte le décodeur Base64 de OpenJDK sur les processeurs x86-64 supportant AVX-512 VBMI. Celle-ci permet à un attaquant de provoquer une exécution de code arbitraire...",
+  "id": "f815d9a66de2b690",
+  "image": null,
+  "lang": "fr",
+  "link": "https://www.cert.cyber.gouv.fr/alerte/CERTFR-2026-ALE-016/",
+  "published": "2026-11-18T00:00:00+00:00",
+  "source": "CERT-FR (alertes)",
+  "source_type": "officiel",
+  "title": "Vulnérabilité dans Oracle Java SE (18 novembre 2026)"
+}

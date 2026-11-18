@@ -1,37 +1,5 @@
 [
   {
-    "id": "4b83531a41a64ab7",
-    "title": "LABScon26 Replay | Keynote: A Sober Analysis of AI Impact",
-    "link": "https://www.sentinelone.com/labs/labscon26-replay-keynote-a-sober-analysis-of-ai-impact/",
-    "source": "SentinelLABS",
-    "raison": "conférence sans attaque décrite",
-    "date": "2026-10-28T13:12:55+00:00"
-  },
-  {
-    "id": "13324a3fcbc0839d",
-    "title": "TLS Flaws Found in GoAhead Web Server Used in Hundreds of Millions of Devices",
-    "link": "https://www.securityweek.com/tls-flaws-found-in-goahead-web-server-used-in-hundreds-of-millions-of-devices/",
-    "source": "SecurityWeek",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-28T14:23:40+00:00"
-  },
-  {
-    "id": "1392040dc24ff8b5",
-    "title": "Chrome and Firefox Updates Patch Over 200 Vulnerabilities",
-    "link": "https://www.securityweek.com/chrome-and-firefox-updates-patch-over-200-vulnerabilities/",
-    "source": "SecurityWeek",
-    "raison": "mises à jour de correctifs sans attaque",
-    "date": "2026-10-28T14:23:40+00:00"
-  },
-  {
-    "id": "1e20ad9d24a5312a",
-    "title": "How Rapid7 InsightGovCloud Supports BOD 22-01 Compliance",
-    "link": "https://www.rapid7.com/blog/post/pt-insightgovcloud-supports-bod-22-01-compliance",
-    "source": "Rapid7",
-    "raison": "contenu commercial / conformité",
-    "date": "2026-10-28T14:23:40+00:00"
-  },
-  {
     "id": "2fefc90ef91ef163",
     "title": "Upwind Security Raises $400 Million at $3.8 Billion Valuation",
     "link": "https://www.securityweek.com/upwind-security-raises-400-million-at-3-8-billion-valuation/",
@@ -3998,5 +3966,37 @@
     "source": "BleepingComputer",
     "raison": "actualité judiciaire sans détail sur la méthode d'attaque (article inaccessible)",
     "date": "2026-11-18T09:20:00+00:00"
+  },
+  {
+    "id": "0d0aefb26e4ee6da",
+    "title": "Microsoft announces Windows Server 2028 with hardened security",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-announces-windows-server-2028-with-hardened-security/",
+    "source": "BleepingComputer",
+    "raison": "annonce produit",
+    "date": "2026-11-18T10:15:00+00:00"
+  },
+  {
+    "id": "1db641aaef4490d3",
+    "title": "CISA Urges Immediate Patching of Java4Shell Flaw That Could Allow Remote Code Execution",
+    "link": "https://thehackernews.com/2026/11/cisa-urges-immediate-patching-of.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée (aucune preuve d'exploitation selon l'article)",
+    "date": "2026-11-18T10:15:00+00:00"
+  },
+  {
+    "id": "c36817af9a4b18e2",
+    "title": "CISA warns of ‘Java4Shell,’ an AI-found Java bug touching most of the Fortune 500",
+    "link": "https://therecord.media/cisa-issues-java4shell-alert",
+    "source": "The Record",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-18T10:15:00+00:00"
+  },
+  {
+    "id": "ef2177c1866d8d3e",
+    "title": "Ransomware : un suspect d’INC et Lynx extradé",
+    "link": "https://www.zataz.com/ransomware-un-suspect-dinc-et-lynx-extrade/",
+    "source": "ZATAZ",
+    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
+    "date": "2026-11-18T10:15:00+00:00"
   }
 ]

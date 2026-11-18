@@ -2,6 +2,145 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-18-scattered-spider-buchanan-sms",
+      "title": "Scattered Spider : six ans de prison pour un pirate britannique, des SMS piégés aux salariés puis 11,6 millions de dollars de cryptomonnaies volés",
+      "created": "2026-11-18T10:15:00+00:00",
+      "updated": "2026-11-18T10:15:00+00:00",
+      "version": 1,
+      "resume": "Tyler Robert Buchanan, pirate britannique lié à Scattered Spider, est condamné à six ans de prison ; des salariés étaient ciblés par SMS et des comptes et portefeuilles compromis, avec plus de 11,6 millions de dollars détournés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Centaines de SMS aux salariés, au nom de leur employeur ou d'un prestataire informatique → liens vers de fausses pages imitant des sites professionnels [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Victimes invitées à saisir identifiants et mots de passe → identifiants professionnels compromis dans des entreprises de secteurs variés [1]."
+        },
+        {
+          "etape": "Détournement de numéros",
+          "texte": "Données collectées servant au transfert de numéros vers une carte SIM contrôlée par les attaquants [1]."
+        },
+        {
+          "etape": "Vol de cryptomonnaies",
+          "texte": "Comptes et portefeuilles compromis → plus de 11,6 millions de dollars détournés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Scattered Spider)",
+            "note": ""
+          },
+          {
+            "id": "sal",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Salariés d'entreprises",
+            "note": "SMS piégés"
+          },
+          {
+            "id": "fp",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Fausses pages professionnelles",
+            "note": "Identifiants saisis"
+          },
+          {
+            "id": "ent",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Environnements d'entreprises",
+            "note": "Compromis"
+          },
+          {
+            "id": "tel",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Numéros de téléphone",
+            "note": "Transférés"
+          },
+          {
+            "id": "wal",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Comptes et portefeuilles",
+            "note": "11,6 millions de dollars"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sal",
+            "etape": 1,
+            "texte": "SMS au nom de l'employeur"
+          },
+          {
+            "de": "sal",
+            "vers": "fp",
+            "etape": 2,
+            "texte": "Identifiants et mots de passe saisis"
+          },
+          {
+            "de": "att",
+            "vers": "ent",
+            "etape": 2,
+            "texte": "Identifiants professionnels compromis"
+          },
+          {
+            "de": "att",
+            "vers": "tel",
+            "etape": 3,
+            "texte": "Numéros transférés vers des cartes SIM"
+          },
+          {
+            "de": "att",
+            "vers": "wal",
+            "etape": 4,
+            "texte": "Cryptomonnaies détournées"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni le rôle exact de Buchanan à chaque étape, ni l'identité des entreprises touchées, ni ce que le transfert de numéros a permis dans cette affaire [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Scattered Spider ; Tyler Robert Buchanan, actif de septembre 2021 à avril 2023, condamné à six ans ; Noah Michael Urban, condamné à dix ans [1]",
+        "Selon le FBI, le groupe recourt aussi à l'ingénierie sociale et au bombardement de notifications d'authentification multifacteur [1]"
+      ],
+      "cibles": [
+        "Salariés des télécommunications, technologies, divertissement, services informatiques, externalisation de processus métiers et fournisseurs de communications dans le cloud [1]",
+        "Prestataires de cryptomonnaies et particuliers [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SMS",
+          "definition": "Message texte envoyé sur un téléphone mobile"
+        },
+        {
+          "sigle": "SIM",
+          "definition": "Carte qui associe un numéro de téléphone à un appareil"
+        },
+        {
+          "sigle": "FBI",
+          "definition": "Police fédérale américaine"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Scattered Spider : un pirate britannique condamné à six ans",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/scattered-spider-un-pirate-britannique-condamne-a-six-ans/",
+          "date": "2026-11-18",
+          "image": "https://www.zataz.com/wp-content/uploads/spider_justice.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-18-pypi-agent-framework-voleur-identifiants",
       "title": "Paquet PyPI agent-framework de Microsoft : deux versions piégées volent identifiants et jetons cloud",
       "created": "2026-11-18T08:15:00+00:00",
@@ -756,19 +895,31 @@
     {
       "schema": 3,
       "id": "2026-11-17-riken-fugaku-hors-ligne",
-      "title": "RIKEN : le supercalculateur japonais Fugaku mis hors ligne après une intrusion",
+      "title": "RIKEN : le supercalculateur Fugaku mis hors ligne après une intrusion dans des serveurs internes, jusqu'à 4 597 utilisateurs concernés",
       "created": "2026-11-17T21:30:00+00:00",
-      "updated": "2026-11-17T21:30:00+00:00",
-      "version": 1,
-      "resume": "Le supercalculateur Fugaku, exploité par le centre de calcul scientifique du RIKEN au Japon, a été mis hors ligne à la suite d'une faille de sécurité [1].",
+      "updated": "2026-11-18T10:15:00+00:00",
+      "version": 2,
+      "resume": "Le RIKEN a mis hors ligne le supercalculateur Fugaku après une intrusion dans plusieurs serveurs internes [1, 2] ; des données de jusqu'à 4 597 utilisateurs de Fugaku et de RIKYU pourraient être concernées [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "L'enquête relie l'intrusion au tableau de bord public affichant l'état de Fugaku ; le procédé exact d'accès reste à établir [2]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Accès à plusieurs serveurs internes du réseau d'exploitation du 10 au 13 novembre → programmes non autorisés installés sur certains d'entre eux [2]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "Tentatives de connexion à d'autres systèmes, sans succès établi par l'enquête [2]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Coordonnées, identifiants et clés d'accès à des services extérieurs sortis ou possiblement exposés ; des clés privées SSH stockées par des utilisateurs sont à révoquer [2]."
         },
         {
           "etape": "Mise hors ligne",
-          "texte": "Après la faille de sécurité → Fugaku retiré du service [1]."
+          "texte": "Communications suspectes repérées le 12 novembre, intrusion confirmée le 13 → exploitation de Fugaku suspendue le 14 novembre [1, 2]."
         }
       ],
       "parcours": {
@@ -781,33 +932,94 @@
             "note": ""
           },
           {
+            "id": "tdb",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Tableau de bord public",
+            "note": "Lien établi par l'enquête"
+          },
+          {
+            "id": "srv",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Serveurs internes d'exploitation",
+            "note": "Programmes non autorisés"
+          },
+          {
+            "id": "aut",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Autres systèmes",
+            "note": "Connexions tentées"
+          },
+          {
+            "id": "dat",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données des utilisateurs",
+            "note": "Fugaku et RIKYU"
+          },
+          {
             "id": "fug",
             "type": "serveur",
             "zone": "victime",
             "nom": "Supercalculateur Fugaku",
-            "note": "Mis hors ligne"
+            "note": "Suspendu le 14 novembre"
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "fug",
+            "vers": "tdb",
             "etape": 1,
-            "texte": "Intrusion, vecteur non précisé"
+            "texte": "Intrusion reliée au tableau de bord"
+          },
+          {
+            "de": "tdb",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Accès non autorisé, programmes installés"
+          },
+          {
+            "de": "srv",
+            "vers": "aut",
+            "etape": 3,
+            "texte": "Tentatives de connexion"
+          },
+          {
+            "de": "srv",
+            "vers": "dat",
+            "etape": 4,
+            "texte": "Identifiants et clés exposés"
+          },
+          {
+            "de": "srv",
+            "vers": "fug",
+            "etape": 5,
+            "texte": "Intrusion confirmée, exploitation suspendue"
           }
         ]
       },
-      "limites": "Seul le résumé de l'article a pu être lu : ni le vecteur d'entrée, ni l'auteur, ni les données éventuellement touchées ne sont connus [1].",
+      "limites": "Le procédé exact d'accès et l'auteur ne sont pas établis publiquement ; la source ne dit pas quelles données sont effectivement sorties et lesquelles ont seulement pu être exposées [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Centre de calcul scientifique du RIKEN, au Japon, qui exploite le supercalculateur Fugaku [1]"
+        "Centre de calcul scientifique du RIKEN, au Japon, qui exploite Fugaku [1]",
+        "Jusqu'à 4 222 utilisateurs de Fugaku (noms, adresses électroniques, identifiants) et 375 de RIKYU (noms, adresses électroniques) [2]"
       ],
       "abreviations": [
         {
           "sigle": "RIKEN",
           "definition": "Institut de recherche japonais dont dépend le centre exploitant Fugaku"
+        },
+        {
+          "sigle": "RIKYU",
+          "definition": "Second supercalculateur du RIKEN dont les utilisateurs sont concernés"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole de connexion à distance chiffrée à un serveur"
         }
       ],
       "sources": [
@@ -817,6 +1029,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/japan-takes-fugaku-supercomputer-offlline-after-cyberattack/",
           "date": "2026-11-17",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/17/RIKEN.jpg"
+        },
+        {
+          "titre": "Le Japon arrête le supercalculateur Fugaku",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/le-japon-arrete-le-supercalculateur-fugaku/",
+          "date": "2026-11-18",
+          "image": "https://www.zataz.com/wp-content/uploads/Fugaku-ninja.jpg"
         }
       ]
     },
@@ -825,17 +1044,17 @@
       "id": "2026-11-17-puppet-enterprise-cve-2026-115731-kev",
       "title": "Puppet Enterprise : la faille de désérialisation CVE-2026-115731 exploitée, ajoutée au catalogue de la CISA",
       "created": "2026-11-17T21:30:00+00:00",
-      "updated": "2026-11-17T21:30:00+00:00",
-      "version": 1,
-      "resume": "La CISA a ajouté à son catalogue des failles exploitées CVE-2026-115731, une désérialisation de données non fiables dans Perforce Puppet Enterprise, sur la base de preuves d'exploitation active [1].",
+      "updated": "2026-11-18T10:15:00+00:00",
+      "version": 2,
+      "resume": "La CISA a ajouté à son catalogue des failles exploitées CVE-2026-115731, une désérialisation de données non fiables dans Perforce Puppet Enterprise, sur la base de preuves d'exploitation active [1]. Perforce l'avait corrigée le 3 novembre [3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé ; un utilisateur de Reddit dit avoir trouvé une autorité de certification gravement mal configurée dans son parc [3]."
         },
         {
           "etape": "Exécution de code",
-          "texte": "Rapport forgé envoyé par un client muni d'un certificat d'agent signé → code arbitraire exécuté sur le serveur Puppet [2]."
+          "texte": "Rapport piégé envoyé par un client muni d'un certificat d'agent signé → code exécuté sur le serveur Puppet avec les droits du compte de service [2, 3]."
         }
       ],
       "parcours": {
@@ -860,21 +1079,21 @@
             "de": "att",
             "vers": "pup",
             "etape": 2,
-            "texte": "Rapport forgé, exécution de code arbitraire"
+            "texte": "Rapport piégé, exécution de code"
           }
         ]
       },
-      "limites": "Les sources ne disent ni qui exploite la faille, ni contre qui, ni comment les attaquants ont obtenu un certificat d'agent [1, 2].",
+      "limites": "Les sources ne disent ni qui exploite la faille, ni contre qui [1, 2] ; aucun détail sur la manière dont elle est exploitée n'était disponible selon The Hacker News [3].",
       "cves": [
         {
           "id": "CVE-2026-115731",
-          "explication": "Puppet Server et Puppet Enterprise : désérialisation dans le traitement des rapports, exécution de code sur le serveur par un client certifié, gravité critique 9,9 sur 10 [2]."
+          "explication": "Puppet Server et Puppet Enterprise : désérialisation dans le traitement des rapports, exécution de code sur le serveur par un client certifié, gravité 9,9 [2] ou 9,4 sur 10 [3]."
         }
       ],
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Agences fédérales civiles américaines, tenues de corriger la faille avant le 1er décembre 2026 [2]"
+        "Agences fédérales civiles américaines, tenues d'appliquer les correctifs au plus tard le 1er décembre 2026 [1, 3]"
       ],
       "abreviations": [
         {
@@ -893,6 +1112,13 @@
           "titre": "Fiche NVD CVE-2026-115731",
           "site": "NVD (NIST)",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115731"
+        },
+        {
+          "titre": "Hackers Exploiting Critical Puppet RCE Flaw Affecting Enterprise Management Servers",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploiting-critical-puppet-rce.html",
+          "date": "2026-11-18",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoFKMFLPbzyM7RGi89XdpVFUfFqLH2C0QnAIyZfTSZIkvQNT8jhFEdMdW3D1qPXE0MjtV-q8fM1Alicz0wEuNJ6fnIjOs3BY8D7ABBRWNqPg6NGz9FjhbSQhapwUDZPDyg3kJEy9CZeUwbcmZ3N5nCU8bH6bkCo4BgLfhlE3R3AdDi9CvLVgjqlMW42Pm2/s320/puppet.jpg"
         }
       ]
     },

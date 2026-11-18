@@ -2,6 +2,152 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-18-equinor-cyberattaque-services-internes",
+      "title": "Equinor : une cyberattaque perturbe les services informatiques internes du géant norvégien de l'énergie, la production épargnée",
+      "created": "2026-11-18T14:30:00+00:00",
+      "updated": "2026-11-18T14:30:00+00:00",
+      "version": 1,
+      "resume": "Le groupe énergétique norvégien Equinor tente de contenir une cyberattaque contre ses systèmes informatiques, qui gêne l'accès des employés aux applications internes sans toucher la production de pétrole et de gaz [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Perturbation des services",
+          "texte": "Attaque contre les systèmes informatiques détectée mardi → employés gênés pour accéder aux applications et services internes, messagerie interne hors service selon Reuters [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (non identifié)",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes informatiques d'Equinor",
+            "note": ""
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Applications et messagerie internes",
+            "note": "Accès perturbé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Vecteur d'accès non précisé"
+          },
+          {
+            "de": "sys",
+            "vers": "app",
+            "etape": 2,
+            "texte": "Accès des employés perturbé"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni le vecteur d'accès, ni les systèmes compromis, ni l'auteur ; Equinor dit n'avoir aucun indice de vol de données et qu'aucun virus n'était en cause [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Auteurs non identifiés [1]"
+      ],
+      "cibles": [
+        "Equinor, groupe énergétique norvégien ; selon l'entreprise, aucun indice d'atteinte aux employés, partenaires ou fournisseurs [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Cyberattack hits Norwegian energy giant Equinor, disrupting internal services",
+          "site": "The Record",
+          "url": "https://therecord.media/norway-equinor-cyberattack-energy",
+          "date": "2026-11-18",
+          "image": "https://cms.therecord.media/uploads/Equinor_Northern_Lights_4aa869f98c.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-18-iihf-site-defigure-russie",
+      "title": "IIHF : le site de la Fédération internationale de hockey sur glace défiguré par un message prorusse",
+      "created": "2026-11-18T14:30:00+00:00",
+      "updated": "2026-11-18T14:30:00+00:00",
+      "version": 1,
+      "resume": "La Fédération internationale de hockey sur glace a vu la page d'accueil de son site remplacée par un message prorusse dénonçant l'exclusion de la Russie des compétitions, avant la mise hors ligne du site [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Défiguration",
+          "texte": "Page d'accueil remplacée par une photo de joueurs russes et un message prorusse → message visible plusieurs minutes avant la mise hors ligne du site [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (non identifié)",
+            "note": ""
+          },
+          {
+            "id": "site",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Site web de l'IIHF",
+            "note": "Page d'accueil remplacée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "site",
+            "etape": 2,
+            "texte": "Message prorusse publié, vecteur d'accès non précisé"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni le vecteur d'accès, ni la date exacte de la défiguration, ni si des données ont été volées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Auteurs non identifiés, sans preuve publique de lien avec le renseignement russe ou un groupe connu [1]"
+      ],
+      "cibles": [
+        "Fédération internationale de hockey sur glace (IIHF), basée en Suisse [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IIHF",
+          "definition": "International Ice Hockey Federation : Fédération internationale de hockey sur glace"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Ice hockey governing body website defaced by hackers amid dispute over Russia's exclusion",
+          "site": "The Record",
+          "url": "https://therecord.media/russia-hockey-cyberattack-championships",
+          "date": "2026-11-18",
+          "image": "https://cms.therecord.media/uploads/Hockey_stick_669de98496.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-18-uat-12643-overlord-solana",
       "title": "UAT-12643 : de faux PDF installent le cheval de Troie Overlord, piloté via la blockchain Solana, et un voleur de données visant joueurs et détenteurs de cryptomonnaies",
       "created": "2026-11-18T11:10:00+00:00",
@@ -220,25 +366,29 @@
       "id": "2026-11-18-scattered-spider-buchanan-sms",
       "title": "Scattered Spider : six ans de prison pour un pirate britannique, des SMS piégés aux salariés puis 11,6 millions de dollars de cryptomonnaies volés",
       "created": "2026-11-18T10:15:00+00:00",
-      "updated": "2026-11-18T10:15:00+00:00",
-      "version": 1,
-      "resume": "Tyler Robert Buchanan, pirate britannique lié à Scattered Spider, est condamné à six ans de prison ; des salariés étaient ciblés par SMS et des comptes et portefeuilles compromis, avec plus de 11,6 millions de dollars détournés [1].",
+      "updated": "2026-11-18T14:30:00+00:00",
+      "version": 2,
+      "resume": "Tyler Robert Buchanan, pirate britannique lié à Scattered Spider, est condamné à six ans de prison ; des salariés étaient ciblés par SMS, puis des cryptomonnaies volées pour plus de 11,6 millions de dollars [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Centaines de SMS aux salariés, au nom de leur employeur ou d'un prestataire informatique → liens vers de fausses pages imitant des sites professionnels [1]."
+          "texte": "Centaines de SMS aux salariés, au nom de leur employeur ou d'un prestataire informatique → liens vers de fausses pages imitant des sites professionnels [1, 2]."
         },
         {
           "etape": "Vol d'identifiants",
-          "texte": "Victimes invitées à saisir identifiants et mots de passe → identifiants professionnels compromis dans des entreprises de secteurs variés [1]."
+          "texte": "Identifiants saisis sur les fausses pages → identifiants professionnels compromis, publiés dans un canal Telegram géré par Buchanan et un complice [1, 2]."
+        },
+        {
+          "etape": "Intrusion dans les entreprises",
+          "texte": "Connexion aux comptes d'employés avec les identifiants volés → informations confidentielles extraites, servant à repérer les portefeuilles de cryptomonnaies de particuliers [2]."
         },
         {
           "etape": "Détournement de numéros",
-          "texte": "Données collectées servant au transfert de numéros vers une carte SIM contrôlée par les attaquants [1]."
+          "texte": "Numéros de téléphone des victimes transférés vers des appareils des attaquants → double authentification contournée [1, 2]."
         },
         {
           "etape": "Vol de cryptomonnaies",
-          "texte": "Comptes et portefeuilles compromis → plus de 11,6 millions de dollars détournés [1]."
+          "texte": "Comptes et portefeuilles compromis → au moins 11,6 millions de dollars de cryptomonnaies volés à des particuliers aux États-Unis [1, 2]."
         }
       ],
       "parcours": {
@@ -265,11 +415,18 @@
             "note": "Identifiants saisis"
           },
           {
+            "id": "tg",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Canal Telegram",
+            "note": "Identifiants publiés"
+          },
+          {
             "id": "ent",
             "type": "serveur",
             "zone": "victime",
-            "nom": "Environnements d'entreprises",
-            "note": "Compromis"
+            "nom": "Systèmes d'entreprises",
+            "note": "Informations extraites"
           },
           {
             "id": "tel",
@@ -297,38 +454,45 @@
             "de": "sal",
             "vers": "fp",
             "etape": 2,
-            "texte": "Identifiants et mots de passe saisis"
+            "texte": "Identifiants saisis"
+          },
+          {
+            "de": "fp",
+            "vers": "tg",
+            "etape": 2,
+            "texte": "Identifiants publiés"
           },
           {
             "de": "att",
             "vers": "ent",
-            "etape": 2,
-            "texte": "Identifiants professionnels compromis"
+            "etape": 3,
+            "texte": "Connexion aux comptes d'employés"
           },
           {
             "de": "att",
             "vers": "tel",
-            "etape": 3,
-            "texte": "Numéros transférés vers des cartes SIM"
+            "etape": 4,
+            "texte": "Numéros transférés vers leurs appareils"
           },
           {
             "de": "att",
             "vers": "wal",
-            "etape": 4,
-            "texte": "Cryptomonnaies détournées"
+            "etape": 5,
+            "texte": "Cryptomonnaies volées"
           }
         ]
       },
-      "limites": "La source ne précise ni le rôle exact de Buchanan à chaque étape, ni l'identité des entreprises touchées, ni ce que le transfert de numéros a permis dans cette affaire [1].",
+      "limites": "Les sources ne précisent ni le rôle exact de Buchanan à chaque étape, ni l'identité des entreprises touchées [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Scattered Spider ; Tyler Robert Buchanan, actif de septembre 2021 à avril 2023, condamné à six ans ; Noah Michael Urban, condamné à dix ans [1]",
+        "Autres condamnés : Ahmed Hossam Eldin Elbadawy et Evans Onyeaka Osiebo, 45 mois chacun ; Joel Martin Evans, deux ans [2]",
         "Selon le FBI, le groupe recourt aussi à l'ingénierie sociale et au bombardement de notifications d'authentification multifacteur [1]"
       ],
       "cibles": [
         "Salariés des télécommunications, technologies, divertissement, services informatiques, externalisation de processus métiers et fournisseurs de communications dans le cloud [1]",
-        "Prestataires de cryptomonnaies et particuliers [1]"
+        "Particuliers détenteurs de cryptomonnaies aux États-Unis et prestataires de cryptomonnaies [1, 2]"
       ],
       "abreviations": [
         {
@@ -351,6 +515,13 @@
           "url": "https://www.zataz.com/scattered-spider-un-pirate-britannique-condamne-a-six-ans/",
           "date": "2026-11-18",
           "image": "https://www.zataz.com/wp-content/uploads/spider_justice.jpg"
+        },
+        {
+          "titre": "Last of Five Defendants Sentenced in US Scattered Spider Hacking Case",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/last-of-five-defendants-sentenced-in-us-scattered-spider-hacking-case/",
+          "date": "2026-11-18",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/03/hacker-prison-sentenced.jpeg"
         }
       ]
     },
@@ -611,13 +782,13 @@
       "id": "2026-11-17-cold-relic-super-admin-usurpation",
       "title": "COLD RELIC : l'espion russe vole un compte Super Admin, vide un espace cloud puis usurpe un employé pour toucher une seconde organisation",
       "created": "2026-11-17T17:30:00+00:00",
-      "updated": "2026-11-18T07:20:00+00:00",
-      "version": 2,
-      "resume": "Le groupe d'espionnage russe COLD RELIC, anciennement COLDRIVER, a pénétré l'espace cloud d'une organisation américaine et en a exfiltré massivement les données, puis a usurpé l'un de ses employés pour compromettre une seconde organisation américaine [1, 2].",
+      "updated": "2026-11-18T14:30:00+00:00",
+      "version": 3,
+      "resume": "Le groupe d'espionnage russe COLD RELIC, anciennement COLDRIVER, a pénétré l'espace cloud d'une organisation américaine et en a exfiltré massivement les données, puis a usurpé l'un de ses employés pour compromettre une seconde organisation américaine [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Identifiants Super Admin volés, connexion via des proxys résidentiels proches de la victime, demandes répétées de double authentification → appareil inconnu enregistré [1, 2]."
+          "texte": "Identifiants Super Admin volés, connexion via des proxys résidentiels proches de la victime, demandes répétées de double authentification → appareil inconnu enregistré [1, 2, 3]."
         },
         {
           "etape": "Vol de données",
@@ -625,19 +796,19 @@
         },
         {
           "etape": "Effacement des traces",
-          "texte": "Consultation des journaux d'audit, modification et suppression d'alertes de la console, dans le but d'effacer les traces de l'intrusion initiale [1]."
+          "texte": "Journaux d'audit consultés pour vérifier la visibilité des défenseurs ; alertes de la console d'administration modifiées et supprimées pour effacer les traces de l'intrusion initiale [1]."
         },
         {
           "etape": "Persistance",
-          "texte": "Clés d'accès (passkeys), codes de secours et appareils d'authentification frauduleux → accès maintenu plusieurs mois, reconnexion possible malgré la réinitialisation des mots de passe [1]."
+          "texte": "Clés d'accès (passkeys), codes de secours et appareils d'authentification frauduleux → accès maintenu plusieurs mois, reconnexion possible malgré la réinitialisation des mots de passe [1, 3]."
         },
         {
           "etape": "Usurpation d'un employé",
-          "texte": "Faux employé de la première victime sur une messagerie chiffrée, liens piégés conçus pour voler identifiants et jetons Entra ID → identifiants d'une seconde organisation obtenus [1]."
+          "texte": "Faux employé de la première victime sur une messagerie chiffrée, liens piégés conçus pour voler identifiants et jetons Entra ID → identifiants d'une seconde organisation obtenus [1, 3]."
         },
         {
           "etape": "Second vol de données",
-          "texte": "Entra ID servant de connexion unique à Google Workspace, nouvel appareil d'authentification enregistré pour garder l'accès, fichiers de l'utilisateur téléchargés en masse [1]."
+          "texte": "Entra ID servant de connexion unique à Google Workspace, nouvel appareil d'authentification enregistré pour garder l'accès, fichiers de l'utilisateur téléchargés en masse [1, 3]."
         }
       ],
       "parcours": {
@@ -723,15 +894,16 @@
       "mitre": [
         "T1621 : Multi-Factor Authentication Request Generation, envoi répété de demandes de double authentification jusqu'à acceptation [1].",
         "T1098.005 : Account Manipulation: Device Registration, enregistrement de clés d'accès et d'appareils d'authentification pour garder l'accès [1].",
-        "T1562.008 : Impair Defenses: Disable or Modify Cloud Logs / Alerts, alertes de la console supprimées pour cacher l'intrusion [1].",
+        "T1562.008 : Impair Defenses: Disable or Modify Cloud Logs, alertes de la console supprimées pour cacher l'intrusion [1].",
         "T1567.002 : Exfiltration to Cloud Storage, fichiers partagés en masse vers un compte de l'attaquant [1].",
         "T1114.002 : Remote Email Collection, synchronisation de la boîte de réception vers des clients de messagerie externes [1]."
       ],
       "acteurs": [
-        "COLD RELIC (ex-COLDRIVER, UNC4057), aussi appelé Star Blizzard, Callisto ou Gossamer Bear ; rattaché au FSB selon la justice américaine [1]"
+        "COLD RELIC (ex-COLDRIVER, UNC4057), aussi appelé Star Blizzard, Callisto ou Gossamer Bear ; rattaché au FSB selon la justice américaine [1, 3]"
       ],
       "cibles": [
         "Deux organisations américaines, la seconde atteinte via l'usurpation d'un employé de la première [1]",
+        "Employés et relations professionnelles de la première victime, visés après l'expulsion via des comptes mail usurpant des employés [3]",
         "Cibles habituelles du groupe : responsables gouvernementaux, sous-traitants de la défense et organisations non gouvernementales en Europe et en Amérique du Nord [2]"
       ],
       "abreviations": [
@@ -770,6 +942,13 @@
           "url": "https://thehackernews.com/2026/11/russian-cold-relic-hackers-use-stolen.html",
           "date": "2026-11-18",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLbxlzqi-uBPlDXGecxrfXQ8kZLpAKsDO5c7KmTTyYyNQQE6bdI0TqT7Rk_JrKRie2pMB_xrLRKy1Cksp1GYHfUGHXz7UGg5nWOAQmPmiRKoUJkMCHrMvW7A72W9x7_I7KESMQmJLQVrJth_Ozj7i1nF7IPB4W_WV-NQyy0afEMgGVbGdaSNfIjolqtC4-/s1700-nu-rw-lo-l85-e365/cloud.jpg"
+        },
+        {
+          "titre": "Russian APT Poses as Employee of Hacked Firm to Breach Another US Organization",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/russian-apt-poses-as-employee-of-hacked-firm-to-breach-another-us-organization/",
+          "date": "2026-11-18",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/09/Russian-hacking.jpeg"
         }
       ]
     },

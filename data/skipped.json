@@ -1,37 +1,5 @@
 [
   {
-    "id": "5a3e4f7de9be672f",
-    "title": "Serveurs : « L’IA impose des cycles de renouvellement de 3 à 4 ans »",
-    "link": "https://www.lemagit.fr/tribune/Serveurs-LIA-impose-des-cycles-de-renouvellement-de-3-a-4-ans",
-    "source": "LeMagIT",
-    "raison": "hors sujet, pas d'attaque",
-    "date": "2026-10-28T16:30:00+00:00"
-  },
-  {
-    "id": "bfd6a8fefd0e42bd",
-    "title": "UK to look at making software companies liable for cyber breaches",
-    "link": "https://therecord.media/uk-budget-proposal-software-companies-liable-cyber-breaches",
-    "source": "The Record",
-    "raison": "actualité politique sans détail sur la méthode d'attaque",
-    "date": "2026-10-28T16:30:00+00:00"
-  },
-  {
-    "id": "c9692a8d0f482f78",
-    "title": "Unwrapping Retail Peak Season Cyber Threats",
-    "link": "https://unit42.paloaltonetworks.com/unwrapping-retail-cyber-threats/",
-    "source": "Unit 42 (Palo Alto Networks)",
-    "raison": "panorama générique des menaces, sans attaque précise",
-    "date": "2026-10-28T18:15:00+00:00"
-  },
-  {
-    "id": "b057f3381d273763",
-    "title": "Google to Allow One-Tap Android App Installs From Approved Third-Party Stores Outside U.S.",
-    "link": "https://thehackernews.com/2026/10/google-to-allow-one-tap-android-app.html",
-    "source": "The Hacker News",
-    "raison": "annonce produit",
-    "date": "2026-10-28T18:15:00+00:00"
-  },
-  {
     "id": "bce30872ee07ee09",
     "title": "Researcher Reveals How Logic Bugs Alone Cracked Microsoft Edge in $175,000 Pwn2Own Win",
     "link": "https://thehackernews.com/2026/10/researcher-reveals-how-logic-bugs-alone.html",
@@ -3998,5 +3966,37 @@
     "source": "SecurityWeek",
     "raison": "annonce produit (Microsoft Perception)",
     "date": "2026-11-18T13:06:36+00:00"
+  },
+  {
+    "id": "7038d0586b841cc4",
+    "title": "GPT-6.2 Astra et Sol : OpenAI paie la rançon de l’efficience",
+    "link": "https://www.lemagit.fr/actualites/366654785/GPT-62-Astra-et-Sol-OpenAI-paie-la-rancon-de-lefficience",
+    "source": "LeMagIT",
+    "raison": "annonce produit, pas d'attaque",
+    "date": "2026-11-18T14:30:00+00:00"
+  },
+  {
+    "id": "74d12e4423207d9d",
+    "title": "New Attack Bypasses TPM Lockout to Crack Windows Hello and BitLocker PINs in Days, Not Years",
+    "link": "https://thehackernews.com/2026/11/flash-chip-attack-bypasses-tpm-lockout.html",
+    "source": "The Hacker News",
+    "raison": "recherche en laboratoire, aucune exploitation constatée",
+    "date": "2026-11-18T14:30:00+00:00"
+  },
+  {
+    "id": "8368f9805644f450",
+    "title": "Major Brazilian Signature Apps Enable RCE & Fraud",
+    "link": "https://www.darkreading.com/vulnerabilities-threats/major-brazilian-signature-app-rce-fraud",
+    "source": "Dark Reading",
+    "raison": "recherche de vulnérabilités sans exploitation constatée (article inaccessible, résumé seul)",
+    "date": "2026-11-18T14:30:00+00:00"
+  },
+  {
+    "id": "f815d9a66de2b690",
+    "title": "Vulnérabilité dans Oracle Java SE (18 novembre 2026)",
+    "link": "https://www.cert.cyber.gouv.fr/alerte/CERTFR-2026-ALE-016/",
+    "source": "CERT-FR (alertes)",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-18T14:30:00+00:00"
   }
 ]

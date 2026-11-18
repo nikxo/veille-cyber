@@ -148,9 +148,9 @@
       "id": "2026-11-17-optimizely-scripts-pieges",
       "title": "Optimizely : des scripts piégés chargés sur les sites de 178 organisations visent cryptomonnaies et cartes bancaires",
       "created": "2026-11-17T03:06:55+00:00",
-      "updated": "2026-11-17T23:06:42+00:00",
-      "version": 8,
-      "resume": "Du code malveillant inséré dans les fichiers JavaScript d'Optimizely de 178 organisations, selon Scott Helme, a visé les visiteurs de sites comme Zoom, GitLab et Salesforce pour voler cryptomonnaies et cartes bancaires [1, 2, 3]. Optimizely dit avoir corrigé la faille et retiré le code [2, 3, 7].",
+      "updated": "2026-11-18T03:20:00+00:00",
+      "version": 9,
+      "resume": "Du code malveillant inséré dans les fichiers JavaScript d'Optimizely de 178 organisations, selon Scott Helme, a visé les visiteurs de sites comme Zoom, GitLab et Salesforce pour voler cryptomonnaies et cartes bancaires [1, 2, 3]. Optimizely dit avoir corrigé la faille et retiré le code [2, 3, 7, 10].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -166,11 +166,11 @@
         },
         {
           "etape": "Vol de cryptomonnaies",
-          "texte": "Remplacement des adresses de portefeuilles détectées sur les pages par celles des attaquants ; selon Scott Helme, leurs portefeuilles ont reçu environ 7 000 dollars au 16 novembre [1, 2]."
+          "texte": "Remplacement des adresses de portefeuilles affichées par celles des attaquants → environ 7 000 dollars reçus au 16 novembre selon Scott Helme [1, 2], environ 7 500 selon Report URI [10]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Capture des cartes saisies dans les formulaires propres aux sites, pas ceux des prestataires de paiement → envoi tenté vers le même domaine [2, 8] ; cookies et captures d'écran visés [2, 8]."
+          "texte": "Capture des cartes saisies dans les formulaires propres aux sites, pas ceux des prestataires de paiement → envoi tenté vers le même domaine [2, 8] ; cookies et captures d'écran visés [2, 8, 10]."
         },
         {
           "etape": "Exploits iPhone et iPad",
@@ -270,7 +270,8 @@
         "Sites d'Ikea, Air France, Zoom et du site de la communauté cybersécurité de Thales, entre autres [6]",
         "Sites de CNN, BBC, IKEA, HSBC, Equifax, Ledger et TalkTalk, entre autres [3]",
         "Scripts de Kissmetrics, StorifyMe et Minute-ly diffusant un petit chargeur, première observation le 13 novembre ; entrée du code inconnue [4]",
-        "Sites turcs, où Scott Helme (Report URI) dit avoir vu ce code injecté pour la première fois en septembre [8]"
+        "Sites turcs, où Scott Helme (Report URI) dit avoir vu ce code injecté pour la première fois en septembre [8]",
+        "Sites de BBC, CNN, Equifax, Ledger et Zoom ; 68 des sites touchés sans politique de sécurité du contenu, selon Report URI [10]"
       ],
       "abreviations": [
         {
@@ -360,6 +361,12 @@
           "site": "Dark Reading",
           "url": "https://www.darkreading.com/cyber-risk/optimizely-malware-attacks-third-party-vendor-risks",
           "date": "2026-11-17"
+        },
+        {
+          "titre": "Attackers Used Optimizely to A/B Test Malware on Top Websites",
+          "site": "Krebs on Security",
+          "url": "https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/",
+          "date": "2026-11-18"
         }
       ]
     },

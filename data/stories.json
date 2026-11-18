@@ -359,25 +359,25 @@
       "id": "2026-11-18-pypi-agent-framework-voleur-identifiants",
       "title": "Paquet PyPI agent-framework de Microsoft : deux versions piégées volent identifiants et jetons cloud",
       "created": "2026-11-18T08:15:00+00:00",
-      "updated": "2026-11-18T08:15:00+00:00",
-      "version": 1,
-      "resume": "Des attaquants ont publié le 17 novembre 2026 deux versions piégées, 1.26.1 et 1.26.2, du paquet PyPI agent-framework de Microsoft, qui volent identifiants et jetons cloud [1].",
+      "updated": "2026-11-18T12:07:16+00:00",
+      "version": 2,
+      "resume": "Des attaquants ont publié le 17 novembre 2026 deux versions piégées, 1.26.1 et 1.26.2, du paquet PyPI agent-framework de Microsoft, qui volent identifiants et jetons cloud [1, 2]. Les deux versions ont été mises en quarantaine et Microsoft a ouvert une enquête [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Moyen d'obtenir le droit de publication non établi ; selon OX Security, détournement de la fabrication des paquets → code malveillant ajouté [1]."
+          "texte": "Moyen d'obtenir le droit de publication non établi [1, 2] ; selon OX Security, détournement de la fabrication des paquets → code malveillant ajouté [1]."
         },
         {
           "etape": "Exécution automatique",
-          "texte": "Fichier .pth déposé dans site-packages → voleur lancé à chaque démarrage de Python, même sans import du paquet [1]."
+          "texte": "Fichier .pth déposé dans site-packages → voleur lancé à chaque démarrage de Python, même sans import du paquet [1, 2]."
         },
         {
           "etape": "Vol d'identifiants",
-          "texte": "Collecte des variables d'environnement, fichiers d'identifiants (Azure CLI, .npmrc, .git-credentials, Docker) et métadonnées de l'instance Azure ; la 1.26.2 vise aussi les jetons OIDC de GitHub Actions [1]."
+          "texte": "Collecte des variables d'environnement, fichiers d'identifiants (Azure CLI, .npmrc, .git-credentials, Docker) et métadonnées de l'instance Azure ; la 1.26.2 vise aussi GitHub Actions [1, 2]."
         },
         {
           "etape": "Nouveaux jetons",
-          "texte": "Le code demande des jetons neufs à Azure DevOps et à l'identité managée Azure ; selon SafeDep, la rotation des secrets stockés ne les couvre pas [1]."
+          "texte": "Le code demande des jetons neufs à Azure DevOps et à l'identité managée Azure [1, 2] ; selon SafeDep, la rotation des secrets stockés ne les couvre pas [1]."
         },
         {
           "etape": "Exfiltration",
@@ -449,7 +449,7 @@
           }
         ]
       },
-      "limites": "La source ne dit pas comment l'attaquant a obtenu le droit de publier, ni combien de machines ont installé les versions piégées [1].",
+      "limites": "Les sources ne disent pas comment le droit de publier a été obtenu, ni combien de machines sont touchées [1, 2]. Le rôle du compte « vibiret », créé le jour même, n'est pas confirmé [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -484,6 +484,13 @@
           "url": "https://thehackernews.com/2026/11/attackers-compromise-microsofts-agent.html",
           "date": "2026-11-18",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_LozO7RAz13Jr3eqWHIjlAF6M0Cs-mJXX2mKUqU0TxVS02piD1na92TAZjICmeySD4z0zS-Y_BFvceERBdk-UZvV1DUh1LGN6wK-T-yt_TROJ5fcuvROu807jqESQo93CFP3faBbReKMZQxvgYOAGl_vS2VzfO67O24NdAgh6d9jMO2mTSy2jaNJMPD9T/s1700-nu-rw-lo-l85-e365/ms-python.jpg"
+        },
+        {
+          "titre": "Microsoft Agent Framework Releases Poisoned With Credential Stealer",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/microsoft-agent-framework-releases-poisoned-with-credential-stealer/",
+          "date": "2026-11-18",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supply-chain-attack.jpeg"
         }
       ]
     },

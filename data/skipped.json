@@ -1,29 +1,5 @@
 [
   {
-    "id": "ce5fe177d9dacc31",
-    "title": "Wazuh and AI for Enhanced SOC Workflows",
-    "link": "https://thehackernews.com/2026/10/wazuh-and-ai-for-enhanced-soc-workflows.html",
-    "source": "The Hacker News",
-    "raison": "contenu sponsorisé / produit",
-    "date": "2026-10-28T14:23:40+00:00"
-  },
-  {
-    "id": "eb93de238d98745b",
-    "title": "Critical 16-Year-Old UEFI Flaw Can Run Code Before Secure Boot on Network-Booting Servers",
-    "link": "https://thehackernews.com/2026/10/critical-16-year-old-uefi-flaw-can-run.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-28T14:23:40+00:00"
-  },
-  {
-    "id": "95f24b8f8f147f2a",
-    "title": "Microsoft urges Entra ID admins to migrate users to passkeys",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-reminds-entra-id-admins-to-migrate-users-to-passkeys/",
-    "source": "BleepingComputer",
-    "raison": "annonce produit / conseil de migration, pas d'attaque",
-    "date": "2026-10-28T15:20:00+00:00"
-  },
-  {
     "id": "f10f056d2cf49b98",
     "title": "Ukrainian Hive and Nefilim Ransomware Affiliate Gets 70 Months in US Prison",
     "link": "https://www.securityweek.com/ukrainian-hive-and-nefilim-ransomware-affiliate-gets-70-months-in-us-prison/",
@@ -3998,5 +3974,29 @@
     "source": "ZATAZ",
     "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
     "date": "2026-11-18T11:10:00+00:00"
+  },
+  {
+    "id": "b42b995c0db9e2cb",
+    "title": "Chrome 158 Patches 204 Vulnerabilities",
+    "link": "https://www.securityweek.com/chrome-158-patches-204-vulnerabilities/",
+    "source": "SecurityWeek",
+    "raison": "mise à jour de sécurité sans exploitation constatée",
+    "date": "2026-11-18T12:07:16+00:00"
+  },
+  {
+    "id": "c427de9c7b5cfe0e",
+    "title": "Dizigom illegal streaming service with 21M monthly visits shuts down",
+    "link": "https://www.bleepingcomputer.com/news/security/dizigom-illegal-streaming-service-with-21m-monthly-visits-shuts-down/",
+    "source": "BleepingComputer",
+    "raison": "actualité judiciaire (piratage de contenus), sans attaque",
+    "date": "2026-11-18T12:07:16+00:00"
+  },
+  {
+    "id": "cdf0af5ec103d76a",
+    "title": "CISO Conversations: Patti Degnan – Part of the Job Is Deciding What Not to Do",
+    "link": "https://www.securityweek.com/ciso-conversations-patti-degnan-part-of-the-job-is-deciding-what-not-to-do/",
+    "source": "SecurityWeek",
+    "raison": "interview / contenu générique",
+    "date": "2026-11-18T12:07:16+00:00"
   }
 ]

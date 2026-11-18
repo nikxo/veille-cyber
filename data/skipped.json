@@ -1,21 +1,5 @@
 [
   {
-    "id": "28e49b4215fd6e25",
-    "title": "Lessons from Cybersecurity Black Week",
-    "link": "https://www.welivesecurity.com/en/business-security/lessons-cybersecurity-black-week/",
-    "source": "WeLiveSecurity (ESET)",
-    "raison": "récapitulatif hebdomadaire sans attaque détaillée",
-    "date": "2026-10-29T07:30:00+00:00"
-  },
-  {
-    "id": "660400b4cfcc318c",
-    "title": "ESET APT Activity Report Q2 2026–Q3 2026",
-    "link": "https://www.welivesecurity.com/en/eset-research/eset-apt-activity-report-q2-2026-q3-2026/",
-    "source": "WeLiveSecurity (ESET)",
-    "raison": "rapport périodique sans chaîne d'attaque détaillée",
-    "date": "2026-10-29T07:30:00+00:00"
-  },
-  {
     "id": "75699bb6148a5fef",
     "title": "Cyber Vulnerabilities Besiege Italy, Absent Clear Cause",
     "link": "https://www.darkreading.com/cybersecurity-analytics/cyber-vulnerabilities-besiege-italy",
@@ -3998,5 +3982,21 @@
     "source": "The Record",
     "raison": "panne liée à une maintenance selon les responsables, aucune attaque décrite",
     "date": "2026-11-18T17:07:50+00:00"
+  },
+  {
+    "id": "03bfba8ed46b931b",
+    "title": "Java4Shell Flaw Threatens Global Enterprises, Java Application Ecosystem",
+    "link": "https://www.darkreading.com/vulnerabilities-threats/java4shell-flaw-threatens-global-java-application-ecosystem",
+    "source": "Dark Reading",
+    "raison": "vulnérabilité OpenJDK sans exploitation constatée (page inaccessible, résumé du flux)",
+    "date": "2026-11-18T18:20:00+00:00"
+  },
+  {
+    "id": "8ba00376dffb6f5c",
+    "title": "Multiples vulnérabilités dans F5 NGINX (18 novembre 2026)",
+    "link": "https://www.cert.cyber.gouv.fr/alerte/CERTFR-2026-ALE-017/",
+    "source": "CERT-FR (alertes)",
+    "raison": "vulnérabilités NGINX : preuve de concept publique, aucune exploitation constatée",
+    "date": "2026-11-18T18:20:00+00:00"
   }
 ]

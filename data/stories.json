@@ -2,6 +2,107 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-18-conti-anciens-arretes-ukraine",
+      "title": "Anciens de Conti arrêtés en Ukraine : faux support informatique pour entrer chez les victimes",
+      "created": "2026-11-18T18:20:00+00:00",
+      "updated": "2026-11-18T18:20:00+00:00",
+      "version": 1,
+      "resume": "La police ukrainienne a arrêté quatre cybercriminels présentés comme liés au groupe de rançongiciels Conti ; les forces de l'ordre ukrainiennes font état d'au moins 28 entreprises ayant versé plus de 40,5 millions de dollars [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Selon la police ukrainienne, les auteurs se faisaient passer pour le support informatique → identifiants obtenus et logiciels d'accès à distance installés par les employés [1]."
+        },
+        {
+          "etape": "Repérage",
+          "texte": "Étude de la situation financière, des actifs, des employés et des failles du système d'information des entreprises visées [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Chez une entreprise américaine non nommée, 1,4 téraoctet de données dérobé [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Rançon de 10 millions de dollars exigée → 5 millions obtenus après négociation [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (anciens de Conti)",
+            "note": ""
+          },
+          {
+            "id": "emp",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Employés des entreprises",
+            "note": "Faux support informatique"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes des employés",
+            "note": "Accès à distance"
+          },
+          {
+            "id": "data",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données d'une entreprise américaine",
+            "note": "1,4 téraoctet"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "emp",
+            "etape": 1,
+            "texte": "Usurpation du support informatique"
+          },
+          {
+            "de": "emp",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Logiciels d'accès à distance installés"
+          },
+          {
+            "de": "att",
+            "vers": "data",
+            "etape": 3,
+            "texte": "Vol de 1,4 téraoctet"
+          }
+        ]
+      },
+      "limites": "La source ne relie pas la méthode d'accès à une victime précise et ne décrit ni persistance, ni déplacement dans le réseau, ni chiffrement [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Quatre suspects arrêtés, issus d'une organisation d'au moins 27 personnes de plusieurs pays, dont l'Ukraine, le Kazakhstan et la Russie [1]",
+        "Selon LeMagIT, les techniques renvoient à BazarCall, fournisseur d'accès initiaux pour des équipes issues de Conti [1]",
+        "Le registre judiciaire ukrainien mentionne le rançongiciel Chaos [1]"
+      ],
+      "cibles": [
+        "Pétrole et gaz, pharmacie, industrie, logistique, institutions financières, infrastructures critiques [1]",
+        "Victimes américaines citées : Warren Oil Company, Newpark Resources, Maxxis International [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Ransomware : coup de filet contre les anciens de Conti",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366654897/Ransomware-coup-de-filet-contre-les-anciens-de-Conti",
+          "date": "2026-11-18",
+          "image": "https://www.lemagit.fr/rms/LeMagIT/takedown-blacksuit.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-18-eggstreme-variante-silencieuse-philippines",
       "title": "EggStreme : le groupe d'espionnage présumé chinois reconstruit son logiciel malveillant et vise toujours le gouvernement philippin",
       "created": "2026-11-18T15:10:00+00:00",

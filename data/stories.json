@@ -2,6 +2,596 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-18-coinbase-deepfake-musk-youtube",
+      "title": "Faux direct YouTube avec un deepfake d'Elon Musk : Coinbase bloque 4,7 millions de dollars envoyés aux escrocs",
+      "created": "2026-11-18T21:07:56+00:00",
+      "updated": "2026-11-18T21:07:56+00:00",
+      "version": 1,
+      "resume": "Des escrocs ont diffusé un faux direct YouTube avec un deepfake d'Elon Musk promettant de doubler les cryptomonnaies envoyées, suivi par plus de 500 000 spectateurs ; Coinbase dit avoir bloqué 4,7 millions de dollars de transferts [1].",
+      "chaine": [
+        {
+          "etape": "Leurre",
+          "texte": "Faux direct YouTube présenté comme la démonstration de « voiture volante » de Tesla → plus de 500 000 spectateurs [1]."
+        },
+        {
+          "etape": "Manipulation",
+          "texte": "Vidéo deepfake d'Elon Musk avec adresses de portefeuilles et QR code, promettant de doubler les envois → les victimes transfèrent elles-mêmes leurs cryptomonnaies [1]."
+        },
+        {
+          "etape": "Tentatives de transfert",
+          "texte": "Des centaines de clients Coinbase tentent d'envoyer des millions de dollars en environ deux heures, depuis leur propre compte [1]."
+        },
+        {
+          "etape": "Blocage",
+          "texte": "Détection automatique de Coinbase et agent d'IA qui alerte les clients → environ 91 % des transferts bloqués, soit 4,7 millions de dollars [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Escrocs (non identifiés)",
+            "note": ""
+          },
+          {
+            "id": "yt",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux direct YouTube",
+            "note": "Deepfake d'Elon Musk"
+          },
+          {
+            "id": "vic",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Clients Coinbase",
+            "note": "Centaines de spectateurs"
+          },
+          {
+            "id": "cb",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateforme Coinbase",
+            "note": "91 % bloqués"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "yt",
+            "etape": 1,
+            "texte": "Faux direct diffusé"
+          },
+          {
+            "de": "yt",
+            "vers": "vic",
+            "etape": 2,
+            "texte": "Promesse de doubler les cryptomonnaies envoyées"
+          },
+          {
+            "de": "vic",
+            "vers": "cb",
+            "etape": 3,
+            "texte": "Transferts tentés vers les adresses des escrocs"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas quel montant est parvenu aux escrocs, ni quelle chaîne YouTube a diffusé le faux direct [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Escrocs non identifiés [1]"
+      ],
+      "cibles": [
+        "Spectateurs du faux direct, dont des centaines de clients Coinbase, parmi lesquels de nombreux clients de longue date [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "QR",
+          "definition": "Quick Response : code-barres carré lisible par un téléphone"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Coinbase blocks $4.7 million in transfers to Elon Musk deepfake scam",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/coinbase-blocks-47-million-in-transfers-to-elon-musk-deepfake-scam/",
+          "date": "2026-11-18",
+          "image": "https://www.bleepstatic.com/content/hl-images/2022/05/22/elon-musk-space-bright.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-18-cisa-kev-synology-litellm-redcap",
+      "title": "Synology DSM, LiteLLM et REDCap : trois failles d'exécution de code exploitées ajoutées au catalogue de la CISA",
+      "created": "2026-11-18T21:07:56+00:00",
+      "updated": "2026-11-18T21:07:56+00:00",
+      "version": 1,
+      "resume": "Le 18 novembre 2026, la CISA a ajouté quatre failles à son catalogue des vulnérabilités exploitées, sur preuves d'exploitation active, dont celles de Synology DiskStation Manager, LiteLLM et REDCap [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation active de failles de Synology DiskStation Manager, LiteLLM et REDCap, sans détail sur les attaques [1]."
+        },
+        {
+          "etape": "Exécution de code",
+          "texte": "Selon les fiches NVD, ces failles permettent à un attaquant distant d'exécuter du code arbitraire [2, 3, 4]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "nas",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Synology DiskStation Manager",
+            "note": ""
+          },
+          {
+            "id": "llm",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Passerelle LiteLLM",
+            "note": ""
+          },
+          {
+            "id": "rc",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Serveur REDCap",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "nas",
+            "etape": 1,
+            "texte": "Exploitation de CVE-2024-10441"
+          },
+          {
+            "de": "att",
+            "vers": "llm",
+            "etape": 1,
+            "texte": "Exploitation de CVE-2026-40217"
+          },
+          {
+            "de": "att",
+            "vers": "rc",
+            "etape": 1,
+            "texte": "Exploitation de CVE-2026-90817"
+          }
+        ]
+      },
+      "limites": "La CISA ne décrit ni les attaques, ni les attaquants, ni les victimes [1].",
+      "cves": [
+        {
+          "id": "CVE-2024-10441",
+          "explication": "Synology DiskStation Manager et BeeStation : échappement incorrect des sorties dans un module système, exécution de code à distance, critique 9,8 sur 10 [2]."
+        },
+        {
+          "id": "CVE-2026-40217",
+          "explication": "LiteLLM jusqu'au 8 avril 2026 : réécriture de code compilé via la route de test des garde-fous, exécution de code à distance, gravité 8,8 sur 10 [3]."
+        },
+        {
+          "id": "CVE-2026-90817",
+          "explication": "REDCap 13.3.0 et suivantes : routage des sondages publics détourné, exécution de code sans authentification avec un identifiant de sondage public valide, critique 9,8 [4]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Utilisateurs de Synology DiskStation Manager, de LiteLLM et de REDCap de l'université Vanderbilt [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité qui tient un catalogue des failles exploitées"
+        },
+        {
+          "sigle": "NVD",
+          "definition": "National Vulnerability Database : base américaine de référence des vulnérabilités"
+        },
+        {
+          "sigle": "DSM",
+          "definition": "DiskStation Manager : système des serveurs de stockage Synology"
+        },
+        {
+          "sigle": "REDCap",
+          "definition": "Research Electronic Data Capture : logiciel de collecte de données de recherche"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/18/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-18"
+        },
+        {
+          "titre": "Fiche NVD CVE-2024-10441",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-10441"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-40217",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40217"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-90817",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90817"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-18-pypi-agent-framework-voleur-identifiants",
+      "title": "Paquet PyPI agent-framework de Microsoft : deux versions piégées volent identifiants et jetons cloud",
+      "created": "2026-11-18T08:15:00+00:00",
+      "updated": "2026-11-18T21:07:56+00:00",
+      "version": 4,
+      "resume": "Le 17 novembre 2026, des attaquants ont publié deux versions piégées, 1.26.1 et 1.26.2, du paquet PyPI agent-framework de Microsoft, qui volent identifiants et jetons cloud [1, 2, 3]. Elastic a signalé la 1.26.1 comme malveillante six minutes après sa publication [4].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Moyen d'obtenir le droit de publication non établi [1, 2, 3] ; selon OX Security, détournement de la fabrication des paquets → code malveillant ajouté [1]."
+        },
+        {
+          "etape": "Seconde publication",
+          "texte": "Après la quarantaine de la 1.26.1, publication de la 1.26.2 [3] à 21 h 08 UTC, même voleur, fichiers renommés [4] → quarantaine environ 8 minutes plus tard [3]."
+        },
+        {
+          "etape": "Exécution automatique",
+          "texte": "Fichier .pth déposé dans site-packages → voleur lancé à chaque démarrage de Python, même sans import du paquet [1, 2, 3]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Collecte des variables d'environnement de jusqu'à 300 processus [4], des fichiers d'identifiants (Azure CLI, .npmrc, .git-credentials, Docker) et des métadonnées Azure [1, 2] ; la 1.26.2 vise aussi GitHub Actions [1, 2, 4]."
+        },
+        {
+          "etape": "Nouveaux jetons",
+          "texte": "Demande de jetons neufs à Azure DevOps et à l'identité managée Azure [1, 2, 3], dont 12 ressources Azure [4] ; selon SafeDep, la rotation des secrets ne les couvre pas [1]."
+        },
+        {
+          "etape": "Exfiltration",
+          "texte": "Données compressées, encodées en Base64 puis envoyées en HTTPS vers une adresse webhook.site codée en dur [1], la même pour les deux versions [3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (non identifié)",
+            "note": ""
+          },
+          {
+            "id": "pypi",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Paquet PyPI agent-framework",
+            "note": "Versions 1.26.1 et 1.26.2"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines installant le paquet",
+            "note": "Fichier .pth"
+          },
+          {
+            "id": "az",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Azure et Azure DevOps",
+            "note": "Jetons neufs demandés"
+          },
+          {
+            "id": "wh",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Adresse webhook.site",
+            "note": "Réception des données"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pypi",
+            "etape": 1,
+            "texte": "Versions piégées publiées"
+          },
+          {
+            "de": "pypi",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Installation, voleur lancé au démarrage de Python"
+          },
+          {
+            "de": "pc",
+            "vers": "az",
+            "etape": 5,
+            "texte": "Demande de nouveaux jetons"
+          },
+          {
+            "de": "pc",
+            "vers": "wh",
+            "etape": 6,
+            "texte": "Envoi des données volées"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent pas comment le droit de publier a été obtenu [1, 2, 3, 4], ni combien de machines sont touchées [1, 2, 3]. Rôle non établi du compte « vibiret », créé le jour même [2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non nommé par les sources [1, 3] ; TeamPCP y est cité pour la compromission d'un autre paquet Microsoft en mai 2026 [1]"
+      ],
+      "cibles": [
+        "Utilisateurs du paquet agent-framework : environ 190 000 téléchargements par mois [1], environ 200 000 selon BleepingComputer [3], environ 196 000 selon Elastic [4]",
+        "Environnements Azure, Azure DevOps et GitHub Actions [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CLI",
+          "definition": "Command Line Interface : outil en ligne de commande"
+        },
+        {
+          "sigle": "OIDC",
+          "definition": "OpenID Connect : protocole de jetons d'identité entre services"
+        },
+        {
+          "sigle": "HTTPS",
+          "definition": "Protocole web chiffré"
+        },
+        {
+          "sigle": "OX",
+          "definition": "Partie du nom de l'éditeur de sécurité OX Security"
+        },
+        {
+          "sigle": "UTC",
+          "definition": "Temps universel coordonné, heure de référence internationale"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Attackers Compromise Microsoft's Agent Framework PyPI Package to Steal Cloud Credentials",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/attackers-compromise-microsofts-agent.html",
+          "date": "2026-11-18",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_LozO7RAz13Jr3eqWHIjlAF6M0Cs-mJXX2mKUqU0TxVS02piD1na92TAZjICmeySD4z0zS-Y_BFvceERBdk-UZvV1DUh1LGN6wK-T-yt_TROJ5fcuvROu807jqESQo93CFP3faBbReKMZQxvgYOAGl_vS2VzfO67O24NdAgh6d9jMO2mTSy2jaNJMPD9T/s1700-nu-rw-lo-l85-e365/ms-python.jpg"
+        },
+        {
+          "titre": "Microsoft Agent Framework Releases Poisoned With Credential Stealer",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/microsoft-agent-framework-releases-poisoned-with-credential-stealer/",
+          "date": "2026-11-18",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supply-chain-attack.jpeg"
+        },
+        {
+          "titre": "Microsoft’s Agent Framework PyPI package compromised to steal credentials",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/microsofts-agent-framework-pypi-package-compromised-to-steal-credentials/",
+          "date": "2026-11-18",
+          "image": "https://www.bleepstatic.com/content/hl-images/2025/03/12/Microsoft-headpic.jpg"
+        },
+        {
+          "titre": "We caught the agent-framework PyPI compromise six minutes after it published",
+          "site": "Elastic Security Labs",
+          "url": "https://www.elastic.co/security-labs/threat-command/we-caught-the-agent-framework-pypi-compromise-six-minutes-after-it-published",
+          "date": "2026-11-18",
+          "image": "https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/blt9f0c85b0fbfc8440/6afdfa0277abc4ce81d3ae97/image2.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-12-n-central-4everable2shell-tentatives",
+      "title": "Apache Axis (CVE-2026-90436) : N-able N-central exploité pour installer des mineurs sur 21 serveurs, Confluence Data Center aussi attaqué",
+      "created": "2026-11-12T13:20:00+00:00",
+      "updated": "2026-11-18T21:07:56+00:00",
+      "version": 8,
+      "resume": "Des attaquants exploitent 4EverAble2Shell contre des serveurs N-able N-central et y installent des mineurs de cryptomonnaie, sur 21 serveurs dont 19 avec Hotfix 2 [3, 4]. Rapid7 a détecté le 13 novembre 2026 une exploitation de CVE-2026-90436 contre Confluence Data Center [6].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation sans authentification de CVE-2026-90436 d'Apache Axis → commandes exécutées sous le compte de service « nable » sur N-central [2, 3, 4]. Confluence Data Center aussi exploité [6]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Abus de l'utilitaire privilégié setLDFileOwner et d'un lien symbolique pour modifier un script appartenant à root → commandes exécutées en root [3]."
+        },
+        {
+          "etape": "Installation du mineur",
+          "texte": "Téléchargement du script shell « jup.sh » → installation d'un mineur XMRig réglé sur environ la moitié des cœurs du processeur [3, 4]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Mineur XMRig déployé avec une persistance par systemd ou cron [5]."
+        },
+        {
+          "etape": "Envoi de données",
+          "texte": "Script shell demandé à l'adresse 157.20.241.16, avec envoi simultané de données de diagnostic et de sorties de commandes vers cette adresse [3, 4]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "nc",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur N-central",
+            "note": "Mineur XMRig installé"
+          },
+          {
+            "id": "ext",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Adresse 157.20.241.16",
+            "note": "Script shell"
+          },
+          {
+            "id": "cf",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Confluence Data Center",
+            "note": "Chez un client Rapid7"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "nc",
+            "etape": 1,
+            "texte": "Exploitation de la faille Apache Axis"
+          },
+          {
+            "de": "att",
+            "vers": "cf",
+            "etape": 1,
+            "texte": "Exploitation de la faille Apache Axis"
+          },
+          {
+            "de": "att",
+            "vers": "nc",
+            "etape": 2,
+            "texte": "Droits root via setLDFileOwner"
+          },
+          {
+            "de": "att",
+            "vers": "nc",
+            "etape": 3,
+            "texte": "Script shell installant un mineur XMRig"
+          },
+          {
+            "de": "nc",
+            "vers": "ext",
+            "etape": 5,
+            "texte": "Script demandé, données de diagnostic envoyées"
+          }
+        ]
+      },
+      "limites": "Aucune source ne nomme les attaquants [1, 3, 4]. Options requises : Legacy API sur N-central, non activée par défaut, Remote API sur Confluence [1, 3, 6]. Suites sur Confluence non décrites [6].",
+      "cves": [
+        {
+          "id": "CVE-2026-90436",
+          "explication": "Apache Axis 1.x : désérialisation d'une erreur SOAP, instanciation de classes à distance sans authentification, critique 9,8 sur 10 [1, 2] ; inscrite le 18 novembre au catalogue de la CISA [9]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Serveurs N-central installés sur site ; les environnements hébergés ne sont pas touchés selon N-able [1]",
+        "21 serveurs aux États-Unis, en Afrique du Sud, au Canada, au Royaume-Uni, en Allemagne, en France et en Suède [3, 4]",
+        "Environnements hébergés : Legacy API désactivée par défaut et intégration Intune coupée par N-able [4]",
+        "Serveurs compromis environ 5 heures après la publication du code d'exploitation, selon Lupovis et Huntback [5]",
+        "Confluence Data Center 1.x à 9.x avec l'option Remote API activée ; corrigé en 9.2.28, versions 10.x non vulnérables [6]",
+        "N-central 2026.4 Hotfix 3 supprime définitivement l'option Legacy API, ce qui ferme le vecteur de 4EverAble2Shell, et corrige 17 failles supplémentaires [7]",
+        "Hotfix 3 corrige 17 failles, CVE-2026-129271 à CVE-2026-129287 ; Sean Bales a ensuite détaillé 24 autres failles N-central, corrigées selon lui [8]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Application Programming Interface : interface permettant à des programmes de communiquer entre eux"
+        },
+        {
+          "sigle": "SOAP",
+          "definition": "Simple Object Access Protocol : protocole d'échange de messages entre services web"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité qui tient un catalogue des failles exploitées"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "New N-central Exploits Work Against Patched Servers, Enable Root RCE and Windows SYSTEM Access",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/new-n-central-exploits-work-against.html",
+          "date": "2026-11-12",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhR4KdRS0v77uQIdhC0i5aopa8XIAZIRnTzVCVqto7dEdfUH2QyWgrAy1EKu-hARXS4pxNGQQEFroRHOtwSq_9Q8b92tmgw_97JMJoBfC72sl8pOcUYM9nU6YCJht4yD7ALWfERwhUwLsN8wo9t8YnKyIWzHhEAux5ox5WV4wvxe6l1cUmf58P1md2Ekziy/s1700-nu-rw-lo-l85-e365/nable.jpg"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-90436",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90436"
+        },
+        {
+          "titre": "New N-able \"4EverAble2Shell\" zero-day exploited hours after PoC released",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/new-n-able-4everable2shell-zero-day-exploited-hours-after-poc-released/",
+          "date": "2026-11-12",
+          "image": "https://www.bleepstatic.com/content/hl-images/2025/08/18/N-able.jpg"
+        },
+        {
+          "titre": "Hackers Exploit N-central Flaws to Infect 21 Servers, Including 19 Running Hotfix 2",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-n-central-flaws-to.html",
+          "date": "2026-11-13",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhA4jxlXpPBPhD5o3IHy80Fn7fSHUtcqH3iXQlU-jDUL5C3zJcf1_Zb-GAYxuW6P6q647p9JAT_opImlj-v-USDNhZ_z83mYC3ISKtN72pe_3XLwf5EyMRuK4OdXCFnYxGMhOAvN_i4UFqk5vJLriRnkbRRwILuT5JUpExx9Tm74sXSCQ0g7jjsOzWV1cqk/s1700-nu-rw-lo-l85-e365/nable-hacks.jpg"
+        },
+        {
+          "titre": "Hackers Exploit New N-central Zero-Day Hours After PoC Publication",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/hackers-exploit-new-n-central-zero-day-hours-after-poc-publication/",
+          "date": "2026-11-13",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/vulnerability-software-bug.webp"
+        },
+        {
+          "titre": "Rapid7 Detected Exploitation of CVE-2026-90436 against Atlassian Confluence Data Center, N-able N-central also Exploited",
+          "site": "Rapid7",
+          "url": "https://www.rapid7.com/blog/post/etr-rapid7-detected-exploitation-of-cve-2026-90436-against-atlassian-confluence-data-center-n-able-n-central-also-exploited",
+          "date": "2026-11-16",
+          "image": "https://www.rapid7.com/cdn/images/blt65a432ba319f4043/6846abddaf18306debe6cf4d/ETR.webp"
+        },
+        {
+          "titre": "N-able Patches 17 N-central Flaws as Attackers Exploit Earlier Bugs to Deploy Crypto Miners",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/n-able-patches-17-n-central-flaws-as.html",
+          "date": "2026-11-17",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8Tz3JQedMRmE0NpjmQ9KXm4AlgJ2GfBbA8pbKm3UARfJrN_vRlTywt0Zg80C-fM4hmacqlZTHV_wh0E-yoga-UjcSvpt2FHczR2AtGze3mvk0fmqeET4vvee-4f_RJEMIF-HL79HkXg_GD2Lg-U8jAPPJaPaqYDJmKTsJHn7GO0lS84zEU5SFQWll-qwv/s1700-nu-rw-lo-l85-e365/nn.jpg"
+        },
+        {
+          "titre": "N-able Kills Legacy APIs, Patches 17 N-central Zero-Days",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/n-able-kills-legacy-apis-patches-17-n-central-zero-days/",
+          "date": "2026-11-17",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/08/N-Able.jpeg"
+        },
+        {
+          "titre": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/18/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-18"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-18-wellington-it-cooperatives-credit-irlande",
       "title": "Wellington IT : une cyberattaque contre le prestataire informatique expose les données de membres de coopératives de crédit irlandaises",
       "created": "2026-11-18T20:30:00+00:00",
@@ -78,6 +668,84 @@
           "url": "https://www.bleepingcomputer.com/news/security/data-breach-impacts-40-irish-credit-unions-in-reported-it-provider-hack/",
           "date": "2026-11-18",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/18/ireland.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-18-apache-roller-cve-2026-129448",
+      "title": "Apache Roller : la faille de désérialisation CVE-2026-129448 exploitée pour exécuter du code sur des serveurs de blogs",
+      "created": "2026-11-18T11:10:00+00:00",
+      "updated": "2026-11-18T20:30:00+00:00",
+      "version": 2,
+      "resume": "Apache a corrigé une faille critique de Roller, plateforme de blogs écrite en Java, que des attaquants exploitent pour exécuter du code sur les serveurs vulnérables [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Requête envoyée sans authentification au point d'accès XML-RPC, qui la désérialise avant d'authentifier le demandeur → code exécuté à distance [1, 2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur Apache Roller",
+            "note": "Code exécuté"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 1,
+            "texte": "Requête XML-RPC piégée sans authentification"
+          }
+        ]
+      },
+      "limites": "Apache ne donne ni les auteurs, ni les victimes, ni le nombre de serveurs compromis [1], ni la manière dont la faille est exploitée [2].",
+      "cves": [
+        {
+          "id": "CVE-2026-129448",
+          "explication": "Apache Roller 4.0.0 à 6.1.4 : désérialisation non sécurisée via XML-RPC, exécution de code à distance sans authentification, score 9,8 sur 10 ; corrigée en 6.1.6, identique à CVE-2026-82384 [1, 2]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Serveurs Apache Roller vulnérables ; désactiver XML-RPC dans l'administration ne suffit pas sur les anciennes versions [1, 2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "XML-RPC",
+          "definition": "Protocole d'appel de fonctions à distance, avec des messages au format XML"
+        },
+        {
+          "sigle": "XML",
+          "definition": "eXtensible Markup Language : format de données structuré par balises"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Apache warns of Roller RCE vulnerability exploited in attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/apache-warns-of-roller-rce-vulnerability-exploited-in-attacks/",
+          "date": "2026-11-18",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/04/17/Apache.jpg"
+        },
+        {
+          "titre": "Critical Apache Roller RCE Flaw Under Active Exploitation, No Authentication Required",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/critical-apache-roller-rce-flaw-under.html",
+          "date": "2026-11-18"
         }
       ]
     },
@@ -179,6 +847,189 @@
           "url": "https://www.lemagit.fr/actualites/366654897/Ransomware-coup-de-filet-contre-les-anciens-de-Conti",
           "date": "2026-11-18",
           "image": "https://www.lemagit.fr/rms/LeMagIT/takedown-blacksuit.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-17-cold-relic-super-admin-usurpation",
+      "title": "COLD RELIC : l'espion russe vole un compte Super Admin, vide un espace cloud puis usurpe un employé pour toucher une seconde organisation",
+      "created": "2026-11-17T17:30:00+00:00",
+      "updated": "2026-11-18T16:30:00+00:00",
+      "version": 4,
+      "resume": "Le groupe d'espionnage russe COLD RELIC, anciennement COLDRIVER, a pénétré l'espace cloud d'une organisation américaine et en a exfiltré massivement les données, puis a usurpé l'un de ses employés pour compromettre une seconde organisation américaine [1, 2, 3].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Identifiants Super Admin volés, connexion via des proxys résidentiels proches de la victime, demandes répétées de double authentification → appareil inconnu enregistré [1, 2, 3]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Partage massif du lecteur cloud vers un compte mail de l'attaquant, export de tout le domaine via Google Takeout, synchronisation de la messagerie vers des clients externes [1, 2]."
+        },
+        {
+          "etape": "Effacement des traces",
+          "texte": "Journaux d'audit consultés pour vérifier la visibilité des défenseurs ; alertes de la console d'administration modifiées et supprimées pour effacer les traces de l'intrusion initiale [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Clés d'accès (passkeys), codes de secours et appareils d'authentification frauduleux → accès maintenu plusieurs mois, reconnexion possible malgré la réinitialisation des mots de passe [1, 3]."
+        },
+        {
+          "etape": "Usurpation d'un employé",
+          "texte": "Faux employé de la première victime sur une messagerie chiffrée, liens piégés conçus pour voler identifiants et jetons Entra ID → identifiants d'une seconde organisation obtenus [1, 3]."
+        },
+        {
+          "etape": "Second vol de données",
+          "texte": "Entra ID servant de connexion unique à Google Workspace, nouvel appareil d'authentification enregistré pour garder l'accès, fichiers de l'utilisateur téléchargés en masse [1, 3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (COLD RELIC)",
+            "note": ""
+          },
+          {
+            "id": "t1",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Espace cloud première victime",
+            "note": "Compte Super Admin"
+          },
+          {
+            "id": "mail",
+            "type": "messagerie",
+            "zone": "internet",
+            "nom": "Compte mail de l'attaquant",
+            "note": ""
+          },
+          {
+            "id": "emp",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Employé seconde victime",
+            "note": ""
+          },
+          {
+            "id": "idp",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Entra ID seconde victime",
+            "note": "Nouvel appareil enregistré"
+          },
+          {
+            "id": "t2",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Google Workspace seconde victime",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "t1",
+            "etape": 1,
+            "texte": "Proxys résidentiels, identifiants Super Admin, double authentification harcelée"
+          },
+          {
+            "de": "t1",
+            "vers": "mail",
+            "etape": 2,
+            "texte": "Lecteur cloud partagé en masse"
+          },
+          {
+            "de": "att",
+            "vers": "emp",
+            "etape": 5,
+            "texte": "Faux employé de la première victime, liens piégés"
+          },
+          {
+            "de": "emp",
+            "vers": "idp",
+            "etape": 5,
+            "texte": "Identifiants et jetons volés"
+          },
+          {
+            "de": "idp",
+            "vers": "t2",
+            "etape": 6,
+            "texte": "Connexion unique, fichiers téléchargés en masse"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le secteur des deux victimes, ni comment les identifiants Super Admin ont été obtenus, ni les dates exactes des intrusions (fin 2025, puis 2026) [1, 2].",
+      "cves": [],
+      "mitre": [
+        "T1621 : Multi-Factor Authentication Request Generation, envoi répété de demandes de double authentification jusqu'à acceptation [1].",
+        "T1098.005 : Account Manipulation: Device Registration, enregistrement de clés d'accès et d'appareils d'authentification pour garder l'accès [1].",
+        "T1562.008 : Impair Defenses: Disable or Modify Cloud Logs, alertes de la console supprimées pour cacher l'intrusion [1].",
+        "T1567.002 : Exfiltration to Cloud Storage, fichiers partagés en masse vers un compte de l'attaquant [1].",
+        "T1114.002 : Remote Email Collection, synchronisation de la boîte de réception vers des clients de messagerie externes [1]."
+      ],
+      "acteurs": [
+        "COLD RELIC (ex-COLDRIVER, UNC4057), aussi appelé Star Blizzard, Callisto ou Gossamer Bear ; rattaché au FSB selon la justice américaine [1, 3]"
+      ],
+      "cibles": [
+        "Deux organisations américaines, la seconde atteinte via l'usurpation d'un employé de la première [1]",
+        "Employés et relations professionnelles de la première victime, visés après l'expulsion via des comptes mail usurpant des employés [3]",
+        "Cibles habituelles du groupe : responsables gouvernementaux, sous-traitants de la défense et organisations non gouvernementales en Europe et en Amérique du Nord [2]",
+        "Cibles souvent redirigées vers des pages d'hameçonnage via des sites web compromis ; nouvelles opérations observées « ce mois-ci » selon Google [4]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "COLD RELIC",
+          "definition": "Nom donné par Google à un groupe d'espionnage russe"
+        },
+        {
+          "sigle": "COLDRIVER",
+          "definition": "Ancien nom de suivi du même groupe chez Google"
+        },
+        {
+          "sigle": "UNC4057",
+          "definition": "Ancien identifiant de suivi du même groupe chez Mandiant"
+        },
+        {
+          "sigle": "FSB",
+          "definition": "Service fédéral de sécurité de la Fédération de Russie"
+        },
+        {
+          "sigle": "Entra ID",
+          "definition": "Service Microsoft de gestion des identités et des connexions dans le cloud"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "COLD RELIC: A Case Study in Impersonation and Compromise",
+          "site": "Google Threat Intelligence (Mandiant)",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/cold-relic-a-case-study-in-impersonation-and-compromise/",
+          "date": "2026-11-17",
+          "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
+        },
+        {
+          "titre": "Russian COLD RELIC Hackers Use Stolen Google Workspace Data to Breach Second U.S. Organization",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/russian-cold-relic-hackers-use-stolen.html",
+          "date": "2026-11-18",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLbxlzqi-uBPlDXGecxrfXQ8kZLpAKsDO5c7KmTTyYyNQQE6bdI0TqT7Rk_JrKRie2pMB_xrLRKy1Cksp1GYHfUGHXz7UGg5nWOAQmPmiRKoUJkMCHrMvW7A72W9x7_I7KESMQmJLQVrJth_Ozj7i1nF7IPB4W_WV-NQyy0afEMgGVbGdaSNfIjolqtC4-/s1700-nu-rw-lo-l85-e365/cloud.jpg"
+        },
+        {
+          "titre": "Russian APT Poses as Employee of Hacked Firm to Breach Another US Organization",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/russian-apt-poses-as-employee-of-hacked-firm-to-breach-another-us-organization/",
+          "date": "2026-11-18",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/09/Russian-hacking.jpeg"
+        },
+        {
+          "titre": "Russian cyber-espionage group used stolen cloud data to hack into organizations, Google says",
+          "site": "The Record",
+          "url": "https://therecord.media/russia-cyber-espionage-google",
+          "date": "2026-11-18",
+          "image": "https://cms.therecord.media/uploads/sajad_nori_21m_Jd5_NUGZU_unsplash_45dc9b8a8b.jpg"
         }
       ]
     },
@@ -443,6 +1294,183 @@
           "url": "https://www.rapid7.com/blog/post/tr-self-hosted-ai-renting-compute-exposed-servers",
           "date": "2026-11-18",
           "image": "https://www.rapid7.com/cdn/images/blt77f5564b49102b80/6abfb804cd0bd934c1d4e56b/Copy_of_Rapid7_intelligence_report_template.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-18-scattered-spider-buchanan-sms",
+      "title": "Scattered Spider : six ans de prison pour un pirate britannique, des SMS piégés aux salariés puis 11,6 millions de dollars de cryptomonnaies volés",
+      "created": "2026-11-18T10:15:00+00:00",
+      "updated": "2026-11-18T15:10:00+00:00",
+      "version": 3,
+      "resume": "Tyler Robert Buchanan, pirate britannique lié à Scattered Spider, est condamné à six ans de prison ; des salariés étaient ciblés par SMS, puis des cryptomonnaies volées pour plus de 11,6 millions de dollars [1, 2, 3].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Centaines de SMS aux salariés, au nom de leur employeur ou d'un prestataire informatique → liens vers de fausses pages imitant des sites professionnels [1, 2]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Identifiants saisis sur les fausses pages → identifiants professionnels compromis, publiés dans un canal Telegram géré par Buchanan et un complice [1, 2]."
+        },
+        {
+          "etape": "Intrusion dans les entreprises",
+          "texte": "Connexion aux comptes d'employés avec les identifiants volés → informations confidentielles extraites, servant à repérer les portefeuilles de cryptomonnaies de particuliers [2, 3]."
+        },
+        {
+          "etape": "Détournement de numéros",
+          "texte": "Numéros de téléphone des victimes transférés vers des appareils des attaquants → double authentification contournée [1, 2]."
+        },
+        {
+          "etape": "Vol de cryptomonnaies",
+          "texte": "Comptes et portefeuilles compromis → au moins 11,6 millions de dollars de cryptomonnaies volés à des particuliers aux États-Unis [1, 2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Scattered Spider)",
+            "note": ""
+          },
+          {
+            "id": "sal",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Salariés d'entreprises",
+            "note": "SMS piégés"
+          },
+          {
+            "id": "fp",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Fausses pages professionnelles",
+            "note": "Identifiants saisis"
+          },
+          {
+            "id": "tg",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Canal Telegram",
+            "note": "Identifiants publiés"
+          },
+          {
+            "id": "ent",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Systèmes d'entreprises",
+            "note": "Informations extraites"
+          },
+          {
+            "id": "tel",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Numéros de téléphone",
+            "note": "Transférés"
+          },
+          {
+            "id": "wal",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Comptes et portefeuilles",
+            "note": "11,6 millions de dollars"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sal",
+            "etape": 1,
+            "texte": "SMS au nom de l'employeur"
+          },
+          {
+            "de": "sal",
+            "vers": "fp",
+            "etape": 2,
+            "texte": "Identifiants saisis"
+          },
+          {
+            "de": "fp",
+            "vers": "tg",
+            "etape": 2,
+            "texte": "Identifiants publiés"
+          },
+          {
+            "de": "att",
+            "vers": "ent",
+            "etape": 3,
+            "texte": "Connexion aux comptes d'employés"
+          },
+          {
+            "de": "att",
+            "vers": "tel",
+            "etape": 4,
+            "texte": "Numéros transférés vers leurs appareils"
+          },
+          {
+            "de": "att",
+            "vers": "wal",
+            "etape": 5,
+            "texte": "Cryptomonnaies volées"
+          }
+        ]
+      },
+      "limites": "Les sources ne détaillent pas le rôle de Buchanan à chaque étape, au-delà de la gestion du canal Telegram, ni les dommages subis par chaque entreprise visée [1, 2, 3].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Scattered Spider ; Tyler Robert Buchanan, actif de septembre 2021 à avril 2023, condamné à six ans ; Noah Michael Urban, condamné à dix ans [1]",
+        "Autres condamnés : Ahmed Hossam Eldin Elbadawy et Evans Onyeaka Osiebo, 45 mois chacun ; Joel Martin Evans, deux ans [2]",
+        "Selon le FBI, le groupe recourt aussi à l'ingénierie sociale et au bombardement de notifications d'authentification multifacteur [1]",
+        "Buchanan arrêté à l'aéroport de Palma, en Espagne, en juin 2024 ; groupe associé à l'attaque par rançongiciel contre MGM Resorts [3]"
+      ],
+      "cibles": [
+        "Salariés des télécommunications, technologies, divertissement, services informatiques, externalisation de processus métiers et fournisseurs de communications dans le cloud [1]",
+        "Particuliers détenteurs de cryptomonnaies aux États-Unis et prestataires de cryptomonnaies [1, 2]",
+        "Victimes visées citées dans l'affaire : Coinbase, Twilio, Mailchimp et LastPass [3]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SMS",
+          "definition": "Message texte envoyé sur un téléphone mobile"
+        },
+        {
+          "sigle": "SIM",
+          "definition": "Carte qui associe un numéro de téléphone à un appareil"
+        },
+        {
+          "sigle": "FBI",
+          "definition": "Police fédérale américaine"
+        },
+        {
+          "sigle": "MGM",
+          "definition": "Nom de l'entreprise MGM Resorts, géant des casinos"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Scattered Spider : un pirate britannique condamné à six ans",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/scattered-spider-un-pirate-britannique-condamne-a-six-ans/",
+          "date": "2026-11-18",
+          "image": "https://www.zataz.com/wp-content/uploads/spider_justice.jpg"
+        },
+        {
+          "titre": "Last of Five Defendants Sentenced in US Scattered Spider Hacking Case",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/last-of-five-defendants-sentenced-in-us-scattered-spider-hacking-case/",
+          "date": "2026-11-18",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/03/hacker-prison-sentenced.jpeg"
+        },
+        {
+          "titre": "British hacker gets 6 year sentence for $11.6M crypto theft scheme",
+          "site": "The Record",
+          "url": "https://therecord.media/british-hacker-gets-six-year-sentence-scattered-spider",
+          "date": "2026-11-18",
+          "image": "https://cms.therecord.media/uploads/jail_aa9e09fa90.jpg"
         }
       ]
     },
@@ -737,16 +1765,363 @@
     },
     {
       "schema": 3,
-      "id": "2026-11-18-apache-roller-cve-2026-129448",
-      "title": "Apache Roller : la faille de désérialisation CVE-2026-129448 exploitée pour exécuter du code sur des serveurs de blogs",
-      "created": "2026-11-18T11:10:00+00:00",
-      "updated": "2026-11-18T20:30:00+00:00",
-      "version": 2,
-      "resume": "Apache a corrigé une faille critique de Roller, plateforme de blogs écrite en Java, que des attaquants exploitent pour exécuter du code sur les serveurs vulnérables [1, 2].",
+      "id": "2026-11-17-puppet-enterprise-cve-2026-115731-kev",
+      "title": "Puppet Enterprise : la faille de désérialisation CVE-2026-115731 exploitée, ajoutée au catalogue de la CISA",
+      "created": "2026-11-17T21:30:00+00:00",
+      "updated": "2026-11-18T11:10:00+00:00",
+      "version": 3,
+      "resume": "La CISA a ajouté à son catalogue des failles exploitées CVE-2026-115731, une désérialisation de données non fiables dans Perforce Puppet Enterprise, sur la base de preuves d'exploitation active [1]. Perforce l'avait corrigée le 3 novembre [3, 4] ; son exploitation est signalée le 4 novembre [4].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Requête envoyée sans authentification au point d'accès XML-RPC, qui la désérialise avant d'authentifier le demandeur → code exécuté à distance [1, 2]."
+          "texte": "Non précisé ; un utilisateur de Reddit dit avoir trouvé une autorité de certification gravement mal configurée dans son parc [3]."
+        },
+        {
+          "etape": "Obtention d'un certificat",
+          "texte": "Possible sans authentification si l'autorité de certification de Puppet signe automatiquement les demandes sans vérification forte [4]."
+        },
+        {
+          "etape": "Exécution de code",
+          "texte": "Rapport piégé envoyé par un client muni d'un certificat d'agent signé → code exécuté sur le serveur Puppet avec les droits du compte de service [2, 3, 4]."
+        },
+        {
+          "etape": "Impact possible",
+          "texte": "Selon Perforce : clé de signature des certificats exposée, certificats de confiance émis, logiciels et configurations des machines gérées modifiés [4]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "pup",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur Puppet",
+            "note": "Clé de signature exposée"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines gérées par Puppet",
+            "note": "Configurations modifiables"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pup",
+            "etape": 3,
+            "texte": "Rapport piégé, exécution de code"
+          },
+          {
+            "de": "pup",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Logiciels et configurations distribués modifiables"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent ni qui exploite la faille, ni contre qui [1, 2] ; aucun détail sur la manière dont elle est exploitée n'était disponible selon The Hacker News [3].",
+      "cves": [
+        {
+          "id": "CVE-2026-115731",
+          "explication": "Puppet Server et Puppet Enterprise : désérialisation dans le traitement des rapports, exécution de code sur le serveur par un client certifié, gravité 9,9 [2] ou 9,4 sur 10 [3]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Agences fédérales civiles américaines, tenues d'appliquer les correctifs au plus tard le 1er décembre 2026 [1, 3]",
+        "Utilisateurs d'OpenVox, aussi touché par la faille ; une preuve de concept le visant a été publiée [4]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CISA Adds One Known Exploited Vulnerability to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/17/cisa-adds-one-known-exploited-vulnerability-catalog",
+          "date": "2026-11-17"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-115731",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115731"
+        },
+        {
+          "titre": "Hackers Exploiting Critical Puppet RCE Flaw Affecting Enterprise Management Servers",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploiting-critical-puppet-rce.html",
+          "date": "2026-11-18",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoFKMFLPbzyM7RGi89XdpVFUfFqLH2C0QnAIyZfTSZIkvQNT8jhFEdMdW3D1qPXE0MjtV-q8fM1Alicz0wEuNJ6fnIjOs3BY8D7ABBRWNqPg6NGz9FjhbSQhapwUDZPDyg3kJEy9CZeUwbcmZ3N5nCU8bH6bkCo4BgLfhlE3R3AdDi9CvLVgjqlMW42Pm2/s320/puppet.jpg"
+        },
+        {
+          "titre": "Critical Perforce Puppet RCE Exploited in Attacks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/critical-perforce-puppet-rce-exploited-in-attacks/",
+          "date": "2026-11-18",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/cyberattack-vulnerability-exploited.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-17-uber-prestataire-permis-conduire",
+      "title": "Uber : des identifiants volés chez un prestataire exposent les données de permis de conduire de près de 150 000 personnes",
+      "created": "2026-11-17T02:07:18+00:00",
+      "updated": "2026-11-18T11:10:00+00:00",
+      "version": 2,
+      "resume": "Uber a signalé une fuite exposant les noms et permis de conduire de 149 346 personnes aux États-Unis : des identifiants internes volés, ceux d'un prestataire tiers, ont servi à accéder au compte d'Uber [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Identifiants internes d'un prestataire tiers volés, selon la notification reçue par Uber le 9 octobre → accès au compte d'Uber [1]."
+        },
+        {
+          "etape": "Absence d'alerte",
+          "texte": "Utilisation d'identifiants valides → aucune alerte déclenchée [1, 2]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Dans un stockage cloud créé par Uber pour le travail du prestataire : images de permis consultées, données extraites (noms, adresses, dates de naissance, numéros de permis) [1, 2]."
+        },
+        {
+          "etape": "Réaction d'Uber",
+          "texte": "Après la notification, connexions de données avec le prestataire coupées, identifiants associés supprimés ou renouvelés [2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "pr",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Prestataire tiers d'Uber",
+            "note": "Identifiants volés"
+          },
+          {
+            "id": "st",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Stockage cloud d'Uber",
+            "note": "Permis de conduire"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pr",
+            "etape": 1,
+            "texte": "Vol d'identifiants internes"
+          },
+          {
+            "de": "pr",
+            "vers": "st",
+            "etape": 1,
+            "texte": "Accès au compte d'Uber avec des identifiants valides"
+          },
+          {
+            "de": "st",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Images consultées, données textuelles extraites"
+          }
+        ]
+      },
+      "limites": "Uber n'a pas confirmé le nom du prestataire [1, 2] ; l'incident est relié à Fireworks [1, 2]. Les sources ne disent pas comment les identifiants ont été volés [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non nommé par la source [1]"
+      ],
+      "cibles": [
+        "Uber : 149 346 personnes aux États-Unis, incident signalé aux régulateurs de plusieurs États [1]",
+        "Selon Uber, les identifiants compromis du prestataire ne donnaient accès à aucun autre de ses systèmes [1]",
+        "Notion et Cursor, clients de Fireworks, ont averti avoir aussi été touchés par l'incident chez Fireworks [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Uber says nearly 150,000 impacted by third-party breach",
+          "site": "The Record",
+          "url": "https://therecord.media/uber-says-150000-impacted-third-party-breach",
+          "date": "2026-11-18",
+          "image": "https://cms.therecord.media/uploads/uber_2_dfaed63c24.jpg"
+        },
+        {
+          "titre": "Uber : 149 346 personnes touchées par une fuite",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/uber-149-346-personnes-touchees-par-une-fuite/",
+          "date": "2026-11-18",
+          "image": "https://www.zataz.com/wp-content/uploads/urber_lea_ia.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-16-douanes-lituaniennes-portail-bap",
+      "title": "Douanes lituaniennes : le portail d'accès BAP fermé après une cyberattaque, fuite de données possible",
+      "created": "2026-11-16T15:12:00+00:00",
+      "updated": "2026-11-18T11:10:00+00:00",
+      "version": 2,
+      "resume": "Une attaque détectée le 10 novembre a conduit les douanes lituaniennes à fermer temporairement leur portail BAP [1, 2]. Selon le chef des douanes, plusieurs centaines de particuliers et d'entreprises pourraient être concernés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Selon le chef des douanes, les pirates ont peut-être exploité une fonction technique mal sécurisée [1]. L'enquête a confirmé un accès non autorisé au portail BAP [1, 2]."
+        },
+        {
+          "etape": "Tentative d'extension",
+          "texte": "Selon les premières constatations, les attaquants ont tenté d'accéder à d'autres systèmes gouvernementaux contenant des informations plus sensibles [1, 2]."
+        },
+        {
+          "etape": "Données exposées",
+          "texte": "Possible fuite touchant les utilisateurs connectés les 9 et 10 novembre [1, 2] : noms, coordonnées postales, téléphones, adresses électroniques, identifiants personnels lituaniens [2]."
+        },
+        {
+          "etape": "Impact",
+          "texte": "Fermeture temporaire du portail par les douanes → accès perturbé à plusieurs plateformes douanières de l'Union européenne [1, 2]. Le système ICS2 de la Commission européenne est touché [1]."
+        },
+        {
+          "etape": "Rétablissement partiel",
+          "texte": "Certaines fonctions rendues accessibles via le portail électronique du gouvernement lituanien ; authentification par certificat numérique encore indisponible [2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "bap",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Portail BAP des douanes",
+            "note": "Accès non autorisé"
+          },
+          {
+            "id": "gov",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Autres systèmes gouvernementaux",
+            "note": "Tentative d'accès"
+          },
+          {
+            "id": "ue",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateformes douanières européennes",
+            "note": "Accès perturbé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "bap",
+            "etape": 1,
+            "texte": "Accès non autorisé, vecteur non confirmé"
+          },
+          {
+            "de": "bap",
+            "vers": "gov",
+            "etape": 2,
+            "texte": "Tentative d'accès à des systèmes plus sensibles"
+          },
+          {
+            "de": "bap",
+            "vers": "ue",
+            "etape": 4,
+            "texte": "Portail fermé, accès aux plateformes perturbé"
+          }
+        ]
+      },
+      "limites": "Les autorités n'ont pas identifié les attaquants ni divulgué la faille utilisée [1]. Aucun vol de données n'est confirmé et l'issue des tentatives d'extension n'est pas précisée [2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié par les autorités [1]"
+      ],
+      "cibles": [
+        "Douanes lituaniennes [1]",
+        "Plusieurs centaines de particuliers et d'entreprises, pour la plupart établis en Lituanie, selon le chef des douanes [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "BAP",
+          "definition": "Nom du principal portail de gestion des utilisateurs des douanes lituaniennes"
+        },
+        {
+          "sigle": "ICS2",
+          "definition": "Import Control System 2 : collecte les informations sur les marchandises entrant dans l'Union européenne"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Lithuanian customs agency restores services after cyberattack, possible data breach",
+          "site": "The Record",
+          "url": "https://therecord.media/lithuania-customs-agency-cyberattack",
+          "date": "2026-11-16",
+          "image": "https://cms.therecord.media/uploads/lithuanian_customs_vehicle_a3900e01a6.jpg"
+        },
+        {
+          "titre": "Cyberattaque contre les douanes lituaniennes",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/cyberattaque-contre-les-douanes-lituaniennes/",
+          "date": "2026-11-18",
+          "image": "https://www.zataz.com/wp-content/uploads/douanes_lith.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-09-sega-arara-newsletter",
+      "title": "ARARA : fuite chez le prestataire d'e-mailing, les adresses d'abonnés SEGA et d'usagers de la ville d'Osaka exposées",
+      "created": "2026-11-09T23:10:00+00:00",
+      "updated": "2026-11-18T11:10:00+00:00",
+      "version": 3,
+      "resume": "Le prestataire d'e-mailing ARARA a subi une violation exposant 77 millions d'adresses de près de 380 clients [1] ou près de 400 [2, 3]. SEGA compte 2,2 millions d'adresses exposées [1], la ville d'Osaka plus d'un million [2] ou environ un million [3].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Une vulnérabilité de serveur web et des problèmes de l'environnement système d'ARARA ont contribué à l'incident ; la méthode d'intrusion exacte reste en cours d'investigation [1]."
+        },
+        {
+          "etape": "Compromission du service",
+          "texte": "Compromission du service de distribution d'e-mails d'ARARA → 77 millions d'adresses exposées, de près de 380 clients [1] ou près de 400 [2, 3]."
+        },
+        {
+          "etape": "Envoi d'e-mails frauduleux",
+          "texte": "Utilisation du service d'envoi → plus de 7 millions d'e-mails se faisant passer pour des sociétés de cartes de crédit [1, 3] et des institutions financières [2, 3]."
+        },
+        {
+          "etape": "Exposition chez SEGA",
+          "texte": "Adresses e-mail des abonnés aux newsletters de SEGA exposées → 2,2 millions d'adresses et 92 300 enregistrements au contenu à déterminer [1]."
+        },
+        {
+          "etape": "Exposition à Osaka",
+          "texte": "Le service ARARA est utilisé par TKC, qui maintient la plateforme de services administratifs en ligne d'Osaka → plus d'un million d'adresses e-mail exposées [2]."
         }
       ],
       "parcours": {
@@ -762,8 +2137,29 @@
             "id": "srv",
             "type": "serveur",
             "zone": "victime",
-            "nom": "Serveur Apache Roller",
-            "note": "Code exécuté"
+            "nom": "Serveur web",
+            "note": "Vulnérabilité citée"
+          },
+          {
+            "id": "mail",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Service d'envoi d'e-mails ARARA",
+            "note": "77 millions d'adresses"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Adresses des abonnés SEGA",
+            "note": "2,2 millions"
+          },
+          {
+            "id": "osa",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Adresses e-mail d'Osaka",
+            "note": "Plus d'un million"
           }
         ],
         "liens": [
@@ -771,520 +2167,114 @@
             "de": "att",
             "vers": "srv",
             "etape": 1,
-            "texte": "Requête XML-RPC piégée sans authentification"
-          }
-        ]
-      },
-      "limites": "Apache ne donne ni les auteurs, ni les victimes, ni le nombre de serveurs compromis [1], ni la manière dont la faille est exploitée [2].",
-      "cves": [
-        {
-          "id": "CVE-2026-129448",
-          "explication": "Apache Roller 4.0.0 à 6.1.4 : désérialisation non sécurisée via XML-RPC, exécution de code à distance sans authentification, score 9,8 sur 10 ; corrigée en 6.1.6, identique à CVE-2026-82384 [1, 2]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Serveurs Apache Roller vulnérables ; désactiver XML-RPC dans l'administration ne suffit pas sur les anciennes versions [1, 2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "XML-RPC",
-          "definition": "Protocole d'appel de fonctions à distance, avec des messages au format XML"
-        },
-        {
-          "sigle": "XML",
-          "definition": "eXtensible Markup Language : format de données structuré par balises"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Apache warns of Roller RCE vulnerability exploited in attacks",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/apache-warns-of-roller-rce-vulnerability-exploited-in-attacks/",
-          "date": "2026-11-18",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/04/17/Apache.jpg"
-        },
-        {
-          "titre": "Critical Apache Roller RCE Flaw Under Active Exploitation, No Authentication Required",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/critical-apache-roller-rce-flaw-under.html",
-          "date": "2026-11-18"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-18-scattered-spider-buchanan-sms",
-      "title": "Scattered Spider : six ans de prison pour un pirate britannique, des SMS piégés aux salariés puis 11,6 millions de dollars de cryptomonnaies volés",
-      "created": "2026-11-18T10:15:00+00:00",
-      "updated": "2026-11-18T15:10:00+00:00",
-      "version": 3,
-      "resume": "Tyler Robert Buchanan, pirate britannique lié à Scattered Spider, est condamné à six ans de prison ; des salariés étaient ciblés par SMS, puis des cryptomonnaies volées pour plus de 11,6 millions de dollars [1, 2, 3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Centaines de SMS aux salariés, au nom de leur employeur ou d'un prestataire informatique → liens vers de fausses pages imitant des sites professionnels [1, 2]."
-        },
-        {
-          "etape": "Vol d'identifiants",
-          "texte": "Identifiants saisis sur les fausses pages → identifiants professionnels compromis, publiés dans un canal Telegram géré par Buchanan et un complice [1, 2]."
-        },
-        {
-          "etape": "Intrusion dans les entreprises",
-          "texte": "Connexion aux comptes d'employés avec les identifiants volés → informations confidentielles extraites, servant à repérer les portefeuilles de cryptomonnaies de particuliers [2, 3]."
-        },
-        {
-          "etape": "Détournement de numéros",
-          "texte": "Numéros de téléphone des victimes transférés vers des appareils des attaquants → double authentification contournée [1, 2]."
-        },
-        {
-          "etape": "Vol de cryptomonnaies",
-          "texte": "Comptes et portefeuilles compromis → au moins 11,6 millions de dollars de cryptomonnaies volés à des particuliers aux États-Unis [1, 2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (Scattered Spider)",
-            "note": ""
-          },
-          {
-            "id": "sal",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Salariés d'entreprises",
-            "note": "SMS piégés"
-          },
-          {
-            "id": "fp",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Fausses pages professionnelles",
-            "note": "Identifiants saisis"
-          },
-          {
-            "id": "tg",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Canal Telegram",
-            "note": "Identifiants publiés"
-          },
-          {
-            "id": "ent",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Systèmes d'entreprises",
-            "note": "Informations extraites"
-          },
-          {
-            "id": "tel",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Numéros de téléphone",
-            "note": "Transférés"
-          },
-          {
-            "id": "wal",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Comptes et portefeuilles",
-            "note": "11,6 millions de dollars"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "sal",
-            "etape": 1,
-            "texte": "SMS au nom de l'employeur"
-          },
-          {
-            "de": "sal",
-            "vers": "fp",
-            "etape": 2,
-            "texte": "Identifiants saisis"
-          },
-          {
-            "de": "fp",
-            "vers": "tg",
-            "etape": 2,
-            "texte": "Identifiants publiés"
+            "texte": "Vulnérabilité de serveur web citée"
           },
           {
             "de": "att",
-            "vers": "ent",
+            "vers": "mail",
+            "etape": 2,
+            "texte": "Compromission du service d'envoi"
+          },
+          {
+            "de": "att",
+            "vers": "mail",
             "etape": 3,
-            "texte": "Connexion aux comptes d'employés"
+            "texte": "Plus de 7 millions d'e-mails frauduleux envoyés"
           },
           {
-            "de": "att",
-            "vers": "tel",
+            "de": "mail",
+            "vers": "don",
             "etape": 4,
-            "texte": "Numéros transférés vers leurs appareils"
+            "texte": "Adresses des abonnés SEGA exposées"
           },
           {
-            "de": "att",
-            "vers": "wal",
+            "de": "mail",
+            "vers": "osa",
             "etape": 5,
-            "texte": "Cryptomonnaies volées"
+            "texte": "Adresses de la plateforme d'Osaka exposées"
           }
         ]
       },
-      "limites": "Les sources ne détaillent pas le rôle de Buchanan à chaque étape, au-delà de la gestion du canal Telegram, ni les dommages subis par chaque entreprise visée [1, 2, 3].",
+      "limites": "Méthode d'intrusion, auteur, calendrier et ordre des étapes non établis [1]. Le 2 novembre est la date de divulgation selon [1], celle de l'attaque selon [2, 3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Scattered Spider ; Tyler Robert Buchanan, actif de septembre 2021 à avril 2023, condamné à six ans ; Noah Michael Urban, condamné à dix ans [1]",
-        "Autres condamnés : Ahmed Hossam Eldin Elbadawy et Evans Onyeaka Osiebo, 45 mois chacun ; Joel Martin Evans, deux ans [2]",
-        "Selon le FBI, le groupe recourt aussi à l'ingénierie sociale et au bombardement de notifications d'authentification multifacteur [1]",
-        "Buchanan arrêté à l'aéroport de Palma, en Espagne, en juin 2024 ; groupe associé à l'attaque par rançongiciel contre MGM Resorts [3]"
+        "Non mentionné par la source [1]"
       ],
       "cibles": [
-        "Salariés des télécommunications, technologies, divertissement, services informatiques, externalisation de processus métiers et fournisseurs de communications dans le cloud [1]",
-        "Particuliers détenteurs de cryptomonnaies aux États-Unis et prestataires de cryptomonnaies [1, 2]",
-        "Victimes visées citées dans l'affaire : Coinbase, Twilio, Mailchimp et LastPass [3]"
+        "ARARA (e-mailing), SEGA (jeux vidéo), MOS Burger, Shochiku Multiplex Theatres, TKC, IIJmio [1]",
+        "Ville d'Osaka : personnes ayant reçu un e-mail de sa plateforme de services administratifs entre juillet 2026 et le 31 octobre [2]"
       ],
       "abreviations": [
         {
-          "sigle": "SMS",
-          "definition": "Message texte envoyé sur un téléphone mobile"
+          "sigle": "ARARA",
+          "definition": "Nom du prestataire d'e-mailing compromis"
         },
         {
-          "sigle": "SIM",
-          "definition": "Carte qui associe un numéro de téléphone à un appareil"
+          "sigle": "SEGA",
+          "definition": "Éditeur japonais de jeux vidéo, client d'ARARA"
         },
         {
-          "sigle": "FBI",
-          "definition": "Police fédérale américaine"
+          "sigle": "MOS",
+          "definition": "Début du nom de MOS Burger, client d'ARARA"
         },
         {
-          "sigle": "MGM",
-          "definition": "Nom de l'entreprise MGM Resorts, géant des casinos"
+          "sigle": "TKC",
+          "definition": "Société cliente d'ARARA, chargée de maintenir la plateforme administrative d'Osaka"
         }
       ],
       "sources": [
         {
-          "titre": "Scattered Spider : un pirate britannique condamné à six ans",
-          "site": "ZATAZ",
-          "url": "https://www.zataz.com/scattered-spider-un-pirate-britannique-condamne-a-six-ans/",
-          "date": "2026-11-18",
-          "image": "https://www.zataz.com/wp-content/uploads/spider_justice.jpg"
-        },
-        {
-          "titre": "Last of Five Defendants Sentenced in US Scattered Spider Hacking Case",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/last-of-five-defendants-sentenced-in-us-scattered-spider-hacking-case/",
-          "date": "2026-11-18",
-          "image": "https://www.securityweek.com/wp-content/uploads/2024/03/hacker-prison-sentenced.jpeg"
-        },
-        {
-          "titre": "British hacker gets 6 year sentence for $11.6M crypto theft scheme",
-          "site": "The Record",
-          "url": "https://therecord.media/british-hacker-gets-six-year-sentence-scattered-spider",
-          "date": "2026-11-18",
-          "image": "https://cms.therecord.media/uploads/jail_aa9e09fa90.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-18-pypi-agent-framework-voleur-identifiants",
-      "title": "Paquet PyPI agent-framework de Microsoft : deux versions piégées volent identifiants et jetons cloud",
-      "created": "2026-11-18T08:15:00+00:00",
-      "updated": "2026-11-18T17:07:50+00:00",
-      "version": 3,
-      "resume": "Des attaquants ont publié le 17 novembre 2026 deux versions piégées, 1.26.1 et 1.26.2, du paquet PyPI agent-framework de Microsoft, qui volent identifiants et jetons cloud [1, 2, 3]. Les deux versions ont été mises en quarantaine et Microsoft a ouvert une enquête [2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Moyen d'obtenir le droit de publication non établi [1, 2, 3] ; selon OX Security, détournement de la fabrication des paquets → code malveillant ajouté [1]."
-        },
-        {
-          "etape": "Seconde publication",
-          "texte": "Après la quarantaine de la 1.26.1, publication de la 1.26.2 → accès à la publication conservé, quarantaine environ 8 minutes plus tard [3]."
-        },
-        {
-          "etape": "Exécution automatique",
-          "texte": "Fichier .pth déposé dans site-packages → voleur lancé à chaque démarrage de Python, même sans import du paquet [1, 2, 3]."
-        },
-        {
-          "etape": "Vol d'identifiants",
-          "texte": "Collecte des variables d'environnement, fichiers d'identifiants (Azure CLI, .npmrc, .git-credentials, Docker) et métadonnées de l'instance Azure ; la 1.26.2 vise aussi GitHub Actions [1, 2]."
-        },
-        {
-          "etape": "Nouveaux jetons",
-          "texte": "Le code demande des jetons neufs à Azure DevOps et à l'identité managée Azure [1, 2, 3] ; selon SafeDep, la rotation des secrets stockés ne les couvre pas [1]."
-        },
-        {
-          "etape": "Exfiltration",
-          "texte": "Données compressées, encodées en Base64 puis envoyées en HTTPS vers une adresse webhook.site codée en dur [1], la même pour les deux versions [3]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (non identifié)",
-            "note": ""
-          },
-          {
-            "id": "pypi",
-            "type": "cloud",
-            "zone": "internet",
-            "nom": "Paquet PyPI agent-framework",
-            "note": "Versions 1.26.1 et 1.26.2"
-          },
-          {
-            "id": "pc",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Machines installant le paquet",
-            "note": "Fichier .pth"
-          },
-          {
-            "id": "az",
-            "type": "cloud",
-            "zone": "victime",
-            "nom": "Azure et Azure DevOps",
-            "note": "Jetons neufs demandés"
-          },
-          {
-            "id": "wh",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Adresse webhook.site",
-            "note": "Réception des données"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "pypi",
-            "etape": 1,
-            "texte": "Versions piégées publiées"
-          },
-          {
-            "de": "pypi",
-            "vers": "pc",
-            "etape": 3,
-            "texte": "Installation, voleur lancé au démarrage de Python"
-          },
-          {
-            "de": "pc",
-            "vers": "az",
-            "etape": 5,
-            "texte": "Demande de nouveaux jetons"
-          },
-          {
-            "de": "pc",
-            "vers": "wh",
-            "etape": 6,
-            "texte": "Envoi des données volées"
-          }
-        ]
-      },
-      "limites": "Les sources ne disent pas comment le droit de publier a été obtenu, ni combien de machines sont touchées [1, 2, 3]. Le rôle du compte « vibiret », créé le jour même, n'est pas confirmé [2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non nommé par les sources [1, 3] ; TeamPCP y est cité pour la compromission d'un autre paquet Microsoft en mai 2026 [1]"
-      ],
-      "cibles": [
-        "Utilisateurs du paquet agent-framework : environ 190 000 téléchargements par mois [1], environ 200 000 selon BleepingComputer [3]",
-        "Environnements Azure, Azure DevOps et GitHub Actions [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "CLI",
-          "definition": "Command Line Interface : outil en ligne de commande"
-        },
-        {
-          "sigle": "OIDC",
-          "definition": "OpenID Connect : protocole de jetons d'identité entre services"
-        },
-        {
-          "sigle": "HTTPS",
-          "definition": "Protocole web chiffré"
-        },
-        {
-          "sigle": "OX",
-          "definition": "Partie du nom de l'éditeur de sécurité OX Security"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Attackers Compromise Microsoft's Agent Framework PyPI Package to Steal Cloud Credentials",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/attackers-compromise-microsofts-agent.html",
-          "date": "2026-11-18",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_LozO7RAz13Jr3eqWHIjlAF6M0Cs-mJXX2mKUqU0TxVS02piD1na92TAZjICmeySD4z0zS-Y_BFvceERBdk-UZvV1DUh1LGN6wK-T-yt_TROJ5fcuvROu807jqESQo93CFP3faBbReKMZQxvgYOAGl_vS2VzfO67O24NdAgh6d9jMO2mTSy2jaNJMPD9T/s1700-nu-rw-lo-l85-e365/ms-python.jpg"
-        },
-        {
-          "titre": "Microsoft Agent Framework Releases Poisoned With Credential Stealer",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/microsoft-agent-framework-releases-poisoned-with-credential-stealer/",
-          "date": "2026-11-18",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supply-chain-attack.jpeg"
-        },
-        {
-          "titre": "Microsoft’s Agent Framework PyPI package compromised to steal credentials",
+          "titre": "SEGA newsletter data breach exposes 2.2 million email addresses",
           "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/microsofts-agent-framework-pypi-package-compromised-to-steal-credentials/",
+          "url": "https://www.bleepingcomputer.com/news/security/sega-newsletter-data-breach-exposes-22-million-email-addresses/",
+          "date": "2026-11-09",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/09/SEGA.jpg"
+        },
+        {
+          "titre": "City of Osaka warns of data breach impacting 1 million as Japan reels from dozens of cyber incidents",
+          "site": "The Record",
+          "url": "https://therecord.media/city-of-osaka-japan-email-data-breach",
+          "date": "2026-11-13",
+          "image": "https://cms.therecord.media/uploads/Osaka_City_Hall_2026_19ba5dd07a.jpg"
+        },
+        {
+          "titre": "Osaka exposée à une fuite massive",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/osaka-exposee-a-une-fuite-massive/",
           "date": "2026-11-18",
-          "image": "https://www.bleepstatic.com/content/hl-images/2025/03/12/Microsoft-headpic.jpg"
+          "image": "https://www.zataz.com/wp-content/uploads/japon_mail_leak.jpg"
         }
       ]
     },
     {
       "schema": 3,
-      "id": "2026-11-18-auditteam-opsagent-faux-audit",
-      "title": "AuditTeam : le rançongiciel OpsAgent présenté comme un audit, avec des « frais de conseil » réclamés aux victimes",
-      "created": "2026-11-18T08:15:00+00:00",
-      "updated": "2026-11-18T08:15:00+00:00",
-      "version": 1,
-      "resume": "Le groupe AuditTeam chiffre les fichiers de victimes dans plusieurs pays avec son outil OpsAgent, puis réclame des frais d'audit et de conseil contre un rapport de vulnérabilités ; campagne lancée en janvier 2026 [1].",
+      "id": "2026-11-17-riken-fugaku-hors-ligne",
+      "title": "RIKEN : le supercalculateur Fugaku mis hors ligne après une intrusion dans des serveurs internes, jusqu'à 4 597 utilisateurs concernés",
+      "created": "2026-11-17T21:30:00+00:00",
+      "updated": "2026-11-18T10:15:00+00:00",
+      "version": 2,
+      "resume": "Le RIKEN a mis hors ligne le supercalculateur Fugaku après une intrusion dans plusieurs serveurs internes [1, 2] ; des données de jusqu'à 4 597 utilisateurs de Fugaku et de RIKYU pourraient être concernées [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "L'enquête relie l'intrusion au tableau de bord public affichant l'état de Fugaku ; le procédé exact d'accès reste à établir [2]."
         },
         {
-          "etape": "Installation de l'implant",
-          "texte": "Chargeurs écrits en C, en .NET puis en Rust, celui en C injectant du code dans msiexec.exe → implant OpsAgent déployé [1]."
+          "etape": "Prise de contrôle",
+          "texte": "Accès à plusieurs serveurs internes du réseau d'exploitation du 10 au 13 novembre → programmes non autorisés installés sur certains d'entre eux [2]."
         },
         {
-          "etape": "Contrôle et identifiants",
-          "texte": "Implant pouvant lire l'adresse de son serveur de commande dans un dépôt GitHub, avec des fonctions de vol de jetons, Mimikatz, pass-the-hash et enregistrement des frappes [1]."
-        },
-        {
-          "etape": "Capacités de pivot",
-          "texte": "Implant capable de se relier à des agents enfants et de servir de proxy de rebond ; commandes retirées de la version Rust [1]."
-        },
-        {
-          "etape": "Neutralisation des défenses",
-          "texte": "Pilote à signature valide se faisant passer pour Beijing Jiangmin Antivirus → liste d'environ 220 processus de sécurité, sauvegarde et bases de données à arrêter [1]."
-        },
-        {
-          "etape": "Chiffrement",
-          "texte": "Fichiers chiffrés, clichés instantanés supprimés, fichiers effacés écrasés pour empêcher la récupération → note de rançon déposée [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (AuditTeam)",
-            "note": ""
-          },
-          {
-            "id": "in",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Point d'entrée inconnu",
-            "note": ""
-          },
-          {
-            "id": "pc",
-            "type": "poste",
-            "zone": "victime",
-            "nom": "Machine avec OpsAgent",
-            "note": "Fichiers chiffrés"
-          },
-          {
-            "id": "gh",
-            "type": "cloud",
-            "zone": "internet",
-            "nom": "Dépôt GitHub public",
-            "note": "Adresse du serveur"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "in",
-            "etape": 1,
-            "texte": "Accès initial non précisé"
-          },
-          {
-            "de": "in",
-            "vers": "pc",
-            "etape": 2,
-            "texte": "Chargeur installe OpsAgent"
-          },
-          {
-            "de": "pc",
-            "vers": "gh",
-            "etape": 3,
-            "texte": "Lecture possible de l'adresse du serveur de commande"
-          }
-        ]
-      },
-      "limites": "La source ne décrit ni l'accès initial, ni la persistance, ni la méthode d'exfiltration, alors que la note de rançon évoque une archive de données volées [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "AuditTeam, utilisateur du framework OpsAgent, attribué à haute confiance par les chercheurs [1]"
-      ],
-      "cibles": [
-        "Victimes observées en Chine, aux Philippines, au Sénégal, en Italie, en Finlande, à Hong Kong et en Russie, de secteurs différents [1]",
-        "Victimes revendiquées en Turquie, Thaïlande, Ukraine, Argentine, Corée du Sud, Japon et Espagne [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": ".NET",
-          "definition": "Plateforme de développement logiciel de Microsoft"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "The forced audit: how AuditTeam’s OpsAgent framework masks ransomware as consulting",
-          "site": "Securelist (Kaspersky)",
-          "url": "https://securelist.com/auditteam-opsagent-forced-audit/122031/",
-          "date": "2026-11-18",
-          "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/11/17122553/audit-team-feature.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-17-cold-relic-super-admin-usurpation",
-      "title": "COLD RELIC : l'espion russe vole un compte Super Admin, vide un espace cloud puis usurpe un employé pour toucher une seconde organisation",
-      "created": "2026-11-17T17:30:00+00:00",
-      "updated": "2026-11-18T16:30:00+00:00",
-      "version": 4,
-      "resume": "Le groupe d'espionnage russe COLD RELIC, anciennement COLDRIVER, a pénétré l'espace cloud d'une organisation américaine et en a exfiltré massivement les données, puis a usurpé l'un de ses employés pour compromettre une seconde organisation américaine [1, 2, 3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Identifiants Super Admin volés, connexion via des proxys résidentiels proches de la victime, demandes répétées de double authentification → appareil inconnu enregistré [1, 2, 3]."
+          "etape": "Déplacement dans le réseau",
+          "texte": "Tentatives de connexion à d'autres systèmes, sans succès établi par l'enquête [2]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Partage massif du lecteur cloud vers un compte mail de l'attaquant, export de tout le domaine via Google Takeout, synchronisation de la messagerie vers des clients externes [1, 2]."
+          "texte": "Coordonnées, identifiants et clés d'accès à des services extérieurs sortis ou possiblement exposés ; des clés privées SSH stockées par des utilisateurs sont à révoquer [2]."
         },
         {
-          "etape": "Effacement des traces",
-          "texte": "Journaux d'audit consultés pour vérifier la visibilité des défenseurs ; alertes de la console d'administration modifiées et supprimées pour effacer les traces de l'intrusion initiale [1]."
-        },
-        {
-          "etape": "Persistance",
-          "texte": "Clés d'accès (passkeys), codes de secours et appareils d'authentification frauduleux → accès maintenu plusieurs mois, reconnexion possible malgré la réinitialisation des mots de passe [1, 3]."
-        },
-        {
-          "etape": "Usurpation d'un employé",
-          "texte": "Faux employé de la première victime sur une messagerie chiffrée, liens piégés conçus pour voler identifiants et jetons Entra ID → identifiants d'une seconde organisation obtenus [1, 3]."
-        },
-        {
-          "etape": "Second vol de données",
-          "texte": "Entra ID servant de connexion unique à Google Workspace, nouvel appareil d'authentification enregistré pour garder l'accès, fichiers de l'utilisateur téléchargés en masse [1, 3]."
+          "etape": "Mise hors ligne",
+          "texte": "Communications suspectes repérées le 12 novembre, intrusion confirmée le 13 → exploitation de Fugaku suspendue le 14 novembre [1, 2]."
         }
       ],
       "parcours": {
@@ -1293,146 +2283,114 @@
             "id": "att",
             "type": "attaquant",
             "zone": "internet",
-            "nom": "Attaquant (COLD RELIC)",
+            "nom": "Attaquant",
             "note": ""
           },
           {
-            "id": "t1",
-            "type": "cloud",
+            "id": "tdb",
+            "type": "application",
             "zone": "victime",
-            "nom": "Espace cloud première victime",
-            "note": "Compte Super Admin"
+            "nom": "Tableau de bord public",
+            "note": "Lien établi par l'enquête"
           },
           {
-            "id": "mail",
-            "type": "messagerie",
-            "zone": "internet",
-            "nom": "Compte mail de l'attaquant",
-            "note": ""
+            "id": "srv",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Serveurs internes d'exploitation",
+            "note": "Programmes non autorisés"
           },
           {
-            "id": "emp",
-            "type": "utilisateur",
+            "id": "aut",
+            "type": "inconnu",
             "zone": "victime",
-            "nom": "Employé seconde victime",
-            "note": ""
+            "nom": "Autres systèmes",
+            "note": "Connexions tentées"
           },
           {
-            "id": "idp",
-            "type": "annuaire",
+            "id": "dat",
+            "type": "donnees",
             "zone": "victime",
-            "nom": "Entra ID seconde victime",
-            "note": "Nouvel appareil enregistré"
+            "nom": "Données des utilisateurs",
+            "note": "Fugaku et RIKYU"
           },
           {
-            "id": "t2",
-            "type": "cloud",
+            "id": "fug",
+            "type": "serveur",
             "zone": "victime",
-            "nom": "Google Workspace seconde victime",
-            "note": ""
+            "nom": "Supercalculateur Fugaku",
+            "note": "Suspendu le 14 novembre"
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "t1",
+            "vers": "tdb",
             "etape": 1,
-            "texte": "Proxys résidentiels, identifiants Super Admin, double authentification harcelée"
+            "texte": "Intrusion reliée au tableau de bord"
           },
           {
-            "de": "t1",
-            "vers": "mail",
+            "de": "tdb",
+            "vers": "srv",
             "etape": 2,
-            "texte": "Lecteur cloud partagé en masse"
+            "texte": "Accès non autorisé, programmes installés"
           },
           {
-            "de": "att",
-            "vers": "emp",
+            "de": "srv",
+            "vers": "aut",
+            "etape": 3,
+            "texte": "Tentatives de connexion"
+          },
+          {
+            "de": "srv",
+            "vers": "dat",
+            "etape": 4,
+            "texte": "Identifiants et clés exposés"
+          },
+          {
+            "de": "srv",
+            "vers": "fug",
             "etape": 5,
-            "texte": "Faux employé de la première victime, liens piégés"
-          },
-          {
-            "de": "emp",
-            "vers": "idp",
-            "etape": 5,
-            "texte": "Identifiants et jetons volés"
-          },
-          {
-            "de": "idp",
-            "vers": "t2",
-            "etape": 6,
-            "texte": "Connexion unique, fichiers téléchargés en masse"
+            "texte": "Intrusion confirmée, exploitation suspendue"
           }
         ]
       },
-      "limites": "Les sources ne précisent ni le secteur des deux victimes, ni comment les identifiants Super Admin ont été obtenus, ni les dates exactes des intrusions (fin 2025, puis 2026) [1, 2].",
+      "limites": "Le procédé exact d'accès et l'auteur ne sont pas établis publiquement ; la source ne dit pas quelles données sont effectivement sorties et lesquelles ont seulement pu être exposées [2].",
       "cves": [],
-      "mitre": [
-        "T1621 : Multi-Factor Authentication Request Generation, envoi répété de demandes de double authentification jusqu'à acceptation [1].",
-        "T1098.005 : Account Manipulation: Device Registration, enregistrement de clés d'accès et d'appareils d'authentification pour garder l'accès [1].",
-        "T1562.008 : Impair Defenses: Disable or Modify Cloud Logs, alertes de la console supprimées pour cacher l'intrusion [1].",
-        "T1567.002 : Exfiltration to Cloud Storage, fichiers partagés en masse vers un compte de l'attaquant [1].",
-        "T1114.002 : Remote Email Collection, synchronisation de la boîte de réception vers des clients de messagerie externes [1]."
-      ],
-      "acteurs": [
-        "COLD RELIC (ex-COLDRIVER, UNC4057), aussi appelé Star Blizzard, Callisto ou Gossamer Bear ; rattaché au FSB selon la justice américaine [1, 3]"
-      ],
+      "mitre": [],
+      "acteurs": [],
       "cibles": [
-        "Deux organisations américaines, la seconde atteinte via l'usurpation d'un employé de la première [1]",
-        "Employés et relations professionnelles de la première victime, visés après l'expulsion via des comptes mail usurpant des employés [3]",
-        "Cibles habituelles du groupe : responsables gouvernementaux, sous-traitants de la défense et organisations non gouvernementales en Europe et en Amérique du Nord [2]",
-        "Cibles souvent redirigées vers des pages d'hameçonnage via des sites web compromis ; nouvelles opérations observées « ce mois-ci » selon Google [4]"
+        "Centre de calcul scientifique du RIKEN, au Japon, qui exploite Fugaku [1]",
+        "Jusqu'à 4 222 utilisateurs de Fugaku (noms, adresses électroniques, identifiants) et 375 de RIKYU (noms, adresses électroniques) [2]"
       ],
       "abreviations": [
         {
-          "sigle": "COLD RELIC",
-          "definition": "Nom donné par Google à un groupe d'espionnage russe"
+          "sigle": "RIKEN",
+          "definition": "Institut de recherche japonais dont dépend le centre exploitant Fugaku"
         },
         {
-          "sigle": "COLDRIVER",
-          "definition": "Ancien nom de suivi du même groupe chez Google"
+          "sigle": "RIKYU",
+          "definition": "Second supercalculateur du RIKEN dont les utilisateurs sont concernés"
         },
         {
-          "sigle": "UNC4057",
-          "definition": "Ancien identifiant de suivi du même groupe chez Mandiant"
-        },
-        {
-          "sigle": "FSB",
-          "definition": "Service fédéral de sécurité de la Fédération de Russie"
-        },
-        {
-          "sigle": "Entra ID",
-          "definition": "Service Microsoft de gestion des identités et des connexions dans le cloud"
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole de connexion à distance chiffrée à un serveur"
         }
       ],
       "sources": [
         {
-          "titre": "COLD RELIC: A Case Study in Impersonation and Compromise",
-          "site": "Google Threat Intelligence (Mandiant)",
-          "url": "https://cloud.google.com/blog/topics/threat-intelligence/cold-relic-a-case-study-in-impersonation-and-compromise/",
+          "titre": "Japan takes Fugaku supercomputer offlline after cyberattack",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/japan-takes-fugaku-supercomputer-offlline-after-cyberattack/",
           "date": "2026-11-17",
-          "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/17/RIKEN.jpg"
         },
         {
-          "titre": "Russian COLD RELIC Hackers Use Stolen Google Workspace Data to Breach Second U.S. Organization",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/russian-cold-relic-hackers-use-stolen.html",
+          "titre": "Le Japon arrête le supercalculateur Fugaku",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/le-japon-arrete-le-supercalculateur-fugaku/",
           "date": "2026-11-18",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLbxlzqi-uBPlDXGecxrfXQ8kZLpAKsDO5c7KmTTyYyNQQE6bdI0TqT7Rk_JrKRie2pMB_xrLRKy1Cksp1GYHfUGHXz7UGg5nWOAQmPmiRKoUJkMCHrMvW7A72W9x7_I7KESMQmJLQVrJth_Ozj7i1nF7IPB4W_WV-NQyy0afEMgGVbGdaSNfIjolqtC4-/s1700-nu-rw-lo-l85-e365/cloud.jpg"
-        },
-        {
-          "titre": "Russian APT Poses as Employee of Hacked Firm to Breach Another US Organization",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/russian-apt-poses-as-employee-of-hacked-firm-to-breach-another-us-organization/",
-          "date": "2026-11-18",
-          "image": "https://www.securityweek.com/wp-content/uploads/2024/09/Russian-hacking.jpeg"
-        },
-        {
-          "titre": "Russian cyber-espionage group used stolen cloud data to hack into organizations, Google says",
-          "site": "The Record",
-          "url": "https://therecord.media/russia-cyber-espionage-google",
-          "date": "2026-11-18",
-          "image": "https://cms.therecord.media/uploads/sajad_nori_21m_Jd5_NUGZU_unsplash_45dc9b8a8b.jpg"
+          "image": "https://www.zataz.com/wp-content/uploads/Fugaku-ninja.jpg"
         }
       ]
     },
@@ -1672,6 +2630,118 @@
     },
     {
       "schema": 3,
+      "id": "2026-11-18-auditteam-opsagent-faux-audit",
+      "title": "AuditTeam : le rançongiciel OpsAgent présenté comme un audit, avec des « frais de conseil » réclamés aux victimes",
+      "created": "2026-11-18T08:15:00+00:00",
+      "updated": "2026-11-18T08:15:00+00:00",
+      "version": 1,
+      "resume": "Le groupe AuditTeam chiffre les fichiers de victimes dans plusieurs pays avec son outil OpsAgent, puis réclame des frais d'audit et de conseil contre un rapport de vulnérabilités ; campagne lancée en janvier 2026 [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Installation de l'implant",
+          "texte": "Chargeurs écrits en C, en .NET puis en Rust, celui en C injectant du code dans msiexec.exe → implant OpsAgent déployé [1]."
+        },
+        {
+          "etape": "Contrôle et identifiants",
+          "texte": "Implant pouvant lire l'adresse de son serveur de commande dans un dépôt GitHub, avec des fonctions de vol de jetons, Mimikatz, pass-the-hash et enregistrement des frappes [1]."
+        },
+        {
+          "etape": "Capacités de pivot",
+          "texte": "Implant capable de se relier à des agents enfants et de servir de proxy de rebond ; commandes retirées de la version Rust [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Pilote à signature valide se faisant passer pour Beijing Jiangmin Antivirus → liste d'environ 220 processus de sécurité, sauvegarde et bases de données à arrêter [1]."
+        },
+        {
+          "etape": "Chiffrement",
+          "texte": "Fichiers chiffrés, clichés instantanés supprimés, fichiers effacés écrasés pour empêcher la récupération → note de rançon déposée [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (AuditTeam)",
+            "note": ""
+          },
+          {
+            "id": "in",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Machine avec OpsAgent",
+            "note": "Fichiers chiffrés"
+          },
+          {
+            "id": "gh",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Dépôt GitHub public",
+            "note": "Adresse du serveur"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "in",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "in",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Chargeur installe OpsAgent"
+          },
+          {
+            "de": "pc",
+            "vers": "gh",
+            "etape": 3,
+            "texte": "Lecture possible de l'adresse du serveur de commande"
+          }
+        ]
+      },
+      "limites": "La source ne décrit ni l'accès initial, ni la persistance, ni la méthode d'exfiltration, alors que la note de rançon évoque une archive de données volées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "AuditTeam, utilisateur du framework OpsAgent, attribué à haute confiance par les chercheurs [1]"
+      ],
+      "cibles": [
+        "Victimes observées en Chine, aux Philippines, au Sénégal, en Italie, en Finlande, à Hong Kong et en Russie, de secteurs différents [1]",
+        "Victimes revendiquées en Turquie, Thaïlande, Ukraine, Argentine, Corée du Sud, Japon et Espagne [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": ".NET",
+          "definition": "Plateforme de développement logiciel de Microsoft"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "The forced audit: how AuditTeam’s OpsAgent framework masks ransomware as consulting",
+          "site": "Securelist (Kaspersky)",
+          "url": "https://securelist.com/auditteam-opsagent-forced-audit/122031/",
+          "date": "2026-11-18",
+          "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/11/17122553/audit-team-feature.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-17-docker-hub-cles-cloud-volees",
       "title": "Docker Hub : des clés cloud placées dans des images leurres volées et utilisées en quelques secondes",
       "created": "2026-11-17T22:07:55+00:00",
@@ -1774,265 +2844,6 @@
           "url": "https://www.bleepingcomputer.com/news/security/cloud-keys-leaked-in-docker-hub-images-are-stolen-within-seconds/",
           "date": "2026-11-17",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/17/Docker.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-17-riken-fugaku-hors-ligne",
-      "title": "RIKEN : le supercalculateur Fugaku mis hors ligne après une intrusion dans des serveurs internes, jusqu'à 4 597 utilisateurs concernés",
-      "created": "2026-11-17T21:30:00+00:00",
-      "updated": "2026-11-18T10:15:00+00:00",
-      "version": 2,
-      "resume": "Le RIKEN a mis hors ligne le supercalculateur Fugaku après une intrusion dans plusieurs serveurs internes [1, 2] ; des données de jusqu'à 4 597 utilisateurs de Fugaku et de RIKYU pourraient être concernées [2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "L'enquête relie l'intrusion au tableau de bord public affichant l'état de Fugaku ; le procédé exact d'accès reste à établir [2]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Accès à plusieurs serveurs internes du réseau d'exploitation du 10 au 13 novembre → programmes non autorisés installés sur certains d'entre eux [2]."
-        },
-        {
-          "etape": "Déplacement dans le réseau",
-          "texte": "Tentatives de connexion à d'autres systèmes, sans succès établi par l'enquête [2]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Coordonnées, identifiants et clés d'accès à des services extérieurs sortis ou possiblement exposés ; des clés privées SSH stockées par des utilisateurs sont à révoquer [2]."
-        },
-        {
-          "etape": "Mise hors ligne",
-          "texte": "Communications suspectes repérées le 12 novembre, intrusion confirmée le 13 → exploitation de Fugaku suspendue le 14 novembre [1, 2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "tdb",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Tableau de bord public",
-            "note": "Lien établi par l'enquête"
-          },
-          {
-            "id": "srv",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Serveurs internes d'exploitation",
-            "note": "Programmes non autorisés"
-          },
-          {
-            "id": "aut",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Autres systèmes",
-            "note": "Connexions tentées"
-          },
-          {
-            "id": "dat",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Données des utilisateurs",
-            "note": "Fugaku et RIKYU"
-          },
-          {
-            "id": "fug",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Supercalculateur Fugaku",
-            "note": "Suspendu le 14 novembre"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "tdb",
-            "etape": 1,
-            "texte": "Intrusion reliée au tableau de bord"
-          },
-          {
-            "de": "tdb",
-            "vers": "srv",
-            "etape": 2,
-            "texte": "Accès non autorisé, programmes installés"
-          },
-          {
-            "de": "srv",
-            "vers": "aut",
-            "etape": 3,
-            "texte": "Tentatives de connexion"
-          },
-          {
-            "de": "srv",
-            "vers": "dat",
-            "etape": 4,
-            "texte": "Identifiants et clés exposés"
-          },
-          {
-            "de": "srv",
-            "vers": "fug",
-            "etape": 5,
-            "texte": "Intrusion confirmée, exploitation suspendue"
-          }
-        ]
-      },
-      "limites": "Le procédé exact d'accès et l'auteur ne sont pas établis publiquement ; la source ne dit pas quelles données sont effectivement sorties et lesquelles ont seulement pu être exposées [2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Centre de calcul scientifique du RIKEN, au Japon, qui exploite Fugaku [1]",
-        "Jusqu'à 4 222 utilisateurs de Fugaku (noms, adresses électroniques, identifiants) et 375 de RIKYU (noms, adresses électroniques) [2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "RIKEN",
-          "definition": "Institut de recherche japonais dont dépend le centre exploitant Fugaku"
-        },
-        {
-          "sigle": "RIKYU",
-          "definition": "Second supercalculateur du RIKEN dont les utilisateurs sont concernés"
-        },
-        {
-          "sigle": "SSH",
-          "definition": "Secure Shell : protocole de connexion à distance chiffrée à un serveur"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Japan takes Fugaku supercomputer offlline after cyberattack",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/japan-takes-fugaku-supercomputer-offlline-after-cyberattack/",
-          "date": "2026-11-17",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/17/RIKEN.jpg"
-        },
-        {
-          "titre": "Le Japon arrête le supercalculateur Fugaku",
-          "site": "ZATAZ",
-          "url": "https://www.zataz.com/le-japon-arrete-le-supercalculateur-fugaku/",
-          "date": "2026-11-18",
-          "image": "https://www.zataz.com/wp-content/uploads/Fugaku-ninja.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-17-puppet-enterprise-cve-2026-115731-kev",
-      "title": "Puppet Enterprise : la faille de désérialisation CVE-2026-115731 exploitée, ajoutée au catalogue de la CISA",
-      "created": "2026-11-17T21:30:00+00:00",
-      "updated": "2026-11-18T11:10:00+00:00",
-      "version": 3,
-      "resume": "La CISA a ajouté à son catalogue des failles exploitées CVE-2026-115731, une désérialisation de données non fiables dans Perforce Puppet Enterprise, sur la base de preuves d'exploitation active [1]. Perforce l'avait corrigée le 3 novembre [3, 4] ; son exploitation est signalée le 4 novembre [4].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé ; un utilisateur de Reddit dit avoir trouvé une autorité de certification gravement mal configurée dans son parc [3]."
-        },
-        {
-          "etape": "Obtention d'un certificat",
-          "texte": "Possible sans authentification si l'autorité de certification de Puppet signe automatiquement les demandes sans vérification forte [4]."
-        },
-        {
-          "etape": "Exécution de code",
-          "texte": "Rapport piégé envoyé par un client muni d'un certificat d'agent signé → code exécuté sur le serveur Puppet avec les droits du compte de service [2, 3, 4]."
-        },
-        {
-          "etape": "Impact possible",
-          "texte": "Selon Perforce : clé de signature des certificats exposée, certificats de confiance émis, logiciels et configurations des machines gérées modifiés [4]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "pup",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur Puppet",
-            "note": "Clé de signature exposée"
-          },
-          {
-            "id": "pc",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Machines gérées par Puppet",
-            "note": "Configurations modifiables"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "pup",
-            "etape": 3,
-            "texte": "Rapport piégé, exécution de code"
-          },
-          {
-            "de": "pup",
-            "vers": "pc",
-            "etape": 4,
-            "texte": "Logiciels et configurations distribués modifiables"
-          }
-        ]
-      },
-      "limites": "Les sources ne disent ni qui exploite la faille, ni contre qui [1, 2] ; aucun détail sur la manière dont elle est exploitée n'était disponible selon The Hacker News [3].",
-      "cves": [
-        {
-          "id": "CVE-2026-115731",
-          "explication": "Puppet Server et Puppet Enterprise : désérialisation dans le traitement des rapports, exécution de code sur le serveur par un client certifié, gravité 9,9 [2] ou 9,4 sur 10 [3]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Agences fédérales civiles américaines, tenues d'appliquer les correctifs au plus tard le 1er décembre 2026 [1, 3]",
-        "Utilisateurs d'OpenVox, aussi touché par la faille ; une preuve de concept le visant a été publiée [4]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "CISA",
-          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "CISA Adds One Known Exploited Vulnerability to Catalog",
-          "site": "CISA Advisories",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/11/17/cisa-adds-one-known-exploited-vulnerability-catalog",
-          "date": "2026-11-17"
-        },
-        {
-          "titre": "Fiche NVD CVE-2026-115731",
-          "site": "NVD (NIST)",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115731"
-        },
-        {
-          "titre": "Hackers Exploiting Critical Puppet RCE Flaw Affecting Enterprise Management Servers",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/hackers-exploiting-critical-puppet-rce.html",
-          "date": "2026-11-18",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoFKMFLPbzyM7RGi89XdpVFUfFqLH2C0QnAIyZfTSZIkvQNT8jhFEdMdW3D1qPXE0MjtV-q8fM1Alicz0wEuNJ6fnIjOs3BY8D7ABBRWNqPg6NGz9FjhbSQhapwUDZPDyg3kJEy9CZeUwbcmZ3N5nCU8bH6bkCo4BgLfhlE3R3AdDi9CvLVgjqlMW42Pm2/s320/puppet.jpg"
-        },
-        {
-          "titre": "Critical Perforce Puppet RCE Exploited in Attacks",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/critical-perforce-puppet-rce-exploited-in-attacks/",
-          "date": "2026-11-18",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/cyberattack-vulnerability-exploited.jpeg"
         }
       ]
     },
@@ -2901,185 +3712,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-11-12-n-central-4everable2shell-tentatives",
-      "title": "Apache Axis (CVE-2026-90436) : N-able N-central exploité pour installer des mineurs sur 21 serveurs, Confluence Data Center aussi attaqué",
-      "created": "2026-11-12T13:20:00+00:00",
-      "updated": "2026-11-17T13:08:56+00:00",
-      "version": 7,
-      "resume": "Des attaquants exploitent 4EverAble2Shell contre des serveurs N-able N-central et y installent des mineurs de cryptomonnaie, sur 21 serveurs dont 19 avec Hotfix 2 [3, 4]. Rapid7 a détecté le 13 novembre 2026 une exploitation de CVE-2026-90436 contre Confluence Data Center [6].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Exploitation sans authentification de CVE-2026-90436 d'Apache Axis → commandes exécutées sous le compte de service « nable » sur N-central [2, 3, 4]. Confluence Data Center aussi exploité [6]."
-        },
-        {
-          "etape": "Élévation de privilèges",
-          "texte": "Abus de l'utilitaire privilégié setLDFileOwner et d'un lien symbolique pour modifier un script appartenant à root → commandes exécutées en root [3]."
-        },
-        {
-          "etape": "Installation du mineur",
-          "texte": "Téléchargement du script shell « jup.sh » → installation d'un mineur XMRig réglé sur environ la moitié des cœurs du processeur [3, 4]."
-        },
-        {
-          "etape": "Persistance",
-          "texte": "Mineur XMRig déployé avec une persistance par systemd ou cron [5]."
-        },
-        {
-          "etape": "Envoi de données",
-          "texte": "Script shell demandé à l'adresse 157.20.241.16, avec envoi simultané de données de diagnostic et de sorties de commandes vers cette adresse [3, 4]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "nc",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur N-central",
-            "note": "Mineur XMRig installé"
-          },
-          {
-            "id": "ext",
-            "type": "serveur",
-            "zone": "internet",
-            "nom": "Adresse 157.20.241.16",
-            "note": "Script shell"
-          },
-          {
-            "id": "cf",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Confluence Data Center",
-            "note": "Chez un client Rapid7"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "nc",
-            "etape": 1,
-            "texte": "Exploitation de la faille Apache Axis"
-          },
-          {
-            "de": "att",
-            "vers": "cf",
-            "etape": 1,
-            "texte": "Exploitation de la faille Apache Axis"
-          },
-          {
-            "de": "att",
-            "vers": "nc",
-            "etape": 2,
-            "texte": "Droits root via setLDFileOwner"
-          },
-          {
-            "de": "att",
-            "vers": "nc",
-            "etape": 3,
-            "texte": "Script shell installant un mineur XMRig"
-          },
-          {
-            "de": "nc",
-            "vers": "ext",
-            "etape": 5,
-            "texte": "Script demandé, données de diagnostic envoyées"
-          }
-        ]
-      },
-      "limites": "Aucune source ne nomme les attaquants [1, 3, 4]. Options requises : Legacy API sur N-central, non activée par défaut, Remote API sur Confluence [1, 3, 6]. Suites sur Confluence non décrites [6].",
-      "cves": [
-        {
-          "id": "CVE-2026-90436",
-          "explication": "Apache Axis 1.x : désérialisation d'une erreur SOAP entrante permettant d'instancier des classes à distance sans authentification, gravité critique 9,8 sur 10 [1, 2]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Serveurs N-central installés sur site ; les environnements hébergés ne sont pas touchés selon N-able [1]",
-        "21 serveurs aux États-Unis, en Afrique du Sud, au Canada, au Royaume-Uni, en Allemagne, en France et en Suède [3, 4]",
-        "Environnements hébergés : Legacy API désactivée par défaut et intégration Intune coupée par N-able [4]",
-        "Serveurs compromis environ 5 heures après la publication du code d'exploitation, selon Lupovis et Huntback [5]",
-        "Confluence Data Center 1.x à 9.x avec l'option Remote API activée ; corrigé en 9.2.28, versions 10.x non vulnérables [6]",
-        "N-central 2026.4 Hotfix 3 supprime définitivement l'option Legacy API, ce qui ferme le vecteur de 4EverAble2Shell, et corrige 17 failles supplémentaires [7]",
-        "Hotfix 3 corrige 17 failles, CVE-2026-129271 à CVE-2026-129287 ; Sean Bales a ensuite détaillé 24 autres failles N-central, corrigées selon lui [8]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "API",
-          "definition": "Application Programming Interface : interface permettant à des programmes de communiquer entre eux"
-        },
-        {
-          "sigle": "SOAP",
-          "definition": "Simple Object Access Protocol : protocole d'échange de messages entre services web"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "New N-central Exploits Work Against Patched Servers, Enable Root RCE and Windows SYSTEM Access",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/new-n-central-exploits-work-against.html",
-          "date": "2026-11-12",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhR4KdRS0v77uQIdhC0i5aopa8XIAZIRnTzVCVqto7dEdfUH2QyWgrAy1EKu-hARXS4pxNGQQEFroRHOtwSq_9Q8b92tmgw_97JMJoBfC72sl8pOcUYM9nU6YCJht4yD7ALWfERwhUwLsN8wo9t8YnKyIWzHhEAux5ox5WV4wvxe6l1cUmf58P1md2Ekziy/s1700-nu-rw-lo-l85-e365/nable.jpg"
-        },
-        {
-          "titre": "Fiche NVD CVE-2026-90436",
-          "site": "NVD (NIST)",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90436"
-        },
-        {
-          "titre": "New N-able \"4EverAble2Shell\" zero-day exploited hours after PoC released",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/new-n-able-4everable2shell-zero-day-exploited-hours-after-poc-released/",
-          "date": "2026-11-12",
-          "image": "https://www.bleepstatic.com/content/hl-images/2025/08/18/N-able.jpg"
-        },
-        {
-          "titre": "Hackers Exploit N-central Flaws to Infect 21 Servers, Including 19 Running Hotfix 2",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/hackers-exploit-n-central-flaws-to.html",
-          "date": "2026-11-13",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhA4jxlXpPBPhD5o3IHy80Fn7fSHUtcqH3iXQlU-jDUL5C3zJcf1_Zb-GAYxuW6P6q647p9JAT_opImlj-v-USDNhZ_z83mYC3ISKtN72pe_3XLwf5EyMRuK4OdXCFnYxGMhOAvN_i4UFqk5vJLriRnkbRRwILuT5JUpExx9Tm74sXSCQ0g7jjsOzWV1cqk/s1700-nu-rw-lo-l85-e365/nable-hacks.jpg"
-        },
-        {
-          "titre": "Hackers Exploit New N-central Zero-Day Hours After PoC Publication",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/hackers-exploit-new-n-central-zero-day-hours-after-poc-publication/",
-          "date": "2026-11-13",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/vulnerability-software-bug.webp"
-        },
-        {
-          "titre": "Rapid7 Detected Exploitation of CVE-2026-90436 against Atlassian Confluence Data Center, N-able N-central also Exploited",
-          "site": "Rapid7",
-          "url": "https://www.rapid7.com/blog/post/etr-rapid7-detected-exploitation-of-cve-2026-90436-against-atlassian-confluence-data-center-n-able-n-central-also-exploited",
-          "date": "2026-11-16",
-          "image": "https://www.rapid7.com/cdn/images/blt65a432ba319f4043/6846abddaf18306debe6cf4d/ETR.webp"
-        },
-        {
-          "titre": "N-able Patches 17 N-central Flaws as Attackers Exploit Earlier Bugs to Deploy Crypto Miners",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/n-able-patches-17-n-central-flaws-as.html",
-          "date": "2026-11-17",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8Tz3JQedMRmE0NpjmQ9KXm4AlgJ2GfBbA8pbKm3UARfJrN_vRlTywt0Zg80C-fM4hmacqlZTHV_wh0E-yoga-UjcSvpt2FHczR2AtGze3mvk0fmqeET4vvee-4f_RJEMIF-HL79HkXg_GD2Lg-U8jAPPJaPaqYDJmKTsJHn7GO0lS84zEU5SFQWll-qwv/s1700-nu-rw-lo-l85-e365/nn.jpg"
-        },
-        {
-          "titre": "N-able Kills Legacy APIs, Patches 17 N-central Zero-Days",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/n-able-kills-legacy-apis-patches-17-n-central-zero-days/",
-          "date": "2026-11-17",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/08/N-Able.jpeg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-11-17-access-dental-management-worldleaks",
       "title": "Access Dental Management : intrusion sur le réseau du prestataire dentaire texan, plus de 340 000 personnes touchées, WorldLeaks revendique",
       "created": "2026-11-17T13:08:56+00:00",
@@ -3809,106 +4441,6 @@
           "url": "https://www.zataz.com/rassemblement-national-une-seconde-fuite-de-donnees/",
           "date": "2026-11-17",
           "image": "https://www.zataz.com/wp-content/uploads/rn_2_leak.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-17-uber-prestataire-permis-conduire",
-      "title": "Uber : des identifiants volés chez un prestataire exposent les données de permis de conduire de près de 150 000 personnes",
-      "created": "2026-11-17T02:07:18+00:00",
-      "updated": "2026-11-18T11:10:00+00:00",
-      "version": 2,
-      "resume": "Uber a signalé une fuite exposant les noms et permis de conduire de 149 346 personnes aux États-Unis : des identifiants internes volés, ceux d'un prestataire tiers, ont servi à accéder au compte d'Uber [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Identifiants internes d'un prestataire tiers volés, selon la notification reçue par Uber le 9 octobre → accès au compte d'Uber [1]."
-        },
-        {
-          "etape": "Absence d'alerte",
-          "texte": "Utilisation d'identifiants valides → aucune alerte déclenchée [1, 2]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Dans un stockage cloud créé par Uber pour le travail du prestataire : images de permis consultées, données extraites (noms, adresses, dates de naissance, numéros de permis) [1, 2]."
-        },
-        {
-          "etape": "Réaction d'Uber",
-          "texte": "Après la notification, connexions de données avec le prestataire coupées, identifiants associés supprimés ou renouvelés [2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "pr",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Prestataire tiers d'Uber",
-            "note": "Identifiants volés"
-          },
-          {
-            "id": "st",
-            "type": "cloud",
-            "zone": "victime",
-            "nom": "Stockage cloud d'Uber",
-            "note": "Permis de conduire"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "pr",
-            "etape": 1,
-            "texte": "Vol d'identifiants internes"
-          },
-          {
-            "de": "pr",
-            "vers": "st",
-            "etape": 1,
-            "texte": "Accès au compte d'Uber avec des identifiants valides"
-          },
-          {
-            "de": "st",
-            "vers": "att",
-            "etape": 3,
-            "texte": "Images consultées, données textuelles extraites"
-          }
-        ]
-      },
-      "limites": "Uber n'a pas confirmé le nom du prestataire [1, 2] ; l'incident est relié à Fireworks [1, 2]. Les sources ne disent pas comment les identifiants ont été volés [1, 2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non nommé par la source [1]"
-      ],
-      "cibles": [
-        "Uber : 149 346 personnes aux États-Unis, incident signalé aux régulateurs de plusieurs États [1]",
-        "Selon Uber, les identifiants compromis du prestataire ne donnaient accès à aucun autre de ses systèmes [1]",
-        "Notion et Cursor, clients de Fireworks, ont averti avoir aussi été touchés par l'incident chez Fireworks [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Uber says nearly 150,000 impacted by third-party breach",
-          "site": "The Record",
-          "url": "https://therecord.media/uber-says-150000-impacted-third-party-breach",
-          "date": "2026-11-18",
-          "image": "https://cms.therecord.media/uploads/uber_2_dfaed63c24.jpg"
-        },
-        {
-          "titre": "Uber : 149 346 personnes touchées par une fuite",
-          "site": "ZATAZ",
-          "url": "https://www.zataz.com/uber-149-346-personnes-touchees-par-une-fuite/",
-          "date": "2026-11-18",
-          "image": "https://www.zataz.com/wp-content/uploads/urber_lea_ia.jpg"
         }
       ]
     },
@@ -5689,125 +6221,6 @@
           "url": "https://www.zataz.com/deepfakes-une-fraude-presumee-a-129-millions-de-dollars/",
           "date": "2026-11-16",
           "image": "https://www.zataz.com/wp-content/uploads/deep_129.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-16-douanes-lituaniennes-portail-bap",
-      "title": "Douanes lituaniennes : le portail d'accès BAP fermé après une cyberattaque, fuite de données possible",
-      "created": "2026-11-16T15:12:00+00:00",
-      "updated": "2026-11-18T11:10:00+00:00",
-      "version": 2,
-      "resume": "Une attaque détectée le 10 novembre a conduit les douanes lituaniennes à fermer temporairement leur portail BAP [1, 2]. Selon le chef des douanes, plusieurs centaines de particuliers et d'entreprises pourraient être concernés [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Selon le chef des douanes, les pirates ont peut-être exploité une fonction technique mal sécurisée [1]. L'enquête a confirmé un accès non autorisé au portail BAP [1, 2]."
-        },
-        {
-          "etape": "Tentative d'extension",
-          "texte": "Selon les premières constatations, les attaquants ont tenté d'accéder à d'autres systèmes gouvernementaux contenant des informations plus sensibles [1, 2]."
-        },
-        {
-          "etape": "Données exposées",
-          "texte": "Possible fuite touchant les utilisateurs connectés les 9 et 10 novembre [1, 2] : noms, coordonnées postales, téléphones, adresses électroniques, identifiants personnels lituaniens [2]."
-        },
-        {
-          "etape": "Impact",
-          "texte": "Fermeture temporaire du portail par les douanes → accès perturbé à plusieurs plateformes douanières de l'Union européenne [1, 2]. Le système ICS2 de la Commission européenne est touché [1]."
-        },
-        {
-          "etape": "Rétablissement partiel",
-          "texte": "Certaines fonctions rendues accessibles via le portail électronique du gouvernement lituanien ; authentification par certificat numérique encore indisponible [2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": "Non identifié"
-          },
-          {
-            "id": "bap",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Portail BAP des douanes",
-            "note": "Accès non autorisé"
-          },
-          {
-            "id": "gov",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Autres systèmes gouvernementaux",
-            "note": "Tentative d'accès"
-          },
-          {
-            "id": "ue",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Plateformes douanières européennes",
-            "note": "Accès perturbé"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "bap",
-            "etape": 1,
-            "texte": "Accès non autorisé, vecteur non confirmé"
-          },
-          {
-            "de": "bap",
-            "vers": "gov",
-            "etape": 2,
-            "texte": "Tentative d'accès à des systèmes plus sensibles"
-          },
-          {
-            "de": "bap",
-            "vers": "ue",
-            "etape": 4,
-            "texte": "Portail fermé, accès aux plateformes perturbé"
-          }
-        ]
-      },
-      "limites": "Les autorités n'ont pas identifié les attaquants ni divulgué la faille utilisée [1]. Aucun vol de données n'est confirmé et l'issue des tentatives d'extension n'est pas précisée [2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non identifié par les autorités [1]"
-      ],
-      "cibles": [
-        "Douanes lituaniennes [1]",
-        "Plusieurs centaines de particuliers et d'entreprises, pour la plupart établis en Lituanie, selon le chef des douanes [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "BAP",
-          "definition": "Nom du principal portail de gestion des utilisateurs des douanes lituaniennes"
-        },
-        {
-          "sigle": "ICS2",
-          "definition": "Import Control System 2 : collecte les informations sur les marchandises entrant dans l'Union européenne"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Lithuanian customs agency restores services after cyberattack, possible data breach",
-          "site": "The Record",
-          "url": "https://therecord.media/lithuania-customs-agency-cyberattack",
-          "date": "2026-11-16",
-          "image": "https://cms.therecord.media/uploads/lithuanian_customs_vehicle_a3900e01a6.jpg"
-        },
-        {
-          "titre": "Cyberattaque contre les douanes lituaniennes",
-          "site": "ZATAZ",
-          "url": "https://www.zataz.com/cyberattaque-contre-les-douanes-lituaniennes/",
-          "date": "2026-11-18",
-          "image": "https://www.zataz.com/wp-content/uploads/douanes_lith.jpg"
         }
       ]
     },
@@ -8158,159 +8571,6 @@
           "url": "https://www.huntress.com/blog/geovision-camera-software-xmrig-cryptominer",
           "date": "2026-11-13",
           "image": "https://images.huntress.com/asset/file/d0f2eecb96d24faaa5a9ae527886ba4d"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-09-sega-arara-newsletter",
-      "title": "ARARA : fuite chez le prestataire d'e-mailing, les adresses d'abonnés SEGA et d'usagers de la ville d'Osaka exposées",
-      "created": "2026-11-09T23:10:00+00:00",
-      "updated": "2026-11-18T11:10:00+00:00",
-      "version": 3,
-      "resume": "Le prestataire d'e-mailing ARARA a subi une violation exposant 77 millions d'adresses de près de 380 clients [1] ou près de 400 [2, 3]. SEGA compte 2,2 millions d'adresses exposées [1], la ville d'Osaka plus d'un million [2] ou environ un million [3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Une vulnérabilité de serveur web et des problèmes de l'environnement système d'ARARA ont contribué à l'incident ; la méthode d'intrusion exacte reste en cours d'investigation [1]."
-        },
-        {
-          "etape": "Compromission du service",
-          "texte": "Compromission du service de distribution d'e-mails d'ARARA → 77 millions d'adresses exposées, de près de 380 clients [1] ou près de 400 [2, 3]."
-        },
-        {
-          "etape": "Envoi d'e-mails frauduleux",
-          "texte": "Utilisation du service d'envoi → plus de 7 millions d'e-mails se faisant passer pour des sociétés de cartes de crédit [1, 3] et des institutions financières [2, 3]."
-        },
-        {
-          "etape": "Exposition chez SEGA",
-          "texte": "Adresses e-mail des abonnés aux newsletters de SEGA exposées → 2,2 millions d'adresses et 92 300 enregistrements au contenu à déterminer [1]."
-        },
-        {
-          "etape": "Exposition à Osaka",
-          "texte": "Le service ARARA est utilisé par TKC, qui maintient la plateforme de services administratifs en ligne d'Osaka → plus d'un million d'adresses e-mail exposées [2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "srv",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur web",
-            "note": "Vulnérabilité citée"
-          },
-          {
-            "id": "mail",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Service d'envoi d'e-mails ARARA",
-            "note": "77 millions d'adresses"
-          },
-          {
-            "id": "don",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Adresses des abonnés SEGA",
-            "note": "2,2 millions"
-          },
-          {
-            "id": "osa",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Adresses e-mail d'Osaka",
-            "note": "Plus d'un million"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "srv",
-            "etape": 1,
-            "texte": "Vulnérabilité de serveur web citée"
-          },
-          {
-            "de": "att",
-            "vers": "mail",
-            "etape": 2,
-            "texte": "Compromission du service d'envoi"
-          },
-          {
-            "de": "att",
-            "vers": "mail",
-            "etape": 3,
-            "texte": "Plus de 7 millions d'e-mails frauduleux envoyés"
-          },
-          {
-            "de": "mail",
-            "vers": "don",
-            "etape": 4,
-            "texte": "Adresses des abonnés SEGA exposées"
-          },
-          {
-            "de": "mail",
-            "vers": "osa",
-            "etape": 5,
-            "texte": "Adresses de la plateforme d'Osaka exposées"
-          }
-        ]
-      },
-      "limites": "Méthode d'intrusion, auteur, calendrier et ordre des étapes non établis [1]. Le 2 novembre est la date de divulgation selon [1], celle de l'attaque selon [2, 3].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non mentionné par la source [1]"
-      ],
-      "cibles": [
-        "ARARA (e-mailing), SEGA (jeux vidéo), MOS Burger, Shochiku Multiplex Theatres, TKC, IIJmio [1]",
-        "Ville d'Osaka : personnes ayant reçu un e-mail de sa plateforme de services administratifs entre juillet 2026 et le 31 octobre [2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "ARARA",
-          "definition": "Nom du prestataire d'e-mailing compromis"
-        },
-        {
-          "sigle": "SEGA",
-          "definition": "Éditeur japonais de jeux vidéo, client d'ARARA"
-        },
-        {
-          "sigle": "MOS",
-          "definition": "Début du nom de MOS Burger, client d'ARARA"
-        },
-        {
-          "sigle": "TKC",
-          "definition": "Société cliente d'ARARA, chargée de maintenir la plateforme administrative d'Osaka"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "SEGA newsletter data breach exposes 2.2 million email addresses",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/sega-newsletter-data-breach-exposes-22-million-email-addresses/",
-          "date": "2026-11-09",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/09/SEGA.jpg"
-        },
-        {
-          "titre": "City of Osaka warns of data breach impacting 1 million as Japan reels from dozens of cyber incidents",
-          "site": "The Record",
-          "url": "https://therecord.media/city-of-osaka-japan-email-data-breach",
-          "date": "2026-11-13",
-          "image": "https://cms.therecord.media/uploads/Osaka_City_Hall_2026_19ba5dd07a.jpg"
-        },
-        {
-          "titre": "Osaka exposée à une fuite massive",
-          "site": "ZATAZ",
-          "url": "https://www.zataz.com/osaka-exposee-a-une-fuite-massive/",
-          "date": "2026-11-18",
-          "image": "https://www.zataz.com/wp-content/uploads/japon_mail_leak.jpg"
         }
       ]
     },

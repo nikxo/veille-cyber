@@ -1,13 +1,5 @@
 [
   {
-    "id": "3f43bbab06c763bf",
-    "title": "Nefilim and Hive ransomware affiliate gets 70 months in prison",
-    "link": "https://www.bleepingcomputer.com/news/security/nefilim-and-hive-ransomware-affiliate-gets-70-months-in-prison/",
-    "source": "BleepingComputer",
-    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
-    "date": "2026-10-28T10:30:00+00:00"
-  },
-  {
     "id": "af2cde5bdebfe196",
     "title": "Secrets Management Firm Infisical Valued at $600 Million After $40 Million Raise",
     "link": "https://www.securityweek.com/secrets-management-firm-infisical-valued-at-600-million-after-40-million-raise/",
@@ -3998,5 +3990,13 @@
     "source": "BleepingComputer",
     "raison": "vulnérabilité sans exploitation constatée dans la nature (Java4Shell, CVE-2026-114938)",
     "date": "2026-11-17T23:06:42+00:00"
+  },
+  {
+    "id": "d8c8d27e12a68741",
+    "title": "'Java4Shell' vulnerability (CVE-2026-114938) could allow remote code execution",
+    "link": "https://www.sophos.com/en-us/blog/java4shell-could-allow-remote-code-execution",
+    "source": "Sophos Threat Research",
+    "raison": "vulnérabilité sans exploitation constatée (aucune exploitation active signalée selon la source)",
+    "date": "2026-11-18T01:15:00+00:00"
   }
 ]

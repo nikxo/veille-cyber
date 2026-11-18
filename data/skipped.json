@@ -1,21 +1,5 @@
 [
   {
-    "id": "46d0c101f94e9fb1",
-    "title": "Nobody Trusts the Security Questionnaire. We Rely on It Anyway.",
-    "link": "https://www.securityweek.com/nobody-trusts-the-security-questionnaire-we-rely-on-it-anyway/",
-    "source": "SecurityWeek",
-    "raison": "opinion, pas d'attaque",
-    "date": "2026-10-28T11:20:34+00:00"
-  },
-  {
-    "id": "97dd2934edbd69e2",
-    "title": "Millions of security cameras at risk: DoS vulnerability in Intelbras devices",
-    "link": "https://securelist.com/intelbras-camera-vulnerability/121131/",
-    "source": "Securelist (Kaspersky)",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-28T11:20:34+00:00"
-  },
-  {
     "id": "12185b0bd2c83e91",
     "title": "FBI seizes ‘bulletproof’ hosting site accused of facilitating child abuse, money laundering",
     "link": "https://therecord.media/fbi-seizure-csam-virtualine",
@@ -3998,5 +3982,21 @@
     "source": "The Hacker News",
     "raison": "vulnérabilité sans exploitation constatée",
     "date": "2026-11-18T06:06:30+00:00"
+  },
+  {
+    "id": "450816522e051bbe",
+    "title": "Java4Shell Vulnerability Puts Many Enterprise Applications at Risk of Takeover",
+    "link": "https://www.securityweek.com/java4shell-vulnerability-puts-many-enterprise-applications-at-risk-of-takeover/",
+    "source": "SecurityWeek",
+    "raison": "vulnérabilité sans exploitation constatée dans la nature (Java4Shell, CVE-2026-114938)",
+    "date": "2026-11-18T08:15:00+00:00"
+  },
+  {
+    "id": "576af42c5eefa4db",
+    "title": "Huntress Delivers 24/7 Response for Microsoft Defender Incidents Across Endpoints and Microsoft 365",
+    "link": "https://www.huntress.com/blog/huntress-response-for-microsoft-defender-incidents-across-endpoints-and-microsoft-365",
+    "source": "Huntress",
+    "raison": "annonce produit (campagne de rejeu de jetons déjà couverte le 2026-10-22)",
+    "date": "2026-11-18T08:15:00+00:00"
   }
 ]

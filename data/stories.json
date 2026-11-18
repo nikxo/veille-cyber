@@ -2,20 +2,32 @@
   "stories": [
     {
       "schema": 3,
-      "id": "2026-11-17-riken-fugaku-hors-ligne",
-      "title": "RIKEN : le supercalculateur japonais Fugaku mis hors ligne après une intrusion",
-      "created": "2026-11-17T21:30:00+00:00",
-      "updated": "2026-11-17T21:30:00+00:00",
+      "id": "2026-11-18-pypi-agent-framework-voleur-identifiants",
+      "title": "Paquet PyPI agent-framework de Microsoft : deux versions piégées volent identifiants et jetons cloud",
+      "created": "2026-11-18T08:15:00+00:00",
+      "updated": "2026-11-18T08:15:00+00:00",
       "version": 1,
-      "resume": "Le supercalculateur Fugaku, exploité par le centre de calcul scientifique du RIKEN au Japon, a été mis hors ligne à la suite d'une faille de sécurité [1].",
+      "resume": "Des attaquants ont publié le 17 novembre 2026 deux versions piégées, 1.26.1 et 1.26.2, du paquet PyPI agent-framework de Microsoft, qui volent identifiants et jetons cloud [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Moyen d'obtenir le droit de publication non établi ; selon OX Security, détournement de la fabrication des paquets → code malveillant ajouté [1]."
         },
         {
-          "etape": "Mise hors ligne",
-          "texte": "Après la faille de sécurité → Fugaku retiré du service [1]."
+          "etape": "Exécution automatique",
+          "texte": "Fichier .pth déposé dans site-packages → voleur lancé à chaque démarrage de Python, même sans import du paquet [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Collecte des variables d'environnement, fichiers d'identifiants (Azure CLI, .npmrc, .git-credentials, Docker) et métadonnées de l'instance Azure ; la 1.26.2 vise aussi les jetons OIDC de GitHub Actions [1]."
+        },
+        {
+          "etape": "Nouveaux jetons",
+          "texte": "Le code demande des jetons neufs à Azure DevOps et à l'identité managée Azure ; selon SafeDep, la rotation des secrets stockés ne les couvre pas [1]."
+        },
+        {
+          "etape": "Exfiltration",
+          "texte": "Données compressées, encodées en Base64 puis envoyées en HTTPS vers une adresse webhook.site codée en dur [1]."
         }
       ],
       "parcours": {
@@ -24,65 +36,135 @@
             "id": "att",
             "type": "attaquant",
             "zone": "internet",
-            "nom": "Attaquant",
+            "nom": "Attaquant (non identifié)",
             "note": ""
           },
           {
-            "id": "fug",
-            "type": "serveur",
+            "id": "pypi",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Paquet PyPI agent-framework",
+            "note": "Versions 1.26.1 et 1.26.2"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
             "zone": "victime",
-            "nom": "Supercalculateur Fugaku",
-            "note": "Mis hors ligne"
+            "nom": "Machines installant le paquet",
+            "note": "Fichier .pth"
+          },
+          {
+            "id": "az",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Azure et Azure DevOps",
+            "note": "Jetons neufs demandés"
+          },
+          {
+            "id": "wh",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Adresse webhook.site",
+            "note": "Réception des données"
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "fug",
+            "vers": "pypi",
             "etape": 1,
-            "texte": "Intrusion, vecteur non précisé"
+            "texte": "Versions piégées publiées"
+          },
+          {
+            "de": "pypi",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Installation, voleur lancé au démarrage de Python"
+          },
+          {
+            "de": "pc",
+            "vers": "az",
+            "etape": 4,
+            "texte": "Demande de nouveaux jetons"
+          },
+          {
+            "de": "pc",
+            "vers": "wh",
+            "etape": 5,
+            "texte": "Envoi des données volées"
           }
         ]
       },
-      "limites": "Seul le résumé de l'article a pu être lu : ni le vecteur d'entrée, ni l'auteur, ni les données éventuellement touchées ne sont connus [1].",
+      "limites": "La source ne dit pas comment l'attaquant a obtenu le droit de publier, ni combien de machines ont installé les versions piégées [1].",
       "cves": [],
       "mitre": [],
-      "acteurs": [],
+      "acteurs": [
+        "Non nommé par la source ; TeamPCP y est cité pour la compromission d'un autre paquet Microsoft en mai 2026 [1]"
+      ],
       "cibles": [
-        "Centre de calcul scientifique du RIKEN, au Japon, qui exploite le supercalculateur Fugaku [1]"
+        "Utilisateurs du paquet agent-framework, environ 190 000 téléchargements par mois [1]",
+        "Environnements Azure, Azure DevOps et GitHub Actions [1]"
       ],
       "abreviations": [
         {
-          "sigle": "RIKEN",
-          "definition": "Institut de recherche japonais dont dépend le centre exploitant Fugaku"
+          "sigle": "CLI",
+          "definition": "Command Line Interface : outil en ligne de commande"
+        },
+        {
+          "sigle": "OIDC",
+          "definition": "OpenID Connect : protocole de jetons d'identité entre services"
+        },
+        {
+          "sigle": "HTTPS",
+          "definition": "Protocole web chiffré"
+        },
+        {
+          "sigle": "OX",
+          "definition": "Partie du nom de l'éditeur de sécurité OX Security"
         }
       ],
       "sources": [
         {
-          "titre": "Japan takes Fugaku supercomputer offlline after cyberattack",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/japan-takes-fugaku-supercomputer-offlline-after-cyberattack/",
-          "date": "2026-11-17",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/17/RIKEN.jpg"
+          "titre": "Attackers Compromise Microsoft's Agent Framework PyPI Package to Steal Cloud Credentials",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/attackers-compromise-microsofts-agent.html",
+          "date": "2026-11-18",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_LozO7RAz13Jr3eqWHIjlAF6M0Cs-mJXX2mKUqU0TxVS02piD1na92TAZjICmeySD4z0zS-Y_BFvceERBdk-UZvV1DUh1LGN6wK-T-yt_TROJ5fcuvROu807jqESQo93CFP3faBbReKMZQxvgYOAGl_vS2VzfO67O24NdAgh6d9jMO2mTSy2jaNJMPD9T/s1700-nu-rw-lo-l85-e365/ms-python.jpg"
         }
       ]
     },
     {
       "schema": 3,
-      "id": "2026-11-17-puppet-enterprise-cve-2026-115731-kev",
-      "title": "Puppet Enterprise : la faille de désérialisation CVE-2026-115731 exploitée, ajoutée au catalogue de la CISA",
-      "created": "2026-11-17T21:30:00+00:00",
-      "updated": "2026-11-17T21:30:00+00:00",
+      "id": "2026-11-18-auditteam-opsagent-faux-audit",
+      "title": "AuditTeam : le rançongiciel OpsAgent présenté comme un audit, avec des « frais de conseil » réclamés aux victimes",
+      "created": "2026-11-18T08:15:00+00:00",
+      "updated": "2026-11-18T08:15:00+00:00",
       "version": 1,
-      "resume": "La CISA a ajouté à son catalogue des failles exploitées CVE-2026-115731, une désérialisation de données non fiables dans Perforce Puppet Enterprise, sur la base de preuves d'exploitation active [1].",
+      "resume": "Le groupe AuditTeam chiffre les fichiers de victimes dans plusieurs pays avec son outil OpsAgent, puis réclame des frais d'audit et de conseil contre un rapport de vulnérabilités ; campagne lancée en janvier 2026 [1].",
       "chaine": [
         {
           "etape": "Accès initial",
           "texte": "Non précisé par les sources [1]."
         },
         {
-          "etape": "Exécution de code",
-          "texte": "Rapport forgé envoyé par un client muni d'un certificat d'agent signé → code arbitraire exécuté sur le serveur Puppet [2]."
+          "etape": "Installation de l'implant",
+          "texte": "Chargeurs écrits en C, en .NET puis en Rust, celui en C injectant du code dans msiexec.exe → implant OpsAgent déployé [1]."
+        },
+        {
+          "etape": "Contrôle et identifiants",
+          "texte": "Implant pouvant lire l'adresse de son serveur de commande dans un dépôt GitHub, avec des fonctions de vol de jetons, Mimikatz, pass-the-hash et enregistrement des frappes [1]."
+        },
+        {
+          "etape": "Capacités de pivot",
+          "texte": "Implant capable de se relier à des agents enfants et de servir de proxy de rebond ; commandes retirées de la version Rust [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Pilote à signature valide se faisant passer pour Beijing Jiangmin Antivirus → liste d'environ 220 processus de sécurité, sauvegarde et bases de données à arrêter [1]."
+        },
+        {
+          "etape": "Chiffrement",
+          "texte": "Fichiers chiffrés, clichés instantanés supprimés, fichiers effacés écrasés pour empêcher la récupération → note de rançon déposée [1]."
         }
       ],
       "parcours": {
@@ -91,55 +173,242 @@
             "id": "att",
             "type": "attaquant",
             "zone": "internet",
-            "nom": "Attaquant",
+            "nom": "Attaquant (AuditTeam)",
             "note": ""
           },
           {
-            "id": "pup",
-            "type": "serveur",
+            "id": "in",
+            "type": "inconnu",
             "zone": "victime",
-            "nom": "Serveur Puppet",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Machine avec OpsAgent",
+            "note": "Fichiers chiffrés"
+          },
+          {
+            "id": "gh",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Dépôt GitHub public",
+            "note": "Adresse du serveur"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "in",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "in",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Chargeur installe OpsAgent"
+          },
+          {
+            "de": "pc",
+            "vers": "gh",
+            "etape": 3,
+            "texte": "Lecture possible de l'adresse du serveur de commande"
+          }
+        ]
+      },
+      "limites": "La source ne décrit ni l'accès initial, ni la persistance, ni la méthode d'exfiltration, alors que la note de rançon évoque une archive de données volées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "AuditTeam, utilisateur du framework OpsAgent, attribué à haute confiance par les chercheurs [1]"
+      ],
+      "cibles": [
+        "Victimes observées en Chine, aux Philippines, au Sénégal, en Italie, en Finlande, à Hong Kong et en Russie, de secteurs différents [1]",
+        "Victimes revendiquées en Turquie, Thaïlande, Ukraine, Argentine, Corée du Sud, Japon et Espagne [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": ".NET",
+          "definition": "Plateforme de développement logiciel de Microsoft"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "The forced audit: how AuditTeam’s OpsAgent framework masks ransomware as consulting",
+          "site": "Securelist (Kaspersky)",
+          "url": "https://securelist.com/auditteam-opsagent-forced-audit/122031/",
+          "date": "2026-11-18",
+          "image": "https://media.kasperskycontenthub.com/wp-content/uploads/sites/43/2026/11/17122553/audit-team-feature.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-17-cold-relic-super-admin-usurpation",
+      "title": "COLD RELIC : l'espion russe vole un compte Super Admin, vide un espace cloud puis usurpe un employé pour toucher une seconde organisation",
+      "created": "2026-11-17T17:30:00+00:00",
+      "updated": "2026-11-18T07:20:00+00:00",
+      "version": 2,
+      "resume": "Le groupe d'espionnage russe COLD RELIC, anciennement COLDRIVER, a pénétré l'espace cloud d'une organisation américaine et en a exfiltré massivement les données, puis a usurpé l'un de ses employés pour compromettre une seconde organisation américaine [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Identifiants Super Admin volés, connexion via des proxys résidentiels proches de la victime, demandes répétées de double authentification → appareil inconnu enregistré [1, 2]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Partage massif du lecteur cloud vers un compte mail de l'attaquant, export de tout le domaine via Google Takeout, synchronisation de la messagerie vers des clients externes [1, 2]."
+        },
+        {
+          "etape": "Effacement des traces",
+          "texte": "Consultation des journaux d'audit, modification et suppression d'alertes de la console, dans le but d'effacer les traces de l'intrusion initiale [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Clés d'accès (passkeys), codes de secours et appareils d'authentification frauduleux → accès maintenu plusieurs mois, reconnexion possible malgré la réinitialisation des mots de passe [1]."
+        },
+        {
+          "etape": "Usurpation d'un employé",
+          "texte": "Faux employé de la première victime sur une messagerie chiffrée, liens piégés conçus pour voler identifiants et jetons Entra ID → identifiants d'une seconde organisation obtenus [1]."
+        },
+        {
+          "etape": "Second vol de données",
+          "texte": "Entra ID servant de connexion unique à Google Workspace, nouvel appareil d'authentification enregistré pour garder l'accès, fichiers de l'utilisateur téléchargés en masse [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (COLD RELIC)",
+            "note": ""
+          },
+          {
+            "id": "t1",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Espace cloud première victime",
+            "note": "Compte Super Admin"
+          },
+          {
+            "id": "mail",
+            "type": "messagerie",
+            "zone": "internet",
+            "nom": "Compte mail de l'attaquant",
+            "note": ""
+          },
+          {
+            "id": "emp",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Employé seconde victime",
+            "note": ""
+          },
+          {
+            "id": "idp",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Entra ID seconde victime",
+            "note": "Nouvel appareil enregistré"
+          },
+          {
+            "id": "t2",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Google Workspace seconde victime",
             "note": ""
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "pup",
+            "vers": "t1",
+            "etape": 1,
+            "texte": "Proxys résidentiels, identifiants Super Admin, double authentification harcelée"
+          },
+          {
+            "de": "t1",
+            "vers": "mail",
             "etape": 2,
-            "texte": "Rapport forgé, exécution de code arbitraire"
+            "texte": "Lecteur cloud partagé en masse"
+          },
+          {
+            "de": "att",
+            "vers": "emp",
+            "etape": 5,
+            "texte": "Faux employé de la première victime, liens piégés"
+          },
+          {
+            "de": "emp",
+            "vers": "idp",
+            "etape": 5,
+            "texte": "Identifiants et jetons volés"
+          },
+          {
+            "de": "idp",
+            "vers": "t2",
+            "etape": 6,
+            "texte": "Connexion unique, fichiers téléchargés en masse"
           }
         ]
       },
-      "limites": "Les sources ne disent ni qui exploite la faille, ni contre qui, ni comment les attaquants ont obtenu un certificat d'agent [1, 2].",
-      "cves": [
-        {
-          "id": "CVE-2026-115731",
-          "explication": "Puppet Server et Puppet Enterprise : désérialisation dans le traitement des rapports, exécution de code sur le serveur par un client certifié, gravité critique 9,9 sur 10 [2]."
-        }
+      "limites": "Les sources ne précisent ni le secteur des deux victimes, ni comment les identifiants Super Admin ont été obtenus, ni les dates exactes des intrusions (fin 2025, puis 2026) [1, 2].",
+      "cves": [],
+      "mitre": [
+        "T1621 : Multi-Factor Authentication Request Generation, envoi répété de demandes de double authentification jusqu'à acceptation [1].",
+        "T1098.005 : Account Manipulation: Device Registration, enregistrement de clés d'accès et d'appareils d'authentification pour garder l'accès [1].",
+        "T1562.008 : Impair Defenses: Disable or Modify Cloud Logs / Alerts, alertes de la console supprimées pour cacher l'intrusion [1].",
+        "T1567.002 : Exfiltration to Cloud Storage, fichiers partagés en masse vers un compte de l'attaquant [1].",
+        "T1114.002 : Remote Email Collection, synchronisation de la boîte de réception vers des clients de messagerie externes [1]."
       ],
-      "mitre": [],
-      "acteurs": [],
+      "acteurs": [
+        "COLD RELIC (ex-COLDRIVER, UNC4057), aussi appelé Star Blizzard, Callisto ou Gossamer Bear ; rattaché au FSB selon la justice américaine [1]"
+      ],
       "cibles": [
-        "Agences fédérales civiles américaines, tenues de corriger la faille avant le 1er décembre 2026 [2]"
+        "Deux organisations américaines, la seconde atteinte via l'usurpation d'un employé de la première [1]",
+        "Cibles habituelles du groupe : responsables gouvernementaux, sous-traitants de la défense et organisations non gouvernementales en Europe et en Amérique du Nord [2]"
       ],
       "abreviations": [
         {
-          "sigle": "CISA",
-          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
+          "sigle": "COLD RELIC",
+          "definition": "Nom donné par Google à un groupe d'espionnage russe"
+        },
+        {
+          "sigle": "COLDRIVER",
+          "definition": "Ancien nom de suivi du même groupe chez Google"
+        },
+        {
+          "sigle": "UNC4057",
+          "definition": "Ancien identifiant de suivi du même groupe chez Mandiant"
+        },
+        {
+          "sigle": "FSB",
+          "definition": "Service fédéral de sécurité de la Fédération de Russie"
+        },
+        {
+          "sigle": "Entra ID",
+          "definition": "Service Microsoft de gestion des identités et des connexions dans le cloud"
         }
       ],
       "sources": [
         {
-          "titre": "CISA Adds One Known Exploited Vulnerability to Catalog",
-          "site": "CISA Advisories",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/11/17/cisa-adds-one-known-exploited-vulnerability-catalog",
-          "date": "2026-11-17"
+          "titre": "COLD RELIC: A Case Study in Impersonation and Compromise",
+          "site": "Google Threat Intelligence (Mandiant)",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/cold-relic-a-case-study-in-impersonation-and-compromise/",
+          "date": "2026-11-17",
+          "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
         },
         {
-          "titre": "Fiche NVD CVE-2026-115731",
-          "site": "NVD (NIST)",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115731"
+          "titre": "Russian COLD RELIC Hackers Use Stolen Google Workspace Data to Breach Second U.S. Organization",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/russian-cold-relic-hackers-use-stolen.html",
+          "date": "2026-11-18",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLbxlzqi-uBPlDXGecxrfXQ8kZLpAKsDO5c7KmTTyYyNQQE6bdI0TqT7Rk_JrKRie2pMB_xrLRKy1Cksp1GYHfUGHXz7UGg5nWOAQmPmiRKoUJkMCHrMvW7A72W9x7_I7KESMQmJLQVrJth_Ozj7i1nF7IPB4W_WV-NQyy0afEMgGVbGdaSNfIjolqtC4-/s1700-nu-rw-lo-l85-e365/cloud.jpg"
         }
       ]
     },
@@ -367,6 +636,256 @@
           "site": "Krebs on Security",
           "url": "https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/",
           "date": "2026-11-18"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-17-docker-hub-cles-cloud-volees",
+      "title": "Docker Hub : des clés cloud placées dans des images leurres volées et utilisées en quelques secondes",
+      "created": "2026-11-17T22:07:55+00:00",
+      "updated": "2026-11-17T22:07:55+00:00",
+      "version": 1,
+      "resume": "Des chercheurs de l'université Stony Brook ont publié 300 images leurres contenant des clés cloud : des robots d'analyse les ont extraites et utilisées, la première clé AWS en 7,86 secondes [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Analyse des couches des images publiques ou requêtes à l'API du registre, sans lancer les conteneurs → extraction des secrets embarqués [1]."
+        },
+        {
+          "etape": "Test des clés",
+          "texte": "Première clé AWS utilisée 7,86 secondes après publication, délai médian de 51,19 secondes ; les 100 clés AWS utilisées en moins de 15 minutes [1]."
+        },
+        {
+          "etape": "Exploitation des comptes",
+          "texte": "Clés AWS vérifiées puis ressources listées, parfois consommées ; soldes des comptes OpenAI et Anthropic épuisés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (ContainerBots)",
+            "note": "Robots d'analyse"
+          },
+          {
+            "id": "hub",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Images publiques Docker Hub",
+            "note": "Secrets embarqués"
+          },
+          {
+            "id": "aws",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Comptes AWS leurres",
+            "note": "Ressources listées"
+          },
+          {
+            "id": "ia",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Comptes OpenAI et Anthropic",
+            "note": "Soldes épuisés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "hub",
+            "etape": 1,
+            "texte": "Couches analysées, secrets extraits"
+          },
+          {
+            "de": "att",
+            "vers": "aws",
+            "etape": 2,
+            "texte": "Clés AWS testées en quelques secondes"
+          },
+          {
+            "de": "att",
+            "vers": "ia",
+            "etape": 3,
+            "texte": "Clés utilisées jusqu'à épuisement du solde"
+          }
+        ]
+      },
+      "limites": "L'étude repose sur des images leurres ; l'article ne détaille pas l'usage des identifiants SSH et de base de données factices [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "« ContainerBots » : regroupement informel de robots d'analyse, sans preuve de coordination entre leurs opérateurs [1]"
+      ],
+      "cibles": [
+        "Images publiques de Docker Hub et d'autres registres, dont Harbor ; clés AWS, OpenAI et Anthropic visées [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Application Programming Interface : interface d'accès programmatique à un service"
+        },
+        {
+          "sigle": "AWS",
+          "definition": "Amazon Web Services : services cloud d'Amazon"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole de connexion à distance chiffrée"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Cloud keys leaked in Docker Hub images are stolen within seconds",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cloud-keys-leaked-in-docker-hub-images-are-stolen-within-seconds/",
+          "date": "2026-11-17",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/17/Docker.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-17-riken-fugaku-hors-ligne",
+      "title": "RIKEN : le supercalculateur japonais Fugaku mis hors ligne après une intrusion",
+      "created": "2026-11-17T21:30:00+00:00",
+      "updated": "2026-11-17T21:30:00+00:00",
+      "version": 1,
+      "resume": "Le supercalculateur Fugaku, exploité par le centre de calcul scientifique du RIKEN au Japon, a été mis hors ligne à la suite d'une faille de sécurité [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Mise hors ligne",
+          "texte": "Après la faille de sécurité → Fugaku retiré du service [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "fug",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Supercalculateur Fugaku",
+            "note": "Mis hors ligne"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "fug",
+            "etape": 1,
+            "texte": "Intrusion, vecteur non précisé"
+          }
+        ]
+      },
+      "limites": "Seul le résumé de l'article a pu être lu : ni le vecteur d'entrée, ni l'auteur, ni les données éventuellement touchées ne sont connus [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Centre de calcul scientifique du RIKEN, au Japon, qui exploite le supercalculateur Fugaku [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "RIKEN",
+          "definition": "Institut de recherche japonais dont dépend le centre exploitant Fugaku"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Japan takes Fugaku supercomputer offlline after cyberattack",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/japan-takes-fugaku-supercomputer-offlline-after-cyberattack/",
+          "date": "2026-11-17",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/17/RIKEN.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-17-puppet-enterprise-cve-2026-115731-kev",
+      "title": "Puppet Enterprise : la faille de désérialisation CVE-2026-115731 exploitée, ajoutée au catalogue de la CISA",
+      "created": "2026-11-17T21:30:00+00:00",
+      "updated": "2026-11-17T21:30:00+00:00",
+      "version": 1,
+      "resume": "La CISA a ajouté à son catalogue des failles exploitées CVE-2026-115731, une désérialisation de données non fiables dans Perforce Puppet Enterprise, sur la base de preuves d'exploitation active [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Exécution de code",
+          "texte": "Rapport forgé envoyé par un client muni d'un certificat d'agent signé → code arbitraire exécuté sur le serveur Puppet [2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "pup",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur Puppet",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pup",
+            "etape": 2,
+            "texte": "Rapport forgé, exécution de code arbitraire"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent ni qui exploite la faille, ni contre qui, ni comment les attaquants ont obtenu un certificat d'agent [1, 2].",
+      "cves": [
+        {
+          "id": "CVE-2026-115731",
+          "explication": "Puppet Server et Puppet Enterprise : désérialisation dans le traitement des rapports, exécution de code sur le serveur par un client certifié, gravité critique 9,9 sur 10 [2]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Agences fédérales civiles américaines, tenues de corriger la faille avant le 1er décembre 2026 [2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CISA Adds One Known Exploited Vulnerability to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/17/cisa-adds-one-known-exploited-vulnerability-catalog",
+          "date": "2026-11-17"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-115731",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115731"
         }
       ]
     },
@@ -947,173 +1466,6 @@
           "url": "https://www.bleepingcomputer.com/news/security/tor-releases-emergency-update-amid-ongoing-ddos-attack/",
           "date": "2026-11-17",
           "image": "https://www.bleepstatic.com/content/hl-images/2020/08/19/Tor-headpic.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-17-cold-relic-super-admin-usurpation",
-      "title": "COLD RELIC : l'espion russe vole un compte Super Admin, vide un espace cloud puis usurpe un employé pour toucher une seconde organisation",
-      "created": "2026-11-17T17:30:00+00:00",
-      "updated": "2026-11-18T07:20:00+00:00",
-      "version": 2,
-      "resume": "Le groupe d'espionnage russe COLD RELIC, anciennement COLDRIVER, a pénétré l'espace cloud d'une organisation américaine et en a exfiltré massivement les données, puis a usurpé l'un de ses employés pour compromettre une seconde organisation américaine [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Identifiants Super Admin volés, connexion via des proxys résidentiels proches de la victime, demandes répétées de double authentification → appareil inconnu enregistré [1, 2]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Partage massif du lecteur cloud vers un compte mail de l'attaquant, export de tout le domaine via Google Takeout, synchronisation de la messagerie vers des clients externes [1, 2]."
-        },
-        {
-          "etape": "Effacement des traces",
-          "texte": "Consultation des journaux d'audit, modification et suppression d'alertes de la console, dans le but d'effacer les traces de l'intrusion initiale [1]."
-        },
-        {
-          "etape": "Persistance",
-          "texte": "Clés d'accès (passkeys), codes de secours et appareils d'authentification frauduleux → accès maintenu plusieurs mois, reconnexion possible malgré la réinitialisation des mots de passe [1]."
-        },
-        {
-          "etape": "Usurpation d'un employé",
-          "texte": "Faux employé de la première victime sur une messagerie chiffrée, liens piégés conçus pour voler identifiants et jetons Entra ID → identifiants d'une seconde organisation obtenus [1]."
-        },
-        {
-          "etape": "Second vol de données",
-          "texte": "Entra ID servant de connexion unique à Google Workspace, nouvel appareil d'authentification enregistré pour garder l'accès, fichiers de l'utilisateur téléchargés en masse [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (COLD RELIC)",
-            "note": ""
-          },
-          {
-            "id": "t1",
-            "type": "cloud",
-            "zone": "victime",
-            "nom": "Espace cloud première victime",
-            "note": "Compte Super Admin"
-          },
-          {
-            "id": "mail",
-            "type": "messagerie",
-            "zone": "internet",
-            "nom": "Compte mail de l'attaquant",
-            "note": ""
-          },
-          {
-            "id": "emp",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Employé seconde victime",
-            "note": ""
-          },
-          {
-            "id": "idp",
-            "type": "annuaire",
-            "zone": "victime",
-            "nom": "Entra ID seconde victime",
-            "note": "Nouvel appareil enregistré"
-          },
-          {
-            "id": "t2",
-            "type": "cloud",
-            "zone": "victime",
-            "nom": "Google Workspace seconde victime",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "t1",
-            "etape": 1,
-            "texte": "Proxys résidentiels, identifiants Super Admin, double authentification harcelée"
-          },
-          {
-            "de": "t1",
-            "vers": "mail",
-            "etape": 2,
-            "texte": "Lecteur cloud partagé en masse"
-          },
-          {
-            "de": "att",
-            "vers": "emp",
-            "etape": 5,
-            "texte": "Faux employé de la première victime, liens piégés"
-          },
-          {
-            "de": "emp",
-            "vers": "idp",
-            "etape": 5,
-            "texte": "Identifiants et jetons volés"
-          },
-          {
-            "de": "idp",
-            "vers": "t2",
-            "etape": 6,
-            "texte": "Connexion unique, fichiers téléchargés en masse"
-          }
-        ]
-      },
-      "limites": "Les sources ne précisent ni le secteur des deux victimes, ni comment les identifiants Super Admin ont été obtenus, ni les dates exactes des intrusions (fin 2025, puis 2026) [1, 2].",
-      "cves": [],
-      "mitre": [
-        "T1621 : Multi-Factor Authentication Request Generation, envoi répété de demandes de double authentification jusqu'à acceptation [1].",
-        "T1098.005 : Account Manipulation: Device Registration, enregistrement de clés d'accès et d'appareils d'authentification pour garder l'accès [1].",
-        "T1562.008 : Impair Defenses: Disable or Modify Cloud Logs / Alerts, alertes de la console supprimées pour cacher l'intrusion [1].",
-        "T1567.002 : Exfiltration to Cloud Storage, fichiers partagés en masse vers un compte de l'attaquant [1].",
-        "T1114.002 : Remote Email Collection, synchronisation de la boîte de réception vers des clients de messagerie externes [1]."
-      ],
-      "acteurs": [
-        "COLD RELIC (ex-COLDRIVER, UNC4057), aussi appelé Star Blizzard, Callisto ou Gossamer Bear ; rattaché au FSB selon la justice américaine [1]"
-      ],
-      "cibles": [
-        "Deux organisations américaines, la seconde atteinte via l'usurpation d'un employé de la première [1]",
-        "Cibles habituelles du groupe : responsables gouvernementaux, sous-traitants de la défense et organisations non gouvernementales en Europe et en Amérique du Nord [2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "COLD RELIC",
-          "definition": "Nom donné par Google à un groupe d'espionnage russe"
-        },
-        {
-          "sigle": "COLDRIVER",
-          "definition": "Ancien nom de suivi du même groupe chez Google"
-        },
-        {
-          "sigle": "UNC4057",
-          "definition": "Ancien identifiant de suivi du même groupe chez Mandiant"
-        },
-        {
-          "sigle": "FSB",
-          "definition": "Service fédéral de sécurité de la Fédération de Russie"
-        },
-        {
-          "sigle": "Entra ID",
-          "definition": "Service Microsoft de gestion des identités et des connexions dans le cloud"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "COLD RELIC: A Case Study in Impersonation and Compromise",
-          "site": "Google Threat Intelligence (Mandiant)",
-          "url": "https://cloud.google.com/blog/topics/threat-intelligence/cold-relic-a-case-study-in-impersonation-and-compromise/",
-          "date": "2026-11-17",
-          "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
-        },
-        {
-          "titre": "Russian COLD RELIC Hackers Use Stolen Google Workspace Data to Breach Second U.S. Organization",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/russian-cold-relic-hackers-use-stolen.html",
-          "date": "2026-11-18",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLbxlzqi-uBPlDXGecxrfXQ8kZLpAKsDO5c7KmTTyYyNQQE6bdI0TqT7Rk_JrKRie2pMB_xrLRKy1Cksp1GYHfUGHXz7UGg5nWOAQmPmiRKoUJkMCHrMvW7A72W9x7_I7KESMQmJLQVrJth_Ozj7i1nF7IPB4W_WV-NQyy0afEMgGVbGdaSNfIjolqtC4-/s1700-nu-rw-lo-l85-e365/cloud.jpg"
         }
       ]
     },
@@ -51200,113 +51552,6 @@
           }
         ]
       }
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-17-docker-hub-cles-cloud-volees",
-      "title": "Docker Hub : des clés cloud placées dans des images leurres volées et utilisées en quelques secondes",
-      "created": "2026-11-17T22:07:55+00:00",
-      "updated": "2026-11-17T22:07:55+00:00",
-      "version": 1,
-      "resume": "Des chercheurs de l'université Stony Brook ont publié 300 images leurres contenant des clés cloud : des robots d'analyse les ont extraites et utilisées, la première clé AWS en 7,86 secondes [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Analyse des couches des images publiques ou requêtes à l'API du registre, sans lancer les conteneurs → extraction des secrets embarqués [1]."
-        },
-        {
-          "etape": "Test des clés",
-          "texte": "Première clé AWS utilisée 7,86 secondes après publication, délai médian de 51,19 secondes ; les 100 clés AWS utilisées en moins de 15 minutes [1]."
-        },
-        {
-          "etape": "Exploitation des comptes",
-          "texte": "Clés AWS vérifiées puis ressources listées, parfois consommées ; soldes des comptes OpenAI et Anthropic épuisés [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (ContainerBots)",
-            "note": "Robots d'analyse"
-          },
-          {
-            "id": "hub",
-            "type": "cloud",
-            "zone": "internet",
-            "nom": "Images publiques Docker Hub",
-            "note": "Secrets embarqués"
-          },
-          {
-            "id": "aws",
-            "type": "cloud",
-            "zone": "victime",
-            "nom": "Comptes AWS leurres",
-            "note": "Ressources listées"
-          },
-          {
-            "id": "ia",
-            "type": "cloud",
-            "zone": "victime",
-            "nom": "Comptes OpenAI et Anthropic",
-            "note": "Soldes épuisés"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "hub",
-            "etape": 1,
-            "texte": "Couches analysées, secrets extraits"
-          },
-          {
-            "de": "att",
-            "vers": "aws",
-            "etape": 2,
-            "texte": "Clés AWS testées en quelques secondes"
-          },
-          {
-            "de": "att",
-            "vers": "ia",
-            "etape": 3,
-            "texte": "Clés utilisées jusqu'à épuisement du solde"
-          }
-        ]
-      },
-      "limites": "L'étude repose sur des images leurres ; l'article ne détaille pas l'usage des identifiants SSH et de base de données factices [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "« ContainerBots » : regroupement informel de robots d'analyse, sans preuve de coordination entre leurs opérateurs [1]"
-      ],
-      "cibles": [
-        "Images publiques de Docker Hub et d'autres registres, dont Harbor ; clés AWS, OpenAI et Anthropic visées [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "API",
-          "definition": "Application Programming Interface : interface d'accès programmatique à un service"
-        },
-        {
-          "sigle": "AWS",
-          "definition": "Amazon Web Services : services cloud d'Amazon"
-        },
-        {
-          "sigle": "SSH",
-          "definition": "Secure Shell : protocole de connexion à distance chiffrée"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Cloud keys leaked in Docker Hub images are stolen within seconds",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/cloud-keys-leaked-in-docker-hub-images-are-stolen-within-seconds/",
-          "date": "2026-11-17",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/17/Docker.jpg"
-        }
-      ]
     }
   ]
 }

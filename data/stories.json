@@ -2,6 +2,87 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-18-wellington-it-cooperatives-credit-irlande",
+      "title": "Wellington IT : une cyberattaque contre le prestataire informatique expose les données de membres de coopératives de crédit irlandaises",
+      "created": "2026-11-18T20:30:00+00:00",
+      "updated": "2026-11-18T20:30:00+00:00",
+      "version": 1,
+      "resume": "Une cyberattaque signalée contre le prestataire informatique Wellington IT a exposé des informations sensibles de membres de 50 coopératives de crédit, pour la plupart en Irlande [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Attaque contre le prestataire Wellington IT → informations sensibles de membres de coopératives de crédit exposées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "wit",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données chez Wellington IT",
+            "note": "Membres de coopératives"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "wit",
+            "etape": 2,
+            "texte": "Informations sensibles exposées"
+          }
+        ]
+      },
+      "limites": "La source consultée ne décrit ni le vecteur d'accès, ni l'auteur, ni la nature exacte des données exposées ; son titre parle de 40 coopératives irlandaises touchées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Wellington IT, prestataire informatique [1]",
+        "Membres de 50 coopératives de crédit, en majorité irlandaises [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IT",
+          "definition": "Information Technology : informatique, ici un prestataire de services informatiques"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Data breach impacts 40 Irish credit unions in reported IT provider hack",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/data-breach-impacts-40-irish-credit-unions-in-reported-it-provider-hack/",
+          "date": "2026-11-18",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/18/ireland.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-18-conti-anciens-arretes-ukraine",
       "title": "Anciens de Conti arrêtés en Ukraine : faux support informatique pour entrer chez les victimes",
       "created": "2026-11-18T18:20:00+00:00",
@@ -659,13 +740,13 @@
       "id": "2026-11-18-apache-roller-cve-2026-129448",
       "title": "Apache Roller : la faille de désérialisation CVE-2026-129448 exploitée pour exécuter du code sur des serveurs de blogs",
       "created": "2026-11-18T11:10:00+00:00",
-      "updated": "2026-11-18T11:10:00+00:00",
-      "version": 1,
-      "resume": "Apache a corrigé une faille critique de Roller, serveur de blogs collaboratifs écrit en Java, que des attaquants exploitent pour exécuter du code sur les serveurs vulnérables [1].",
+      "updated": "2026-11-18T20:30:00+00:00",
+      "version": 2,
+      "resume": "Apache a corrigé une faille critique de Roller, plateforme de blogs écrite en Java, que des attaquants exploitent pour exécuter du code sur les serveurs vulnérables [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Requête envoyée sans authentification au point d'accès XML-RPC, qui la désérialise avant d'authentifier le demandeur → code exécuté à distance [1]."
+          "texte": "Requête envoyée sans authentification au point d'accès XML-RPC, qui la désérialise avant d'authentifier le demandeur → code exécuté à distance [1, 2]."
         }
       ],
       "parcours": {
@@ -694,17 +775,17 @@
           }
         ]
       },
-      "limites": "Apache ne donne pas de détails sur les attaques : ni leurs auteurs, ni leurs victimes, ni le nombre de serveurs compromis [1].",
+      "limites": "Apache ne donne ni les auteurs, ni les victimes, ni le nombre de serveurs compromis [1], ni la manière dont la faille est exploitée [2].",
       "cves": [
         {
           "id": "CVE-2026-129448",
-          "explication": "Apache Roller 4.0.0 à 6.1.4 : désérialisation non sécurisée via XML-RPC, exécution de code à distance sans authentification, critique ; corrigée en 6.1.6, même faille que CVE-2026-82384 [1]."
+          "explication": "Apache Roller 4.0.0 à 6.1.4 : désérialisation non sécurisée via XML-RPC, exécution de code à distance sans authentification, score 9,8 sur 10 ; corrigée en 6.1.6, identique à CVE-2026-82384 [1, 2]."
         }
       ],
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Serveurs Apache Roller vulnérables ; désactiver XML-RPC dans l'administration ne suffit pas sur les anciennes versions [1]"
+        "Serveurs Apache Roller vulnérables ; désactiver XML-RPC dans l'administration ne suffit pas sur les anciennes versions [1, 2]"
       ],
       "abreviations": [
         {
@@ -723,6 +804,12 @@
           "url": "https://www.bleepingcomputer.com/news/security/apache-warns-of-roller-rce-vulnerability-exploited-in-attacks/",
           "date": "2026-11-18",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/04/17/Apache.jpg"
+        },
+        {
+          "titre": "Critical Apache Roller RCE Flaw Under Active Exploitation, No Authentication Required",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/critical-apache-roller-rce-flaw-under.html",
+          "date": "2026-11-18"
         }
       ]
     },

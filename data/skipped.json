@@ -1,37 +1,5 @@
 [
   {
-    "id": "75699bb6148a5fef",
-    "title": "Cyber Vulnerabilities Besiege Italy, Absent Clear Cause",
-    "link": "https://www.darkreading.com/cybersecurity-analytics/cyber-vulnerabilities-besiege-italy",
-    "source": "Dark Reading",
-    "raison": "analyse statistique sans attaque décrite (page inaccessible, résumé du flux seul)",
-    "date": "2026-10-29T08:15:00+00:00"
-  },
-  {
-    "id": "196b1e60527b22e4",
-    "title": "Shadowy AI Relay Disables OpenAI Codex, Claude Code Sandboxes",
-    "link": "https://www.darkreading.com/threat-intelligence/ai-relay-service-openai-codex-claude-code-sandboxes",
-    "source": "Dark Reading",
-    "raison": "aucune attaque décrite dans le résumé du flux (page inaccessible)",
-    "date": "2026-10-29T10:20:00+00:00"
-  },
-  {
-    "id": "cf3544e85171cc16",
-    "title": "GitHub Launches npm Firewall to Block Malicious Packages Before Installation",
-    "link": "https://thehackernews.com/2026/10/github-launches-npm-firewall-to-block.html",
-    "source": "The Hacker News",
-    "raison": "annonce produit",
-    "date": "2026-10-29T11:30:00+00:00"
-  },
-  {
-    "id": "2fe9b1728e7bf83d",
-    "title": "Windows 11 KB5127936 update released with 41 changes and fixes",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/windows-11-kb5127936-update-released-with-41-changes-and-fixes/",
-    "source": "BleepingComputer",
-    "raison": "mise à jour logicielle sans attaque",
-    "date": "2026-10-29T12:25:00+00:00"
-  },
-  {
     "id": "c9e7c513e1436e5a",
     "title": "26,400 Valid Cloud and AI Credentials Found Exposed in Public Gitee Repositories",
     "link": "https://thehackernews.com/2026/10/26400-valid-cloud-and-ai-credentials.html",
@@ -3998,5 +3966,37 @@
     "source": "CERT-FR (alertes)",
     "raison": "vulnérabilités NGINX : preuve de concept publique, aucune exploitation constatée",
     "date": "2026-11-18T18:20:00+00:00"
+  },
+  {
+    "id": "11aa6bef2bfb9ae2",
+    "title": "F5 Warns 6 Critical BIG-IP Flaws Can Crash Traffic in Specific Setups, May Allow RCE",
+    "link": "https://thehackernews.com/2026/11/f5-warns-6-critical-big-ip-flaws-can.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilités sans exploitation constatée",
+    "date": "2026-11-18T20:30:00+00:00"
+  },
+  {
+    "id": "1336631baf90a7a0",
+    "title": "Lawmakers call on White House to develop defensive AI cyber systems",
+    "link": "https://therecord.media/ai-cyber-white-house",
+    "source": "The Record",
+    "raison": "actualité politique sans détail sur une attaque",
+    "date": "2026-11-18T20:30:00+00:00"
+  },
+  {
+    "id": "9efe795dd1e4a03a",
+    "title": "Patches released for critical ‘NGINX2Root’ vulnerabilities",
+    "link": "https://www.sophos.com/en-us/blog/patches-released-for-critical-nginx2root-vulnerabilities",
+    "source": "Sophos Threat Research",
+    "raison": "vulnérabilités sans exploitation constatée",
+    "date": "2026-11-18T20:30:00+00:00"
+  },
+  {
+    "id": "fb8b318a049ee574",
+    "title": "10-Year-Old NGINX HTTP/2 Flaw Lets Unauthenticated Attackers Execute Code on Servers",
+    "link": "https://thehackernews.com/2026/11/10-year-old-nginx-http2-flaw-lets.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-18T20:30:00+00:00"
   }
 ]

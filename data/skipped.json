@@ -1,37 +1,5 @@
 [
   {
-    "id": "22278c0bc2499d51",
-    "title": "US sanctions Russians, North Koreans for laundering IT worker earnings",
-    "link": "https://therecord.media/north-korea-russia-sanctions",
-    "source": "The Record",
-    "raison": "actualité judiciaire (sanctions) sans détail sur la méthode d'attaque",
-    "date": "2026-10-28T18:15:00+00:00"
-  },
-  {
-    "id": "d2cd6535795c71cb",
-    "title": "Discord to let search engines index public server messages",
-    "link": "https://www.bleepingcomputer.com/news/security/discord-to-let-search-engines-index-public-server-messages/",
-    "source": "BleepingComputer",
-    "raison": "changement de politique produit, aucune attaque",
-    "date": "2026-10-28T19:30:00+00:00"
-  },
-  {
-    "id": "d949b1e38983bf5c",
-    "title": "European digital rights nonprofit noyb sues Scale AI for 'invasive' worker surveillance",
-    "link": "https://therecord.media/noyb-sues-scale-ai-for-worker-surveillance",
-    "source": "The Record",
-    "raison": "actualité judiciaire sans méthode d'attaque",
-    "date": "2026-10-28T19:30:00+00:00"
-  },
-  {
-    "id": "218525b586cad648",
-    "title": "Police seize Virtualine bulletproof service tied to ransowmare, cybercrime",
-    "link": "https://www.bleepingcomputer.com/news/security/police-seize-virtualine-bulletproof-service-tied-to-ransowmare-cybercrime/",
-    "source": "BleepingComputer",
-    "raison": "saisie policière sans méthode d'attaque détaillée",
-    "date": "2026-10-28T21:30:00+00:00"
-  },
-  {
     "id": "bf65784fd277bccf",
     "title": "Court strikes down West Virginia law barring disclosure of public officials’ personal data",
     "link": "https://therecord.media/west-virginia-daniels-law-struck-down-appellate-court",
@@ -3998,5 +3966,37 @@
     "source": "SentinelLABS",
     "raison": "conférence sur la gouvernance de l'IA, sans attaque décrite",
     "date": "2026-11-18T15:10:00+00:00"
+  },
+  {
+    "id": "49743e79d4602ad6",
+    "title": "VeroSecurity Raises $11 Million for AI Security Engineering Platform",
+    "link": "https://www.securityweek.com/verosecurity-raises-11-million-for-ai-security-engineering-platform/",
+    "source": "SecurityWeek",
+    "raison": "levée de fonds",
+    "date": "2026-11-18T16:30:00+00:00"
+  },
+  {
+    "id": "7918b8a639b8200f",
+    "title": "CVE-2026-123007: Critical NGINX HTTP/2 Integer Underflow Leads to RCE (FIXED)",
+    "link": "https://www.rapid7.com/blog/post/ve-cve-2026-123007-critical-nginx-http-2-integer-underflow-leads-to-rce-fixed",
+    "source": "Rapid7",
+    "raison": "vulnérabilité sans exploitation constatée (preuve de concept seulement)",
+    "date": "2026-11-18T16:30:00+00:00"
+  },
+  {
+    "id": "de8c0307f62ce654",
+    "title": "Workday travaille activement sur plus d’options souveraines",
+    "link": "https://www.lemagit.fr/actualites/366654726/Workday-travaille-activement-sur-plus-doptions-souveraines",
+    "source": "LeMagIT",
+    "raison": "actualité produit (offre souveraine)",
+    "date": "2026-11-18T16:30:00+00:00"
+  },
+  {
+    "id": "ee42aee2d0b3ce4d",
+    "title": "GTA 6 : celui qui avait piraté Rockstar a plaidé coupable",
+    "link": "https://www.lemagit.fr/actualites/366654894/GTA-6-celui-qui-avait-pirate-Rockstar-a-plaide-coupable",
+    "source": "LeMagIT",
+    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
+    "date": "2026-11-18T16:30:00+00:00"
   }
 ]

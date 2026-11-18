@@ -417,9 +417,9 @@
       "id": "2026-11-17-optimizely-scripts-pieges",
       "title": "Optimizely : des scripts piégés chargés sur les sites de 178 organisations visent cryptomonnaies et cartes bancaires",
       "created": "2026-11-17T03:06:55+00:00",
-      "updated": "2026-11-18T03:20:00+00:00",
-      "version": 9,
-      "resume": "Du code malveillant inséré dans les fichiers JavaScript d'Optimizely de 178 organisations, selon Scott Helme, a visé les visiteurs de sites comme Zoom, GitLab et Salesforce pour voler cryptomonnaies et cartes bancaires [1, 2, 3]. Optimizely dit avoir corrigé la faille et retiré le code [2, 3, 7, 10].",
+      "updated": "2026-11-18T09:20:00+00:00",
+      "version": 10,
+      "resume": "Du code malveillant inséré dans les fichiers JavaScript d'Optimizely de 178 organisations, selon Scott Helme, a visé les visiteurs de sites comme Zoom, GitLab et Salesforce pour voler cryptomonnaies et cartes bancaires [1, 2, 3]. Optimizely dit avoir corrigé la faille et retiré le code [2, 3, 7, 10, 11].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -435,7 +435,7 @@
         },
         {
           "etape": "Vol de cryptomonnaies",
-          "texte": "Remplacement des adresses de portefeuilles affichées par celles des attaquants → environ 7 000 dollars reçus au 16 novembre selon Scott Helme [1, 2], environ 7 500 selon Report URI [10]."
+          "texte": "Portefeuilles affichés remplacés par ceux des attaquants → environ 7 000 dollars selon Scott Helme [1, 2], 7 500 selon Report URI [10], plus de 6 200 euros selon ZATAZ [11]."
         },
         {
           "etape": "Vol de données",
@@ -540,7 +540,8 @@
         "Sites de CNN, BBC, IKEA, HSBC, Equifax, Ledger et TalkTalk, entre autres [3]",
         "Scripts de Kissmetrics, StorifyMe et Minute-ly diffusant un petit chargeur, première observation le 13 novembre ; entrée du code inconnue [4]",
         "Sites turcs, où Scott Helme (Report URI) dit avoir vu ce code injecté pour la première fois en septembre [8]",
-        "Sites de BBC, CNN, Equifax, Ledger et Zoom ; 68 des sites touchés sans politique de sécurité du contenu, selon Report URI [10]"
+        "Sites de BBC, CNN, Equifax, Ledger et Zoom ; 68 des sites touchés sans politique de sécurité du contenu, selon Report URI [10]",
+        "Sites d'American Eagle, Air France et Change.org, entre autres ; Salesforce a désactivé par précaution les scripts Optimizely [11]"
       ],
       "abreviations": [
         {
@@ -635,6 +636,12 @@
           "titre": "Attackers Used Optimizely to A/B Test Malware on Top Websites",
           "site": "Krebs on Security",
           "url": "https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/",
+          "date": "2026-11-18"
+        },
+        {
+          "titre": "Optimizely piraté, des géants du web exposés",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/optimizely-pirate-des-geants-du-web-exposes/",
           "date": "2026-11-18"
         }
       ]

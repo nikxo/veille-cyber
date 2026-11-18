@@ -1,13 +1,5 @@
 [
   {
-    "id": "af2cde5bdebfe196",
-    "title": "Secrets Management Firm Infisical Valued at $600 Million After $40 Million Raise",
-    "link": "https://www.securityweek.com/secrets-management-firm-infisical-valued-at-600-million-after-40-million-raise/",
-    "source": "SecurityWeek",
-    "raison": "levée de fonds",
-    "date": "2026-10-28T10:30:00+00:00"
-  },
-  {
     "id": "1c3b08f449328b4e",
     "title": "Les employés français plutôt optimistes face à l’IA, mais mal accompagnés par leurs employeurs",
     "link": "https://www.lemagit.fr/dessin/Les-employes-francais-plutot-optimistes-face-a-lIA-mais-mal-accompagnes-par-leurs-employeurs",
@@ -3998,5 +3990,13 @@
     "source": "Sophos Threat Research",
     "raison": "vulnérabilité sans exploitation constatée (aucune exploitation active signalée selon la source)",
     "date": "2026-11-18T01:15:00+00:00"
+  },
+  {
+    "id": "a3b0a664adc00351",
+    "title": "CVE-2026-114938: Critical vulnerability in OpenJDK JAVA",
+    "link": "https://blog.talosintelligence.com/java4shell/",
+    "source": "Cisco Talos",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-18T02:20:00+00:00"
   }
 ]

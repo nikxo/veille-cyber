@@ -955,17 +955,17 @@
       "id": "2026-11-17-cold-relic-super-admin-usurpation",
       "title": "COLD RELIC : l'espion russe vole un compte Super Admin, vide un espace cloud puis usurpe un employé pour toucher une seconde organisation",
       "created": "2026-11-17T17:30:00+00:00",
-      "updated": "2026-11-17T17:30:00+00:00",
-      "version": 1,
-      "resume": "Le groupe d'espionnage russe COLD RELIC, anciennement COLDRIVER, a pénétré l'espace cloud d'une organisation américaine et en a exfiltré massivement les données, puis a usurpé l'un de ses employés pour compromettre une seconde organisation américaine [1].",
+      "updated": "2026-11-18T07:20:00+00:00",
+      "version": 2,
+      "resume": "Le groupe d'espionnage russe COLD RELIC, anciennement COLDRIVER, a pénétré l'espace cloud d'une organisation américaine et en a exfiltré massivement les données, puis a usurpé l'un de ses employés pour compromettre une seconde organisation américaine [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Identifiants volés d'un compte Super Admin et demandes répétées de double authentification → l'utilisateur finit par accepter, un appareil inconnu est enregistré [1]."
+          "texte": "Identifiants Super Admin volés, connexion via des proxys résidentiels proches de la victime, demandes répétées de double authentification → appareil inconnu enregistré [1, 2]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Partage massif du lecteur cloud vers un compte mail opéré par l'attaquant, export administratif de tout le domaine, synchronisation de la messagerie vers des clients externes [1]."
+          "texte": "Partage massif du lecteur cloud vers un compte mail de l'attaquant, export de tout le domaine via Google Takeout, synchronisation de la messagerie vers des clients externes [1, 2]."
         },
         {
           "etape": "Effacement des traces",
@@ -1034,7 +1034,7 @@
             "de": "att",
             "vers": "t1",
             "etape": 1,
-            "texte": "Identifiants Super Admin volés, double authentification harcelée"
+            "texte": "Proxys résidentiels, identifiants Super Admin, double authentification harcelée"
           },
           {
             "de": "t1",
@@ -1062,7 +1062,7 @@
           }
         ]
       },
-      "limites": "La source ne précise ni le secteur des deux victimes, ni comment les identifiants Super Admin ont été obtenus, ni les dates exactes des intrusions (fin 2025, puis 2026) [1].",
+      "limites": "Les sources ne précisent ni le secteur des deux victimes, ni comment les identifiants Super Admin ont été obtenus, ni les dates exactes des intrusions (fin 2025, puis 2026) [1, 2].",
       "cves": [],
       "mitre": [
         "T1621 : Multi-Factor Authentication Request Generation, envoi répété de demandes de double authentification jusqu'à acceptation [1].",
@@ -1075,7 +1075,8 @@
         "COLD RELIC (ex-COLDRIVER, UNC4057), aussi appelé Star Blizzard, Callisto ou Gossamer Bear ; rattaché au FSB selon la justice américaine [1]"
       ],
       "cibles": [
-        "Deux organisations américaines, la seconde atteinte via l'usurpation d'un employé de la première [1]"
+        "Deux organisations américaines, la seconde atteinte via l'usurpation d'un employé de la première [1]",
+        "Cibles habituelles du groupe : responsables gouvernementaux, sous-traitants de la défense et organisations non gouvernementales en Europe et en Amérique du Nord [2]"
       ],
       "abreviations": [
         {
@@ -1106,6 +1107,13 @@
           "url": "https://cloud.google.com/blog/topics/threat-intelligence/cold-relic-a-case-study-in-impersonation-and-compromise/",
           "date": "2026-11-17",
           "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
+        },
+        {
+          "titre": "Russian COLD RELIC Hackers Use Stolen Google Workspace Data to Breach Second U.S. Organization",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/russian-cold-relic-hackers-use-stolen.html",
+          "date": "2026-11-18",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLbxlzqi-uBPlDXGecxrfXQ8kZLpAKsDO5c7KmTTyYyNQQE6bdI0TqT7Rk_JrKRie2pMB_xrLRKy1Cksp1GYHfUGHXz7UGg5nWOAQmPmiRKoUJkMCHrMvW7A72W9x7_I7KESMQmJLQVrJth_Ozj7i1nF7IPB4W_WV-NQyy0afEMgGVbGdaSNfIjolqtC4-/s1700-nu-rw-lo-l85-e365/cloud.jpg"
         }
       ]
     },

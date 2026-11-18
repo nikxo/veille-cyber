@@ -1,13 +1,5 @@
 [
   {
-    "id": "230b4d17e7e91847",
-    "title": "Long-Hidden Flaws Patched in EPICS Research Facility Control Software",
-    "link": "https://www.securityweek.com/long-hidden-flaws-patched-in-epics-research-facility-control-software/",
-    "source": "SecurityWeek",
-    "raison": "vulnérabilités sans exploitation constatée",
-    "date": "2026-10-28T11:20:34+00:00"
-  },
-  {
     "id": "46d0c101f94e9fb1",
     "title": "Nobody Trusts the Security Questionnaire. We Rely on It Anyway.",
     "link": "https://www.securityweek.com/nobody-trusts-the-security-questionnaire-we-rely-on-it-anyway/",
@@ -3998,5 +3990,13 @@
     "source": "SecurityWeek",
     "raison": "panne attribuée à une maintenance, aucune attaque décrite",
     "date": "2026-11-18T03:20:00+00:00"
+  },
+  {
+    "id": "223101d573500516",
+    "title": "Java4Shell (CVE-2026-114938) Enables Pre-Auth RCE in Jira, Jenkins, Keycloak on Java 17+ AVX-512 VBMI Servers",
+    "link": "https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-18T06:06:30+00:00"
   }
 ]

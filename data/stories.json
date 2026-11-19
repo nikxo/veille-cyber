@@ -1033,9 +1033,9 @@
       "id": "2026-11-19-armory-castle-vcenter-esxi",
       "title": "Armory Castle : de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day",
       "created": "2026-11-19T15:20:00+00:00",
-      "updated": "2026-11-19T16:09:13+00:00",
-      "version": 2,
-      "resume": "Le groupe d'espionnage Armory Castle, soupçonné d'être lié à la Chine, est passé de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day, et a extrait des fichiers de machines virtuelles, probablement exfiltrés ensuite [1].",
+      "updated": "2026-11-19T20:20:00+00:00",
+      "version": 3,
+      "resume": "Le groupe d'espionnage Armory Castle, soupçonné d'être lié à la Chine, a exploité deux failles zero-day pour passer de BeyondTrust Remote Support à vCenter puis à un hôte ESXi [1, 4]. La faille de vCenter a été exploitée plus de deux mois avant son correctif [4].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -1047,7 +1047,7 @@
         },
         {
           "etape": "Prise de vCenter",
-          "texte": "Outil Bonesaw exploitant la faille zero-day CVE-2026-123890 → compte administrateur SSO créé, connexion SSH à vCenter et vol de sa clé maître de chiffrement [1]."
+          "texte": "Bonesaw exploite la zero-day CVE-2026-123890 → session administrateur et compte administrateur SSO créé [1, 4]. Clé maître de chiffrement volée ensuite ; matériel de signature SAML extrait, jetons SAML forgés [1, 4]."
         },
         {
           "etape": "Accès aux hôtes ESXi",
@@ -1146,7 +1146,7 @@
           }
         ]
       },
-      "limites": "La source ne nomme ni victime ni secteur [1]. Broadcom ne signale aucune attaque exploitant CVE-2026-123890 [3], alors que Mandiant décrit son exploitation [1].",
+      "limites": "Les sources ne nomment ni victime ni secteur [1, 4]. Broadcom ne signale aucune attaque exploitant CVE-2026-123890 [3, 4], alors que Mandiant décrit son exploitation [1].",
       "cves": [
         {
           "id": "CVE-2026-102764",
@@ -1154,15 +1154,15 @@
         },
         {
           "id": "CVE-2026-123890",
-          "explication": "VMware vCenter Server : divulgation sans authentification d'une clé de session, menant à un contournement d'authentification administrateur [1] ; gravité 9,8 sur 10, versions 8.0, 9.0 et 9.1 corrigées [3]."
+          "explication": "VMware vCenter Server, composant VMware Directory Service [4] : divulgation sans authentification d'une clé de session, menant à un contournement d'authentification administrateur [1] ; gravité 9,8 sur 10 [3, 4]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "Armory Castle, anciennement suivi sous le nom UNC5221, acteur d'espionnage soupçonné d'être lié à la Chine [1]"
+        "Armory Castle, anciennement UNC5221 [1, 4], aussi connu sous le nom Warp Panda [4], soupçonné d'être lié à la Chine [1, 4]"
       ],
       "cibles": [
-        "Environnements VMware vCenter et ESXi ; aucune victime ni secteur nommés [1]"
+        "Environnements VMware vCenter et ESXi ; aucune victime ni secteur nommés [1, 4]"
       ],
       "abreviations": [
         {
@@ -1188,6 +1188,10 @@
         {
           "sigle": "UNC5221",
           "definition": "Ancien nom de suivi de Mandiant pour ce groupe"
+        },
+        {
+          "sigle": "SAML",
+          "definition": "Security Assertion Markup Language : standard de jetons d'authentification signés"
         }
       ],
       "sources": [
@@ -1209,6 +1213,13 @@
           "url": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
           "date": "2026-11-19",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZ5IDT81eb7KUE0LzwGJAzuAETft3pD5sOz2dJxnQin_-zR_hH8tDKFTsLNBNoe35KM4DhFJjP7K-0YwaMoVwz7xUhTiP2vKeNqmN3kenPgwflENu35qx-QlFj-rDFdyXx1HMz6ykegw6nlnPDXppYbotjoRj-ammlyUZ-Cr0JYLS5iyZXkJXkaIO5UAc/s1700-nu-rw-lo-l85-e365/vmware.jpg"
+        },
+        {
+          "titre": "Newly Patched VMware vCenter Flaw Exploited as Zero-Day by Chinese APT",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/newly-patched-vmware-vcenter-flaw-exploited-as-zero-day-by-chinese-apt/",
+          "date": "2026-11-19",
+          "image": "https://www.securityweek.com/wp-content/uploads/2022/08/VMWare.jpg"
         }
       ]
     },

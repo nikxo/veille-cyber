@@ -470,8 +470,8 @@
       "id": "2026-11-12-n-central-4everable2shell-tentatives",
       "title": "Apache Axis (CVE-2026-90436) : N-able N-central exploité pour installer des mineurs sur 21 serveurs, Confluence Data Center aussi attaqué",
       "created": "2026-11-12T13:20:00+00:00",
-      "updated": "2026-11-18T21:07:56+00:00",
-      "version": 8,
+      "updated": "2026-11-19T13:30:00+00:00",
+      "version": 9,
       "resume": "Des attaquants exploitent 4EverAble2Shell contre des serveurs N-able N-central et y installent des mineurs de cryptomonnaie, sur 21 serveurs dont 19 avec Hotfix 2 [3, 4]. Rapid7 a détecté le 13 novembre 2026 une exploitation de CVE-2026-90436 contre Confluence Data Center [6].",
       "chaine": [
         {
@@ -493,6 +493,10 @@
         {
           "etape": "Envoi de données",
           "texte": "Script shell demandé à l'adresse 157.20.241.16, avec envoi simultané de données de diagnostic et de sorties de commandes vers cette adresse [3, 4]."
+        },
+        {
+          "etape": "Rebond depuis Confluence",
+          "texte": "Base de Confluence consultée avec les identifiants de l'application ; en quatre heures, compte de service obtenu, entrepôt cloud de production interrogé ; Microsoft 365 atteint vers douze heures [10]."
         }
       ],
       "parcours": {
@@ -524,6 +528,20 @@
             "zone": "victime",
             "nom": "Confluence Data Center",
             "note": "Chez un client Rapid7"
+          },
+          {
+            "id": "dw",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Entrepôt de données cloud",
+            "note": "De production"
+          },
+          {
+            "id": "m365",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Microsoft 365",
+            "note": "Compte d'intégration"
           }
         ],
         "liens": [
@@ -556,10 +574,22 @@
             "vers": "ext",
             "etape": 5,
             "texte": "Script demandé, données de diagnostic envoyées"
+          },
+          {
+            "de": "cf",
+            "vers": "dw",
+            "etape": 6,
+            "texte": "Identifiant de compte de service obtenu, entrepôt interrogé"
+          },
+          {
+            "de": "cf",
+            "vers": "m365",
+            "etape": 6,
+            "texte": "Connexion avec un compte de service d'intégration"
           }
         ]
       },
-      "limites": "Aucune source ne nomme les attaquants [1, 3, 4]. Options requises : Legacy API sur N-central, non activée par défaut, Remote API sur Confluence [1, 3, 6]. Suites sur Confluence non décrites [6].",
+      "limites": "Aucune source ne nomme les attaquants [1, 3, 4]. Options requises : Legacy API sur N-central, Remote API sur Confluence [1, 3, 6]. Succès inconnu des 50 tentatives vues par Previdian [10].",
       "cves": [
         {
           "id": "CVE-2026-90436",
@@ -575,7 +605,8 @@
         "Serveurs compromis environ 5 heures après la publication du code d'exploitation, selon Lupovis et Huntback [5]",
         "Confluence Data Center 1.x à 9.x avec l'option Remote API activée ; corrigé en 9.2.28, versions 10.x non vulnérables [6]",
         "N-central 2026.4 Hotfix 3 supprime définitivement l'option Legacy API, ce qui ferme le vecteur de 4EverAble2Shell, et corrige 17 failles supplémentaires [7]",
-        "Hotfix 3 corrige 17 failles, CVE-2026-129271 à CVE-2026-129287 ; Sean Bales a ensuite détaillé 24 autres failles N-central, corrigées selon lui [8]"
+        "Hotfix 3 corrige 17 failles, CVE-2026-129271 à CVE-2026-129287 ; Sean Bales a ensuite détaillé 24 autres failles N-central, corrigées selon lui [8]",
+        "Previdian a relevé 50 tentatives d'exploitation venant de 14 adresses entre le 12 et le 19 novembre [10]"
       ],
       "abreviations": [
         {
@@ -651,6 +682,13 @@
           "site": "CISA",
           "url": "https://www.cisa.gov/news-events/alerts/2026/11/18/cisa-adds-four-known-exploited-vulnerabilities-catalog",
           "date": "2026-11-18"
+        },
+        {
+          "titre": "Critical Apache Roller, Axis Vulnerabilities Exploited in Attacks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/critical-apache-roller-axis-vulnerabilities-exploited-in-attacks/",
+          "date": "2026-11-19",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/12/Apache-exploit-scaled-e1724835583910.jpeg"
         }
       ]
     },
@@ -740,9 +778,9 @@
       "id": "2026-11-18-apache-roller-cve-2026-129448",
       "title": "Apache Roller : la faille de désérialisation CVE-2026-129448 exploitée pour exécuter du code sur des serveurs de blogs",
       "created": "2026-11-18T11:10:00+00:00",
-      "updated": "2026-11-18T20:30:00+00:00",
-      "version": 2,
-      "resume": "Apache a corrigé une faille critique de Roller, plateforme de blogs écrite en Java, que des attaquants exploitent pour exécuter du code sur les serveurs vulnérables [1, 2].",
+      "updated": "2026-11-19T13:30:00+00:00",
+      "version": 3,
+      "resume": "Apache a corrigé une faille critique de Roller, plateforme de blogs écrite en Java, que des attaquants exploitent pour exécuter du code sur les serveurs vulnérables [1, 2] ; son avis du 17 novembre confirme l'exploitation active [3].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -775,17 +813,18 @@
           }
         ]
       },
-      "limites": "Apache ne donne ni les auteurs, ni les victimes, ni le nombre de serveurs compromis [1], ni la manière dont la faille est exploitée [2].",
+      "limites": "Apache ne précise ni les auteurs ni le nombre de serveurs compromis [1], ni la manière dont la faille est exploitée, ni les cibles [2], ni aucune autre information sur les attaques [3].",
       "cves": [
         {
           "id": "CVE-2026-129448",
-          "explication": "Apache Roller 4.0.0 à 6.1.4 : désérialisation non sécurisée via XML-RPC, exécution de code à distance sans authentification, score 9,8 sur 10 ; corrigée en 6.1.6, identique à CVE-2026-82384 [1, 2]."
+          "explication": "Apache Roller 4.0.0 à 6.1.4 : désérialisation non sécurisée via XML-RPC, code exécuté à distance sans authentification, 9,8 sur 10 ; corrigée en 6.1.6, déjà publiée sous CVE-2026-82384 [1, 2, 3]."
         }
       ],
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Serveurs Apache Roller vulnérables ; désactiver XML-RPC dans l'administration ne suffit pas sur les anciennes versions [1, 2]"
+        "Serveurs Apache Roller vulnérables ; désactiver XML-RPC dans l'administration ne suffit pas sur les anciennes versions [1, 2]",
+        "Roller 6.1.7, sorti le 11 novembre, corrige 15 autres failles [3]"
       ],
       "abreviations": [
         {
@@ -810,6 +849,13 @@
           "site": "The Hacker News",
           "url": "https://thehackernews.com/2026/11/critical-apache-roller-rce-flaw-under.html",
           "date": "2026-11-18"
+        },
+        {
+          "titre": "Critical Apache Roller, Axis Vulnerabilities Exploited in Attacks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/critical-apache-roller-axis-vulnerabilities-exploited-in-attacks/",
+          "date": "2026-11-19",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/12/Apache-exploit-scaled-e1724835583910.jpeg"
         }
       ]
     },

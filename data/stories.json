@@ -110,19 +110,31 @@
     {
       "schema": 3,
       "id": "2026-11-18-cisa-kev-synology-litellm-redcap",
-      "title": "Synology DSM, LiteLLM et REDCap : trois failles d'exécution de code exploitées ajoutées au catalogue de la CISA",
+      "title": "Synology DSM, LiteLLM et REDCap : failles exploitées pour un rançongiciel, du LLMjacking et du minage, ajoutées au catalogue de la CISA",
       "created": "2026-11-18T21:07:56+00:00",
-      "updated": "2026-11-18T21:07:56+00:00",
-      "version": 1,
-      "resume": "Le 18 novembre 2026, la CISA a ajouté quatre failles à son catalogue des vulnérabilités exploitées, sur preuves d'exploitation active, dont celles de Synology DiskStation Manager, LiteLLM et REDCap [1].",
+      "updated": "2026-11-19T11:20:00+00:00",
+      "version": 2,
+      "resume": "Le 18 novembre 2026, la CISA a ajouté à son catalogue des failles exploitées celles de Synology DiskStation Manager, LiteLLM et REDCap [1]. Elles ont servi à un rançongiciel, à du LLMjacking et à installer un mineur de cryptomonnaie [5].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Exploitation active de failles de Synology DiskStation Manager, LiteLLM et REDCap, sans détail sur les attaques [1]."
+          "texte": "Exploitation à distance de failles de Synology DiskStation Manager, LiteLLM et REDCap → exécution de code arbitraire [2, 3, 4, 5]."
         },
         {
-          "etape": "Exécution de code",
-          "texte": "Selon les fiches NVD, ces failles permettent à un attaquant distant d'exécuter du code arbitraire [2, 3, 4]."
+          "etape": "Élévation de privilèges",
+          "texte": "Sur LiteLLM, clés d'inférence à accès limité transformées en identifiants administrateur complets, puis persistance établie [5]."
+        },
+        {
+          "etape": "Installation du mineur",
+          "texte": "Sur REDCap, web shell temporaire puis chargeur en mémoire → mineur XMRig récupéré, déguisé en fichiers image [5]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Mineur maquillé en syslog-ng, maintenu par une tâche cron et l'ajout d'une clé SSH [5]."
+        },
+        {
+          "etape": "Chiffrement",
+          "texte": "Faille de Synology exploitée contre des serveurs de stockage en réseau → déploiement du rançongiciel C3RB3R [5]."
         }
       ],
       "parcours": {
@@ -138,22 +150,22 @@
             "id": "nas",
             "type": "serveur",
             "zone": "victime",
-            "nom": "Synology DiskStation Manager",
-            "note": ""
+            "nom": "Stockage Synology DiskStation Manager",
+            "note": "Rançongiciel C3RB3R"
           },
           {
             "id": "llm",
             "type": "application",
             "zone": "victime",
             "nom": "Passerelle LiteLLM",
-            "note": ""
+            "note": "Droits administrateur"
           },
           {
             "id": "rc",
             "type": "application",
             "zone": "victime",
             "nom": "Serveur REDCap",
-            "note": ""
+            "note": "Mineur XMRig"
           }
         ],
         "liens": [
@@ -174,10 +186,28 @@
             "vers": "rc",
             "etape": 1,
             "texte": "Exploitation de CVE-2026-90817"
+          },
+          {
+            "de": "att",
+            "vers": "llm",
+            "etape": 2,
+            "texte": "Clés limitées changées en identifiants administrateur"
+          },
+          {
+            "de": "att",
+            "vers": "rc",
+            "etape": 3,
+            "texte": "Web shell puis chargeur du mineur"
+          },
+          {
+            "de": "att",
+            "vers": "nas",
+            "etape": 5,
+            "texte": "Rançongiciel C3RB3R déployé"
           }
         ]
       },
-      "limites": "La CISA ne décrit ni les attaques, ni les attaquants, ni les victimes [1].",
+      "limites": "Aucune source ne nomme les attaquants ni le nombre de victimes [1, 5]. Les étapes entre l'exploitation et le rançongiciel sur les serveurs de stockage ne sont pas décrites [5].",
       "cves": [
         {
           "id": "CVE-2024-10441",
@@ -193,9 +223,12 @@
         }
       ],
       "mitre": [],
-      "acteurs": [],
+      "acteurs": [
+        "Attaquants non nommés ; LiteLLM signalé par Google Threat Intelligence Group, REDCap observé par Safe Security [5]"
+      ],
       "cibles": [
-        "Utilisateurs de Synology DiskStation Manager, de LiteLLM et de REDCap de l'université Vanderbilt [1]"
+        "Utilisateurs de Synology DiskStation Manager, de LiteLLM et de REDCap (université Vanderbilt) exposés aux failles du catalogue [1]",
+        "Via LiteLLM : services financiers, commerce, transports et technologie en Amériques du Nord et du Sud et Asie-Pacifique [5]"
       ],
       "abreviations": [
         {
@@ -213,6 +246,30 @@
         {
           "sigle": "REDCap",
           "definition": "Research Electronic Data Capture : logiciel de collecte de données de recherche"
+        },
+        {
+          "sigle": "NAS",
+          "definition": "Network Attached Storage : serveur de stockage relié au réseau"
+        },
+        {
+          "sigle": "LLM",
+          "definition": "Large Language Model : grand modèle de langage, type d'intelligence artificielle"
+        },
+        {
+          "sigle": "LLMjacking",
+          "definition": "Détournement d'accès à des modèles d'IA payants aux frais de la victime"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole d'accès à distance sécurisé à une machine"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "C3RB3R",
+          "definition": "Nom d'un rançongiciel déployé sur des serveurs de stockage en réseau"
         }
       ],
       "sources": [
@@ -236,6 +293,13 @@
           "titre": "Fiche NVD CVE-2026-90817",
           "site": "NVD (NIST)",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90817"
+        },
+        {
+          "titre": "CISA Warns of 4 Exploited Flaws Linked to Ransomware, Cryptomining, and LLMjacking Attacks",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/cisa-warns-of-4-exploited-flaws-linked.html",
+          "date": "2026-11-19",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJc2bWATWnk5-O72K0n3cYlHuhhox3nVPELPst8c1bui3mTiwBZFUjAUSem14OyqLB6CTECCs9fc-iyng9KmY3jelZ2cqrHg4FKvP2qOZui8piIbYTZy9WdZD0NqiY4fXcLud5GYzmNEXR6DRNuQpjkFzfPvW4fIcDtwaFg4SM9xW-eG09WxFuEcmuKx7U/s1700-nu-rw-lo-l85-e365/cisa.jpg"
         }
       ]
     },
@@ -53007,6 +53071,96 @@
           }
         ]
       }
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-n-able-mail-assure-spamexperts",
+      "title": "N-able : intrusion dans un serveur de Mail Assure et SpamExperts, gestion coupée dans trois régions",
+      "created": "2026-11-19T11:20:00+00:00",
+      "updated": "2026-11-19T11:20:00+00:00",
+      "version": 1,
+      "resume": "Des attaquants non identifiés ont accédé sans autorisation à un serveur du service cloud Mail Assure et SpamExperts de N-able, qui a dû couper ses interfaces de gestion et ses API en Amériques, Asie-Pacifique et Europe [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Accès au serveur",
+          "texte": "Accès non autorisé à un serveur de l'infrastructure hébergée de Mail Assure et SpamExperts [1]."
+        },
+        {
+          "etape": "Détection",
+          "texte": "Panne constatée le 16 novembre, d'abord attribuée à la configuration de la plateforme → reconnue ensuite comme incident de sécurité [1]."
+        },
+        {
+          "etape": "Impact",
+          "texte": "Interfaces de gestion, API, quarantaine et journalisation indisponibles ; le flux et le filtrage des courriels restent assurés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "srv",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Serveur Mail Assure / SpamExperts",
+            "note": "Accès non autorisé"
+          },
+          {
+            "id": "cli",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Partenaires et clients",
+            "note": "Gestion indisponible"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Accès non autorisé, vecteur non précisé"
+          },
+          {
+            "de": "srv",
+            "vers": "cli",
+            "etape": 4,
+            "texte": "Interfaces de gestion et API coupées"
+          }
+        ]
+      },
+      "limites": "Vecteur d'accès, acteur et durée de l'intrusion inconnus ; N-able dit n'avoir aucune preuve d'accès aux données ou boîtes mail des clients, enquête en cours [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Attaquants non identifiés ; incident sans lien avec les failles N-central Able2Shell, 4EverAble2Shell et Agent2Shell [1]"
+      ],
+      "cibles": [
+        "Partenaires et clients de Mail Assure et SpamExperts Hosted Cloud en Amériques, Asie-Pacifique et Europe [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Application Programming Interface : interface permettant à des programmes de communiquer"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers Breach N-able Cloud Server, Disrupting Email Security Management Across 3 Regions",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html",
+          "date": "2026-11-19",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjPpZ9yL9D7JBQvp4_ZmnP8S_U6HKdq3rSM_FVv_uDgT9Iz8D56tO6GNDNE4rs29pejUiKQlxi1HpZ38KYbaSB01PmgPItVL8N-Y9G9vcuJlnadltKvmGhvUKYntAEIVCXFixjdBMyu6S9-zEUlIgGf7E5euvodJbn9LIYWTkRpxwH0g7nz2xp2v5PGMdq/s1700-nu-rw-lo-l85-e365/n-able-hacked.jpg"
+        }
+      ]
     }
   ]
 }

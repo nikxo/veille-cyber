@@ -1,29 +1,5 @@
 [
   {
-    "id": "4c028cb5d41c2475",
-    "title": "Oracle AI World 2026 : OCI appuie sur l’accélérateur",
-    "link": "https://www.lemagit.fr/actualites/366652860/Oracle-AI-World-2026-OCI-appuie-sur-laccelerateur",
-    "source": "LeMagIT",
-    "raison": "annonce produit",
-    "date": "2026-10-29T17:12:00+00:00"
-  },
-  {
-    "id": "143dbc94484df12e",
-    "title": "Face à la surcharge de l’IA agentique, GitHub accélère la réarchitecture de sa plateforme",
-    "link": "https://www.lemagit.fr/actualites/366652921/Face-a-la-surcharge-de-lIA-agentique-GitHub-accelere-la-rearchitecture-de-sa-plateforme",
-    "source": "LeMagIT",
-    "raison": "pas d'attaque (architecture de plateforme)",
-    "date": "2026-10-29T18:20:00+00:00"
-  },
-  {
-    "id": "6b016b58d31a0d7f",
-    "title": "A quiet week in infosec <.<",
-    "link": "https://blog.talosintelligence.com/a-quiet-week-in-infosec/",
-    "source": "Cisco Talos",
-    "raison": "newsletter sans détail d'attaque",
-    "date": "2026-10-29T18:20:00+00:00"
-  },
-  {
     "id": "aa468dae714c3765",
     "title": "Routage dynamique, SLM, Puces Maia : l’efficience booste les revenus de Microsoft",
     "link": "https://www.lemagit.fr/actualites/366652876/Routage-dynamique-SLM-processeurs-Maia-lefficience-booste-les-revenus-de-Microsoft",
@@ -3998,5 +3974,29 @@
     "source": "BleepingComputer",
     "raison": "fuite revendiquée, non confirmée, aucune méthode d'attaque décrite",
     "date": "2026-11-19T10:20:00+00:00"
+  },
+  {
+    "id": "0db6fa0edf4bb8a6",
+    "title": "Splunk Patches Nearly 140 Flaws Across Three Core Products",
+    "link": "https://www.securityweek.com/splunk-patches-nearly-140-flaws-across-three-core-products/",
+    "source": "SecurityWeek",
+    "raison": "correctifs sans exploitation constatée",
+    "date": "2026-11-19T11:20:00+00:00"
+  },
+  {
+    "id": "11b43b59587f75d6",
+    "title": "F5 Patches Critical NGINX2Root Flaws as PoC Exploits Go Public",
+    "link": "https://www.securityweek.com/f5-patches-critical-nginx2root-flaws-as-poc-exploits-go-public/",
+    "source": "SecurityWeek",
+    "raison": "failles avec preuves de concept, aucune exploitation dans la nature",
+    "date": "2026-11-19T11:20:00+00:00"
+  },
+  {
+    "id": "3fb52bdd47deaeb1",
+    "title": "Microsoft confirms app installation, launch issues after hotpatch",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-confirms-app-installation-launch-issues-after-hotpatch/",
+    "source": "BleepingComputer",
+    "raison": "problème de mise à jour Windows, pas une attaque",
+    "date": "2026-11-19T11:20:00+00:00"
   }
 ]

@@ -1,21 +1,5 @@
 [
   {
-    "id": "efbb1c68eb20dd3a",
-    "title": "Threat Modeling With 4 Simple Questions on a White Board",
-    "link": "https://www.darkreading.com/cyber-risk/threat-modeling-4-simple-questions",
-    "source": "Dark Reading",
-    "raison": "conseil générique",
-    "date": "2026-10-29T16:40:00+00:00"
-  },
-  {
-    "id": "649ecf4a57aab371",
-    "title": "Linux Kernel TCP Flaw With 9.8 CVSS Score Affects Ubuntu, Red Hat and Other Distributions",
-    "link": "https://thehackernews.com/2026/10/linux-kernel-tcp-flaw-with-98-cvss.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-29T17:12:00+00:00"
-  },
-  {
     "id": "273c88cb7967a03f",
     "title": "Hermès traque les vulnérabilités les plus dangereuses pour son business",
     "link": "https://www.lemagit.fr/etude/Hermes-traque-les-vulnerabilites-les-plus-dangereuses-pour-son-business",
@@ -3998,5 +3982,21 @@
     "source": "Huntress",
     "raison": "conseils génériques, tentative bloquée sans détail de méthode",
     "date": "2026-11-19T08:20:00+00:00"
+  },
+  {
+    "id": "3d3c58459056e381",
+    "title": "Researcher Demonstrates Database RCE Exploits Affecting PostgreSQL, MySQL and Oracle",
+    "link": "https://thehackernews.com/2026/11/researcher-demonstrates-database-rce.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilités sans exploitation constatée (preuves de concept de chercheur)",
+    "date": "2026-11-19T09:20:00+00:00"
+  },
+  {
+    "id": "ef3cecb6fd503aee",
+    "title": "Ruby Releases Fixes for 7 Regex and String Flaws, Warns 5 Have Proof-of-Concept RCE",
+    "link": "https://thehackernews.com/2026/11/ruby-releases-fixes-for-7-regex-and.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilités sans exploitation constatée (correctifs Ruby, preuves de concept)",
+    "date": "2026-11-19T09:20:00+00:00"
   }
 ]

@@ -1,37 +1,5 @@
 [
   {
-    "id": "3f8b89d0633c5e44",
-    "title": "Rapid7 Analysis: Unauthenticated File Upload to RCE in BeyondTrust Remote Support (CVE-2026-102764)",
-    "link": "https://www.rapid7.com/blog/post/ra-rapid7-analysis-unauthenticated-file-upload-to-rce-in-beyondtrust-remote-support-cve-2026-102764",
-    "source": "Rapid7",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-30T17:08:19+00:00"
-  },
-  {
-    "id": "bfec2004bdb16c89",
-    "title": "TeamViewer Flaw Lets Remote Computers Attack Users Who Connect to Control Them",
-    "link": "https://thehackernews.com/2026/10/teamviewer-flaw-lets-remote-computers.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-30T17:08:19+00:00"
-  },
-  {
-    "id": "f030e53f51f44479",
-    "title": "Inherent prépare un SOC souverain sans Sentinel",
-    "link": "https://www.lemagit.fr/actualites/366653193/Inherent-prepare-un-SOC-souverain-sans-Sentinel",
-    "source": "LeMagIT",
-    "raison": "annonce commerciale, pas d'attaque",
-    "date": "2026-10-30T17:08:19+00:00"
-  },
-  {
-    "id": "10c722cdec1a902b",
-    "title": "AI World 2026 : Oracle déplace la sécurité des IA dans les données",
-    "link": "https://www.lemagit.fr/actualites/366653156/AI-World-2026-Oracle-deplace-la-securite-des-IA-dans-les-donnees",
-    "source": "LeMagIT",
-    "raison": "annonce produit, pas d'attaque",
-    "date": "2026-10-30T19:20:00+00:00"
-  },
-  {
     "id": "866e57697eee802f",
     "title": "Mistral ouvre les poids de Mistral Large 4 et se rapproche d'Orange Cyberdefense",
     "link": "https://www.lemagit.fr/actualites/366653113/Mistral-ouvre-les-poids-de-Mistral-Large-4-et-se-rapproche-dOrange-Cyberdefense",
@@ -3998,5 +3966,37 @@
     "source": "The Hacker News",
     "raison": "récapitulatif hebdomadaire de 20 sujets sans lien entre eux, impossible à regrouper en un sujet",
     "date": "2026-11-19T21:15:00+00:00"
+  },
+  {
+    "id": "150f8fb5544609cd",
+    "title": "Second Norwegian Energy Company Breached in Two Days",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/second-norwegian-energy-company-breached",
+    "source": "Dark Reading",
+    "raison": "article inaccessible (403) ; le résumé du flux ne nomme ni la victime ni la méthode d'attaque",
+    "date": "2026-11-19T22:30:00+00:00"
+  },
+  {
+    "id": "7cf301393d67c629",
+    "title": "Critical PHP Flaws Allow Code Execution, But Don't Panic 'PHP2Shell'-Style",
+    "link": "https://www.darkreading.com/application-security/critical-php-flaws-code-execution-panic-php2shell",
+    "source": "Dark Reading",
+    "raison": "correctifs de failles PHP sans exploitation constatée",
+    "date": "2026-11-19T22:30:00+00:00"
+  },
+  {
+    "id": "8def2dc9ef982b70",
+    "title": "ASUS warns of critical hard-coded key flaw in Control Center Express",
+    "link": "https://www.bleepingcomputer.com/news/security/asus-warns-of-critical-hard-coded-key-flaw-in-control-center-express/",
+    "source": "BleepingComputer",
+    "raison": "correctifs de failles ASUS sans exploitation constatée",
+    "date": "2026-11-19T22:30:00+00:00"
+  },
+  {
+    "id": "8dfce1d63ad40fde",
+    "title": "Lawmakers launch new AI safety caucus amid rising security concerns",
+    "link": "https://therecord.media/lawmakers-launch-new-ai-safety-caucus",
+    "source": "The Record",
+    "raison": "actualité politique sans détail sur une attaque",
+    "date": "2026-11-19T22:30:00+00:00"
   }
 ]

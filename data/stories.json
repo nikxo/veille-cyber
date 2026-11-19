@@ -2,6 +2,108 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-19-truepath-it-screenconnect-compte-admin",
+      "title": "TruePath IT : un compte administrateur compromis sert à déployer des ScreenConnect malveillants chez un client, l'attaquant revient 12 jours plus tard",
+      "created": "2026-11-19T22:30:00+00:00",
+      "updated": "2026-11-19T22:30:00+00:00",
+      "version": 1,
+      "resume": "Chez un client du prestataire TruePath IT, des attaquants ont utilisé un compte administrateur compromis pour déployer des outils ScreenConnect malveillants ; près de 1 000 machines étaient menacées [1]. Les deux incidents ont coûté environ 3 millions de dollars d'arrêt [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Compromission d'un compte aux droits administrateur étendus, méthode non précisée par la source [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Instances ScreenConnect malveillantes déployées avec ce compte dans le réseau du client, où près de 1 000 machines étaient menacées [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Machines encore compromises remises en service avant nettoyage → l'attaquant y conserve son accès [1]."
+        },
+        {
+          "etape": "Seconde vague",
+          "texte": "Douze jours plus tard, nouvelle instance ScreenConnect malveillante → livraison d'un exécutable ressemblant à un rançongiciel [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "adm",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Compte administrateur",
+            "note": "Compromis"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines du client",
+            "note": "ScreenConnect malveillant"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "adm",
+            "etape": 1,
+            "texte": "Compte compromis, méthode non précisée"
+          },
+          {
+            "de": "adm",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Déploiement d'instances ScreenConnect malveillantes"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Accès conservé sur machines remises en service"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Exécutable ressemblant à un rançongiciel livré"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni comment le compte a été compromis, ni qui sont les attaquants, ni ce que faisait exactement l'exécutable livré [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Auteurs non identifiés [1]"
+      ],
+      "cibles": [
+        "TruePath IT, prestataire de services informatiques gérés, et l'un de ses clients, non nommé [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IT",
+          "definition": "Information Technology : informatique, ici dans le nom de l'entreprise"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "RMM Alerts at 2 AM: An MSP and SOC Incident Response Story",
+          "site": "Huntress",
+          "url": "https://www.huntress.com/blog/rmm-alerts-msp-soc-incident-response",
+          "date": "2026-11-19",
+          "image": "https://images.huntress.com/asset/file/2c847c49551a4683ad0201de76bba25c"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-19-transport-for-london-oyster-fuite",
       "title": "Transport for London : les informations de compte d'environ 265 000 clients à carte Oyster avec photo peut-être exposées",
       "created": "2026-11-19T19:07:16+00:00",
@@ -1033,8 +1135,8 @@
       "id": "2026-11-19-armory-castle-vcenter-esxi",
       "title": "Armory Castle : de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day",
       "created": "2026-11-19T15:20:00+00:00",
-      "updated": "2026-11-19T20:20:00+00:00",
-      "version": 3,
+      "updated": "2026-11-19T22:30:00+00:00",
+      "version": 4,
       "resume": "Le groupe d'espionnage Armory Castle, soupçonné d'être lié à la Chine, a exploité deux failles zero-day pour passer de BeyondTrust Remote Support à vCenter puis à un hôte ESXi [1, 4]. La faille de vCenter a été exploitée plus de deux mois avant son correctif [4].",
       "chaine": [
         {
@@ -1146,7 +1248,7 @@
           }
         ]
       },
-      "limites": "Les sources ne nomment ni victime ni secteur [1, 4]. Broadcom ne signale aucune attaque exploitant CVE-2026-123890 [3, 4], alors que Mandiant décrit son exploitation [1].",
+      "limites": "Les sources ne nomment ni victime ni secteur [1, 4, 5]. Broadcom ne signale aucune attaque exploitant CVE-2026-123890 [3, 4], alors que Mandiant décrit son exploitation [1, 5].",
       "cves": [
         {
           "id": "CVE-2026-102764",
@@ -1154,7 +1256,7 @@
         },
         {
           "id": "CVE-2026-123890",
-          "explication": "VMware vCenter Server, composant VMware Directory Service [4] : divulgation sans authentification d'une clé de session, menant à un contournement d'authentification administrateur [1] ; gravité 9,8 sur 10 [3, 4]."
+          "explication": "VMware vCenter Server, composant VMware Directory Service [4] : contournement d'authentification administrateur sans identifiants [1, 5], exploité depuis septembre 2026 [5] ; gravité 9,8 sur 10 [3, 4]."
         }
       ],
       "mitre": [],
@@ -1220,6 +1322,13 @@
           "url": "https://www.securityweek.com/newly-patched-vmware-vcenter-flaw-exploited-as-zero-day-by-chinese-apt/",
           "date": "2026-11-19",
           "image": "https://www.securityweek.com/wp-content/uploads/2022/08/VMWare.jpg"
+        },
+        {
+          "titre": "CVE-2026-123890: Critical Authentication Bypass in VMware vCenter",
+          "site": "Rapid7",
+          "url": "https://www.rapid7.com/blog/post/etr-cve-2026-123890-critical-authentication-bypass-vmware-vcenter",
+          "date": "2026-11-19",
+          "image": "https://www.rapid7.com/cdn/images/blt65a432ba319f4043/6846abddaf18306debe6cf4d/ETR.webp"
         }
       ]
     },

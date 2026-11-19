@@ -54719,6 +54719,124 @@
           }
         ]
       }
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-sbc-medical-group-fuite-donnees",
+      "title": "SBC Medical Group : des bases de données de son site web piratées, les données de 1,6 million de clients volées",
+      "created": "2026-11-19T23:10:00+00:00",
+      "updated": "2026-11-19T23:10:00+00:00",
+      "version": 1,
+      "resume": "Un tiers non autorisé a extrait des informations clients de bases de données d'un site web de SBC Medical Group, société japonaise de gestion de cliniques : 1,6 million de personnes et environ 20 000 comptes d'employés touchés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources, la méthode d'intrusion est encore en cours d'enquête [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Accès non autorisé à des bases de données d'un site web géré par une filiale japonaise → extraction d'informations de clients [1]."
+        },
+        {
+          "etape": "Vol de comptes employés",
+          "texte": "Vol d'environ 20 000 comptes d'employés avec identifiants et mots de passe, plus des données bancaires et fiscales pour 459 d'entre eux [1]."
+        },
+        {
+          "etape": "Plateforme tierce",
+          "texte": "Accès non autorisé à des comptes administrateur de cliniques sur la plateforme de réservation Tribeau → réservations de 12 641 personnes exposées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Tiers non autorisé",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": "Enquête en cours"
+          },
+          {
+            "id": "bdd",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Bases de données du site",
+            "note": "1,6 million de personnes"
+          },
+          {
+            "id": "emp",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Comptes des employés",
+            "note": "Environ 20 000 comptes"
+          },
+          {
+            "id": "tri",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateforme de réservation Tribeau",
+            "note": "Comptes administrateur"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Méthode d'intrusion non précisée"
+          },
+          {
+            "de": "inc",
+            "vers": "bdd",
+            "etape": 2,
+            "texte": "Extraction d'informations de clients"
+          },
+          {
+            "de": "att",
+            "vers": "emp",
+            "etape": 3,
+            "texte": "Vol de comptes d'employés, méthode non précisée"
+          },
+          {
+            "de": "att",
+            "vers": "tri",
+            "etape": 4,
+            "texte": "Accès à des comptes administrateur de cliniques"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas comment l'attaquant est entré, s'il s'agit du même auteur pour les deux incidents, ni comment les comptes employés ont été obtenus [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Tiers non autorisé, non nommé ; méthode d'intrusion et étendue encore en cours d'enquête [1]"
+      ],
+      "cibles": [
+        "SBC Medical Group, groupe de gestion de cliniques actif surtout au Japon [1]",
+        "Clients : noms, coordonnées, dates de naissance, numéros de carte patient, mots de passe [1]",
+        "Employés : identifiants, mots de passe, et pour 459 personnes données bancaires et fiscales [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SBC",
+          "definition": "Nom de l'entreprise SBC Medical Group, sigle non développé par la source"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers steal data of 1.6 million SBC Medical Group customers",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-steal-data-of-16-million-sbc-medical-group-customers/",
+          "date": "2026-11-19",
+          "image": "https://www.bleepstatic.com/content/hl-images/2022/08/22/healthcare-cyber.jpg"
+        }
+      ]
     }
   ]
 }

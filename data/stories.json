@@ -754,9 +754,9 @@
       "id": "2026-11-18-conti-anciens-arretes-ukraine",
       "title": "Anciens de Conti arrêtés en Ukraine : faux support informatique pour entrer chez les victimes",
       "created": "2026-11-18T18:20:00+00:00",
-      "updated": "2026-11-18T18:20:00+00:00",
-      "version": 1,
-      "resume": "La police ukrainienne a arrêté quatre cybercriminels présentés comme liés au groupe de rançongiciels Conti ; les forces de l'ordre ukrainiennes font état d'au moins 28 entreprises ayant versé plus de 40,5 millions de dollars [1].",
+      "updated": "2026-11-19T00:07:24+00:00",
+      "version": 2,
+      "resume": "La police ukrainienne a arrêté quatre cybercriminels présentés comme liés au groupe de rançongiciels Conti [1], avec le FBI [2]. Au moins 28 entreprises ont versé plus de 40,5 millions de dollars [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -827,7 +827,7 @@
           }
         ]
       },
-      "limites": "La source ne relie pas la méthode d'accès à une victime précise et ne décrit ni persistance, ni déplacement dans le réseau, ni chiffrement [1].",
+      "limites": "Les sources ne relient pas la méthode d'accès à une victime précise et ne décrivent ni persistance, ni déplacement dans le réseau, ni chiffrement [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -839,7 +839,12 @@
         "Pétrole et gaz, pharmacie, industrie, logistique, institutions financières, infrastructures critiques [1]",
         "Victimes américaines citées : Warren Oil Company, Newpark Resources, Maxxis International [1]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "FBI",
+          "definition": "Federal Bureau of Investigation : police fédérale des États-Unis"
+        }
+      ],
       "sources": [
         {
           "titre": "Ransomware : coup de filet contre les anciens de Conti",
@@ -847,6 +852,13 @@
           "url": "https://www.lemagit.fr/actualites/366654897/Ransomware-coup-de-filet-contre-les-anciens-de-Conti",
           "date": "2026-11-18",
           "image": "https://www.lemagit.fr/rms/LeMagIT/takedown-blacksuit.jpg"
+        },
+        {
+          "titre": "Ukraine, FBI arrest ransomware gang members tied to $40M in ransoms",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/ukraine-fbi-arrest-ransomware-gang-members-tied-to-40m-in-ransoms/",
+          "date": "2026-11-18",
+          "image": "https://www.bleepstatic.com/content/hl-images/2022/03/15/Ukraine-hacker.jpg"
         }
       ]
     },

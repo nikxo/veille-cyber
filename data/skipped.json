@@ -1,37 +1,5 @@
 [
   {
-    "id": "e008bf7698c0a460",
-    "title": "Cisco Open Sources Quarry to Catch AI Agent Attacks Hidden in Harmless Steps",
-    "link": "https://www.securityweek.com/cisco-open-sources-quarry-to-catch-ai-agent-attacks-hidden-in-harmless-steps/",
-    "source": "SecurityWeek",
-    "raison": "annonce produit",
-    "date": "2026-10-29T14:27:43+00:00"
-  },
-  {
-    "id": "7f2174c7b4a12bb8",
-    "title": "Google Touts Powerful Cybersecurity Capabilities in Gemini 4 Carbon Model",
-    "link": "https://www.securityweek.com/google-says-gemini-4-carbon-leads-in-finding-exploiting-and-fixing-vulnerabilities/",
-    "source": "SecurityWeek",
-    "raison": "annonce produit",
-    "date": "2026-10-29T15:35:00+00:00"
-  },
-  {
-    "id": "92854a6c616da633",
-    "title": "How Secure Are US Elections? Voting Machine Risks and the Growing Threat of AI",
-    "link": "https://www.securityweek.com/how-secure-are-us-elections-voting-machine-risks-and-the-growing-threat-of-ai/",
-    "source": "SecurityWeek",
-    "raison": "analyse générale sans attaque décrite",
-    "date": "2026-10-29T15:35:00+00:00"
-  },
-  {
-    "id": "99ccbb4073246879",
-    "title": "Microsoft fixes Remote Desktop failures caused by recent Windows updates",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-remote-desktop-failures-caused-by-recent-windows-updates/",
-    "source": "BleepingComputer",
-    "raison": "correctif de bug sans attaque",
-    "date": "2026-10-29T15:35:00+00:00"
-  },
-  {
     "id": "efbb1c68eb20dd3a",
     "title": "Threat Modeling With 4 Simple Questions on a White Board",
     "link": "https://www.darkreading.com/cyber-risk/threat-modeling-4-simple-questions",
@@ -3998,5 +3966,37 @@
     "source": "WeLiveSecurity (ESET)",
     "raison": "conseils génériques sur l'arnaque wangiri, aucune campagne précise",
     "date": "2026-11-19T07:15:00+00:00"
+  },
+  {
+    "id": "59d3b792db480830",
+    "title": "Africa Retakes Top Spot as Most Attacked Region, Led by Nigeria Surge",
+    "link": "https://www.darkreading.com/threat-intelligence/africa-top-spot-most-attacked-region-nigeria-surge",
+    "source": "Dark Reading",
+    "raison": "statistiques générales sans détail sur une attaque précise",
+    "date": "2026-11-19T08:20:00+00:00"
+  },
+  {
+    "id": "94c331f30cc47df6",
+    "title": "PHP Readies Critical Security Updates to Patch Another RCE Flaw",
+    "link": "https://www.securityweek.com/php-readies-critical-security-updates-to-patch-another-rce-flaw/",
+    "source": "SecurityWeek",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-19T08:20:00+00:00"
+  },
+  {
+    "id": "d622f2b896c2d883",
+    "title": "OpenShift sur Azure exécute enfin les VM",
+    "link": "https://www.lemagit.fr/actualites/366654916/OpenShift-sur-Azure-execute-enfin-les-VM",
+    "source": "LeMagIT",
+    "raison": "annonce produit",
+    "date": "2026-11-19T08:20:00+00:00"
+  },
+  {
+    "id": "f59b5ec809e4ad7b",
+    "title": "What Business Email Compromise (BEC) Looks Like & How to Catch It",
+    "link": "https://www.huntress.com/blog/what-bec-looks-like",
+    "source": "Huntress",
+    "raison": "conseils génériques, tentative bloquée sans détail de méthode",
+    "date": "2026-11-19T08:20:00+00:00"
   }
 ]

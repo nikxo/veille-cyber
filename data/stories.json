@@ -2,6 +2,443 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-19-commission-europeenne-campagne-ia",
+      "title": "Commission européenne : une cyberattaque « générée par intelligence artificielle » perturbe la gestion du personnel",
+      "created": "2026-11-19T16:09:13+00:00",
+      "updated": "2026-11-19T17:20:00+00:00",
+      "version": 2,
+      "resume": "La Commission européenne confirme une cyberattaque, qu'elle décrit comme une campagne générée par intelligence artificielle [1] ; le personnel ne peut plus saisir salaires et absences, et l'attaque est jugée essentiellement contenue [2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1, 2]."
+        },
+        {
+          "etape": "Attaque outillée par IA",
+          "texte": "Campagne générée par intelligence artificielle ; selon Politico, le CERT-EU a repéré l'usage de la plateforme Artex [1], un outil offensif agentique [2]."
+        },
+        {
+          "etape": "Perturbation des services",
+          "texte": "Services mis hors ligne par précaution ; paie, congés, remboursements médicaux et traduction auraient été perturbés plus de dix jours [1] ; systèmes en cours de rétablissement [2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "artex",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Plateforme Artex",
+            "note": "Selon Politico"
+          },
+          {
+            "id": "sys",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Systèmes de gestion du personnel",
+            "note": "Services perturbés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "att",
+            "vers": "artex",
+            "etape": 2,
+            "texte": "Usage repéré par le CERT-EU"
+          },
+          {
+            "de": "artex",
+            "vers": "sys",
+            "etape": 3,
+            "texte": "Services du personnel perturbés"
+          }
+        ]
+      },
+      "limites": "Les sources ne décrivent ni l'accès initial, ni les actions dans le réseau, ni les attaquants, ni les données éventuellement compromises [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifiés ; la Commission ne précise ni l'outil ni la motivation [1]",
+        "Selon le FBI, Artex est utilisé par des criminels et des groupes soutenus par des États [1]",
+        "Artex en général : Microsoft a d'abord attribué son usage à Storm-0940, aligné sur Pékin ; d'autres ont suivi, dont Storm-3358, acteur crapuleux au Cambodge [2]"
+      ],
+      "cibles": [
+        "Commission européenne, systèmes de gestion du personnel [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CERT-EU",
+          "definition": "Équipe de réponse aux incidents informatiques des institutions européennes"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "FBI",
+          "definition": "Police fédérale américaine"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "European Commission confirms cyberattack, says hackers used AI tool",
+          "site": "The Record",
+          "url": "https://therecord.media/european-commission-confirms-cyberattack-using-ai",
+          "date": "2026-11-19",
+          "image": "https://cms.therecord.media/uploads/30917367864_8dc9286dcf_o_dc03237cec.jpg"
+        },
+        {
+          "titre": "La Commission européenne frappée par une lourde cyberattaque",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366654993/La-Commission-Europeenne-frappee-par-une-lourde-cyberattaque",
+          "date": "2026-11-19",
+          "image": "https://www.lemagit.fr/visuals/German/article/Hero-europe-geopolitics-Waran-Photographic-AdobeStock_33341551.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-luxor-commander-minage-detourne",
+      "title": "Luxor : la plateforme Commander compromise, la puissance de minage Bitcoin de clients détournée vers un autre pool",
+      "created": "2026-11-19T17:20:00+00:00",
+      "updated": "2026-11-19T17:20:00+00:00",
+      "version": 1,
+      "resume": "Luxor Technology confirme la compromission de Commander, son outil de supervision du minage : la puissance de calcul de plus d'une douzaine de comptes clients a été redirigée vers le pool OCEAN [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Détournement du minage",
+          "texte": "Compromission débutée le 14 novembre ; configuration de plus d'une douzaine de comptes clients modifiée → puissance dirigée vers le pool OCEAN, environ 13 EH/s au plus fort [1]."
+        },
+        {
+          "etape": "Gain financier",
+          "texte": "Récompenses de minage détournées → l'adresse utilisée aurait reçu environ 0,162 BTC [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "cmd",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateforme Commander",
+            "note": "Configurations modifiées"
+          },
+          {
+            "id": "min",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Équipements de minage clients",
+            "note": "Puissance redirigée"
+          },
+          {
+            "id": "pool",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Pool OCEAN",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cmd",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "cmd",
+            "vers": "min",
+            "etape": 2,
+            "texte": "Configurations de minage modifiées"
+          },
+          {
+            "de": "min",
+            "vers": "pool",
+            "etape": 2,
+            "texte": "Puissance de calcul redirigée"
+          },
+          {
+            "de": "pool",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Récompenses vers l'adresse utilisée"
+          }
+        ]
+      },
+      "limites": "La source ne précise pas comment Commander a été compromis ; Luxor affirme avoir corrigé la faille en environ deux heures et annonce une analyse technique après incident [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié ; le dirigeant de Luxor évoque une attaque recourant à des capacités liées à l'intelligence artificielle [1]"
+      ],
+      "cibles": [
+        "Clients de Luxor Technology utilisant Commander, plus d'une douzaine de comptes [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "BTC",
+          "definition": "Abréviation du bitcoin, la cryptomonnaie"
+        },
+        {
+          "sigle": "EH/s",
+          "definition": "Exahash par seconde : unité de puissance de calcul de minage"
+        },
+        {
+          "sigle": "OCEAN",
+          "definition": "Nom d'un pool de minage de bitcoins"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Luxor : des récompenses Bitcoin détournées",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/luxor-des-recompenses-bitcoin-detournees/",
+          "date": "2026-11-19",
+          "image": "https://www.zataz.com/wp-content/uploads/Luxor_btc.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-sms-blaster-tokyo-ginza",
+      "title": "Tokyo : une fausse station de base en voiture aurait perturbé plus de 10 000 téléphones pour envoyer de faux SMS bancaires",
+      "created": "2026-11-19T17:20:00+00:00",
+      "updated": "2026-11-19T17:20:00+00:00",
+      "version": 1,
+      "resume": "À Tokyo, un ressortissant chinois de 31 ans a été arrêté, soupçonné d'utiliser un SMS blaster installé dans une voiture ; plus de 10 000 téléphones auraient été perturbés en moins de deux heures [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Fausse station de base dans une voiture → coupures signalées dans un rayon d'environ 500 mètres, les téléphones affectés passant sur un faux réseau 2G [1]."
+        },
+        {
+          "etape": "Hameçonnage par SMS",
+          "texte": "SMS en chinois annonçant une suspension de carte bancaire pour suspicion de fraude internationale → lien vers une page collectant les informations de paiement [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "bts",
+            "type": "passerelle",
+            "zone": "internet",
+            "nom": "Fausse station de base",
+            "note": "Dans une voiture"
+          },
+          {
+            "id": "tel",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Téléphones à proximité",
+            "note": "Plus de 10 000"
+          },
+          {
+            "id": "page",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Page de collecte",
+            "note": "Informations de paiement"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "bts",
+            "etape": 1,
+            "texte": "Équipement installé dans une voiture"
+          },
+          {
+            "de": "bts",
+            "vers": "tel",
+            "etape": 1,
+            "texte": "Bascule vers un faux réseau 2G"
+          },
+          {
+            "de": "bts",
+            "vers": "tel",
+            "etape": 2,
+            "texte": "Faux SMS bancaires en chinois"
+          },
+          {
+            "de": "tel",
+            "vers": "page",
+            "etape": 2,
+            "texte": "Lien vers la page de collecte"
+          }
+        ]
+      },
+      "limites": "Le suspect nie ; la source ne lui attribue pas l'ensemble des pertes déclarées et ne nomme pas le site de collecte [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Suspect de 31 ans, ressortissant chinois, qui nie les faits ; un lien avec la criminalité organisée est étudié [1]"
+      ],
+      "cibles": [
+        "Téléphones à Ginza ; le véhicule était déjà repéré à Shinjuku et Shibuya [1]",
+        "Depuis janvier 2025, 18 touristes et étudiants chinois ont porté plainte pour environ 4 millions de yens, sans lien établi avec le suspect [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SMS",
+          "definition": "Message texte envoyé sur un téléphone mobile"
+        },
+        {
+          "sigle": "2G",
+          "definition": "Deuxième génération de réseau mobile, ancienne et peu protégée"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Un SMS blaster aurait perturbé 10 000 mobiles",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/un-sms-blaster-aurait-perturbe-10-000-mobiles/",
+          "date": "2026-11-19",
+          "image": "https://www.zataz.com/wp-content/uploads/sms_blaster_ninja.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-sms-blaster-hongrie-fausse-police",
+      "title": "Hongrie : une fausse antenne mobile cachée dans une voiture envoie de faux avis d'infraction au nom de la police",
+      "created": "2026-11-19T17:20:00+00:00",
+      "updated": "2026-11-19T17:20:00+00:00",
+      "version": 1,
+      "resume": "En Hongrie, un ressortissant chinois de 27 ans a été arrêté à Pécs avec une fausse antenne mobile dans sa voiture, soupçonné d'avoir diffusé de faux SMS de la police ; neuf victimes ont perdu 14 640 euros [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Fausse antenne mobile (SMS blaster) sur la banquette arrière d'une voiture ; ses émissions suivies par les enquêteurs de Budapest jusqu'à Pécs [1]."
+        },
+        {
+          "etape": "Hameçonnage par SMS",
+          "texte": "SMS affichant « RENDORSEG » comme expéditeur et annonçant une infraction routière à Budapest → lien vers un faux site réclamant un paiement [1]."
+        },
+        {
+          "etape": "Vol d'argent",
+          "texte": "Neuf victimes identifiées → pertes cumulées de 4 802 333 forints, soit 14 640 euros [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "ant",
+            "type": "passerelle",
+            "zone": "internet",
+            "nom": "Fausse antenne mobile",
+            "note": "Dans une voiture"
+          },
+          {
+            "id": "tel",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Téléphones d'abonnés",
+            "note": "Neuf victimes"
+          },
+          {
+            "id": "site",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux site de paiement",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ant",
+            "etape": 1,
+            "texte": "Antenne installée dans une voiture"
+          },
+          {
+            "de": "ant",
+            "vers": "tel",
+            "etape": 2,
+            "texte": "Faux SMS au nom de la police"
+          },
+          {
+            "de": "tel",
+            "vers": "site",
+            "etape": 2,
+            "texte": "Lien vers le faux site"
+          },
+          {
+            "de": "site",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Paiements des victimes"
+          }
+        ]
+      },
+      "limites": "L'action en solitaire n'est qu'une hypothèse de travail et la source ne dit pas qui gère le faux site ; les investigations sur d'éventuels correspondants à l'étranger se poursuivent [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Conducteur de 27 ans, ressortissant chinois, soupçonné ; l'hypothèse d'un acteur isolé n'est pas confirmée [1]"
+      ],
+      "cibles": [
+        "Abonnés mobiles en Hongrie ; 88 235 incidents de fausse station de base détectés du 13 au 22 juillet 2026 [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SMS",
+          "definition": "Message texte envoyé sur un téléphone mobile"
+        },
+        {
+          "sigle": "RENDORSEG",
+          "definition": "Nom d'expéditeur imitant la police hongroise (Rendőrség)"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Un SMS blaster découvert dans une voiture",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/un-sms-blaster-decouvert-dans-une-voiture/",
+          "date": "2026-11-19",
+          "image": "https://www.zataz.com/wp-content/uploads/sms_blaster_titre.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-19-webworm-softether-pont-furtif",
       "title": "Webworm : un pont VPN SoftEther modifié pour garder un accès discret aux réseaux de gouvernements",
       "created": "2026-11-19T16:09:13+00:00",
@@ -123,107 +560,6 @@
           "url": "https://www.rapid7.com/blog/post/tr-spying-on-governments-no-malware-custom-webworms-toolkit-softether-bridge",
           "date": "2026-11-19",
           "image": "https://www.rapid7.com/cdn/images/blt62de3c632e7d1ef7/6984a555a6b5ef052cb93196/Chrysalis-backdoor-blog.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-19-commission-europeenne-campagne-ia",
-      "title": "Commission européenne : une cyberattaque « générée par intelligence artificielle » perturbe la gestion du personnel",
-      "created": "2026-11-19T16:09:13+00:00",
-      "updated": "2026-11-19T16:09:13+00:00",
-      "version": 1,
-      "resume": "La Commission européenne confirme une cyberattaque détectée le 22 octobre 2026, qu'elle décrit comme une campagne générée par intelligence artificielle ; elle a mis plusieurs services hors ligne par précaution [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Attaque outillée par IA",
-          "texte": "Campagne générée par intelligence artificielle ; selon Politico, le CERT-EU a repéré l'usage de la plateforme Artex [1]."
-        },
-        {
-          "etape": "Perturbation des services",
-          "texte": "Plusieurs services mis hors ligne par précaution ; selon des informations de presse, paie, congés, remboursements médicaux et traduction perturbés plus de dix jours [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "artex",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Plateforme Artex",
-            "note": "Selon Politico"
-          },
-          {
-            "id": "sys",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Systèmes de gestion du personnel",
-            "note": "Services perturbés"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "sys",
-            "etape": 1,
-            "texte": "Accès non précisé"
-          },
-          {
-            "de": "att",
-            "vers": "artex",
-            "etape": 2,
-            "texte": "Usage repéré par le CERT-EU"
-          },
-          {
-            "de": "artex",
-            "vers": "sys",
-            "etape": 3,
-            "texte": "Services du personnel perturbés"
-          }
-        ]
-      },
-      "limites": "La source ne décrit ni l'accès initial, ni les actions dans le réseau, ni les attaquants ; la Commission ne nomme pas l'outil [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non identifiés ; la Commission ne précise ni l'outil ni la motivation [1]",
-        "Selon le FBI, Artex est utilisé par des criminels et des groupes soutenus par des États [1]"
-      ],
-      "cibles": [
-        "Commission européenne, systèmes de gestion du personnel [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "CERT-EU",
-          "definition": "Équipe de réponse aux incidents informatiques des institutions européennes"
-        },
-        {
-          "sigle": "IA",
-          "definition": "Intelligence artificielle"
-        },
-        {
-          "sigle": "FBI",
-          "definition": "Police fédérale américaine"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "European Commission confirms cyberattack, says hackers used AI tool",
-          "site": "The Record",
-          "url": "https://therecord.media/european-commission-confirms-cyberattack-using-ai",
-          "date": "2026-11-19",
-          "image": "https://cms.therecord.media/uploads/30917367864_8dc9286dcf_o_dc03237cec.jpg"
         }
       ]
     },
@@ -433,28 +769,32 @@
     },
     {
       "schema": 3,
-      "id": "2026-11-18-coinbase-deepfake-musk-youtube",
-      "title": "Faux direct YouTube avec un deepfake d'Elon Musk : Coinbase bloque 4,7 millions de dollars envoyés aux escrocs",
-      "created": "2026-11-18T21:07:56+00:00",
-      "updated": "2026-11-18T21:07:56+00:00",
-      "version": 1,
-      "resume": "Des escrocs ont diffusé un faux direct YouTube avec un deepfake d'Elon Musk promettant de doubler les cryptomonnaies envoyées, suivi par plus de 500 000 spectateurs ; Coinbase dit avoir bloqué 4,7 millions de dollars de transferts [1].",
+      "id": "2026-11-18-scattered-spider-buchanan-sms",
+      "title": "Scattered Spider : six ans de prison pour un pirate britannique, des SMS piégés aux salariés puis 11,6 millions de dollars de cryptomonnaies volés",
+      "created": "2026-11-18T10:15:00+00:00",
+      "updated": "2026-11-19T16:09:13+00:00",
+      "version": 4,
+      "resume": "Tyler Robert Buchanan, pirate britannique lié à Scattered Spider, est condamné à six ans de prison ; des salariés étaient ciblés par SMS, puis des cryptomonnaies volées pour plus de 11,6 millions de dollars [1, 2, 3].",
       "chaine": [
         {
-          "etape": "Leurre",
-          "texte": "Faux direct YouTube présenté comme la démonstration de « voiture volante » de Tesla → plus de 500 000 spectateurs [1]."
+          "etape": "Accès initial",
+          "texte": "Centaines de SMS aux salariés, au nom de leur employeur ou d'un prestataire informatique → liens vers de fausses pages imitant des sites professionnels [1, 2]."
         },
         {
-          "etape": "Manipulation",
-          "texte": "Vidéo deepfake d'Elon Musk avec adresses de portefeuilles et QR code, promettant de doubler les envois → les victimes transfèrent elles-mêmes leurs cryptomonnaies [1]."
+          "etape": "Vol d'identifiants",
+          "texte": "Identifiants saisis sur les fausses pages → identifiants professionnels compromis, publiés dans un canal Telegram géré par Buchanan et un complice [1, 2]."
         },
         {
-          "etape": "Tentatives de transfert",
-          "texte": "Des centaines de clients Coinbase tentent d'envoyer des millions de dollars en environ deux heures, depuis leur propre compte [1]."
+          "etape": "Intrusion dans les entreprises",
+          "texte": "Connexion aux comptes d'employés avec les identifiants volés → informations confidentielles extraites, servant à repérer les portefeuilles de cryptomonnaies de particuliers [2, 3]."
         },
         {
-          "etape": "Blocage",
-          "texte": "Détection automatique de Coinbase et agent d'IA qui alerte les clients → environ 91 % des transferts bloqués, soit 4,7 millions de dollars [1]."
+          "etape": "Détournement de numéros",
+          "texte": "Numéros de téléphone des victimes transférés vers des appareils des attaquants → double authentification contournée [1, 2]."
+        },
+        {
+          "etape": "Vol de cryptomonnaies",
+          "texte": "Comptes et portefeuilles compromis → au moins 11,6 millions de dollars de cryptomonnaies volés à des particuliers aux États-Unis [1, 2]."
         }
       ],
       "parcours": {
@@ -463,109 +803,505 @@
             "id": "att",
             "type": "attaquant",
             "zone": "internet",
-            "nom": "Escrocs (non identifiés)",
+            "nom": "Attaquant (Scattered Spider)",
             "note": ""
           },
           {
-            "id": "yt",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Faux direct YouTube",
-            "note": "Deepfake d'Elon Musk"
-          },
-          {
-            "id": "vic",
+            "id": "sal",
             "type": "utilisateur",
             "zone": "victime",
-            "nom": "Clients Coinbase",
-            "note": "Centaines de spectateurs"
+            "nom": "Salariés d'entreprises",
+            "note": "SMS piégés"
           },
           {
-            "id": "cb",
+            "id": "fp",
             "type": "application",
+            "zone": "internet",
+            "nom": "Fausses pages professionnelles",
+            "note": "Identifiants saisis"
+          },
+          {
+            "id": "tg",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Canal Telegram",
+            "note": "Identifiants publiés"
+          },
+          {
+            "id": "ent",
+            "type": "serveur",
             "zone": "victime",
-            "nom": "Plateforme Coinbase",
-            "note": "91 % bloqués"
+            "nom": "Systèmes d'entreprises",
+            "note": "Informations extraites"
+          },
+          {
+            "id": "tel",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Numéros de téléphone",
+            "note": "Transférés"
+          },
+          {
+            "id": "wal",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Comptes et portefeuilles",
+            "note": "11,6 millions de dollars"
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "yt",
+            "vers": "sal",
             "etape": 1,
-            "texte": "Faux direct diffusé"
+            "texte": "SMS au nom de l'employeur"
           },
           {
-            "de": "yt",
-            "vers": "vic",
+            "de": "sal",
+            "vers": "fp",
             "etape": 2,
-            "texte": "Promesse de doubler les cryptomonnaies envoyées"
+            "texte": "Identifiants saisis"
           },
           {
-            "de": "vic",
-            "vers": "cb",
+            "de": "fp",
+            "vers": "tg",
+            "etape": 2,
+            "texte": "Identifiants publiés"
+          },
+          {
+            "de": "att",
+            "vers": "ent",
             "etape": 3,
-            "texte": "Transferts tentés vers les adresses des escrocs"
+            "texte": "Connexion aux comptes d'employés"
+          },
+          {
+            "de": "att",
+            "vers": "tel",
+            "etape": 4,
+            "texte": "Numéros transférés vers leurs appareils"
+          },
+          {
+            "de": "att",
+            "vers": "wal",
+            "etape": 5,
+            "texte": "Cryptomonnaies volées"
           }
         ]
       },
-      "limites": "La source ne dit pas quel montant est parvenu aux escrocs, ni quelle chaîne YouTube a diffusé le faux direct [1].",
+      "limites": "",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Escrocs non identifiés [1]"
+        "Scattered Spider ; Tyler Robert Buchanan, actif de septembre 2021 à avril 2023, condamné à six ans ; Noah Michael Urban, condamné à dix ans [1]",
+        "Autres condamnés : Ahmed Hossam Eldin Elbadawy et Evans Onyeaka Osiebo, 45 mois chacun ; Joel Martin Evans, deux ans [2]",
+        "Selon le FBI, le groupe recourt aussi à l'ingénierie sociale et au bombardement de notifications d'authentification multifacteur [1]",
+        "Buchanan arrêté à l'aéroport de Palma, en Espagne, en juin 2024 ; groupe associé à l'attaque par rançongiciel contre MGM Resorts [3]",
+        "Buchanan a plaidé coupable en avril 2026 ; audience sur les restitutions le 11 décembre 2026 [4]"
       ],
       "cibles": [
-        "Spectateurs du faux direct, dont des centaines de clients Coinbase, parmi lesquels de nombreux clients de longue date [1]"
+        "Salariés des télécommunications, technologies, divertissement, services informatiques, externalisation de processus métiers et fournisseurs de communications dans le cloud [1]",
+        "Particuliers détenteurs de cryptomonnaies aux États-Unis et prestataires de cryptomonnaies [1, 2]",
+        "Victimes visées citées dans l'affaire : Coinbase, Twilio, Mailchimp et LastPass [3]",
+        "Au moins douze entreprises visées, selon le ministère américain de la Justice [4]"
       ],
       "abreviations": [
         {
-          "sigle": "IA",
-          "definition": "Intelligence artificielle"
+          "sigle": "SMS",
+          "definition": "Message texte envoyé sur un téléphone mobile"
         },
         {
-          "sigle": "QR",
-          "definition": "Quick Response : code-barres carré lisible par un téléphone"
+          "sigle": "SIM",
+          "definition": "Carte qui associe un numéro de téléphone à un appareil"
+        },
+        {
+          "sigle": "FBI",
+          "definition": "Police fédérale américaine"
+        },
+        {
+          "sigle": "MGM",
+          "definition": "Nom de l'entreprise MGM Resorts, géant des casinos"
         }
       ],
       "sources": [
         {
-          "titre": "Coinbase blocks $4.7 million in transfers to Elon Musk deepfake scam",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/coinbase-blocks-47-million-in-transfers-to-elon-musk-deepfake-scam/",
+          "titre": "Scattered Spider : un pirate britannique condamné à six ans",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/scattered-spider-un-pirate-britannique-condamne-a-six-ans/",
           "date": "2026-11-18",
-          "image": "https://www.bleepstatic.com/content/hl-images/2022/05/22/elon-musk-space-bright.jpg"
+          "image": "https://www.zataz.com/wp-content/uploads/spider_justice.jpg"
+        },
+        {
+          "titre": "Last of Five Defendants Sentenced in US Scattered Spider Hacking Case",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/last-of-five-defendants-sentenced-in-us-scattered-spider-hacking-case/",
+          "date": "2026-11-18",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/03/hacker-prison-sentenced.jpeg"
+        },
+        {
+          "titre": "British hacker gets 6 year sentence for $11.6M crypto theft scheme",
+          "site": "The Record",
+          "url": "https://therecord.media/british-hacker-gets-six-year-sentence-scattered-spider",
+          "date": "2026-11-18",
+          "image": "https://cms.therecord.media/uploads/jail_aa9e09fa90.jpg"
+        },
+        {
+          "titre": "Scattered Spider : six ans de prison pour un pirate",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/scattered-spider-six-ans-de-prison-pour-un-pirate/",
+          "date": "2026-11-19",
+          "image": "https://www.zataz.com/wp-content/uploads/6_ans_scattered.jpg"
         }
       ]
     },
     {
       "schema": 3,
-      "id": "2026-11-18-cisa-kev-synology-litellm-redcap",
-      "title": "Synology DSM, LiteLLM et REDCap : failles exploitées pour un rançongiciel, du LLMjacking et du minage, ajoutées au catalogue de la CISA",
-      "created": "2026-11-18T21:07:56+00:00",
-      "updated": "2026-11-19T11:20:00+00:00",
+      "id": "2026-11-19-armory-castle-vcenter-esxi",
+      "title": "Armory Castle : de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day",
+      "created": "2026-11-19T15:20:00+00:00",
+      "updated": "2026-11-19T16:09:13+00:00",
       "version": 2,
-      "resume": "Le 18 novembre 2026, la CISA a ajouté à son catalogue des failles exploitées celles de Synology DiskStation Manager, LiteLLM et REDCap [1]. Elles ont servi à un rançongiciel, à du LLMjacking et à installer un mineur de cryptomonnaie [5].",
+      "resume": "Le groupe d'espionnage Armory Castle, soupçonné d'être lié à la Chine, est passé de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day, et a extrait des fichiers de machines virtuelles, probablement exfiltrés ensuite [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Exploitation à distance de failles de Synology DiskStation Manager, LiteLLM et REDCap → exécution de code arbitraire [2, 3, 4, 5]."
+          "texte": "Exploitation de la faille zero-day CVE-2026-102764 de BeyondTrust Remote Support → point d'entrée sur l'appliance [1]."
         },
         {
-          "etape": "Élévation de privilèges",
-          "texte": "Sur LiteLLM, clés d'inférence à accès limité transformées en identifiants administrateur complets, puis persistance établie [5]."
+          "etape": "Prise de contrôle",
+          "texte": "Webshells Slimsavage et Cagematch déposés sur une appliance Linux sans EDR, bit SUID activé sur /bin/env → commandes exécutées en root [1]."
         },
         {
-          "etape": "Installation du mineur",
-          "texte": "Sur REDCap, web shell temporaire puis chargeur en mémoire → mineur XMRig récupéré, déguisé en fichiers image [5]."
+          "etape": "Prise de vCenter",
+          "texte": "Outil Bonesaw exploitant la faille zero-day CVE-2026-123890 → compte administrateur SSO créé, connexion SSH à vCenter et vol de sa clé maître de chiffrement [1]."
+        },
+        {
+          "etape": "Accès aux hôtes ESXi",
+          "texte": "Connexion à l'interface ESXi avec le compte vpxuser et en SSH avec le compte root ; clé publique ajoutée aux clés autorisées de root [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Fichier NTDS et ruches de registre extraits d'un disque de machine virtuelle → archivés puis rapatriés vers l'appliance Remote Support, d'où ils ont probablement été exfiltrés [1]."
         },
         {
           "etape": "Persistance",
-          "texte": "Mineur maquillé en syslog-ng, maintenu par une tâche cron et l'ajout d'une clé SSH [5]."
+          "texte": "Porte dérobée Bearbones enregistrant les identifiants en clair, puis Lazybones pilotée via Slack sur une autre appliance Linux → accès persistant [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Armory Castle)",
+            "note": ""
+          },
+          {
+            "id": "bt",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Appliance BeyondTrust Remote Support",
+            "note": "Faille zero-day"
+          },
+          {
+            "id": "lin",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Appliances Linux",
+            "note": "Webshells, portes dérobées"
+          },
+          {
+            "id": "vc",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur vCenter",
+            "note": "Clé maître volée"
+          },
+          {
+            "id": "esx",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Hôtes ESXi",
+            "note": "Accès root"
+          },
+          {
+            "id": "vm",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Disque de machine virtuelle",
+            "note": "Fichier NTDS"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "bt",
+            "etape": 1,
+            "texte": "Exploitation de CVE-2026-102764"
+          },
+          {
+            "de": "bt",
+            "vers": "lin",
+            "etape": 2,
+            "texte": "Webshells déposés, droits root obtenus"
+          },
+          {
+            "de": "lin",
+            "vers": "vc",
+            "etape": 3,
+            "texte": "Bonesaw exploite CVE-2026-123890"
+          },
+          {
+            "de": "vc",
+            "vers": "esx",
+            "etape": 4,
+            "texte": "Connexion via vpxuser et SSH root"
+          },
+          {
+            "de": "esx",
+            "vers": "vm",
+            "etape": 5,
+            "texte": "Fichiers extraits et archivés"
+          },
+          {
+            "de": "att",
+            "vers": "lin",
+            "etape": 6,
+            "texte": "Porte dérobée Lazybones pilotée via Slack"
+          }
+        ]
+      },
+      "limites": "La source ne nomme ni victime ni secteur [1]. Broadcom ne signale aucune attaque exploitant CVE-2026-123890 [3], alors que Mandiant décrit son exploitation [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-102764",
+          "explication": "BeyondTrust Remote Support jusqu'à 26.2.3 : origine des messages mal vérifiée, permettant des opérations sur les fichiers de l'appliance, gravité critique 9,8 sur 10 [2]."
+        },
+        {
+          "id": "CVE-2026-123890",
+          "explication": "VMware vCenter Server : divulgation sans authentification d'une clé de session, menant à un contournement d'authentification administrateur [1] ; gravité 9,8 sur 10, versions 8.0, 9.0 et 9.1 corrigées [3]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Armory Castle, anciennement suivi sous le nom UNC5221, acteur d'espionnage soupçonné d'être lié à la Chine [1]"
+      ],
+      "cibles": [
+        "Environnements VMware vCenter et ESXi ; aucune victime ni secteur nommés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "EDR",
+          "definition": "Endpoint Detection and Response : outil de détection et de réponse sur les machines"
+        },
+        {
+          "sigle": "SUID",
+          "definition": "Bit de permission faisant exécuter un fichier avec les droits de son propriétaire"
+        },
+        {
+          "sigle": "SSO",
+          "definition": "Single Sign-On : authentification unique pour plusieurs services"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole d'administration à distance chiffré"
+        },
+        {
+          "sigle": "NTDS",
+          "definition": "Base de données des comptes d'un domaine Windows"
+        },
+        {
+          "sigle": "UNC5221",
+          "definition": "Ancien nom de suivi de Mandiant pour ce groupe"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "ARMORY CASTLE Exploits vSphere",
+          "site": "Google Threat Intelligence (Mandiant)",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/armory-castle-exploits-vsphere/",
+          "date": "2026-11-19",
+          "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-102764",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102764"
+        },
+        {
+          "titre": "Critical VMware vCenter Flaw (CVSS 9.8) Lets Network Attackers Bypass Authentication",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
+          "date": "2026-11-19",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZ5IDT81eb7KUE0LzwGJAzuAETft3pD5sOz2dJxnQin_-zR_hH8tDKFTsLNBNoe35KM4DhFJjP7K-0YwaMoVwz7xUhTiP2vKeNqmN3kenPgwflENu35qx-QlFj-rDFdyXx1HMz6ykegw6nlnPDXppYbotjoRj-ammlyUZ-Cr0JYLS5iyZXkJXkaIO5UAc/s1700-nu-rw-lo-l85-e365/vmware.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-18-conti-anciens-arretes-ukraine",
+      "title": "Anciens de Conti arrêtés en Ukraine : faux support informatique pour entrer chez les victimes",
+      "created": "2026-11-18T18:20:00+00:00",
+      "updated": "2026-11-19T15:20:00+00:00",
+      "version": 4,
+      "resume": "La police ukrainienne a arrêté quatre cybercriminels liés à une organisation dont le réseau plus large compte d'anciens membres de Conti [1, 3], avec le FBI [2, 3]. Au moins 28 entreprises ont versé plus de 40,5 millions de dollars [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Faux support informatique, parfois avec des voix générées par intelligence artificielle [1, 3], et fausses pages d'accès à distance → identifiants et codes à deux facteurs récupérés [4]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Craquage de condensats de mots de passe → identifiants valides extraits chez Warren Oil et Newpark [4]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Données sensibles dérobées, dont 1,4 téraoctet chez Warren Oil Company et 142 gigaoctets chez Maxxis International-USA [3]."
         },
         {
           "etape": "Chiffrement",
-          "texte": "Faille de Synology exploitée contre des serveurs de stockage en réseau → déploiement du rançongiciel C3RB3R [5]."
+          "texte": "Fichiers chiffrés → activité des entreprises perturbée [3]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Rançon en cryptomonnaie, sous menace de publier les données [3] : 5 millions obtenus sur 10 exigés selon LeMagIT [1], 1,5 million versés par Newpark Resources [3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (anciens de Conti)",
+            "note": ""
+          },
+          {
+            "id": "emp",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Employés des entreprises",
+            "note": "Faux support informatique"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Postes des employés",
+            "note": "Accès à distance"
+          },
+          {
+            "id": "data",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données des entreprises",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "emp",
+            "etape": 1,
+            "texte": "Usurpation du support informatique"
+          },
+          {
+            "de": "emp",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Identifiants saisis, accès à distance installé"
+          },
+          {
+            "de": "att",
+            "vers": "data",
+            "etape": 3,
+            "texte": "Vol de 1,4 téraoctet"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Fichiers chiffrés"
+          }
+        ]
+      },
+      "limites": "Les sources ne détaillent ni persistance ni déplacement dans le réseau [1, 4]. Les autorités n'ont pas identifié le rançongiciel [3], le registre judiciaire mentionne Chaos [1, 4].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Quatre suspects arrêtés, issus d'une organisation d'au moins 27 personnes de plusieurs pays, dont l'Ukraine, le Kazakhstan et la Russie [1]",
+        "Selon LeMagIT, les techniques renvoient à BazarCall, fournisseur d'accès initiaux pour des équipes issues de Conti [1]",
+        "Le registre judiciaire ukrainien mentionne le rançongiciel Chaos [1]",
+        "Au moins 27 membres, rattachés à un réseau de plus de 60 personnes dans huit juridictions [3]",
+        "Quatre affiliés de Chaos ; un groupe lié à Conti a d'abord opéré sous les marques Royal puis BlackSuit [4]"
+      ],
+      "cibles": [
+        "Pétrole et gaz, pharmacie, industrie, logistique, institutions financières, infrastructures critiques [1]",
+        "Victimes américaines citées : Warren Oil Company, Newpark Resources, Maxxis International [1]",
+        "Autres victimes américaines citées : Quantum Health, Maxxis International-USA [3]",
+        "Environ 11,5 millions de dollars de rançons au total pour les trois attaques (Warren Oil, Maxxis, Newpark) [4]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "FBI",
+          "definition": "Federal Bureau of Investigation : police fédérale des États-Unis"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Ransomware : coup de filet contre les anciens de Conti",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366654897/Ransomware-coup-de-filet-contre-les-anciens-de-Conti",
+          "date": "2026-11-18",
+          "image": "https://www.lemagit.fr/rms/LeMagIT/takedown-blacksuit.jpg"
+        },
+        {
+          "titre": "Ukraine, FBI arrest ransomware gang members tied to $40M in ransoms",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/ukraine-fbi-arrest-ransomware-gang-members-tied-to-40m-in-ransoms/",
+          "date": "2026-11-18",
+          "image": "https://www.bleepstatic.com/content/hl-images/2022/03/15/Ukraine-hacker.jpg"
+        },
+        {
+          "titre": "Ukraine exposes ransomware network extorting US oil, healthcare firms",
+          "site": "The Record",
+          "url": "https://therecord.media/ukraine-ransomware-arrests-cyber",
+          "date": "2026-11-19",
+          "image": "https://cms.therecord.media/uploads/Ukraine_prosecutor_office_c19ff7d532.jpg"
+        },
+        {
+          "titre": "Ransomware : que sait-on des quatre affidés de Chaos interpelés ?",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366654933/Ransomware-que-sait-on-des-quatre-affides-de-Chaos-interpeles",
+          "date": "2026-11-19",
+          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/HeroImages/Met-police-officer-in-bullet-proof-vest-John-Gomez-adobe.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-arnaque-lego-formule-1-tiktok",
+      "title": "Fausse offre Lego Formule 1 à 2,85 € sur TikTok pour voler des données bancaires",
+      "created": "2026-11-19T15:20:00+00:00",
+      "updated": "2026-11-19T15:20:00+00:00",
+      "version": 1,
+      "resume": "Une publicité TikTok promet un kit Lego Formule 1 contre 2,85 € de livraison et mène à une fausse page qui collecte coordonnées personnelles et données de carte bancaire [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Publicité TikTok montrant une Ferrari en Lego à gagner en répondant à des questions → internaute attiré vers une page [1]."
+        },
+        {
+          "etape": "Mise en confiance",
+          "texte": "Page reprenant le logo Lego, questionnaire sur la Formule 1 et jeu de boîtes cadeaux → faux écran de victoire [1]."
+        },
+        {
+          "etape": "Collecte de données",
+          "texte": "Formulaire de livraison avec 2,85 € de frais → nom, adresse postale, courriel et téléphone récupérés [1]."
+        },
+        {
+          "etape": "Vol bancaire",
+          "texte": "Page de paiement sur un autre domaine avec logos de sécurité → données de carte saisies, utilisables pour des paiements non autorisés [1]."
         }
       ],
       "parcours": {
@@ -578,194 +1314,109 @@
             "note": ""
           },
           {
-            "id": "nas",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Stockage Synology DiskStation Manager",
-            "note": "Rançongiciel C3RB3R"
+            "id": "tt",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Publicité TikTok",
+            "note": "Kit Lego à gagner"
           },
           {
-            "id": "llm",
-            "type": "application",
+            "id": "user",
+            "type": "utilisateur",
             "zone": "victime",
-            "nom": "Passerelle LiteLLM",
-            "note": "Droits administrateur"
+            "nom": "Internaute",
+            "note": ""
           },
           {
-            "id": "rc",
+            "id": "page",
             "type": "application",
-            "zone": "victime",
-            "nom": "Serveur REDCap",
-            "note": "Mineur XMRig"
+            "zone": "internet",
+            "nom": "Fausse page Lego",
+            "note": "Questionnaire, formulaire"
+          },
+          {
+            "id": "pay",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Fausse page de paiement",
+            "note": "Carte bancaire"
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "nas",
+            "vers": "tt",
             "etape": 1,
-            "texte": "Exploitation de CVE-2024-10441"
+            "texte": "Publicité diffusée"
           },
           {
-            "de": "att",
-            "vers": "llm",
-            "etape": 1,
-            "texte": "Exploitation de CVE-2026-40217"
-          },
-          {
-            "de": "att",
-            "vers": "rc",
-            "etape": 1,
-            "texte": "Exploitation de CVE-2026-90817"
-          },
-          {
-            "de": "att",
-            "vers": "llm",
+            "de": "user",
+            "vers": "page",
             "etape": 2,
-            "texte": "Clés limitées changées en identifiants administrateur"
+            "texte": "Questionnaire et faux jeu de boîtes cadeaux"
           },
           {
-            "de": "att",
-            "vers": "rc",
-            "etape": 3,
-            "texte": "Web shell puis chargeur du mineur"
+            "de": "page",
+            "vers": "pay",
+            "etape": 4,
+            "texte": "Redirection vers un autre domaine"
           },
           {
-            "de": "att",
-            "vers": "nas",
-            "etape": 5,
-            "texte": "Rançongiciel C3RB3R déployé"
+            "de": "user",
+            "vers": "pay",
+            "etape": 4,
+            "texte": "Données de carte saisies"
           }
         ]
       },
-      "limites": "Aucune source ne nomme les attaquants ni le nombre de victimes [1, 5]. Les étapes entre l'exploitation et le rançongiciel sur les serveurs de stockage ne sont pas décrites [5].",
-      "cves": [
-        {
-          "id": "CVE-2024-10441",
-          "explication": "Synology DiskStation Manager et BeeStation : échappement incorrect des sorties dans un module système, exécution de code à distance, critique 9,8 sur 10 [2]."
-        },
-        {
-          "id": "CVE-2026-40217",
-          "explication": "LiteLLM jusqu'au 8 avril 2026 : réécriture de code compilé via la route de test des garde-fous, exécution de code à distance, gravité 8,8 sur 10 [3]."
-        },
-        {
-          "id": "CVE-2026-90817",
-          "explication": "REDCap 13.3.0 et suivantes : routage des sondages publics détourné, exécution de code sans authentification avec un identifiant de sondage public valide, critique 9,8 [4]."
-        }
-      ],
+      "limites": "L'article ne nomme pas l'auteur et ne donne ni nombre de victimes ni montant détourné [1].",
+      "cves": [],
       "mitre": [],
       "acteurs": [
-        "Attaquants non nommés ; LiteLLM signalé par Google Threat Intelligence Group, REDCap observé par Safe Security [5]"
+        "Non mentionné [1]"
       ],
       "cibles": [
-        "Utilisateurs de Synology DiskStation Manager, de LiteLLM et de REDCap (université Vanderbilt) exposés aux failles du catalogue [1]",
-        "Via LiteLLM : services financiers, commerce, transports et technologie en Amériques du Nord et du Sud et Asie-Pacifique [5]"
+        "Utilisateurs de TikTok attirés par la publicité ; aucune victime chiffrée [1]"
       ],
-      "abreviations": [
-        {
-          "sigle": "CISA",
-          "definition": "Agence américaine de cybersécurité qui tient un catalogue des failles exploitées"
-        },
-        {
-          "sigle": "NVD",
-          "definition": "National Vulnerability Database : base américaine de référence des vulnérabilités"
-        },
-        {
-          "sigle": "DSM",
-          "definition": "DiskStation Manager : système des serveurs de stockage Synology"
-        },
-        {
-          "sigle": "REDCap",
-          "definition": "Research Electronic Data Capture : logiciel de collecte de données de recherche"
-        },
-        {
-          "sigle": "NAS",
-          "definition": "Network Attached Storage : serveur de stockage relié au réseau"
-        },
-        {
-          "sigle": "LLM",
-          "definition": "Large Language Model : grand modèle de langage, type d'intelligence artificielle"
-        },
-        {
-          "sigle": "LLMjacking",
-          "definition": "Détournement d'accès à des modèles d'IA payants aux frais de la victime"
-        },
-        {
-          "sigle": "SSH",
-          "definition": "Secure Shell : protocole d'accès à distance sécurisé à une machine"
-        },
-        {
-          "sigle": "IA",
-          "definition": "Intelligence artificielle"
-        },
-        {
-          "sigle": "C3RB3R",
-          "definition": "Nom d'un rançongiciel déployé sur des serveurs de stockage en réseau"
-        }
-      ],
+      "abreviations": [],
       "sources": [
         {
-          "titre": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
-          "site": "CISA",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/11/18/cisa-adds-four-known-exploited-vulnerabilities-catalog",
-          "date": "2026-11-18"
-        },
-        {
-          "titre": "Fiche NVD CVE-2024-10441",
-          "site": "NVD (NIST)",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-10441"
-        },
-        {
-          "titre": "Fiche NVD CVE-2026-40217",
-          "site": "NVD (NIST)",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40217"
-        },
-        {
-          "titre": "Fiche NVD CVE-2026-90817",
-          "site": "NVD (NIST)",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90817"
-        },
-        {
-          "titre": "CISA Warns of 4 Exploited Flaws Linked to Ransomware, Cryptomining, and LLMjacking Attacks",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/cisa-warns-of-4-exploited-flaws-linked.html",
+          "titre": "Arnaque au LEGO Formule 1 sur TikTok",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/arnaque-au-lego-formule-1-sur-tiktok/",
           "date": "2026-11-19",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJc2bWATWnk5-O72K0n3cYlHuhhox3nVPELPst8c1bui3mTiwBZFUjAUSem14OyqLB6CTECCs9fc-iyng9KmY3jelZ2cqrHg4FKvP2qOZui8piIbYTZy9WdZD0NqiY4fXcLud5GYzmNEXR6DRNuQpjkFzfPvW4fIcDtwaFg4SM9xW-eG09WxFuEcmuKx7U/s1700-nu-rw-lo-l85-e365/cisa.jpg"
+          "image": "https://www.zataz.com/wp-content/uploads/lego_arnaque.jpg"
         }
       ]
     },
     {
       "schema": 3,
-      "id": "2026-11-18-pypi-agent-framework-voleur-identifiants",
-      "title": "Paquet PyPI agent-framework de Microsoft : deux versions piégées volent identifiants et jetons cloud",
-      "created": "2026-11-18T08:15:00+00:00",
-      "updated": "2026-11-18T21:07:56+00:00",
-      "version": 4,
-      "resume": "Le 17 novembre 2026, des attaquants ont publié deux versions piégées, 1.26.1 et 1.26.2, du paquet PyPI agent-framework de Microsoft, qui volent identifiants et jetons cloud [1, 2, 3]. Elastic a signalé la 1.26.1 comme malveillante six minutes après sa publication [4].",
+      "id": "2026-11-19-cisco-expressway-cve-2026-76466",
+      "title": "Cisco Expressway : la faille CVE-2026-76466 exploitée peu après la publication d'un exploit, une organisation russe compromise",
+      "created": "2026-11-19T14:30:00+00:00",
+      "updated": "2026-11-19T14:30:00+00:00",
+      "version": 1,
+      "resume": "Une organisation russe non nommée a été compromise par ses appareils Cisco Expressway en cluster, peu après la publication d'un exploit de démonstration, selon la société F6 [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Moyen d'obtenir le droit de publication non établi [1, 2, 3] ; selon OX Security, détournement de la fabrication des paquets → code malveillant ajouté [1]."
+          "texte": "Exploitation de CVE-2026-76466 sur deux appareils Expressway exposés sur Internet → appareils compromis [1]."
         },
         {
-          "etape": "Seconde publication",
-          "texte": "Après la quarantaine de la 1.26.1, publication de la 1.26.2 [3] à 21 h 08 UTC, même voleur, fichiers renommés [4] → quarantaine environ 8 minutes plus tard [3]."
+          "etape": "Déplacement dans le réseau",
+          "texte": "Rebond depuis un de ces appareils vers deux autres nœuds du cluster situés sur le réseau interne [1]."
         },
         {
-          "etape": "Exécution automatique",
-          "texte": "Fichier .pth déposé dans site-packages → voleur lancé à chaque démarrage de Python, même sans import du paquet [1, 2, 3]."
+          "etape": "Prise de contrôle",
+          "texte": "Obtention des droits root → exécution de commandes au niveau du système [1]."
         },
         {
-          "etape": "Vol d'identifiants",
-          "texte": "Collecte des variables d'environnement de jusqu'à 300 processus [4], des fichiers d'identifiants (Azure CLI, .npmrc, .git-credentials, Docker) et des métadonnées Azure [1, 2] ; la 1.26.2 vise aussi GitHub Actions [1, 2, 4]."
+          "etape": "Préparation du rebond",
+          "texte": "Scripts Python sur mesure pour scanner le réseau, trouver des partages SMB, interagir avec SQL Server, WinRM et GitLab → but affiché : récupérer identifiants et informations sensibles [1]."
         },
         {
-          "etape": "Nouveaux jetons",
-          "texte": "Demande de jetons neufs à Azure DevOps et à l'identité managée Azure [1, 2, 3], dont 12 ressources Azure [4] ; selon SafeDep, la rotation des secrets ne les couvre pas [1]."
-        },
-        {
-          "etape": "Exfiltration",
-          "texte": "Données compressées, encodées en Base64 puis envoyées en HTTPS vers une adresse webhook.site codée en dur [1], la même pour les deux versions [3]."
+          "etape": "Adaptation des outils",
+          "texte": "Scripts modifiés pendant l'attaque, avec des commentaires indiquant l'usage d'un assistant d'intelligence artificielle [1]."
         }
       ],
       "parcours": {
@@ -774,125 +1425,185 @@
             "id": "att",
             "type": "attaquant",
             "zone": "internet",
-            "nom": "Attaquant (non identifié)",
+            "nom": "Attaquant",
             "note": ""
           },
           {
-            "id": "pypi",
-            "type": "cloud",
-            "zone": "internet",
-            "nom": "Paquet PyPI agent-framework",
-            "note": "Versions 1.26.1 et 1.26.2"
+            "id": "exp",
+            "type": "passerelle",
+            "zone": "expose",
+            "nom": "Deux appareils Expressway",
+            "note": "Exposés sur Internet"
           },
           {
-            "id": "pc",
-            "type": "postes",
+            "id": "int",
+            "type": "serveur",
             "zone": "victime",
-            "nom": "Machines installant le paquet",
-            "note": "Fichier .pth"
-          },
-          {
-            "id": "az",
-            "type": "cloud",
-            "zone": "victime",
-            "nom": "Azure et Azure DevOps",
-            "note": "Jetons neufs demandés"
-          },
-          {
-            "id": "wh",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Adresse webhook.site",
-            "note": "Réception des données"
+            "nom": "Nœuds internes du cluster",
+            "note": "Droits root"
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "pypi",
+            "vers": "exp",
             "etape": 1,
-            "texte": "Versions piégées publiées"
+            "texte": "Exploitation de CVE-2026-76466"
           },
           {
-            "de": "pypi",
-            "vers": "pc",
-            "etape": 3,
-            "texte": "Installation, voleur lancé au démarrage de Python"
-          },
-          {
-            "de": "pc",
-            "vers": "az",
-            "etape": 5,
-            "texte": "Demande de nouveaux jetons"
-          },
-          {
-            "de": "pc",
-            "vers": "wh",
-            "etape": 6,
-            "texte": "Envoi des données volées"
+            "de": "exp",
+            "vers": "int",
+            "etape": 2,
+            "texte": "Rebond vers le réseau interne"
           }
         ]
       },
-      "limites": "Les sources ne disent pas comment le droit de publier a été obtenu [1, 2, 3, 4], ni combien de machines sont touchées [1, 2, 3]. Rôle non établi du compte « vibiret », créé le jour même [2].",
-      "cves": [],
+      "limites": "La source ne précise pas si des identifiants ou des données ont réellement été exfiltrés, ni qui est derrière l'attaque [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-76466",
+          "explication": "Cisco Expressway Core et Edge en cluster : cookies persistants du service de base de données permettant, sans authentification, d'exécuter des commandes en root ; gravité 9,8 sur 10 [1]."
+        }
+      ],
       "mitre": [],
       "acteurs": [
-        "Non nommé par les sources [1, 3] ; TeamPCP y est cité pour la compromission d'un autre paquet Microsoft en mai 2026 [1]"
+        "Attaque non attribuée à un groupe connu par F6 [1]"
       ],
       "cibles": [
-        "Utilisateurs du paquet agent-framework : environ 190 000 téléchargements par mois [1], environ 200 000 selon BleepingComputer [3], environ 196 000 selon Elastic [4]",
-        "Environnements Azure, Azure DevOps et GitHub Actions [1]"
+        "Organisation russe non nommée [1]"
       ],
       "abreviations": [
         {
-          "sigle": "CLI",
-          "definition": "Command Line Interface : outil en ligne de commande"
+          "sigle": "F6",
+          "definition": "Nom de la société de cybersécurité auteure du rapport"
         },
         {
-          "sigle": "OIDC",
-          "definition": "OpenID Connect : protocole de jetons d'identité entre services"
+          "sigle": "SMB",
+          "definition": "Server Message Block : protocole de partage de fichiers des réseaux Windows"
         },
         {
-          "sigle": "HTTPS",
-          "definition": "Protocole web chiffré"
+          "sigle": "SQL",
+          "definition": "Structured Query Language : langage d'interrogation des bases de données"
         },
         {
-          "sigle": "OX",
-          "definition": "Partie du nom de l'éditeur de sécurité OX Security"
-        },
-        {
-          "sigle": "UTC",
-          "definition": "Temps universel coordonné, heure de référence internationale"
+          "sigle": "WinRM",
+          "definition": "Windows Remote Management : administration à distance des machines Windows"
         }
       ],
       "sources": [
         {
-          "titre": "Attackers Compromise Microsoft's Agent Framework PyPI Package to Steal Cloud Credentials",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/attackers-compromise-microsofts-agent.html",
-          "date": "2026-11-18",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_LozO7RAz13Jr3eqWHIjlAF6M0Cs-mJXX2mKUqU0TxVS02piD1na92TAZjICmeySD4z0zS-Y_BFvceERBdk-UZvV1DUh1LGN6wK-T-yt_TROJ5fcuvROu807jqESQo93CFP3faBbReKMZQxvgYOAGl_vS2VzfO67O24NdAgh6d9jMO2mTSy2jaNJMPD9T/s1700-nu-rw-lo-l85-e365/ms-python.jpg"
-        },
-        {
-          "titre": "Microsoft Agent Framework Releases Poisoned With Credential Stealer",
+          "titre": "Hackers Exploit Cisco Expressway Vulnerability Soon After PoC Release",
           "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/microsoft-agent-framework-releases-poisoned-with-credential-stealer/",
-          "date": "2026-11-18",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supply-chain-attack.jpeg"
+          "url": "https://www.securityweek.com/hackers-exploit-cisco-expressway-vulnerability-soon-after-poc-release/",
+          "date": "2026-11-19",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/09/Cisco-firewall.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-elise-lucet-arnaque-crypto-google-ads",
+      "title": "Élise Lucet utilisée comme appât : de fausses publicités Google Ads mènent à une arnaque au trading de cryptomonnaies",
+      "created": "2026-11-19T14:30:00+00:00",
+      "updated": "2026-11-19T14:30:00+00:00",
+      "version": 1,
+      "resume": "Des escrocs diffusent sur Google Ads, AdSense et LinkedIn un faux licenciement d'Élise Lucet pour attirer vers une fausse plateforme de trading de cryptomonnaies [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Publicités Google Ads, AdSense et publications LinkedIn → faux articles imitant Le Parisien, Le Monde, 20 Minutes ou Libération [1]."
         },
         {
-          "titre": "Microsoft’s Agent Framework PyPI package compromised to steal credentials",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/microsofts-agent-framework-pypi-package-compromised-to-steal-credentials/",
-          "date": "2026-11-18",
-          "image": "https://www.bleepstatic.com/content/hl-images/2025/03/12/Microsoft-headpic.jpg"
+          "etape": "Mise en confiance",
+          "texte": "Promesse de plus de 875 euros par jour, faux avis, compteur de places restantes et fausse caution de Martin Bouygues [1]."
         },
         {
-          "titre": "We caught the agent-framework PyPI compromise six minutes after it published",
-          "site": "Elastic Security Labs",
-          "url": "https://www.elastic.co/security-labs/threat-command/we-caught-the-agent-framework-pypi-compromise-six-minutes-after-it-published",
-          "date": "2026-11-18",
-          "image": "https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/blt9f0c85b0fbfc8440/6afdfa0277abc4ce81d3ae97/image2.png"
+          "etape": "Collecte des coordonnées",
+          "texte": "Formulaire d'inscription → coordonnées recueillies pour recontacter la personne [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Selon l'Autorité des marchés financiers, dans des arnaques comparables : appel d'un faux conseiller → premier versement, puis dépôts poussés par des gains fictifs, frais parfois réclamés au retrait [1]."
+        },
+        {
+          "etape": "Seconde escroquerie",
+          "texte": "Dans ces arnaques comparables, un autre interlocuteur propose ensuite de récupérer les fonds contre un nouveau paiement [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Escrocs",
+            "note": ""
+          },
+          {
+            "id": "ads",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Publicités Google Ads, LinkedIn",
+            "note": ""
+          },
+          {
+            "id": "site",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux articles et site",
+            "note": "Formulaire d'inscription"
+          },
+          {
+            "id": "vic",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Internautes visés",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ads",
+            "etape": 1,
+            "texte": "Diffusion de publicités"
+          },
+          {
+            "de": "ads",
+            "vers": "vic",
+            "etape": 1,
+            "texte": "Faux licenciement d'Élise Lucet"
+          },
+          {
+            "de": "vic",
+            "vers": "site",
+            "etape": 3,
+            "texte": "Coordonnées laissées"
+          },
+          {
+            "de": "att",
+            "vers": "vic",
+            "etape": 4,
+            "texte": "Cas comparables : appels d'un faux conseiller"
+          }
+        ]
+      },
+      "limites": "La source ne donne ni nombre de victimes ni montants perdus, et décrit la suite d'après des arnaques comparables. Décomptes de domaines : au moins 200, 96 faux sites, une centaine [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Escrocs à l'origine d'au moins 200 domaines liés à ce scénario [1]"
+      ],
+      "cibles": [
+        "Internautes visés par les publicités Google Ads et LinkedIn [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Élise Lucet, appât d’une arnaque crypto sur Google Ads",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/elise-lucet-appat-dune-arnaque-crypto-sur-google-ads/",
+          "date": "2026-11-19"
         }
       ]
     },
@@ -1125,87 +1836,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-11-18-wellington-it-cooperatives-credit-irlande",
-      "title": "Wellington IT : une cyberattaque contre le prestataire informatique expose les données de membres de coopératives de crédit irlandaises",
-      "created": "2026-11-18T20:30:00+00:00",
-      "updated": "2026-11-18T20:30:00+00:00",
-      "version": 1,
-      "resume": "Une cyberattaque signalée contre le prestataire informatique Wellington IT a exposé des informations sensibles de membres de 50 coopératives de crédit, pour la plupart en Irlande [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Attaque contre le prestataire Wellington IT → informations sensibles de membres de coopératives de crédit exposées [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "inc",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Point d'entrée inconnu",
-            "note": ""
-          },
-          {
-            "id": "wit",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Données chez Wellington IT",
-            "note": "Membres de coopératives"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "inc",
-            "etape": 1,
-            "texte": "Accès non précisé"
-          },
-          {
-            "de": "inc",
-            "vers": "wit",
-            "etape": 2,
-            "texte": "Informations sensibles exposées"
-          }
-        ]
-      },
-      "limites": "La source consultée ne décrit ni le vecteur d'accès, ni l'auteur, ni la nature exacte des données exposées ; son titre parle de 40 coopératives irlandaises touchées [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Wellington IT, prestataire informatique [1]",
-        "Membres de 50 coopératives de crédit, en majorité irlandaises [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "IT",
-          "definition": "Information Technology : informatique, ici un prestataire de services informatiques"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Data breach impacts 40 Irish credit unions in reported IT provider hack",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/data-breach-impacts-40-irish-credit-unions-in-reported-it-provider-hack/",
-          "date": "2026-11-18",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/18/ireland.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-11-18-apache-roller-cve-2026-129448",
       "title": "Apache Roller : la faille de désérialisation CVE-2026-129448 exploitée pour exécuter du code sur des serveurs de blogs",
       "created": "2026-11-18T11:10:00+00:00",
@@ -1292,32 +1922,32 @@
     },
     {
       "schema": 3,
-      "id": "2026-11-18-conti-anciens-arretes-ukraine",
-      "title": "Anciens de Conti arrêtés en Ukraine : faux support informatique pour entrer chez les victimes",
-      "created": "2026-11-18T18:20:00+00:00",
-      "updated": "2026-11-19T15:20:00+00:00",
-      "version": 4,
-      "resume": "La police ukrainienne a arrêté quatre cybercriminels liés à une organisation dont le réseau plus large compte d'anciens membres de Conti [1, 3], avec le FBI [2, 3]. Au moins 28 entreprises ont versé plus de 40,5 millions de dollars [1, 2].",
+      "id": "2026-11-18-cisa-kev-synology-litellm-redcap",
+      "title": "Synology DSM, LiteLLM et REDCap : failles exploitées pour un rançongiciel, du LLMjacking et du minage, ajoutées au catalogue de la CISA",
+      "created": "2026-11-18T21:07:56+00:00",
+      "updated": "2026-11-19T11:20:00+00:00",
+      "version": 2,
+      "resume": "Le 18 novembre 2026, la CISA a ajouté à son catalogue des failles exploitées celles de Synology DiskStation Manager, LiteLLM et REDCap [1]. Elles ont servi à un rançongiciel, à du LLMjacking et à installer un mineur de cryptomonnaie [5].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Faux support informatique, parfois avec des voix générées par intelligence artificielle [1, 3], et fausses pages d'accès à distance → identifiants et codes à deux facteurs récupérés [4]."
+          "texte": "Exploitation à distance de failles de Synology DiskStation Manager, LiteLLM et REDCap → exécution de code arbitraire [2, 3, 4, 5]."
         },
         {
-          "etape": "Vol d'identifiants",
-          "texte": "Craquage de condensats de mots de passe → identifiants valides extraits chez Warren Oil et Newpark [4]."
+          "etape": "Élévation de privilèges",
+          "texte": "Sur LiteLLM, clés d'inférence à accès limité transformées en identifiants administrateur complets, puis persistance établie [5]."
         },
         {
-          "etape": "Vol de données",
-          "texte": "Données sensibles dérobées, dont 1,4 téraoctet chez Warren Oil Company et 142 gigaoctets chez Maxxis International-USA [3]."
+          "etape": "Installation du mineur",
+          "texte": "Sur REDCap, web shell temporaire puis chargeur en mémoire → mineur XMRig récupéré, déguisé en fichiers image [5]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Mineur maquillé en syslog-ng, maintenu par une tâche cron et l'ajout d'une clé SSH [5]."
         },
         {
           "etape": "Chiffrement",
-          "texte": "Fichiers chiffrés → activité des entreprises perturbée [3]."
-        },
-        {
-          "etape": "Extorsion",
-          "texte": "Rançon en cryptomonnaie, sous menace de publier les données [3] : 5 millions obtenus sur 10 exigés selon LeMagIT [1], 1,5 million versés par Newpark Resources [3]."
+          "texte": "Faille de Synology exploitée contre des serveurs de stockage en réseau → déploiement du rançongiciel C3RB3R [5]."
         }
       ],
       "parcours": {
@@ -1326,108 +1956,253 @@
             "id": "att",
             "type": "attaquant",
             "zone": "internet",
-            "nom": "Attaquant (anciens de Conti)",
+            "nom": "Attaquant",
             "note": ""
           },
           {
-            "id": "emp",
-            "type": "utilisateur",
+            "id": "nas",
+            "type": "serveur",
             "zone": "victime",
-            "nom": "Employés des entreprises",
-            "note": "Faux support informatique"
+            "nom": "Stockage Synology DiskStation Manager",
+            "note": "Rançongiciel C3RB3R"
           },
           {
-            "id": "pc",
-            "type": "postes",
+            "id": "llm",
+            "type": "application",
             "zone": "victime",
-            "nom": "Postes des employés",
-            "note": "Accès à distance"
+            "nom": "Passerelle LiteLLM",
+            "note": "Droits administrateur"
           },
           {
-            "id": "data",
-            "type": "donnees",
+            "id": "rc",
+            "type": "application",
             "zone": "victime",
-            "nom": "Données des entreprises",
-            "note": ""
+            "nom": "Serveur REDCap",
+            "note": "Mineur XMRig"
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "emp",
+            "vers": "nas",
             "etape": 1,
-            "texte": "Usurpation du support informatique"
-          },
-          {
-            "de": "emp",
-            "vers": "pc",
-            "etape": 1,
-            "texte": "Identifiants saisis, accès à distance installé"
+            "texte": "Exploitation de CVE-2024-10441"
           },
           {
             "de": "att",
-            "vers": "data",
+            "vers": "llm",
+            "etape": 1,
+            "texte": "Exploitation de CVE-2026-40217"
+          },
+          {
+            "de": "att",
+            "vers": "rc",
+            "etape": 1,
+            "texte": "Exploitation de CVE-2026-90817"
+          },
+          {
+            "de": "att",
+            "vers": "llm",
+            "etape": 2,
+            "texte": "Clés limitées changées en identifiants administrateur"
+          },
+          {
+            "de": "att",
+            "vers": "rc",
             "etape": 3,
-            "texte": "Vol de 1,4 téraoctet"
+            "texte": "Web shell puis chargeur du mineur"
           },
           {
             "de": "att",
-            "vers": "pc",
-            "etape": 4,
-            "texte": "Fichiers chiffrés"
+            "vers": "nas",
+            "etape": 5,
+            "texte": "Rançongiciel C3RB3R déployé"
           }
         ]
       },
-      "limites": "Les sources ne détaillent ni persistance ni déplacement dans le réseau [1, 4]. Les autorités n'ont pas identifié le rançongiciel [3], le registre judiciaire mentionne Chaos [1, 4].",
-      "cves": [],
+      "limites": "Aucune source ne nomme les attaquants ni le nombre de victimes [1, 5]. Les étapes entre l'exploitation et le rançongiciel sur les serveurs de stockage ne sont pas décrites [5].",
+      "cves": [
+        {
+          "id": "CVE-2024-10441",
+          "explication": "Synology DiskStation Manager et BeeStation : échappement incorrect des sorties dans un module système, exécution de code à distance, critique 9,8 sur 10 [2]."
+        },
+        {
+          "id": "CVE-2026-40217",
+          "explication": "LiteLLM jusqu'au 8 avril 2026 : réécriture de code compilé via la route de test des garde-fous, exécution de code à distance, gravité 8,8 sur 10 [3]."
+        },
+        {
+          "id": "CVE-2026-90817",
+          "explication": "REDCap 13.3.0 et suivantes : routage des sondages publics détourné, exécution de code sans authentification avec un identifiant de sondage public valide, critique 9,8 [4]."
+        }
+      ],
       "mitre": [],
       "acteurs": [
-        "Quatre suspects arrêtés, issus d'une organisation d'au moins 27 personnes de plusieurs pays, dont l'Ukraine, le Kazakhstan et la Russie [1]",
-        "Selon LeMagIT, les techniques renvoient à BazarCall, fournisseur d'accès initiaux pour des équipes issues de Conti [1]",
-        "Le registre judiciaire ukrainien mentionne le rançongiciel Chaos [1]",
-        "Au moins 27 membres, rattachés à un réseau de plus de 60 personnes dans huit juridictions [3]",
-        "Quatre affiliés de Chaos ; un groupe lié à Conti a d'abord opéré sous les marques Royal puis BlackSuit [4]"
+        "Attaquants non nommés ; LiteLLM signalé par Google Threat Intelligence Group, REDCap observé par Safe Security [5]"
       ],
       "cibles": [
-        "Pétrole et gaz, pharmacie, industrie, logistique, institutions financières, infrastructures critiques [1]",
-        "Victimes américaines citées : Warren Oil Company, Newpark Resources, Maxxis International [1]",
-        "Autres victimes américaines citées : Quantum Health, Maxxis International-USA [3]",
-        "Environ 11,5 millions de dollars de rançons au total pour les trois attaques (Warren Oil, Maxxis, Newpark) [4]"
+        "Utilisateurs de Synology DiskStation Manager, de LiteLLM et de REDCap (université Vanderbilt) exposés aux failles du catalogue [1]",
+        "Via LiteLLM : services financiers, commerce, transports et technologie en Amériques du Nord et du Sud et Asie-Pacifique [5]"
       ],
       "abreviations": [
         {
-          "sigle": "FBI",
-          "definition": "Federal Bureau of Investigation : police fédérale des États-Unis"
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité qui tient un catalogue des failles exploitées"
+        },
+        {
+          "sigle": "NVD",
+          "definition": "National Vulnerability Database : base américaine de référence des vulnérabilités"
+        },
+        {
+          "sigle": "DSM",
+          "definition": "DiskStation Manager : système des serveurs de stockage Synology"
+        },
+        {
+          "sigle": "REDCap",
+          "definition": "Research Electronic Data Capture : logiciel de collecte de données de recherche"
+        },
+        {
+          "sigle": "NAS",
+          "definition": "Network Attached Storage : serveur de stockage relié au réseau"
+        },
+        {
+          "sigle": "LLM",
+          "definition": "Large Language Model : grand modèle de langage, type d'intelligence artificielle"
+        },
+        {
+          "sigle": "LLMjacking",
+          "definition": "Détournement d'accès à des modèles d'IA payants aux frais de la victime"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole d'accès à distance sécurisé à une machine"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "C3RB3R",
+          "definition": "Nom d'un rançongiciel déployé sur des serveurs de stockage en réseau"
         }
       ],
       "sources": [
         {
-          "titre": "Ransomware : coup de filet contre les anciens de Conti",
-          "site": "LeMagIT",
-          "url": "https://www.lemagit.fr/actualites/366654897/Ransomware-coup-de-filet-contre-les-anciens-de-Conti",
-          "date": "2026-11-18",
-          "image": "https://www.lemagit.fr/rms/LeMagIT/takedown-blacksuit.jpg"
+          "titre": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/18/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-18"
         },
         {
-          "titre": "Ukraine, FBI arrest ransomware gang members tied to $40M in ransoms",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/ukraine-fbi-arrest-ransomware-gang-members-tied-to-40m-in-ransoms/",
-          "date": "2026-11-18",
-          "image": "https://www.bleepstatic.com/content/hl-images/2022/03/15/Ukraine-hacker.jpg"
+          "titre": "Fiche NVD CVE-2024-10441",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-10441"
         },
         {
-          "titre": "Ukraine exposes ransomware network extorting US oil, healthcare firms",
-          "site": "The Record",
-          "url": "https://therecord.media/ukraine-ransomware-arrests-cyber",
+          "titre": "Fiche NVD CVE-2026-40217",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40217"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-90817",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90817"
+        },
+        {
+          "titre": "CISA Warns of 4 Exploited Flaws Linked to Ransomware, Cryptomining, and LLMjacking Attacks",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/cisa-warns-of-4-exploited-flaws-linked.html",
           "date": "2026-11-19",
-          "image": "https://cms.therecord.media/uploads/Ukraine_prosecutor_office_c19ff7d532.jpg"
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJc2bWATWnk5-O72K0n3cYlHuhhox3nVPELPst8c1bui3mTiwBZFUjAUSem14OyqLB6CTECCs9fc-iyng9KmY3jelZ2cqrHg4FKvP2qOZui8piIbYTZy9WdZD0NqiY4fXcLud5GYzmNEXR6DRNuQpjkFzfPvW4fIcDtwaFg4SM9xW-eG09WxFuEcmuKx7U/s1700-nu-rw-lo-l85-e365/cisa.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-n-able-mail-assure-spamexperts",
+      "title": "N-able : intrusion dans un serveur de Mail Assure et SpamExperts, gestion coupée dans trois régions",
+      "created": "2026-11-19T11:20:00+00:00",
+      "updated": "2026-11-19T11:20:00+00:00",
+      "version": 1,
+      "resume": "Des attaquants non identifiés ont accédé sans autorisation à un serveur du service cloud Mail Assure et SpamExperts de N-able, qui a dû couper ses interfaces de gestion et ses API en Amériques, Asie-Pacifique et Europe [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
         },
         {
-          "titre": "Ransomware : que sait-on des quatre affidés de Chaos interpelés ?",
-          "site": "LeMagIT",
-          "url": "https://www.lemagit.fr/actualites/366654933/Ransomware-que-sait-on-des-quatre-affides-de-Chaos-interpeles",
+          "etape": "Accès au serveur",
+          "texte": "Accès non autorisé à un serveur de l'infrastructure hébergée de Mail Assure et SpamExperts [1]."
+        },
+        {
+          "etape": "Détection",
+          "texte": "Panne constatée le 16 novembre, d'abord attribuée à la configuration de la plateforme → reconnue ensuite comme incident de sécurité [1]."
+        },
+        {
+          "etape": "Impact",
+          "texte": "Interfaces de gestion, API, quarantaine et journalisation indisponibles ; le flux et le filtrage des courriels restent assurés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "srv",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Serveur Mail Assure / SpamExperts",
+            "note": "Accès non autorisé"
+          },
+          {
+            "id": "cli",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Partenaires et clients",
+            "note": "Gestion indisponible"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Accès non autorisé, vecteur non précisé"
+          },
+          {
+            "de": "srv",
+            "vers": "cli",
+            "etape": 4,
+            "texte": "Interfaces de gestion et API coupées"
+          }
+        ]
+      },
+      "limites": "Vecteur d'accès, acteur et durée de l'intrusion inconnus ; N-able dit n'avoir aucune preuve d'accès aux données ou boîtes mail des clients, enquête en cours [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Attaquants non identifiés ; incident sans lien avec les failles N-central Able2Shell, 4EverAble2Shell et Agent2Shell [1]"
+      ],
+      "cibles": [
+        "Partenaires et clients de Mail Assure et SpamExperts Hosted Cloud en Amériques, Asie-Pacifique et Europe [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Application Programming Interface : interface permettant à des programmes de communiquer"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers Breach N-able Cloud Server, Disrupting Email Security Management Across 3 Regions",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html",
           "date": "2026-11-19",
-          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/HeroImages/Met-police-officer-in-bullet-proof-vest-John-Gomez-adobe.jpg"
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjPpZ9yL9D7JBQvp4_ZmnP8S_U6HKdq3rSM_FVv_uDgT9Iz8D56tO6GNDNE4rs29pejUiKQlxi1HpZ38KYbaSB01PmgPItVL8N-Y9G9vcuJlnadltKvmGhvUKYntAEIVCXFixjdBMyu6S9-zEUlIgGf7E5euvodJbn9LIYWTkRpxwH0g7nz2xp2v5PGMdq/s1700-nu-rw-lo-l85-e365/n-able-hacked.jpg"
         }
       ]
     },
@@ -1618,6 +2393,356 @@
           "site": "Dark Reading",
           "url": "https://www.darkreading.com/cyberattacks-data-breaches/cold-relic-turns-one-cloud-breach-into-another",
           "date": "2026-11-18"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-18-coinbase-deepfake-musk-youtube",
+      "title": "Faux direct YouTube avec un deepfake d'Elon Musk : Coinbase bloque 4,7 millions de dollars envoyés aux escrocs",
+      "created": "2026-11-18T21:07:56+00:00",
+      "updated": "2026-11-18T21:07:56+00:00",
+      "version": 1,
+      "resume": "Des escrocs ont diffusé un faux direct YouTube avec un deepfake d'Elon Musk promettant de doubler les cryptomonnaies envoyées, suivi par plus de 500 000 spectateurs ; Coinbase dit avoir bloqué 4,7 millions de dollars de transferts [1].",
+      "chaine": [
+        {
+          "etape": "Leurre",
+          "texte": "Faux direct YouTube présenté comme la démonstration de « voiture volante » de Tesla → plus de 500 000 spectateurs [1]."
+        },
+        {
+          "etape": "Manipulation",
+          "texte": "Vidéo deepfake d'Elon Musk avec adresses de portefeuilles et QR code, promettant de doubler les envois → les victimes transfèrent elles-mêmes leurs cryptomonnaies [1]."
+        },
+        {
+          "etape": "Tentatives de transfert",
+          "texte": "Des centaines de clients Coinbase tentent d'envoyer des millions de dollars en environ deux heures, depuis leur propre compte [1]."
+        },
+        {
+          "etape": "Blocage",
+          "texte": "Détection automatique de Coinbase et agent d'IA qui alerte les clients → environ 91 % des transferts bloqués, soit 4,7 millions de dollars [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Escrocs (non identifiés)",
+            "note": ""
+          },
+          {
+            "id": "yt",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux direct YouTube",
+            "note": "Deepfake d'Elon Musk"
+          },
+          {
+            "id": "vic",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Clients Coinbase",
+            "note": "Centaines de spectateurs"
+          },
+          {
+            "id": "cb",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateforme Coinbase",
+            "note": "91 % bloqués"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "yt",
+            "etape": 1,
+            "texte": "Faux direct diffusé"
+          },
+          {
+            "de": "yt",
+            "vers": "vic",
+            "etape": 2,
+            "texte": "Promesse de doubler les cryptomonnaies envoyées"
+          },
+          {
+            "de": "vic",
+            "vers": "cb",
+            "etape": 3,
+            "texte": "Transferts tentés vers les adresses des escrocs"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas quel montant est parvenu aux escrocs, ni quelle chaîne YouTube a diffusé le faux direct [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Escrocs non identifiés [1]"
+      ],
+      "cibles": [
+        "Spectateurs du faux direct, dont des centaines de clients Coinbase, parmi lesquels de nombreux clients de longue date [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "QR",
+          "definition": "Quick Response : code-barres carré lisible par un téléphone"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Coinbase blocks $4.7 million in transfers to Elon Musk deepfake scam",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/coinbase-blocks-47-million-in-transfers-to-elon-musk-deepfake-scam/",
+          "date": "2026-11-18",
+          "image": "https://www.bleepstatic.com/content/hl-images/2022/05/22/elon-musk-space-bright.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-18-pypi-agent-framework-voleur-identifiants",
+      "title": "Paquet PyPI agent-framework de Microsoft : deux versions piégées volent identifiants et jetons cloud",
+      "created": "2026-11-18T08:15:00+00:00",
+      "updated": "2026-11-18T21:07:56+00:00",
+      "version": 4,
+      "resume": "Le 17 novembre 2026, des attaquants ont publié deux versions piégées, 1.26.1 et 1.26.2, du paquet PyPI agent-framework de Microsoft, qui volent identifiants et jetons cloud [1, 2, 3]. Elastic a signalé la 1.26.1 comme malveillante six minutes après sa publication [4].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Moyen d'obtenir le droit de publication non établi [1, 2, 3] ; selon OX Security, détournement de la fabrication des paquets → code malveillant ajouté [1]."
+        },
+        {
+          "etape": "Seconde publication",
+          "texte": "Après la quarantaine de la 1.26.1, publication de la 1.26.2 [3] à 21 h 08 UTC, même voleur, fichiers renommés [4] → quarantaine environ 8 minutes plus tard [3]."
+        },
+        {
+          "etape": "Exécution automatique",
+          "texte": "Fichier .pth déposé dans site-packages → voleur lancé à chaque démarrage de Python, même sans import du paquet [1, 2, 3]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Collecte des variables d'environnement de jusqu'à 300 processus [4], des fichiers d'identifiants (Azure CLI, .npmrc, .git-credentials, Docker) et des métadonnées Azure [1, 2] ; la 1.26.2 vise aussi GitHub Actions [1, 2, 4]."
+        },
+        {
+          "etape": "Nouveaux jetons",
+          "texte": "Demande de jetons neufs à Azure DevOps et à l'identité managée Azure [1, 2, 3], dont 12 ressources Azure [4] ; selon SafeDep, la rotation des secrets ne les couvre pas [1]."
+        },
+        {
+          "etape": "Exfiltration",
+          "texte": "Données compressées, encodées en Base64 puis envoyées en HTTPS vers une adresse webhook.site codée en dur [1], la même pour les deux versions [3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (non identifié)",
+            "note": ""
+          },
+          {
+            "id": "pypi",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Paquet PyPI agent-framework",
+            "note": "Versions 1.26.1 et 1.26.2"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines installant le paquet",
+            "note": "Fichier .pth"
+          },
+          {
+            "id": "az",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Azure et Azure DevOps",
+            "note": "Jetons neufs demandés"
+          },
+          {
+            "id": "wh",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Adresse webhook.site",
+            "note": "Réception des données"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pypi",
+            "etape": 1,
+            "texte": "Versions piégées publiées"
+          },
+          {
+            "de": "pypi",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Installation, voleur lancé au démarrage de Python"
+          },
+          {
+            "de": "pc",
+            "vers": "az",
+            "etape": 5,
+            "texte": "Demande de nouveaux jetons"
+          },
+          {
+            "de": "pc",
+            "vers": "wh",
+            "etape": 6,
+            "texte": "Envoi des données volées"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent pas comment le droit de publier a été obtenu [1, 2, 3, 4], ni combien de machines sont touchées [1, 2, 3]. Rôle non établi du compte « vibiret », créé le jour même [2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non nommé par les sources [1, 3] ; TeamPCP y est cité pour la compromission d'un autre paquet Microsoft en mai 2026 [1]"
+      ],
+      "cibles": [
+        "Utilisateurs du paquet agent-framework : environ 190 000 téléchargements par mois [1], environ 200 000 selon BleepingComputer [3], environ 196 000 selon Elastic [4]",
+        "Environnements Azure, Azure DevOps et GitHub Actions [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CLI",
+          "definition": "Command Line Interface : outil en ligne de commande"
+        },
+        {
+          "sigle": "OIDC",
+          "definition": "OpenID Connect : protocole de jetons d'identité entre services"
+        },
+        {
+          "sigle": "HTTPS",
+          "definition": "Protocole web chiffré"
+        },
+        {
+          "sigle": "OX",
+          "definition": "Partie du nom de l'éditeur de sécurité OX Security"
+        },
+        {
+          "sigle": "UTC",
+          "definition": "Temps universel coordonné, heure de référence internationale"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Attackers Compromise Microsoft's Agent Framework PyPI Package to Steal Cloud Credentials",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/attackers-compromise-microsofts-agent.html",
+          "date": "2026-11-18",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_LozO7RAz13Jr3eqWHIjlAF6M0Cs-mJXX2mKUqU0TxVS02piD1na92TAZjICmeySD4z0zS-Y_BFvceERBdk-UZvV1DUh1LGN6wK-T-yt_TROJ5fcuvROu807jqESQo93CFP3faBbReKMZQxvgYOAGl_vS2VzfO67O24NdAgh6d9jMO2mTSy2jaNJMPD9T/s1700-nu-rw-lo-l85-e365/ms-python.jpg"
+        },
+        {
+          "titre": "Microsoft Agent Framework Releases Poisoned With Credential Stealer",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/microsoft-agent-framework-releases-poisoned-with-credential-stealer/",
+          "date": "2026-11-18",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/supply-chain-attack.jpeg"
+        },
+        {
+          "titre": "Microsoft’s Agent Framework PyPI package compromised to steal credentials",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/microsofts-agent-framework-pypi-package-compromised-to-steal-credentials/",
+          "date": "2026-11-18",
+          "image": "https://www.bleepstatic.com/content/hl-images/2025/03/12/Microsoft-headpic.jpg"
+        },
+        {
+          "titre": "We caught the agent-framework PyPI compromise six minutes after it published",
+          "site": "Elastic Security Labs",
+          "url": "https://www.elastic.co/security-labs/threat-command/we-caught-the-agent-framework-pypi-compromise-six-minutes-after-it-published",
+          "date": "2026-11-18",
+          "image": "https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/blt9f0c85b0fbfc8440/6afdfa0277abc4ce81d3ae97/image2.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-18-wellington-it-cooperatives-credit-irlande",
+      "title": "Wellington IT : une cyberattaque contre le prestataire informatique expose les données de membres de coopératives de crédit irlandaises",
+      "created": "2026-11-18T20:30:00+00:00",
+      "updated": "2026-11-18T20:30:00+00:00",
+      "version": 1,
+      "resume": "Une cyberattaque signalée contre le prestataire informatique Wellington IT a exposé des informations sensibles de membres de 50 coopératives de crédit, pour la plupart en Irlande [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Attaque contre le prestataire Wellington IT → informations sensibles de membres de coopératives de crédit exposées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "wit",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données chez Wellington IT",
+            "note": "Membres de coopératives"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "wit",
+            "etape": 2,
+            "texte": "Informations sensibles exposées"
+          }
+        ]
+      },
+      "limites": "La source consultée ne décrit ni le vecteur d'accès, ni l'auteur, ni la nature exacte des données exposées ; son titre parle de 40 coopératives irlandaises touchées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Wellington IT, prestataire informatique [1]",
+        "Membres de 50 coopératives de crédit, en majorité irlandaises [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IT",
+          "definition": "Information Technology : informatique, ici un prestataire de services informatiques"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Data breach impacts 40 Irish credit unions in reported IT provider hack",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/data-breach-impacts-40-irish-credit-unions-in-reported-it-provider-hack/",
+          "date": "2026-11-18",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/18/ireland.jpg"
         }
       ]
     },
@@ -1882,192 +3007,6 @@
           "url": "https://www.rapid7.com/blog/post/tr-self-hosted-ai-renting-compute-exposed-servers",
           "date": "2026-11-18",
           "image": "https://www.rapid7.com/cdn/images/blt77f5564b49102b80/6abfb804cd0bd934c1d4e56b/Copy_of_Rapid7_intelligence_report_template.png"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-18-scattered-spider-buchanan-sms",
-      "title": "Scattered Spider : six ans de prison pour un pirate britannique, des SMS piégés aux salariés puis 11,6 millions de dollars de cryptomonnaies volés",
-      "created": "2026-11-18T10:15:00+00:00",
-      "updated": "2026-11-19T16:09:13+00:00",
-      "version": 4,
-      "resume": "Tyler Robert Buchanan, pirate britannique lié à Scattered Spider, est condamné à six ans de prison ; des salariés étaient ciblés par SMS, puis des cryptomonnaies volées pour plus de 11,6 millions de dollars [1, 2, 3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Centaines de SMS aux salariés, au nom de leur employeur ou d'un prestataire informatique → liens vers de fausses pages imitant des sites professionnels [1, 2]."
-        },
-        {
-          "etape": "Vol d'identifiants",
-          "texte": "Identifiants saisis sur les fausses pages → identifiants professionnels compromis, publiés dans un canal Telegram géré par Buchanan et un complice [1, 2]."
-        },
-        {
-          "etape": "Intrusion dans les entreprises",
-          "texte": "Connexion aux comptes d'employés avec les identifiants volés → informations confidentielles extraites, servant à repérer les portefeuilles de cryptomonnaies de particuliers [2, 3]."
-        },
-        {
-          "etape": "Détournement de numéros",
-          "texte": "Numéros de téléphone des victimes transférés vers des appareils des attaquants → double authentification contournée [1, 2]."
-        },
-        {
-          "etape": "Vol de cryptomonnaies",
-          "texte": "Comptes et portefeuilles compromis → au moins 11,6 millions de dollars de cryptomonnaies volés à des particuliers aux États-Unis [1, 2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (Scattered Spider)",
-            "note": ""
-          },
-          {
-            "id": "sal",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Salariés d'entreprises",
-            "note": "SMS piégés"
-          },
-          {
-            "id": "fp",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Fausses pages professionnelles",
-            "note": "Identifiants saisis"
-          },
-          {
-            "id": "tg",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Canal Telegram",
-            "note": "Identifiants publiés"
-          },
-          {
-            "id": "ent",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Systèmes d'entreprises",
-            "note": "Informations extraites"
-          },
-          {
-            "id": "tel",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Numéros de téléphone",
-            "note": "Transférés"
-          },
-          {
-            "id": "wal",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Comptes et portefeuilles",
-            "note": "11,6 millions de dollars"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "sal",
-            "etape": 1,
-            "texte": "SMS au nom de l'employeur"
-          },
-          {
-            "de": "sal",
-            "vers": "fp",
-            "etape": 2,
-            "texte": "Identifiants saisis"
-          },
-          {
-            "de": "fp",
-            "vers": "tg",
-            "etape": 2,
-            "texte": "Identifiants publiés"
-          },
-          {
-            "de": "att",
-            "vers": "ent",
-            "etape": 3,
-            "texte": "Connexion aux comptes d'employés"
-          },
-          {
-            "de": "att",
-            "vers": "tel",
-            "etape": 4,
-            "texte": "Numéros transférés vers leurs appareils"
-          },
-          {
-            "de": "att",
-            "vers": "wal",
-            "etape": 5,
-            "texte": "Cryptomonnaies volées"
-          }
-        ]
-      },
-      "limites": "",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Scattered Spider ; Tyler Robert Buchanan, actif de septembre 2021 à avril 2023, condamné à six ans ; Noah Michael Urban, condamné à dix ans [1]",
-        "Autres condamnés : Ahmed Hossam Eldin Elbadawy et Evans Onyeaka Osiebo, 45 mois chacun ; Joel Martin Evans, deux ans [2]",
-        "Selon le FBI, le groupe recourt aussi à l'ingénierie sociale et au bombardement de notifications d'authentification multifacteur [1]",
-        "Buchanan arrêté à l'aéroport de Palma, en Espagne, en juin 2024 ; groupe associé à l'attaque par rançongiciel contre MGM Resorts [3]",
-        "Buchanan a plaidé coupable en avril 2026 ; audience sur les restitutions le 11 décembre 2026 [4]"
-      ],
-      "cibles": [
-        "Salariés des télécommunications, technologies, divertissement, services informatiques, externalisation de processus métiers et fournisseurs de communications dans le cloud [1]",
-        "Particuliers détenteurs de cryptomonnaies aux États-Unis et prestataires de cryptomonnaies [1, 2]",
-        "Victimes visées citées dans l'affaire : Coinbase, Twilio, Mailchimp et LastPass [3]",
-        "Au moins douze entreprises visées, selon le ministère américain de la Justice [4]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "SMS",
-          "definition": "Message texte envoyé sur un téléphone mobile"
-        },
-        {
-          "sigle": "SIM",
-          "definition": "Carte qui associe un numéro de téléphone à un appareil"
-        },
-        {
-          "sigle": "FBI",
-          "definition": "Police fédérale américaine"
-        },
-        {
-          "sigle": "MGM",
-          "definition": "Nom de l'entreprise MGM Resorts, géant des casinos"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Scattered Spider : un pirate britannique condamné à six ans",
-          "site": "ZATAZ",
-          "url": "https://www.zataz.com/scattered-spider-un-pirate-britannique-condamne-a-six-ans/",
-          "date": "2026-11-18",
-          "image": "https://www.zataz.com/wp-content/uploads/spider_justice.jpg"
-        },
-        {
-          "titre": "Last of Five Defendants Sentenced in US Scattered Spider Hacking Case",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/last-of-five-defendants-sentenced-in-us-scattered-spider-hacking-case/",
-          "date": "2026-11-18",
-          "image": "https://www.securityweek.com/wp-content/uploads/2024/03/hacker-prison-sentenced.jpeg"
-        },
-        {
-          "titre": "British hacker gets 6 year sentence for $11.6M crypto theft scheme",
-          "site": "The Record",
-          "url": "https://therecord.media/british-hacker-gets-six-year-sentence-scattered-spider",
-          "date": "2026-11-18",
-          "image": "https://cms.therecord.media/uploads/jail_aa9e09fa90.jpg"
-        },
-        {
-          "titre": "Scattered Spider : six ans de prison pour un pirate",
-          "site": "ZATAZ",
-          "url": "https://www.zataz.com/scattered-spider-six-ans-de-prison-pour-un-pirate/",
-          "date": "2026-11-19",
-          "image": "https://www.zataz.com/wp-content/uploads/6_ans_scattered.jpg"
         }
       ]
     },
@@ -53585,609 +54524,6 @@
           }
         ]
       }
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-19-n-able-mail-assure-spamexperts",
-      "title": "N-able : intrusion dans un serveur de Mail Assure et SpamExperts, gestion coupée dans trois régions",
-      "created": "2026-11-19T11:20:00+00:00",
-      "updated": "2026-11-19T11:20:00+00:00",
-      "version": 1,
-      "resume": "Des attaquants non identifiés ont accédé sans autorisation à un serveur du service cloud Mail Assure et SpamExperts de N-able, qui a dû couper ses interfaces de gestion et ses API en Amériques, Asie-Pacifique et Europe [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Accès au serveur",
-          "texte": "Accès non autorisé à un serveur de l'infrastructure hébergée de Mail Assure et SpamExperts [1]."
-        },
-        {
-          "etape": "Détection",
-          "texte": "Panne constatée le 16 novembre, d'abord attribuée à la configuration de la plateforme → reconnue ensuite comme incident de sécurité [1]."
-        },
-        {
-          "etape": "Impact",
-          "texte": "Interfaces de gestion, API, quarantaine et journalisation indisponibles ; le flux et le filtrage des courriels restent assurés [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": "Non identifié"
-          },
-          {
-            "id": "srv",
-            "type": "cloud",
-            "zone": "victime",
-            "nom": "Serveur Mail Assure / SpamExperts",
-            "note": "Accès non autorisé"
-          },
-          {
-            "id": "cli",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Partenaires et clients",
-            "note": "Gestion indisponible"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "srv",
-            "etape": 2,
-            "texte": "Accès non autorisé, vecteur non précisé"
-          },
-          {
-            "de": "srv",
-            "vers": "cli",
-            "etape": 4,
-            "texte": "Interfaces de gestion et API coupées"
-          }
-        ]
-      },
-      "limites": "Vecteur d'accès, acteur et durée de l'intrusion inconnus ; N-able dit n'avoir aucune preuve d'accès aux données ou boîtes mail des clients, enquête en cours [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Attaquants non identifiés ; incident sans lien avec les failles N-central Able2Shell, 4EverAble2Shell et Agent2Shell [1]"
-      ],
-      "cibles": [
-        "Partenaires et clients de Mail Assure et SpamExperts Hosted Cloud en Amériques, Asie-Pacifique et Europe [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "API",
-          "definition": "Application Programming Interface : interface permettant à des programmes de communiquer"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Hackers Breach N-able Cloud Server, Disrupting Email Security Management Across 3 Regions",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html",
-          "date": "2026-11-19",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjPpZ9yL9D7JBQvp4_ZmnP8S_U6HKdq3rSM_FVv_uDgT9Iz8D56tO6GNDNE4rs29pejUiKQlxi1HpZ38KYbaSB01PmgPItVL8N-Y9G9vcuJlnadltKvmGhvUKYntAEIVCXFixjdBMyu6S9-zEUlIgGf7E5euvodJbn9LIYWTkRpxwH0g7nz2xp2v5PGMdq/s1700-nu-rw-lo-l85-e365/n-able-hacked.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-19-cisco-expressway-cve-2026-76466",
-      "title": "Cisco Expressway : la faille CVE-2026-76466 exploitée peu après la publication d'un exploit, une organisation russe compromise",
-      "created": "2026-11-19T14:30:00+00:00",
-      "updated": "2026-11-19T14:30:00+00:00",
-      "version": 1,
-      "resume": "Une organisation russe non nommée a été compromise par ses appareils Cisco Expressway en cluster, peu après la publication d'un exploit de démonstration, selon la société F6 [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Exploitation de CVE-2026-76466 sur deux appareils Expressway exposés sur Internet → appareils compromis [1]."
-        },
-        {
-          "etape": "Déplacement dans le réseau",
-          "texte": "Rebond depuis un de ces appareils vers deux autres nœuds du cluster situés sur le réseau interne [1]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Obtention des droits root → exécution de commandes au niveau du système [1]."
-        },
-        {
-          "etape": "Préparation du rebond",
-          "texte": "Scripts Python sur mesure pour scanner le réseau, trouver des partages SMB, interagir avec SQL Server, WinRM et GitLab → but affiché : récupérer identifiants et informations sensibles [1]."
-        },
-        {
-          "etape": "Adaptation des outils",
-          "texte": "Scripts modifiés pendant l'attaque, avec des commentaires indiquant l'usage d'un assistant d'intelligence artificielle [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "exp",
-            "type": "passerelle",
-            "zone": "expose",
-            "nom": "Deux appareils Expressway",
-            "note": "Exposés sur Internet"
-          },
-          {
-            "id": "int",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Nœuds internes du cluster",
-            "note": "Droits root"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "exp",
-            "etape": 1,
-            "texte": "Exploitation de CVE-2026-76466"
-          },
-          {
-            "de": "exp",
-            "vers": "int",
-            "etape": 2,
-            "texte": "Rebond vers le réseau interne"
-          }
-        ]
-      },
-      "limites": "La source ne précise pas si des identifiants ou des données ont réellement été exfiltrés, ni qui est derrière l'attaque [1].",
-      "cves": [
-        {
-          "id": "CVE-2026-76466",
-          "explication": "Cisco Expressway Core et Edge en cluster : cookies persistants du service de base de données permettant, sans authentification, d'exécuter des commandes en root ; gravité 9,8 sur 10 [1]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "Attaque non attribuée à un groupe connu par F6 [1]"
-      ],
-      "cibles": [
-        "Organisation russe non nommée [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "F6",
-          "definition": "Nom de la société de cybersécurité auteure du rapport"
-        },
-        {
-          "sigle": "SMB",
-          "definition": "Server Message Block : protocole de partage de fichiers des réseaux Windows"
-        },
-        {
-          "sigle": "SQL",
-          "definition": "Structured Query Language : langage d'interrogation des bases de données"
-        },
-        {
-          "sigle": "WinRM",
-          "definition": "Windows Remote Management : administration à distance des machines Windows"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Hackers Exploit Cisco Expressway Vulnerability Soon After PoC Release",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/hackers-exploit-cisco-expressway-vulnerability-soon-after-poc-release/",
-          "date": "2026-11-19",
-          "image": "https://www.securityweek.com/wp-content/uploads/2025/09/Cisco-firewall.jpeg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-19-elise-lucet-arnaque-crypto-google-ads",
-      "title": "Élise Lucet utilisée comme appât : de fausses publicités Google Ads mènent à une arnaque au trading de cryptomonnaies",
-      "created": "2026-11-19T14:30:00+00:00",
-      "updated": "2026-11-19T14:30:00+00:00",
-      "version": 1,
-      "resume": "Des escrocs diffusent sur Google Ads, AdSense et LinkedIn un faux licenciement d'Élise Lucet pour attirer vers une fausse plateforme de trading de cryptomonnaies [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Publicités Google Ads, AdSense et publications LinkedIn → faux articles imitant Le Parisien, Le Monde, 20 Minutes ou Libération [1]."
-        },
-        {
-          "etape": "Mise en confiance",
-          "texte": "Promesse de plus de 875 euros par jour, faux avis, compteur de places restantes et fausse caution de Martin Bouygues [1]."
-        },
-        {
-          "etape": "Collecte des coordonnées",
-          "texte": "Formulaire d'inscription → coordonnées recueillies pour recontacter la personne [1]."
-        },
-        {
-          "etape": "Extorsion",
-          "texte": "Selon l'Autorité des marchés financiers, dans des arnaques comparables : appel d'un faux conseiller → premier versement, puis dépôts poussés par des gains fictifs, frais parfois réclamés au retrait [1]."
-        },
-        {
-          "etape": "Seconde escroquerie",
-          "texte": "Dans ces arnaques comparables, un autre interlocuteur propose ensuite de récupérer les fonds contre un nouveau paiement [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Escrocs",
-            "note": ""
-          },
-          {
-            "id": "ads",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Publicités Google Ads, LinkedIn",
-            "note": ""
-          },
-          {
-            "id": "site",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Faux articles et site",
-            "note": "Formulaire d'inscription"
-          },
-          {
-            "id": "vic",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Internautes visés",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "ads",
-            "etape": 1,
-            "texte": "Diffusion de publicités"
-          },
-          {
-            "de": "ads",
-            "vers": "vic",
-            "etape": 1,
-            "texte": "Faux licenciement d'Élise Lucet"
-          },
-          {
-            "de": "vic",
-            "vers": "site",
-            "etape": 3,
-            "texte": "Coordonnées laissées"
-          },
-          {
-            "de": "att",
-            "vers": "vic",
-            "etape": 4,
-            "texte": "Cas comparables : appels d'un faux conseiller"
-          }
-        ]
-      },
-      "limites": "La source ne donne ni nombre de victimes ni montants perdus, et décrit la suite d'après des arnaques comparables. Décomptes de domaines : au moins 200, 96 faux sites, une centaine [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Escrocs à l'origine d'au moins 200 domaines liés à ce scénario [1]"
-      ],
-      "cibles": [
-        "Internautes visés par les publicités Google Ads et LinkedIn [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Élise Lucet, appât d’une arnaque crypto sur Google Ads",
-          "site": "ZATAZ",
-          "url": "https://www.zataz.com/elise-lucet-appat-dune-arnaque-crypto-sur-google-ads/",
-          "date": "2026-11-19"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-19-armory-castle-vcenter-esxi",
-      "title": "Armory Castle : de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day",
-      "created": "2026-11-19T15:20:00+00:00",
-      "updated": "2026-11-19T16:09:13+00:00",
-      "version": 2,
-      "resume": "Le groupe d'espionnage Armory Castle, soupçonné d'être lié à la Chine, est passé de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day, et a extrait des fichiers de machines virtuelles, probablement exfiltrés ensuite [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Exploitation de la faille zero-day CVE-2026-102764 de BeyondTrust Remote Support → point d'entrée sur l'appliance [1]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Webshells Slimsavage et Cagematch déposés sur une appliance Linux sans EDR, bit SUID activé sur /bin/env → commandes exécutées en root [1]."
-        },
-        {
-          "etape": "Prise de vCenter",
-          "texte": "Outil Bonesaw exploitant la faille zero-day CVE-2026-123890 → compte administrateur SSO créé, connexion SSH à vCenter et vol de sa clé maître de chiffrement [1]."
-        },
-        {
-          "etape": "Accès aux hôtes ESXi",
-          "texte": "Connexion à l'interface ESXi avec le compte vpxuser et en SSH avec le compte root ; clé publique ajoutée aux clés autorisées de root [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Fichier NTDS et ruches de registre extraits d'un disque de machine virtuelle → archivés puis rapatriés vers l'appliance Remote Support, d'où ils ont probablement été exfiltrés [1]."
-        },
-        {
-          "etape": "Persistance",
-          "texte": "Porte dérobée Bearbones enregistrant les identifiants en clair, puis Lazybones pilotée via Slack sur une autre appliance Linux → accès persistant [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (Armory Castle)",
-            "note": ""
-          },
-          {
-            "id": "bt",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Appliance BeyondTrust Remote Support",
-            "note": "Faille zero-day"
-          },
-          {
-            "id": "lin",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Appliances Linux",
-            "note": "Webshells, portes dérobées"
-          },
-          {
-            "id": "vc",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur vCenter",
-            "note": "Clé maître volée"
-          },
-          {
-            "id": "esx",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Hôtes ESXi",
-            "note": "Accès root"
-          },
-          {
-            "id": "vm",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Disque de machine virtuelle",
-            "note": "Fichier NTDS"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "bt",
-            "etape": 1,
-            "texte": "Exploitation de CVE-2026-102764"
-          },
-          {
-            "de": "bt",
-            "vers": "lin",
-            "etape": 2,
-            "texte": "Webshells déposés, droits root obtenus"
-          },
-          {
-            "de": "lin",
-            "vers": "vc",
-            "etape": 3,
-            "texte": "Bonesaw exploite CVE-2026-123890"
-          },
-          {
-            "de": "vc",
-            "vers": "esx",
-            "etape": 4,
-            "texte": "Connexion via vpxuser et SSH root"
-          },
-          {
-            "de": "esx",
-            "vers": "vm",
-            "etape": 5,
-            "texte": "Fichiers extraits et archivés"
-          },
-          {
-            "de": "att",
-            "vers": "lin",
-            "etape": 6,
-            "texte": "Porte dérobée Lazybones pilotée via Slack"
-          }
-        ]
-      },
-      "limites": "La source ne nomme ni victime ni secteur [1]. Broadcom ne signale aucune attaque exploitant CVE-2026-123890 [3], alors que Mandiant décrit son exploitation [1].",
-      "cves": [
-        {
-          "id": "CVE-2026-102764",
-          "explication": "BeyondTrust Remote Support jusqu'à 26.2.3 : origine des messages mal vérifiée, permettant des opérations sur les fichiers de l'appliance, gravité critique 9,8 sur 10 [2]."
-        },
-        {
-          "id": "CVE-2026-123890",
-          "explication": "VMware vCenter Server : divulgation sans authentification d'une clé de session, menant à un contournement d'authentification administrateur [1] ; gravité 9,8 sur 10, versions 8.0, 9.0 et 9.1 corrigées [3]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "Armory Castle, anciennement suivi sous le nom UNC5221, acteur d'espionnage soupçonné d'être lié à la Chine [1]"
-      ],
-      "cibles": [
-        "Environnements VMware vCenter et ESXi ; aucune victime ni secteur nommés [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "EDR",
-          "definition": "Endpoint Detection and Response : outil de détection et de réponse sur les machines"
-        },
-        {
-          "sigle": "SUID",
-          "definition": "Bit de permission faisant exécuter un fichier avec les droits de son propriétaire"
-        },
-        {
-          "sigle": "SSO",
-          "definition": "Single Sign-On : authentification unique pour plusieurs services"
-        },
-        {
-          "sigle": "SSH",
-          "definition": "Secure Shell : protocole d'administration à distance chiffré"
-        },
-        {
-          "sigle": "NTDS",
-          "definition": "Base de données des comptes d'un domaine Windows"
-        },
-        {
-          "sigle": "UNC5221",
-          "definition": "Ancien nom de suivi de Mandiant pour ce groupe"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "ARMORY CASTLE Exploits vSphere",
-          "site": "Google Threat Intelligence (Mandiant)",
-          "url": "https://cloud.google.com/blog/topics/threat-intelligence/armory-castle-exploits-vsphere/",
-          "date": "2026-11-19",
-          "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
-        },
-        {
-          "titre": "Fiche NVD CVE-2026-102764",
-          "site": "NVD (NIST)",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102764"
-        },
-        {
-          "titre": "Critical VMware vCenter Flaw (CVSS 9.8) Lets Network Attackers Bypass Authentication",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
-          "date": "2026-11-19",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZ5IDT81eb7KUE0LzwGJAzuAETft3pD5sOz2dJxnQin_-zR_hH8tDKFTsLNBNoe35KM4DhFJjP7K-0YwaMoVwz7xUhTiP2vKeNqmN3kenPgwflENu35qx-QlFj-rDFdyXx1HMz6ykegw6nlnPDXppYbotjoRj-ammlyUZ-Cr0JYLS5iyZXkJXkaIO5UAc/s1700-nu-rw-lo-l85-e365/vmware.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-19-arnaque-lego-formule-1-tiktok",
-      "title": "Fausse offre Lego Formule 1 à 2,85 € sur TikTok pour voler des données bancaires",
-      "created": "2026-11-19T15:20:00+00:00",
-      "updated": "2026-11-19T15:20:00+00:00",
-      "version": 1,
-      "resume": "Une publicité TikTok promet un kit Lego Formule 1 contre 2,85 € de livraison et mène à une fausse page qui collecte coordonnées personnelles et données de carte bancaire [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Publicité TikTok montrant une Ferrari en Lego à gagner en répondant à des questions → internaute attiré vers une page [1]."
-        },
-        {
-          "etape": "Mise en confiance",
-          "texte": "Page reprenant le logo Lego, questionnaire sur la Formule 1 et jeu de boîtes cadeaux → faux écran de victoire [1]."
-        },
-        {
-          "etape": "Collecte de données",
-          "texte": "Formulaire de livraison avec 2,85 € de frais → nom, adresse postale, courriel et téléphone récupérés [1]."
-        },
-        {
-          "etape": "Vol bancaire",
-          "texte": "Page de paiement sur un autre domaine avec logos de sécurité → données de carte saisies, utilisables pour des paiements non autorisés [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "tt",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Publicité TikTok",
-            "note": "Kit Lego à gagner"
-          },
-          {
-            "id": "user",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Internaute",
-            "note": ""
-          },
-          {
-            "id": "page",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Fausse page Lego",
-            "note": "Questionnaire, formulaire"
-          },
-          {
-            "id": "pay",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Fausse page de paiement",
-            "note": "Carte bancaire"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "tt",
-            "etape": 1,
-            "texte": "Publicité diffusée"
-          },
-          {
-            "de": "user",
-            "vers": "page",
-            "etape": 2,
-            "texte": "Questionnaire et faux jeu de boîtes cadeaux"
-          },
-          {
-            "de": "page",
-            "vers": "pay",
-            "etape": 4,
-            "texte": "Redirection vers un autre domaine"
-          },
-          {
-            "de": "user",
-            "vers": "pay",
-            "etape": 4,
-            "texte": "Données de carte saisies"
-          }
-        ]
-      },
-      "limites": "L'article ne nomme pas l'auteur et ne donne ni nombre de victimes ni montant détourné [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non mentionné [1]"
-      ],
-      "cibles": [
-        "Utilisateurs de TikTok attirés par la publicité ; aucune victime chiffrée [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Arnaque au LEGO Formule 1 sur TikTok",
-          "site": "ZATAZ",
-          "url": "https://www.zataz.com/arnaque-au-lego-formule-1-sur-tiktok/",
-          "date": "2026-11-19",
-          "image": "https://www.zataz.com/wp-content/uploads/lego_arnaque.jpg"
-        }
-      ]
     }
   ]
 }

@@ -1,45 +1,5 @@
 [
   {
-    "id": "0e377490003110b1",
-    "title": "Why Urgent Security Fixes Aren't Fixed. Observe, Prove, Act, Confirm Gets Them Moving",
-    "link": "https://thehackernews.com/2026/10/why-urgent-security-fixes-arent-fixed.html",
-    "source": "The Hacker News",
-    "raison": "contenu sponsorisé, conseil générique",
-    "date": "2026-10-30T14:10:00+00:00"
-  },
-  {
-    "id": "21a5de08ec59a24b",
-    "title": "Copilot Fusion : GitHub veut choisir et combiner les modèles d’IA à la place des développeurs",
-    "link": "https://www.lemagit.fr/actualites/366653133/Copilot-Fusion-GitHub-veut-choisir-et-combiner-les-modeles-dIA-a-la-place-des-developpeurs",
-    "source": "LeMagIT",
-    "raison": "annonce produit",
-    "date": "2026-10-30T14:10:00+00:00"
-  },
-  {
-    "id": "6734aa3aec6c0e42",
-    "title": "Syrian Hacker Behind Fake Tweet That Triggered $136 Billion Market Drop Gets 42 Months in Prison",
-    "link": "https://thehackernews.com/2026/10/syrian-hacker-behind-fake-tweet-that.html",
-    "source": "The Hacker News",
-    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
-    "date": "2026-10-30T14:10:00+00:00"
-  },
-  {
-    "id": "74b49c26bc1fece4",
-    "title": "Serveurs : « L’IA impose des cycles de renouvellement de 3 à 4 ans »",
-    "link": "https://www.lemagit.fr/dessin/Serveurs-LIA-impose-des-cycles-de-renouvellement-de-3-a-4-ans",
-    "source": "LeMagIT",
-    "raison": "hors sujet, aucune attaque",
-    "date": "2026-10-30T14:10:00+00:00"
-  },
-  {
-    "id": "bb609cd39a094f2e",
-    "title": "British spy agency cannot account for thousands of data storage devices, watchdog says",
-    "link": "https://therecord.media/gchq-cannot-account-for-thousands-of-data-devices",
-    "source": "The Record",
-    "raison": "actualité politique, aucune attaque",
-    "date": "2026-10-30T14:10:00+00:00"
-  },
-  {
     "id": "2ee9ed60c5a1ebe7",
     "title": "Passkeys Are Better Than Passwords. But They Are Not Enough.",
     "link": "https://www.securityweek.com/passkeys-are-better-than-passwords-but-they-are-not-enough/",
@@ -3998,5 +3958,45 @@
     "source": "CISA Advisories",
     "raison": "avis de vulnérabilité industrielle sans exploitation constatée",
     "date": "2026-11-19T16:09:13+00:00"
+  },
+  {
+    "id": "082703df6dacf7ff",
+    "title": "From posture to root cause: Investigate OpenShift compliance with Elastic Agent Builder",
+    "link": "https://www.elastic.co/security-labs/blog/openshift-compliance-elastic-agent-builder",
+    "source": "Elastic Security Labs",
+    "raison": "présentation de produit, pas d'attaque",
+    "date": "2026-11-19T17:20:00+00:00"
+  },
+  {
+    "id": "54225f4d777eefef",
+    "title": "What Is Preemptive MDR? A Guide For Security Leaders",
+    "link": "https://www.rapid7.com/blog/post/dr-what-is-preemptive-mdr-security-leaders-guide",
+    "source": "Rapid7",
+    "raison": "guide générique sur la détection managée",
+    "date": "2026-11-19T17:20:00+00:00"
+  },
+  {
+    "id": "6ddd580a0952d4db",
+    "title": "UK court confirms British government served Apple with secret encryption notice",
+    "link": "https://therecord.media/apple-uk-encryption-notice",
+    "source": "The Record",
+    "raison": "actualité judiciaire et politique sans attaque",
+    "date": "2026-11-19T17:20:00+00:00"
+  },
+  {
+    "id": "c82145ccfda6a2fe",
+    "title": "On-Premises vs. Cloud: Choosing the Right SOC Deployment",
+    "link": "https://www.sekoia.com/blog/on-premises-vs-cloud-how-to-choose-a-deployment-model-for-your-soc",
+    "source": "Sekoia",
+    "raison": "conseils génériques sur le déploiement d'un SOC",
+    "date": "2026-11-19T17:20:00+00:00"
+  },
+  {
+    "id": "c23a56f69f68a951",
+    "title": "PHP security updates fix 18 flaws, including critical RCE bugs",
+    "link": "https://www.bleepingcomputer.com/news/security/php-security-updates-fix-18-flaws-including-critical-rce-bugs/",
+    "source": "BleepingComputer",
+    "raison": "vulnérabilités corrigées sans exploitation constatée",
+    "date": "2026-11-19T17:20:00+00:00"
   }
 ]

@@ -1,13 +1,5 @@
 [
   {
-    "id": "86c09ad79b8361cd",
-    "title": "Cohere’s Qwen Story: Looks More Like Model Jaggedness",
-    "link": "https://research.checkpoint.com/2026/coheres-qwen-story-looks-more-like-model-jaggedness/",
-    "source": "Check Point Research",
-    "raison": "comportement de modèle, pas une attaque avérée",
-    "date": "2026-10-29T14:27:43+00:00"
-  },
-  {
     "id": "c5cb56f9b754b3af",
     "title": "AI Takes Root in Hospital Corridors, Raises Security Stakes",
     "link": "https://www.darkreading.com/cybersecurity-operations/ai-root-hospital-corridors-raised-security-stakes",
@@ -3998,5 +3990,13 @@
     "source": "SecurityWeek",
     "raison": "annonce de rachat (actualité financière), aucune attaque décrite",
     "date": "2026-11-19T04:06:17+00:00"
+  },
+  {
+    "id": "d1202d3392a4ec40",
+    "title": "PHP Warns of Critical Security Flaws Affecting All Supported Versions, Fixes Coming November 19",
+    "link": "https://thehackernews.com/2026/11/php-warns-of-critical-security-flaws.html",
+    "source": "The Hacker News",
+    "raison": "annonce de correctifs à venir, pas d'exploitation constatée des nouvelles failles (rappel PHP2Shell déjà couvert)",
+    "date": "2026-11-19T05:06:40+00:00"
   }
 ]

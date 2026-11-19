@@ -1,29 +1,5 @@
 [
   {
-    "id": "273c88cb7967a03f",
-    "title": "Hermès traque les vulnérabilités les plus dangereuses pour son business",
-    "link": "https://www.lemagit.fr/etude/Hermes-traque-les-vulnerabilites-les-plus-dangereuses-pour-son-business",
-    "source": "LeMagIT",
-    "raison": "retour d'expérience défensif, pas d'attaque",
-    "date": "2026-10-29T17:12:00+00:00"
-  },
-  {
-    "id": "cb870cbc1e32c363",
-    "title": "Windows : préférez PSResourceGet pour mieux gérer PowerShell",
-    "link": "https://www.lemagit.fr/conseil/Windows-preferez-PSResourceGet-pour-mieux-gerer-PowerShell",
-    "source": "LeMagIT",
-    "raison": "conseil générique",
-    "date": "2026-10-29T17:12:00+00:00"
-  },
-  {
-    "id": "0322c46125d9a157",
-    "title": "When Risk Becomes Personal: What Security Leaders Can Learn From a Cancer Diagnosis",
-    "link": "https://www.securityweek.com/when-risk-becomes-personal-what-security-leaders-can-learn-from-a-cancer-diagnosis/",
-    "source": "SecurityWeek",
-    "raison": "opinion, pas d'attaque",
-    "date": "2026-10-29T17:12:00+00:00"
-  },
-  {
     "id": "4c028cb5d41c2475",
     "title": "Oracle AI World 2026 : OCI appuie sur l’accélérateur",
     "link": "https://www.lemagit.fr/actualites/366652860/Oracle-AI-World-2026-OCI-appuie-sur-laccelerateur",
@@ -3998,5 +3974,29 @@
     "source": "The Hacker News",
     "raison": "vulnérabilités sans exploitation constatée (correctifs Ruby, preuves de concept)",
     "date": "2026-11-19T09:20:00+00:00"
+  },
+  {
+    "id": "abe4c03470ee0f27",
+    "title": "Workday sort un ERP Financier pour les ETI, l’IA est incluse dans le prix",
+    "link": "https://www.lemagit.fr/actualites/366654727/Workday-sort-un-ERP-Financier-pour-les-ETI-lIA-est-incluse-dans-le-prix",
+    "source": "LeMagIT",
+    "raison": "annonce produit (ERP Workday)",
+    "date": "2026-11-19T10:20:00+00:00"
+  },
+  {
+    "id": "d8fedd01492ad978",
+    "title": "Java4Shell Exploitation Attempts Begin as Vendors Rush Out Advisories",
+    "link": "https://www.securityweek.com/java4shell-exploitation-attempts-begin-as-vendors-rush-out-advisories/",
+    "source": "SecurityWeek",
+    "raison": "vulnérabilité Java4Shell : sondages et tentatives seulement, aucune exploitation réussie confirmée",
+    "date": "2026-11-19T10:20:00+00:00"
+  },
+  {
+    "id": "e8f85c3b9e40e263",
+    "title": "NVIDIA investigating Gentlemen ransomware breach claims",
+    "link": "https://www.bleepingcomputer.com/news/security/nvidia-investigating-gentlemen-ransomware-breach-claims/",
+    "source": "BleepingComputer",
+    "raison": "fuite revendiquée, non confirmée, aucune méthode d'attaque décrite",
+    "date": "2026-11-19T10:20:00+00:00"
   }
 ]

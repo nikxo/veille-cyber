@@ -864,13 +864,13 @@
       "id": "2026-11-18-conti-anciens-arretes-ukraine",
       "title": "Anciens de Conti arrêtés en Ukraine : faux support informatique pour entrer chez les victimes",
       "created": "2026-11-18T18:20:00+00:00",
-      "updated": "2026-11-19T00:07:24+00:00",
-      "version": 2,
-      "resume": "La police ukrainienne a arrêté quatre cybercriminels présentés comme liés au groupe de rançongiciels Conti [1], avec le FBI [2]. Au moins 28 entreprises ont versé plus de 40,5 millions de dollars [1, 2].",
+      "updated": "2026-11-19T14:30:00+00:00",
+      "version": 3,
+      "resume": "La police ukrainienne a arrêté quatre cybercriminels liés à une organisation dont le réseau plus large compte d'anciens membres de Conti [1, 3], avec le FBI [2, 3]. Au moins 28 entreprises ont versé plus de 40,5 millions de dollars [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Selon la police ukrainienne, les auteurs se faisaient passer pour le support informatique → identifiants obtenus et logiciels d'accès à distance installés par les employés [1]."
+          "texte": "Usurpation du support informatique, parfois avec des voix générées par intelligence artificielle → identifiants obtenus ou logiciels d'accès à distance installés par les employés [1, 3]."
         },
         {
           "etape": "Repérage",
@@ -878,11 +878,15 @@
         },
         {
           "etape": "Vol de données",
-          "texte": "Chez une entreprise américaine non nommée, 1,4 téraoctet de données dérobé [1]."
+          "texte": "Données sensibles dérobées, dont 1,4 téraoctet chez Warren Oil Company et 142 gigaoctets chez Maxxis International-USA [3]."
+        },
+        {
+          "etape": "Chiffrement",
+          "texte": "Fichiers chiffrés → activité des entreprises perturbée [3]."
         },
         {
           "etape": "Extorsion",
-          "texte": "Rançon de 10 millions de dollars exigée → 5 millions obtenus après négociation [1]."
+          "texte": "Rançon en cryptomonnaie, sous menace de publier les données [3] : 5 millions obtenus sur 10 exigés selon LeMagIT [1], 1,5 million versés par Newpark Resources [3]."
         }
       ],
       "parcours": {
@@ -912,8 +916,8 @@
             "id": "data",
             "type": "donnees",
             "zone": "victime",
-            "nom": "Données d'une entreprise américaine",
-            "note": "1,4 téraoctet"
+            "nom": "Données des entreprises",
+            "note": ""
           }
         ],
         "liens": [
@@ -934,20 +938,28 @@
             "vers": "data",
             "etape": 3,
             "texte": "Vol de 1,4 téraoctet"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Fichiers chiffrés"
           }
         ]
       },
-      "limites": "Les sources ne relient pas la méthode d'accès à une victime précise et ne décrivent ni persistance, ni déplacement dans le réseau, ni chiffrement [1, 2].",
+      "limites": "Les sources ne détaillent pas de technique de persistance ; l'attaque a été étendue à d'autres sociétés du même groupe [1, 2]. Les autorités n'ont pas identifié le rançongiciel [3], le registre judiciaire mentionne Chaos [1].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Quatre suspects arrêtés, issus d'une organisation d'au moins 27 personnes de plusieurs pays, dont l'Ukraine, le Kazakhstan et la Russie [1]",
         "Selon LeMagIT, les techniques renvoient à BazarCall, fournisseur d'accès initiaux pour des équipes issues de Conti [1]",
-        "Le registre judiciaire ukrainien mentionne le rançongiciel Chaos [1]"
+        "Le registre judiciaire ukrainien mentionne le rançongiciel Chaos [1]",
+        "Au moins 27 membres, rattachés à un réseau de plus de 60 personnes dans huit juridictions [3]"
       ],
       "cibles": [
         "Pétrole et gaz, pharmacie, industrie, logistique, institutions financières, infrastructures critiques [1]",
-        "Victimes américaines citées : Warren Oil Company, Newpark Resources, Maxxis International [1]"
+        "Victimes américaines citées : Warren Oil Company, Newpark Resources, Maxxis International [1]",
+        "Autres victimes américaines citées : Quantum Health, Maxxis International-USA [3]"
       ],
       "abreviations": [
         {
@@ -969,6 +981,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/ukraine-fbi-arrest-ransomware-gang-members-tied-to-40m-in-ransoms/",
           "date": "2026-11-18",
           "image": "https://www.bleepstatic.com/content/hl-images/2022/03/15/Ukraine-hacker.jpg"
+        },
+        {
+          "titre": "Ukraine exposes ransomware network extorting US oil, healthcare firms",
+          "site": "The Record",
+          "url": "https://therecord.media/ukraine-ransomware-arrests-cyber",
+          "date": "2026-11-19",
+          "image": "https://cms.therecord.media/uploads/Ukraine_prosecutor_office_c19ff7d532.jpg"
         }
       ]
     },
@@ -53205,6 +53224,224 @@
           "url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html",
           "date": "2026-11-19",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjPpZ9yL9D7JBQvp4_ZmnP8S_U6HKdq3rSM_FVv_uDgT9Iz8D56tO6GNDNE4rs29pejUiKQlxi1HpZ38KYbaSB01PmgPItVL8N-Y9G9vcuJlnadltKvmGhvUKYntAEIVCXFixjdBMyu6S9-zEUlIgGf7E5euvodJbn9LIYWTkRpxwH0g7nz2xp2v5PGMdq/s1700-nu-rw-lo-l85-e365/n-able-hacked.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-cisco-expressway-cve-2026-76466",
+      "title": "Cisco Expressway : la faille CVE-2026-76466 exploitée peu après la publication d'un exploit, une organisation russe compromise",
+      "created": "2026-11-19T14:30:00+00:00",
+      "updated": "2026-11-19T14:30:00+00:00",
+      "version": 1,
+      "resume": "Une organisation russe non nommée a été compromise par ses appareils Cisco Expressway en cluster, peu après la publication d'un exploit de démonstration, selon la société F6 [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de CVE-2026-76466 sur deux appareils Expressway exposés sur Internet → appareils compromis [1]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "Rebond depuis un de ces appareils vers deux autres nœuds du cluster situés sur le réseau interne [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Obtention des droits root → exécution de commandes au niveau du système [1]."
+        },
+        {
+          "etape": "Préparation du rebond",
+          "texte": "Scripts Python sur mesure pour scanner le réseau, trouver des partages SMB, interagir avec SQL Server, WinRM et GitLab → but affiché : récupérer identifiants et informations sensibles [1]."
+        },
+        {
+          "etape": "Adaptation des outils",
+          "texte": "Scripts modifiés pendant l'attaque, avec des commentaires indiquant l'usage d'un assistant d'intelligence artificielle [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "exp",
+            "type": "passerelle",
+            "zone": "expose",
+            "nom": "Deux appareils Expressway",
+            "note": "Exposés sur Internet"
+          },
+          {
+            "id": "int",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Nœuds internes du cluster",
+            "note": "Droits root"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "exp",
+            "etape": 1,
+            "texte": "Exploitation de CVE-2026-76466"
+          },
+          {
+            "de": "exp",
+            "vers": "int",
+            "etape": 2,
+            "texte": "Rebond vers le réseau interne"
+          }
+        ]
+      },
+      "limites": "La source ne précise pas si des identifiants ou des données ont réellement été exfiltrés, ni qui est derrière l'attaque [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-76466",
+          "explication": "Cisco Expressway Core et Edge en cluster : cookies persistants du service de base de données permettant, sans authentification, d'exécuter des commandes en root ; gravité 9,8 sur 10 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Attaque non attribuée à un groupe connu par F6 [1]"
+      ],
+      "cibles": [
+        "Organisation russe non nommée [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "F6",
+          "definition": "Nom de la société de cybersécurité auteure du rapport"
+        },
+        {
+          "sigle": "SMB",
+          "definition": "Server Message Block : protocole de partage de fichiers des réseaux Windows"
+        },
+        {
+          "sigle": "SQL",
+          "definition": "Structured Query Language : langage d'interrogation des bases de données"
+        },
+        {
+          "sigle": "WinRM",
+          "definition": "Windows Remote Management : administration à distance des machines Windows"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers Exploit Cisco Expressway Vulnerability Soon After PoC Release",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/hackers-exploit-cisco-expressway-vulnerability-soon-after-poc-release/",
+          "date": "2026-11-19",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/09/Cisco-firewall.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-elise-lucet-arnaque-crypto-google-ads",
+      "title": "Élise Lucet utilisée comme appât : de fausses publicités Google Ads mènent à une arnaque au trading de cryptomonnaies",
+      "created": "2026-11-19T14:30:00+00:00",
+      "updated": "2026-11-19T14:30:00+00:00",
+      "version": 1,
+      "resume": "Des escrocs diffusent sur Google Ads, AdSense et LinkedIn un faux licenciement d'Élise Lucet pour attirer vers une fausse plateforme de trading de cryptomonnaies [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Publicités Google Ads, AdSense et publications LinkedIn → faux articles imitant Le Parisien, Le Monde, 20 Minutes ou Libération [1]."
+        },
+        {
+          "etape": "Mise en confiance",
+          "texte": "Promesse de plus de 875 euros par jour, faux avis, compteur de places restantes et fausse caution de Martin Bouygues [1]."
+        },
+        {
+          "etape": "Collecte des coordonnées",
+          "texte": "Formulaire d'inscription → coordonnées recueillies pour recontacter la personne [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Selon l'Autorité des marchés financiers, dans des arnaques comparables : appel d'un faux conseiller → premier versement, puis dépôts poussés par des gains fictifs, frais parfois réclamés au retrait [1]."
+        },
+        {
+          "etape": "Seconde escroquerie",
+          "texte": "Dans ces arnaques comparables, un autre interlocuteur propose ensuite de récupérer les fonds contre un nouveau paiement [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Escrocs",
+            "note": ""
+          },
+          {
+            "id": "ads",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Publicités Google Ads, LinkedIn",
+            "note": ""
+          },
+          {
+            "id": "site",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux articles et site",
+            "note": "Formulaire d'inscription"
+          },
+          {
+            "id": "vic",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Internautes visés",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ads",
+            "etape": 1,
+            "texte": "Diffusion de publicités"
+          },
+          {
+            "de": "ads",
+            "vers": "vic",
+            "etape": 1,
+            "texte": "Faux licenciement d'Élise Lucet"
+          },
+          {
+            "de": "vic",
+            "vers": "site",
+            "etape": 3,
+            "texte": "Coordonnées laissées"
+          },
+          {
+            "de": "att",
+            "vers": "vic",
+            "etape": 4,
+            "texte": "Cas comparables : appels d'un faux conseiller"
+          }
+        ]
+      },
+      "limites": "La source ne donne ni nombre de victimes ni montants perdus, et décrit la suite d'après des arnaques comparables. Décomptes de domaines : au moins 200, 96 faux sites, une centaine [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Escrocs à l'origine d'au moins 200 domaines liés à ce scénario [1]"
+      ],
+      "cibles": [
+        "Internautes visés par les publicités Google Ads et LinkedIn [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Élise Lucet, appât d’une arnaque crypto sur Google Ads",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/elise-lucet-appat-dune-arnaque-crypto-sur-google-ads/",
+          "date": "2026-11-19"
         }
       ]
     }

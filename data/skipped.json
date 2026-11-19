@@ -1,37 +1,5 @@
 [
   {
-    "id": "cbcc5cbaf6f622fa",
-    "title": "Anthropic-Themed Phishing Emails Bypass Top Security Tools",
-    "link": "https://www.darkreading.com/cyberattacks-data-breaches/anthropic-phishing-emails-bypass-security-tools",
-    "source": "Dark Reading",
-    "raison": "article inaccessible (403), résumé du flux sans détail sur la méthode d'attaque",
-    "date": "2026-10-29T22:20:00+00:00"
-  },
-  {
-    "id": "a84a34c6f6177ec7",
-    "title": "OpenAI doubles ChatGPT Pro usage limits after backlash over planned 50% cut",
-    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-doubles-chatgpt-pro-usage-limits-after-backlash-over-planned-50-percent-cut/",
-    "source": "BleepingComputer",
-    "raison": "annonce produit",
-    "date": "2026-10-30T00:10:00+00:00"
-  },
-  {
-    "id": "3f007ce8c8278493",
-    "title": "Hitachi Energy TRO600 series products",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-02",
-    "source": "CISA Advisories",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-30T04:07:32+00:00"
-  },
-  {
-    "id": "58a4b860d2a79013",
-    "title": "Siemens Mendix SAML Module",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-01",
-    "source": "CISA Advisories",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-30T04:07:32+00:00"
-  },
-  {
     "id": "f726928be35569c1",
     "title": "Hitachi Energy CoreTec Product",
     "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-03",
@@ -3998,5 +3966,37 @@
     "source": "The Hacker News",
     "raison": "contenu sponsorisé (tribune d'un partenaire SANS)",
     "date": "2026-11-19T13:30:00+00:00"
+  },
+  {
+    "id": "3b95dba022595c6b",
+    "title": "Detecting Timeroasting the Hard Way",
+    "link": "https://www.huntress.com/blog/detecting-timeroasting",
+    "source": "Huntress",
+    "raison": "méthode de détection, pas d'attaque décrite",
+    "date": "2026-11-19T14:30:00+00:00"
+  },
+  {
+    "id": "3cf6b63faf9d47c2",
+    "title": "30 Years of Gatekeeper Asymmetry Doom: The Paradox that Makes Powerful LLMs More Vulnerable",
+    "link": "https://research.checkpoint.com/2026/30-years-of-gatekeeper-asymmetry-doom-the-paradox-that-makes-powerful-llms-more-vulnerable/",
+    "source": "Check Point Research",
+    "raison": "article de recherche théorique, pas d'attaque décrite",
+    "date": "2026-11-19T14:30:00+00:00"
+  },
+  {
+    "id": "4f4f9e0dd0e068bb",
+    "title": "Why Holiday Security Can't Wait for Black Friday",
+    "link": "https://www.darkreading.com/cybersecurity-operations/why-holiday-security-cant-wait-black-friday",
+    "source": "Dark Reading",
+    "raison": "conseils génériques",
+    "date": "2026-11-19T14:30:00+00:00"
+  },
+  {
+    "id": "f9d493b5ca505954",
+    "title": "Drupal patches critical RCE flaw, warns exploits may surface quickly",
+    "link": "https://www.bleepingcomputer.com/news/security/drupal-patches-critical-rce-flaw-warns-exploits-may-surface-quickly/",
+    "source": "BleepingComputer",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-19T14:30:00+00:00"
   }
 ]

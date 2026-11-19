@@ -2,6 +2,81 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-19-transport-for-london-oyster-fuite",
+      "title": "Transport for London : les informations de compte d'environ 265 000 clients à carte Oyster avec photo peut-être exposées",
+      "created": "2026-11-19T19:07:16+00:00",
+      "updated": "2026-11-19T19:07:16+00:00",
+      "version": 1,
+      "resume": "Transport for London a annoncé qu'environ 265 000 clients titulaires d'une carte Oyster avec photo ont pu voir les informations de leur compte exposées lors d'une fuite de données [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Exposition de données",
+          "texte": "Fuite de données → informations de compte d'environ 265 000 clients à carte Oyster avec photo peut-être exposées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Système d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "data",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Comptes de cartes Oyster",
+            "note": "Environ 265 000 clients"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "data",
+            "etape": 2,
+            "texte": "Informations de compte peut-être exposées"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni l'auteur, ni la méthode d'intrusion, ni la date, ni la nature exacte des informations de compte exposées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Transport for London et environ 265 000 clients titulaires d'une carte Oyster avec photo [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Transport for London breach exposes 265,000 Oyster card users' data",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/transport-for-london-breach-exposes-265-000-oyster-card-users-data/",
+          "date": "2026-11-19",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/19/transportforlondon.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-19-commission-europeenne-campagne-ia",
       "title": "Commission européenne : une cyberattaque « générée par intelligence artificielle » perturbe la gestion du personnel",
       "created": "2026-11-19T16:09:13+00:00",

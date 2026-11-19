@@ -1,21 +1,5 @@
 [
   {
-    "id": "f726928be35569c1",
-    "title": "Hitachi Energy CoreTec Product",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-302-03",
-    "source": "CISA Advisories",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-30T04:07:32+00:00"
-  },
-  {
-    "id": "f5756676f0457db5",
-    "title": "Reports of SIEM's Death Have Been Greatly Exaggerated",
-    "link": "https://www.huntress.com/blog/reports-that-siem-is-dead-are-exaggerated",
-    "source": "Huntress",
-    "raison": "conseil générique, pas d'attaque",
-    "date": "2026-10-30T08:30:00+00:00"
-  },
-  {
     "id": "f6a72b86d81b5ca2",
     "title": "As Russia's Cyberwar Evolves, Belarus Steps Forward",
     "link": "https://www.darkreading.com/physical-security/russia-cyber-war-belarus-steps-forward",
@@ -3998,5 +3982,21 @@
     "source": "BleepingComputer",
     "raison": "vulnérabilité sans exploitation constatée",
     "date": "2026-11-19T14:30:00+00:00"
+  },
+  {
+    "id": "026ebd8483f9fa1e",
+    "title": "Nvidia Responds to Gentlemen Ransomware Claim",
+    "link": "https://www.securityweek.com/nvidia-responds-to-gentlemen-ransomware-claim/",
+    "source": "SecurityWeek",
+    "raison": "revendication non confirmée, aucun détail sur la méthode d'attaque",
+    "date": "2026-11-19T15:20:00+00:00"
+  },
+  {
+    "id": "671e411ae696c049",
+    "title": "Critical NGINX ‘NGINX2Root’ bugs let attackers hijack servers",
+    "link": "https://www.bleepingcomputer.com/news/security/critical-nginx-nginx2root-bugs-let-attackers-hijack-servers/",
+    "source": "BleepingComputer",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-19T15:20:00+00:00"
   }
 ]

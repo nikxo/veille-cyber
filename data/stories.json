@@ -864,17 +864,17 @@
       "id": "2026-11-18-conti-anciens-arretes-ukraine",
       "title": "Anciens de Conti arrêtés en Ukraine : faux support informatique pour entrer chez les victimes",
       "created": "2026-11-18T18:20:00+00:00",
-      "updated": "2026-11-19T14:30:00+00:00",
-      "version": 3,
+      "updated": "2026-11-19T15:20:00+00:00",
+      "version": 4,
       "resume": "La police ukrainienne a arrêté quatre cybercriminels liés à une organisation dont le réseau plus large compte d'anciens membres de Conti [1, 3], avec le FBI [2, 3]. Au moins 28 entreprises ont versé plus de 40,5 millions de dollars [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Usurpation du support informatique, parfois avec des voix générées par intelligence artificielle → identifiants obtenus ou logiciels d'accès à distance installés par les employés [1, 3]."
+          "texte": "Faux support informatique, parfois avec des voix générées par intelligence artificielle [1, 3], et fausses pages d'accès à distance → identifiants et codes à deux facteurs récupérés [4]."
         },
         {
-          "etape": "Repérage",
-          "texte": "Étude de la situation financière, des actifs, des employés et des failles du système d'information des entreprises visées [1]."
+          "etape": "Vol d'identifiants",
+          "texte": "Craquage de condensats de mots de passe → identifiants valides extraits chez Warren Oil et Newpark [4]."
         },
         {
           "etape": "Vol de données",
@@ -931,7 +931,7 @@
             "de": "emp",
             "vers": "pc",
             "etape": 1,
-            "texte": "Logiciels d'accès à distance installés"
+            "texte": "Identifiants saisis, accès à distance installé"
           },
           {
             "de": "att",
@@ -947,19 +947,21 @@
           }
         ]
       },
-      "limites": "Les sources ne détaillent pas de technique de persistance ; l'attaque a été étendue à d'autres sociétés du même groupe [1, 2]. Les autorités n'ont pas identifié le rançongiciel [3], le registre judiciaire mentionne Chaos [1].",
+      "limites": "Les sources ne détaillent ni persistance ni déplacement dans le réseau [1, 4]. Les autorités n'ont pas identifié le rançongiciel [3], le registre judiciaire mentionne Chaos [1, 4].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Quatre suspects arrêtés, issus d'une organisation d'au moins 27 personnes de plusieurs pays, dont l'Ukraine, le Kazakhstan et la Russie [1]",
         "Selon LeMagIT, les techniques renvoient à BazarCall, fournisseur d'accès initiaux pour des équipes issues de Conti [1]",
         "Le registre judiciaire ukrainien mentionne le rançongiciel Chaos [1]",
-        "Au moins 27 membres, rattachés à un réseau de plus de 60 personnes dans huit juridictions [3]"
+        "Au moins 27 membres, rattachés à un réseau de plus de 60 personnes dans huit juridictions [3]",
+        "Quatre affiliés de Chaos ; un groupe lié à Conti a d'abord opéré sous les marques Royal puis BlackSuit [4]"
       ],
       "cibles": [
         "Pétrole et gaz, pharmacie, industrie, logistique, institutions financières, infrastructures critiques [1]",
         "Victimes américaines citées : Warren Oil Company, Newpark Resources, Maxxis International [1]",
-        "Autres victimes américaines citées : Quantum Health, Maxxis International-USA [3]"
+        "Autres victimes américaines citées : Quantum Health, Maxxis International-USA [3]",
+        "Environ 11,5 millions de dollars de rançons au total pour les trois attaques (Warren Oil, Maxxis, Newpark) [4]"
       ],
       "abreviations": [
         {
@@ -988,6 +990,13 @@
           "url": "https://therecord.media/ukraine-ransomware-arrests-cyber",
           "date": "2026-11-19",
           "image": "https://cms.therecord.media/uploads/Ukraine_prosecutor_office_c19ff7d532.jpg"
+        },
+        {
+          "titre": "Ransomware : que sait-on des quatre affidés de Chaos interpelés ?",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366654933/Ransomware-que-sait-on-des-quatre-affides-de-Chaos-interpeles",
+          "date": "2026-11-19",
+          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/HeroImages/Met-police-officer-in-bullet-proof-vest-John-Gomez-adobe.jpg"
         }
       ]
     },
@@ -53442,6 +53451,294 @@
           "site": "ZATAZ",
           "url": "https://www.zataz.com/elise-lucet-appat-dune-arnaque-crypto-sur-google-ads/",
           "date": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-armory-castle-vcenter-esxi",
+      "title": "Armory Castle : de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day",
+      "created": "2026-11-19T15:20:00+00:00",
+      "updated": "2026-11-19T15:20:00+00:00",
+      "version": 1,
+      "resume": "Le groupe d'espionnage Armory Castle, soupçonné d'être lié à la Chine, est passé de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day, et a extrait des fichiers de machines virtuelles, probablement exfiltrés ensuite [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de la faille zero-day CVE-2026-102764 de BeyondTrust Remote Support → point d'entrée sur l'appliance [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Webshells Slimsavage et Cagematch déposés sur une appliance Linux sans EDR, bit SUID activé sur /bin/env → commandes exécutées en root [1]."
+        },
+        {
+          "etape": "Prise de vCenter",
+          "texte": "Outil Bonesaw exploitant la faille zero-day CVE-2026-123890 → compte administrateur SSO créé, connexion SSH à vCenter et vol de sa clé maître de chiffrement [1]."
+        },
+        {
+          "etape": "Accès aux hôtes ESXi",
+          "texte": "Connexion à l'interface ESXi avec le compte vpxuser et en SSH avec le compte root ; clé publique ajoutée aux clés autorisées de root [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Fichier NTDS et ruches de registre extraits d'un disque de machine virtuelle → archivés puis rapatriés vers l'appliance Remote Support, d'où ils ont probablement été exfiltrés [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Porte dérobée Bearbones enregistrant les identifiants en clair, puis Lazybones pilotée via Slack sur une autre appliance Linux → accès persistant [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Armory Castle)",
+            "note": ""
+          },
+          {
+            "id": "bt",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Appliance BeyondTrust Remote Support",
+            "note": "Faille zero-day"
+          },
+          {
+            "id": "lin",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Appliances Linux",
+            "note": "Webshells, portes dérobées"
+          },
+          {
+            "id": "vc",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur vCenter",
+            "note": "Clé maître volée"
+          },
+          {
+            "id": "esx",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Hôtes ESXi",
+            "note": "Accès root"
+          },
+          {
+            "id": "vm",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Disque de machine virtuelle",
+            "note": "Fichier NTDS"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "bt",
+            "etape": 1,
+            "texte": "Exploitation de CVE-2026-102764"
+          },
+          {
+            "de": "bt",
+            "vers": "lin",
+            "etape": 2,
+            "texte": "Webshells déposés, droits root obtenus"
+          },
+          {
+            "de": "lin",
+            "vers": "vc",
+            "etape": 3,
+            "texte": "Bonesaw exploite CVE-2026-123890"
+          },
+          {
+            "de": "vc",
+            "vers": "esx",
+            "etape": 4,
+            "texte": "Connexion via vpxuser et SSH root"
+          },
+          {
+            "de": "esx",
+            "vers": "vm",
+            "etape": 5,
+            "texte": "Fichiers extraits et archivés"
+          },
+          {
+            "de": "att",
+            "vers": "lin",
+            "etape": 6,
+            "texte": "Porte dérobée Lazybones pilotée via Slack"
+          }
+        ]
+      },
+      "limites": "L'article ne nomme ni victime ni secteur et ne détaille pas l'accès initial, décrit dans une publication du 15 octobre 2026 [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-102764",
+          "explication": "BeyondTrust Remote Support jusqu'à 26.2.3 : origine des messages mal vérifiée, permettant des opérations sur les fichiers de l'appliance, gravité critique 9,8 sur 10 [2]."
+        },
+        {
+          "id": "CVE-2026-123890",
+          "explication": "VMware vCenter Server : divulgation sans authentification d'une clé de session, menant à un contournement d'authentification en tant qu'administrateur [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Armory Castle, anciennement suivi sous le nom UNC5221, acteur d'espionnage soupçonné d'être lié à la Chine [1]"
+      ],
+      "cibles": [
+        "Environnements VMware vCenter et ESXi ; aucune victime ni secteur nommés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "EDR",
+          "definition": "Endpoint Detection and Response : outil de détection et de réponse sur les machines"
+        },
+        {
+          "sigle": "SUID",
+          "definition": "Bit de permission faisant exécuter un fichier avec les droits de son propriétaire"
+        },
+        {
+          "sigle": "SSO",
+          "definition": "Single Sign-On : authentification unique pour plusieurs services"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole d'administration à distance chiffré"
+        },
+        {
+          "sigle": "NTDS",
+          "definition": "Base de données des comptes d'un domaine Windows"
+        },
+        {
+          "sigle": "UNC5221",
+          "definition": "Ancien nom de suivi de Mandiant pour ce groupe"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "ARMORY CASTLE Exploits vSphere",
+          "site": "Google Threat Intelligence (Mandiant)",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/armory-castle-exploits-vsphere/",
+          "date": "2026-11-19",
+          "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-102764",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102764"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-arnaque-lego-formule-1-tiktok",
+      "title": "Fausse offre Lego Formule 1 à 2,85 € sur TikTok pour voler des données bancaires",
+      "created": "2026-11-19T15:20:00+00:00",
+      "updated": "2026-11-19T15:20:00+00:00",
+      "version": 1,
+      "resume": "Une publicité TikTok promet un kit Lego Formule 1 contre 2,85 € de livraison et mène à une fausse page qui collecte coordonnées personnelles et données de carte bancaire [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Publicité TikTok montrant une Ferrari en Lego à gagner en répondant à des questions → internaute attiré vers une page [1]."
+        },
+        {
+          "etape": "Mise en confiance",
+          "texte": "Page reprenant le logo Lego, questionnaire sur la Formule 1 et jeu de boîtes cadeaux → faux écran de victoire [1]."
+        },
+        {
+          "etape": "Collecte de données",
+          "texte": "Formulaire de livraison avec 2,85 € de frais → nom, adresse postale, courriel et téléphone récupérés [1]."
+        },
+        {
+          "etape": "Vol bancaire",
+          "texte": "Page de paiement sur un autre domaine avec logos de sécurité → données de carte saisies, utilisables pour des paiements non autorisés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "tt",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Publicité TikTok",
+            "note": "Kit Lego à gagner"
+          },
+          {
+            "id": "user",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Internaute",
+            "note": ""
+          },
+          {
+            "id": "page",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Fausse page Lego",
+            "note": "Questionnaire, formulaire"
+          },
+          {
+            "id": "pay",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Fausse page de paiement",
+            "note": "Carte bancaire"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "tt",
+            "etape": 1,
+            "texte": "Publicité diffusée"
+          },
+          {
+            "de": "user",
+            "vers": "page",
+            "etape": 2,
+            "texte": "Questionnaire et faux jeu de boîtes cadeaux"
+          },
+          {
+            "de": "page",
+            "vers": "pay",
+            "etape": 4,
+            "texte": "Redirection vers un autre domaine"
+          },
+          {
+            "de": "user",
+            "vers": "pay",
+            "etape": 4,
+            "texte": "Données de carte saisies"
+          }
+        ]
+      },
+      "limites": "L'article ne nomme pas l'auteur et ne donne ni nombre de victimes ni montant détourné [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non mentionné [1]"
+      ],
+      "cibles": [
+        "Utilisateurs de TikTok attirés par la publicité ; aucune victime chiffrée [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Arnaque au LEGO Formule 1 sur TikTok",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/arnaque-au-lego-formule-1-sur-tiktok/",
+          "date": "2026-11-19",
+          "image": "https://www.zataz.com/wp-content/uploads/lego_arnaque.jpg"
         }
       ]
     }

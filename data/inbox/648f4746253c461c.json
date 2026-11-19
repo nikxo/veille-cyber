@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-11-19T18:06:16+00:00",
+  "feed_summary": "PHP's default file-based session storage can be made to return objects an attacker chose, by cutting off a session write at the right moment. When combined with a second weakness, such as a suitable gadget chain in the app, those objects can allow the attacker to run code on the server. Today's PHP releases fix the flaw, called phpAfterShell. The flaw is tracked as CVE-2026-126714 and rated",
+  "id": "648f4746253c461c",
+  "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEEFyvreIQgAheXoKRJxLcNgyzFh0rlydmiMfaOBIlmM7zGPc_71mCSG6zWGlpFcRQg59gVUw6NbpmFiNKIcDB3AqVA5eKpjYExWhMu-uBD_W5xu1wiYRtX5MklAgxeuHOBJOI8H9LmaIoXv7IrvFMVHvVhor06lj_ljcIDjIDAPYJ8w01X-BTA51EpOU/s1700-nu-rw-lo-l85-e365/php-after-shell.jpg",
+  "lang": "en",
+  "link": "https://thehackernews.com/2026/11/phpaftershell-explained-how-hackers.html",
+  "published": "2026-11-19T22:29:56+05:30",
+  "source": "The Hacker News",
+  "source_type": "actu",
+  "title": "phpAfterShell Explained: How Hackers Could Turn a PHP Session Flaw Into Code Execution"
+}

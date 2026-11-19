@@ -1,53 +1,5 @@
 [
   {
-    "id": "f6a72b86d81b5ca2",
-    "title": "As Russia's Cyberwar Evolves, Belarus Steps Forward",
-    "link": "https://www.darkreading.com/physical-security/russia-cyber-war-belarus-steps-forward",
-    "source": "Dark Reading",
-    "raison": "page inaccessible (403), résumé sans détail sur la méthode d'attaque",
-    "date": "2026-10-30T08:30:00+00:00"
-  },
-  {
-    "id": "c85ee35045094148",
-    "title": "TeamViewer Flaw Could Let Malicious Hosts Take Over Support Technicians’ Machines",
-    "link": "https://www.securityweek.com/teamviewer-flaw-could-let-malicious-hosts-take-over-support-technicians-machines/",
-    "source": "SecurityWeek",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-10-30T09:20:00+00:00"
-  },
-  {
-    "id": "11870eb36764196c",
-    "title": "Filter generation in practice: from algorithms to LLMs",
-    "link": "https://securelist.com/practical-filter-generation/121697/",
-    "source": "Securelist (Kaspersky)",
-    "raison": "méthode de génération de filtres d'alertes, aucune attaque décrite",
-    "date": "2026-10-30T10:08:38+00:00"
-  },
-  {
-    "id": "32d8589f2318deeb",
-    "title": "Microsoft finally fixes VPN issues caused by September updates",
-    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-finally-fixes-vpn-issues-caused-by-september-updates/",
-    "source": "BleepingComputer",
-    "raison": "correctif de bogue, aucune attaque",
-    "date": "2026-10-30T12:40:00+00:00"
-  },
-  {
-    "id": "5553b245af75f973",
-    "title": "Why CTF Competitions May Be More Important Than Ever",
-    "link": "https://www.darkreading.com/cybersecurity-operations/why-ctf-more-important-than-ever",
-    "source": "Dark Reading",
-    "raison": "article d'opinion, aucune attaque décrite",
-    "date": "2026-10-30T12:40:00+00:00"
-  },
-  {
-    "id": "0ca93b8b7df8243e",
-    "title": "Bulletproof Host Virtualine Loses Its Domain to FBI Seizure",
-    "link": "https://www.securityweek.com/bulletproof-host-virtualine-loses-its-domain-to-fbi-seizure/",
-    "source": "SecurityWeek",
-    "raison": "actualité judiciaire, aucune méthode d'attaque",
-    "date": "2026-10-30T14:10:00+00:00"
-  },
-  {
     "id": "0e377490003110b1",
     "title": "Why Urgent Security Fixes Aren't Fixed. Observe, Prove, Act, Confirm Gets Them Moving",
     "link": "https://thehackernews.com/2026/10/why-urgent-security-fixes-arent-fixed.html",
@@ -3998,5 +3950,53 @@
     "source": "BleepingComputer",
     "raison": "vulnérabilité sans exploitation constatée",
     "date": "2026-11-19T15:20:00+00:00"
+  },
+  {
+    "id": "6e1cc48f217d3df0",
+    "title": "Drupal Patches Critical Installer Flaw That Could Give Unauthenticated Attackers Control of Sites",
+    "link": "https://thehackernews.com/2026/11/drupal-patches-critical-installer-flaw.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée (Drupal)",
+    "date": "2026-11-19T16:09:13+00:00"
+  },
+  {
+    "id": "99693706d8ed8583",
+    "title": "PHP Patches Seven Critical RCE Vulnerabilities",
+    "link": "https://www.securityweek.com/php-patches-seven-critical-rce-vulnerabilities/",
+    "source": "SecurityWeek",
+    "raison": "vulnérabilités sans exploitation constatée (PHP)",
+    "date": "2026-11-19T16:09:13+00:00"
+  },
+  {
+    "id": "f92f66411a812200",
+    "title": "PHP Fixes 7 Critical Flaws, Including Bugs That Could Allow Remote Code Execution",
+    "link": "https://thehackernews.com/2026/11/php-fixes-7-critical-flaws-including.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilités sans exploitation constatée (PHP)",
+    "date": "2026-11-19T16:09:13+00:00"
+  },
+  {
+    "id": "3f6682cf94420c03",
+    "title": "libumqtt",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-323-03",
+    "source": "CISA Advisories",
+    "raison": "avis de vulnérabilité industrielle sans exploitation constatée",
+    "date": "2026-11-19T16:09:13+00:00"
+  },
+  {
+    "id": "73e981a448216743",
+    "title": "Elecbrakes EB2, VM1, ELBC2000",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-323-02",
+    "source": "CISA Advisories",
+    "raison": "avis de vulnérabilité industrielle sans exploitation constatée",
+    "date": "2026-11-19T16:09:13+00:00"
+  },
+  {
+    "id": "7f8f338723412135",
+    "title": "Autonomy Logic OpenPLC Runtime",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-323-01",
+    "source": "CISA Advisories",
+    "raison": "avis de vulnérabilité industrielle sans exploitation constatée",
+    "date": "2026-11-19T16:09:13+00:00"
   }
 ]

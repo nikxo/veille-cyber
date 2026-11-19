@@ -2,6 +2,437 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-19-webworm-softether-pont-furtif",
+      "title": "Webworm : un pont VPN SoftEther modifié pour garder un accès discret aux réseaux de gouvernements",
+      "created": "2026-11-19T16:09:13+00:00",
+      "updated": "2026-11-19T16:09:13+00:00",
+      "version": 1,
+      "resume": "Rapid7 attribue au groupe d'espionnage Webworm, aligné sur la Chine, une version modifiée du VPN SoftEther, camouflée pour garder un accès discret et durable aux réseaux d'organisations gouvernementales [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Camouflage de l'outil",
+          "texte": "Pont VPN SoftEther modifié, présenté dans ses métadonnées comme un logiciel de surveillance réseau, noms internes changés en « NtMonitor VPN », configuration chiffrée [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Règles ajoutées au pare-feu Windows par l'outil [1]."
+        },
+        {
+          "etape": "Dissimulation réseau",
+          "texte": "Adresses web renommées et filigrane d'origine remplacé → clients SoftEther standards bloqués et identification par filigrane évitée [1]."
+        },
+        {
+          "etape": "Pont vers le réseau",
+          "texte": "Tunnel VPN reliant un réseau distant au réseau local → l'hôte infecté sert de relais vers les autres machines du réseau [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Webworm)",
+            "note": ""
+          },
+          {
+            "id": "dist",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Réseau distant",
+            "note": "Adresse chez AS 20473"
+          },
+          {
+            "id": "hote",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Hôte Windows infecté",
+            "note": "Pont NtMonitor VPN"
+          },
+          {
+            "id": "res",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Autres machines du réseau",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "hote",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "hote",
+            "vers": "dist",
+            "etape": 5,
+            "texte": "Tunnel VPN vers le réseau distant"
+          },
+          {
+            "de": "hote",
+            "vers": "res",
+            "etape": 5,
+            "texte": "Relais vers les autres machines"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni l'accès initial, ni les victimes exactes, ni ce que les attaquants ont fait une fois connectés au réseau [1].",
+      "cves": [],
+      "mitre": [
+        "T1587.001 : Develop Capabilities: Malware, développement de capacités, logiciel malveillant : création de l'outil SoftEther modifié [1].",
+        "T1027.013 : Encrypted/Encoded File, fichier chiffré ou encodé : configuration chiffrée de l'outil [1].",
+        "T1140 : Deobfuscate/Decode Files or Information, déchiffrement ou décodage de fichiers ou d'informations [1].",
+        "T1036.005 : Match Legitimate Resource Name or Location, imitation d'un nom ou d'un emplacement de ressource légitime [1].",
+        "T1027.005 : Indicator Removal from Tools, suppression d'indicateurs dans les outils [1].",
+        "T1686.003 : Windows Host Firewall, désactivation ou modification du pare-feu de l'hôte Windows [1].",
+        "T1599 : Network Boundary Bridging, franchissement de la frontière réseau [1].",
+        "T1071 : Application Layer Protocol, protocole de la couche application [1].",
+        "T1090.001 : Internal Proxy, relais interne : l'hôte infecté relaie l'accès de commande vers d'autres machines [1]."
+      ],
+      "acteurs": [
+        "Webworm, groupe d'espionnage aligné sur la Chine ; outil attribué avec une confiance modérée [1]",
+        "ESET avait déjà noté son passage d'outils sur mesure à des outils à double usage comme SoftEther [1]"
+      ],
+      "cibles": [
+        "Organisations gouvernementales, surtout en Europe [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "VPN",
+          "definition": "Réseau privé virtuel : tunnel chiffré reliant des réseaux"
+        },
+        {
+          "sigle": "AS",
+          "definition": "Système autonome : bloc d'adresses Internet géré par un même opérateur"
+        },
+        {
+          "sigle": "ESET",
+          "definition": "Éditeur slovaque de logiciels de sécurité"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Spying on Governments with Zero Lines of Malware: A Custom SoftEther Bridge in Webworm’s Toolkit",
+          "site": "Rapid7",
+          "url": "https://www.rapid7.com/blog/post/tr-spying-on-governments-no-malware-custom-webworms-toolkit-softether-bridge",
+          "date": "2026-11-19",
+          "image": "https://www.rapid7.com/cdn/images/blt62de3c632e7d1ef7/6984a555a6b5ef052cb93196/Chrysalis-backdoor-blog.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-commission-europeenne-campagne-ia",
+      "title": "Commission européenne : une cyberattaque « générée par intelligence artificielle » perturbe la gestion du personnel",
+      "created": "2026-11-19T16:09:13+00:00",
+      "updated": "2026-11-19T16:09:13+00:00",
+      "version": 1,
+      "resume": "La Commission européenne confirme une cyberattaque détectée le 22 octobre 2026, qu'elle décrit comme une campagne générée par intelligence artificielle ; elle a mis plusieurs services hors ligne par précaution [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Attaque outillée par IA",
+          "texte": "Campagne générée par intelligence artificielle ; selon Politico, le CERT-EU a repéré l'usage de la plateforme Artex [1]."
+        },
+        {
+          "etape": "Perturbation des services",
+          "texte": "Plusieurs services mis hors ligne par précaution ; selon des informations de presse, paie, congés, remboursements médicaux et traduction perturbés plus de dix jours [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "artex",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Plateforme Artex",
+            "note": "Selon Politico"
+          },
+          {
+            "id": "sys",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Systèmes de gestion du personnel",
+            "note": "Services perturbés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "att",
+            "vers": "artex",
+            "etape": 2,
+            "texte": "Usage repéré par le CERT-EU"
+          },
+          {
+            "de": "artex",
+            "vers": "sys",
+            "etape": 3,
+            "texte": "Services du personnel perturbés"
+          }
+        ]
+      },
+      "limites": "La source ne décrit ni l'accès initial, ni les actions dans le réseau, ni les attaquants ; la Commission ne nomme pas l'outil [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifiés ; la Commission ne précise ni l'outil ni la motivation [1]",
+        "Selon le FBI, Artex est utilisé par des criminels et des groupes soutenus par des États [1]"
+      ],
+      "cibles": [
+        "Commission européenne, systèmes de gestion du personnel [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CERT-EU",
+          "definition": "Équipe de réponse aux incidents informatiques des institutions européennes"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "FBI",
+          "definition": "Police fédérale américaine"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "European Commission confirms cyberattack, says hackers used AI tool",
+          "site": "The Record",
+          "url": "https://therecord.media/european-commission-confirms-cyberattack-using-ai",
+          "date": "2026-11-19",
+          "image": "https://cms.therecord.media/uploads/30917367864_8dc9286dcf_o_dc03237cec.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-infoblox-prestataire-sharepoint",
+      "title": "Infoblox : les accès d'un prestataire compromis servent à dérober des configurations réseau dans SharePoint",
+      "created": "2026-11-19T16:09:13+00:00",
+      "updated": "2026-11-19T16:09:13+00:00",
+      "version": 1,
+      "resume": "Infoblox a reconnu le 16 novembre 2026 un incident passant par un prestataire de migration de données : des sauvegardes de configurations réseau et des données de salariés auraient été extraites de SharePoint [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Prestataire chargé de migrations de données compromis, par une méthode non précisée [1]."
+        },
+        {
+          "etape": "Accès à SharePoint",
+          "texte": "Utilisation des comptes et autorisations légitimes du prestataire → accès à l'environnement SharePoint d'Infoblox [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Selon l'article, extraction de sauvegardes de configurations NIOS, pouvant contenir des réglages DNS et DHCP, et de données personnelles et bancaires de salariés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "pre",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Prestataire de migration",
+            "note": "Compromis"
+          },
+          {
+            "id": "sp",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "SharePoint d'Infoblox",
+            "note": ""
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Configurations NIOS, données salariés",
+            "note": "Extraites selon l'article"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pre",
+            "etape": 1,
+            "texte": "Compromission, méthode non précisée"
+          },
+          {
+            "de": "pre",
+            "vers": "sp",
+            "etape": 2,
+            "texte": "Comptes légitimes du prestataire"
+          },
+          {
+            "de": "sp",
+            "vers": "don",
+            "etape": 3,
+            "texte": "Fichiers extraits"
+          }
+        ]
+      },
+      "limites": "La source présente l'extraction comme une allégation et ne dit ni comment le prestataire a été compromis, ni quand, ni combien de clients sont touchés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Identité inconnue [1]"
+      ],
+      "cibles": [
+        "Infoblox, spécialiste des services réseau ; ses salariés et certaines personnes à leur charge [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "NIOS",
+          "definition": "Logiciel réseau d'Infoblox dont les sauvegardes de configuration ont été prises"
+        },
+        {
+          "sigle": "DNS",
+          "definition": "Système qui traduit les noms de domaine en adresses IP"
+        },
+        {
+          "sigle": "IP",
+          "definition": "Protocole Internet ; une adresse IP identifie une machine"
+        },
+        {
+          "sigle": "DHCP",
+          "definition": "Protocole qui attribue automatiquement les adresses réseau aux machines"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Infoblox : des configurations réseau dérobées",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/infoblox-des-configurations-reseau-derobees/",
+          "date": "2026-11-19"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-bitget-bitcoins-coinjoin",
+      "title": "Bitget : 1 052 bitcoins issus du piratage de septembre déplacés, en majorité vers CoinJoin",
+      "created": "2026-11-19T16:09:13+00:00",
+      "updated": "2026-11-19T16:09:13+00:00",
+      "version": 1,
+      "resume": "La plateforme d'échange Bitget, piratée le 24 septembre 2026 pour 387,5 millions de dollars selon son estimation révisée, voit 1 052 bitcoins liés à l'attaque déplacés du 6 au 11 novembre [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de cryptomonnaies",
+          "texte": "Attaque du 24 septembre 2026 → pertes estimées à 351,6 puis 387,5 millions de dollars, dont des actifs des réseaux Zcash et Tron [1]."
+        },
+        {
+          "etape": "Blanchiment",
+          "texte": "1 052,34 bitcoins (environ 78,61 millions de dollars) transférés du 6 au 11 novembre, dont environ 80,5 % vers CoinJoin → suivi des fonds compliqué [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "bg",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateforme Bitget",
+            "note": "387,5 millions de dollars"
+          },
+          {
+            "id": "wal",
+            "type": "donnees",
+            "zone": "internet",
+            "nom": "Portefeuilles liés au piratage",
+            "note": ""
+          },
+          {
+            "id": "cj",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Mélangeur CoinJoin",
+            "note": "80,5 % des bitcoins"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "bg",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "bg",
+            "vers": "wal",
+            "etape": 2,
+            "texte": "Cryptomonnaies dérobées"
+          },
+          {
+            "de": "wal",
+            "vers": "cj",
+            "etape": 3,
+            "texte": "Bitcoins envoyés vers CoinJoin"
+          }
+        ]
+      },
+      "limites": "La source ne décrit ni la méthode d'intrusion ni l'auteur de l'attaque [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié [1]"
+      ],
+      "cibles": [
+        "Bitget, plateforme d'échange de cryptomonnaies [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Bitget : 1 052 bitcoins déplacés après le piratage",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/bitget-1-052-bitcoins-deplaces-apres-le-piratage/",
+          "date": "2026-11-19",
+          "image": "https://www.zataz.com/wp-content/uploads/1052_btc_leak.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-18-coinbase-deepfake-musk-youtube",
       "title": "Faux direct YouTube avec un deepfake d'Elon Musk : Coinbase bloque 4,7 millions de dollars envoyés aux escrocs",
       "created": "2026-11-18T21:07:56+00:00",
@@ -1459,8 +1890,8 @@
       "id": "2026-11-18-scattered-spider-buchanan-sms",
       "title": "Scattered Spider : six ans de prison pour un pirate britannique, des SMS piégés aux salariés puis 11,6 millions de dollars de cryptomonnaies volés",
       "created": "2026-11-18T10:15:00+00:00",
-      "updated": "2026-11-18T15:10:00+00:00",
-      "version": 3,
+      "updated": "2026-11-19T16:09:13+00:00",
+      "version": 4,
       "resume": "Tyler Robert Buchanan, pirate britannique lié à Scattered Spider, est condamné à six ans de prison ; des salariés étaient ciblés par SMS, puis des cryptomonnaies volées pour plus de 11,6 millions de dollars [1, 2, 3].",
       "chaine": [
         {
@@ -1575,19 +2006,21 @@
           }
         ]
       },
-      "limites": "Les sources ne détaillent pas le rôle de Buchanan à chaque étape, au-delà de la gestion du canal Telegram, ni les dommages subis par chaque entreprise visée [1, 2, 3].",
+      "limites": "",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Scattered Spider ; Tyler Robert Buchanan, actif de septembre 2021 à avril 2023, condamné à six ans ; Noah Michael Urban, condamné à dix ans [1]",
         "Autres condamnés : Ahmed Hossam Eldin Elbadawy et Evans Onyeaka Osiebo, 45 mois chacun ; Joel Martin Evans, deux ans [2]",
         "Selon le FBI, le groupe recourt aussi à l'ingénierie sociale et au bombardement de notifications d'authentification multifacteur [1]",
-        "Buchanan arrêté à l'aéroport de Palma, en Espagne, en juin 2024 ; groupe associé à l'attaque par rançongiciel contre MGM Resorts [3]"
+        "Buchanan arrêté à l'aéroport de Palma, en Espagne, en juin 2024 ; groupe associé à l'attaque par rançongiciel contre MGM Resorts [3]",
+        "Buchanan a plaidé coupable en avril 2026 ; audience sur les restitutions le 11 décembre 2026 [4]"
       ],
       "cibles": [
         "Salariés des télécommunications, technologies, divertissement, services informatiques, externalisation de processus métiers et fournisseurs de communications dans le cloud [1]",
         "Particuliers détenteurs de cryptomonnaies aux États-Unis et prestataires de cryptomonnaies [1, 2]",
-        "Victimes visées citées dans l'affaire : Coinbase, Twilio, Mailchimp et LastPass [3]"
+        "Victimes visées citées dans l'affaire : Coinbase, Twilio, Mailchimp et LastPass [3]",
+        "Au moins douze entreprises visées, selon le ministère américain de la Justice [4]"
       ],
       "abreviations": [
         {
@@ -1628,6 +2061,13 @@
           "url": "https://therecord.media/british-hacker-gets-six-year-sentence-scattered-spider",
           "date": "2026-11-18",
           "image": "https://cms.therecord.media/uploads/jail_aa9e09fa90.jpg"
+        },
+        {
+          "titre": "Scattered Spider : six ans de prison pour un pirate",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/scattered-spider-six-ans-de-prison-pour-un-pirate/",
+          "date": "2026-11-19",
+          "image": "https://www.zataz.com/wp-content/uploads/6_ans_scattered.jpg"
         }
       ]
     },
@@ -53459,8 +53899,8 @@
       "id": "2026-11-19-armory-castle-vcenter-esxi",
       "title": "Armory Castle : de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day",
       "created": "2026-11-19T15:20:00+00:00",
-      "updated": "2026-11-19T15:20:00+00:00",
-      "version": 1,
+      "updated": "2026-11-19T16:09:13+00:00",
+      "version": 2,
       "resume": "Le groupe d'espionnage Armory Castle, soupçonné d'être lié à la Chine, est passé de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day, et a extrait des fichiers de machines virtuelles, probablement exfiltrés ensuite [1].",
       "chaine": [
         {
@@ -53572,7 +54012,7 @@
           }
         ]
       },
-      "limites": "L'article ne nomme ni victime ni secteur et ne détaille pas l'accès initial, décrit dans une publication du 15 octobre 2026 [1].",
+      "limites": "La source ne nomme ni victime ni secteur [1]. Broadcom ne signale aucune attaque exploitant CVE-2026-123890 [3], alors que Mandiant décrit son exploitation [1].",
       "cves": [
         {
           "id": "CVE-2026-102764",
@@ -53580,7 +54020,7 @@
         },
         {
           "id": "CVE-2026-123890",
-          "explication": "VMware vCenter Server : divulgation sans authentification d'une clé de session, menant à un contournement d'authentification en tant qu'administrateur [1]."
+          "explication": "VMware vCenter Server : divulgation sans authentification d'une clé de session, menant à un contournement d'authentification administrateur [1] ; gravité 9,8 sur 10, versions 8.0, 9.0 et 9.1 corrigées [3]."
         }
       ],
       "mitre": [],
@@ -53628,6 +54068,13 @@
           "titre": "Fiche NVD CVE-2026-102764",
           "site": "NVD (NIST)",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102764"
+        },
+        {
+          "titre": "Critical VMware vCenter Flaw (CVSS 9.8) Lets Network Attackers Bypass Authentication",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
+          "date": "2026-11-19",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZ5IDT81eb7KUE0LzwGJAzuAETft3pD5sOz2dJxnQin_-zR_hH8tDKFTsLNBNoe35KM4DhFJjP7K-0YwaMoVwz7xUhTiP2vKeNqmN3kenPgwflENu35qx-QlFj-rDFdyXx1HMz6ykegw6nlnPDXppYbotjoRj-ammlyUZ-Cr0JYLS5iyZXkJXkaIO5UAc/s1700-nu-rw-lo-l85-e365/vmware.jpg"
         }
       ]
     },

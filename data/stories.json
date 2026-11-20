@@ -1844,25 +1844,29 @@
       "id": "2026-11-19-cisco-expressway-cve-2026-76466",
       "title": "Cisco Expressway : la faille CVE-2026-76466 exploitée peu après la publication d'un exploit, une organisation russe compromise",
       "created": "2026-11-19T14:30:00+00:00",
-      "updated": "2026-11-19T14:30:00+00:00",
-      "version": 1,
-      "resume": "Une organisation russe non nommée a été compromise par ses appareils Cisco Expressway en cluster, peu après la publication d'un exploit de démonstration, selon la société F6 [1].",
+      "updated": "2026-11-20T12:30:00+00:00",
+      "version": 2,
+      "resume": "Une organisation russe non nommée a été compromise par ses appareils Cisco Expressway en cluster, peu après la publication d'un exploit de démonstration : quatre appareils touchés puis le réseau interne atteint, selon la société F6 [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Exploitation de CVE-2026-76466 sur deux appareils Expressway exposés sur Internet → appareils compromis [1]."
+          "texte": "Exploitation de CVE-2026-76466 sur deux appareils Expressway exposés sur Internet → appareils compromis [1, 2]."
         },
         {
           "etape": "Déplacement dans le réseau",
-          "texte": "Rebond depuis un de ces appareils vers deux autres nœuds du cluster situés sur le réseau interne [1]."
+          "texte": "Rebond depuis un de ces appareils vers deux autres nœuds du cluster situés sur le réseau interne [1, 2]."
         },
         {
           "etape": "Prise de contrôle",
-          "texte": "Obtention des droits root → exécution de commandes au niveau du système [1]."
+          "texte": "Obtention des droits root → exécution de commandes au niveau du système [1, 2]."
         },
         {
-          "etape": "Préparation du rebond",
-          "texte": "Scripts Python sur mesure pour scanner le réseau, trouver des partages SMB, interagir avec SQL Server, WinRM et GitLab → but affiché : récupérer identifiants et informations sensibles [1]."
+          "etape": "Reconnaissance du réseau",
+          "texte": "Scripts Python sur mesure pour scanner le réseau, repérer des partages SMB et interagir avec SQL Server et WinRM [1, 2]."
+        },
+        {
+          "etape": "Recherche de secrets",
+          "texte": "Accès à des dépôts GitLab en vue d'exfiltrer des identifiants et d'autres données sensibles [1, 2]."
         },
         {
           "etape": "Adaptation des outils",
@@ -1891,6 +1895,20 @@
             "zone": "victime",
             "nom": "Nœuds internes du cluster",
             "note": "Droits root"
+          },
+          {
+            "id": "res",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Réseau interne",
+            "note": "SMB, SQL Server, WinRM"
+          },
+          {
+            "id": "git",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Dépôts GitLab",
+            "note": "Identifiants visés"
           }
         ],
         "liens": [
@@ -1905,19 +1923,31 @@
             "vers": "int",
             "etape": 2,
             "texte": "Rebond vers le réseau interne"
+          },
+          {
+            "de": "int",
+            "vers": "res",
+            "etape": 4,
+            "texte": "Scripts Python de reconnaissance"
+          },
+          {
+            "de": "int",
+            "vers": "git",
+            "etape": 5,
+            "texte": "Recherche d'identifiants à exfiltrer"
           }
         ]
       },
-      "limites": "La source ne précise pas si des identifiants ou des données ont réellement été exfiltrés, ni qui est derrière l'attaque [1].",
+      "limites": "Les sources ne disent pas qui est derrière l'attaque, ni comment l'accès aux dépôts GitLab a été obtenu, ni si l'exfiltration visée a réellement abouti [1, 2].",
       "cves": [
         {
           "id": "CVE-2026-76466",
-          "explication": "Cisco Expressway Core et Edge en cluster : cookies persistants du service de base de données permettant, sans authentification, d'exécuter des commandes en root ; gravité 9,8 sur 10 [1]."
+          "explication": "Cisco Expressway Core et Edge en cluster : cookies persistants et validation insuffisante des certificats clients permettant, sans authentification, d'exécuter des commandes en root ; gravité 9,8 sur 10 [1, 2]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "Attaque non attribuée à un groupe connu par F6 [1]"
+        "Attaque non attribuée à un groupe connu par F6 [1, 2]"
       ],
       "cibles": [
         "Organisation russe non nommée [1]"
@@ -1938,6 +1968,10 @@
         {
           "sigle": "WinRM",
           "definition": "Windows Remote Management : administration à distance des machines Windows"
+        },
+        {
+          "sigle": "GitLab",
+          "definition": "Plateforme d'hébergement de code source et de dépôts Git"
         }
       ],
       "sources": [
@@ -1947,6 +1981,13 @@
           "url": "https://www.securityweek.com/hackers-exploit-cisco-expressway-vulnerability-soon-after-poc-release/",
           "date": "2026-11-19",
           "image": "https://www.securityweek.com/wp-content/uploads/2025/09/Cisco-firewall.jpeg"
+        },
+        {
+          "titre": "Hackers Exploit Critical Cisco Expressway Flaw, Breach Four Devices and Reach Internal Network",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html",
+          "date": "2026-11-20",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrMm7M_HyuVDt9NknngHSgyfGKu0DR8VTc_GYL-tr_hMhTmi3EAZnM8x5byJQRYEqcUAZlDTR_Xi4RcMm4lidmk9UR_iyTWpDa5Mn6xRBoNwAf3auen2u6guKxnvoIrcQOfq7Mm1clmsyBMYVcjaOqVFYiN4mXgYSyR5_DUSrmVOLDK5mQeAS8BBB3X5-5/s1700-nu-rw-lo-l85-e365/cisco-cyberattacks.jpg"
         }
       ]
     },
@@ -54995,25 +55036,29 @@
       "id": "2026-11-19-sbc-medical-group-fuite-donnees",
       "title": "SBC Medical Group : des bases de données de son site web piratées, les données de 1,6 million de clients volées",
       "created": "2026-11-19T23:10:00+00:00",
-      "updated": "2026-11-19T23:10:00+00:00",
-      "version": 1,
-      "resume": "Un tiers non autorisé a extrait des informations clients de bases de données d'un site web de SBC Medical Group, société japonaise de gestion de cliniques : 1,6 million de personnes et environ 20 000 comptes d'employés touchés [1].",
+      "updated": "2026-11-20T12:30:00+00:00",
+      "version": 2,
+      "resume": "Un tiers non autorisé a extrait des informations clients de bases de données d'un site web de SBC Medical Group, gestionnaire de cliniques actif surtout au Japon : 1,6 million de clients selon [1], plus de 2 millions de personnes au Japon selon [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources, la méthode d'intrusion est encore en cours d'enquête [1]."
+          "texte": "Non précisé par les sources, la méthode d'intrusion est encore en cours d'enquête [1, 2]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Accès non autorisé à des bases de données d'un site web géré par une filiale japonaise → extraction d'informations de clients [1]."
+          "texte": "Accès non autorisé à des bases de données d'une plateforme en ligne du groupe → extraction d'informations de clients de cliniques au Japon [1, 2]."
         },
         {
           "etape": "Vol de comptes employés",
-          "texte": "Vol d'environ 20 000 comptes d'employés avec identifiants et mots de passe, plus des données bancaires et fiscales pour 459 d'entre eux [1]."
+          "texte": "Vol d'environ 20 000 comptes d'employés avec identifiants et mots de passe, plus des données bancaires et fiscales pour 459 d'entre eux [1, 2]."
         },
         {
           "etape": "Plateforme tierce",
-          "texte": "Accès non autorisé à des comptes administrateur de cliniques sur la plateforme de réservation Tribeau → réservations de 12 641 personnes exposées [1]."
+          "texte": "Accès non autorisé à des comptes administrateur de cliniques sur la plateforme de réservation Tribeau → 12 641 personnes exposées selon [1], environ 19 000 selon [2]."
+        },
+        {
+          "etape": "Réaction",
+          "texte": "Serveur touché isolé, attaquants expulsés et mots de passe des cliniques sur Tribeau réinitialisés [2]."
         }
       ],
       "parcours": {
@@ -55081,11 +55126,11 @@
           }
         ]
       },
-      "limites": "La source ne dit pas comment l'attaquant est entré, s'il s'agit du même auteur pour les deux incidents, ni comment les comptes employés ont été obtenus [1].",
+      "limites": "Les sources ne disent pas comment l'attaquant est entré, s'il s'agit du même auteur pour les deux incidents, ni comment les comptes employés ont été obtenus [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Tiers non autorisé, non nommé ; méthode d'intrusion et étendue encore en cours d'enquête [1]"
+        "Tiers non autorisé, non nommé ; méthode d'intrusion et étendue encore en cours d'enquête [1, 2]"
       ],
       "cibles": [
         "SBC Medical Group, groupe de gestion de cliniques actif surtout au Japon [1]",
@@ -55105,6 +55150,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/hackers-steal-data-of-16-million-sbc-medical-group-customers/",
           "date": "2026-11-19",
           "image": "https://www.bleepstatic.com/content/hl-images/2022/08/22/healthcare-cyber.jpg"
+        },
+        {
+          "titre": "SBC Medical Group Data Breach Impacts Over 2 Million",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/sbc-medical-group-data-breach-impacts-over-2-million/",
+          "date": "2026-11-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/03/healthcare-medical.jpeg"
         }
       ]
     }

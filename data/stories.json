@@ -2,6 +2,580 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-20-whatsapp-cve-2026-23871-arnaque",
+      "title": "WhatsApp : une faille des publicités « Click to WhatsApp » corrigée, un escroc s'en servait selon l'éditeur pour crédibiliser ses arnaques",
+      "created": "2026-11-20T16:30:00+00:00",
+      "updated": "2026-11-20T16:30:00+00:00",
+      "version": 1,
+      "resume": "WhatsApp a corrigé la faille CVE-2026-23871 de ses applications Android, trouvée en perturbant une campagne d'arnaque ; l'éditeur pense qu'un escroc s'en servait pour rendre ses messages plus crédibles [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Envoi de messages de spam spécifiques, avec lesquels la faille a peut-être été utilisée selon l'avis de WhatsApp [1]."
+        },
+        {
+          "etape": "Crédibilisation de l'arnaque",
+          "texte": "Faille utilisée, selon WhatsApp, pour rendre le message d'arnaque plus crédible [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (escroc)",
+            "note": "Non nommé"
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "WhatsApp pour Android",
+            "note": "Faille CVE-2026-23871"
+          },
+          {
+            "id": "dest",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Destinataires des messages",
+            "note": "Non précisés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 1,
+            "texte": "Messages de spam spécifiques"
+          },
+          {
+            "de": "app",
+            "vers": "dest",
+            "etape": 2,
+            "texte": "Arnaque rendue plus crédible"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni les cibles, ni les dates, ni comment la faille rendait l'arnaque plus crédible ; l'exploitation repose sur la conviction de WhatsApp [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-23871",
+          "explication": "WhatsApp et WhatsApp Business Android avant 2.26.17.4 : URL externes de réponse publicitaire mal validées ; un média de l'attaquant peut révéler l'IP de la cible ; impact faible [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Un escroc, non nommé par la source [1]"
+      ],
+      "cibles": [],
+      "abreviations": [
+        {
+          "sigle": "IP",
+          "definition": "Internet Protocol : l'adresse IP identifie un appareil sur le réseau"
+        },
+        {
+          "sigle": "URL",
+          "definition": "Uniform Resource Locator : adresse d'une ressource sur le Web"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "WhatsApp Fixes Flaw Uncovered While Disrupting Scam Campaign",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/whatsapp-fixes-flaw-uncovered-while-disrupting-scam-campaign/",
+          "date": "2026-11-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/06/WhatsApp-Vulnerability-attack-e1761292707809.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-20-n0n-jpmorgan-visa-mastercard-prestataires",
+      "title": "JPMorgan, Visa et Mastercard : des prestataires tiers touchés, le groupe N0n publie des données de clients",
+      "created": "2026-11-20T08:30:00+00:00",
+      "updated": "2026-11-20T16:30:00+00:00",
+      "version": 2,
+      "resume": "Le groupe d'extorsion N0n a publié des données liées à des clients de JPMorgan, Visa et Mastercard, qui évoquent des incidents chez des prestataires [1, 2]. Le prestataire soupçonné est Qubole, dont des identifiants compromis auraient servi à accéder à des environnements AWS de clients [2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Identifiants Qubole compromis, obtenus par un moyen non précisé → accès présumé du 14 au 26 octobre aux environnements AWS de clients via des rôles IAM accordés à Qubole [2]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "N0n revendique 53,9 Go volés chez Qubole et près d'un pétaoctet chez ses clients [2]."
+        },
+        {
+          "etape": "Données clients exposées",
+          "texte": "Données marketing de JPMorgan chez des prestataires, pouvant inclure noms et e-mails de clients selon la banque [1, 2]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Revendication contre Qubole le 11 novembre [2], puis données des trois entreprises publiées le 16 novembre sur le site de fuite, comme n'ayant pas payé [1, 2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (N0n)",
+            "note": ""
+          },
+          {
+            "id": "qub",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Prestataire Qubole",
+            "note": "Identifiants compromis"
+          },
+          {
+            "id": "aws",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Environnements AWS de clients",
+            "note": "Rôles IAM accordés"
+          },
+          {
+            "id": "data",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données de clients",
+            "note": "Noms, e-mails possibles"
+          },
+          {
+            "id": "fuite",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Site de fuite N0n",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "qub",
+            "etape": 1,
+            "texte": "Identifiants Qubole compromis"
+          },
+          {
+            "de": "qub",
+            "vers": "aws",
+            "etape": 1,
+            "texte": "Accès présumé via les rôles IAM accordés à Qubole"
+          },
+          {
+            "de": "aws",
+            "vers": "data",
+            "etape": 2,
+            "texte": "Données revendiquées volées"
+          },
+          {
+            "de": "data",
+            "vers": "fuite",
+            "etape": 4,
+            "texte": "Données publiées le 16 novembre"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent pas comment les identifiants Qubole ont été obtenus ni combien de clients sont touchés ; le rôle de Qubole chez les trois entreprises reste soupçonné [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "N0n, groupe d'extorsion apparu en septembre, environ 200 victimes présumées affichées sur son site de fuite [1]",
+        "N0n affiche 233 fiches, dont 179 divulgations revendiquées, et dit publier les données si le délai expire sans paiement [3]"
+      ],
+      "cibles": [
+        "Qubole, société d'analyse de données dans le cloud détenue par Idera [2]",
+        "JPMorgan Chase : plus de 16 000 e-mails de clients et 124 adresses e-mail semblant appartenir à des salariés, selon l'examen de Reuters [1]",
+        "Visa : prestataire en Asie-Pacifique ; selon Visa, ses systèmes et les numéros de carte ne sont pas touchés [1, 2]",
+        "Mastercard : adresses e-mail de titulaires d'un programme d'avantages ; réseau de paiement non affecté selon Mastercard [1]",
+        "Selon ZATAZ, transport maritime, ports et logistique arrivent en tête des 179 divulgations revendiquées par N0n, avec 35 fiches [3]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "AWS",
+          "definition": "Amazon Web Services : plateforme de services cloud d'Amazon"
+        },
+        {
+          "sigle": "IAM",
+          "definition": "Identity and Access Management : gestion des identités et droits d'accès cloud"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "JPMorgan, Visa, Mastercard Cite Third-Party Incidents Amid Data Leak",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/jpmorgan-visa-mastercard-cite-third-party-incidents-amid-data-leak/",
+          "date": "2026-11-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/visa-mastercard.jpeg"
+        },
+        {
+          "titre": "Vendor data breach exposes Chase, Visa, Mastercard customer info",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/vendor-data-breach-exposes-chase-visa-mastercard-customer-info/",
+          "date": "2026-11-20",
+          "image": "https://www.bleepstatic.com/content/hl-images/2022/10/28/hand-sifting-data.jpg"
+        },
+        {
+          "titre": "NON, c’est NON. Sauf quand il réclame une rançon.",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/non-cest-non-sauf-quand-il-reclame-une-rancon/",
+          "date": "2026-11-20",
+          "image": "https://www.zataz.com/wp-content/uploads/n0n_n0n.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-18-wellington-it-cooperatives-credit-irlande",
+      "title": "Wellington IT : une faille exploitée chez le prestataire expose des données de membres de coopératives de crédit irlandaises",
+      "created": "2026-11-18T20:30:00+00:00",
+      "updated": "2026-11-20T15:10:00+00:00",
+      "version": 2,
+      "resume": "Des pirates ont exploité une faille chez Wellington IT, prestataire informatique basé à Belfast [2] ; des données de bénéficiaires de virements d'environ 40 coopératives de crédit irlandaises seraient exposées [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Script automatisé exploitant une faille d'autorisation de l'infrastructure, avec des identifiants valides, du 2 au 4 octobre → accès à des données privées [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Environ cinq millions de requêtes → bénéficiaires de virements enregistrés en banque en ligne exposés : nom, IBAN, adresse [1, 2]."
+        },
+        {
+          "etape": "Notification",
+          "texte": "Faille fermée par Wellington IT le 6 octobre, son enquête initiale ne repérant pas de fuite ; coopératives notifiées le 16 novembre [2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes de Wellington IT",
+            "note": "Faille d'autorisation"
+          },
+          {
+            "id": "dat",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données de banque en ligne",
+            "note": "Bénéficiaires de virements"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Script automatisé, identifiants valides"
+          },
+          {
+            "de": "sys",
+            "vers": "dat",
+            "etape": 2,
+            "texte": "Cinq millions de requêtes"
+          }
+        ]
+      },
+      "limites": "Aucune source ne nomme l'auteur ni le nombre de personnes touchées ; Wellington IT dit manquer de journaux pour savoir quelles données ont été prises [1] ; aucun indice d'accès aux fonds [2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Wellington IT, prestataire informatique basé à Belfast [1, 2]",
+        "Environ 40 coopératives de crédit irlandaises, sur une cinquantaine de clientes [1] ; plus de 40 notifications reçues par l'autorité irlandaise de protection des données [2]",
+        "Des coopératives britanniques pourraient aussi être concernées selon l'autorité britannique de protection des données [2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IT",
+          "definition": "Information Technology : informatique, ici un prestataire de services informatiques"
+        },
+        {
+          "sigle": "IBAN",
+          "definition": "International Bank Account Number : identifiant international d'un compte bancaire"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Data breach impacts 40 Irish credit unions in reported IT provider hack",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/data-breach-impacts-40-irish-credit-unions-in-reported-it-provider-hack/",
+          "date": "2026-11-18",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/18/ireland.jpg"
+        },
+        {
+          "titre": "Dozens of credit unions hit by supplier breach that went unnoticed for six weeks",
+          "site": "The Record",
+          "url": "https://therecord.media/dozens-of-credit-unions-hit-by-supplier-breach",
+          "date": "2026-11-20",
+          "image": "https://cms.therecord.media/uploads/bank_safe_33ac6c970a.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-18-equinor-cyberattaque-services-internes",
+      "title": "Equinor : une cyberattaque stoppée après avoir perturbé les services informatiques internes du géant norvégien de l'énergie, la production épargnée",
+      "created": "2026-11-18T14:30:00+00:00",
+      "updated": "2026-11-20T15:10:00+00:00",
+      "version": 2,
+      "resume": "Le groupe énergétique norvégien Equinor a stoppé une cyberattaque détectée le 17 novembre, qui a gêné l'accès des employés aux applications internes sans toucher la production [1, 3].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1, 2, 3]."
+        },
+        {
+          "etape": "Perturbation des services",
+          "texte": "Attaque contre des systèmes informatiques détectée le 17 novembre → employés gênés pour accéder aux applications internes, messagerie interne hors service selon Reuters [1, 2, 3]."
+        },
+        {
+          "etape": "Arrêt de l'attaque",
+          "texte": "Attaque stoppée par Equinor ; production non affectée et aucun indice de vol ou d'altération de données [3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (non identifié)",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes informatiques d'Equinor",
+            "note": "Attaque stoppée"
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Applications et messagerie internes",
+            "note": "Accès perturbé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Vecteur d'accès non précisé"
+          },
+          {
+            "de": "sys",
+            "vers": "app",
+            "etape": 2,
+            "texte": "Accès des employés perturbé"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'accès, ni les systèmes compromis, ni l'auteur ; Equinor dit qu'aucun virus n'était en cause [1, 3] et qu'elle ne semblait pas visée spécifiquement [3].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Auteurs non identifiés [1]"
+      ],
+      "cibles": [
+        "Equinor, groupe énergétique norvégien ; selon l'entreprise, aucun indice d'atteinte aux employés, partenaires ou fournisseurs [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Cyberattack hits Norwegian energy giant Equinor, disrupting internal services",
+          "site": "The Record",
+          "url": "https://therecord.media/norway-equinor-cyberattack-energy",
+          "date": "2026-11-18",
+          "image": "https://cms.therecord.media/uploads/Equinor_Northern_Lights_4aa869f98c.jpg"
+        },
+        {
+          "titre": "Cyberhebdo du 20 novembre 2026 : deux énergéticiens norvégiens attaqués",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366655112/Cyberhebdo-du-20-novembre-2026",
+          "date": "2026-11-20",
+          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/Hero Images/Oslo-Norway-adobe-1.jpg"
+        },
+        {
+          "titre": "In Other News: Norwegian Energy Firm Cyberattacks, Supercomputer Hack, New Nightmare Eclipse Exploit",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/in-other-news-norwegian-energy-firm-cyberattacks-supercomputer-hack-new-nightmare-eclipse-exploit/",
+          "date": "2026-11-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-17-riken-fugaku-hors-ligne",
+      "title": "RIKEN : le supercalculateur Fugaku mis hors ligne après une intrusion dans des serveurs internes, jusqu'à 4 597 utilisateurs concernés",
+      "created": "2026-11-17T21:30:00+00:00",
+      "updated": "2026-11-20T15:10:00+00:00",
+      "version": 3,
+      "resume": "Le RIKEN a mis hors ligne le supercalculateur Fugaku après une intrusion dans plusieurs serveurs internes [1, 2] ; des données de jusqu'à 4 597 utilisateurs de Fugaku et de RIKYU pourraient être concernées [2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Tableau de bord public affichant l'état de Fugaku utilisé pour pénétrer le réseau interne d'exploitation [3] ; le procédé exact reste à établir selon ZATAZ [2]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Accès à plusieurs serveurs internes du réseau d'exploitation du 10 au 13 novembre → programmes non autorisés installés sur certains d'entre eux [2], serveurs modifiés [3]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "Tentatives de connexion à d'autres systèmes, sans succès établi par l'enquête [2]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Coordonnées, identifiants et clés d'accès à des services extérieurs sortis ou possiblement exposés ; des clés privées SSH stockées par des utilisateurs sont à révoquer [2]."
+        },
+        {
+          "etape": "Mise hors ligne",
+          "texte": "Communications suspectes repérées le 12 novembre, intrusion confirmée le 13 → exploitation de Fugaku suspendue le 14 novembre [1, 2], accès externes coupés [3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "tdb",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Tableau de bord public",
+            "note": "Point d'entrée"
+          },
+          {
+            "id": "srv",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Serveurs internes d'exploitation",
+            "note": "Programmes non autorisés"
+          },
+          {
+            "id": "aut",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Autres systèmes",
+            "note": "Connexions tentées"
+          },
+          {
+            "id": "dat",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données des utilisateurs",
+            "note": "Fugaku et RIKYU"
+          },
+          {
+            "id": "fug",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Supercalculateur Fugaku",
+            "note": "Suspendu le 14 novembre"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "tdb",
+            "etape": 1,
+            "texte": "Tableau de bord utilisé pour entrer"
+          },
+          {
+            "de": "tdb",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Accès non autorisé, programmes installés"
+          },
+          {
+            "de": "srv",
+            "vers": "aut",
+            "etape": 3,
+            "texte": "Tentatives de connexion"
+          },
+          {
+            "de": "srv",
+            "vers": "dat",
+            "etape": 4,
+            "texte": "Identifiants et clés exposés"
+          },
+          {
+            "de": "srv",
+            "vers": "fug",
+            "etape": 5,
+            "texte": "Intrusion confirmée, exploitation suspendue"
+          }
+        ]
+      },
+      "limites": "Le procédé exact d'accès et l'auteur ne sont pas établis publiquement ; la source ne dit pas quelles données sont effectivement sorties et lesquelles ont seulement pu être exposées [2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Centre de calcul scientifique du RIKEN, au Japon, qui exploite Fugaku [1]",
+        "Jusqu'à 4 222 utilisateurs de Fugaku (noms, adresses électroniques, identifiants) et 375 de RIKYU (noms, adresses électroniques) [2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "RIKEN",
+          "definition": "Institut de recherche japonais dont dépend le centre exploitant Fugaku"
+        },
+        {
+          "sigle": "RIKYU",
+          "definition": "Second supercalculateur du RIKEN dont les utilisateurs sont concernés"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole de connexion à distance chiffrée à un serveur"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Japan takes Fugaku supercomputer offlline after cyberattack",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/japan-takes-fugaku-supercomputer-offlline-after-cyberattack/",
+          "date": "2026-11-17",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/17/RIKEN.jpg"
+        },
+        {
+          "titre": "Le Japon arrête le supercalculateur Fugaku",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/le-japon-arrete-le-supercalculateur-fugaku/",
+          "date": "2026-11-18",
+          "image": "https://www.zataz.com/wp-content/uploads/Fugaku-ninja.jpg"
+        },
+        {
+          "titre": "In Other News: Norwegian Energy Firm Cyberattacks, Supercomputer Hack, New Nightmare Eclipse Exploit",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/in-other-news-norwegian-energy-firm-cyberattacks-supercomputer-hack-new-nightmare-eclipse-exploit/",
+          "date": "2026-11-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-20-noname057-cameras-salle-de-jeux-allemagne",
       "title": "NoName057(16) revendique un accès aux caméras d'une salle de jeux allemande",
       "created": "2026-11-20T14:30:00+00:00",
@@ -591,102 +1165,6 @@
           "url": "https://www.securityweek.com/european-commission-confirms-ai-assisted-cyberattack-disrupted-services/",
           "date": "2026-11-20",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/06/EU-Europe-European-Union-.jpeg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-20-n0n-jpmorgan-visa-mastercard-prestataires",
-      "title": "JPMorgan, Visa et Mastercard : des prestataires tiers touchés, le groupe N0n publie des données de clients",
-      "created": "2026-11-20T08:30:00+00:00",
-      "updated": "2026-11-20T08:30:00+00:00",
-      "version": 1,
-      "resume": "Le groupe d'extorsion N0n a publié des données qu'il relie à des clients de JPMorgan, Visa et Mastercard ; les trois entreprises évoquent des incidents chez des prestataires tiers [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources ; les entreprises citent des incidents chez des prestataires tiers qu'elles ne nomment pas [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Accès à des données marketing de JPMorgan détenues par des prestataires, qui pourraient inclure des noms et adresses e-mail de clients selon la banque [1]."
-        },
-        {
-          "etape": "Extorsion",
-          "texte": "Revendication le 16 novembre, puis données proposées en téléchargement sur le site de fuite de N0n, les trois entreprises y figurant comme n'ayant pas payé [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (N0n)",
-            "note": ""
-          },
-          {
-            "id": "prest",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Prestataires tiers",
-            "note": "Non nommés"
-          },
-          {
-            "id": "data",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Données marketing de clients",
-            "note": "Noms, e-mails possibles"
-          },
-          {
-            "id": "fuite",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Site de fuite N0n",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "prest",
-            "etape": 1,
-            "texte": "Accès par un moyen non précisé"
-          },
-          {
-            "de": "prest",
-            "vers": "data",
-            "etape": 2,
-            "texte": "Données marketing de clients récupérées"
-          },
-          {
-            "de": "data",
-            "vers": "fuite",
-            "etape": 3,
-            "texte": "Données proposées en téléchargement"
-          }
-        ]
-      },
-      "limites": "Les entreprises ne nomment pas leurs prestataires et la source ne décrit pas comment N0n a obtenu l'accès ni combien de clients sont touchés [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "N0n, groupe d'extorsion apparu en septembre, environ 200 victimes présumées affichées sur son site de fuite [1]"
-      ],
-      "cibles": [
-        "JPMorgan Chase : plus de 16 000 e-mails de clients et 124 adresses de salariés, selon l'examen de Reuters [1]",
-        "Visa : prestataire en Asie-Pacifique ; selon Visa, ses systèmes et les numéros de carte ne sont pas touchés [1]",
-        "Mastercard : adresses e-mail de titulaires d'un programme d'avantages ; réseau de paiement non affecté selon Mastercard [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "JPMorgan, Visa, Mastercard Cite Third-Party Incidents Amid Data Leak",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/jpmorgan-visa-mastercard-cite-third-party-incidents-amid-data-leak/",
-          "date": "2026-11-20",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/visa-mastercard.jpeg"
         }
       ]
     },
@@ -3377,103 +3855,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-11-18-wellington-it-cooperatives-credit-irlande",
-      "title": "Wellington IT : une faille exploitée chez le prestataire expose des données de membres de coopératives de crédit irlandaises",
-      "created": "2026-11-18T20:30:00+00:00",
-      "updated": "2026-11-20T15:10:00+00:00",
-      "version": 2,
-      "resume": "Des pirates ont exploité une faille chez Wellington IT, prestataire informatique basé à Belfast [2] ; des données de bénéficiaires de virements d'environ 40 coopératives de crédit irlandaises seraient exposées [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Script automatisé exploitant une faille d'autorisation de l'infrastructure, avec des identifiants valides, du 2 au 4 octobre → accès à des données privées [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Environ cinq millions de requêtes → bénéficiaires de virements enregistrés en banque en ligne exposés : nom, IBAN, adresse [1, 2]."
-        },
-        {
-          "etape": "Notification",
-          "texte": "Faille fermée par Wellington IT le 6 octobre, son enquête initiale ne repérant pas de fuite ; coopératives notifiées le 16 novembre [2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "sys",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Systèmes de Wellington IT",
-            "note": "Faille d'autorisation"
-          },
-          {
-            "id": "dat",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Données de banque en ligne",
-            "note": "Bénéficiaires de virements"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "sys",
-            "etape": 1,
-            "texte": "Script automatisé, identifiants valides"
-          },
-          {
-            "de": "sys",
-            "vers": "dat",
-            "etape": 2,
-            "texte": "Cinq millions de requêtes"
-          }
-        ]
-      },
-      "limites": "Aucune source ne nomme l'auteur ni le nombre de personnes touchées ; Wellington IT dit manquer de journaux pour savoir quelles données ont été prises [1] ; aucun indice d'accès aux fonds [2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Wellington IT, prestataire informatique basé à Belfast [1, 2]",
-        "Environ 40 coopératives de crédit irlandaises, sur une cinquantaine de clientes [1] ; plus de 40 notifications reçues par l'autorité irlandaise de protection des données [2]",
-        "Des coopératives britanniques pourraient aussi être concernées selon l'autorité britannique de protection des données [2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "IT",
-          "definition": "Information Technology : informatique, ici un prestataire de services informatiques"
-        },
-        {
-          "sigle": "IBAN",
-          "definition": "International Bank Account Number : identifiant international d'un compte bancaire"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Data breach impacts 40 Irish credit unions in reported IT provider hack",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/data-breach-impacts-40-irish-credit-unions-in-reported-it-provider-hack/",
-          "date": "2026-11-18",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/18/ireland.jpg"
-        },
-        {
-          "titre": "Dozens of credit unions hit by supplier breach that went unnoticed for six weeks",
-          "site": "The Record",
-          "url": "https://therecord.media/dozens-of-credit-unions-hit-by-supplier-breach",
-          "date": "2026-11-20",
-          "image": "https://cms.therecord.media/uploads/bank_safe_33ac6c970a.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-11-18-eggstreme-variante-silencieuse-philippines",
       "title": "EggStreme : le groupe d'espionnage présumé chinois reconstruit son logiciel malveillant et vise toujours le gouvernement philippin",
       "created": "2026-11-18T15:10:00+00:00",
@@ -3733,101 +4114,6 @@
           "url": "https://www.rapid7.com/blog/post/tr-self-hosted-ai-renting-compute-exposed-servers",
           "date": "2026-11-18",
           "image": "https://www.rapid7.com/cdn/images/blt77f5564b49102b80/6abfb804cd0bd934c1d4e56b/Copy_of_Rapid7_intelligence_report_template.png"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-18-equinor-cyberattaque-services-internes",
-      "title": "Equinor : une cyberattaque stoppée après avoir perturbé les services informatiques internes du géant norvégien de l'énergie, la production épargnée",
-      "created": "2026-11-18T14:30:00+00:00",
-      "updated": "2026-11-20T15:10:00+00:00",
-      "version": 2,
-      "resume": "Le groupe énergétique norvégien Equinor a stoppé une cyberattaque détectée le 17 novembre, qui a gêné l'accès des employés aux applications internes sans toucher la production [1, 3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 2, 3]."
-        },
-        {
-          "etape": "Perturbation des services",
-          "texte": "Attaque contre des systèmes informatiques détectée le 17 novembre → employés gênés pour accéder aux applications internes, messagerie interne hors service selon Reuters [1, 2, 3]."
-        },
-        {
-          "etape": "Arrêt de l'attaque",
-          "texte": "Attaque stoppée par Equinor ; production non affectée et aucun indice de vol ou d'altération de données [3]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (non identifié)",
-            "note": ""
-          },
-          {
-            "id": "sys",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Systèmes informatiques d'Equinor",
-            "note": "Attaque stoppée"
-          },
-          {
-            "id": "app",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Applications et messagerie internes",
-            "note": "Accès perturbé"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "sys",
-            "etape": 1,
-            "texte": "Vecteur d'accès non précisé"
-          },
-          {
-            "de": "sys",
-            "vers": "app",
-            "etape": 2,
-            "texte": "Accès des employés perturbé"
-          }
-        ]
-      },
-      "limites": "Les sources ne précisent ni le vecteur d'accès, ni les systèmes compromis, ni l'auteur ; Equinor dit qu'aucun virus n'était en cause [1, 3] et qu'elle ne semblait pas visée spécifiquement [3].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Auteurs non identifiés [1]"
-      ],
-      "cibles": [
-        "Equinor, groupe énergétique norvégien ; selon l'entreprise, aucun indice d'atteinte aux employés, partenaires ou fournisseurs [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Cyberattack hits Norwegian energy giant Equinor, disrupting internal services",
-          "site": "The Record",
-          "url": "https://therecord.media/norway-equinor-cyberattack-energy",
-          "date": "2026-11-18",
-          "image": "https://cms.therecord.media/uploads/Equinor_Northern_Lights_4aa869f98c.jpg"
-        },
-        {
-          "titre": "Cyberhebdo du 20 novembre 2026 : deux énergéticiens norvégiens attaqués",
-          "site": "LeMagIT",
-          "url": "https://www.lemagit.fr/actualites/366655112/Cyberhebdo-du-20-novembre-2026",
-          "date": "2026-11-20",
-          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/Hero Images/Oslo-Norway-adobe-1.jpg"
-        },
-        {
-          "titre": "In Other News: Norwegian Energy Firm Cyberattacks, Supercomputer Hack, New Nightmare Eclipse Exploit",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/in-other-news-norwegian-energy-firm-cyberattacks-supercomputer-hack-new-nightmare-eclipse-exploit/",
-          "date": "2026-11-20",
-          "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
         }
       ]
     },
@@ -4524,160 +4810,6 @@
           "url": "https://www.zataz.com/osaka-exposee-a-une-fuite-massive/",
           "date": "2026-11-18",
           "image": "https://www.zataz.com/wp-content/uploads/japon_mail_leak.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-17-riken-fugaku-hors-ligne",
-      "title": "RIKEN : le supercalculateur Fugaku mis hors ligne après une intrusion dans des serveurs internes, jusqu'à 4 597 utilisateurs concernés",
-      "created": "2026-11-17T21:30:00+00:00",
-      "updated": "2026-11-20T15:10:00+00:00",
-      "version": 3,
-      "resume": "Le RIKEN a mis hors ligne le supercalculateur Fugaku après une intrusion dans plusieurs serveurs internes [1, 2] ; des données de jusqu'à 4 597 utilisateurs de Fugaku et de RIKYU pourraient être concernées [2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Tableau de bord public affichant l'état de Fugaku utilisé pour pénétrer le réseau interne d'exploitation [3] ; le procédé exact reste à établir selon ZATAZ [2]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Accès à plusieurs serveurs internes du réseau d'exploitation du 10 au 13 novembre → programmes non autorisés installés sur certains d'entre eux [2], serveurs modifiés [3]."
-        },
-        {
-          "etape": "Déplacement dans le réseau",
-          "texte": "Tentatives de connexion à d'autres systèmes, sans succès établi par l'enquête [2]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Coordonnées, identifiants et clés d'accès à des services extérieurs sortis ou possiblement exposés ; des clés privées SSH stockées par des utilisateurs sont à révoquer [2]."
-        },
-        {
-          "etape": "Mise hors ligne",
-          "texte": "Communications suspectes repérées le 12 novembre, intrusion confirmée le 13 → exploitation de Fugaku suspendue le 14 novembre [1, 2], accès externes coupés [3]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "tdb",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Tableau de bord public",
-            "note": "Point d'entrée"
-          },
-          {
-            "id": "srv",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Serveurs internes d'exploitation",
-            "note": "Programmes non autorisés"
-          },
-          {
-            "id": "aut",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Autres systèmes",
-            "note": "Connexions tentées"
-          },
-          {
-            "id": "dat",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Données des utilisateurs",
-            "note": "Fugaku et RIKYU"
-          },
-          {
-            "id": "fug",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Supercalculateur Fugaku",
-            "note": "Suspendu le 14 novembre"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "tdb",
-            "etape": 1,
-            "texte": "Tableau de bord utilisé pour entrer"
-          },
-          {
-            "de": "tdb",
-            "vers": "srv",
-            "etape": 2,
-            "texte": "Accès non autorisé, programmes installés"
-          },
-          {
-            "de": "srv",
-            "vers": "aut",
-            "etape": 3,
-            "texte": "Tentatives de connexion"
-          },
-          {
-            "de": "srv",
-            "vers": "dat",
-            "etape": 4,
-            "texte": "Identifiants et clés exposés"
-          },
-          {
-            "de": "srv",
-            "vers": "fug",
-            "etape": 5,
-            "texte": "Intrusion confirmée, exploitation suspendue"
-          }
-        ]
-      },
-      "limites": "Le procédé exact d'accès et l'auteur ne sont pas établis publiquement ; la source ne dit pas quelles données sont effectivement sorties et lesquelles ont seulement pu être exposées [2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Centre de calcul scientifique du RIKEN, au Japon, qui exploite Fugaku [1]",
-        "Jusqu'à 4 222 utilisateurs de Fugaku (noms, adresses électroniques, identifiants) et 375 de RIKYU (noms, adresses électroniques) [2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "RIKEN",
-          "definition": "Institut de recherche japonais dont dépend le centre exploitant Fugaku"
-        },
-        {
-          "sigle": "RIKYU",
-          "definition": "Second supercalculateur du RIKEN dont les utilisateurs sont concernés"
-        },
-        {
-          "sigle": "SSH",
-          "definition": "Secure Shell : protocole de connexion à distance chiffrée à un serveur"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Japan takes Fugaku supercomputer offlline after cyberattack",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/japan-takes-fugaku-supercomputer-offlline-after-cyberattack/",
-          "date": "2026-11-17",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/17/RIKEN.jpg"
-        },
-        {
-          "titre": "Le Japon arrête le supercalculateur Fugaku",
-          "site": "ZATAZ",
-          "url": "https://www.zataz.com/le-japon-arrete-le-supercalculateur-fugaku/",
-          "date": "2026-11-18",
-          "image": "https://www.zataz.com/wp-content/uploads/Fugaku-ninja.jpg"
-        },
-        {
-          "titre": "In Other News: Norwegian Energy Firm Cyberattacks, Supercomputer Hack, New Nightmare Eclipse Exploit",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/in-other-news-norwegian-energy-firm-cyberattacks-supercomputer-hack-new-nightmare-eclipse-exploit/",
-          "date": "2026-11-20",
-          "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
         }
       ]
     },

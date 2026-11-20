@@ -1135,13 +1135,13 @@
       "id": "2026-11-19-armory-castle-vcenter-esxi",
       "title": "Armory Castle : de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day",
       "created": "2026-11-19T15:20:00+00:00",
-      "updated": "2026-11-19T22:30:00+00:00",
-      "version": 4,
-      "resume": "Le groupe d'espionnage Armory Castle, soupçonné d'être lié à la Chine, a exploité deux failles zero-day pour passer de BeyondTrust Remote Support à vCenter puis à un hôte ESXi [1, 4]. La faille de vCenter a été exploitée plus de deux mois avant son correctif [4].",
+      "updated": "2026-11-20T01:20:00+00:00",
+      "version": 5,
+      "resume": "Le groupe d'espionnage Armory Castle, soupçonné d'être lié à la Chine, a exploité deux failles zero-day pour passer de BeyondTrust Remote Support à vCenter puis à un hôte ESXi [1, 4, 6]. Broadcom a corrigé la faille de vCenter le 19 novembre 2026 [6].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Exploitation de la faille zero-day CVE-2026-102764 de BeyondTrust Remote Support → point d'entrée sur l'appliance [1]."
+          "texte": "Exploitation, depuis fin août 2026, de la faille zero-day CVE-2026-102764 de BeyondTrust Remote Support → point d'entrée sur l'appliance [1, 6]."
         },
         {
           "etape": "Prise de contrôle",
@@ -1157,7 +1157,7 @@
         },
         {
           "etape": "Vol de données",
-          "texte": "Fichier NTDS et ruches de registre extraits d'un disque de machine virtuelle → archivés puis rapatriés vers l'appliance Remote Support, d'où ils ont probablement été exfiltrés [1]."
+          "texte": "Fichier NTDS et ruches de registre extraits d'un disque de machine virtuelle → archivés puis rapatriés vers l'appliance Remote Support [1]."
         },
         {
           "etape": "Persistance",
@@ -1248,7 +1248,7 @@
           }
         ]
       },
-      "limites": "Les sources ne nomment ni victime ni secteur [1, 4, 5]. Broadcom ne signale aucune attaque exploitant CVE-2026-123890 [3, 4], alors que Mandiant décrit son exploitation [1, 5].",
+      "limites": "Les sources ne nomment ni victime ni secteur [1, 4, 5, 6]. Broadcom ne signale aucune attaque exploitant CVE-2026-123890 [3, 4, 6], alors que Mandiant décrit son exploitation [1, 5, 6].",
       "cves": [
         {
           "id": "CVE-2026-102764",
@@ -1256,12 +1256,12 @@
         },
         {
           "id": "CVE-2026-123890",
-          "explication": "VMware vCenter Server, composant VMware Directory Service [4] : contournement d'authentification administrateur sans identifiants [1, 5], exploité depuis septembre 2026 [5] ; gravité 9,8 sur 10 [3, 4]."
+          "explication": "VMware vCenter Server, composant VMware Directory Service [4, 6] : contournement d'authentification administrateur sans identifiants [1, 5], exploité depuis septembre 2026 [5, 6] ; gravité 9,8 sur 10 [3, 4]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "Armory Castle, anciennement UNC5221 [1, 4], aussi connu sous le nom Warp Panda [4], soupçonné d'être lié à la Chine [1, 4]"
+        "Armory Castle, anciennement UNC5221 [1, 4, 6], aussi connu sous le nom Warp Panda [4], soupçonné d'être lié à la Chine [1, 4, 6]"
       ],
       "cibles": [
         "Environnements VMware vCenter et ESXi ; aucune victime ni secteur nommés [1, 4]"
@@ -1329,6 +1329,13 @@
           "url": "https://www.rapid7.com/blog/post/etr-cve-2026-123890-critical-authentication-bypass-vmware-vcenter",
           "date": "2026-11-19",
           "image": "https://www.rapid7.com/cdn/images/blt65a432ba319f4043/6846abddaf18306debe6cf4d/ETR.webp"
+        },
+        {
+          "titre": "VMware patches vCenter zero-day exploited in attacks since September",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september/",
+          "date": "2026-11-19",
+          "image": "https://www.bleepstatic.com/content/hl-images/2023/10/25/VMware_red.jpg"
         }
       ]
     },

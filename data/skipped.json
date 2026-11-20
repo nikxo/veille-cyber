@@ -1,29 +1,5 @@
 [
   {
-    "id": "983cd7433fe6494b",
-    "title": "Behind the Scenes of How Operation Blackout Went Down",
-    "link": "https://www.darkreading.com/cybersecurity-operations/behind-the-scenes-how-operation-blackout-went-down",
-    "source": "Dark Reading",
-    "raison": "opération policière contre des centres d'arnaque, sans détail sur la méthode d'attaque (page inaccessible, résumé du flux seul)",
-    "date": "2026-10-30T23:06:24+00:00"
-  },
-  {
-    "id": "4366c0e85d5c22fa",
-    "title": "This month in security with Tony Anscombe – October 2026 edition",
-    "link": "https://www.welivesecurity.com/en/videos/month-security-tony-anscombe-october-2026/",
-    "source": "WeLiveSecurity (ESET)",
-    "raison": "récapitulatif mensuel sans détail sur la méthode d'attaque",
-    "date": "2026-10-31T04:10:00+00:00"
-  },
-  {
-    "id": "21ad2182a1367363",
-    "title": "Cloudflare Reports 18.2 Million Network-Layer DDoS Attacks in Q3, Up 38%",
-    "link": "https://thehackernews.com/2026/10/cloudflare-reports-182-million-network.html",
-    "source": "The Hacker News",
-    "raison": "bilan statistique sans détail sur une attaque précise",
-    "date": "2026-10-31T06:20:00+00:00"
-  },
-  {
     "id": "e8eb82345a00ebfc",
     "title": "A Shared ChatGPT Link Could Run Attacker Code in Your Session and Read Private Chats",
     "link": "https://thehackernews.com/2026/10/a-shared-chatgpt-link-could-run.html",
@@ -3998,5 +3974,29 @@
     "source": "BleepingComputer",
     "raison": "annonce de mise à jour produit, aucune attaque",
     "date": "2026-11-20T10:30:00+00:00"
+  },
+  {
+    "id": "502d3b099eea59c3",
+    "title": "Ruby Patches Ruby2Shell Vulnerability That Could Lead to RCE",
+    "link": "https://www.securityweek.com/ruby-patches-ruby2shell-vulnerability-that-could-lead-to-rce/",
+    "source": "SecurityWeek",
+    "raison": "vulnérabilité Ruby sans exploitation constatée (preuves de concept seulement)",
+    "date": "2026-11-20T11:30:00+00:00"
+  },
+  {
+    "id": "8300ea792a232c69",
+    "title": "F5 releases emergency patches for critical BIG-IP RCE flaws",
+    "link": "https://www.bleepingcomputer.com/news/security/f5-releases-emergency-patches-for-critical-big-ip-rce-flaws/",
+    "source": "BleepingComputer",
+    "raison": "failles F5 BIG-IP corrigées, non signalées comme exploitées",
+    "date": "2026-11-20T11:30:00+00:00"
+  },
+  {
+    "id": "d7d1043ff4ae8fc6",
+    "title": "Metasploit Wrap Up: Breaking Zimbra's Identity Boundaries",
+    "link": "https://www.rapid7.com/blog/post/pt-metasploit-wrap-up-breaking-zimbra-s-identity-boundaries",
+    "source": "Rapid7",
+    "raison": "récapitulatif de nouveaux modules Metasploit, sans description d'attaque",
+    "date": "2026-11-20T11:30:00+00:00"
   }
 ]

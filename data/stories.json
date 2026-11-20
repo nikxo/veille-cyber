@@ -2,6 +2,119 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-20-container-store-n0n-commandes-coupees",
+      "title": "The Container Store : une cyberattaque coupe les commandes en ligne, le groupe n0n inscrit l'enseigne sur son site de fuite",
+      "created": "2026-11-20T20:15:00+00:00",
+      "updated": "2026-11-20T20:15:00+00:00",
+      "version": 1,
+      "resume": "Une cyberattaque a forcé The Container Store, enseigne fondée au Texas qui compte environ 100 magasins aux États-Unis, à arrêter ses commandes en ligne et à limiter les transactions en magasin [1]. Le groupe n0n a inscrit l'enseigne sur son site de fuite [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par la source [1]."
+        },
+        {
+          "etape": "Perturbation",
+          "texte": "Cyberattaque le week-end précédant l'annonce → commandes en ligne arrêtées et transactions en magasin limitées [1]."
+        },
+        {
+          "etape": "Revendication",
+          "texte": "Plus tôt dans le mois, le groupe n0n a ajouté The Container Store à son site de fuite [1]."
+        },
+        {
+          "etape": "Restauration",
+          "texte": "Experts en cybersécurité mobilisés → site web et systèmes restaurés, magasins restés ouverts grâce à d'autres procédures de transaction [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Site de commandes en ligne",
+            "note": "Commandes arrêtées"
+          },
+          {
+            "id": "mag",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Transactions des magasins",
+            "note": "Traitement limité"
+          },
+          {
+            "id": "fuite",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Site de fuite n0n",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "web",
+            "etape": 2,
+            "texte": "Commandes en ligne arrêtées"
+          },
+          {
+            "de": "inc",
+            "vers": "mag",
+            "etape": 2,
+            "texte": "Transactions en magasin limitées"
+          },
+          {
+            "de": "att",
+            "vers": "fuite",
+            "etape": 3,
+            "texte": "Enseigne inscrite sur le site de fuite"
+          }
+        ]
+      },
+      "limites": "La source ne confirme pas que n0n est l'auteur de l'attaque et ne décrit ni le vecteur d'accès ni les étapes techniques [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "n0n, groupe de rançongiciel et d'extorsion apparu en septembre, qui a attaqué plus de 100 organisations [1]",
+        "Selon LevelBlue, n0n a utilisé un agent de codage par intelligence artificielle pour écrire et déboguer ses scripts d'attaque [1]"
+      ],
+      "cibles": [
+        "The Container Store, détaillant fondé au Texas, environ 100 magasins aux États-Unis, détenu par Neighborhood Intelligence [1]",
+        "Selon l'entreprise, des données financières de clients ne semblent pas avoir été volées [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Container Store restores systems after cyberattack",
+          "site": "The Record",
+          "url": "https://therecord.media/container-store-restores-systems-cyberattack",
+          "date": "2026-11-20",
+          "image": "https://cms.therecord.media/uploads/the_container_store_78204f1ab6.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-20-whatsapp-cve-2026-23871-arnaque",
       "title": "WhatsApp : une faille des publicités « Click to WhatsApp » corrigée, un escroc s'en servait selon l'éditeur pour crédibiliser ses arnaques",
       "created": "2026-11-20T16:30:00+00:00",

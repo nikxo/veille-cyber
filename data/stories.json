@@ -5,17 +5,17 @@
       "id": "2026-11-20-whatsapp-cve-2026-23871-arnaque",
       "title": "WhatsApp : une faille des publicités « Click to WhatsApp » corrigée, un escroc s'en servait selon l'éditeur pour crédibiliser ses arnaques",
       "created": "2026-11-20T16:30:00+00:00",
-      "updated": "2026-11-20T16:30:00+00:00",
-      "version": 1,
-      "resume": "WhatsApp a corrigé la faille CVE-2026-23871 de ses applications Android, trouvée en perturbant une campagne d'arnaque ; l'éditeur pense qu'un escroc s'en servait pour rendre ses messages plus crédibles [1].",
+      "updated": "2026-11-20T19:08:24+00:00",
+      "version": 2,
+      "resume": "WhatsApp a corrigé la faille CVE-2026-23871 de ses applications Android, trouvée en perturbant une campagne d'arnaque ; l'éditeur pense qu'un escroc s'en servait pour rendre ses messages plus crédibles [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Envoi de messages de spam spécifiques, avec lesquels la faille a peut-être été utilisée selon l'avis de WhatsApp [1]."
+          "texte": "Envoi de messages de spam spécifiques, avec lesquels la faille a peut-être été utilisée selon WhatsApp [1, 2]."
         },
         {
           "etape": "Crédibilisation de l'arnaque",
-          "texte": "Faille utilisée, selon WhatsApp, pour rendre le message d'arnaque plus crédible [1]."
+          "texte": "Faille utilisée, selon WhatsApp, pour rendre le message d'arnaque plus crédible [1, 2]."
         }
       ],
       "parcours": {
@@ -57,16 +57,16 @@
           }
         ]
       },
-      "limites": "La source ne précise ni les cibles, ni les dates, ni comment la faille rendait l'arnaque plus crédible ; l'exploitation repose sur la conviction de WhatsApp [1].",
+      "limites": "Les sources ne précisent ni les cibles, ni les dates, ni comment la faille rendait l'arnaque plus crédible [1, 2]. WhatsApp ne dit ni l'ampleur de l'activité ni si elle a réussi [2].",
       "cves": [
         {
           "id": "CVE-2026-23871",
-          "explication": "WhatsApp et WhatsApp Business Android avant 2.26.17.4 : URL externes de réponse publicitaire mal validées ; un média de l'attaquant peut révéler l'IP de la cible ; impact faible [1]."
+          "explication": "WhatsApp et WhatsApp Business Android avant 2.26.17.4 : URL externes de réponse publicitaire mal validées ; un média de l'attaquant peut révéler l'IP de la cible [1, 2] ; impact faible [1]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "Un escroc, non nommé par la source [1]"
+        "Un escroc, non nommé par les sources [1, 2]"
       ],
       "cibles": [],
       "abreviations": [
@@ -86,6 +86,13 @@
           "url": "https://www.securityweek.com/whatsapp-fixes-flaw-uncovered-while-disrupting-scam-campaign/",
           "date": "2026-11-20",
           "image": "https://www.securityweek.com/wp-content/uploads/2025/06/WhatsApp-Vulnerability-attack-e1761292707809.jpg"
+        },
+        {
+          "titre": "WhatsApp Patches 3 Security Flaws, Including Android Bug Suspected of Use in Scams",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/whatsapp-patches-3-security-flaws.html",
+          "date": "2026-11-20",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUSbYUJJkBlZsaH90SXIaxYAv5iJN7ZEus7Q24A_Z9fDNNlnOjFnNZ3SnA6er-iuMgQnE6k73nwVwAEPPk1AjRT12N9o8cJft3_dPqMZKeJbpq6QIcGbN1z1UbE_Q3fXTyp1c0XmqynQu2lJPeIYoraqXFcgM-wQH4b1rIBrOKF221CIKLldJIZVJ4g7cr/s1700-nu-rw-lo-l85-e365/whatsapp.jpg"
         }
       ]
     },
@@ -759,8 +766,8 @@
       "id": "2026-11-19-cisco-expressway-cve-2026-76466",
       "title": "Cisco Expressway : la faille CVE-2026-76466 exploitée peu après la publication d'un exploit, une organisation russe compromise",
       "created": "2026-11-19T14:30:00+00:00",
-      "updated": "2026-11-20T12:30:00+00:00",
-      "version": 2,
+      "updated": "2026-11-20T19:08:24+00:00",
+      "version": 3,
       "resume": "Une organisation russe non nommée a été compromise par ses appareils Cisco Expressway en cluster, peu après la publication d'un exploit de démonstration : quatre appareils touchés puis le réseau interne atteint, selon la société F6 [1, 2].",
       "chaine": [
         {
@@ -857,7 +864,7 @@
       "cves": [
         {
           "id": "CVE-2026-76466",
-          "explication": "Cisco Expressway Core et Edge en cluster : cookies persistants et validation insuffisante des certificats clients permettant, sans authentification, d'exécuter des commandes en root ; gravité 9,8 sur 10 [1, 2]."
+          "explication": "Expressway en cluster : cookies persistants, certificats clients mal validés, commandes root sans authentification, 9,8 sur 10 [1, 2] ; identifiants codés en dur selon la CISA, cataloguée exploitée [3]."
         }
       ],
       "mitre": [],
@@ -887,6 +894,10 @@
         {
           "sigle": "GitLab",
           "definition": "Plateforme d'hébergement de code source et de dépôts Git"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Cybersecurity and Infrastructure Security Agency : agence américaine de cybersécurité"
         }
       ],
       "sources": [
@@ -903,6 +914,12 @@
           "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html",
           "date": "2026-11-20",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrMm7M_HyuVDt9NknngHSgyfGKu0DR8VTc_GYL-tr_hMhTmi3EAZnM8x5byJQRYEqcUAZlDTR_Xi4RcMm4lidmk9UR_iyTWpDa5Mn6xRBoNwAf3auen2u6guKxnvoIrcQOfq7Mm1clmsyBMYVcjaOqVFYiN4mXgYSyR5_DUSrmVOLDK5mQeAS8BBB3X5-5/s1700-nu-rw-lo-l85-e365/cisco-cyberattacks.jpg"
+        },
+        {
+          "titre": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/20/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-20"
         }
       ]
     },
@@ -1294,8 +1311,8 @@
       "id": "2026-11-19-armory-castle-vcenter-esxi",
       "title": "Armory Castle : de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day",
       "created": "2026-11-19T15:20:00+00:00",
-      "updated": "2026-11-20T07:30:00+00:00",
-      "version": 6,
+      "updated": "2026-11-20T19:08:24+00:00",
+      "version": 7,
       "resume": "Le groupe d'espionnage Armory Castle, soupçonné d'être lié à la Chine, a exploité deux failles zero-day pour passer de BeyondTrust Remote Support à vCenter puis à un hôte ESXi [1, 4, 6, 7]. Broadcom a corrigé la faille de vCenter le 19 novembre 2026 [6, 7].",
       "chaine": [
         {
@@ -1415,7 +1432,7 @@
         },
         {
           "id": "CVE-2026-123890",
-          "explication": "VMware vCenter Server, composant VMware Directory Service [4, 6] : contournement d'authentification administrateur sans identifiants [1, 5], exploité depuis septembre 2026 [5, 6] ; gravité 9,8 sur 10 [3, 4]."
+          "explication": "vCenter Server, composant VMware Directory Service [4, 6] : contournement d'authentification administrateur sans identifiants [1, 5], exploité depuis septembre 2026 [5, 6], cataloguée par la CISA [8] ; 9,8 sur 10 [3, 4]."
         }
       ],
       "mitre": [],
@@ -1453,6 +1470,10 @@
         {
           "sigle": "SAML",
           "definition": "Security Assertion Markup Language : standard de jetons d'authentification signés"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Cybersecurity and Infrastructure Security Agency : agence américaine de cybersécurité"
         }
       ],
       "sources": [
@@ -1502,6 +1523,12 @@
           "url": "https://thehackernews.com/2026/11/china-linked-hackers-exploit-critical.html",
           "date": "2026-11-20",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjTSAI-N-DRII1YA3I98ZVnKnG0SMgm97oEAqyiSXZB23DPwzvTk3figFLsTCKsMJRxRhjKEPFblxfcOuB_UXc_OAXJRiVI07Jxjn-CebJVHiRQ5sc43AifBpUPNfU5-LRD6QEGbX7Vnt_HAmJZiLojS32PtNWwIWeideJZnIpgjrstJ0Iy84lYd47bePk/s1700-nu-rw-lo-l85-e365/chinese-vmware.jpg"
+        },
+        {
+          "titre": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/20/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-20"
         }
       ]
     },
@@ -3117,8 +3144,8 @@
       "id": "2026-11-18-apache-roller-cve-2026-129448",
       "title": "Apache Roller : la faille de désérialisation CVE-2026-129448 exploitée pour exécuter du code sur des serveurs de blogs",
       "created": "2026-11-18T11:10:00+00:00",
-      "updated": "2026-11-19T13:30:00+00:00",
-      "version": 3,
+      "updated": "2026-11-20T19:08:24+00:00",
+      "version": 4,
       "resume": "Apache a corrigé une faille critique de Roller, plateforme de blogs écrite en Java, que des attaquants exploitent pour exécuter du code sur les serveurs vulnérables [1, 2] ; son avis du 17 novembre confirme l'exploitation active [3].",
       "chaine": [
         {
@@ -3156,7 +3183,7 @@
       "cves": [
         {
           "id": "CVE-2026-129448",
-          "explication": "Apache Roller 4.0.0 à 6.1.4 : désérialisation non sécurisée via XML-RPC, code exécuté à distance sans authentification, 9,8 sur 10 ; corrigée en 6.1.6, déjà publiée sous CVE-2026-82384 [1, 2, 3]."
+          "explication": "Roller 4.0.0 à 6.1.4 : désérialisation via XML-RPC, code exécuté à distance sans authentification, 9,8 sur 10 ; corrigée en 6.1.6 [1, 2, 3] ; cataloguée exploitée par la CISA [4]."
         }
       ],
       "mitre": [],
@@ -3173,6 +3200,10 @@
         {
           "sigle": "XML",
           "definition": "eXtensible Markup Language : format de données structuré par balises"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Cybersecurity and Infrastructure Security Agency : agence américaine de cybersécurité"
         }
       ],
       "sources": [
@@ -3195,6 +3226,12 @@
           "url": "https://www.securityweek.com/critical-apache-roller-axis-vulnerabilities-exploited-in-attacks/",
           "date": "2026-11-19",
           "image": "https://www.securityweek.com/wp-content/uploads/2023/12/Apache-exploit-scaled-e1724835583910.jpeg"
+        },
+        {
+          "titre": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/20/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-20"
         }
       ]
     },
@@ -55619,6 +55656,105 @@
           "url": "https://thehackernews.com/2026/11/bazuka-android-malware-uses-fake-screen.html",
           "date": "2026-11-20",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMs4vBdivbF3Y-4yd3PWqjSTuG2PPDvCemM211pzVl2Jhkus9d14_2MzRgdrlNhRxaHa_2rlIN34kUGHAlV_Y2dMnfmYGlUEzUcab0c_s3N8Zoe8P3rcJ-RJmo2luVci9bVqmwtFhpL4rfR2Uo-ZwvqfqFMwRb_3WwoOvFIaunPd7WMOJ4yW9rjbHEKDwf/s1700-nu-rw-lo-l85-e365/android-malware.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-20-bell-canada-attaquant-agentique-maximo",
+      "title": "Bell Canada : un attaquant « agentique » vole des données de clients entreprises dans un système de commande de circuits",
+      "created": "2026-11-20T19:08:24+00:00",
+      "updated": "2026-11-20T19:08:24+00:00",
+      "version": 1,
+      "resume": "Bell Canada a confirmé qu'un attaquant qu'elle qualifie d'« agentique » a pénétré ses systèmes le 17 novembre 2026 et volé des données de clients entreprises, sans impact sur les services selon l'opérateur [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Accès aux systèmes",
+          "texte": "Accès à plusieurs systèmes, dont un environnement de préproduction de Maximo servant à commander et provisionner des connexions réseau [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Exfiltration de données de clients entreprises → noms, fonctions, coordonnées professionnelles, titres de tickets et certaines adresses IP d'équipements réseau [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (non identifié)",
+            "note": "Qualifié d'« agentique »"
+          },
+          {
+            "id": "ent",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "max",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Préproduction Maximo",
+            "note": "Commande de circuits"
+          },
+          {
+            "id": "dat",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données de clients entreprises",
+            "note": "Exfiltrées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ent",
+            "etape": 1,
+            "texte": "Vecteur non précisé"
+          },
+          {
+            "de": "ent",
+            "vers": "max",
+            "etape": 2,
+            "texte": "Accès à plusieurs systèmes"
+          },
+          {
+            "de": "max",
+            "vers": "dat",
+            "etape": 3,
+            "texte": "Exfiltration de coordonnées et tickets"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni le vecteur d'accès, ni le nombre de clients touchés, ni le sens du qualificatif « agentique », qui suggère selon elle l'usage d'outils d'intelligence artificielle [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Attaquant non identifié, qualifié d'« agentique » par Bell, qui dit ignorer son attribution [1]"
+      ],
+      "cibles": [
+        "Bell Canada et ses clients entreprises, dont le nombre n'est pas divulgué [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IP",
+          "definition": "Internet Protocol : l'adresse IP identifie un appareil sur le réseau"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Bell Canada says 'agentic' hacker stole enterprise customer data",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/bell-canada-says-agentic-hacker-stole-enterprise-customer-data/",
+          "date": "2026-11-20",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/20/bell-canada.jpg"
         }
       ]
     }

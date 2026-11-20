@@ -2,6 +2,96 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-20-legislature-virginie-occidentale",
+      "title": "Parlement de Virginie-Occidentale : un incident de cybersécurité met hors service le site web et des systèmes informatiques",
+      "created": "2026-11-20T22:20:00+00:00",
+      "updated": "2026-11-20T22:20:00+00:00",
+      "version": 1,
+      "resume": "Le Parlement de l'État américain de Virginie-Occidentale subit depuis jeudi un incident de cybersécurité toujours en cours vendredi, qui a coupé son site web et une partie de ses systèmes informatiques [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Perturbation",
+          "texte": "Site web de la législature hors service, certains systèmes informatiques temporairement désactivés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non revendiqué"
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Site web de la législature",
+            "note": "Hors service"
+          },
+          {
+            "id": "sys",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Systèmes informatiques",
+            "note": "Désactivés temporairement"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "web",
+            "etape": 2,
+            "texte": "Site web hors service"
+          },
+          {
+            "de": "inc",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Systèmes temporairement désactivés"
+          }
+        ]
+      },
+      "limites": "La source ne donne ni le vecteur d'accès, ni la nature de l'attaque : la porte-parole n'a pas répondu sur un éventuel rançongiciel [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Aucun groupe n'avait revendiqué l'attaque vendredi [1]"
+      ],
+      "cibles": [
+        "Législature de Virginie-Occidentale (Sénat et Chambre des délégués) ; selon la porte-parole, aucune autre administration de l'État touchée [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "West Virginia Legislature hit with cyber incident affecting IT systems",
+          "site": "The Record",
+          "url": "https://therecord.media/west-virginia-legislature-cyberattack",
+          "date": "2026-11-20",
+          "image": "https://cms.therecord.media/uploads/wva_state_capitol_blil_dickinson_flickr_a81eb98b4b.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-20-container-store-n0n-commandes-coupees",
       "title": "The Container Store : une cyberattaque coupe les commandes en ligne, le groupe n0n inscrit l'enseigne sur son site de fuite",
       "created": "2026-11-20T20:15:00+00:00",
@@ -1424,8 +1514,8 @@
       "id": "2026-11-19-armory-castle-vcenter-esxi",
       "title": "Armory Castle : de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day",
       "created": "2026-11-19T15:20:00+00:00",
-      "updated": "2026-11-20T19:08:24+00:00",
-      "version": 7,
+      "updated": "2026-11-20T22:20:00+00:00",
+      "version": 8,
       "resume": "Le groupe d'espionnage Armory Castle, soupçonné d'être lié à la Chine, a exploité deux failles zero-day pour passer de BeyondTrust Remote Support à vCenter puis à un hôte ESXi [1, 4, 6, 7]. Broadcom a corrigé la faille de vCenter le 19 novembre 2026 [6, 7].",
       "chaine": [
         {
@@ -1550,7 +1640,7 @@
       ],
       "mitre": [],
       "acteurs": [
-        "Armory Castle, anciennement UNC5221 [1, 4, 6, 7], aussi connu sous le nom Warp Panda [4], soupçonné d'être lié à la Chine [1, 4, 6, 7]"
+        "Armory Castle [1, 4, 6, 7, 9], anciennement UNC5221 [1, 4, 6, 7], aussi connu sous le nom Warp Panda [4], soupçonné d'être lié à la Chine [1, 4, 6, 7, 9]"
       ],
       "cibles": [
         "Environnements VMware vCenter et ESXi ; aucune victime ni secteur nommés [1, 4]"
@@ -1641,6 +1731,12 @@
           "titre": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
           "site": "CISA",
           "url": "https://www.cisa.gov/news-events/alerts/2026/11/20/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-20"
+        },
+        {
+          "titre": "China's 'Armory Castle' Lays Siege to VMware vCenter Zero-Day",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/cyberattacks-data-breaches/china-armory-castle-vmware-vcenter-zero-day",
           "date": "2026-11-20"
         }
       ]

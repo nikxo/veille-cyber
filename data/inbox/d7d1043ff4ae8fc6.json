@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-11-20T11:06:50+00:00",
+  "feed_summary": "This release we have three pull requests from jburgess-r7 building out coverage for the identity-boundary issues detailed in Rapid7's Breaking Zimbra Identity Boundaries, Part One research. First up is a new shared mixin, Msf::Exploit::Remote::HTTP::Zimbra , which gives every current and future Zimbra module a common foundation for account/admin SOAP authentication, canonical identity resolution, mailbox-server lookup, and version parsing, allowing future modules to stay focused on the vulnerability instead of re-implementing Zimbra's SOAP plumbing. Built on top of that mixin are two new modules targeting CVEs from the same research track: CVE-2026-73571 ( #22080 ) It's an authorization bypass in Zimbra's SaveDraftRequest handling that lets an ordinary authenticated user send mail as anoth",
+  "id": "d7d1043ff4ae8fc6",
+  "image": "https://www.rapid7.com/cdn/images/blt0d50271a40a5f14f/6849ab419621d9f3824d5017/metasploit-sky.png",
+  "lang": "en",
+  "link": "https://www.rapid7.com/blog/post/pt-metasploit-wrap-up-breaking-zimbra-s-identity-boundaries",
+  "published": "2026-11-20T10:30:36+00:00",
+  "source": "Rapid7",
+  "source_type": "analyse",
+  "title": "Metasploit Wrap Up: Breaking Zimbra's Identity Boundaries"
+}

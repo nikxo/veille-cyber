@@ -2545,27 +2545,31 @@
     {
       "schema": 3,
       "id": "2026-11-19-n-able-mail-assure-spamexperts",
-      "title": "N-able : intrusion dans un serveur de Mail Assure et SpamExperts, gestion coupée dans trois régions",
+      "title": "N-able : un serveur web de Mail Assure et SpamExperts compromis, des identifiants stockés consultés et la gestion coupée",
       "created": "2026-11-19T11:20:00+00:00",
-      "updated": "2026-11-19T11:20:00+00:00",
-      "version": 1,
-      "resume": "Des attaquants non identifiés ont accédé sans autorisation à un serveur du service cloud Mail Assure et SpamExperts de N-able, qui a dû couper ses interfaces de gestion et ses API en Amériques, Asie-Pacifique et Europe [1].",
+      "updated": "2026-11-20T10:30:00+00:00",
+      "version": 2,
+      "resume": "Un tiers non identifié a compromis un serveur du service cloud Mail Assure et SpamExperts de N-able, coupant portails de gestion et API [1, 2] ; il a peut-être accédé à des identifiants stockés sur la plateforme [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé par les sources [1, 2]."
         },
         {
           "etape": "Accès au serveur",
-          "texte": "Accès non autorisé à un serveur de l'infrastructure hébergée de Mail Assure et SpamExperts [1]."
+          "texte": "Accès non autorisé à un seul serveur web de la plateforme → accès possible à certains identifiants stockés sur la plateforme [1, 2]."
         },
         {
           "etape": "Détection",
-          "texte": "Panne constatée le 16 novembre, d'abord attribuée à la configuration de la plateforme → reconnue ensuite comme incident de sécurité [1]."
+          "texte": "Panne constatée le 16 novembre, d'abord attribuée à la configuration de la plateforme → cyberattaque confirmée le 18 novembre [1, 2]."
+        },
+        {
+          "etape": "Réaction",
+          "texte": "Serveur mis hors ligne, identifiants internes changés, jetons API et OAuth des clients révoqués, mots de passe locaux réinitialisés [2]."
         },
         {
           "etape": "Impact",
-          "texte": "Interfaces de gestion, API, quarantaine et journalisation indisponibles ; le flux et le filtrage des courriels restent assurés [1]."
+          "texte": "Portail de gestion, API, quarantaine et journalisation indisponibles ; le flux et le filtrage des courriels restent assurés [1, 2]."
         }
       ],
       "parcours": {
@@ -2579,10 +2583,10 @@
           },
           {
             "id": "srv",
-            "type": "cloud",
+            "type": "serveur",
             "zone": "victime",
-            "nom": "Serveur Mail Assure / SpamExperts",
-            "note": "Accès non autorisé"
+            "nom": "Serveur web de la plateforme",
+            "note": "Identifiants stockés"
           },
           {
             "id": "cli",
@@ -2602,24 +2606,28 @@
           {
             "de": "srv",
             "vers": "cli",
-            "etape": 4,
-            "texte": "Interfaces de gestion et API coupées"
+            "etape": 5,
+            "texte": "Portail de gestion et API coupés"
           }
         ]
       },
-      "limites": "Vecteur d'accès, acteur et durée de l'intrusion inconnus ; N-able dit n'avoir aucune preuve d'accès aux données ou boîtes mail des clients, enquête en cours [1].",
+      "limites": "Vecteur d'accès et acteur inconnus ; régions touchées : trois selon [1], toutes selon [2] ; aucune preuve d'accès aux données clients selon N-able, enquête en cours [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Attaquants non identifiés ; incident sans lien avec les failles N-central Able2Shell, 4EverAble2Shell et Agent2Shell [1]"
       ],
       "cibles": [
-        "Partenaires et clients de Mail Assure et SpamExperts Hosted Cloud en Amériques, Asie-Pacifique et Europe [1]"
+        "Partenaires et clients de Mail Assure et SpamExperts Hosted Cloud, dans trois régions [1] ou toutes les régions [2]"
       ],
       "abreviations": [
         {
           "sigle": "API",
           "definition": "Application Programming Interface : interface permettant à des programmes de communiquer"
+        },
+        {
+          "sigle": "OAuth",
+          "definition": "Protocole d'autorisation qui délivre des jetons d'accès à des applications"
         }
       ],
       "sources": [
@@ -2629,6 +2637,13 @@
           "url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html",
           "date": "2026-11-19",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjPpZ9yL9D7JBQvp4_ZmnP8S_U6HKdq3rSM_FVv_uDgT9Iz8D56tO6GNDNE4rs29pejUiKQlxi1HpZ38KYbaSB01PmgPItVL8N-Y9G9vcuJlnadltKvmGhvUKYntAEIVCXFixjdBMyu6S9-zEUlIgGf7E5euvodJbn9LIYWTkRpxwH0g7nz2xp2v5PGMdq/s1700-nu-rw-lo-l85-e365/n-able-hacked.jpg"
+        },
+        {
+          "titre": "N-able Blames Service Disruption on Cyberattack",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/n-able-blames-service-disruption-on-cyberattack/",
+          "date": "2026-11-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/08/N-Able.jpeg"
         }
       ]
     },

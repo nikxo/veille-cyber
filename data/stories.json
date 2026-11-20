@@ -1135,13 +1135,13 @@
       "id": "2026-11-19-armory-castle-vcenter-esxi",
       "title": "Armory Castle : de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day",
       "created": "2026-11-19T15:20:00+00:00",
-      "updated": "2026-11-20T01:20:00+00:00",
-      "version": 5,
-      "resume": "Le groupe d'espionnage Armory Castle, soupçonné d'être lié à la Chine, a exploité deux failles zero-day pour passer de BeyondTrust Remote Support à vCenter puis à un hôte ESXi [1, 4, 6]. Broadcom a corrigé la faille de vCenter le 19 novembre 2026 [6].",
+      "updated": "2026-11-20T07:30:00+00:00",
+      "version": 6,
+      "resume": "Le groupe d'espionnage Armory Castle, soupçonné d'être lié à la Chine, a exploité deux failles zero-day pour passer de BeyondTrust Remote Support à vCenter puis à un hôte ESXi [1, 4, 6, 7]. Broadcom a corrigé la faille de vCenter le 19 novembre 2026 [6, 7].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Exploitation, depuis fin août 2026, de la faille zero-day CVE-2026-102764 de BeyondTrust Remote Support → point d'entrée sur l'appliance [1, 6]."
+          "texte": "Exploitation de la faille zero-day CVE-2026-102764 de BeyondTrust Remote Support → contrôle administrateur de l'appliance [1, 6, 7]."
         },
         {
           "etape": "Prise de contrôle",
@@ -1149,7 +1149,7 @@
         },
         {
           "etape": "Prise de vCenter",
-          "texte": "Bonesaw exploite la zero-day CVE-2026-123890 → session administrateur et compte administrateur SSO créé [1, 4]. Clé maître de chiffrement volée ensuite ; matériel de signature SAML extrait, jetons SAML forgés [1, 4]."
+          "texte": "Bonesaw exploite la zero-day CVE-2026-123890 → compte administrateur SSO créé [1, 4, 7]. Clé maître volée, jetons SAML forgés avec Sawsnake → authentification multifacteur contournée [1, 7]."
         },
         {
           "etape": "Accès aux hôtes ESXi",
@@ -1248,11 +1248,11 @@
           }
         ]
       },
-      "limites": "Les sources ne nomment ni victime ni secteur [1, 4, 5, 6]. Broadcom ne signale aucune attaque exploitant CVE-2026-123890 [3, 4, 6], alors que Mandiant décrit son exploitation [1, 5, 6].",
+      "limites": "Les sources ne nomment ni victime ni secteur [1, 4, 5, 6, 7]. Broadcom ne signale aucune attaque exploitant CVE-2026-123890 [3, 4, 6], alors que Mandiant décrit son exploitation [1, 5, 6].",
       "cves": [
         {
           "id": "CVE-2026-102764",
-          "explication": "BeyondTrust Remote Support jusqu'à 26.2.3 : origine des messages mal vérifiée, permettant des opérations sur les fichiers de l'appliance, gravité critique 9,8 sur 10 [2]."
+          "explication": "BeyondTrust Remote Support jusqu'à 26.2.3 : origine des messages mal vérifiée, permettant des opérations sur ses fichiers ; gravité 9,8 sur 10 [2], 9,3 sur 10 [7]."
         },
         {
           "id": "CVE-2026-123890",
@@ -1261,7 +1261,7 @@
       ],
       "mitre": [],
       "acteurs": [
-        "Armory Castle, anciennement UNC5221 [1, 4, 6], aussi connu sous le nom Warp Panda [4], soupçonné d'être lié à la Chine [1, 4, 6]"
+        "Armory Castle, anciennement UNC5221 [1, 4, 6, 7], aussi connu sous le nom Warp Panda [4], soupçonné d'être lié à la Chine [1, 4, 6, 7]"
       ],
       "cibles": [
         "Environnements VMware vCenter et ESXi ; aucune victime ni secteur nommés [1, 4]"
@@ -1336,6 +1336,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september/",
           "date": "2026-11-19",
           "image": "https://www.bleepstatic.com/content/hl-images/2023/10/25/VMware_red.jpg"
+        },
+        {
+          "titre": "China-Linked Hackers Exploit Critical VMware vCenter Zero-Day to Gain Admin Access and Steal Data",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/china-linked-hackers-exploit-critical.html",
+          "date": "2026-11-20",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjTSAI-N-DRII1YA3I98ZVnKnG0SMgm97oEAqyiSXZB23DPwzvTk3figFLsTCKsMJRxRhjKEPFblxfcOuB_UXc_OAXJRiVI07Jxjn-CebJVHiRQ5sc43AifBpUPNfU5-LRD6QEGbX7Vnt_HAmJZiLojS32PtNWwIWeideJZnIpgjrstJ0Iy84lYd47bePk/s1700-nu-rw-lo-l85-e365/chinese-vmware.jpg"
         }
       ]
     },

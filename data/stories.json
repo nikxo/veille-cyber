@@ -2,6 +2,223 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-20-n0n-jpmorgan-visa-mastercard-prestataires",
+      "title": "JPMorgan, Visa et Mastercard : des prestataires tiers touchés, le groupe N0n publie des données de clients",
+      "created": "2026-11-20T08:30:00+00:00",
+      "updated": "2026-11-20T08:30:00+00:00",
+      "version": 1,
+      "resume": "Le groupe d'extorsion N0n a publié des données qu'il relie à des clients de JPMorgan, Visa et Mastercard ; les trois entreprises évoquent des incidents chez des prestataires tiers [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources ; les entreprises citent des incidents chez des prestataires tiers qu'elles ne nomment pas [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Accès à des données marketing de JPMorgan détenues par des prestataires, qui pourraient inclure des noms et adresses e-mail de clients selon la banque [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Revendication le 16 novembre, puis données proposées en téléchargement sur le site de fuite de N0n, les trois entreprises y figurant comme n'ayant pas payé [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (N0n)",
+            "note": ""
+          },
+          {
+            "id": "prest",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Prestataires tiers",
+            "note": "Non nommés"
+          },
+          {
+            "id": "data",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données marketing de clients",
+            "note": "Noms, e-mails possibles"
+          },
+          {
+            "id": "fuite",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Site de fuite N0n",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "prest",
+            "etape": 1,
+            "texte": "Accès par un moyen non précisé"
+          },
+          {
+            "de": "prest",
+            "vers": "data",
+            "etape": 2,
+            "texte": "Données marketing de clients récupérées"
+          },
+          {
+            "de": "data",
+            "vers": "fuite",
+            "etape": 3,
+            "texte": "Données proposées en téléchargement"
+          }
+        ]
+      },
+      "limites": "Les entreprises ne nomment pas leurs prestataires et la source ne décrit pas comment N0n a obtenu l'accès ni combien de clients sont touchés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "N0n, groupe d'extorsion apparu en septembre, environ 200 victimes présumées affichées sur son site de fuite [1]"
+      ],
+      "cibles": [
+        "JPMorgan Chase : plus de 16 000 e-mails de clients et 124 adresses de salariés, selon l'examen de Reuters [1]",
+        "Visa : prestataire en Asie-Pacifique ; selon Visa, ses systèmes et les numéros de carte ne sont pas touchés [1]",
+        "Mastercard : adresses e-mail de titulaires d'un programme d'avantages ; réseau de paiement non affecté selon Mastercard [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "JPMorgan, Visa, Mastercard Cite Third-Party Incidents Amid Data Leak",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/jpmorgan-visa-mastercard-cite-third-party-incidents-amid-data-leak/",
+          "date": "2026-11-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/visa-mastercard.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-20-romulus-clickfix-cncmachinerms",
+      "title": "ROMULUS : des leurres ClickFix installent un cheval de Troie inédit, proche de CNCMachineRMS, qui espionne micro et caméra",
+      "created": "2026-11-20T08:30:00+00:00",
+      "updated": "2026-11-20T08:30:00+00:00",
+      "version": 1,
+      "resume": "Blackpoint Cyber décrit des attaques ClickFix passant par la plateforme ROMULUS, qui livrent un outil d'accès à distance (RAT) jusqu'ici non documenté, proche de CNCMachineRMS, capable d'espionner l'utilisateur et de contrôler le poste [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Leurre ClickFix → exécution d'une commande PowerShell sur le poste [1]."
+        },
+        {
+          "etape": "Installation",
+          "texte": "PowerShell lance msiexec sur l'installeur piégé IconEdit2Turb.msi, déguisé en outil Stardock Smart DeElevation Tool [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Chargement détourné de la bibliothèque malveillante I++u.dll → décodage et exécution d'un shellcode embarqué qui lance le RAT [1]."
+        },
+        {
+          "etape": "Commande et contrôle",
+          "texte": "Échanges avec l'infrastructure de l'attaquant par DNS sur HTTPS (DoH) [1]."
+        },
+        {
+          "etape": "Espionnage",
+          "texte": "Contrôle du bureau à distance, diffusion de l'écran, capture du micro et de la caméra, gestion des fichiers et lancement d'autres charges [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (via ROMULUS)",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste de la victime",
+            "note": "RAT installé"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Infrastructure de l'attaquant",
+            "note": "Contactée par DoH"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Leurre ClickFix, commande PowerShell"
+          },
+          {
+            "de": "pc",
+            "vers": "c2",
+            "etape": 4,
+            "texte": "Échanges par DNS sur HTTPS"
+          },
+          {
+            "de": "c2",
+            "vers": "pc",
+            "etape": 5,
+            "texte": "Contrôle à distance, écran, micro et caméra"
+          }
+        ]
+      },
+      "limites": "La source ne nomme ni victimes, ni secteurs, ni groupe derrière ces attaques, et ne décrit ni persistance ni vol de données [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "ROMULUS, plateforme de livraison ClickFix décrite pour la première fois par Forescout le mois dernier ; ses utilisateurs ne sont pas nommés [1]",
+        "Selon Blackpoint, ROMULUS servirait de service de distribution pour CNCMachineRMS et Legion Loader [1]"
+      ],
+      "cibles": [
+        "Non précisées par la source [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ROMULUS",
+          "definition": "Nom d'une plateforme de livraison de logiciels malveillants par leurres ClickFix"
+        },
+        {
+          "sigle": "RAT",
+          "definition": "Remote Access Trojan : logiciel malveillant de prise de contrôle à distance"
+        },
+        {
+          "sigle": "DoH",
+          "definition": "DNS over HTTPS : requêtes DNS transportées dans du trafic web chiffré"
+        },
+        {
+          "sigle": "DNS",
+          "definition": "Domain Name System : traduction des noms de domaine en adresses"
+        },
+        {
+          "sigle": "HTTPS",
+          "definition": "Protocole web sécurisé par chiffrement"
+        },
+        {
+          "sigle": "MSI",
+          "definition": "Format de paquet d'installation Windows"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "ROMULUS ClickFix Attacks Deliver RAT That Can Spy on Users and Control PCs",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/romulus-clickfix-attacks-deliver-rat.html",
+          "date": "2026-11-20",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjugg63OPJwZuh94vDIg7MkA4YoeLKr5sjiqI6CEgjvDjUvJ-pBJOfUrUBxPUTbartqVwdldczbKSYo6lpkcVic1EDQYIDyWq12zMdMONjpDtK4NKCgkppAWvnOJpXe7prfmRG8WNpH0RrQ0bhX2nZKGpRy33y0OMZraBjEPoDorp9h3kNJSa-IQrJC7Nl5/s1700-nu-rw-lo-l85-e365/cf.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-19-truepath-it-screenconnect-compte-admin",
       "title": "TruePath IT : un compte administrateur compromis sert à déployer des ScreenConnect malveillants chez un client, l'attaquant revient 12 jours plus tard",
       "created": "2026-11-19T22:30:00+00:00",

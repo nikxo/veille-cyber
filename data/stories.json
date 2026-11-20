@@ -2,6 +2,142 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-20-com-vishing-vol-donnees-cloud",
+      "title": "Affiliés du Com : de faux appels du support informatique pour voler les données cloud de la finance et de la santé, puis les extorquer",
+      "created": "2026-11-20T23:20:00+00:00",
+      "updated": "2026-11-20T23:20:00+00:00",
+      "version": 1,
+      "resume": "Des groupes affiliés au Com, dont Bling Libra (ShinyHunters), piègent des employés par téléphone, volent des données dans leurs services cloud puis font chanter les organisations, surtout dans la finance et la santé [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Appels se faisant passer pour le support informatique → employé dirigé vers une page d'hameçonnage adaptée à son organisation [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Kit d'hameçonnage intercalé entre la victime et le vrai service → identifiants, jetons de session et validations d'authentification multifacteur captés en temps réel [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Ajout de leur propre appareil d'authentification multifacteur, parfois en quelques minutes, applications OAuth non approuvées et comptes secondaires [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Modification des règles de messagerie et effacement des alertes de sécurité [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Scripts Python visant Microsoft 365, OneDrive et SharePoint, outils comme Rclone → parfois des dizaines de millions d'enregistrements clients et de recrutement exfiltrés [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Messages Teams directs aux employés annonçant le vol → renvoi vers un site de négociation hébergé sur Tor [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (affiliés du Com)",
+            "note": ""
+          },
+          {
+            "id": "emp",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Employés appelés",
+            "note": "Faux support informatique"
+          },
+          {
+            "id": "phish",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Page d'hameçonnage",
+            "note": "Kit intercalé"
+          },
+          {
+            "id": "m365",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Microsoft 365, OneDrive, SharePoint",
+            "note": "Appareil multifacteur ajouté"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "emp",
+            "etape": 1,
+            "texte": "Appel au nom du support informatique"
+          },
+          {
+            "de": "emp",
+            "vers": "phish",
+            "etape": 2,
+            "texte": "Identifiants et validations saisis"
+          },
+          {
+            "de": "phish",
+            "vers": "att",
+            "etape": 2,
+            "texte": "Identifiants et jetons captés en temps réel"
+          },
+          {
+            "de": "att",
+            "vers": "m365",
+            "etape": 3,
+            "texte": "Propre appareil multifacteur enregistré"
+          },
+          {
+            "de": "m365",
+            "vers": "att",
+            "etape": 5,
+            "texte": "Données exfiltrées par scripts Python"
+          },
+          {
+            "de": "att",
+            "vers": "emp",
+            "etape": 6,
+            "texte": "Messages Teams d'extorsion"
+          }
+        ]
+      },
+      "limites": "La source décrit les méthodes de plusieurs groupes affiliés sans retracer une intrusion précise de bout en bout [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Bling Libra, aussi appelé ShinyHunters, observé depuis 2019 [1]",
+        "CL-CRI-1116 (Redact), CL-CRI-1147 (Pink), CL-CRI-1182 (Falcon), CL-CRI-1192 (Helix, UNC6671 chez Google) [1]",
+        "CL-CRI-1264 (Vortex) et CL-CRI-1274 (Cinder) [1]"
+      ],
+      "cibles": [
+        "Services financiers, santé et services juridiques en priorité [1]",
+        "Surtout des organisations américaines, puis australiennes, environ 13 % des sous-domaines observés en octobre 2026 [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "OAuth",
+          "definition": "Protocole qui autorise une application à accéder à un compte sans son mot de passe"
+        },
+        {
+          "sigle": "UNC6671",
+          "definition": "Nom sous lequel Google suit le groupe Helix"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Dialing for Data: Inside the Com’s High-Profile Heists",
+          "site": "Unit 42 (Palo Alto Networks)",
+          "url": "https://unit42.paloaltonetworks.com/com-affiliate-vishing-attacks/",
+          "date": "2026-11-20",
+          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/11/12_Cybercrime_Category_1920x900.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-20-legislature-virginie-occidentale",
       "title": "Parlement de Virginie-Occidentale : un incident de cybersécurité met hors service le site web et des systèmes informatiques",
       "created": "2026-11-20T22:20:00+00:00",

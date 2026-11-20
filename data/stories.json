@@ -3378,19 +3378,23 @@
     {
       "schema": 3,
       "id": "2026-11-18-wellington-it-cooperatives-credit-irlande",
-      "title": "Wellington IT : une cyberattaque contre le prestataire informatique expose les données de membres de coopératives de crédit irlandaises",
+      "title": "Wellington IT : une faille exploitée chez le prestataire expose des données de membres de coopératives de crédit irlandaises",
       "created": "2026-11-18T20:30:00+00:00",
-      "updated": "2026-11-18T20:30:00+00:00",
-      "version": 1,
-      "resume": "Une cyberattaque signalée contre le prestataire informatique Wellington IT a exposé des informations sensibles de membres de 50 coopératives de crédit, pour la plupart en Irlande [1].",
+      "updated": "2026-11-20T15:10:00+00:00",
+      "version": 2,
+      "resume": "Des pirates ont exploité une faille chez Wellington IT, prestataire informatique basé à Belfast [2] ; des données de bénéficiaires de virements d'environ 40 coopératives de crédit irlandaises seraient exposées [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Script automatisé exploitant une faille d'autorisation de l'infrastructure, avec des identifiants valides, du 2 au 4 octobre → accès à des données privées [1]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Attaque contre le prestataire Wellington IT → informations sensibles de membres de coopératives de crédit exposées [1]."
+          "texte": "Environ cinq millions de requêtes → bénéficiaires de virements enregistrés en banque en ligne exposés : nom, IBAN, adresse [1, 2]."
+        },
+        {
+          "etape": "Notification",
+          "texte": "Faille fermée par Wellington IT le 6 octobre, son enquête initiale ne repérant pas de fuite ; coopératives notifiées le 16 novembre [2]."
         }
       ],
       "parcours": {
@@ -3403,47 +3407,52 @@
             "note": ""
           },
           {
-            "id": "inc",
+            "id": "sys",
             "type": "inconnu",
             "zone": "victime",
-            "nom": "Point d'entrée inconnu",
-            "note": ""
+            "nom": "Systèmes de Wellington IT",
+            "note": "Faille d'autorisation"
           },
           {
-            "id": "wit",
+            "id": "dat",
             "type": "donnees",
             "zone": "victime",
-            "nom": "Données chez Wellington IT",
-            "note": "Membres de coopératives"
+            "nom": "Données de banque en ligne",
+            "note": "Bénéficiaires de virements"
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "inc",
+            "vers": "sys",
             "etape": 1,
-            "texte": "Accès non précisé"
+            "texte": "Script automatisé, identifiants valides"
           },
           {
-            "de": "inc",
-            "vers": "wit",
+            "de": "sys",
+            "vers": "dat",
             "etape": 2,
-            "texte": "Informations sensibles exposées"
+            "texte": "Cinq millions de requêtes"
           }
         ]
       },
-      "limites": "La source consultée ne décrit ni le vecteur d'accès, ni l'auteur, ni la nature exacte des données exposées ; son titre parle de 40 coopératives irlandaises touchées [1].",
+      "limites": "Aucune source ne nomme l'auteur ni le nombre de personnes touchées ; Wellington IT dit manquer de journaux pour savoir quelles données ont été prises [1] ; aucun indice d'accès aux fonds [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Wellington IT, prestataire informatique [1]",
-        "Membres de 50 coopératives de crédit, en majorité irlandaises [1]"
+        "Wellington IT, prestataire informatique basé à Belfast [1, 2]",
+        "Environ 40 coopératives de crédit irlandaises, sur une cinquantaine de clientes [1] ; plus de 40 notifications reçues par l'autorité irlandaise de protection des données [2]",
+        "Des coopératives britanniques pourraient aussi être concernées selon l'autorité britannique de protection des données [2]"
       ],
       "abreviations": [
         {
           "sigle": "IT",
           "definition": "Information Technology : informatique, ici un prestataire de services informatiques"
+        },
+        {
+          "sigle": "IBAN",
+          "definition": "International Bank Account Number : identifiant international d'un compte bancaire"
         }
       ],
       "sources": [
@@ -3453,6 +3462,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/data-breach-impacts-40-irish-credit-unions-in-reported-it-provider-hack/",
           "date": "2026-11-18",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/18/ireland.jpg"
+        },
+        {
+          "titre": "Dozens of credit unions hit by supplier breach that went unnoticed for six weeks",
+          "site": "The Record",
+          "url": "https://therecord.media/dozens-of-credit-unions-hit-by-supplier-breach",
+          "date": "2026-11-20",
+          "image": "https://cms.therecord.media/uploads/bank_safe_33ac6c970a.jpg"
         }
       ]
     },
@@ -3723,19 +3739,23 @@
     {
       "schema": 3,
       "id": "2026-11-18-equinor-cyberattaque-services-internes",
-      "title": "Equinor : une cyberattaque perturbe les services informatiques internes du géant norvégien de l'énergie, la production épargnée",
+      "title": "Equinor : une cyberattaque stoppée après avoir perturbé les services informatiques internes du géant norvégien de l'énergie, la production épargnée",
       "created": "2026-11-18T14:30:00+00:00",
-      "updated": "2026-11-18T14:30:00+00:00",
-      "version": 1,
-      "resume": "Le groupe énergétique norvégien Equinor tente de contenir une cyberattaque contre ses systèmes informatiques, qui gêne l'accès des employés aux applications internes sans toucher la production de pétrole et de gaz [1].",
+      "updated": "2026-11-20T15:10:00+00:00",
+      "version": 2,
+      "resume": "Le groupe énergétique norvégien Equinor a stoppé une cyberattaque détectée le 17 novembre, qui a gêné l'accès des employés aux applications internes sans toucher la production [1, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé par les sources [1, 2, 3]."
         },
         {
           "etape": "Perturbation des services",
-          "texte": "Attaque contre les systèmes informatiques détectée mardi → employés gênés pour accéder aux applications et services internes, messagerie interne hors service selon Reuters [1]."
+          "texte": "Attaque contre des systèmes informatiques détectée le 17 novembre → employés gênés pour accéder aux applications internes, messagerie interne hors service selon Reuters [1, 2, 3]."
+        },
+        {
+          "etape": "Arrêt de l'attaque",
+          "texte": "Attaque stoppée par Equinor ; production non affectée et aucun indice de vol ou d'altération de données [3]."
         }
       ],
       "parcours": {
@@ -3752,7 +3772,7 @@
             "type": "inconnu",
             "zone": "victime",
             "nom": "Systèmes informatiques d'Equinor",
-            "note": ""
+            "note": "Attaque stoppée"
           },
           {
             "id": "app",
@@ -3777,7 +3797,7 @@
           }
         ]
       },
-      "limites": "La source ne précise ni le vecteur d'accès, ni les systèmes compromis, ni l'auteur ; Equinor dit n'avoir aucun indice de vol de données et qu'aucun virus n'était en cause [1].",
+      "limites": "Les sources ne précisent ni le vecteur d'accès, ni les systèmes compromis, ni l'auteur ; Equinor dit qu'aucun virus n'était en cause [1, 3] et qu'elle ne semblait pas visée spécifiquement [3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -3794,6 +3814,20 @@
           "url": "https://therecord.media/norway-equinor-cyberattack-energy",
           "date": "2026-11-18",
           "image": "https://cms.therecord.media/uploads/Equinor_Northern_Lights_4aa869f98c.jpg"
+        },
+        {
+          "titre": "Cyberhebdo du 20 novembre 2026 : deux énergéticiens norvégiens attaqués",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366655112/Cyberhebdo-du-20-novembre-2026",
+          "date": "2026-11-20",
+          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/Hero Images/Oslo-Norway-adobe-1.jpg"
+        },
+        {
+          "titre": "In Other News: Norwegian Energy Firm Cyberattacks, Supercomputer Hack, New Nightmare Eclipse Exploit",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/in-other-news-norwegian-energy-firm-cyberattacks-supercomputer-hack-new-nightmare-eclipse-exploit/",
+          "date": "2026-11-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
         }
       ]
     },
@@ -4498,17 +4532,17 @@
       "id": "2026-11-17-riken-fugaku-hors-ligne",
       "title": "RIKEN : le supercalculateur Fugaku mis hors ligne après une intrusion dans des serveurs internes, jusqu'à 4 597 utilisateurs concernés",
       "created": "2026-11-17T21:30:00+00:00",
-      "updated": "2026-11-18T10:15:00+00:00",
-      "version": 2,
+      "updated": "2026-11-20T15:10:00+00:00",
+      "version": 3,
       "resume": "Le RIKEN a mis hors ligne le supercalculateur Fugaku après une intrusion dans plusieurs serveurs internes [1, 2] ; des données de jusqu'à 4 597 utilisateurs de Fugaku et de RIKYU pourraient être concernées [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "L'enquête relie l'intrusion au tableau de bord public affichant l'état de Fugaku ; le procédé exact d'accès reste à établir [2]."
+          "texte": "Tableau de bord public affichant l'état de Fugaku utilisé pour pénétrer le réseau interne d'exploitation [3] ; le procédé exact reste à établir selon ZATAZ [2]."
         },
         {
           "etape": "Prise de contrôle",
-          "texte": "Accès à plusieurs serveurs internes du réseau d'exploitation du 10 au 13 novembre → programmes non autorisés installés sur certains d'entre eux [2]."
+          "texte": "Accès à plusieurs serveurs internes du réseau d'exploitation du 10 au 13 novembre → programmes non autorisés installés sur certains d'entre eux [2], serveurs modifiés [3]."
         },
         {
           "etape": "Déplacement dans le réseau",
@@ -4520,7 +4554,7 @@
         },
         {
           "etape": "Mise hors ligne",
-          "texte": "Communications suspectes repérées le 12 novembre, intrusion confirmée le 13 → exploitation de Fugaku suspendue le 14 novembre [1, 2]."
+          "texte": "Communications suspectes repérées le 12 novembre, intrusion confirmée le 13 → exploitation de Fugaku suspendue le 14 novembre [1, 2], accès externes coupés [3]."
         }
       ],
       "parcours": {
@@ -4537,7 +4571,7 @@
             "type": "application",
             "zone": "victime",
             "nom": "Tableau de bord public",
-            "note": "Lien établi par l'enquête"
+            "note": "Point d'entrée"
           },
           {
             "id": "srv",
@@ -4573,7 +4607,7 @@
             "de": "att",
             "vers": "tdb",
             "etape": 1,
-            "texte": "Intrusion reliée au tableau de bord"
+            "texte": "Tableau de bord utilisé pour entrer"
           },
           {
             "de": "tdb",
@@ -4637,6 +4671,13 @@
           "url": "https://www.zataz.com/le-japon-arrete-le-supercalculateur-fugaku/",
           "date": "2026-11-18",
           "image": "https://www.zataz.com/wp-content/uploads/Fugaku-ninja.jpg"
+        },
+        {
+          "titre": "In Other News: Norwegian Energy Firm Cyberattacks, Supercomputer Hack, New Nightmare Eclipse Exploit",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/in-other-news-norwegian-energy-firm-cyberattacks-supercomputer-hack-new-nightmare-eclipse-exploit/",
+          "date": "2026-11-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
         }
       ]
     },

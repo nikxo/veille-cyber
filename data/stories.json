@@ -55407,6 +55407,220 @@
           }
         ]
       }
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-20-cairn-universites-zero-day-imagerie-medicale",
+      "title": "Cairn : des pirates liés à la Chine font trouver par l'IA une faille inconnue d'imagerie médicale pour pénétrer deux universités",
+      "created": "2026-11-20T18:09:54+00:00",
+      "updated": "2026-11-20T18:09:54+00:00",
+      "version": 1,
+      "resume": "Des pirates liés à la Chine ont confié à Cairn, outil d'intrusion autonome fondé sur l'IA, l'attaque d'universités d'Asie de l'Est [1]. Cairn a trouvé une faille inconnue dans une application d'imagerie médicale, qui a servi à pénétrer deux universités [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Échecs (Log4Shell, plus de 30 000 combinaisons d'identifiants) ; seule réussite : faille de traversée de chemin inconnue dans une application d'imagerie médicale → première université pénétrée [1, 2]."
+        },
+        {
+          "etape": "Seconde cible",
+          "texte": "Même faille zero-day réutilisée → seconde université pénétrée [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant lié à la Chine",
+            "note": "Pilote Cairn"
+          },
+          {
+            "id": "u1",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Imagerie médicale, université 1",
+            "note": "Faille inconnue"
+          },
+          {
+            "id": "u2",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Seconde université",
+            "note": "Même faille"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "u1",
+            "etape": 1,
+            "texte": "Traversée de chemin exploitée par Cairn"
+          },
+          {
+            "de": "att",
+            "vers": "u2",
+            "etape": 2,
+            "texte": "Même faille zero-day réutilisée"
+          }
+        ]
+      },
+      "limites": "Groupe et universités non nommés ; The Record ne précise ni le niveau d'accès obtenu ni les actions après l'intrusion [1], BleepingComputer évoquant une prise de contrôle du serveur [2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Pirates liés à la Chine, non nommés ; invites rédigées en chinois simplifié, horodatages à l'heure de Chine [1]"
+      ],
+      "cibles": [
+        "Universités d'Asie de l'Est, pays non nommé [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Amazon says Chinese hackers used Cairn AI tool to discover apparent zero-day during attack on university",
+          "site": "The Record",
+          "url": "https://therecord.media/amazon-research-cairn-ai-university-attacks-possible-zero-day",
+          "date": "2026-11-20",
+          "image": "https://cms.therecord.media/uploads/ai_planet_volumes_unsplash_79b8f00a24.jpg"
+        },
+        {
+          "titre": "Hackers use autonomous AI tool Cairn to find zero-day, take over server",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-use-autonomous-ai-tool-cairn-to-find-zero-day-take-over-server/",
+          "date": "2026-11-20",
+          "image": "https://www.bleepstatic.com/content/hl-images/2022/05/12/evil-hacker-ai.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-20-bazuka-android-faux-ecrans",
+      "title": "Bazuka : un cadre de logiciels malveillants Android prend le contrôle des téléphones et cache le vol d'identifiants derrière de faux écrans",
+      "created": "2026-11-20T18:09:54+00:00",
+      "updated": "2026-11-20T18:09:54+00:00",
+      "version": 1,
+      "resume": "ThreatFabric a découvert fin octobre 2026 Bazuka, un cadre de logiciels malveillants Android dont le panneau utilise des modèles de langage pour évaluer les victimes [1]. Il vole identifiants, codes et cryptomonnaies et prend le contrôle des téléphones [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Applications piégées diffusées par des rabatteurs via publicités sur les réseaux sociaux et faux sites, dont un faux TikTok « premium » [1]."
+        },
+        {
+          "etape": "Installation",
+          "texte": "Autorisation d'installer des applications inconnues, puis téléchargement d'un second paquet ou de la charge principale → cœur et modules lancés [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Abus de l'accessibilité et du shell ADB, débogage sans fil activé → permissions demandées puis accordées automatiquement [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Protection de Google Play désactivée, écran d'accueil ou de verrouillage capturé puis réaffiché en surimpression → activité en arrière-plan masquée [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Frappes enregistrées, code de déverrouillage, codes 2FA et SMS capturés, surimpressions d'hameçonnage, adresses de portefeuilles copiées remplacées [1]."
+        },
+        {
+          "etape": "Contrôle à distance",
+          "texte": "Deux canaux WebSocket vers le serveur de commande → ordres reçus, données et flux d'écran exfiltrés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sites",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Réseaux sociaux, faux sites",
+            "note": "Rabatteurs"
+          },
+          {
+            "id": "tel",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Téléphone Android",
+            "note": "Accessibilité et ADB abusés"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de commande",
+            "note": "Deux canaux WebSocket"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sites",
+            "etape": 1,
+            "texte": "Diffusion d'applications piégées"
+          },
+          {
+            "de": "sites",
+            "vers": "tel",
+            "etape": 1,
+            "texte": "Faux TikTok « premium » installé"
+          },
+          {
+            "de": "c2",
+            "vers": "tel",
+            "etape": 6,
+            "texte": "Ordres envoyés au téléphone"
+          },
+          {
+            "de": "tel",
+            "vers": "c2",
+            "etape": 6,
+            "texte": "Données et flux d'écran exfiltrés"
+          }
+        ]
+      },
+      "limites": "L'article ne cite aucune victime, aucun pays visé ni aucun groupe responsable, et la diffusion via Google Play y est déduite, sans cas observé [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non attribué ; interfaces du panneau en anglais et en russe [1]"
+      ],
+      "cibles": [
+        "Utilisateurs d'Android, sans pays ni secteur précisé [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ADB",
+          "definition": "Android Debug Bridge : outil de débogage qui permet de piloter un téléphone Android"
+        },
+        {
+          "sigle": "2FA",
+          "definition": "Authentification à deux facteurs : code supplémentaire demandé à la connexion"
+        },
+        {
+          "sigle": "SMS",
+          "definition": "Short Message Service : message texte envoyé sur téléphone mobile"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Bazuka Android Malware Uses Fake Screen Overlays to Hide Credential Theft and Device Control",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/bazuka-android-malware-uses-fake-screen.html",
+          "date": "2026-11-20",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMs4vBdivbF3Y-4yd3PWqjSTuG2PPDvCemM211pzVl2Jhkus9d14_2MzRgdrlNhRxaHa_2rlIN34kUGHAlV_Y2dMnfmYGlUEzUcab0c_s3N8Zoe8P3rcJ-RJmo2luVci9bVqmwtFhpL4rfR2Uo-ZwvqfqFMwRb_3WwoOvFIaunPd7WMOJ4yW9rjbHEKDwf/s1700-nu-rw-lo-l85-e365/android-malware.jpg"
+        }
+      ]
     }
   ]
 }

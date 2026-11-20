@@ -1,13 +1,5 @@
 [
   {
-    "id": "ad2df65419af3471",
-    "title": "Critical Langflow Flaws Could Let Unauthenticated Attackers Run Code on Servers",
-    "link": "https://thehackernews.com/2026/11/critical-langflow-flaws-could-let.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-11-02T13:50:00+00:00"
-  },
-  {
     "id": "ba3e8c8a003ced16",
     "title": "Google Introduces $250,000 Root-in-Cloud Bug Bounty Reward",
     "link": "https://www.securityweek.com/google-introduces-250000-root-in-cloud-bug-bounty-reward/",
@@ -3998,5 +3990,13 @@
     "source": "The Hacker News",
     "raison": "vulnérabilité KVM démontrée par des chercheurs, aucune exploitation dans la nature constatée",
     "date": "2026-11-20T13:07:28+00:00"
+  },
+  {
+    "id": "eb82c6959644ffd6",
+    "title": "Handling the NIST 800-171 Rev 3 Transition",
+    "link": "https://www.huntress.com/blog/handling-the-nist-800-171-rev-3-transition",
+    "source": "Huntress",
+    "raison": "conseils génériques de conformité",
+    "date": "2026-11-20T14:30:00+00:00"
   }
 ]

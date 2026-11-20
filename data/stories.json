@@ -2,6 +2,600 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-20-noname057-cameras-salle-de-jeux-allemagne",
+      "title": "NoName057(16) revendique un accès aux caméras d'une salle de jeux allemande",
+      "created": "2026-11-20T14:30:00+00:00",
+      "updated": "2026-11-20T14:30:00+00:00",
+      "version": 1,
+      "resume": "Le groupe hacktiviste prorusse NoName057(16) affirme avoir accédé aux caméras d'une salle de jeux en Allemagne et utilise ces images pour sa propagande [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Accès aux caméras",
+          "texte": "Accès revendiqué aux caméras de l'établissement → le groupe prétend surveiller les joueurs [1]."
+        },
+        {
+          "etape": "Propagande",
+          "texte": "Diffusion d'images annoncées comme datant du 18 novembre 2026, revendication reliée au soutien militaire allemand à l'Ukraine [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (NoName057(16))",
+            "note": "Prorusse"
+          },
+          {
+            "id": "cam",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Caméras de la salle",
+            "note": "Accès revendiqué"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cam",
+            "etape": 2,
+            "texte": "Accès revendiqué, méthode non précisée"
+          }
+        ]
+      },
+      "limites": "L'établissement, l'origine des images et la nature de l'accès restent à établir selon la source [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "NoName057(16), groupe hacktiviste prorusse [1]"
+      ],
+      "cibles": [
+        "Salle de jeux en Allemagne, identité non établie [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "NoName revendique un accès aux caméras d’une salle de jeux",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/noname-revendique-un-acces-aux-cameras-dune-salle-de-jeux/",
+          "date": "2026-11-20",
+          "image": "https://www.zataz.com/wp-content/uploads/casino_nnm.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-n-able-mail-assure-spamexperts",
+      "title": "N-able : un serveur web de Mail Assure et SpamExperts compromis, des identifiants stockés consultés et la gestion coupée",
+      "created": "2026-11-19T11:20:00+00:00",
+      "updated": "2026-11-20T14:30:00+00:00",
+      "version": 3,
+      "resume": "Un tiers non identifié a compromis un serveur du service cloud Mail Assure et SpamExperts de N-able, coupant portails de gestion et API [1, 2] ; il a peut-être accédé à des identifiants stockés sur la plateforme [2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1, 2]."
+        },
+        {
+          "etape": "Accès au serveur",
+          "texte": "Accès non autorisé à un seul serveur web de la plateforme → accès possible à certains identifiants stockés sur la plateforme [1, 2]."
+        },
+        {
+          "etape": "Détection",
+          "texte": "Panne constatée le 16 novembre, d'abord attribuée à la configuration de la plateforme → cyberattaque confirmée le 18 novembre [1, 2]."
+        },
+        {
+          "etape": "Réaction",
+          "texte": "Serveur mis hors ligne, identifiants internes changés, jetons API et OAuth des clients révoqués, mots de passe locaux réinitialisés [2]."
+        },
+        {
+          "etape": "Impact",
+          "texte": "Portail de gestion, API, quarantaine, journalisation et synchronisation des boîtes indisponibles ; le flux et le filtrage des courriels restent assurés [1, 2, 3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur web de la plateforme",
+            "note": "Identifiants stockés"
+          },
+          {
+            "id": "cli",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Partenaires et clients",
+            "note": "Gestion indisponible"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Accès non autorisé, vecteur non précisé"
+          },
+          {
+            "de": "srv",
+            "vers": "cli",
+            "etape": 5,
+            "texte": "Portail de gestion et API coupés"
+          }
+        ]
+      },
+      "limites": "Vecteur d'accès et acteur inconnus [1, 2, 3] ; régions touchées : trois selon [1], toutes selon [2] ; aucune preuve d'accès aux boîtes aux lettres clients selon N-able [3].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Attaquants non identifiés ; incident sans lien avec les failles N-central Able2Shell, 4EverAble2Shell et Agent2Shell [1]"
+      ],
+      "cibles": [
+        "Partenaires et clients de Mail Assure et SpamExperts Hosted Cloud, dans trois régions [1] ou toutes les régions [2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Application Programming Interface : interface permettant à des programmes de communiquer"
+        },
+        {
+          "sigle": "OAuth",
+          "definition": "Protocole d'autorisation qui délivre des jetons d'accès à des applications"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers Breach N-able Cloud Server, Disrupting Email Security Management Across 3 Regions",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html",
+          "date": "2026-11-19",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjPpZ9yL9D7JBQvp4_ZmnP8S_U6HKdq3rSM_FVv_uDgT9Iz8D56tO6GNDNE4rs29pejUiKQlxi1HpZ38KYbaSB01PmgPItVL8N-Y9G9vcuJlnadltKvmGhvUKYntAEIVCXFixjdBMyu6S9-zEUlIgGf7E5euvodJbn9LIYWTkRpxwH0g7nz2xp2v5PGMdq/s1700-nu-rw-lo-l85-e365/n-able-hacked.jpg"
+        },
+        {
+          "titre": "N-able Blames Service Disruption on Cyberattack",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/n-able-blames-service-disruption-on-cyberattack/",
+          "date": "2026-11-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/08/N-Able.jpeg"
+        },
+        {
+          "titre": "N-able says recent security breach led to major service outage",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/microsoft/n-able-says-recent-security-breach-led-to-major-service-outage/",
+          "date": "2026-11-20",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/20/N-able.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-cisco-expressway-cve-2026-76466",
+      "title": "Cisco Expressway : la faille CVE-2026-76466 exploitée peu après la publication d'un exploit, une organisation russe compromise",
+      "created": "2026-11-19T14:30:00+00:00",
+      "updated": "2026-11-20T12:30:00+00:00",
+      "version": 2,
+      "resume": "Une organisation russe non nommée a été compromise par ses appareils Cisco Expressway en cluster, peu après la publication d'un exploit de démonstration : quatre appareils touchés puis le réseau interne atteint, selon la société F6 [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de CVE-2026-76466 sur deux appareils Expressway exposés sur Internet → appareils compromis [1, 2]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "Rebond depuis un de ces appareils vers deux autres nœuds du cluster situés sur le réseau interne [1, 2]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Obtention des droits root → exécution de commandes au niveau du système [1, 2]."
+        },
+        {
+          "etape": "Reconnaissance du réseau",
+          "texte": "Scripts Python sur mesure pour scanner le réseau, repérer des partages SMB et interagir avec SQL Server et WinRM [1, 2]."
+        },
+        {
+          "etape": "Recherche de secrets",
+          "texte": "Accès à des dépôts GitLab en vue d'exfiltrer des identifiants et d'autres données sensibles [1, 2]."
+        },
+        {
+          "etape": "Adaptation des outils",
+          "texte": "Scripts modifiés pendant l'attaque, avec des commentaires indiquant l'usage d'un assistant d'intelligence artificielle [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "exp",
+            "type": "passerelle",
+            "zone": "expose",
+            "nom": "Deux appareils Expressway",
+            "note": "Exposés sur Internet"
+          },
+          {
+            "id": "int",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Nœuds internes du cluster",
+            "note": "Droits root"
+          },
+          {
+            "id": "res",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Réseau interne",
+            "note": "SMB, SQL Server, WinRM"
+          },
+          {
+            "id": "git",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Dépôts GitLab",
+            "note": "Identifiants visés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "exp",
+            "etape": 1,
+            "texte": "Exploitation de CVE-2026-76466"
+          },
+          {
+            "de": "exp",
+            "vers": "int",
+            "etape": 2,
+            "texte": "Rebond vers le réseau interne"
+          },
+          {
+            "de": "int",
+            "vers": "res",
+            "etape": 4,
+            "texte": "Scripts Python de reconnaissance"
+          },
+          {
+            "de": "int",
+            "vers": "git",
+            "etape": 5,
+            "texte": "Recherche d'identifiants à exfiltrer"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent pas qui est derrière l'attaque, ni comment l'accès aux dépôts GitLab a été obtenu, ni si l'exfiltration visée a réellement abouti [1, 2].",
+      "cves": [
+        {
+          "id": "CVE-2026-76466",
+          "explication": "Cisco Expressway Core et Edge en cluster : cookies persistants et validation insuffisante des certificats clients permettant, sans authentification, d'exécuter des commandes en root ; gravité 9,8 sur 10 [1, 2]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Attaque non attribuée à un groupe connu par F6 [1, 2]"
+      ],
+      "cibles": [
+        "Organisation russe non nommée [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "F6",
+          "definition": "Nom de la société de cybersécurité auteure du rapport"
+        },
+        {
+          "sigle": "SMB",
+          "definition": "Server Message Block : protocole de partage de fichiers des réseaux Windows"
+        },
+        {
+          "sigle": "SQL",
+          "definition": "Structured Query Language : langage d'interrogation des bases de données"
+        },
+        {
+          "sigle": "WinRM",
+          "definition": "Windows Remote Management : administration à distance des machines Windows"
+        },
+        {
+          "sigle": "GitLab",
+          "definition": "Plateforme d'hébergement de code source et de dépôts Git"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers Exploit Cisco Expressway Vulnerability Soon After PoC Release",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/hackers-exploit-cisco-expressway-vulnerability-soon-after-poc-release/",
+          "date": "2026-11-19",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/09/Cisco-firewall.jpeg"
+        },
+        {
+          "titre": "Hackers Exploit Critical Cisco Expressway Flaw, Breach Four Devices and Reach Internal Network",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html",
+          "date": "2026-11-20",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrMm7M_HyuVDt9NknngHSgyfGKu0DR8VTc_GYL-tr_hMhTmi3EAZnM8x5byJQRYEqcUAZlDTR_Xi4RcMm4lidmk9UR_iyTWpDa5Mn6xRBoNwAf3auen2u6guKxnvoIrcQOfq7Mm1clmsyBMYVcjaOqVFYiN4mXgYSyR5_DUSrmVOLDK5mQeAS8BBB3X5-5/s1700-nu-rw-lo-l85-e365/cisco-cyberattacks.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-sbc-medical-group-fuite-donnees",
+      "title": "SBC Medical Group : des bases de données de son site web piratées, les données de 1,6 million de clients volées",
+      "created": "2026-11-19T23:10:00+00:00",
+      "updated": "2026-11-20T12:30:00+00:00",
+      "version": 2,
+      "resume": "Un tiers non autorisé a extrait des informations clients de bases de données d'un site web de SBC Medical Group, gestionnaire de cliniques actif surtout au Japon : 1,6 million de clients selon [1], plus de 2 millions de personnes au Japon selon [2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources, la méthode d'intrusion est encore en cours d'enquête [1, 2]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Accès non autorisé à des bases de données d'une plateforme en ligne du groupe → extraction d'informations de clients de cliniques au Japon [1, 2]."
+        },
+        {
+          "etape": "Vol de comptes employés",
+          "texte": "Vol d'environ 20 000 comptes d'employés avec identifiants et mots de passe, plus des données bancaires et fiscales pour 459 d'entre eux [1, 2]."
+        },
+        {
+          "etape": "Plateforme tierce",
+          "texte": "Accès non autorisé à des comptes administrateur de cliniques sur la plateforme de réservation Tribeau → 12 641 personnes exposées selon [1], environ 19 000 selon [2]."
+        },
+        {
+          "etape": "Réaction",
+          "texte": "Serveur touché isolé, attaquants expulsés et mots de passe des cliniques sur Tribeau réinitialisés [2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Tiers non autorisé",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": "Enquête en cours"
+          },
+          {
+            "id": "bdd",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Bases de données du site",
+            "note": "1,6 million de personnes"
+          },
+          {
+            "id": "emp",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Comptes des employés",
+            "note": "Environ 20 000 comptes"
+          },
+          {
+            "id": "tri",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateforme de réservation Tribeau",
+            "note": "Comptes administrateur"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Méthode d'intrusion non précisée"
+          },
+          {
+            "de": "inc",
+            "vers": "bdd",
+            "etape": 2,
+            "texte": "Extraction d'informations de clients"
+          },
+          {
+            "de": "att",
+            "vers": "emp",
+            "etape": 3,
+            "texte": "Vol de comptes d'employés, méthode non précisée"
+          },
+          {
+            "de": "att",
+            "vers": "tri",
+            "etape": 4,
+            "texte": "Accès à des comptes administrateur de cliniques"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent pas comment l'attaquant est entré, s'il s'agit du même auteur pour les deux incidents, ni comment les comptes employés ont été obtenus [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Tiers non autorisé, non nommé ; méthode d'intrusion et étendue encore en cours d'enquête [1, 2]"
+      ],
+      "cibles": [
+        "SBC Medical Group, groupe de gestion de cliniques actif surtout au Japon [1]",
+        "Clients : noms, coordonnées, dates de naissance, numéros de carte patient, mots de passe [1]",
+        "Employés : identifiants, mots de passe, et pour 459 personnes données bancaires et fiscales [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SBC",
+          "definition": "Nom de l'entreprise SBC Medical Group, sigle non développé par la source"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers steal data of 1.6 million SBC Medical Group customers",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-steal-data-of-16-million-sbc-medical-group-customers/",
+          "date": "2026-11-19",
+          "image": "https://www.bleepstatic.com/content/hl-images/2022/08/22/healthcare-cyber.jpg"
+        },
+        {
+          "titre": "SBC Medical Group Data Breach Impacts Over 2 Million",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/sbc-medical-group-data-breach-impacts-over-2-million/",
+          "date": "2026-11-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/03/healthcare-medical.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-commission-europeenne-campagne-ia",
+      "title": "Commission européenne : une cyberattaque « générée par intelligence artificielle » perturbe la gestion du personnel",
+      "created": "2026-11-19T16:09:13+00:00",
+      "updated": "2026-11-20T11:30:00+00:00",
+      "version": 3,
+      "resume": "La Commission européenne confirme une cyberattaque menée avec un outil d'intelligence artificielle [1, 3], détectée le 22 octobre [3] ; le personnel ne peut plus saisir salaires et absences, et l'attaque est jugée essentiellement contenue [2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1, 2]."
+        },
+        {
+          "etape": "Attaque outillée par IA",
+          "texte": "Campagne générée par intelligence artificielle ; selon Politico, le CERT-EU a repéré l'usage de la plateforme Artex [1], un outil offensif agentique [2]."
+        },
+        {
+          "etape": "Perturbation des services",
+          "texte": "Applications mises hors ligne par précaution, la plupart rétablies depuis [3] ; paie, congés, remboursements médicaux et traduction auraient été perturbés plus de dix jours [1]."
+        },
+        {
+          "etape": "Données",
+          "texte": "Aucune preuve de fuite de données du personnel selon la Commission ; Politico évoque de grandes quantités de données potentiellement compromises [3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "artex",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Plateforme Artex",
+            "note": "Selon Politico"
+          },
+          {
+            "id": "sys",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Systèmes de gestion du personnel",
+            "note": "Services perturbés"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données du personnel",
+            "note": "Fuite non prouvée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "att",
+            "vers": "artex",
+            "etape": 2,
+            "texte": "Usage repéré par le CERT-EU"
+          },
+          {
+            "de": "artex",
+            "vers": "sys",
+            "etape": 3,
+            "texte": "Services du personnel perturbés"
+          },
+          {
+            "de": "sys",
+            "vers": "don",
+            "etape": 4,
+            "texte": "Compromission évoquée par Politico"
+          }
+        ]
+      },
+      "limites": "Les sources ne décrivent ni l'accès initial, ni les actions dans le réseau, ni les attaquants [1, 2] ; SecurityWeek ne relie pas Artex à cette attaque [3].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifiés ; la Commission ne précise ni l'outil ni la motivation [1] et n'attribue pas l'attaque à un groupe connu [3]",
+        "Selon le FBI, Artex est utilisé par des criminels et des groupes soutenus par des États [1]",
+        "Artex en général : Microsoft a d'abord attribué son usage à Storm-0940, aligné sur Pékin ; d'autres ont suivi, dont Storm-3358, acteur crapuleux au Cambodge [2]"
+      ],
+      "cibles": [
+        "Commission européenne, systèmes de gestion du personnel [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CERT-EU",
+          "definition": "Équipe de réponse aux incidents informatiques des institutions européennes"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "FBI",
+          "definition": "Police fédérale américaine"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "European Commission confirms cyberattack, says hackers used AI tool",
+          "site": "The Record",
+          "url": "https://therecord.media/european-commission-confirms-cyberattack-using-ai",
+          "date": "2026-11-19",
+          "image": "https://cms.therecord.media/uploads/30917367864_8dc9286dcf_o_dc03237cec.jpg"
+        },
+        {
+          "titre": "La Commission européenne frappée par une lourde cyberattaque",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366654993/La-Commission-Europeenne-frappee-par-une-lourde-cyberattaque",
+          "date": "2026-11-19",
+          "image": "https://www.lemagit.fr/visuals/German/article/Hero-europe-geopolitics-Waran-Photographic-AdobeStock_33341551.jpg"
+        },
+        {
+          "titre": "European Commission Confirms AI-Assisted Cyberattack Disrupted Services",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/european-commission-confirms-ai-assisted-cyberattack-disrupted-services/",
+          "date": "2026-11-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/EU-Europe-European-Union-.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-20-n0n-jpmorgan-visa-mastercard-prestataires",
       "title": "JPMorgan, Visa et Mastercard : des prestataires tiers touchés, le groupe N0n publie des données de clients",
       "created": "2026-11-20T08:30:00+00:00",
@@ -219,6 +813,222 @@
     },
     {
       "schema": 3,
+      "id": "2026-11-19-armory-castle-vcenter-esxi",
+      "title": "Armory Castle : de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day",
+      "created": "2026-11-19T15:20:00+00:00",
+      "updated": "2026-11-20T07:30:00+00:00",
+      "version": 6,
+      "resume": "Le groupe d'espionnage Armory Castle, soupçonné d'être lié à la Chine, a exploité deux failles zero-day pour passer de BeyondTrust Remote Support à vCenter puis à un hôte ESXi [1, 4, 6, 7]. Broadcom a corrigé la faille de vCenter le 19 novembre 2026 [6, 7].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de la faille zero-day CVE-2026-102764 de BeyondTrust Remote Support → contrôle administrateur de l'appliance [1, 6, 7]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Webshells Slimsavage et Cagematch déposés sur une appliance Linux sans EDR, bit SUID activé sur /bin/env → commandes exécutées en root [1]."
+        },
+        {
+          "etape": "Prise de vCenter",
+          "texte": "Bonesaw exploite la zero-day CVE-2026-123890 → compte administrateur SSO créé [1, 4, 7]. Clé maître volée, jetons SAML forgés avec Sawsnake → authentification multifacteur contournée [1, 7]."
+        },
+        {
+          "etape": "Accès aux hôtes ESXi",
+          "texte": "Connexion à l'interface ESXi avec le compte vpxuser et en SSH avec le compte root ; clé publique ajoutée aux clés autorisées de root [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Fichier NTDS et ruches de registre extraits d'un disque de machine virtuelle → archivés puis rapatriés vers l'appliance Remote Support [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Porte dérobée Bearbones enregistrant les identifiants en clair, puis Lazybones pilotée via Slack sur une autre appliance Linux → accès persistant [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Armory Castle)",
+            "note": ""
+          },
+          {
+            "id": "bt",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Appliance BeyondTrust Remote Support",
+            "note": "Faille zero-day"
+          },
+          {
+            "id": "lin",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Appliances Linux",
+            "note": "Webshells, portes dérobées"
+          },
+          {
+            "id": "vc",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur vCenter",
+            "note": "Clé maître volée"
+          },
+          {
+            "id": "esx",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Hôtes ESXi",
+            "note": "Accès root"
+          },
+          {
+            "id": "vm",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Disque de machine virtuelle",
+            "note": "Fichier NTDS"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "bt",
+            "etape": 1,
+            "texte": "Exploitation de CVE-2026-102764"
+          },
+          {
+            "de": "bt",
+            "vers": "lin",
+            "etape": 2,
+            "texte": "Webshells déposés, droits root obtenus"
+          },
+          {
+            "de": "lin",
+            "vers": "vc",
+            "etape": 3,
+            "texte": "Bonesaw exploite CVE-2026-123890"
+          },
+          {
+            "de": "vc",
+            "vers": "esx",
+            "etape": 4,
+            "texte": "Connexion via vpxuser et SSH root"
+          },
+          {
+            "de": "esx",
+            "vers": "vm",
+            "etape": 5,
+            "texte": "Fichiers extraits et archivés"
+          },
+          {
+            "de": "att",
+            "vers": "lin",
+            "etape": 6,
+            "texte": "Porte dérobée Lazybones pilotée via Slack"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment ni victime ni secteur [1, 4, 5, 6, 7]. Broadcom ne signale aucune attaque exploitant CVE-2026-123890 [3, 4, 6], alors que Mandiant décrit son exploitation [1, 5, 6].",
+      "cves": [
+        {
+          "id": "CVE-2026-102764",
+          "explication": "BeyondTrust Remote Support jusqu'à 26.2.3 : origine des messages mal vérifiée, permettant des opérations sur ses fichiers ; gravité 9,8 sur 10 [2], 9,3 sur 10 [7]."
+        },
+        {
+          "id": "CVE-2026-123890",
+          "explication": "VMware vCenter Server, composant VMware Directory Service [4, 6] : contournement d'authentification administrateur sans identifiants [1, 5], exploité depuis septembre 2026 [5, 6] ; gravité 9,8 sur 10 [3, 4]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Armory Castle, anciennement UNC5221 [1, 4, 6, 7], aussi connu sous le nom Warp Panda [4], soupçonné d'être lié à la Chine [1, 4, 6, 7]"
+      ],
+      "cibles": [
+        "Environnements VMware vCenter et ESXi ; aucune victime ni secteur nommés [1, 4]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "EDR",
+          "definition": "Endpoint Detection and Response : outil de détection et de réponse sur les machines"
+        },
+        {
+          "sigle": "SUID",
+          "definition": "Bit de permission faisant exécuter un fichier avec les droits de son propriétaire"
+        },
+        {
+          "sigle": "SSO",
+          "definition": "Single Sign-On : authentification unique pour plusieurs services"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole d'administration à distance chiffré"
+        },
+        {
+          "sigle": "NTDS",
+          "definition": "Base de données des comptes d'un domaine Windows"
+        },
+        {
+          "sigle": "UNC5221",
+          "definition": "Ancien nom de suivi de Mandiant pour ce groupe"
+        },
+        {
+          "sigle": "SAML",
+          "definition": "Security Assertion Markup Language : standard de jetons d'authentification signés"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "ARMORY CASTLE Exploits vSphere",
+          "site": "Google Threat Intelligence (Mandiant)",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/armory-castle-exploits-vsphere/",
+          "date": "2026-11-19",
+          "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-102764",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102764"
+        },
+        {
+          "titre": "Critical VMware vCenter Flaw (CVSS 9.8) Lets Network Attackers Bypass Authentication",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
+          "date": "2026-11-19",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZ5IDT81eb7KUE0LzwGJAzuAETft3pD5sOz2dJxnQin_-zR_hH8tDKFTsLNBNoe35KM4DhFJjP7K-0YwaMoVwz7xUhTiP2vKeNqmN3kenPgwflENu35qx-QlFj-rDFdyXx1HMz6ykegw6nlnPDXppYbotjoRj-ammlyUZ-Cr0JYLS5iyZXkJXkaIO5UAc/s1700-nu-rw-lo-l85-e365/vmware.jpg"
+        },
+        {
+          "titre": "Newly Patched VMware vCenter Flaw Exploited as Zero-Day by Chinese APT",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/newly-patched-vmware-vcenter-flaw-exploited-as-zero-day-by-chinese-apt/",
+          "date": "2026-11-19",
+          "image": "https://www.securityweek.com/wp-content/uploads/2022/08/VMWare.jpg"
+        },
+        {
+          "titre": "CVE-2026-123890: Critical Authentication Bypass in VMware vCenter",
+          "site": "Rapid7",
+          "url": "https://www.rapid7.com/blog/post/etr-cve-2026-123890-critical-authentication-bypass-vmware-vcenter",
+          "date": "2026-11-19",
+          "image": "https://www.rapid7.com/cdn/images/blt65a432ba319f4043/6846abddaf18306debe6cf4d/ETR.webp"
+        },
+        {
+          "titre": "VMware patches vCenter zero-day exploited in attacks since September",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september/",
+          "date": "2026-11-19",
+          "image": "https://www.bleepstatic.com/content/hl-images/2023/10/25/VMware_red.jpg"
+        },
+        {
+          "titre": "China-Linked Hackers Exploit Critical VMware vCenter Zero-Day to Gain Admin Access and Steal Data",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/china-linked-hackers-exploit-critical.html",
+          "date": "2026-11-20",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjTSAI-N-DRII1YA3I98ZVnKnG0SMgm97oEAqyiSXZB23DPwzvTk3figFLsTCKsMJRxRhjKEPFblxfcOuB_UXc_OAXJRiVI07Jxjn-CebJVHiRQ5sc43AifBpUPNfU5-LRD6QEGbX7Vnt_HAmJZiLojS32PtNWwIWeideJZnIpgjrstJ0Iy84lYd47bePk/s1700-nu-rw-lo-l85-e365/chinese-vmware.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-19-truepath-it-screenconnect-compte-admin",
       "title": "TruePath IT : un compte administrateur compromis sert à déployer des ScreenConnect malveillants chez un client, l'attaquant revient 12 jours plus tard",
       "created": "2026-11-19T22:30:00+00:00",
@@ -391,139 +1201,6 @@
           "url": "https://www.bleepingcomputer.com/news/security/transport-for-london-breach-exposes-265-000-oyster-card-users-data/",
           "date": "2026-11-19",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/19/transportforlondon.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-19-commission-europeenne-campagne-ia",
-      "title": "Commission européenne : une cyberattaque « générée par intelligence artificielle » perturbe la gestion du personnel",
-      "created": "2026-11-19T16:09:13+00:00",
-      "updated": "2026-11-20T11:30:00+00:00",
-      "version": 3,
-      "resume": "La Commission européenne confirme une cyberattaque menée avec un outil d'intelligence artificielle [1, 3], détectée le 22 octobre [3] ; le personnel ne peut plus saisir salaires et absences, et l'attaque est jugée essentiellement contenue [2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 2]."
-        },
-        {
-          "etape": "Attaque outillée par IA",
-          "texte": "Campagne générée par intelligence artificielle ; selon Politico, le CERT-EU a repéré l'usage de la plateforme Artex [1], un outil offensif agentique [2]."
-        },
-        {
-          "etape": "Perturbation des services",
-          "texte": "Applications mises hors ligne par précaution, la plupart rétablies depuis [3] ; paie, congés, remboursements médicaux et traduction auraient été perturbés plus de dix jours [1]."
-        },
-        {
-          "etape": "Données",
-          "texte": "Aucune preuve de fuite de données du personnel selon la Commission ; Politico évoque de grandes quantités de données potentiellement compromises [3]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "artex",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Plateforme Artex",
-            "note": "Selon Politico"
-          },
-          {
-            "id": "sys",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Systèmes de gestion du personnel",
-            "note": "Services perturbés"
-          },
-          {
-            "id": "don",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Données du personnel",
-            "note": "Fuite non prouvée"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "sys",
-            "etape": 1,
-            "texte": "Accès non précisé"
-          },
-          {
-            "de": "att",
-            "vers": "artex",
-            "etape": 2,
-            "texte": "Usage repéré par le CERT-EU"
-          },
-          {
-            "de": "artex",
-            "vers": "sys",
-            "etape": 3,
-            "texte": "Services du personnel perturbés"
-          },
-          {
-            "de": "sys",
-            "vers": "don",
-            "etape": 4,
-            "texte": "Compromission évoquée par Politico"
-          }
-        ]
-      },
-      "limites": "Les sources ne décrivent ni l'accès initial, ni les actions dans le réseau, ni les attaquants [1, 2] ; SecurityWeek ne relie pas Artex à cette attaque [3].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non identifiés ; la Commission ne précise ni l'outil ni la motivation [1] et n'attribue pas l'attaque à un groupe connu [3]",
-        "Selon le FBI, Artex est utilisé par des criminels et des groupes soutenus par des États [1]",
-        "Artex en général : Microsoft a d'abord attribué son usage à Storm-0940, aligné sur Pékin ; d'autres ont suivi, dont Storm-3358, acteur crapuleux au Cambodge [2]"
-      ],
-      "cibles": [
-        "Commission européenne, systèmes de gestion du personnel [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "CERT-EU",
-          "definition": "Équipe de réponse aux incidents informatiques des institutions européennes"
-        },
-        {
-          "sigle": "IA",
-          "definition": "Intelligence artificielle"
-        },
-        {
-          "sigle": "FBI",
-          "definition": "Police fédérale américaine"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "European Commission confirms cyberattack, says hackers used AI tool",
-          "site": "The Record",
-          "url": "https://therecord.media/european-commission-confirms-cyberattack-using-ai",
-          "date": "2026-11-19",
-          "image": "https://cms.therecord.media/uploads/30917367864_8dc9286dcf_o_dc03237cec.jpg"
-        },
-        {
-          "titre": "La Commission européenne frappée par une lourde cyberattaque",
-          "site": "LeMagIT",
-          "url": "https://www.lemagit.fr/actualites/366654993/La-Commission-Europeenne-frappee-par-une-lourde-cyberattaque",
-          "date": "2026-11-19",
-          "image": "https://www.lemagit.fr/visuals/German/article/Hero-europe-geopolitics-Waran-Photographic-AdobeStock_33341551.jpg"
-        },
-        {
-          "titre": "European Commission Confirms AI-Assisted Cyberattack Disrupted Services",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/european-commission-confirms-ai-assisted-cyberattack-disrupted-services/",
-          "date": "2026-11-20",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/EU-Europe-European-Union-.jpeg"
         }
       ]
     },
@@ -1373,222 +2050,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-11-19-armory-castle-vcenter-esxi",
-      "title": "Armory Castle : de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day",
-      "created": "2026-11-19T15:20:00+00:00",
-      "updated": "2026-11-20T07:30:00+00:00",
-      "version": 6,
-      "resume": "Le groupe d'espionnage Armory Castle, soupçonné d'être lié à la Chine, a exploité deux failles zero-day pour passer de BeyondTrust Remote Support à vCenter puis à un hôte ESXi [1, 4, 6, 7]. Broadcom a corrigé la faille de vCenter le 19 novembre 2026 [6, 7].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Exploitation de la faille zero-day CVE-2026-102764 de BeyondTrust Remote Support → contrôle administrateur de l'appliance [1, 6, 7]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Webshells Slimsavage et Cagematch déposés sur une appliance Linux sans EDR, bit SUID activé sur /bin/env → commandes exécutées en root [1]."
-        },
-        {
-          "etape": "Prise de vCenter",
-          "texte": "Bonesaw exploite la zero-day CVE-2026-123890 → compte administrateur SSO créé [1, 4, 7]. Clé maître volée, jetons SAML forgés avec Sawsnake → authentification multifacteur contournée [1, 7]."
-        },
-        {
-          "etape": "Accès aux hôtes ESXi",
-          "texte": "Connexion à l'interface ESXi avec le compte vpxuser et en SSH avec le compte root ; clé publique ajoutée aux clés autorisées de root [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Fichier NTDS et ruches de registre extraits d'un disque de machine virtuelle → archivés puis rapatriés vers l'appliance Remote Support [1]."
-        },
-        {
-          "etape": "Persistance",
-          "texte": "Porte dérobée Bearbones enregistrant les identifiants en clair, puis Lazybones pilotée via Slack sur une autre appliance Linux → accès persistant [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (Armory Castle)",
-            "note": ""
-          },
-          {
-            "id": "bt",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Appliance BeyondTrust Remote Support",
-            "note": "Faille zero-day"
-          },
-          {
-            "id": "lin",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Appliances Linux",
-            "note": "Webshells, portes dérobées"
-          },
-          {
-            "id": "vc",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur vCenter",
-            "note": "Clé maître volée"
-          },
-          {
-            "id": "esx",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Hôtes ESXi",
-            "note": "Accès root"
-          },
-          {
-            "id": "vm",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Disque de machine virtuelle",
-            "note": "Fichier NTDS"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "bt",
-            "etape": 1,
-            "texte": "Exploitation de CVE-2026-102764"
-          },
-          {
-            "de": "bt",
-            "vers": "lin",
-            "etape": 2,
-            "texte": "Webshells déposés, droits root obtenus"
-          },
-          {
-            "de": "lin",
-            "vers": "vc",
-            "etape": 3,
-            "texte": "Bonesaw exploite CVE-2026-123890"
-          },
-          {
-            "de": "vc",
-            "vers": "esx",
-            "etape": 4,
-            "texte": "Connexion via vpxuser et SSH root"
-          },
-          {
-            "de": "esx",
-            "vers": "vm",
-            "etape": 5,
-            "texte": "Fichiers extraits et archivés"
-          },
-          {
-            "de": "att",
-            "vers": "lin",
-            "etape": 6,
-            "texte": "Porte dérobée Lazybones pilotée via Slack"
-          }
-        ]
-      },
-      "limites": "Les sources ne nomment ni victime ni secteur [1, 4, 5, 6, 7]. Broadcom ne signale aucune attaque exploitant CVE-2026-123890 [3, 4, 6], alors que Mandiant décrit son exploitation [1, 5, 6].",
-      "cves": [
-        {
-          "id": "CVE-2026-102764",
-          "explication": "BeyondTrust Remote Support jusqu'à 26.2.3 : origine des messages mal vérifiée, permettant des opérations sur ses fichiers ; gravité 9,8 sur 10 [2], 9,3 sur 10 [7]."
-        },
-        {
-          "id": "CVE-2026-123890",
-          "explication": "VMware vCenter Server, composant VMware Directory Service [4, 6] : contournement d'authentification administrateur sans identifiants [1, 5], exploité depuis septembre 2026 [5, 6] ; gravité 9,8 sur 10 [3, 4]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "Armory Castle, anciennement UNC5221 [1, 4, 6, 7], aussi connu sous le nom Warp Panda [4], soupçonné d'être lié à la Chine [1, 4, 6, 7]"
-      ],
-      "cibles": [
-        "Environnements VMware vCenter et ESXi ; aucune victime ni secteur nommés [1, 4]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "EDR",
-          "definition": "Endpoint Detection and Response : outil de détection et de réponse sur les machines"
-        },
-        {
-          "sigle": "SUID",
-          "definition": "Bit de permission faisant exécuter un fichier avec les droits de son propriétaire"
-        },
-        {
-          "sigle": "SSO",
-          "definition": "Single Sign-On : authentification unique pour plusieurs services"
-        },
-        {
-          "sigle": "SSH",
-          "definition": "Secure Shell : protocole d'administration à distance chiffré"
-        },
-        {
-          "sigle": "NTDS",
-          "definition": "Base de données des comptes d'un domaine Windows"
-        },
-        {
-          "sigle": "UNC5221",
-          "definition": "Ancien nom de suivi de Mandiant pour ce groupe"
-        },
-        {
-          "sigle": "SAML",
-          "definition": "Security Assertion Markup Language : standard de jetons d'authentification signés"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "ARMORY CASTLE Exploits vSphere",
-          "site": "Google Threat Intelligence (Mandiant)",
-          "url": "https://cloud.google.com/blog/topics/threat-intelligence/armory-castle-exploits-vsphere/",
-          "date": "2026-11-19",
-          "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
-        },
-        {
-          "titre": "Fiche NVD CVE-2026-102764",
-          "site": "NVD (NIST)",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102764"
-        },
-        {
-          "titre": "Critical VMware vCenter Flaw (CVSS 9.8) Lets Network Attackers Bypass Authentication",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
-          "date": "2026-11-19",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZ5IDT81eb7KUE0LzwGJAzuAETft3pD5sOz2dJxnQin_-zR_hH8tDKFTsLNBNoe35KM4DhFJjP7K-0YwaMoVwz7xUhTiP2vKeNqmN3kenPgwflENu35qx-QlFj-rDFdyXx1HMz6ykegw6nlnPDXppYbotjoRj-ammlyUZ-Cr0JYLS5iyZXkJXkaIO5UAc/s1700-nu-rw-lo-l85-e365/vmware.jpg"
-        },
-        {
-          "titre": "Newly Patched VMware vCenter Flaw Exploited as Zero-Day by Chinese APT",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/newly-patched-vmware-vcenter-flaw-exploited-as-zero-day-by-chinese-apt/",
-          "date": "2026-11-19",
-          "image": "https://www.securityweek.com/wp-content/uploads/2022/08/VMWare.jpg"
-        },
-        {
-          "titre": "CVE-2026-123890: Critical Authentication Bypass in VMware vCenter",
-          "site": "Rapid7",
-          "url": "https://www.rapid7.com/blog/post/etr-cve-2026-123890-critical-authentication-bypass-vmware-vcenter",
-          "date": "2026-11-19",
-          "image": "https://www.rapid7.com/cdn/images/blt65a432ba319f4043/6846abddaf18306debe6cf4d/ETR.webp"
-        },
-        {
-          "titre": "VMware patches vCenter zero-day exploited in attacks since September",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september/",
-          "date": "2026-11-19",
-          "image": "https://www.bleepstatic.com/content/hl-images/2023/10/25/VMware_red.jpg"
-        },
-        {
-          "titre": "China-Linked Hackers Exploit Critical VMware vCenter Zero-Day to Gain Admin Access and Steal Data",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/china-linked-hackers-exploit-critical.html",
-          "date": "2026-11-20",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjTSAI-N-DRII1YA3I98ZVnKnG0SMgm97oEAqyiSXZB23DPwzvTk3figFLsTCKsMJRxRhjKEPFblxfcOuB_UXc_OAXJRiVI07Jxjn-CebJVHiRQ5sc43AifBpUPNfU5-LRD6QEGbX7Vnt_HAmJZiLojS32PtNWwIWeideJZnIpgjrstJ0Iy84lYd47bePk/s1700-nu-rw-lo-l85-e365/chinese-vmware.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-11-18-conti-anciens-arretes-ukraine",
       "title": "Anciens de Conti arrêtés en Ukraine : faux support informatique pour entrer chez les victimes",
       "created": "2026-11-18T18:20:00+00:00",
@@ -1836,158 +2297,6 @@
           "url": "https://www.zataz.com/arnaque-au-lego-formule-1-sur-tiktok/",
           "date": "2026-11-19",
           "image": "https://www.zataz.com/wp-content/uploads/lego_arnaque.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-19-cisco-expressway-cve-2026-76466",
-      "title": "Cisco Expressway : la faille CVE-2026-76466 exploitée peu après la publication d'un exploit, une organisation russe compromise",
-      "created": "2026-11-19T14:30:00+00:00",
-      "updated": "2026-11-20T12:30:00+00:00",
-      "version": 2,
-      "resume": "Une organisation russe non nommée a été compromise par ses appareils Cisco Expressway en cluster, peu après la publication d'un exploit de démonstration : quatre appareils touchés puis le réseau interne atteint, selon la société F6 [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Exploitation de CVE-2026-76466 sur deux appareils Expressway exposés sur Internet → appareils compromis [1, 2]."
-        },
-        {
-          "etape": "Déplacement dans le réseau",
-          "texte": "Rebond depuis un de ces appareils vers deux autres nœuds du cluster situés sur le réseau interne [1, 2]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Obtention des droits root → exécution de commandes au niveau du système [1, 2]."
-        },
-        {
-          "etape": "Reconnaissance du réseau",
-          "texte": "Scripts Python sur mesure pour scanner le réseau, repérer des partages SMB et interagir avec SQL Server et WinRM [1, 2]."
-        },
-        {
-          "etape": "Recherche de secrets",
-          "texte": "Accès à des dépôts GitLab en vue d'exfiltrer des identifiants et d'autres données sensibles [1, 2]."
-        },
-        {
-          "etape": "Adaptation des outils",
-          "texte": "Scripts modifiés pendant l'attaque, avec des commentaires indiquant l'usage d'un assistant d'intelligence artificielle [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "exp",
-            "type": "passerelle",
-            "zone": "expose",
-            "nom": "Deux appareils Expressway",
-            "note": "Exposés sur Internet"
-          },
-          {
-            "id": "int",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Nœuds internes du cluster",
-            "note": "Droits root"
-          },
-          {
-            "id": "res",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Réseau interne",
-            "note": "SMB, SQL Server, WinRM"
-          },
-          {
-            "id": "git",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Dépôts GitLab",
-            "note": "Identifiants visés"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "exp",
-            "etape": 1,
-            "texte": "Exploitation de CVE-2026-76466"
-          },
-          {
-            "de": "exp",
-            "vers": "int",
-            "etape": 2,
-            "texte": "Rebond vers le réseau interne"
-          },
-          {
-            "de": "int",
-            "vers": "res",
-            "etape": 4,
-            "texte": "Scripts Python de reconnaissance"
-          },
-          {
-            "de": "int",
-            "vers": "git",
-            "etape": 5,
-            "texte": "Recherche d'identifiants à exfiltrer"
-          }
-        ]
-      },
-      "limites": "Les sources ne disent pas qui est derrière l'attaque, ni comment l'accès aux dépôts GitLab a été obtenu, ni si l'exfiltration visée a réellement abouti [1, 2].",
-      "cves": [
-        {
-          "id": "CVE-2026-76466",
-          "explication": "Cisco Expressway Core et Edge en cluster : cookies persistants et validation insuffisante des certificats clients permettant, sans authentification, d'exécuter des commandes en root ; gravité 9,8 sur 10 [1, 2]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "Attaque non attribuée à un groupe connu par F6 [1, 2]"
-      ],
-      "cibles": [
-        "Organisation russe non nommée [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "F6",
-          "definition": "Nom de la société de cybersécurité auteure du rapport"
-        },
-        {
-          "sigle": "SMB",
-          "definition": "Server Message Block : protocole de partage de fichiers des réseaux Windows"
-        },
-        {
-          "sigle": "SQL",
-          "definition": "Structured Query Language : langage d'interrogation des bases de données"
-        },
-        {
-          "sigle": "WinRM",
-          "definition": "Windows Remote Management : administration à distance des machines Windows"
-        },
-        {
-          "sigle": "GitLab",
-          "definition": "Plateforme d'hébergement de code source et de dépôts Git"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Hackers Exploit Cisco Expressway Vulnerability Soon After PoC Release",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/hackers-exploit-cisco-expressway-vulnerability-soon-after-poc-release/",
-          "date": "2026-11-19",
-          "image": "https://www.securityweek.com/wp-content/uploads/2025/09/Cisco-firewall.jpeg"
-        },
-        {
-          "titre": "Hackers Exploit Critical Cisco Expressway Flaw, Breach Four Devices and Reach Internal Network",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html",
-          "date": "2026-11-20",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrMm7M_HyuVDt9NknngHSgyfGKu0DR8VTc_GYL-tr_hMhTmi3EAZnM8x5byJQRYEqcUAZlDTR_Xi4RcMm4lidmk9UR_iyTWpDa5Mn6xRBoNwAf3auen2u6guKxnvoIrcQOfq7Mm1clmsyBMYVcjaOqVFYiN4mXgYSyR5_DUSrmVOLDK5mQeAS8BBB3X5-5/s1700-nu-rw-lo-l85-e365/cisco-cyberattacks.jpg"
         }
       ]
     },
@@ -2604,111 +2913,6 @@
           "url": "https://thehackernews.com/2026/11/cisa-warns-of-4-exploited-flaws-linked.html",
           "date": "2026-11-19",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJc2bWATWnk5-O72K0n3cYlHuhhox3nVPELPst8c1bui3mTiwBZFUjAUSem14OyqLB6CTECCs9fc-iyng9KmY3jelZ2cqrHg4FKvP2qOZui8piIbYTZy9WdZD0NqiY4fXcLud5GYzmNEXR6DRNuQpjkFzfPvW4fIcDtwaFg4SM9xW-eG09WxFuEcmuKx7U/s1700-nu-rw-lo-l85-e365/cisa.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-19-n-able-mail-assure-spamexperts",
-      "title": "N-able : un serveur web de Mail Assure et SpamExperts compromis, des identifiants stockés consultés et la gestion coupée",
-      "created": "2026-11-19T11:20:00+00:00",
-      "updated": "2026-11-20T10:30:00+00:00",
-      "version": 2,
-      "resume": "Un tiers non identifié a compromis un serveur du service cloud Mail Assure et SpamExperts de N-able, coupant portails de gestion et API [1, 2] ; il a peut-être accédé à des identifiants stockés sur la plateforme [2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 2]."
-        },
-        {
-          "etape": "Accès au serveur",
-          "texte": "Accès non autorisé à un seul serveur web de la plateforme → accès possible à certains identifiants stockés sur la plateforme [1, 2]."
-        },
-        {
-          "etape": "Détection",
-          "texte": "Panne constatée le 16 novembre, d'abord attribuée à la configuration de la plateforme → cyberattaque confirmée le 18 novembre [1, 2]."
-        },
-        {
-          "etape": "Réaction",
-          "texte": "Serveur mis hors ligne, identifiants internes changés, jetons API et OAuth des clients révoqués, mots de passe locaux réinitialisés [2]."
-        },
-        {
-          "etape": "Impact",
-          "texte": "Portail de gestion, API, quarantaine et journalisation indisponibles ; le flux et le filtrage des courriels restent assurés [1, 2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": "Non identifié"
-          },
-          {
-            "id": "srv",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur web de la plateforme",
-            "note": "Identifiants stockés"
-          },
-          {
-            "id": "cli",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Partenaires et clients",
-            "note": "Gestion indisponible"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "srv",
-            "etape": 2,
-            "texte": "Accès non autorisé, vecteur non précisé"
-          },
-          {
-            "de": "srv",
-            "vers": "cli",
-            "etape": 5,
-            "texte": "Portail de gestion et API coupés"
-          }
-        ]
-      },
-      "limites": "Vecteur d'accès et acteur inconnus ; régions touchées : trois selon [1], toutes selon [2] ; aucune preuve d'accès aux données clients selon N-able, enquête en cours [1, 2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Attaquants non identifiés ; incident sans lien avec les failles N-central Able2Shell, 4EverAble2Shell et Agent2Shell [1]"
-      ],
-      "cibles": [
-        "Partenaires et clients de Mail Assure et SpamExperts Hosted Cloud, dans trois régions [1] ou toutes les régions [2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "API",
-          "definition": "Application Programming Interface : interface permettant à des programmes de communiquer"
-        },
-        {
-          "sigle": "OAuth",
-          "definition": "Protocole d'autorisation qui délivre des jetons d'accès à des applications"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Hackers Breach N-able Cloud Server, Disrupting Email Security Management Across 3 Regions",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html",
-          "date": "2026-11-19",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjPpZ9yL9D7JBQvp4_ZmnP8S_U6HKdq3rSM_FVv_uDgT9Iz8D56tO6GNDNE4rs29pejUiKQlxi1HpZ38KYbaSB01PmgPItVL8N-Y9G9vcuJlnadltKvmGhvUKYntAEIVCXFixjdBMyu6S9-zEUlIgGf7E5euvodJbn9LIYWTkRpxwH0g7nz2xp2v5PGMdq/s1700-nu-rw-lo-l85-e365/n-able-hacked.jpg"
-        },
-        {
-          "titre": "N-able Blames Service Disruption on Cyberattack",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/n-able-blames-service-disruption-on-cyberattack/",
-          "date": "2026-11-20",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/08/N-Able.jpeg"
         }
       ]
     },
@@ -55030,135 +55234,6 @@
           }
         ]
       }
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-19-sbc-medical-group-fuite-donnees",
-      "title": "SBC Medical Group : des bases de données de son site web piratées, les données de 1,6 million de clients volées",
-      "created": "2026-11-19T23:10:00+00:00",
-      "updated": "2026-11-20T12:30:00+00:00",
-      "version": 2,
-      "resume": "Un tiers non autorisé a extrait des informations clients de bases de données d'un site web de SBC Medical Group, gestionnaire de cliniques actif surtout au Japon : 1,6 million de clients selon [1], plus de 2 millions de personnes au Japon selon [2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources, la méthode d'intrusion est encore en cours d'enquête [1, 2]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Accès non autorisé à des bases de données d'une plateforme en ligne du groupe → extraction d'informations de clients de cliniques au Japon [1, 2]."
-        },
-        {
-          "etape": "Vol de comptes employés",
-          "texte": "Vol d'environ 20 000 comptes d'employés avec identifiants et mots de passe, plus des données bancaires et fiscales pour 459 d'entre eux [1, 2]."
-        },
-        {
-          "etape": "Plateforme tierce",
-          "texte": "Accès non autorisé à des comptes administrateur de cliniques sur la plateforme de réservation Tribeau → 12 641 personnes exposées selon [1], environ 19 000 selon [2]."
-        },
-        {
-          "etape": "Réaction",
-          "texte": "Serveur touché isolé, attaquants expulsés et mots de passe des cliniques sur Tribeau réinitialisés [2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Tiers non autorisé",
-            "note": ""
-          },
-          {
-            "id": "inc",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Point d'entrée inconnu",
-            "note": "Enquête en cours"
-          },
-          {
-            "id": "bdd",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Bases de données du site",
-            "note": "1,6 million de personnes"
-          },
-          {
-            "id": "emp",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Comptes des employés",
-            "note": "Environ 20 000 comptes"
-          },
-          {
-            "id": "tri",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Plateforme de réservation Tribeau",
-            "note": "Comptes administrateur"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "inc",
-            "etape": 1,
-            "texte": "Méthode d'intrusion non précisée"
-          },
-          {
-            "de": "inc",
-            "vers": "bdd",
-            "etape": 2,
-            "texte": "Extraction d'informations de clients"
-          },
-          {
-            "de": "att",
-            "vers": "emp",
-            "etape": 3,
-            "texte": "Vol de comptes d'employés, méthode non précisée"
-          },
-          {
-            "de": "att",
-            "vers": "tri",
-            "etape": 4,
-            "texte": "Accès à des comptes administrateur de cliniques"
-          }
-        ]
-      },
-      "limites": "Les sources ne disent pas comment l'attaquant est entré, s'il s'agit du même auteur pour les deux incidents, ni comment les comptes employés ont été obtenus [1, 2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Tiers non autorisé, non nommé ; méthode d'intrusion et étendue encore en cours d'enquête [1, 2]"
-      ],
-      "cibles": [
-        "SBC Medical Group, groupe de gestion de cliniques actif surtout au Japon [1]",
-        "Clients : noms, coordonnées, dates de naissance, numéros de carte patient, mots de passe [1]",
-        "Employés : identifiants, mots de passe, et pour 459 personnes données bancaires et fiscales [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "SBC",
-          "definition": "Nom de l'entreprise SBC Medical Group, sigle non développé par la source"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Hackers steal data of 1.6 million SBC Medical Group customers",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/hackers-steal-data-of-16-million-sbc-medical-group-customers/",
-          "date": "2026-11-19",
-          "image": "https://www.bleepstatic.com/content/hl-images/2022/08/22/healthcare-cyber.jpg"
-        },
-        {
-          "titre": "SBC Medical Group Data Breach Impacts Over 2 Million",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/sbc-medical-group-data-breach-impacts-over-2-million/",
-          "date": "2026-11-20",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/03/healthcare-medical.jpeg"
-        }
-      ]
     }
   ]
 }

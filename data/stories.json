@@ -55802,8 +55802,8 @@
       "id": "2026-11-20-cairn-universites-zero-day-imagerie-medicale",
       "title": "Cairn : des pirates liés à la Chine font trouver par l'IA une faille inconnue de MONAI Label et obtiennent un accès root dans une université",
       "created": "2026-11-20T18:09:54+00:00",
-      "updated": "2026-11-21T12:20:00+00:00",
-      "version": 2,
+      "updated": "2026-11-21T13:20:00+00:00",
+      "version": 3,
       "resume": "Des pirates liés à la Chine ont confié à Cairn, outil d'intrusion autonome fondé sur l'IA, l'attaque d'universités d'Asie de l'Est [1, 3]. Cairn a trouvé une faille inconnue dans MONAI Label, serveur d'imagerie médicale, et obtenu un accès root [3].",
       "chaine": [
         {
@@ -55816,7 +55816,7 @@
         },
         {
           "etape": "Seconde cible",
-          "texte": "Même faille réutilisée → seconde université pénétrée [1] ; selon Amazon, second réseau universitaire probablement compromis ainsi, sans confirmation [3]."
+          "texte": "Tunnel vers une seconde université fourni par l'opérateur [4] ; même faille réutilisée → seconde université pénétrée [1] ; selon Amazon, compromission supposée, non confirmée [3, 4]."
         }
       ],
       "parcours": {
@@ -55864,7 +55864,7 @@
           }
         ]
       },
-      "limites": "Groupe et universités non nommés [1, 3]. Compromission de la seconde université affirmée par The Record [1], non confirmée selon The Hacker News [3]. Vol de dossiers de patients non établi [3].",
+      "limites": "Groupe et universités non nommés [1, 3]. Compromission de la seconde université affirmée par The Record [1], supposée par Amazon sans confirmation [3, 4]. Vol de dossiers de patients non établi [3].",
       "cves": [
         {
           "id": "CVE-2026-133968",
@@ -55876,7 +55876,7 @@
         "Pirates liés à la Chine selon Amazon (confiance modérée), non nommés ; invites en chinois simplifié, horodatages à l'heure de Chine [1, 3]"
       ],
       "cibles": [
-        "Universités d'Asie de l'Est, pays non nommé [1] ; serveurs d'imagerie médicale MONAI Label [3]"
+        "Universités d'Asie de l'Est hors Chine continentale [4] ; serveurs d'imagerie médicale MONAI Label [3]"
       ],
       "abreviations": [
         {
@@ -55909,6 +55909,13 @@
           "url": "https://thehackernews.com/2026/11/attackers-ai-agents-found-zero-day-in.html",
           "date": "2026-11-21",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEIG6Wgi3wGQXrsdGKEf4ORPFjHVGpRkoSUPraOJfKhGmB0vYFojLq2mCuOP3a71_XpNZusvn45ZDa1J3a7eQ0WE3XJY0FGunHVWB1yHBluJT5vSDCmzkhaFGiHjeKbnoah6noyZ3mNInS-mjJK1Gfcf7jT3A60ZYR_eknSgt_sEa6MNGM-DA5-aLXMbZ5/s1700-nu-rw-lo-l85-e365/medical-ai.jpg"
+        },
+        {
+          "titre": "Amazon: China-Linked Hackers’ AI Agents Exploited Medical Software Zero-Day",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/amazon-china-linked-hackers-ai-agents-exploited-medical-software-zero-day/",
+          "date": "2026-11-21",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/04/Artificial-Intelligence-vs-AI.jpeg"
         }
       ]
     },

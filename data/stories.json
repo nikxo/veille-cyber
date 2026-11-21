@@ -55800,19 +55800,23 @@
     {
       "schema": 3,
       "id": "2026-11-20-cairn-universites-zero-day-imagerie-medicale",
-      "title": "Cairn : des pirates liés à la Chine font trouver par l'IA une faille inconnue d'imagerie médicale pour pénétrer deux universités",
+      "title": "Cairn : des pirates liés à la Chine font trouver par l'IA une faille inconnue de MONAI Label et obtiennent un accès root dans une université",
       "created": "2026-11-20T18:09:54+00:00",
-      "updated": "2026-11-20T18:09:54+00:00",
-      "version": 1,
-      "resume": "Des pirates liés à la Chine ont confié à Cairn, outil d'intrusion autonome fondé sur l'IA, l'attaque d'universités d'Asie de l'Est [1]. Cairn a trouvé une faille inconnue dans une application d'imagerie médicale, qui a servi à pénétrer deux universités [1, 2].",
+      "updated": "2026-11-21T12:20:00+00:00",
+      "version": 2,
+      "resume": "Des pirates liés à la Chine ont confié à Cairn, outil d'intrusion autonome fondé sur l'IA, l'attaque d'universités d'Asie de l'Est [1, 3]. Cairn a trouvé une faille inconnue dans MONAI Label, serveur d'imagerie médicale, et obtenu un accès root [3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Échecs (Log4Shell, plus de 30 000 combinaisons d'identifiants) ; seule réussite : faille de traversée de chemin inconnue dans une application d'imagerie médicale → première université pénétrée [1, 2]."
+          "texte": "Tentatives échouées (Log4Shell, plus de 30 000 combinaisons d'identifiants) ; seule réussite : traversée de chemin inconnue dans MONAI Label → écriture de fichiers sur le serveur sans compte [1, 2, 3]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Dépôt d'un fichier que Python exécute au démarrage, chargé par un processus d'entraînement → connexion vers l'attaquant avec les droits root [3]."
         },
         {
           "etape": "Seconde cible",
-          "texte": "Même faille zero-day réutilisée → seconde université pénétrée [1]."
+          "texte": "Même faille réutilisée → seconde université pénétrée [1] ; selon Amazon, second réseau universitaire probablement compromis ainsi, sans confirmation [3]."
         }
       ],
       "parcours": {
@@ -55826,14 +55830,14 @@
           },
           {
             "id": "u1",
-            "type": "application",
+            "type": "serveur",
             "zone": "victime",
-            "nom": "Imagerie médicale, université 1",
-            "note": "Faille inconnue"
+            "nom": "Serveur MONAI Label, université 1",
+            "note": "Accès root"
           },
           {
             "id": "u2",
-            "type": "application",
+            "type": "serveur",
             "zone": "victime",
             "nom": "Seconde université",
             "note": "Même faille"
@@ -55847,26 +55851,41 @@
             "texte": "Traversée de chemin exploitée par Cairn"
           },
           {
+            "de": "u1",
+            "vers": "att",
+            "etape": 2,
+            "texte": "Connexion root vers l'attaquant"
+          },
+          {
             "de": "att",
             "vers": "u2",
-            "etape": 2,
+            "etape": 3,
             "texte": "Même faille zero-day réutilisée"
           }
         ]
       },
-      "limites": "Groupe et universités non nommés ; The Record ne précise ni le niveau d'accès obtenu ni les actions après l'intrusion [1], BleepingComputer évoquant une prise de contrôle du serveur [2].",
-      "cves": [],
+      "limites": "Groupe et universités non nommés [1, 3]. Compromission de la seconde université affirmée par The Record [1], non confirmée selon The Hacker News [3]. Vol de dossiers de patients non établi [3].",
+      "cves": [
+        {
+          "id": "CVE-2026-133968",
+          "explication": "MONAI Label 0.8.5 et antérieures, configuration par défaut : traversée de chemin permettant d'écrire des fichiers hors du dossier de stockage sans compte, gravité critique 9,8 sur 10 [3]."
+        }
+      ],
       "mitre": [],
       "acteurs": [
-        "Pirates liés à la Chine, non nommés ; invites rédigées en chinois simplifié, horodatages à l'heure de Chine [1]"
+        "Pirates liés à la Chine selon Amazon (confiance modérée), non nommés ; invites en chinois simplifié, horodatages à l'heure de Chine [1, 3]"
       ],
       "cibles": [
-        "Universités d'Asie de l'Est, pays non nommé [1]"
+        "Universités d'Asie de l'Est, pays non nommé [1] ; serveurs d'imagerie médicale MONAI Label [3]"
       ],
       "abreviations": [
         {
           "sigle": "IA",
           "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "MONAI",
+          "definition": "Medical Open Network for AI : projet open source d'IA pour l'imagerie médicale"
         }
       ],
       "sources": [
@@ -55883,6 +55902,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/hackers-use-autonomous-ai-tool-cairn-to-find-zero-day-take-over-server/",
           "date": "2026-11-20",
           "image": "https://www.bleepstatic.com/content/hl-images/2022/05/12/evil-hacker-ai.jpg"
+        },
+        {
+          "titre": "Attackers' AI Agents Found a Zero-Day in Medical-Imaging Software and Gained Root Access",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/attackers-ai-agents-found-zero-day-in.html",
+          "date": "2026-11-21",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEIG6Wgi3wGQXrsdGKEf4ORPFjHVGpRkoSUPraOJfKhGmB0vYFojLq2mCuOP3a71_XpNZusvn45ZDa1J3a7eQ0WE3XJY0FGunHVWB1yHBluJT5vSDCmzkhaFGiHjeKbnoah6noyZ3mNInS-mjJK1Gfcf7jT3A60ZYR_eknSgt_sEa6MNGM-DA5-aLXMbZ5/s1700-nu-rw-lo-l85-e365/medical-ai.jpg"
         }
       ]
     },

@@ -56392,6 +56392,107 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/20/bell-canada.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-21-rackspace-spot-secrets-kubernetes",
+      "title": "Rackspace Spot : des identifiants divulgués ouvrent l'accès aux secrets Kubernetes des clients",
+      "created": "2026-11-21T23:30:00+00:00",
+      "updated": "2026-11-21T23:30:00+00:00",
+      "version": 1,
+      "resume": "Des attaquants ont accédé à des parties de la plateforme cloud Rackspace Spot avec des identifiants divulgués ou compromis le 17 novembre 2026, ont lancé des charges de travail non autorisées et ont pu lire les secrets Kubernetes des clusters clients [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Connexion à Rackspace Spot avec des identifiants divulgués ou compromis → actions possibles comme des utilisateurs légitimes de certaines organisations clientes [1]."
+        },
+        {
+          "etape": "Exécution",
+          "texte": "Création de pods Kubernetes dans les clusters clients → charges de travail non autorisées déployées [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Lecture possible des secrets des clusters et des jetons d'API Spot et de rafraîchissement des utilisateurs touchés [1]."
+        },
+        {
+          "etape": "Reconnaissance",
+          "texte": "Listage des nœuds et des volumes des clusters [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Identifiants compromis"
+          },
+          {
+            "id": "spot",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Plateforme Rackspace Spot",
+            "note": ""
+          },
+          {
+            "id": "k8s",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Clusters Kubernetes des clients",
+            "note": "Pods non autorisés"
+          },
+          {
+            "id": "sec",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Secrets et jetons",
+            "note": "Lecture possible"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "spot",
+            "etape": 1,
+            "texte": "Connexion avec des identifiants divulgués ou compromis"
+          },
+          {
+            "de": "spot",
+            "vers": "k8s",
+            "etape": 2,
+            "texte": "Création de pods non autorisés"
+          },
+          {
+            "de": "k8s",
+            "vers": "sec",
+            "etape": 3,
+            "texte": "Accès aux secrets et jetons"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas comment les identifiants ont fuité, combien de clients sont touchés, qui sont les attaquants ni si des données ont été volées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Clients de Rackspace Spot, plateforme de déploiement d'applications conteneurisées avec Kubernetes, nombre non précisé [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Application Programming Interface : interface permettant à des programmes de piloter un service"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Rackspace Spot breach let hackers access customer Kubernetes secrets",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/rackspace-spot-breach-let-hackers-access-customer-kubernetes-secrets/",
+          "date": "2026-11-21",
+          "image": "https://www.bleepstatic.com/content/hl-images/2022/12/09/Rackspace.jpg"
+        }
+      ]
     }
   ]
 }

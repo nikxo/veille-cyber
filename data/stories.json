@@ -2,6 +2,88 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-21-fbi-ncic-intrusion",
+      "title": "FBI : une intrusion présumée dans la base nationale de la police, deuxième piratage signalé en deux mois",
+      "created": "2026-11-21T15:30:00+00:00",
+      "updated": "2026-11-21T15:30:00+00:00",
+      "version": 1,
+      "resume": "Le FBI enquête sur une intrusion présumée dans le National Crime Information Center, base partagée par les forces de l'ordre américaines ; c'est le deuxième piratage signalé à l'agence en deux mois [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources : on ignore comment les attaquants ont obtenu l'accès [1]."
+        },
+        {
+          "etape": "Accès à la base",
+          "texte": "Intrusion présumée dans le National Crime Information Center, découverte ces derniers jours → impact sur les données et le service inconnu [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "entree",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée",
+            "note": "Non précisé"
+          },
+          {
+            "id": "ncic",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Base nationale de la police",
+            "note": "Intrusion présumée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "entree",
+            "etape": 1,
+            "texte": "Accès obtenu par un moyen inconnu"
+          },
+          {
+            "de": "entree",
+            "vers": "ncic",
+            "etape": 2,
+            "texte": "Intrusion présumée dans la base"
+          }
+        ]
+      },
+      "limites": "La source ne dit ni comment l'accès a été obtenu, ni si des données ont été volées ou consultées ; le FBI n'a pas confirmé l'incident publiquement [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié ; aucun lien établi avec ShinyHunters, qui avait revendiqué l'intrusion précédente [1]"
+      ],
+      "cibles": [
+        "FBI : base de la police américaine sur les personnes recherchées ou disparues, mandats, véhicules et armes volés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "FBI",
+          "definition": "Federal Bureau of Investigation : police fédérale des États-Unis"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "FBI reportedly hacked again, this time targeting nationwide police database",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fbi-reportedly-hacked-again-this-time-targeting-nationwide-police-database/",
+          "date": "2026-11-21",
+          "image": "https://www.bleepstatic.com/content/hl-images/2022/12/16/FBI__headpic.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-20-com-vishing-vol-donnees-cloud",
       "title": "Affiliés du Com : de faux appels du support informatique pour voler les données cloud de la finance et de la santé, puis les extorquer",
       "created": "2026-11-20T23:20:00+00:00",

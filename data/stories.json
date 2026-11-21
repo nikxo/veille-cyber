@@ -2,6 +2,92 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-21-badbox-3-fraude-publicitaire",
+      "title": "BADBOX 3.0 : le réseau de boîtiers télé Android infectés revient à la fraude publicitaire, avec 40 milliards de requêtes par jour",
+      "created": "2026-11-21T16:30:00+00:00",
+      "updated": "2026-11-21T16:30:00+00:00",
+      "version": 1,
+      "resume": "Le logiciel malveillant BADBOX, présent sur de nombreux boîtiers télé Android génériques, a repris une fraude publicitaire à grande échelle après les perturbations de l'an dernier, avec un record de 40 milliards de requêtes publicitaires par jour [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources : la manière dont BADBOX arrive sur les boîtiers n'est pas décrite [1]."
+        },
+        {
+          "etape": "Réseau d'appareils",
+          "texte": "Boîtiers télé Android génériques infectés par BADBOX → réseau d'appareils contrôlés, appelé BADBOX 3.0 [1]."
+        },
+        {
+          "etape": "Fraude publicitaire",
+          "texte": "Reprise de la fraude publicitaire à grande échelle après les perturbations de l'an dernier → record de 40 milliards de requêtes publicitaires par jour [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Opérateurs de BADBOX",
+            "note": "Non identifiés"
+          },
+          {
+            "id": "box",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Boîtiers télé Android génériques",
+            "note": "Infectés par BADBOX"
+          },
+          {
+            "id": "pub",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Publicité en ligne",
+            "note": "Visée par la fraude"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "box",
+            "etape": 2,
+            "texte": "Boîtiers infectés par BADBOX"
+          },
+          {
+            "de": "box",
+            "vers": "pub",
+            "etape": 3,
+            "texte": "40 milliards de requêtes publicitaires par jour"
+          }
+        ]
+      },
+      "limites": "Le résumé disponible ne dit ni comment les boîtiers sont infectés, ni qui opère le réseau, ni combien d'appareils sont concernés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifiés par la source [1]"
+      ],
+      "cibles": [
+        "Boîtiers télé Android génériques, utilisés pour la fraude publicitaire [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "BADBOX",
+          "definition": "Nom d'un logiciel malveillant présent sur des boîtiers télé Android"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "BADBOX 3.0 botnet returns with record-breaking 40 billion daily ad requests",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/badbox-30-botnet-returns-with-record-breaking-40-billion-daily-ad-requests/",
+          "date": "2026-11-21",
+          "image": "https://www.bleepstatic.com/content/hl-images/2024/12/19/android-malware-botnet.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-21-fbi-ncic-intrusion",
       "title": "FBI : une intrusion présumée dans la base nationale de la police, deuxième piratage signalé en deux mois",
       "created": "2026-11-21T15:30:00+00:00",

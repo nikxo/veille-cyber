@@ -1,13 +1,5 @@
 [
   {
-    "id": "ca61260b6a454d06",
-    "title": "Gemini 4 Carbon",
-    "link": "https://www.lemagit.fr/actualites/366653377/Gemini-4-Carbon-Google-troque-lefficience-contre-la-premiere-place-du-classement",
-    "source": "LeMagIT",
-    "raison": "annonce produit",
-    "date": "2026-11-02T19:20:00+00:00"
-  },
-  {
     "id": "dbf648d559a69301",
     "title": "What exploited vulnerabilities have in common: A data-driven analysis of real-world attacks",
     "link": "https://www.microsoft.com/en-us/security/blog/2026/11/02/exploited-vulnerabilities-common-data-driven-analysis-real-world-attacks/",
@@ -3998,5 +3990,13 @@
     "source": "Krebs on Security",
     "raison": "actualité judiciaire (fraude d'une société de récupération) sans détail sur la méthode d'attaque",
     "date": "2026-11-21T01:10:00+00:00"
+  },
+  {
+    "id": "9da47b8efcbbfaa0",
+    "title": "Signal Blocks AI Agents From Reading Private Chats via Screenshots on Android and iOS",
+    "link": "https://thehackernews.com/2026/11/signal-blocks-ai-agents-from-reading.html",
+    "source": "The Hacker News",
+    "raison": "annonce de fonctionnalité (protection des captures d'écran), pas d'attaque décrite",
+    "date": "2026-11-21T10:07:07+00:00"
   }
 ]

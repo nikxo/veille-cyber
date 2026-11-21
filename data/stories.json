@@ -1650,8 +1650,8 @@
       "id": "2026-11-19-armory-castle-vcenter-esxi",
       "title": "Armory Castle : de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day",
       "created": "2026-11-19T15:20:00+00:00",
-      "updated": "2026-11-20T22:20:00+00:00",
-      "version": 8,
+      "updated": "2026-11-21T10:07:07+00:00",
+      "version": 9,
       "resume": "Le groupe d'espionnage Armory Castle, soupçonné d'être lié à la Chine, a exploité deux failles zero-day pour passer de BeyondTrust Remote Support à vCenter puis à un hôte ESXi [1, 4, 6, 7]. Broadcom a corrigé la faille de vCenter le 19 novembre 2026 [6, 7].",
       "chaine": [
         {
@@ -1763,7 +1763,7 @@
           }
         ]
       },
-      "limites": "Les sources ne nomment ni victime ni secteur [1, 4, 5, 6, 7]. Broadcom ne signale aucune attaque exploitant CVE-2026-123890 [3, 4, 6], alors que Mandiant décrit son exploitation [1, 5, 6].",
+      "limites": "Les sources ne nomment ni victime ni secteur [1, 4, 5, 6, 7, 10]. Broadcom ne signale aucune attaque exploitant CVE-2026-123890 [3, 4, 6], alors que Mandiant décrit son exploitation [1, 5, 6].",
       "cves": [
         {
           "id": "CVE-2026-102764",
@@ -1771,12 +1771,12 @@
         },
         {
           "id": "CVE-2026-123890",
-          "explication": "vCenter Server, composant VMware Directory Service [4, 6] : contournement d'authentification administrateur sans identifiants [1, 5], exploité depuis septembre 2026 [5, 6], cataloguée par la CISA [8] ; 9,8 sur 10 [3, 4]."
+          "explication": "vCenter Server, composant VMware Directory Service [4, 6] : contournement d'authentification administrateur sans identifiants [1, 5], exploité depuis septembre 2026 [5, 6], cataloguée par la CISA [8, 10] ; 9,8 sur 10 [3, 4]."
         }
       ],
       "mitre": [],
       "acteurs": [
-        "Armory Castle [1, 4, 6, 7, 9], anciennement UNC5221 [1, 4, 6, 7], aussi connu sous le nom Warp Panda [4], soupçonné d'être lié à la Chine [1, 4, 6, 7, 9]"
+        "Armory Castle [1, 4, 6, 7, 9, 10], anciennement UNC5221 [1, 4, 6, 7, 10], aussi connu sous le nom Warp Panda [4], soupçonné d'être lié à la Chine [1, 4, 6, 7, 9, 10]"
       ],
       "cibles": [
         "Environnements VMware vCenter et ESXi ; aucune victime ni secteur nommés [1, 4]"
@@ -1874,6 +1874,13 @@
           "site": "Dark Reading",
           "url": "https://www.darkreading.com/cyberattacks-data-breaches/china-armory-castle-vmware-vcenter-zero-day",
           "date": "2026-11-20"
+        },
+        {
+          "titre": "Hackers Exploit Critical VMware, Cisco, and Apache Flaws as Espionage Attacks Emerge",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-vmware-cisco.html",
+          "date": "2026-11-21",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFnWnBDigw8RogBTSInXktn1vUISbzwjHm5GuAFBNX0_ClLBk83WOa2BYiHUbgtva76TY8Oz2kJvEZtvEjqZlFFCuvQ-u-l-4l5dzo2MXw7zHLEuklv_Gn1mB-f5TL9GP_3n1NxQkzkZ-fAX7UpcqfZqUefQiRQZm21sq6IZOzmyuQ1hYs4AFHWQAj83WX/s1700-nu-rw-lo-l85-e365/vmware-cisco.jpg"
         }
       ]
     },

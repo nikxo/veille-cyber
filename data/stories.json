@@ -2,6 +2,88 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-21-microsoft-entra-connect-health",
+      "title": "Microsoft Entra Connect Health : une faille exploitée pour lire les adresses des administrateurs et la configuration des clients",
+      "created": "2026-11-21T18:30:00+00:00",
+      "updated": "2026-11-21T18:30:00+00:00",
+      "version": 1,
+      "resume": "Des attaquants non identifiés ont exploité une faille du service Entra Connect Health de Microsoft pour consulter, en lecture seule, les adresses électroniques d'administrateurs et des informations de configuration de clients [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation d'une faille de l'interface de programmation (API) d'Entra Connect Health → accès en lecture seule aux métadonnées des clients [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Consultation des adresses électroniques d'administrateurs et de contacts techniques, des identifiants et domaines des clients, des licences et d'un certificat expiré [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "api",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "API Entra Connect Health",
+            "note": "Faille exploitée"
+          },
+          {
+            "id": "meta",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Métadonnées des clients",
+            "note": "Lecture seule"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "api",
+            "etape": 1,
+            "texte": "Exploitation de la faille de l'API"
+          },
+          {
+            "de": "api",
+            "vers": "meta",
+            "etape": 2,
+            "texte": "Lecture des adresses, identifiants et licences"
+          }
+        ]
+      },
+      "limites": "Microsoft ne donne ni l'auteur, ni le nombre de clients touchés, ni la date de début des attaques, et la source ne décrit pas la technique d'exploitation [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié : Microsoft n'a pas dit qui a exploité la faille [1]"
+      ],
+      "cibles": [
+        "Organisations utilisant Entra Connect Health, dont des prestataires de services gérés pour plusieurs clients [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Interface de programmation permettant à des logiciels d'échanger avec un service"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Microsoft Entra Connect Health flaw exploited to steal tenant data",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/microsoft-entra-connect-health-flaw-exploited-to-steal-tenant-data/",
+          "date": "2026-11-21",
+          "image": "https://www.bleepstatic.com/content/hl-images/2024/01/26/microsoft-red-header.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-21-badbox-3-fraude-publicitaire",
       "title": "BADBOX 3.0 : le réseau de boîtiers télé Android infectés revient à la fraude publicitaire, avec 40 milliards de requêtes par jour",
       "created": "2026-11-21T16:30:00+00:00",

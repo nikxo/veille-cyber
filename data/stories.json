@@ -2,6 +2,146 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-22-glinet-cloud-routeurs-kvm",
+      "title": "GL.iNet : une faille du service cloud de gestion à distance exploitée pour infecter des routeurs et des boîtiers KVM",
+      "created": "2026-11-22T19:07:30+00:00",
+      "updated": "2026-11-22T19:07:30+00:00",
+      "version": 1,
+      "resume": "Des pirates non identifiés ont exploité une faille des services cloud de gestion à distance de GL.iNet pour installer des logiciels malveillants sur des routeurs et boîtiers KVM de clients, avec portes dérobées et accès à distance [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation d'une faille des services cloud de gestion à distance de GL.iNet → logiciels malveillants installés sur les routeurs et boîtiers KVM des clients [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Script ni.sh téléchargé, qui reconnaît le modèle et récupère les programmes gl-helper et gb ; shells inversés avec droits root → exécution de commandes à distance [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Scripts de démarrage et tâches planifiées → relance après redémarrage ou arrêt des processus ; fonction prévue pour installer des clés publiques SSH d'accès à distance [1]."
+        },
+        {
+          "etape": "Dissimulation",
+          "texte": "Fonctions pour déguiser le processus en crond et modifier les dates des fichiers ; outil netstat remplacé pour cacher les connexions vers une adresse des attaquants [1]."
+        },
+        {
+          "etape": "Commande et contrôle",
+          "texte": "Contact régulier d'un serveur distant → récupération et exécution de nouvelles commandes [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "cloud",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Cloud de gestion GL.iNet",
+            "note": "Faille exploitée"
+          },
+          {
+            "id": "rt",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Routeurs des clients",
+            "note": "Shell inversé root"
+          },
+          {
+            "id": "kvm",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Boîtiers KVM des clients",
+            "note": "Script ni.sh téléchargé"
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveurs des attaquants",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cloud",
+            "etape": 1,
+            "texte": "Exploitation d'une faille du service cloud"
+          },
+          {
+            "de": "rt",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Shells inversés root vers les attaquants"
+          },
+          {
+            "de": "cloud",
+            "vers": "rt",
+            "etape": 1,
+            "texte": "Logiciels malveillants installés"
+          },
+          {
+            "de": "cloud",
+            "vers": "kvm",
+            "etape": 1,
+            "texte": "Logiciels malveillants installés"
+          },
+          {
+            "de": "srv",
+            "vers": "kvm",
+            "etape": 2,
+            "texte": "Script ni.sh et programmes téléchargés"
+          },
+          {
+            "de": "kvm",
+            "vers": "srv",
+            "etape": 5,
+            "texte": "Contact régulier, commandes récupérées"
+          }
+        ]
+      },
+      "limites": "GL.iNet ne détaille ni la faille exploitée ni le nombre de clients touchés ; une possible injection de commandes signalée par RemoteToHome Consulting n'est pas confirmée comme vecteur ; vol de données non établi [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié ; des commentaires en chinois dans le script ni.sh suggèrent qu'un locuteur chinois pourrait l'avoir écrit [1]"
+      ],
+      "cibles": [
+        "Clients GL.iNet : routeurs (dont GL-MT2500) et boîtiers KVM (dont GL-RM1) ; nombre de victimes non divulgué [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "GL",
+          "definition": "Début du nom du fabricant GL.iNet et de ses références de produits"
+        },
+        {
+          "sigle": "KVM",
+          "definition": "Keyboard Video Mouse : boîtier pour prendre la main à distance sur un ordinateur"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole d'accès chiffré à distance en ligne de commande"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers exploit GL.iNet cloud flaw to infect routers, KVM devices",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-glinet-cloud-flaw-to-infect-routers-kvm-devices/",
+          "date": "2026-11-22",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/22/routers-kvms.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-21-microsoft-entra-connect-health",
       "title": "Microsoft Entra Connect Health : une faille exploitée pour lire les adresses des administrateurs et la configuration des clients",
       "created": "2026-11-21T18:30:00+00:00",

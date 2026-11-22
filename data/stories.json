@@ -173,9 +173,9 @@
       "id": "2026-11-21-fbi-ncic-intrusion",
       "title": "FBI : une intrusion présumée dans la base nationale de la police, deuxième piratage signalé en deux mois",
       "created": "2026-11-21T15:30:00+00:00",
-      "updated": "2026-11-21T15:30:00+00:00",
-      "version": 1,
-      "resume": "Le FBI enquête sur une intrusion présumée dans le National Crime Information Center, base partagée par les forces de l'ordre américaines ; c'est le deuxième piratage signalé à l'agence en deux mois [1].",
+      "updated": "2026-11-22T01:06:37+00:00",
+      "version": 2,
+      "resume": "Le FBI enquête sur une intrusion présumée dans le National Crime Information Center, base partagée par les forces de l'ordre américaines ; c'est le deuxième piratage signalé à l'agence en deux mois [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -183,7 +183,7 @@
         },
         {
           "etape": "Accès à la base",
-          "texte": "Intrusion présumée dans le National Crime Information Center, découverte ces derniers jours → impact sur les données et le service inconnu [1]."
+          "texte": "Intrusion présumée dans le National Crime Information Center, révélée par la presse et confirmée par une source anonyme → ampleur et impact encore inconnus [1, 2]."
         }
       ],
       "parcours": {
@@ -225,14 +225,14 @@
           }
         ]
       },
-      "limites": "La source ne dit ni comment l'accès a été obtenu, ni si des données ont été volées ou consultées ; le FBI n'a pas confirmé l'incident publiquement [1].",
+      "limites": "Les sources ne disent ni comment l'accès a été obtenu, ni si des données ont été volées ou consultées ; le FBI a refusé de commenter [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Non identifié ; aucun lien établi avec ShinyHunters, qui avait revendiqué l'intrusion précédente [1]"
       ],
       "cibles": [
-        "FBI : base de la police américaine sur les personnes recherchées ou disparues, mandats, véhicules et armes volés [1]"
+        "FBI : base utilisée par les polices locales, des États et fédérales, sur fugitifs, personnes disparues, antécédents judiciaires et biens volés [1, 2]"
       ],
       "abreviations": [
         {
@@ -247,6 +247,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/fbi-reportedly-hacked-again-this-time-targeting-nationwide-police-database/",
           "date": "2026-11-21",
           "image": "https://www.bleepstatic.com/content/hl-images/2022/12/16/FBI__headpic.jpg"
+        },
+        {
+          "titre": "FBI Investigating Apparent Hack of Its Key National Criminal Justice Database, AP Source Says",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/fbi-investigating-apparent-hack-of-its-key-national-criminal-justice-database-ap-source-says/",
+          "date": "2026-11-21",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/04/FBI-Surveillance.jpg"
         }
       ]
     },

@@ -56500,6 +56500,130 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2022/12/09/Rackspace.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-22-openrouter-fournisseurs-inference-vol-requetes",
+      "title": "OpenRouter : des requêtes de clients volées pendant des mois chez trois fournisseurs d'inférence d'IA, des clés leurres aussitôt testées",
+      "created": "2026-11-22T07:30:00+00:00",
+      "updated": "2026-11-22T07:30:00+00:00",
+      "version": 1,
+      "resume": "Selon Dragos, des attaquants ont volé pendant des mois des requêtes chez trois fournisseurs d'inférence d'IA, dont certaines marquées sans conservation de données ; OpenRouter a retiré trois fournisseurs de sa plateforme [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Toutes les requêtes de quelques courtes fenêtres fin octobre volées, dont quelques centaines de clés AWS leurres placées par les chercheurs [1]."
+        },
+        {
+          "etape": "Exploitation des clés",
+          "texte": "Clés AWS testées, parfois en quelques heures → espaces S3 listés, secrets cherchés dans Secrets Manager et Parameter Store [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Tentatives de créer des clés Bedrock et d'ajouter des utilisateurs IAM pour garder l'accès [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inf",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Fournisseur d'inférence d'IA",
+            "note": "Requêtes copiées"
+          },
+          {
+            "id": "aws",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Comptes AWS des clés leurres",
+            "note": "Clés testées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inf",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "inf",
+            "vers": "att",
+            "etape": 2,
+            "texte": "Requêtes copiées, dont des clés AWS leurres"
+          },
+          {
+            "de": "att",
+            "vers": "aws",
+            "etape": 3,
+            "texte": "Clés testées, secrets cherchés"
+          },
+          {
+            "de": "att",
+            "vers": "aws",
+            "etape": 4,
+            "texte": "Tentatives d'ajout d'utilisateurs IAM"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas comment l'attaquant de la plus grande violation est entré ; pour la violation commencée mi-juillet, le fournisseur évoque des identifiants internes compromis [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Attaquants non nommés, dont un qui semble avoir compromis deux fournisseurs à la fois, avec des secrets des deux utilisés depuis un seul serveur loué [1]",
+        "Le 1er novembre, ce même attaquant a utilisé ARTEX, cadre de test d'intrusion piloté par IA, pour confirmer la validité de clés [1]"
+      ],
+      "cibles": [
+        "Fournisseurs d'inférence d'IA non nommés et leurs clients, notamment ceux passant par OpenRouter [1]",
+        "Phala et Together AI ont publié leurs propres avis d'incident, sans lien établi avec les trois fournisseurs [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "AWS",
+          "definition": "Amazon Web Services : services cloud d'Amazon"
+        },
+        {
+          "sigle": "S3",
+          "definition": "Service de stockage de fichiers d'Amazon Web Services"
+        },
+        {
+          "sigle": "IAM",
+          "definition": "Gestion des identités et des accès des comptes Amazon Web Services"
+        },
+        {
+          "sigle": "ARTEX",
+          "definition": "Cadre de test d'intrusion piloté par intelligence artificielle"
+        },
+        {
+          "sigle": "AI",
+          "definition": "Artificial Intelligence : intelligence artificielle, ici dans le nom Together AI"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "OpenRouter Drops 3 Providers After Researchers Catch Months of Prompt Theft at AI Hosting Firms",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/openrouter-drops-3-providers-after.html",
+          "date": "2026-11-22",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEGP3P_elvK4C-QnSx5onZ67viDXCIgPCUYqtTF_RDNcLJfyQ4QMbegUmn8AJy5nEmnXfN4ACr6hHztG_DdqXlj54S21toacPQaZgRx2rgqZltN3lvREpZR2xlvgXF_iZ7zW0XT0b91mMiRDVaEB6TUvMFlWwaSa3_C7gwpxdKcNhLtIq15KqwaZrR3VI/s1700-nu-rw-lo-l85-e365/openrouter.png"
+        }
+      ]
     }
   ]
 }

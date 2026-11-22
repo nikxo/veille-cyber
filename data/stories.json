@@ -56624,6 +56624,102 @@
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEGP3P_elvK4C-QnSx5onZ67viDXCIgPCUYqtTF_RDNcLJfyQ4QMbegUmn8AJy5nEmnXfN4ACr6hHztG_DdqXlj54S21toacPQaZgRx2rgqZltN3lvREpZR2xlvgXF_iZ7zW0XT0b91mMiRDVaEB6TUvMFlWwaSa3_C7gwpxdKcNhLtIq15KqwaZrR3VI/s1700-nu-rw-lo-l85-e365/openrouter.png"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-22-cleverbridge-vol-cartes-bancaires",
+      "title": "Cleverbridge : des pirates copient les numéros de carte et codes CVV de clients de la plateforme de vente en ligne",
+      "created": "2026-11-22T16:30:00+00:00",
+      "updated": "2026-11-22T16:30:00+00:00",
+      "version": 1,
+      "resume": "La plateforme de vente en ligne Cleverbridge a détecté une activité non autorisée le 4 novembre ; un tiers a copié des données de cartes bancaires, dont les numéros et codes CVV/CVC [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Copie des données de cartes stockées sur la plateforme → numéros, dates d'expiration et codes CVV/CVC dérobés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "plat",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateforme Cleverbridge",
+            "note": "Données de cartes"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "plat",
+            "etape": 2,
+            "texte": "Accès aux données de cartes stockées"
+          },
+          {
+            "de": "plat",
+            "vers": "att",
+            "etape": 2,
+            "texte": "Numéros, dates d'expiration et codes copiés"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni l'accès initial, ni le nombre de clients touchés, ni pourquoi les codes CVV étaient accessibles ; aucun chiffrement de systèmes selon l'entreprise [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Tiers non identifié, désigné comme des pirates [1]"
+      ],
+      "cibles": [
+        "Clients ayant acheté via Cleverbridge, prestataire de vente de Red Hat, SUSE, Tenable, Veeam, Jamf, Sony ou Parallels ; clients concernés non précisés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CVV",
+          "definition": "Card Verification Value : code de sécurité au dos de la carte bancaire"
+        },
+        {
+          "sigle": "CVC",
+          "definition": "Card Verification Code : autre nom du code de sécurité de la carte"
+        },
+        {
+          "sigle": "SUSE",
+          "definition": "Nom d'un éditeur de logiciels client de Cleverbridge"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Cleverbridge warns hackers stole credit card numbers, CVVs in data breach",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cleverbridge-warns-hackers-stole-credit-card-numbers-cvvs-in-data-breach/",
+          "date": "2026-11-22",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/22/credit-cards.jpg"
+        }
+      ]
     }
   ]
 }

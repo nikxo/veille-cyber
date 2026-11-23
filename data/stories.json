@@ -2,6 +2,90 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-23-kepco-fuite-donnees",
+      "title": "KEPCO : un pirate s'introduit dans le réseau interne du géant sud-coréen de l'électricité et accède à des données clients",
+      "created": "2026-11-23T21:10:00+00:00",
+      "updated": "2026-11-23T21:10:00+00:00",
+      "version": 1,
+      "resume": "Korea Electric Power Corporation, géant sud-coréen de l'électricité, a confirmé une fuite de données dont l'impact est chiffré à 1,5 million [1]. Un acteur malveillant a accédé à des données de clients, d'employés et de sous-traitants [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Intrusion",
+          "texte": "Pénétration du réseau interne de l'entreprise → accès à deux systèmes internes [1]."
+        },
+        {
+          "etape": "Accès aux données",
+          "texte": "Consultation des deux systèmes → accès à des données de clients, d'employés et de sous-traitants [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "res",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Réseau interne de l'entreprise",
+            "note": "Entrée non précisée"
+          },
+          {
+            "id": "sys",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Deux systèmes internes",
+            "note": "Clients, employés, sous-traitants"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "res",
+            "etape": 2,
+            "texte": "Intrusion dans le réseau interne"
+          },
+          {
+            "de": "res",
+            "vers": "sys",
+            "etape": 3,
+            "texte": "Accès aux données"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'entrée, ni les dates, ni l'identité de l'acteur, ni la nature exacte des données consultées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Korea Electric Power Corporation, fournisseur d'électricité sud-coréen : clients, employés et sous-traitants [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "KEPCO",
+          "definition": "Korea Electric Power Corporation : grand fournisseur d'électricité de Corée du Sud"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "South Korea’s power giant KEPCO confirms data breach impacting 1.5 million",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/south-koreas-power-giant-kepco-confirms-data-breach-impacting-15-million/",
+          "date": "2026-11-23",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/23/towers.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-23-laliga-donnees-supporters",
       "title": "LaLiga : un pirate extrait des données personnelles de supporters d'une plateforme de services aux fans",
       "created": "2026-11-23T19:07:08+00:00",

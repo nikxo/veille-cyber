@@ -2,6 +2,149 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-23-ledger-faux-fichier-clickfix-forum-pwn",
+      "title": "Fausse fuite Ledger sur le forum PWN : un faux CAPTCHA de type ClickFix fait exécuter un programme aux pirates curieux",
+      "created": "2026-11-23T02:20:00+00:00",
+      "updated": "2026-11-23T02:20:00+00:00",
+      "version": 1,
+      "resume": "Sur le forum clandestin PWN, un nouveau venu a proposé une prétendue base clients de Ledger renvoyant vers une page piégée qui fait exécuter un programme à ceux qui veulent la télécharger [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Annonce d'une fausse fuite Ledger publiée le 22 novembre 2026 → visiteurs envoyés vers une page piégée hébergée sur un sous-domaine de free.nf [1]."
+        },
+        {
+          "etape": "Exécution par la victime",
+          "texte": "Faux CAPTCHA de type ClickFix demandant Windows + R puis coller une commande → script PowerShell lancé par la victime elle-même [1]."
+        },
+        {
+          "etape": "Installation du programme",
+          "texte": "La commande récupère et exécute un contenu distant → un fichier exécutable téléchargé dans le dossier temporaire de Windows puis lancé [1]."
+        },
+        {
+          "etape": "Suivi par l'opérateur",
+          "texte": "Requête envoyée vers un chemin « /api/captcha/executed » avec un jeton → peut permettre à l'opérateur de suivre les exécutions [1]."
+        },
+        {
+          "etape": "Leurre visuel",
+          "texte": "Faux messages « Cloudflare vérification sécurisée » puis « Vérification humaine terminée », PowerShell fermé après trois secondes → le programme lancé peut continuer à fonctionner [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (nouveau venu)",
+            "note": ""
+          },
+          {
+            "id": "forum",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Forum clandestin PWN",
+            "note": "Fausse fuite Ledger"
+          },
+          {
+            "id": "page",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Page piégée sur free.nf",
+            "note": "Faux CAPTCHA"
+          },
+          {
+            "id": "user",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Visiteur intéressé",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste Windows du visiteur",
+            "note": "Exécutable lancé"
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de l'opérateur",
+            "note": "Suivi possible des exécutions"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "forum",
+            "etape": 1,
+            "texte": "Annonce d'une fausse fuite Ledger"
+          },
+          {
+            "de": "forum",
+            "vers": "user",
+            "etape": 1,
+            "texte": "Lien vers la page piégée"
+          },
+          {
+            "de": "user",
+            "vers": "page",
+            "etape": 2,
+            "texte": "Faux CAPTCHA, commande collée"
+          },
+          {
+            "de": "page",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Script PowerShell exécuté"
+          },
+          {
+            "de": "srv",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Exécutable téléchargé puis lancé"
+          },
+          {
+            "de": "pc",
+            "vers": "srv",
+            "etape": 4,
+            "texte": "Signalement de l'exécution avec jeton"
+          }
+        ]
+      },
+      "limites": "La source ne nomme pas le programme installé, ne décrit pas ce qu'il fait et ne documente aucune victime effective ; elle ne dit pas que Ledger a été compromis [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Nouveau venu non nommé sur le forum clandestin PWN [1]"
+      ],
+      "cibles": [
+        "Personnes cherchant à obtenir la prétendue base clients de Ledger, notamment sur le forum PWN [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CAPTCHA",
+          "definition": "Test censé distinguer un humain d'un robot avant d'accéder à un contenu"
+        },
+        {
+          "sigle": "PWN",
+          "definition": "Nom d'un forum clandestin fréquenté par des pirates"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Ledger : un pirate piège d’autres pirates avec un faux fichier",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/ledger-un-pirate-piege-dautres-pirates-avec-un-faux-fichier/",
+          "date": "2026-11-23",
+          "image": "https://www.zataz.com/wp-content/uploads/PWN_piege.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-23-chambourcy-inc-ransom",
       "title": "Chambourcy : INC Ransom revendique la cyberattaque de la mairie et diffuse des documents de la police municipale",
       "created": "2026-11-23T01:20:00+00:00",

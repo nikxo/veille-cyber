@@ -57299,6 +57299,129 @@
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/22/credit-cards.jpg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-23-blackhatsect0r-torcal-phishing-bancaire",
+      "title": "BlackHatSect0r : destruction des données d'un organisme espagnol de formation à la conduite et plateforme d'hameçonnage bancaire",
+      "created": "2026-11-23T10:07:34+00:00",
+      "updated": "2026-11-23T10:07:34+00:00",
+      "version": 1,
+      "resume": "Le groupe BlackHatSect0r revendique la destruction des données et sauvegardes de Torcal, organisme espagnol de formation à la conduite, avec une rançon de 20 000 €, et vend une plateforme d'hameçonnage imitant 81 banques [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Accès revendiqué au logiciel de gestion (ERP), aux interfaces de programmation, à l'application mobile et aux bases des élèves ; le groupe affirme une compromission totale [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Récupération revendiquée de 321 982 mots de passe en clair, de 173 409 fiches clients et de 180 368 documents numérisés [1]."
+        },
+        {
+          "etape": "Destruction des sauvegardes",
+          "texte": "Suppressions revendiquées dans la base de l'ERP ; vidage revendiqué de 18 espaces de stockage Amazon S3, avec 2 460 449 objets détruits selon le pirate [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Demande de rançon de 20 000 € en Bitcoin [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (BlackHatSect0r)",
+            "note": ""
+          },
+          {
+            "id": "ent",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "erp",
+            "type": "application",
+            "zone": "victime",
+            "nom": "ERP et bases de Torcal",
+            "note": "92 millions de lignes"
+          },
+          {
+            "id": "s3",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Stockage Amazon S3",
+            "note": "18 espaces vidés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ent",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "ent",
+            "vers": "erp",
+            "etape": 2,
+            "texte": "Accès à l'ERP, à l'application et aux bases"
+          },
+          {
+            "de": "erp",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Mots de passe, fiches et documents récupérés"
+          },
+          {
+            "de": "att",
+            "vers": "s3",
+            "etape": 4,
+            "texte": "2 460 449 objets détruits (revendiqué)"
+          }
+        ]
+      },
+      "limites": "La source ne précise pas comment les pirates sont entrés chez Torcal ; l'usage d'un serveur de l'Assurance retraite n'est pas confirmé, ni l'effet réel sur les automates d'une ligne indienne [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "BlackHatSect0r, groupe de jeunes pirates déjà lié à des revendications contre la Fédération française d'équitation et Entre Bièvre et Rhône [1]"
+      ],
+      "cibles": [
+        "Torcal Innovación y Seguridad SL, formation à la conduite (Espagne) [1]",
+        "81 banques européennes imitées ; marchés visés : France, Belgique, Luxembourg et Suisse [1]",
+        "Ligne de conditionnement de riz en Inde dont l'interface industrielle serait exposée selon les pirates, à vérifier [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ERP",
+          "definition": "Enterprise Resource Planning : logiciel de gestion centralisée d'une entreprise"
+        },
+        {
+          "sigle": "S3",
+          "definition": "Simple Storage Service : service de stockage de fichiers d'Amazon Web Services"
+        },
+        {
+          "sigle": "SL",
+          "definition": "Sociedad Limitada : société à responsabilité limitée en Espagne"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "BlackHatSect0r : phishing bancaire, extorsion et industrie",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/blackhatsect0r-phishing-bancaire-extorsion-et-industrie/",
+          "date": "2026-11-23",
+          "image": "https://www.zataz.com/wp-content/uploads/blackhatsector_hack.jpg"
+        }
+      ]
     }
   ]
 }

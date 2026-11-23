@@ -1,13 +1,5 @@
 [
   {
-    "id": "75d9433706946160",
-    "title": "MLEP in KICS for Networks 5.0: how machine learning helps track network behavior of OT devices",
-    "link": "https://securelist.com/tr/machine-learning-event-processor-in-kics-for-networks/121794/",
-    "source": "Securelist (Kaspersky)",
-    "raison": "annonce produit",
-    "date": "2026-11-03T11:20:00+00:00"
-  },
-  {
     "id": "375c9083b60dd7f4",
     "title": "Google adds new $250,000 Cloud VRP reward for Root-in-Cloud bugs",
     "link": "https://www.bleepingcomputer.com/news/google/google-adds-new-250-000-cloud-vrp-reward-for-root-in-cloud-bugs/",
@@ -3998,5 +3990,13 @@
     "source": "Dark Reading",
     "raison": "approches de fournisseurs pour contrôler les agents d'IA, aucune attaque décrite",
     "date": "2026-11-23T05:15:00+00:00"
+  },
+  {
+    "id": "b0e51417b8a48af5",
+    "title": "Microsoft confirms Windows printing issues affecting Forcepoint users",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-confirms-printing-issues-after-kb5132043-windows-hotpatch/",
+    "source": "BleepingComputer",
+    "raison": "bug de mise à jour Windows, pas d'attaque",
+    "date": "2026-11-23T10:07:34+00:00"
   }
 ]

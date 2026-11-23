@@ -1,29 +1,5 @@
 [
   {
-    "id": "3d1337d272815d86",
-    "title": "Police seizes over 100 servers in investment scam crackdown",
-    "link": "https://www.bleepingcomputer.com/news/security/police-seizes-over-100-servers-in-investment-scam-crackdown/",
-    "source": "BleepingComputer",
-    "raison": "actualité judiciaire sans méthode d'attaque",
-    "date": "2026-11-03T14:30:00+00:00"
-  },
-  {
-    "id": "bc7e7db1a56fa591",
-    "title": "Russia dismantles infrastructure of VasyGrek cybercrime group, detains three suspects",
-    "link": "https://therecord.media/russia-dismantles-vasygrek-infrastructure-detains-three",
-    "source": "The Record",
-    "raison": "actualité judiciaire sans méthode d'attaque",
-    "date": "2026-11-03T14:30:00+00:00"
-  },
-  {
-    "id": "f4845f555ca608ff",
-    "title": "Huntress + Hudu Integration: Security Context in Your IT Docs",
-    "link": "https://www.huntress.com/blog/hudu-huntress-integration",
-    "source": "Huntress",
-    "raison": "annonce produit",
-    "date": "2026-11-03T14:30:00+00:00"
-  },
-  {
     "id": "750c4c98dfac1348",
     "title": "CrowdStrike Reportedly Paying $495 Million for AI Security Firms Fiddler, Dreadnode",
     "link": "https://www.securityweek.com/crowdstrike-reportedly-paying-495-million-for-ai-security-firms-fiddler-dreadnode/",
@@ -3998,5 +3974,29 @@
     "source": "ZATAZ",
     "raison": "article de sensibilisation sans attaque",
     "date": "2026-11-23T12:30:00+00:00"
+  },
+  {
+    "id": "518fa40826b6669b",
+    "title": "phpAfterShell Vulnerability Revives PHP2Shell’s Attack Path",
+    "link": "https://www.securityweek.com/phpaftershell-vulnerability-revives-php2shells-attack-path/",
+    "source": "SecurityWeek",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-23T14:07:39+00:00"
+  },
+  {
+    "id": "cb673b121b80fca4",
+    "title": "Critical binary-parser Flaw Enables JavaScript Injection via Malicious Parser Definitions",
+    "link": "https://thehackernews.com/2026/11/critical-binary-parser-flaw-enables.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-23T14:07:39+00:00"
+  },
+  {
+    "id": "6dad11c2094e6580",
+    "title": "Microsoft testing fix for Windows 11 Bluetooth audio quality drops",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-testing-fix-for-windows-11-bluetooth-audio-quality-drops/",
+    "source": "BleepingComputer",
+    "raison": "correctif fonctionnel, pas une attaque",
+    "date": "2026-11-23T14:07:39+00:00"
   }
 ]

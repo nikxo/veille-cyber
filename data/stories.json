@@ -1004,9 +1004,9 @@
       "id": "2026-11-22-glinet-cloud-routeurs-kvm",
       "title": "GL.iNet : une faille du service cloud de gestion à distance exploitée pour infecter des routeurs et des boîtiers KVM",
       "created": "2026-11-22T19:07:30+00:00",
-      "updated": "2026-11-23T11:20:00+00:00",
-      "version": 2,
-      "resume": "Des pirates non identifiés ont exploité une faille des services cloud de gestion à distance de GL.iNet pour installer des logiciels malveillants sur des routeurs et boîtiers KVM de clients ; GL.iNet dit l'avoir corrigée vendredi et avoir bloqué l'accès utilisé [1, 2].",
+      "updated": "2026-11-23T14:07:39+00:00",
+      "version": 3,
+      "resume": "Des pirates non identifiés ont exploité une faille du service cloud de gestion à distance GoodCloud de GL.iNet pour infecter des routeurs et boîtiers KVM [1, 2, 3] ; le correctif ne retire pas ces logiciels, un firmware de sécurité distinct doit être installé [3].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -1123,14 +1123,15 @@
           }
         ]
       },
-      "limites": "GL.iNet n'explique ni la faille ni le nombre de victimes [1, 2] ; selon RemoteToHome, non confirmé par GL.iNet, le client cloud du routeur exécute en root des valeurs reçues sans vérification [2].",
+      "limites": "GL.iNet ne détaille ni la faille ni le nombre de victimes [1, 2, 3] ; selon RemoteToHome, non confirmé par GL.iNet, le logiciel cloud exécute sans vérification ce qu'il reçoit [2, 3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Non identifié ; des commentaires en chinois dans le script ni.sh suggèrent qu'un locuteur chinois pourrait l'avoir écrit [1]"
       ],
       "cibles": [
-        "Clients GL.iNet : routeurs, dont GL-MT2500 [1], GL-AXT1800 et GL-MT6000 [2], et boîtiers KVM, dont GL-RM1 [1, 2] ; nombre de victimes non divulgué [1, 2]"
+        "Clients GL.iNet : routeurs, dont GL-MT2500 [1], GL-AXT1800 et GL-MT6000 [2], et boîtiers KVM, dont GL-RM1 [1, 2] ; nombre de victimes non divulgué [1, 2]",
+        "Près de 200 routeurs examinés par RemoteToHome, la plupart touchés par cette attaque ou par une porte dérobée plus ancienne datée de septembre 2025 [3]"
       ],
       "abreviations": [
         {
@@ -1168,6 +1169,13 @@
           "url": "https://thehackernews.com/2026/11/hackers-exploited-glinet-cloud-flaw-to.html",
           "date": "2026-11-23",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6ctvKkiuJ-JViYFHxOV5w1CYjcopn7_YrQt2SnF6JC_SvdOugBSXLdVaMgnWhLCO1NfVgwru4ieWK8L3IeCP-OR75HltWOF5qNhOm9iH_VzJi3PSuUgCUtvhy0zkh_nZFv14tLCRsWly39aREkIphJtNMYUvsGS-CvIwunALU5KxtjFswov-lcS2iqzY/s1700-nu-rw-lo-l85-e365/glinet.jpg"
+        },
+        {
+          "titre": "GL.iNet Routers, KVMs Compromised via Remote Management Service Flaw",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/gl-inet-routers-kvms-compromised-via-remote-management-service-flaw/",
+          "date": "2026-11-23",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/03/router.jpeg"
         }
       ]
     },

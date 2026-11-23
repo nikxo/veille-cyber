@@ -170,8 +170,8 @@
       "id": "2026-11-20-cairn-universites-zero-day-imagerie-medicale",
       "title": "Cairn : des pirates liés à la Chine font trouver par l'IA une faille inconnue de MONAI Label et obtiennent un accès root dans une université",
       "created": "2026-11-20T18:09:54+00:00",
-      "updated": "2026-11-23T17:30:00+00:00",
-      "version": 4,
+      "updated": "2026-11-23T22:10:00+00:00",
+      "version": 5,
       "resume": "Des pirates liés à la Chine ont confié à Cairn, outil d'intrusion autonome fondé sur l'IA, l'attaque d'universités d'Asie de l'Est [1, 3, 5]. Cairn a trouvé une faille inconnue dans MONAI Label, serveur d'imagerie médicale, et obtenu un accès root [3].",
       "chaine": [
         {
@@ -236,7 +236,7 @@
       "cves": [
         {
           "id": "CVE-2026-133968",
-          "explication": "MONAI Label 0.8.5 et antérieures, configuration par défaut : traversée de chemin permettant d'écrire des fichiers hors du dossier de stockage sans compte, gravité critique 9,8 sur 10 [3]."
+          "explication": "MONAI Label 0.8.5 et antérieures : traversée de chemin permettant d'écrire des fichiers hors du dossier de stockage sans compte, gravité 9,8 sur 10 [3] ; exploitée selon la CISA [6]."
         }
       ],
       "mitre": [],
@@ -254,6 +254,10 @@
         {
           "sigle": "MONAI",
           "definition": "Medical Open Network for AI : projet open source d'IA pour l'imagerie médicale"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Cybersecurity and Infrastructure Security Agency : agence américaine de cybersécurité"
         }
       ],
       "sources": [
@@ -289,6 +293,12 @@
           "titre": "AI Agents Zip From Flaw Discovery to Root Access in 11 Minutes",
           "site": "Dark Reading",
           "url": "https://www.darkreading.com/cyberattacks-data-breaches/ai-agents-flaw-discovery-root-access-11-minutes",
+          "date": "2026-11-23"
+        },
+        {
+          "titre": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/23/cisa-adds-two-known-exploited-vulnerabilities-catalog",
           "date": "2026-11-23"
         }
       ]
@@ -705,8 +715,8 @@
       "id": "2026-11-19-n-able-mail-assure-spamexperts",
       "title": "N-able : un serveur web de Mail Assure et SpamExperts compromis, des identifiants stockés consultés et la gestion coupée",
       "created": "2026-11-19T11:20:00+00:00",
-      "updated": "2026-11-23T16:20:00+00:00",
-      "version": 5,
+      "updated": "2026-11-23T22:10:00+00:00",
+      "version": 6,
       "resume": "Un tiers non identifié a compromis un serveur du service cloud Mail Assure et SpamExperts de N-able, coupant portails de gestion et API [1, 2] ; il a peut-être accédé à des identifiants stockés sur la plateforme [2].",
       "chaine": [
         {
@@ -773,7 +783,7 @@
           }
         ]
       },
-      "limites": "Vecteur d'accès et acteur inconnus [1, 2, 3, 4, 5] ; N-able ne dit pas si CVE-2026-134624 a servi de point d'entrée [4, 5] ; régions touchées : trois selon [1], toutes selon [2].",
+      "limites": "Vecteur d'accès et acteur inconnus [1, 2, 3, 4, 5] ; N-able ne dit pas si CVE-2026-134624 a servi d'entrée [4, 5], la CISA la dit exploitée sans détail [6] ; régions touchées : trois [1] ou toutes [2].",
       "cves": [
         {
           "id": "CVE-2026-134624",
@@ -797,6 +807,10 @@
         {
           "sigle": "OAuth",
           "definition": "Protocole d'autorisation qui délivre des jetons d'accès à des applications"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Cybersecurity and Infrastructure Security Agency : agence américaine de cybersécurité"
         }
       ],
       "sources": [
@@ -834,6 +848,12 @@
           "url": "https://www.securityweek.com/n-able-patches-critical-flaw-disclosed-after-mail-assure-cyberattack/",
           "date": "2026-11-23",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/08/N-Able.jpeg"
+        },
+        {
+          "titre": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/23/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-23"
         }
       ]
     },

@@ -2,6 +2,98 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-23-chambourcy-inc-ransom",
+      "title": "Chambourcy : INC Ransom revendique la cyberattaque de la mairie et diffuse des documents de la police municipale",
+      "created": "2026-11-23T01:20:00+00:00",
+      "updated": "2026-11-23T01:20:00+00:00",
+      "version": 1,
+      "resume": "La mairie de Chambourcy, dans les Yvelines, a subi une cyberattaque et a mis son réseau informatique hors service par précaution ; le groupe INC Ransom l'a revendiquée et a diffusé des échantillons de documents [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Documents présentés comme issus des systèmes municipaux, dont des fichiers de la police municipale sur la surveillance de domiciles [1]."
+        },
+        {
+          "etape": "Revendication",
+          "texte": "Revendication le 19 novembre 2026, avec publication d'échantillons de documents [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (INC Ransom)",
+            "note": ""
+          },
+          {
+            "id": "si",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes de la mairie",
+            "note": "Réseau coupé"
+          },
+          {
+            "id": "doc",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Documents municipaux",
+            "note": "Police municipale"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "si",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "doc",
+            "vers": "att",
+            "etape": 2,
+            "texte": "Documents récupérés"
+          },
+          {
+            "de": "att",
+            "vers": "doc",
+            "etape": 3,
+            "texte": "Échantillons publiés"
+          }
+        ]
+      },
+      "limites": "La source ne décrit ni la méthode d'intrusion ni un éventuel chiffrement, et l'espace de stockage des pirates était vide lors de son examen [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "INC Ransom, groupe de rançongiciel [1]"
+      ],
+      "cibles": [
+        "Commune de Chambourcy (Yvelines), dont sa police municipale ; des documents concernant des habitants sont exposés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "INC",
+          "definition": "Nom d'un groupe de rançongiciel"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Cyberattaque à Chambourcy : INC Ransom revendique l’attaque",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/cyberattaque-a-chambourcy-inc-ransom-revendique-lattaque/",
+          "date": "2026-11-23",
+          "image": "https://www.zataz.com/wp-content/uploads/INC_chambourcy.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-22-glinet-cloud-routeurs-kvm",
       "title": "GL.iNet : une faille du service cloud de gestion à distance exploitée pour infecter des routeurs et des boîtiers KVM",
       "created": "2026-11-22T19:07:30+00:00",

@@ -1,53 +1,5 @@
 [
   {
-    "id": "97eb34359d193605",
-    "title": "CI/CD : GitHub décline son arsenal pour limiter les attaques de type « Pwn Request »",
-    "link": "https://www.lemagit.fr/actualites/366653454/CI-CD-GitHub-decline-son-arsenal-pour-limiter-les-attaques-de-type-Pwn-Request",
-    "source": "LeMagIT",
-    "raison": "annonce produit",
-    "date": "2026-11-03T16:08:50+00:00"
-  },
-  {
-    "id": "47887f1443ada123",
-    "title": "9 Cyber Awareness Tips That Actually Match Today’s Maze of Threats",
-    "link": "https://www.darkreading.com/cyber-risk/9-cyber-awareness-tips-todays-maze-threats",
-    "source": "Dark Reading",
-    "raison": "conseils génériques",
-    "date": "2026-11-03T17:08:10+00:00"
-  },
-  {
-    "id": "4ee243d9c309bcdc",
-    "title": "Subnet Solutions PowerSYSTEM Center",
-    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-307-01",
-    "source": "CISA Advisories",
-    "raison": "vulnérabilité sans exploitation constatée (résumé du flux)",
-    "date": "2026-11-03T17:08:10+00:00"
-  },
-  {
-    "id": "bc96c130a163cdde",
-    "title": "Barracuda Flaws Could Be Chained to Bypass Authorization and Gain Root Access",
-    "link": "https://thehackernews.com/2026/11/barracuda-flaws-could-be-chained-to.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-11-03T18:20:00+00:00"
-  },
-  {
-    "id": "3ef32407e1cbcf19",
-    "title": "IBM Automation 2.0 : vers une console unifiée pour l’automatisation IT",
-    "link": "https://www.lemagit.fr/actualites/366653492/IBM-Automation-20-vers-une-console-unifiee-pour-lautomatisation-IT",
-    "source": "LeMagIT",
-    "raison": "annonce produit",
-    "date": "2026-11-03T18:20:00+00:00"
-  },
-  {
-    "id": "77e928d095693734",
-    "title": "Guide essentiel : la sauvegarde en cloud",
-    "link": "https://www.lemagit.fr/essentialguide/Guide-essentiel-la-sauvegarde-en-cloud",
-    "source": "LeMagIT",
-    "raison": "conseils génériques",
-    "date": "2026-11-03T18:20:00+00:00"
-  },
-  {
     "id": "04e3dc3e5c4ef4d2",
     "title": "Divalto lance sa plateforme d’agents IA pour ses ERP et CRM",
     "link": "https://www.lemagit.fr/actualites/366653436/Divalto-lance-sa-plateforme-dagents-IA-pour-ERP-et-CRM",
@@ -3998,5 +3950,53 @@
     "source": "Elastic Security Labs",
     "raison": "annonce produit (règles de détection), incidents seulement cités en contexte sans détail",
     "date": "2026-11-23T15:15:00+00:00"
+  },
+  {
+    "id": "093ee410276f1227",
+    "title": "AlertZero in Elastic Security: Every alert answered. Every decision yours",
+    "link": "https://www.elastic.co/security-labs/blog/ai-soc-agents-alertzero-workers",
+    "source": "Elastic Security Labs",
+    "raison": "annonce produit",
+    "date": "2026-11-23T16:20:00+00:00"
+  },
+  {
+    "id": "a8a7dae833325ac8",
+    "title": "Press play on Elastic Security 9.6, banger after banger",
+    "link": "https://www.elastic.co/security-labs/blog/elastic-security-9-6-release-highlights",
+    "source": "Elastic Security Labs",
+    "raison": "annonce produit",
+    "date": "2026-11-23T16:20:00+00:00"
+  },
+  {
+    "id": "85658b0bc9736fac",
+    "title": "'Overwhelming' support leads Trump to lock in Davies for national cyber czar",
+    "link": "https://therecord.media/kirsten-davies-trump-intends-nominate-national-cyber-director",
+    "source": "The Record",
+    "raison": "actualité politique, sans attaque décrite",
+    "date": "2026-11-23T16:20:00+00:00"
+  },
+  {
+    "id": "7fa98bbf35ff4a78",
+    "title": "Proof-of-concept exploit code available for Ghostscript ‘Upload2Shell’ vulnerability (CVE-2026-125396)",
+    "link": "https://www.sophos.com/en-us/blog/proof-of-concept-available-for-ghostscript-upload2shell",
+    "source": "Sophos Threat Research",
+    "raison": "preuve de concept publiée, aucune exploitation constatée",
+    "date": "2026-11-23T16:20:00+00:00"
+  },
+  {
+    "id": "c670598379d5f771",
+    "title": "23rd November – Threat Intelligence Report",
+    "link": "https://research.checkpoint.com/2026/23rd-november-threat-intelligence-report/",
+    "source": "Check Point Research",
+    "raison": "bulletin hebdomadaire, sujets déjà couverts",
+    "date": "2026-11-23T16:20:00+00:00"
+  },
+  {
+    "id": "1d460438657663c0",
+    "title": "Ransomware : les frameworks offensifs agentiques sont entrés dans la danse",
+    "link": "https://www.lemagit.fr/actualites/366655137/Ransomware-les-frameworks-offensifs-agentiques-sont-entres-dans-la-danse",
+    "source": "LeMagIT",
+    "raison": "article de tendance sur l'usage d'agents d'IA, sans attaque précise décrite",
+    "date": "2026-11-23T16:20:00+00:00"
   }
 ]

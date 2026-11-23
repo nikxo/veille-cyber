@@ -2157,23 +2157,27 @@
     {
       "schema": 3,
       "id": "2026-11-18-equinor-cyberattaque-services-internes",
-      "title": "Equinor : une cyberattaque stoppée après avoir perturbé les services informatiques internes du géant norvégien de l'énergie, la production épargnée",
+      "title": "Equinor et Skagerak Energi : une faille d'Azure API Management exploitée pour viser des secrets, les services internes d'Equinor perturbés",
       "created": "2026-11-18T14:30:00+00:00",
-      "updated": "2026-11-20T15:10:00+00:00",
-      "version": 2,
-      "resume": "Le groupe énergétique norvégien Equinor a stoppé une cyberattaque détectée le 17 novembre, qui a gêné l'accès des employés aux applications internes sans toucher la production [1, 3].",
+      "updated": "2026-11-23T16:20:00+00:00",
+      "version": 3,
+      "resume": "Selon l'autorité norvégienne de sécurité, une faille des anciennes offres « Classic » d'Azure API Management a été exploitée contre plusieurs organisations, dont Equinor et Skagerak Energi [4, 5] ; chez Equinor, l'accès aux applications internes a été perturbé, sans toucher la production [1, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 2, 3]."
+          "texte": "Exploitation d'une faille des anciennes offres « Classic » d'Azure API Management → jetons d'accès et autres secrets stockés sur la plateforme visés [4, 5]."
         },
         {
           "etape": "Perturbation des services",
-          "texte": "Attaque contre des systèmes informatiques détectée le 17 novembre → employés gênés pour accéder aux applications internes, messagerie interne hors service selon Reuters [1, 2, 3]."
+          "texte": "Attaque contre des systèmes informatiques d'Equinor détectée le 17 novembre → employés gênés pour accéder aux applications internes, messagerie interne hors service selon Reuters [1, 2, 3]."
+        },
+        {
+          "etape": "Correction par Microsoft",
+          "texte": "Problème découvert par Microsoft le 18 novembre → voie d'accès fermée le lendemain [4, 5]."
         },
         {
           "etape": "Arrêt de l'attaque",
-          "texte": "Attaque stoppée par Equinor ; production non affectée et aucun indice de vol ou d'altération de données [3]."
+          "texte": "Attaque stoppée par Equinor ; production non affectée et aucun indice de vol ou d'altération de données [3, 5]."
         }
       ],
       "parcours": {
@@ -2184,6 +2188,13 @@
             "zone": "internet",
             "nom": "Attaquant (non identifié)",
             "note": ""
+          },
+          {
+            "id": "apim",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Azure API Management Classic",
+            "note": "Secrets stockés"
           },
           {
             "id": "sys",
@@ -2203,9 +2214,15 @@
         "liens": [
           {
             "de": "att",
-            "vers": "sys",
+            "vers": "apim",
             "etape": 1,
-            "texte": "Vecteur d'accès non précisé"
+            "texte": "Exploitation d'une faille, secrets visés"
+          },
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Attaque détectée le 17 novembre"
           },
           {
             "de": "sys",
@@ -2215,16 +2232,24 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni le vecteur d'accès, ni les systèmes compromis, ni l'auteur ; Equinor dit qu'aucun virus n'était en cause [1, 3] et qu'elle ne semblait pas visée spécifiquement [3].",
+      "limites": "Les sources ne décrivent ni le mécanisme de la faille ni l'usage des secrets visés [4, 5] ; Microsoft n'a pas confirmé le lien avec les attaques norvégiennes [5] ; Equinor dit qu'aucun virus n'était en cause [1, 3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Auteurs non identifiés [1]"
+        "Acteur non identifié selon l'autorité norvégienne de sécurité [4] ; Microsoft ne dit pas si le même acteur est derrière les incidents norvégiens [5]"
       ],
       "cibles": [
-        "Equinor, groupe énergétique norvégien ; selon l'entreprise, aucun indice d'atteinte aux employés, partenaires ou fournisseurs [1]"
+        "Equinor, groupe énergétique norvégien ; selon l'entreprise, aucun indice d'atteinte aux employés, partenaires ou fournisseurs [1]",
+        "Skagerak Energi, entreprise norvégienne d'électricité [5] ; opérations et production non affectées selon elle [4]",
+        "Autres organisations de plusieurs secteurs, en Norvège et à l'étranger [4, 5]",
+        "Instances Classic ne suivant pas les recommandations de sécurité de Microsoft ; les instances v2 ne sont pas touchées [4]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Application Programming Interface : interface permettant à des programmes de communiquer"
+        }
+      ],
       "sources": [
         {
           "titre": "Cyberattack hits Norwegian energy giant Equinor, disrupting internal services",
@@ -2246,6 +2271,20 @@
           "url": "https://www.securityweek.com/in-other-news-norwegian-energy-firm-cyberattacks-supercomputer-hack-new-nightmare-eclipse-exploit/",
           "date": "2026-11-20",
           "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
+        },
+        {
+          "titre": "Azure Flaw Exploited to Target Secrets at Norwegian Energy Firms",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/azure-flaw-exploited-to-target-secrets-at-norwegian-energy-firms/",
+          "date": "2026-11-23",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+        },
+        {
+          "titre": "Norway says hackers exploited Microsoft security flaw to attack energy firms Equinor, Skagerak Energi",
+          "site": "The Record",
+          "url": "https://therecord.media/norway-microsoft-cyberattack-equinor",
+          "date": "2026-11-23",
+          "image": "https://cms.therecord.media/uploads/Refinery_e1c59e2a0a.jpg"
         }
       ]
     },
@@ -2476,13 +2515,13 @@
       "id": "2026-11-19-n-able-mail-assure-spamexperts",
       "title": "N-able : un serveur web de Mail Assure et SpamExperts compromis, des identifiants stockés consultés et la gestion coupée",
       "created": "2026-11-19T11:20:00+00:00",
-      "updated": "2026-11-23T13:30:00+00:00",
-      "version": 4,
+      "updated": "2026-11-23T16:20:00+00:00",
+      "version": 5,
       "resume": "Un tiers non identifié a compromis un serveur du service cloud Mail Assure et SpamExperts de N-able, coupant portails de gestion et API [1, 2] ; il a peut-être accédé à des identifiants stockés sur la plateforme [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 2, 4]."
+          "texte": "Non précisé par les sources [1, 2, 4, 5]."
         },
         {
           "etape": "Accès au serveur",
@@ -2502,7 +2541,7 @@
         },
         {
           "etape": "Faille découverte",
-          "texte": "Pendant l'enquête, N-able trouve la faille CVE-2026-134624 et publie la version corrigée 20261121.1943 → tableau de bord et interfaces de programmation rétablis [4]."
+          "texte": "Faille CVE-2026-134624 trouvée pendant l'enquête, corrigée dans la version 20261121.1943 [4, 5] ; tableau de bord et API rétablis le 21 novembre [5]."
         }
       ],
       "parcours": {
@@ -2544,11 +2583,11 @@
           }
         ]
       },
-      "limites": "Vecteur d'accès et acteur inconnus [1, 2, 3, 4] ; N-able ne dit pas si CVE-2026-134624 a servi de point d'entrée [4] ; régions touchées : trois selon [1], toutes selon [2].",
+      "limites": "Vecteur d'accès et acteur inconnus [1, 2, 3, 4, 5] ; N-able ne dit pas si CVE-2026-134624 a servi de point d'entrée [4, 5] ; régions touchées : trois selon [1], toutes selon [2].",
       "cves": [
         {
           "id": "CVE-2026-134624",
-          "explication": "Mail Assure : vérification de connexion sans restriction de destination ; un utilisateur API authentifié fait joindre au serveur des hôtes et ports internes arbitraires, score 9,3 [4]."
+          "explication": "Mail Assure : vérification de connexion sans restriction de destination ; un utilisateur API authentifié fait joindre au serveur des hôtes et ports internes arbitraires, score 9,3 [4, 5]."
         }
       ],
       "mitre": [],
@@ -2557,7 +2596,8 @@
       ],
       "cibles": [
         "Partenaires et clients de Mail Assure et SpamExperts Hosted Cloud, dans trois régions [1] ou toutes les régions [2]",
-        "N-able dit n'avoir trouvé aucune preuve de compromission des données clients, boîtes aux lettres comprises [3, 4]"
+        "N-able dit n'avoir trouvé aucune preuve de compromission des données clients, boîtes aux lettres comprises [3, 4]",
+        "N-able dit n'avoir trouvé aucune preuve d'exploitation au-delà du serveur identifié ; analyse de la cause promise sous deux semaines [5]"
       ],
       "abreviations": [
         {
@@ -2597,6 +2637,13 @@
           "url": "https://thehackernews.com/2026/11/n-able-discloses-critical-mail-assure.html",
           "date": "2026-11-23",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgcXbCG8v5Kc2mTfNCFEiow0EHLJWtsrsrEodqvL8qF8awCnrDzw2TfxtPq7rYI3u78mviB8ekGNGL1Of8FZrSM6uZT1lhz2mfRHwHQyhQT8234u03WGZ9M4UZzmj2cYMs8qlsJ54PwNPvVMb2awEzinXAYL0Y25iOGjjikMvq4NQ-v03mqluZnI53PNdk/s1700-nu-rw-lo-l85-e365/nables.jpg"
+        },
+        {
+          "titre": "N-able Patches Critical Flaw Disclosed After Mail Assure Cyberattack",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/n-able-patches-critical-flaw-disclosed-after-mail-assure-cyberattack/",
+          "date": "2026-11-23",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/08/N-Able.jpeg"
         }
       ]
     },

@@ -2,6 +2,73 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-23-cisa-cisco-expressway-exploitee",
+      "title": "Cisco Expressway : la CISA signale l'exploitation d'une faille critique récemment corrigée",
+      "created": "2026-11-23T08:10:00+00:00",
+      "updated": "2026-11-23T08:10:00+00:00",
+      "version": 1,
+      "resume": "L'agence américaine CISA a averti les agences fédérales que des attaquants exploitent dans la nature une faille critique de Cisco Expressway récemment corrigée [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Exploitation",
+          "texte": "Exploitation d'une faille critique d'exécution de code à distance de Cisco Expressway, récemment corrigée [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "exp",
+            "type": "passerelle",
+            "zone": "victime",
+            "nom": "Appareils Cisco Expressway",
+            "note": "Faille critique"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "exp",
+            "etape": 2,
+            "texte": "Exploitation d'une faille critique"
+          }
+        ]
+      },
+      "limites": "Le résumé disponible ne donne ni l'identifiant de la faille, ni les victimes, ni les attaquants, ni ce qu'ils ont fait après l'exploitation [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Organisations utilisant Cisco Expressway, alerte adressée aux agences fédérales américaines [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CISA",
+          "definition": "Cybersecurity and Infrastructure Security Agency : agence américaine de cybersécurité"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CISA flags critical Cisco RCE flaw as actively exploited in attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-critical-cisco-expressway-rce-flaw-as-actively-exploited/",
+          "date": "2026-11-23",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/23/Cisco.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-23-ledger-faux-fichier-clickfix-forum-pwn",
       "title": "Fausse fuite Ledger sur le forum PWN : un faux CAPTCHA de type ClickFix fait exécuter un programme aux pirates curieux",
       "created": "2026-11-23T02:20:00+00:00",

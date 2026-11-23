@@ -2,6 +2,305 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-23-idunno-anticsrf-aspnet-rce",
+      "title": "Idunno.AntiCsrf : une faille critique de cette bibliothèque ASP.NET abandonnée est exploitée pour exécuter du code sans authentification",
+      "created": "2026-11-23T11:20:00+00:00",
+      "updated": "2026-11-23T11:20:00+00:00",
+      "version": 1,
+      "resume": "Une faille critique d'Idunno.AntiCsrf, bibliothèque de protection pour ASP.NET WebForms abandonnée, sans mise à jour depuis décembre 2008 ni correctif officiel, est exploitée dans la nature ; elle permet d'exécuter du code sans authentification [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Une seule requête POST sans authentification, avec un cookie CSRF non vide et une chaîne de gadgets encodée en Base64 dans le champ CSRF [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Jeton désérialisé sans clé ni vérification de signature → exécution de code dans le processus IIS w3wp.exe, compromission complète du serveur d'applications web [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "web",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur web ASP.NET WebForms",
+            "note": "Code exécuté (w3wp.exe)"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Requête POST piégée sans authentification"
+          },
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 2,
+            "texte": "Exécution de code dans le processus IIS"
+          }
+        ]
+      },
+      "limites": "La source ne nomme ni les attaquants, ni les victimes, ni ce qu'ils ont fait après l'exécution de code ; la date de l'exploitation observée n'est pas donnée [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-131914",
+          "explication": "Idunno.AntiCsrf 0.9.1.0 et 0.9.1 Beta : désérialisation non sécurisée dans le module HTTP permettant l'exécution de code à distance, gravité 9,3 sur 10 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié : Google n'a pas donné d'autres détails sur l'activité [1]"
+      ],
+      "cibles": [
+        "Applications ASP.NET WebForms utilisant Idunno.AntiCsrf ; victimes non précisées [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ASP.NET",
+          "definition": "Cadre de Microsoft pour créer des applications et sites web"
+        },
+        {
+          "sigle": "CSRF",
+          "definition": "Cross-Site Request Forgery : requête forcée à l'insu d'un utilisateur connecté"
+        },
+        {
+          "sigle": "POST",
+          "definition": "Type de requête web qui envoie des données au serveur"
+        },
+        {
+          "sigle": "IIS",
+          "definition": "Internet Information Services : serveur web de Microsoft"
+        },
+        {
+          "sigle": "HTTP",
+          "definition": "Protocole d'échange des pages et requêtes web"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers Exploit Critical ASP.NET Anti-CSRF Library Flaw Allowing Unauthenticated RCE",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-aspnet-anti.html",
+          "date": "2026-11-23",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWv3LP9w9Iv-ZmqonS5mwf1jDE-lTLUcDPxCOvYn3RF87-n2epMtdhqH5xXf-bsIIyKXq6U9qU5T1OQ6_Y3VeytS0CCA4TLJtFDcfcHR-I2EHY3t2e94UPvppaaXG9jDQPj4wNwt6CdwQCmXm5uK16BAp5Fn12DmxUk-Wu5ZwPT2kPQFo37oxSeqc6hX7X/s1700-nu-rw-lo-l85-e365/asp.net.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-23-bulgarie-cyberespionnage-administration",
+      "title": "Bulgarie : près de cinq ans d'espionnage dans l'infrastructure d'échange de documents de l'administration",
+      "created": "2026-11-23T11:20:00+00:00",
+      "updated": "2026-11-23T11:20:00+00:00",
+      "version": 1,
+      "resume": "Le gouvernement bulgare a révélé le 18 novembre que des pirates espionnaient depuis 2021 l'infrastructure d'échange de documents de l'administration et ont volé au moins 62 millions de documents administratifs [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "Après l'intrusion, circulation entre plusieurs parties du système d'échange de documents des organismes publics [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Téléchargement de fichiers → travaux du Conseil des ministres, rapports internes et correspondance entre institutions dérobés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "ech",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Infrastructure d'échange de documents",
+            "note": "Espionnée depuis 2021"
+          },
+          {
+            "id": "doc",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Documents gouvernementaux",
+            "note": "62 millions de pages"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "ech",
+            "etape": 2,
+            "texte": "Circulation entre plusieurs parties du système"
+          },
+          {
+            "de": "doc",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Fichiers téléchargés"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni l'accès initial, ni les techniques et logiciels malveillants employés, ni l'auteur ; l'activité a été détectée en août 2026 [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Plusieurs groupes internationaux soupçonnés, sans identité ni pays ; aucun lien établi avec un État étranger [1]"
+      ],
+      "cibles": [
+        "Administration publique bulgare, dont le Conseil des ministres ; aucune compromission de données de citoyens constatée à ce stade [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Cyberespionnage en Bulgarie, 62 millions de pages volées",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/cyberespionnage-en-bulgarie-62-millions-de-pages-volees/",
+          "date": "2026-11-23",
+          "image": "https://www.zataz.com/wp-content/uploads/62_hack_bulgarie.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-23-aaaep-blackhatsect0r-metabase",
+      "title": "AAAEP : BlackHatSect0r revendique le vol des données de tests psychotechniques liés au permis de conduire via l'outil Metabase",
+      "created": "2026-11-23T11:20:00+00:00",
+      "updated": "2026-11-23T11:20:00+00:00",
+      "version": 1,
+      "resume": "Le groupe BlackHatSect0r revendique une intrusion chez AAAEP, organisateur de tests psychotechniques liés au permis de conduire, et le vol de données sur 584 867 personnes, dont des avis psychologiques ; revendication non vérifiée [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Accès privilégié revendiqué à une instance Metabase ; dix comptes touchés, dont cinq superutilisateurs [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Extraction revendiquée de toutes les données de Metabase → réservations, dossiers de candidats et 54 228 appels téléphoniques retranscrits [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Accès administratif revendiqué après l'extraction et contenu de l'interface modifié, sans preuve indépendante [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (BlackHatSect0r)",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "mb",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Outil Metabase d'AAAEP",
+            "note": "Comptes superutilisateurs"
+          },
+          {
+            "id": "data",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données des candidats",
+            "note": "Avis psychologiques, appels"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "mb",
+            "etape": 2,
+            "texte": "Accès privilégié revendiqué"
+          },
+          {
+            "de": "mb",
+            "vers": "data",
+            "etape": 3,
+            "texte": "Extraction revendiquée de toutes les données"
+          },
+          {
+            "de": "att",
+            "vers": "mb",
+            "etape": 4,
+            "texte": "Accès administratif conservé, interface modifiée"
+          }
+        ]
+      },
+      "limites": "Tout provient des pirates : la source précise que leur discours ne démontre ni l'intrusion ni les volumes, et relève une incohérence dans leurs chiffres ; la méthode d'accès à Metabase est inconnue [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "BlackHatSect0r, groupe de cybercriminels au discours politique visant l'État français et ses prestataires [1]"
+      ],
+      "cibles": [
+        "AAAEP, organisateur de tests psychotechniques pour des procédures de permis de conduire ; intrusion revendiquée du 21 au 23 novembre 2026 [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "AAAEP",
+          "definition": "Nom de l'organisme visé, qui organise des tests psychotechniques"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Cyberattaque contre AAAEP : 585 000 personnes exposées ?",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/cyberattaque-contre-aaaep-585-000-personnes-exposees/",
+          "date": "2026-11-23",
+          "image": "https://www.zataz.com/wp-content/uploads/aaaep_leak.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-23-cert-in-fraude-paiements-ia-inde",
       "title": "Inde : le CERT-In signale des attaques assistées par l'IA qui déclenchent des paiements non autorisés dans des banques et fintechs",
       "created": "2026-11-23T09:10:00+00:00",
@@ -444,17 +743,21 @@
       "id": "2026-11-22-glinet-cloud-routeurs-kvm",
       "title": "GL.iNet : une faille du service cloud de gestion à distance exploitée pour infecter des routeurs et des boîtiers KVM",
       "created": "2026-11-22T19:07:30+00:00",
-      "updated": "2026-11-22T19:07:30+00:00",
-      "version": 1,
-      "resume": "Des pirates non identifiés ont exploité une faille des services cloud de gestion à distance de GL.iNet pour installer des logiciels malveillants sur des routeurs et boîtiers KVM de clients, avec portes dérobées et accès à distance [1].",
+      "updated": "2026-11-23T11:20:00+00:00",
+      "version": 2,
+      "resume": "Des pirates non identifiés ont exploité une faille des services cloud de gestion à distance de GL.iNet pour installer des logiciels malveillants sur des routeurs et boîtiers KVM de clients ; GL.iNet dit l'avoir corrigée vendredi et avoir bloqué l'accès utilisé [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Exploitation d'une faille des services cloud de gestion à distance de GL.iNet → logiciels malveillants installés sur les routeurs et boîtiers KVM des clients [1]."
+          "texte": "Exploitation d'une faille du service cloud de gestion à distance GoodCloud → logiciels malveillants installés sur les routeurs et boîtiers KVM des clients [1, 2]."
         },
         {
           "etape": "Prise de contrôle",
-          "texte": "Script ni.sh téléchargé, qui reconnaît le modèle et récupère les programmes gl-helper et gb ; shells inversés avec droits root → exécution de commandes à distance [1]."
+          "texte": "Script ni.sh téléchargé, qui récupère les programmes gl-helper et gb [1] ; shells inversés avec droits root → exécution de commandes à distance [1, 2]."
+        },
+        {
+          "etape": "Reconnaissance du réseau",
+          "texte": "Sur un boîtier KVM GL-RM1, téléchargement d'un script et de deux programmes, puis analyse du réseau local [2]."
         },
         {
           "etape": "Persistance",
@@ -505,6 +808,13 @@
             "zone": "internet",
             "nom": "Serveurs des attaquants",
             "note": ""
+          },
+          {
+            "id": "lan",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Réseau local des clients",
+            "note": "Analysé"
           }
         ],
         "liens": [
@@ -541,19 +851,25 @@
           {
             "de": "kvm",
             "vers": "srv",
-            "etape": 5,
+            "etape": 6,
             "texte": "Contact régulier, commandes récupérées"
+          },
+          {
+            "de": "kvm",
+            "vers": "lan",
+            "etape": 3,
+            "texte": "Analyse du réseau local"
           }
         ]
       },
-      "limites": "GL.iNet ne détaille ni la faille exploitée ni le nombre de clients touchés ; une possible injection de commandes signalée par RemoteToHome Consulting n'est pas confirmée comme vecteur ; vol de données non établi [1].",
+      "limites": "GL.iNet n'explique ni la faille ni le nombre de victimes [1, 2] ; selon RemoteToHome, non confirmé par GL.iNet, le client cloud du routeur exécute en root des valeurs reçues sans vérification [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Non identifié ; des commentaires en chinois dans le script ni.sh suggèrent qu'un locuteur chinois pourrait l'avoir écrit [1]"
       ],
       "cibles": [
-        "Clients GL.iNet : routeurs (dont GL-MT2500) et boîtiers KVM (dont GL-RM1) ; nombre de victimes non divulgué [1]"
+        "Clients GL.iNet : routeurs, dont GL-MT2500 [1], GL-AXT1800 et GL-MT6000 [2], et boîtiers KVM, dont GL-RM1 [1, 2] ; nombre de victimes non divulgué [1, 2]"
       ],
       "abreviations": [
         {
@@ -567,6 +883,14 @@
         {
           "sigle": "SSH",
           "definition": "Secure Shell : protocole d'accès chiffré à distance en ligne de commande"
+        },
+        {
+          "sigle": "AXT1800",
+          "definition": "Référence d'un modèle de routeur GL.iNet"
+        },
+        {
+          "sigle": "MT6000",
+          "definition": "Référence d'un modèle de routeur GL.iNet"
         }
       ],
       "sources": [
@@ -576,6 +900,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-glinet-cloud-flaw-to-infect-routers-kvm-devices/",
           "date": "2026-11-22",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/22/routers-kvms.jpg"
+        },
+        {
+          "titre": "Hackers Exploited GL.iNet Cloud Flaw to Install Malware on Routers and KVM Devices",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploited-glinet-cloud-flaw-to.html",
+          "date": "2026-11-23",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6ctvKkiuJ-JViYFHxOV5w1CYjcopn7_YrQt2SnF6JC_SvdOugBSXLdVaMgnWhLCO1NfVgwru4ieWK8L3IeCP-OR75HltWOF5qNhOm9iH_VzJi3PSuUgCUtvhy0zkh_nZFv14tLCRsWly39aREkIphJtNMYUvsGS-CvIwunALU5KxtjFswov-lcS2iqzY/s1700-nu-rw-lo-l85-e365/glinet.jpg"
         }
       ]
     },
@@ -56088,177 +56419,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-10-03-warlock-ransomware-sharepoint",
-      "title": "Warlock (Storm-2603) exploite SharePoint contre une compagnie d'eau, un opérateur télécom, une administration, une université",
-      "created": "2026-10-03T16:02:48+00:00",
-      "updated": "2026-10-03T16:02:48+00:00",
-      "version": 1,
-      "resume": "Le groupe Warlock, lié à la Chine [1] ou soupçonné de l'être [2], a attaqué en deux mois une compagnie d'eau, un opérateur télécom, un organisme gouvernemental régional et une université [1, 2]. Dans une intrusion, le rançongiciel a été lancé sur au moins 33 machines [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Exploitation de failles de serveurs SharePoint installés en local → accès initial, puis dépôt d'une porte dérobée web [1, 2]."
-        },
-        {
-          "etape": "Exécution de code",
-          "texte": "Porte dérobée qui récupère les clés machine ASP.NET de la ferme SharePoint → charge utile signée et exécution de code dans le pool d'applications SharePoint [2]."
-        },
-        {
-          "etape": "Déplacement dans le réseau",
-          "texte": "Reconnaissance, progression dans le réseau, puis tunnels de Visual Studio Code installé comme service → connexion à distance aux machines compromises [1, 2]."
-        },
-        {
-          "etape": "Neutralisation des défenses",
-          "texte": "Outil exploitant le pilote vulnérable K7RKScan.sys (BYOVD) → logiciels de protection coupés sur au moins 40 machines en deux heures environ [1, 2]."
-        },
-        {
-          "etape": "Chiffrement",
-          "texte": "Charge placée dans le partage SYSVOL du domaine pour la diffuser ; rançongiciel lancé le 31 juillet sur au moins 33 machines [1, 2]."
-        }
-      ],
-      "limites": "L'article qui détaille l'intrusion du 22 juillet ne précise pas son accès initial [1] ; l'enchaînement décrit vient de l'autre article, sans date pour chaque action [2]. Ni vol de données ni rançon mentionnés [1, 2].",
-      "cves": [
-        {
-          "id": "CVE-2025-49704",
-          "explication": "Chaîne ToolShell exploitée par Warlock [1]. Injection de code dans SharePoint permettant à un attaquant disposant d'un compte d'exécuter du code à distance, gravité élevée 8,8 sur 10 [3]."
-        },
-        {
-          "id": "CVE-2025-49706",
-          "explication": "Chaîne ToolShell [1]. Défaut d'authentification dans SharePoint permettant à un attaquant non autorisé d'usurper une identité à travers le réseau, gravité moyenne 6,5 sur 10 [4]."
-        },
-        {
-          "id": "CVE-2025-53770",
-          "explication": "Chaîne ToolShell [1]. Désérialisation de données non fiables dans SharePoint Server installé en local : exécution de code à distance sans autorisation, gravité critique 9,8 sur 10 [5]."
-        },
-        {
-          "id": "CVE-2025-53771",
-          "explication": "Chaîne ToolShell [1]. Défaut d'authentification dans SharePoint permettant à un attaquant non autorisé d'usurper une identité à travers le réseau, gravité moyenne 6,5 sur 10 [6]."
-        },
-        {
-          "id": "CVE-2025-1055",
-          "explication": "Pilote K7RKScan.sys détourné en BYOVD pour couper les logiciels de sécurité [1, 2]. Un utilisateur local peu privilégié peut arrêter des processus administrateur ou système, gravité moyenne 5,6 sur 10 [7]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "Warlock, groupe de rançongiciel apparu en juin 2025, connu pour l'exploitation en zero-day de la chaîne de failles SharePoint ToolShell [1, 2]",
-        "Suivi sous les noms Longlegs par Symantec, Storm-2603 par Microsoft [1] et Gold Salem [2]",
-        "Lié à la Chine [1] ou soupçonné de l'être [2], avec des recoupements avec CL-CRI-1040, CamoFei et ChamelGang [2]"
-      ],
-      "cibles": [
-        "Une compagnie d'eau et un opérateur de télécommunications, opérateurs d'infrastructure critique [1, 2]",
-        "Un organisme gouvernemental régional et une université [1, 2]",
-        "Pays lusophones et hispanophones d'Europe, d'Afrique et d'Amérique latine [1, 2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "ASP.NET",
-          "definition": "Cadre web de Microsoft sur lequel repose SharePoint ; ses clés machine signent les données"
-        },
-        {
-          "sigle": "BYOVD",
-          "definition": "Bring Your Own Vulnerable Driver : installer un pilote vulnérable pour neutraliser les protections"
-        },
-        {
-          "sigle": "SYSVOL",
-          "definition": "Dossier partagé d'un domaine Windows, répliqué sur tous les contrôleurs de domaine"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Warlock ransomware breach SharePoint in water, telecom operator attacks",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/warlock-ransomware-breach-sharepoint-in-water-telecom-operator-attacks/",
-          "date": "2026-10-02",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/08/26/Microsoft-SharePoint.jpg"
-        },
-        {
-          "titre": "Warlock Exploits SharePoint Flaws to Disable Security Tools and Deploy Ransomware",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/warlock-exploits-sharepoint-flaws-to.html",
-          "date": "2026-10-03"
-        },
-        {
-          "titre": "Fiche NVD CVE-2025-49704",
-          "site": "NVD (NIST)",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-49704"
-        },
-        {
-          "titre": "Fiche NVD CVE-2025-49706",
-          "site": "NVD (NIST)",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-49706"
-        },
-        {
-          "titre": "Fiche NVD CVE-2025-53770",
-          "site": "NVD (NIST)",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53770"
-        },
-        {
-          "titre": "Fiche NVD CVE-2025-53771",
-          "site": "NVD (NIST)",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53771"
-        },
-        {
-          "titre": "Fiche NVD CVE-2025-1055",
-          "site": "NVD (NIST)",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-1055"
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (Warlock)",
-            "note": ""
-          },
-          {
-            "id": "sp",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur SharePoint",
-            "note": "Porte dérobée web"
-          },
-          {
-            "id": "pc",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Machines du réseau",
-            "note": "Protections coupées (40)"
-          },
-          {
-            "id": "sys",
-            "type": "annuaire",
-            "zone": "victime",
-            "nom": "Partage SYSVOL du domaine",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "sp",
-            "texte": "Exploitation de failles SharePoint, dépôt d'une porte dérobée web",
-            "etape": 1
-          },
-          {
-            "de": "sp",
-            "vers": "pc",
-            "texte": "Progression dans le réseau, tunnels Visual Studio Code",
-            "etape": 3
-          },
-          {
-            "de": "sys",
-            "vers": "pc",
-            "texte": "Rançongiciel diffusé depuis SYSVOL vers au moins 33 machines",
-            "etape": 5
-          }
-        ]
-      }
-    },
-    {
-      "schema": 3,
       "id": "2026-10-03-uat-11587-antino-backdoor-asie",
       "title": "UAT-11587 : la porte dérobée Antino, pilotée via Outlook et OneDrive, contre des gouvernements asiatiques",
       "created": "2026-10-03T16:02:48+00:00",
@@ -57209,9 +57369,9 @@
       "id": "2026-11-22-cleverbridge-vol-cartes-bancaires",
       "title": "Cleverbridge : des pirates copient les numéros de carte et codes CVV de clients de la plateforme de vente en ligne",
       "created": "2026-11-22T16:30:00+00:00",
-      "updated": "2026-11-22T16:30:00+00:00",
-      "version": 1,
-      "resume": "La plateforme de vente en ligne Cleverbridge a détecté une activité non autorisée le 4 novembre ; un tiers a copié des données de cartes bancaires, dont les numéros et codes CVV/CVC [1].",
+      "updated": "2026-11-23T11:20:00+00:00",
+      "version": 2,
+      "resume": "La plateforme de vente en ligne Cleverbridge a détecté une intrusion le 4 novembre ; un tiers a copié des données de cartes bancaires, dont les numéros et codes CVV [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -57219,7 +57379,7 @@
         },
         {
           "etape": "Vol de données",
-          "texte": "Copie des données de cartes stockées sur la plateforme → numéros, dates d'expiration et codes CVV/CVC dérobés [1]."
+          "texte": "Copie des données de cartes stockées sur la plateforme → numéros, dates d'expiration et codes CVV dérobés [1, 2] ; noms et coordonnées non copiés selon l'avis [2]."
         }
       ],
       "parcours": {
@@ -57267,14 +57427,15 @@
           }
         ]
       },
-      "limites": "La source ne précise ni l'accès initial, ni le nombre de clients touchés, ni pourquoi les codes CVV étaient accessibles ; aucun chiffrement de systèmes selon l'entreprise [1].",
+      "limites": "Les sources ne précisent ni l'accès initial, ni le nombre de clients touchés, ni la durée de présence des pirates ; aucun système chiffré selon l'entreprise [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Tiers non identifié, désigné comme des pirates [1]"
       ],
       "cibles": [
-        "Clients ayant acheté via Cleverbridge, prestataire de vente de Red Hat, SUSE, Tenable, Veeam, Jamf, Sony ou Parallels ; clients concernés non précisés [1]"
+        "Clients ayant acheté via Cleverbridge, prestataire de vente de Red Hat, SUSE, Tenable, Veeam, Jamf, Sony ou Parallels ; clients concernés non précisés [1, 2]",
+        "Titulaires de cartes concernés, notifiés à partir du 20 novembre [2]"
       ],
       "abreviations": [
         {
@@ -57297,6 +57458,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/cleverbridge-warns-hackers-stole-credit-card-numbers-cvvs-in-data-breach/",
           "date": "2026-11-22",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/22/credit-cards.jpg"
+        },
+        {
+          "titre": "Cleverbridge confirme un vol de données bancaires",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/cleverbridge-confirme-un-vol-de-donnees-bancaires/",
+          "date": "2026-11-23",
+          "image": "https://www.zataz.com/wp-content/uploads/Coffre_vol_clever.jpg"
         }
       ]
     },

@@ -2,6 +2,143 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-23-cert-in-fraude-paiements-ia-inde",
+      "title": "Inde : le CERT-In signale des attaques assistées par l'IA qui déclenchent des paiements non autorisés dans des banques et fintechs",
+      "created": "2026-11-23T09:10:00+00:00",
+      "updated": "2026-11-23T09:10:00+00:00",
+      "version": 1,
+      "resume": "Selon un avis du CERT-In sur des attaques assistées par intelligence artificielle en Inde, des banques, sociétés financières et prestataires technologiques ont subi des transactions non autorisées, sans auteur désigné [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de logiciels non corrigés ou de serveurs mal configurés exposés sur Internet, selon l'I4C [1]."
+        },
+        {
+          "etape": "Détournement des applications",
+          "texte": "Selon le CERT-In, abus d'applications métier et de processus gérés par des prestataires, plutôt qu'attaque directe des interfaces de paiement [1]."
+        },
+        {
+          "etape": "Modification des données",
+          "texte": "Altération d'enregistrements métier ou de relations d'approbation [1]."
+        },
+        {
+          "etape": "Paiements frauduleux",
+          "texte": "Paiements passés par les circuits et procédures d'approbation légitimes → aucune alerte déclenchée [1]."
+        },
+        {
+          "etape": "Sortie des fonds",
+          "texte": "Selon l'I4C, virements vers des comptes de mules dans plusieurs banques → retrait ou transfert rapide par IMPS ou NEFT [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (non attribué)",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "expose",
+            "nom": "Serveurs exposés",
+            "note": "Non corrigés, mal configurés"
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Applications métier",
+            "note": "Enregistrements modifiés"
+          },
+          {
+            "id": "pay",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Circuits de paiement légitimes",
+            "note": "Aucune alerte"
+          },
+          {
+            "id": "mul",
+            "type": "donnees",
+            "zone": "internet",
+            "nom": "Comptes de mules",
+            "note": "Plusieurs banques"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "srv",
+            "etape": 1,
+            "texte": "Exploitation de logiciels non corrigés"
+          },
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 2,
+            "texte": "Abus des applications et processus de prestataires"
+          },
+          {
+            "de": "app",
+            "vers": "pay",
+            "etape": 4,
+            "texte": "Paiements lancés via les approbations normales"
+          },
+          {
+            "de": "pay",
+            "vers": "mul",
+            "etape": 5,
+            "texte": "Fonds virés puis retirés rapidement"
+          }
+        ]
+      },
+      "limites": "La chaîne combine deux avis non reliés par la source : l'I4C évoque des interfaces de paiement visées, le CERT-In les écarte. Rôle de l'intelligence artificielle et montant exact non précisés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Aucun acteur désigné ; le CERT-In avait plus tôt cité Crafty Falcon contre des sociétés financières, sans lien établi avec cette campagne [1]"
+      ],
+      "cibles": [
+        "Banques, sociétés financières non bancaires et fintechs indiennes [1]",
+        "Prestataires technologiques gérant des paiements liés au gouvernement et plateformes de paiement de fournisseurs ou partenaires [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CERT-In",
+          "definition": "Équipe nationale indienne de réponse aux incidents informatiques"
+        },
+        {
+          "sigle": "I4C",
+          "definition": "Centre indien de coordination contre la cybercriminalité"
+        },
+        {
+          "sigle": "IMPS",
+          "definition": "Système indien de virement bancaire immédiat"
+        },
+        {
+          "sigle": "NEFT",
+          "definition": "Système indien de virement électronique entre banques"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "AI-Assisted Cyberattacks Trigger Unauthorized Payments at Indian Banks and Fintech Firms",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/ai-assisted-cyberattacks-trigger.html",
+          "date": "2026-11-23",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEijDifo0ih-I06DQJbgdnt34Xg1qWdMibKByoJO-4vqa50M4yN0Lwu4fDe88GBtoiKHMJnRDYM0WXvYDEMyCWFHEbedl0wzwKI7juH9Q9xs3osQjZK0xPygeuGm0bm6jgpWPa7bca1EuZfTQiLxn-X3aNaAhbchhvemZrCqslieabzsGmz4ezqhrKuYhDyk/s1700-nu-rw-lo-l85-e365/ai-india.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-23-cisa-cisco-expressway-exploitee",
       "title": "Cisco Expressway : la CISA signale l'exploitation d'une faille critique récemment corrigée",
       "created": "2026-11-23T08:10:00+00:00",

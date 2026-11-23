@@ -2468,13 +2468,13 @@
       "id": "2026-11-19-n-able-mail-assure-spamexperts",
       "title": "N-able : un serveur web de Mail Assure et SpamExperts compromis, des identifiants stockés consultés et la gestion coupée",
       "created": "2026-11-19T11:20:00+00:00",
-      "updated": "2026-11-20T14:30:00+00:00",
-      "version": 3,
+      "updated": "2026-11-23T13:30:00+00:00",
+      "version": 4,
       "resume": "Un tiers non identifié a compromis un serveur du service cloud Mail Assure et SpamExperts de N-able, coupant portails de gestion et API [1, 2] ; il a peut-être accédé à des identifiants stockés sur la plateforme [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 2]."
+          "texte": "Non précisé par les sources [1, 2, 4]."
         },
         {
           "etape": "Accès au serveur",
@@ -2491,6 +2491,10 @@
         {
           "etape": "Impact",
           "texte": "Portail de gestion, API, quarantaine, journalisation et synchronisation des boîtes indisponibles ; le flux et le filtrage des courriels restent assurés [1, 2, 3]."
+        },
+        {
+          "etape": "Faille découverte",
+          "texte": "Pendant l'enquête, N-able trouve la faille CVE-2026-134624 et publie la version corrigée 20261121.1943 → tableau de bord et interfaces de programmation rétablis [4]."
         }
       ],
       "parcours": {
@@ -2532,14 +2536,20 @@
           }
         ]
       },
-      "limites": "Vecteur d'accès et acteur inconnus [1, 2, 3] ; régions touchées : trois selon [1], toutes selon [2] ; aucune preuve d'accès aux boîtes aux lettres clients selon N-able [3].",
-      "cves": [],
+      "limites": "Vecteur d'accès et acteur inconnus [1, 2, 3, 4] ; N-able ne dit pas si CVE-2026-134624 a servi de point d'entrée [4] ; régions touchées : trois selon [1], toutes selon [2].",
+      "cves": [
+        {
+          "id": "CVE-2026-134624",
+          "explication": "Mail Assure : vérification de connexion sans restriction de destination ; un utilisateur API authentifié fait joindre au serveur des hôtes et ports internes arbitraires, score 9,3 [4]."
+        }
+      ],
       "mitre": [],
       "acteurs": [
         "Attaquants non identifiés ; incident sans lien avec les failles N-central Able2Shell, 4EverAble2Shell et Agent2Shell [1]"
       ],
       "cibles": [
-        "Partenaires et clients de Mail Assure et SpamExperts Hosted Cloud, dans trois régions [1] ou toutes les régions [2]"
+        "Partenaires et clients de Mail Assure et SpamExperts Hosted Cloud, dans trois régions [1] ou toutes les régions [2]",
+        "N-able dit n'avoir trouvé aucune preuve de compromission des données clients, boîtes aux lettres comprises [3, 4]"
       ],
       "abreviations": [
         {
@@ -2572,6 +2582,13 @@
           "url": "https://www.bleepingcomputer.com/news/microsoft/n-able-says-recent-security-breach-led-to-major-service-outage/",
           "date": "2026-11-20",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/20/N-able.jpg"
+        },
+        {
+          "titre": "N-able Discloses Critical Mail Assure Vulnerability Found During Breach Investigation",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/n-able-discloses-critical-mail-assure.html",
+          "date": "2026-11-23",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgcXbCG8v5Kc2mTfNCFEiow0EHLJWtsrsrEodqvL8qF8awCnrDzw2TfxtPq7rYI3u78mviB8ekGNGL1Of8FZrSM6uZT1lhz2mfRHwHQyhQT8234u03WGZ9M4UZzmj2cYMs8qlsJ54PwNPvVMb2awEzinXAYL0Y25iOGjjikMvq4NQ-v03mqluZnI53PNdk/s1700-nu-rw-lo-l85-e365/nables.jpg"
         }
       ]
     },
@@ -7873,8 +7890,8 @@
       "id": "2026-11-16-screenconnect-cve-2026-84869-techniciens",
       "title": "ScreenConnect : la faille CVE-2026-84869 exploitée pour installer un client pirate sur le poste d'un technicien de prestataire",
       "created": "2026-11-16T23:09:31+00:00",
-      "updated": "2026-11-17T14:08:00+00:00",
-      "version": 2,
+      "updated": "2026-11-23T13:30:00+00:00",
+      "version": 3,
       "resume": "Huntress confirme l'exploitation de CVE-2026-84869 contre des techniciens de prestataires de services managés : le 12 novembre, un poste de technicien a reçu un client ScreenConnect maquillé, relié au relais de l'attaquant [1].",
       "chaine": [
         {
@@ -7962,7 +7979,7 @@
           }
         ]
       },
-      "limites": "L'article ne décrit ni la façon dont les invités obtiennent leurs sessions, ni un usage ultérieur de l'accès par l'attaquant ; aucun acteur n'est nommé [1].",
+      "limites": "Les sources ne nomment aucun acteur [1, 3].",
       "cves": [
         {
           "id": "CVE-2026-84869",
@@ -7979,13 +7996,15 @@
       ],
       "acteurs": [
         "Acteur non nommé ; Huntress estime avec une confiance élevée que l'opérateur des envois répétés et celui du domaine masterdarky[.]com sont les mêmes [1]",
-        "Huntress dit cette activité distincte de la campagne des sessions aux noms de plateformes crypto ; SCKit semble exploiter une extension tierce côté serveur [1]"
+        "Huntress dit cette activité distincte de la campagne des sessions aux noms de plateformes crypto ; SCKit semble exploiter une extension tierce côté serveur [1]",
+        "Un fichier test marker.txt a été poussé deux secondes après l'arrivée d'un technicien depuis 91.224.92[.]167 ; l'installateur venait de masterdarky[.]com [3]"
       ],
       "cibles": [
         "Techniciens de prestataires de services managés : un poste compromis le 12 novembre, un fichier de test exécuté chez un second prestataire le 13 novembre [1]",
         "42 serveurs ScreenConnect de prestataires visés depuis 29 adresses, et au moins quatre autres techniciens exposés en octobre à des fichiers poussés par des invités [1]",
         "En octobre, un invité a rejoint trois sessions réelles d'un technicien et demandé l'exécution d'un fichier conçu pour déposer un script dans son dossier Démarrage [2]",
-        "ConnectWise a corrigé la faille le 8 septembre ; mise à jour des clients hôtes vers la version 26.6.5 ou ultérieure recommandée [2]"
+        "ConnectWise a corrigé la faille le 8 septembre ; mise à jour des clients hôtes vers la version 26.6.5 ou ultérieure recommandée [2]",
+        "Le poste d'un technicien contient souvent des consoles de gestion à distance, des identifiants enregistrés et l'accès à chaque client [3]"
       ],
       "abreviations": [],
       "sources": [
@@ -8002,6 +8021,13 @@
           "url": "https://www.securityweek.com/msp-screenconnect-servers-targeted-in-month-long-campaign/",
           "date": "2026-11-17",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/02/ConnectWise.jpeg"
+        },
+        {
+          "titre": "Hackers Exploit Critical ScreenConnect Flaw to Hijack MSP Technician PCs Without Warning",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-screenconnect.html",
+          "date": "2026-11-23",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWAI03mMW-UNs2bdUuZEiugVBMZq3speEoo8tbQ7TZVITD4fnXiK4l657Tn4-G9fX2w8xLz2zkP9-RTrg3QZPtNMHL_Lg7YRoruCnp8TJA4tbA5bW1YsBZU8QR2FIqSb3_IpN1Le-Xoq2MQ82ZQyRNmYxr8q70PPzijzypDcIDKMIOjrzBweBUiKJ_nuJY/s1700-nu-rw-lo-l85-e365/screens.jpg"
         }
       ]
     },
@@ -57189,9 +57215,9 @@
       "id": "2026-11-22-openrouter-fournisseurs-inference-vol-requetes",
       "title": "OpenRouter : des requêtes de clients volées pendant des mois chez trois fournisseurs d'inférence d'IA, des clés leurres aussitôt testées",
       "created": "2026-11-22T07:30:00+00:00",
-      "updated": "2026-11-22T07:30:00+00:00",
-      "version": 1,
-      "resume": "Selon Dragos, des attaquants ont volé pendant des mois des requêtes chez trois fournisseurs d'inférence d'IA, dont certaines marquées sans conservation de données ; OpenRouter a retiré trois fournisseurs de sa plateforme [1].",
+      "updated": "2026-11-23T13:30:00+00:00",
+      "version": 2,
+      "resume": "Selon Dragos, des attaquants ont volé pendant des mois des requêtes de clients chez trois fournisseurs d'inférence d'IA, qui n'ont rien détecté avant d'être prévenus ; OpenRouter a retiré trois fournisseurs [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -57199,7 +57225,7 @@
         },
         {
           "etape": "Vol de données",
-          "texte": "Toutes les requêtes de quelques courtes fenêtres fin octobre volées, dont quelques centaines de clés AWS leurres placées par les chercheurs [1]."
+          "texte": "Fin octobre, requêtes copiées à l'entrée d'un fournisseur, même celles rejetées avant le modèle, dont environ 200 clés AWS leurres [1, 2]."
         },
         {
           "etape": "Exploitation des clés",
@@ -57266,11 +57292,14 @@
       "mitre": [],
       "acteurs": [
         "Attaquants non nommés, dont un qui semble avoir compromis deux fournisseurs à la fois, avec des secrets des deux utilisés depuis un seul serveur loué [1]",
-        "Le 1er novembre, ce même attaquant a utilisé ARTEX, cadre de test d'intrusion piloté par IA, pour confirmer la validité de clés [1]"
+        "Le 1er novembre, ce même attaquant a utilisé ARTEX, cadre de test d'intrusion piloté par IA, pour confirmer la validité de clés [1]",
+        "Découverte : Dragos a envoyé environ deux millions de requêtes contenant des leurres traçables, de juillet à novembre [2]"
       ],
       "cibles": [
         "Fournisseurs d'inférence d'IA non nommés et leurs clients, notamment ceux passant par OpenRouter [1]",
-        "Phala et Together AI ont publié leurs propres avis d'incident, sans lien établi avec les trois fournisseurs [1]"
+        "Phala et Together AI ont publié leurs propres avis d'incident, sans lien établi avec les trois fournisseurs [1]",
+        "Phala : serveur exécutant un modèle DeepSeek servi via OpenRouter compromis, requêtes du 21 octobre au 8 novembre exposées [2]",
+        "Together AI : identifiants divulgués sur GitHub par un agent de codage d'IA, utilisés pour obtenir des échantillons de requêtes [2]"
       ],
       "abreviations": [
         {
@@ -57305,6 +57334,13 @@
           "url": "https://thehackernews.com/2026/11/openrouter-drops-3-providers-after.html",
           "date": "2026-11-22",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEGP3P_elvK4C-QnSx5onZ67viDXCIgPCUYqtTF_RDNcLJfyQ4QMbegUmn8AJy5nEmnXfN4ACr6hHztG_DdqXlj54S21toacPQaZgRx2rgqZltN3lvREpZR2xlvgXF_iZ7zW0XT0b91mMiRDVaEB6TUvMFlWwaSa3_C7gwpxdKcNhLtIq15KqwaZrR3VI/s1700-nu-rw-lo-l85-e365/openrouter.png"
+        },
+        {
+          "titre": "AI Inference Providers Failed to Detect Hacking and Prompt Theft, Says Dragos",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/ai-inference-providers-failed-to-detect-hacking-and-prompt-theft-says-dragos/",
+          "date": "2026-11-23",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/09/data-leak.jpeg"
         }
       ]
     },

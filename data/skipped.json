@@ -1,29 +1,5 @@
 [
   {
-    "id": "750c4c98dfac1348",
-    "title": "CrowdStrike Reportedly Paying $495 Million for AI Security Firms Fiddler, Dreadnode",
-    "link": "https://www.securityweek.com/crowdstrike-reportedly-paying-495-million-for-ai-security-firms-fiddler-dreadnode/",
-    "source": "SecurityWeek",
-    "raison": "acquisition, pas une attaque",
-    "date": "2026-11-03T15:20:00+00:00"
-  },
-  {
-    "id": "eb9be55c606811d5",
-    "title": "Visio : Tixeo passe au chiffrement post-quantique",
-    "link": "https://www.lemagit.fr/actualites/366653396/Visio-Tixeo-passe-au-chiffrement-post-quantique",
-    "source": "LeMagIT",
-    "raison": "annonce produit",
-    "date": "2026-11-03T15:20:00+00:00"
-  },
-  {
-    "id": "4214f69f71c29bf4",
-    "title": "Barracuda warns of critical flaws allowing root access to devices",
-    "link": "https://www.bleepingcomputer.com/news/security/barracuda-warns-of-critical-flaws-allowing-root-access-to-devices/",
-    "source": "BleepingComputer",
-    "raison": "vulnérabilité sans exploitation constatée (résumé du flux)",
-    "date": "2026-11-03T15:20:00+00:00"
-  },
-  {
     "id": "97eb34359d193605",
     "title": "CI/CD : GitHub décline son arsenal pour limiter les attaques de type « Pwn Request »",
     "link": "https://www.lemagit.fr/actualites/366653454/CI-CD-GitHub-decline-son-arsenal-pour-limiter-les-attaques-de-type-Pwn-Request",
@@ -3998,5 +3974,29 @@
     "source": "BleepingComputer",
     "raison": "correctif fonctionnel, pas une attaque",
     "date": "2026-11-23T14:07:39+00:00"
+  },
+  {
+    "id": "623aa21cc51252c4",
+    "title": "Huntress EU Data Hosting: What Phase 1 Means",
+    "link": "https://www.huntress.com/blog/eu-data-hosting",
+    "source": "Huntress",
+    "raison": "annonce produit (hébergement des données dans l'UE)",
+    "date": "2026-11-23T15:15:00+00:00"
+  },
+  {
+    "id": "a4c108e8f643d253",
+    "title": "Thinking fast about prompt injection: New System 1 models in Elastic",
+    "link": "https://www.elastic.co/security-labs/blog/prompt-injection-detection-ai-agents",
+    "source": "Elastic Security Labs",
+    "raison": "présentation de produit de détection, sans attaque décrite",
+    "date": "2026-11-23T15:15:00+00:00"
+  },
+  {
+    "id": "ca30c9b6b18169c3",
+    "title": "Elastic ships 143 detection rules for AI agents and LLM platforms",
+    "link": "https://www.elastic.co/security-labs/blog/ai-security-detection-rules-coding-agents-mcp",
+    "source": "Elastic Security Labs",
+    "raison": "annonce produit (règles de détection), incidents seulement cités en contexte sans détail",
+    "date": "2026-11-23T15:15:00+00:00"
   }
 ]

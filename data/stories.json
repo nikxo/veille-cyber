@@ -2,6 +2,87 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-23-laliga-donnees-supporters",
+      "title": "LaLiga : un pirate extrait des données personnelles de supporters d'une plateforme de services aux fans",
+      "created": "2026-11-23T19:07:08+00:00",
+      "updated": "2026-11-23T19:07:08+00:00",
+      "version": 1,
+      "resume": "LaLiga, première division masculine de football espagnole, a confirmé qu'un pirate a extrait des données personnelles d'utilisateurs de ses services et de ceux de certains clubs, entre le 14 et le 16 novembre [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Accès non autorisé à une plateforme de services aux supporters, du 14 au 16 novembre → données personnelles d'utilisateurs extraites [1]."
+        },
+        {
+          "etape": "Blocage de l'attaque",
+          "texte": "Source de l'accès identifiée et bloquée le 16 novembre → extraction arrêtée ; systèmes d'organisation des compétitions non touchés selon LaLiga [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "plat",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateforme de services aux supporters",
+            "note": "Accès non autorisé"
+          },
+          {
+            "id": "data",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données personnelles des utilisateurs",
+            "note": "Extraites"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "plat",
+            "etape": 2,
+            "texte": "Accès non autorisé du 14 au 16 novembre"
+          },
+          {
+            "de": "plat",
+            "vers": "data",
+            "etape": 2,
+            "texte": "Données personnelles extraites"
+          }
+        ]
+      },
+      "limites": "Non précisés : point d'entrée, nombre de personnes touchées, types de données, clubs concernés ; aucun groupe de rançongiciel ne l'avait revendiquée à la publication [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Cybercriminel non identifié ; aucune revendication d'un groupe de rançongiciel au moment de la publication [1]"
+      ],
+      "cibles": [
+        "LaLiga et certains clubs affiliés : utilisateurs inscrits à leurs services numériques [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Spanish LaLiga confirms hackers stole soccer fans’ personal data",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data/",
+          "date": "2026-11-23",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/23/laliga.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-20-cairn-universites-zero-day-imagerie-medicale",
       "title": "Cairn : des pirates liés à la Chine font trouver par l'IA une faille inconnue de MONAI Label et obtiennent un accès root dans une université",
       "created": "2026-11-20T18:09:54+00:00",
@@ -2509,9 +2590,9 @@
       "id": "2026-11-21-fbi-ncic-intrusion",
       "title": "FBI : une intrusion présumée dans la base nationale de la police, deuxième piratage signalé en deux mois",
       "created": "2026-11-21T15:30:00+00:00",
-      "updated": "2026-11-22T01:06:37+00:00",
-      "version": 2,
-      "resume": "Le FBI enquête sur une intrusion présumée dans le National Crime Information Center, base partagée par les forces de l'ordre américaines ; c'est le deuxième piratage signalé à l'agence en deux mois [1, 2].",
+      "updated": "2026-11-23T19:07:08+00:00",
+      "version": 3,
+      "resume": "Le FBI enquête sur une intrusion présumée dans le National Crime Information Center, base partagée par les forces de l'ordre américaines ; ce serait le deuxième incident de cybersécurité touchant le FBI cette année [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -2519,7 +2600,7 @@
         },
         {
           "etape": "Accès à la base",
-          "texte": "Intrusion présumée dans le National Crime Information Center, révélée par la presse et confirmée par une source anonyme → ampleur et impact encore inconnus [1, 2]."
+          "texte": "Intrusion présumée dans le National Crime Information Center, survenue un jeudi selon la presse et confirmée par une source anonyme → ampleur et impact encore inconnus [1, 2, 3]."
         }
       ],
       "parcours": {
@@ -2561,7 +2642,7 @@
           }
         ]
       },
-      "limites": "Les sources ne disent ni comment l'accès a été obtenu, ni si des données ont été volées ou consultées ; le FBI a refusé de commenter [1, 2].",
+      "limites": "Les sources ne disent ni comment l'accès a été obtenu, ni si des données ont été volées ou consultées ; le FBI a refusé de commenter [1, 2] et n'a pas répondu à The Record [3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
@@ -2590,6 +2671,13 @@
           "url": "https://www.securityweek.com/fbi-investigating-apparent-hack-of-its-key-national-criminal-justice-database-ap-source-says/",
           "date": "2026-11-21",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/04/FBI-Surveillance.jpg"
+        },
+        {
+          "titre": "FBI reportedly facing second data breach involving National Crime Information Center",
+          "site": "The Record",
+          "url": "https://therecord.media/fbi-cyberattack-data-breach",
+          "date": "2026-11-23",
+          "image": "https://cms.therecord.media/uploads/fbi_613c45ceeb.jpg"
         }
       ]
     },
@@ -57058,109 +57146,6 @@
           "date": "2026-10-05"
         }
       ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-04-ta419-phishing-experts-ia",
-      "title": "TA419 : hameçonnage de Microsoft ciblant des experts américains en politique de l'IA",
-      "created": "2026-10-04T10:00:00+00:00",
-      "updated": "2026-10-05T18:14:12+00:00",
-      "version": 2,
-      "resume": "Le groupe TA419, lié à la Chine, a mené des campagnes de vol d'identifiants contre des experts en IA de groupes de réflexion, universités et cabinets juridiques américains [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Invitations inoffensives envoyées pour établir la confiance de la cible, en usurpant des économistes et un employé d'Anthropic [1]."
-        },
-        {
-          "etape": "Redirection",
-          "texte": "Réponse de la cible → lien raccourci qui déclenche plusieurs redirections, puis vérification Cloudflare Turnstile [1]."
-        },
-        {
-          "etape": "Vol d'identifiants",
-          "texte": "Fausse page OneDrive avec fenêtre de navigateur simulée → identifiants captés par un proxy puis relayés à l'infrastructure Microsoft réelle [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (TA419)",
-            "note": ""
-          },
-          {
-            "id": "usr",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Experts en politique de l'IA",
-            "note": ""
-          },
-          {
-            "id": "ph",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Fausse page OneDrive",
-            "note": "Proxy intermédiaire"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "usr",
-            "etape": 1,
-            "texte": "Invitations pour établir la confiance"
-          },
-          {
-            "de": "usr",
-            "vers": "ph",
-            "etape": 2,
-            "texte": "Lien raccourci et redirections"
-          },
-          {
-            "de": "ph",
-            "vers": "att",
-            "etape": 3,
-            "texte": "Identifiants captés par le proxy"
-          }
-        ]
-      },
-      "limites": "Aucune technique MITRE ni CVE citée. [2] parle d'usurpation de responsables américains, [1] d'économistes et d'un employé d'Anthropic [1, 2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "TA419, groupe d'espionnage aligné sur la Chine, actif depuis avril 2025 au moins [1]"
-      ],
-      "cibles": [
-        "Experts en IA de groupes de réflexion, universités et organisations juridiques aux États-Unis [1, 2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "IA",
-          "definition": "Intelligence artificielle"
-        },
-        {
-          "sigle": "TA419",
-          "definition": "Nom donné par les analystes au groupe d'espionnage"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "China-Aligned TA419 Targets U.S. AI Policy Experts With Microsoft AitM Phishing",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/china-aligned-ta419-targets-us-ai.html",
-          "date": "2026-10-04",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgR69JnEBkz8N6_Nd5K75adIWh8xVmxW8FB21gsKinx9HBzgXQSLWL5sYdKMe9d-cbTSrgc45ZtYhmvhLZJII1H-tPXKn4AiRvj4KrU8ayeZskmMCfiV-mUc2pz10MumKyXKH6ybJ2RsVj9ZZ67l-4u0Y2f5Dl3kX7PLEzCAqogMfHTSfD7gM7QypHi-yos/s1700-nu-rw-lo-l85-e365/china-ms.jpg"
-        },
-        {
-          "titre": "Chinese Hackers Impersonate US Officials for AI Cyber Espionage",
-          "site": "Dark Reading",
-          "url": "https://www.darkreading.com/cyberattacks-data-breaches/chinese-actor-impersonates-us-officials-cyber-espionage",
-          "date": "2026-10-05"
-        }
-      ],
-      "republication": 1
     },
     {
       "schema": 3,

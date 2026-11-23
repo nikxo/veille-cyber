@@ -214,9 +214,9 @@
       "id": "2026-11-22-openrouter-fournisseurs-inference-vol-requetes",
       "title": "OpenRouter : des requêtes de clients volées pendant des mois chez trois fournisseurs d'inférence d'IA, des clés leurres aussitôt testées",
       "created": "2026-11-22T07:30:00+00:00",
-      "updated": "2026-11-23T17:30:00+00:00",
-      "version": 3,
-      "resume": "Selon Dragos, des attaquants ont volé pendant des mois des requêtes de clients chez trois fournisseurs d'inférence d'IA, qui n'ont rien détecté avant d'être prévenus ; OpenRouter a retiré trois fournisseurs [1, 2].",
+      "updated": "2026-11-23T20:15:00+00:00",
+      "version": 4,
+      "resume": "Selon Dragos, des attaquants ont volé pendant des mois des requêtes de clients chez trois fournisseurs d'inférence d'IA, qui n'ont rien détecté avant d'être prévenus [1, 2] ; OpenRouter a retiré Together AI, Phala et Novita [4].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -292,13 +292,15 @@
       "acteurs": [
         "Attaquants non nommés, dont un qui semble avoir compromis deux fournisseurs à la fois, avec des secrets des deux utilisés depuis un seul serveur loué [1]",
         "Le 1er novembre, ce même attaquant a utilisé ARTEX, cadre de test d'intrusion piloté par IA, pour confirmer la validité de clés [1]",
-        "Découverte : Dragos a envoyé environ deux millions de requêtes contenant des leurres traçables, de juillet à novembre [2]"
+        "Découverte : Dragos a envoyé environ deux millions de requêtes contenant des leurres traçables, de juillet à novembre [2]",
+        "OpenRouter dit que ses propres systèmes n'ont pas été touchés ; garantie de non-conservation des données retirée pour 125 points d'accès [4]"
       ],
       "cibles": [
         "Fournisseurs d'inférence d'IA non nommés et leurs clients, notamment ceux passant par OpenRouter [1]",
         "Phala et Together AI ont publié leurs propres avis d'incident, sans lien établi avec les trois fournisseurs [1]",
-        "Phala : serveur exécutant un modèle DeepSeek servi via OpenRouter compromis, requêtes du 21 octobre au 8 novembre exposées [2]",
-        "Together AI : identifiants divulgués sur GitHub par un agent de codage d'IA, utilisés pour obtenir des échantillons de requêtes [2]",
+        "Phala : serveur traitant des requêtes DeepSeek via OpenRouter compromis, requêtes du 21 octobre au 8 novembre exposées [2], identifiants applicatifs volés [4]",
+        "Novita : erreur de routage du 28 mai au 11 novembre → requêtes MiniMax, y compris via OpenRouter, envoyées au service officiel de MiniMax [4]",
+        "Together AI : identifiants divulgués sur GitHub par un agent de codage d'IA, utilisés pour obtenir des échantillons de requêtes [2, 4]",
         "Selon LeMagIT, des revendeurs de places de marché d'inférence ont pu lire et garder des requêtes grâce à la journalisation standard [3]",
         "Selon LeMagIT, des requêtes envoyées à des fournisseurs américains ont été transmises à des organisations d'IA chinoises [3]"
       ],
@@ -349,6 +351,13 @@
           "url": "https://www.lemagit.fr/actualites/366655292/Supply-Chain-IA-les-fuites-de-secrets-dans-les-infrastructures-dinference",
           "date": "2026-11-23",
           "image": "https://www.lemagit.fr/visuals/ComputerWeekly/HeroImages/cloud-computing-IoT-network-your123-adobe.jpg"
+        },
+        {
+          "titre": "OpenRouter drops AI providers over leaked prompts and secrets",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/openrouter-drops-ai-providers-over-leaked-prompts-and-secrets/",
+          "date": "2026-11-23",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/06/29/DataLeak.jpg"
         }
       ]
     },
@@ -460,13 +469,17 @@
       "id": "2026-11-18-equinor-cyberattaque-services-internes",
       "title": "Equinor et Skagerak Energi : une faille d'Azure API Management exploitée pour viser des secrets, les services internes d'Equinor perturbés",
       "created": "2026-11-18T14:30:00+00:00",
-      "updated": "2026-11-23T16:20:00+00:00",
-      "version": 3,
-      "resume": "Selon l'autorité norvégienne de sécurité, une faille des anciennes offres « Classic » d'Azure API Management a été exploitée contre plusieurs organisations, dont Equinor et Skagerak Energi [4, 5] ; chez Equinor, l'accès aux applications internes a été perturbé, sans toucher la production [1, 3].",
+      "updated": "2026-11-23T20:15:00+00:00",
+      "version": 4,
+      "resume": "Selon l'autorité norvégienne de sécurité, une faille des anciennes offres « Classic » d'Azure API Management a été exploitée contre plusieurs organisations, dont Equinor et Skagerak Energi [4, 5, 6] ; chez Equinor, l'accès aux applications internes a été perturbé, sans toucher la production [1, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Exploitation d'une faille des anciennes offres « Classic » d'Azure API Management → jetons d'accès et autres secrets stockés sur la plateforme visés [4, 5]."
+          "texte": "Faille des instances Azure API Management « Classic » ne suivant pas les recommandations de sécurité exploitée → accès à des fonctions d'administration de l'instance [4, 6]."
+        },
+        {
+          "etape": "Vol de secrets",
+          "texte": "Secrets stockés visés [4, 5] : clés d'abonnement, secrets de fournisseurs d'identité, jetons d'administration potentiellement exposés → accès possible à d'autres services selon leurs droits [6]."
         },
         {
           "etape": "Perturbation des services",
@@ -474,7 +487,7 @@
         },
         {
           "etape": "Correction par Microsoft",
-          "texte": "Problème découvert par Microsoft le 18 novembre → voie d'accès fermée le lendemain [4, 5]."
+          "texte": "Problème découvert par Microsoft le 18 novembre → voie d'accès fermée le lendemain [4, 5], clés gérées par Microsoft renouvelées [6]."
         },
         {
           "etape": "Arrêt de l'attaque",
@@ -495,7 +508,7 @@
             "type": "cloud",
             "zone": "victime",
             "nom": "Azure API Management Classic",
-            "note": "Secrets stockés"
+            "note": "Secrets exposés"
           },
           {
             "id": "sys",
@@ -517,33 +530,40 @@
             "de": "att",
             "vers": "apim",
             "etape": 1,
-            "texte": "Exploitation d'une faille, secrets visés"
+            "texte": "Faille exploitée, accès aux fonctions d'administration"
+          },
+          {
+            "de": "apim",
+            "vers": "att",
+            "etape": 2,
+            "texte": "Secrets stockés potentiellement exposés"
           },
           {
             "de": "att",
             "vers": "sys",
-            "etape": 2,
+            "etape": 3,
             "texte": "Attaque détectée le 17 novembre"
           },
           {
             "de": "sys",
             "vers": "app",
-            "etape": 2,
+            "etape": 3,
             "texte": "Accès des employés perturbé"
           }
         ]
       },
-      "limites": "Les sources ne décrivent ni le mécanisme de la faille ni l'usage des secrets visés [4, 5] ; Microsoft n'a pas confirmé le lien avec les attaques norvégiennes [5] ; Equinor dit qu'aucun virus n'était en cause [1, 3].",
+      "limites": "Mécanisme non décrit ; un administrateur évoque sur Reddit un contournement d'authentification, non vérifié [6]. Microsoft n'a pas confirmé le lien avec les attaques norvégiennes [5] ; le correctif n'invalide pas les secrets déjà compromis [6].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Acteur non identifié selon l'autorité norvégienne de sécurité [4] ; Microsoft ne dit pas si le même acteur est derrière les incidents norvégiens [5]"
+        "Acteur non identifié selon l'autorité norvégienne de sécurité [4, 6] ; Microsoft ne dit pas si le même acteur est derrière les incidents norvégiens [5]"
       ],
       "cibles": [
+        "Secteur de l'énergie norvégien, premier à avoir détecté la faille selon l'autorité norvégienne de sécurité [6]",
         "Equinor, groupe énergétique norvégien ; selon l'entreprise, aucun indice d'atteinte aux employés, partenaires ou fournisseurs [1]",
         "Skagerak Energi, entreprise norvégienne d'électricité [5] ; opérations et production non affectées selon elle [4]",
         "Autres organisations de plusieurs secteurs, en Norvège et à l'étranger [4, 5]",
-        "Instances Classic ne suivant pas les recommandations de sécurité de Microsoft ; les instances v2 ne sont pas touchées [4]"
+        "Instances Classic ne suivant pas les recommandations de sécurité de Microsoft ; les instances v2 ne sont pas touchées [4, 6]"
       ],
       "abreviations": [
         {
@@ -586,6 +606,13 @@
           "url": "https://therecord.media/norway-microsoft-cyberattack-equinor",
           "date": "2026-11-23",
           "image": "https://cms.therecord.media/uploads/Refinery_e1c59e2a0a.jpg"
+        },
+        {
+          "titre": "Microsoft Azure flaw exploited to steal customers' API credentials",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/microsoft-azure-flaw-exploited-to-steal-customers-api-credentials/",
+          "date": "2026-11-23",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/08/21/Microsoft.jpg"
         }
       ]
     },

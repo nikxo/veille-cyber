@@ -5121,9 +5121,9 @@
       "id": "2026-11-19-webworm-softether-pont-furtif",
       "title": "Webworm : un pont VPN SoftEther modifié pour garder un accès discret aux réseaux de gouvernements",
       "created": "2026-11-19T16:09:13+00:00",
-      "updated": "2026-11-19T16:09:13+00:00",
-      "version": 1,
-      "resume": "Rapid7 attribue au groupe d'espionnage Webworm, aligné sur la Chine, une version modifiée du VPN SoftEther, camouflée pour garder un accès discret et durable aux réseaux d'organisations gouvernementales [1].",
+      "updated": "2026-11-23T18:30:00+00:00",
+      "version": 2,
+      "resume": "Rapid7 attribue au groupe d'espionnage Webworm, aligné sur la Chine, une version modifiée du VPN SoftEther, camouflée pour garder un accès discret aux réseaux compromis d'organisations gouvernementales [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -5131,7 +5131,7 @@
         },
         {
           "etape": "Camouflage de l'outil",
-          "texte": "Pont VPN SoftEther modifié, présenté dans ses métadonnées comme un logiciel de surveillance réseau, noms internes changés en « NtMonitor VPN », configuration chiffrée [1]."
+          "texte": "Pont VPN SoftEther recompilé, présenté comme logiciel de surveillance réseau « NtMonitor VPN », ressources intégrées à l'exécutable, configuration chiffrée [1, 2]."
         },
         {
           "etape": "Neutralisation des défenses",
@@ -5139,7 +5139,7 @@
         },
         {
           "etape": "Dissimulation réseau",
-          "texte": "Adresses web renommées et filigrane d'origine remplacé → clients SoftEther standards bloqués et identification par filigrane évitée [1]."
+          "texte": "Adresses web renommées et filigrane d'origine remplacé → clients SoftEther standards bloqués et identification par filigrane évitée [1, 2]."
         },
         {
           "etape": "Pont vers le réseau",
@@ -5198,7 +5198,7 @@
           }
         ]
       },
-      "limites": "La source ne précise ni l'accès initial, ni les victimes exactes, ni ce que les attaquants ont fait une fois connectés au réseau [1].",
+      "limites": "Les sources ne précisent ni l'accès initial, ni les victimes exactes, ni ce que les attaquants ont fait une fois connectés au réseau [1, 2].",
       "cves": [],
       "mitre": [
         "T1587.001 : Develop Capabilities: Malware, développement de capacités, logiciel malveillant : création de l'outil SoftEther modifié [1].",
@@ -5213,10 +5213,12 @@
       ],
       "acteurs": [
         "Webworm, groupe d'espionnage aligné sur la Chine ; outil attribué avec une confiance modérée [1]",
-        "ESET avait déjà noté son passage d'outils sur mesure à des outils à double usage comme SoftEther [1]"
+        "ESET avait déjà noté son passage d'outils sur mesure à des outils à double usage comme SoftEther [1]",
+        "Webworm a été décrit pour la première fois par Symantec (Broadcom) en septembre 2022 [2]"
       ],
       "cibles": [
-        "Organisations gouvernementales, surtout en Europe [1]"
+        "Organisations gouvernementales, surtout en Europe [1]",
+        "Cibles déjà visées par Webworm : gouvernements, services informatiques et énergie électrique en Russie, Géorgie, Mongolie et Asie [2]"
       ],
       "abreviations": [
         {
@@ -5239,6 +5241,13 @@
           "url": "https://www.rapid7.com/blog/post/tr-spying-on-governments-no-malware-custom-webworms-toolkit-softether-bridge",
           "date": "2026-11-19",
           "image": "https://www.rapid7.com/cdn/images/blt62de3c632e7d1ef7/6984a555a6b5ef052cb93196/Chrysalis-backdoor-blog.jpg"
+        },
+        {
+          "titre": "Webworm Suspected of Modifying SoftEther VPN to Evade Detection and Hide Remote Access",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/webworm-suspected-of-modifying.html",
+          "date": "2026-11-23",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9_mXkFA2_QQWa_ajcGxgoc3rSAfxGJqP-uIREqPGAfJGM7D7-mLrjwSE_F1egX-pwVRvMRinRGs4QbcBE1yJrmHFw4Fa_ILg6ZuTIOy1bf86-wPQ-Zgsqa-6hqdBapRROk97rOeT-Vfa002vHuWF6fCSE1KPttjswyjUeBxjrJzrmVU9KY724e75Giq1T/s1700-nu-rw-lo-l85-e365/chinese-malware.jpg"
         }
       ]
     },

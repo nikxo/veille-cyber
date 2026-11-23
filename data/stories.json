@@ -2,6 +2,267 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-23-sap-netweaver-cve-2025-42884",
+      "title": "SAP NetWeaver : la faille CVE-2025-42884 exploitée dans la nature, selon la CISA",
+      "created": "2026-11-23T12:30:00+00:00",
+      "updated": "2026-11-23T12:30:00+00:00",
+      "version": 1,
+      "resume": "La CISA a averti que des attaquants exploitent une faille de SAP NetWeaver corrigée en novembre 2025, qui permet de divulguer ou modifier des informations du serveur [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Exploitation",
+          "texte": "Exploitation de CVE-2025-42884, possible sans authentification → fuite ou modification d'informations du serveur [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sap",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur SAP NetWeaver",
+            "note": "Faille CVE-2025-42884"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sap",
+            "etape": 2,
+            "texte": "Exploitation de CVE-2025-42884"
+          }
+        ]
+      },
+      "limites": "La source ne nomme ni les attaquants ni les victimes, et ne décrit pas ce qu'ils ont fait après l'exploitation [1].",
+      "cves": [
+        {
+          "id": "CVE-2025-42884",
+          "explication": "SAP NetWeaver : injection de propriétés d'environnement JNDI ou transmission d'une adresse de recherche JNDI, permettant sans authentification de divulguer ou modifier des informations serveur, gravité 6,5 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Organisations utilisant SAP NetWeaver ; alerte publiée par la CISA [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SAP",
+          "definition": "Éditeur allemand de logiciels de gestion d'entreprise"
+        },
+        {
+          "sigle": "JNDI",
+          "definition": "Java Naming and Directory Interface : service Java de recherche de ressources par nom"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Cybersecurity and Infrastructure Security Agency : agence américaine de cybersécurité"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "SAP NetWeaver, Cisco Expressway Flaws Exploited in Attacks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/sap-netweaver-cisco-expressway-flaws-exploited-in-attacks/",
+          "date": "2026-11-23",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/02/SAP.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-23-autriche-ministere-affaires-etrangeres-site",
+      "title": "Autriche : un site web du ministère des Affaires étrangères piraté, les coordonnées des diplomates consultées",
+      "created": "2026-11-23T12:30:00+00:00",
+      "updated": "2026-11-23T12:30:00+00:00",
+      "version": 1,
+      "resume": "Des pirates ont pénétré un site web du ministère autrichien des Affaires étrangères géré par un prestataire externe et consulté les noms et coordonnées professionnelles d'employés du siège et des missions à l'étranger [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Consultation de données",
+          "texte": "Intrusion les 12 et 13 novembre dans un site exploité par un prestataire externe → noms et coordonnées officielles des employés consultés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Site web du ministère",
+            "note": "Géré par un prestataire"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Coordonnées des employés",
+            "note": "Siège et ambassades"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "web",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Noms et coordonnées consultés"
+          }
+        ]
+      },
+      "limites": "La source ne dit ni comment les pirates sont entrés, ni qui ils sont, ni combien de personnes sont concernées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifiés ; aucun lien public avec la Russie n'est établi pour cet incident [1]"
+      ],
+      "cibles": [
+        "Ministère autrichien des Affaires étrangères : employés du siège à Vienne et des missions diplomatiques à l'étranger [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Hackers breach Austrian Foreign Ministry website, access diplomats' contact details",
+          "site": "The Record",
+          "url": "https://therecord.media/austrian-foreign-ministry-says-website-hacked",
+          "date": "2026-11-23",
+          "image": "https://cms.therecord.media/uploads/Screenshot_2026_11_23_at_11_58_27_ae01419cdf.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-23-courtiers-or-pirates-mises-en-examen",
+      "title": "Trois courtiers en métaux précieux piratés : leurs fichiers clients servent à de faux policiers, dix personnes mises en examen",
+      "created": "2026-11-23T12:30:00+00:00",
+      "updated": "2026-11-23T12:30:00+00:00",
+      "version": 1,
+      "resume": "Les systèmes de trois courtiers en métaux précieux ont été piratés et leurs données clients utilisées pour escroquer des clients ; dix personnes ont été mises en examen [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources : le parquet ne décrit pas la méthode d'intrusion [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Piratage des systèmes de trois courtiers en métaux précieux → extraction de données sur leur clientèle [1]."
+        },
+        {
+          "etape": "Prise de contact",
+          "texte": "Appels aux clients en se présentant comme salariés du courtier ou forces de l'ordre, annonçant un vol de données et un risque de cambriolage [1]."
+        },
+        {
+          "etape": "Vol à domicile",
+          "texte": "Proposition de mettre l'or à l'abri → des complices récupèrent les biens au domicile des victimes qui acceptent [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Réseau d'escrocs",
+            "note": "Rôles répartis"
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Système d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données clients des courtiers",
+            "note": ""
+          },
+          {
+            "id": "cli",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Clients des courtiers",
+            "note": "Or récupéré"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Méthode d'intrusion non précisée"
+          },
+          {
+            "de": "inc",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Données clients extraites"
+          },
+          {
+            "de": "att",
+            "vers": "cli",
+            "etape": 3,
+            "texte": "Faux salariés ou faux policiers au téléphone"
+          },
+          {
+            "de": "att",
+            "vers": "cli",
+            "etape": 4,
+            "texte": "Complices au domicile"
+          }
+        ]
+      },
+      "limites": "La source ne nomme ni les courtiers ni les suspects, ne décrit pas l'intrusion et ne chiffre pas le préjudice de ce dossier [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Organisation présumée aux tâches réparties (données, appels, déplacements), dix personnes mises en examen [1]"
+      ],
+      "cibles": [
+        "Clients de trois courtiers en métaux précieux non nommés [1]",
+        "Clients d'une société d'aide à la déclaration de cryptomonnaies, dans une procédure rapprochée [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Courtiers en or piratés, dix personnes mises en examen",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/courtiers-en-or-pirates-dix-personnes-mises-en-examen/",
+          "date": "2026-11-23"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-23-idunno-anticsrf-aspnet-rce",
       "title": "Idunno.AntiCsrf : une faille critique de cette bibliothèque ASP.NET abandonnée est exploitée pour exécuter du code sans authentification",
       "created": "2026-11-23T11:20:00+00:00",
@@ -997,21 +1258,25 @@
       "id": "2026-11-21-badbox-3-fraude-publicitaire",
       "title": "BADBOX 3.0 : le réseau de boîtiers télé Android infectés revient à la fraude publicitaire, avec 40 milliards de requêtes par jour",
       "created": "2026-11-21T16:30:00+00:00",
-      "updated": "2026-11-21T16:30:00+00:00",
-      "version": 1,
-      "resume": "Le logiciel malveillant BADBOX, présent sur de nombreux boîtiers télé Android génériques, a repris une fraude publicitaire à grande échelle après les perturbations de l'an dernier, avec un record de 40 milliards de requêtes publicitaires par jour [1].",
+      "updated": "2026-11-23T12:30:00+00:00",
+      "version": 2,
+      "resume": "Le réseau BADBOX 3.0, formé de boîtiers Android bon marché infectés, a atteint 40 milliards de requêtes publicitaires par jour avant d'être perturbé par la société Human Security [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources : la manière dont BADBOX arrive sur les boîtiers n'est pas décrite [1]."
+          "texte": "Non précisé par les sources : les boîtiers Android bon marché portent des portes dérobées, sans détail sur leur origine [1, 2]."
         },
         {
-          "etape": "Réseau d'appareils",
-          "texte": "Boîtiers télé Android génériques infectés par BADBOX → réseau d'appareils contrôlés, appelé BADBOX 3.0 [1]."
+          "etape": "Installation de modules",
+          "texte": "Portes dérobées → installation de modules de fraude publicitaire et de proxy résidentiel, hébergés notamment sur des dépôts de code publics [2]."
         },
         {
           "etape": "Fraude publicitaire",
-          "texte": "Reprise de la fraude publicitaire à grande échelle après les perturbations de l'an dernier → record de 40 milliards de requêtes publicitaires par jour [1]."
+          "texte": "Publicités vidéo affichées dans une fenêtre cachée en usurpant des applications légitimes → jusqu'à 40 milliards de requêtes publicitaires par jour [1, 2]."
+        },
+        {
+          "etape": "Détournement de connexion",
+          "texte": "Appareils enrôlés dans onze réseaux de proxy résidentiels, dont PXYEDGE [2]."
         }
       ],
       "parcours": {
@@ -1024,11 +1289,18 @@
             "note": "Non identifiés"
           },
           {
+            "id": "dep",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Dépôts de code publics",
+            "note": "Modules hébergés"
+          },
+          {
             "id": "box",
             "type": "postes",
             "zone": "victime",
-            "nom": "Boîtiers télé Android génériques",
-            "note": "Infectés par BADBOX"
+            "nom": "Boîtiers Android bon marché",
+            "note": "Portes dérobées"
           },
           {
             "id": "pub",
@@ -1036,36 +1308,65 @@
             "zone": "internet",
             "nom": "Publicité en ligne",
             "note": "Visée par la fraude"
+          },
+          {
+            "id": "prx",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Réseaux de proxy résidentiels",
+            "note": "Dont PXYEDGE"
           }
         ],
         "liens": [
           {
             "de": "att",
             "vers": "box",
+            "etape": 1,
+            "texte": "Portes dérobées sur les boîtiers"
+          },
+          {
+            "de": "dep",
+            "vers": "box",
             "etape": 2,
-            "texte": "Boîtiers infectés par BADBOX"
+            "texte": "Modules de fraude et de proxy installés"
           },
           {
             "de": "box",
             "vers": "pub",
             "etape": 3,
-            "texte": "40 milliards de requêtes publicitaires par jour"
+            "texte": "Publicités cachées, 40 milliards de requêtes par jour"
+          },
+          {
+            "de": "box",
+            "vers": "prx",
+            "etape": 4,
+            "texte": "Enrôlés dans onze réseaux de proxy"
           }
         ]
       },
-      "limites": "Le résumé disponible ne dit ni comment les boîtiers sont infectés, ni qui opère le réseau, ni combien d'appareils sont concernés [1].",
+      "limites": "Les sources ne disent ni comment les portes dérobées arrivent sur les boîtiers, ni combien d'appareils sont infectés [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Non identifiés par la source [1]"
+        "Human Security relève plusieurs liens entre BadBox 3.0 et le fabricant chinois d'électronique TXCZ [2]",
+        "Le réseau PXYEDGE est exploité par les acteurs de BadBox et BadBox 2.0 [2]"
       ],
       "cibles": [
-        "Boîtiers télé Android génériques, utilisés pour la fraude publicitaire [1]"
+        "Boîtiers télé Android génériques, utilisés pour la fraude publicitaire [1]",
+        "Publicité sur télévision connectée : le réseau a représenté plus de 4 % du trafic observé par Human Security [2]"
       ],
       "abreviations": [
         {
           "sigle": "BADBOX",
           "definition": "Nom d'un logiciel malveillant présent sur des boîtiers télé Android"
+        },
+        {
+          "sigle": "PXYEDGE",
+          "definition": "Nom d'un réseau de proxy résidentiels lié aux opérateurs de BadBox"
+        },
+        {
+          "sigle": "TXCZ",
+          "definition": "Nom d'un fabricant chinois d'électronique"
         }
       ],
       "sources": [
@@ -1075,6 +1376,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/badbox-30-botnet-returns-with-record-breaking-40-billion-daily-ad-requests/",
           "date": "2026-11-21",
           "image": "https://www.bleepstatic.com/content/hl-images/2024/12/19/android-malware-botnet.jpg"
+        },
+        {
+          "titre": "BadBox 3.0 Ad Fraud Operation Generating 40 Billion Daily Bid Requests Disrupted",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/badbox-3-0-ad-fraud-operation-generating-40-billion-daily-bid-requests-disrupted/",
+          "date": "2026-11-23",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/03/botnets.jpeg"
         }
       ]
     },
@@ -2272,8 +2580,8 @@
       "id": "2026-11-19-cisco-expressway-cve-2026-76466",
       "title": "Cisco Expressway : la faille CVE-2026-76466 exploitée peu après la publication d'un exploit, une organisation russe compromise",
       "created": "2026-11-19T14:30:00+00:00",
-      "updated": "2026-11-20T19:08:24+00:00",
-      "version": 3,
+      "updated": "2026-11-23T12:30:00+00:00",
+      "version": 4,
       "resume": "Une organisation russe non nommée a été compromise par ses appareils Cisco Expressway en cluster, peu après la publication d'un exploit de démonstration : quatre appareils touchés puis le réseau interne atteint, selon la société F6 [1, 2].",
       "chaine": [
         {
@@ -2370,7 +2678,7 @@
       "cves": [
         {
           "id": "CVE-2026-76466",
-          "explication": "Expressway en cluster : cookies persistants, certificats clients mal validés, commandes root sans authentification, 9,8 sur 10 [1, 2] ; identifiants codés en dur selon la CISA, cataloguée exploitée [3]."
+          "explication": "Expressway en cluster : identifiants codés en dur ; des cookies persistants permettent d'appeler des commandes RPC et d'exécuter des commandes en root, 9,8 sur 10 [4] ; cataloguée exploitée [3]."
         }
       ],
       "mitre": [],
@@ -2378,7 +2686,8 @@
         "Attaque non attribuée à un groupe connu par F6 [1, 2]"
       ],
       "cibles": [
-        "Organisation russe non nommée [1]"
+        "Organisation russe non nommée [1]",
+        "Agences fédérales américaines, appelées par la CISA à corriger sous trois jours [4]"
       ],
       "abreviations": [
         {
@@ -2404,6 +2713,10 @@
         {
           "sigle": "CISA",
           "definition": "Cybersecurity and Infrastructure Security Agency : agence américaine de cybersécurité"
+        },
+        {
+          "sigle": "RPC",
+          "definition": "Remote Procedure Call : appel d'une fonction à distance sur un service"
         }
       ],
       "sources": [
@@ -2426,6 +2739,13 @@
           "site": "CISA",
           "url": "https://www.cisa.gov/news-events/alerts/2026/11/20/cisa-adds-four-known-exploited-vulnerabilities-catalog",
           "date": "2026-11-20"
+        },
+        {
+          "titre": "SAP NetWeaver, Cisco Expressway Flaws Exploited in Attacks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/sap-netweaver-cisco-expressway-flaws-exploited-in-attacks/",
+          "date": "2026-11-23",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/02/SAP.jpeg"
         }
       ]
     },
@@ -56416,382 +56736,6 @@
           "image": "https://www.zataz.com/wp-content/uploads/CJIS_FBI.jpg"
         }
       ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-03-uat-11587-antino-backdoor-asie",
-      "title": "UAT-11587 : la porte dérobée Antino, pilotée via Outlook et OneDrive, contre des gouvernements asiatiques",
-      "created": "2026-10-03T16:02:48+00:00",
-      "updated": "2026-10-03T16:02:48+00:00",
-      "version": 1,
-      "resume": "Selon Cisco Talos, UAT-11587, lié à la Chine, espionne des organisations gouvernementales et politiques en Asie avec Antino, porte dérobée inédite en Rust [1, 2]. De septembre 2025 à juillet 2026, environ 350 postes ont été compromis dans huit pays [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Courriel d'hameçonnage ciblé usurpant un expéditeur de confiance (SPF et DMARC contournés), fausse pièce jointe Gmail menant à Cloudflare Pages → téléchargement d'un fichier HTA ou WSF [1, 2]."
-        },
-        {
-          "etape": "Exécution",
-          "texte": "Fichier HTA exécuté par mshta.exe (WSF par Windows Script Host), qui importe un téléchargeur JavaScript → script d'orchestration déchiffré et exécuté en mémoire → chaîne de désérialisation .NET [1, 2]."
-        },
-        {
-          "etape": "Dépôt de la charge",
-          "texte": "TestAssembly.dll chargé en mémoire → document leurre ouvert, porte dérobée Antino et fausse calculatrice déposées, GatherOsState.exe lancé [1, 2]."
-        },
-        {
-          "etape": "Chargement latéral",
-          "texte": "GatherOsState.exe, binaire légitime signé par Microsoft, charge la fausse slc.dll placée à côté (chargement latéral de DLL) → porte dérobée Antino initialisée [1, 2]."
-        },
-        {
-          "etape": "Commande à distance",
-          "texte": "Échanges uniquement via Microsoft 365, par Microsoft Graph : ordres et résultats dans Outlook, signal de vie et fichiers dans OneDrive → commandes, exfiltration de fichiers, code en mémoire [1, 2]."
-        },
-        {
-          "etape": "Persistance",
-          "texte": "Détournement de Windows Scripted Diagnostics : sdiagnhost.exe exécute un script PowerShell, et ce script crée une valeur dans la clé Run → Antino relancé à l'ouverture de session [1, 2]."
-        }
-      ],
-      "limites": "Les sources ne précisent pas à quel moment après l'infection les opérateurs ont utilisé chacune des commandes d'Antino [1, 2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "UAT-11587, lié à la Chine selon Cisco Talos avec une confiance élevée : métadonnées en chinois simplifié, fuseau horaire UTC+08:00, miroir chinois de paquets Rust [1, 2]",
-        "Chevauchements avec Jewelbug, mais suivi comme un ensemble distinct : Talos n'a pas pu vérifier de lien avec les activités financières de Jewelbug [1, 2]"
-      ],
-      "cibles": [
-        "Campagne repérée d'abord contre des cibles à Taïwan, puis étendue à d'autres pays [1, 2]",
-        "Organisations gouvernementales et de politique étrangère en Inde, aux Philippines, au Cambodge, au Pakistan, en Thaïlande et au Myanmar [1, 2]",
-        "Organisations en Syrie, visées vers mai 2026 [1]",
-        "Secteurs : défense, administrations centrales, diplomatie, justice, parlements, services informatiques publics, groupes de réflexion, universités, société civile [2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "SPF",
-          "definition": "Sender Policy Framework : vérifie qu'un serveur peut envoyer des courriels pour un domaine"
-        },
-        {
-          "sigle": "DMARC",
-          "definition": "Politique indiquant quoi faire d'un courriel dont l'expéditeur affiché n'est pas authentifié"
-        },
-        {
-          "sigle": "HTA",
-          "definition": "HTML Application : fichier de code web exécuté par Windows comme une application"
-        },
-        {
-          "sigle": "WSF",
-          "definition": "Windows Script File : fichier de script exécuté par l'hôte de scripts Windows"
-        },
-        {
-          "sigle": ".NET",
-          "definition": "Plateforme logicielle de Microsoft pour développer et exécuter des applications"
-        },
-        {
-          "sigle": "DLL",
-          "definition": "Dynamic Link Library : bibliothèque de code chargée par un programme Windows"
-        },
-        {
-          "sigle": "UTC",
-          "definition": "Temps universel coordonné, référence des fuseaux horaires"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Antino Backdoor Uses Outlook and OneDrive for C2 in China-Nexus Espionage Campaign",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/antino-backdoor-uses-outlook-and.html",
-          "date": "2026-10-02",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjE3s79KuB4kHE3Kf6kjA84HqdcQ2TTVyJCgIkLcSnpbMr6vCwjaLjJVE1KiXT2lZfcx_CbKlHjiX9PrEppf53uaTvQ_Vyicl447mGIkdz1ZOzmGR1hPJzgODM2J_lnsbKPhTBvvTgdDcSS4V1JzJ-feSpyJFDyDkKS0BfK7AXTCNWaL9DZ60tmWVysyVo0/s1600/ms-cyber.jpg"
-        },
-        {
-          "titre": "China-nexus UAT-11587 targets government and policy organizations across Asia with Antino backdoor",
-          "site": "Cisco Talos",
-          "url": "https://blog.talosintelligence.com/china-nexus-uat-11587-targets-government-and-policy-organizations-across-asia-with-antino-backdoor/",
-          "date": "2026-09-30"
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (UAT-11587)",
-            "note": ""
-          },
-          {
-            "id": "m365",
-            "type": "cloud",
-            "zone": "internet",
-            "nom": "Microsoft 365",
-            "note": "Outlook, OneDrive"
-          },
-          {
-            "id": "mail",
-            "type": "messagerie",
-            "zone": "victime",
-            "nom": "Boîte mail de la cible",
-            "note": ""
-          },
-          {
-            "id": "pc",
-            "type": "poste",
-            "zone": "victime",
-            "nom": "Poste de la cible",
-            "note": "Antino installé"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "mail",
-            "texte": "Courriel d'hameçonnage ciblé, expéditeur de confiance usurpé",
-            "etape": 1
-          },
-          {
-            "de": "mail",
-            "vers": "pc",
-            "texte": "Fichier HTA ou WSF téléchargé et exécuté",
-            "etape": 2
-          },
-          {
-            "de": "pc",
-            "vers": "m365",
-            "texte": "Résultats et fichiers déposés via Microsoft Graph",
-            "etape": 5
-          },
-          {
-            "de": "att",
-            "vers": "m365",
-            "texte": "Ordres déposés dans Outlook",
-            "etape": 5
-          }
-        ]
-      }
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-03-dtu-universite-danoise-dtubasen",
-      "title": "Université technique du Danemark (DTU) : jusqu'à 200 000 personnes exposées via des identifiants compromis",
-      "created": "2026-10-03T16:02:48+00:00",
-      "updated": "2026-10-03T16:02:48+00:00",
-      "version": 1,
-      "resume": "L'Université technique du Danemark (DTU) a annoncé qu'un attaquant avait téléchargé un grand volume de données depuis DTUBasen, son système de gestion des identités et des accès [1]. Jusqu'à 200 000 personnes pourraient être concernées (numéros CPR, noms, adresses, photos) [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Connexion à DTUBasen avec des identifiants compromis → accès à plus de vingt ans de données sur les utilisateurs [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Téléchargement d'un grand volume de données pouvant inclure numéros CPR, noms, adresses, photos et contacts des proches [1]."
-        }
-      ],
-      "limites": "La source ne dit pas comment les identifiants ont été obtenus, à quel compte ils appartenaient, ni quand l'intrusion a eu lieu ; DTU ignore précisément ce qui a été téléchargé [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Environ 40 000 utilisateurs actifs et 160 000 anciens de DTUBasen ; tout employé, étudiant, invité ou partenaire externe depuis 2003 peut être concerné [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "DTU",
-          "definition": "Danmarks Tekniske Universitet, Université technique du Danemark"
-        },
-        {
-          "sigle": "CPR",
-          "definition": "Det Centrale Personregister : registre civil danois, son numéro identifie chaque résident"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Danish university DTU breach exposes data of up to 200,000 people",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/danish-university-dtu-breach-exposes-data-of-up-to-200-000-people/",
-          "date": "2026-10-03",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/03/DTU.png"
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "dtub",
-            "type": "annuaire",
-            "zone": "victime",
-            "nom": "DTUBasen",
-            "note": ""
-          },
-          {
-            "id": "data",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Données personnelles",
-            "note": "Jusqu'à 200 000 personnes"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "dtub",
-            "texte": "Connexion avec des identifiants compromis",
-            "etape": 1
-          },
-          {
-            "de": "dtub",
-            "vers": "data",
-            "texte": "Téléchargement d'un grand volume de données",
-            "etape": 2
-          }
-        ]
-      }
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-03-citrix-netscaler-zero-day-cve-2026-88771",
-      "title": "Citrix NetScaler : deux failles zero-day exploitées pour contrôler les passerelles et poser des web shells",
-      "created": "2026-10-03T16:02:48+00:00",
-      "updated": "2026-10-03T16:02:48+00:00",
-      "version": 1,
-      "resume": "Des attaquants non identifiés ont exploité deux failles zero-day de Citrix NetScaler ADC et Gateway contre des dizaines d'organisations d'Amérique du Nord et d'Europe [1, 2]. Ils ont obtenu les droits root, posé des web shells et, au moins une fois, volé des identifiants internes [2, 3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Exploitation de CVE-2026-88772 (débordement mémoire DTLS) sur des NetScaler exposés sur Internet → code exécuté avec les droits root [2]."
-        },
-        {
-          "etape": "Web shells",
-          "texte": "Premier web shell modifiant httpd.conf pour exécuter les fichiers .deb comme du PHP → déploiement de WHIPSHOT, web shell commandé via les en-têtes HTTP [2]."
-        },
-        {
-          "etape": "Persistance",
-          "texte": "Modification des permissions de /bin/sh puis redémarrage complet de l'équipement → web shells exécutés durablement avec les droits root [2]."
-        },
-        {
-          "etape": "Déplacement dans le réseau",
-          "texte": "Tunnel Python SLAPSHOT, piloté par WHIPSHOT, relayant des flux TCP vers les machines internes → reconnaissance et vol d'identifiants, à la main dans au moins un cas [2]."
-        },
-        {
-          "etape": "Autres vagues d'exploitation",
-          "texte": "Injection de commandes via CVE-2026-88771 (nom d'utilisateur, en-tête User-Agent) par de multiples acteurs → web shells, création d'un compte super-utilisateur, vol de la configuration [2, 3]."
-        }
-      ],
-      "limites": "Étapes 1 à 4 : intrusions analysées par Mandiant et Google. Leur ordre par rapport à l'activité supplémentaire liée à CVE-2026-88771, observée par GreyNoise dès le 28 septembre, n'est pas précisé [2].",
-      "cves": [
-        {
-          "id": "CVE-2026-88772",
-          "explication": "NetScaler ADC et Gateway : débordement mémoire dans le traitement DTLS du moteur de paquets, exécution de code root sans authentification, score de gravité 9,5 sur 10 [2]."
-        },
-        {
-          "id": "CVE-2026-88771",
-          "explication": "NetScaler ADC et Gateway : validation insuffisante des entrées permettant à un attaquant non authentifié d'exécuter des commandes arbitraires, gravité critique 9,5 sur 10 [3]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "Acteurs non identifiés : exploitation large et opportuniste par une variété d'acteurs selon Mandiant [2], aucune information sur les auteurs [3].",
-        "Selon GreyNoise, plusieurs groupes tentent d'exploiter CVE-2026-88772, avec des acteurs et des outils différents de ceux vus par Google [2]."
-      ],
-      "cibles": [
-        "Des dizaines d'organisations en Amérique du Nord et en Europe, dans l'administration, la finance, la technologie, l'éducation et les services juridiques et professionnels [2].",
-        "Plusieurs environnements clients suivis par LevelBlue [3]."
-      ],
-      "abreviations": [
-        {
-          "sigle": "ADC",
-          "definition": "Application Delivery Controller, équipement réseau qui répartit et protège le trafic vers des applications"
-        },
-        {
-          "sigle": "DTLS",
-          "definition": "Datagram Transport Layer Security, version du chiffrement TLS adaptée aux échanges en datagrammes (UDP)"
-        },
-        {
-          "sigle": "HTTP",
-          "definition": "HyperText Transfer Protocol, protocole d'échange du Web"
-        },
-        {
-          "sigle": "PHP",
-          "definition": "langage de script exécuté par les serveurs web"
-        },
-        {
-          "sigle": "TCP",
-          "definition": "Transmission Control Protocol, protocole de transport des connexions réseau fiables"
-        },
-        {
-          "sigle": "WHIPSHOT",
-          "definition": "Web shell PHP nommé par Google et Mandiant, commandé via les en-têtes HTTP"
-        },
-        {
-          "sigle": "SLAPSHOT",
-          "definition": "Tunnel Python nommé par Google et Mandiant, relayant le trafic vers le réseau interne"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Kiteworks & Citrix Incidents Show Challenges of Zero-Day Response",
-          "site": "Dark Reading",
-          "url": "https://www.darkreading.com/cybersecurity-operations/kiteworks-citrix-incidents-challenges-zero-day-response",
-          "date": "2026-10-02"
-        },
-        {
-          "titre": "Attackers Exploit NetScaler Flaw for Root Access, Deploy WHIPSHOT and SLAPSHOT",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/09/attackers-exploit-netscaler-flaw-for.html",
-          "date": "2026-09-30",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgjeU_A9ijIuOqFirHL74nU4k_HktRhcj5hx3goc6SfQKIeG9XA_GpZaZQVpCdUYbho_gZT4LoB-MjNJO0FZrV3q6MxXoUzg8bdbHmr2r-8rKxP1_XCMUVKq3IntFoR4aFFSdDPyBQI4Z1-jn8uNaWn4c4ohpPflBYx8M0GPFnAVziUo3Mtap0fzBBU9f_/s1600/citrix-shell.jpg"
-        },
-        {
-          "titre": "Citrix NetScaler Post-Exploitation Payload Creates Superuser, Maps Web Shell to CSS-Like URLs",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/citrix-netscaler-post-exploitation.html",
-          "date": "2026-10-01"
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquants non identifiés",
-            "note": ""
-          },
-          {
-            "id": "ns",
-            "type": "passerelle",
-            "zone": "expose",
-            "nom": "Passerelle NetScaler",
-            "note": "Web shells, droits root"
-          },
-          {
-            "id": "int",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Machines internes",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "ns",
-            "texte": "Exploitation de CVE-2026-88772, code exécuté en root",
-            "etape": 1
-          },
-          {
-            "de": "ns",
-            "vers": "int",
-            "texte": "Tunnel SLAPSHOT : reconnaissance et vol d'identifiants",
-            "etape": 4
-          }
-        ]
-      }
     },
     {
       "schema": 3,

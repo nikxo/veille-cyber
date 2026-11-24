@@ -2,6 +2,256 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-24-carnegie-soapbox-engage-donateurs",
+      "title": "Carnegie Endowment : une attaque contre le prestataire de dons Soapbox Engage expose les données de donateurs",
+      "created": "2026-11-24T16:30:00+00:00",
+      "updated": "2026-11-24T16:30:00+00:00",
+      "version": 1,
+      "resume": "Une cyberattaque contre Soapbox Engage, prestataire de collecte de dons en ligne, a exposé les noms, adresses électroniques, téléphones et historiques de dons d'anciens donateurs du Carnegie Endowment for International Peace [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources : la façon dont Soapbox Engage a été compromis n'est pas décrite [1]."
+        },
+        {
+          "etape": "Rebond vers Carnegie",
+          "texte": "Intégration entre Soapbox Engage et la base de Carnegie → accès temporaire aux coordonnées de donateurs [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Noms, adresses électroniques, numéros de téléphone et historique des dons exposés ; aucun numéro complet de carte bancaire selon Carnegie [1]."
+        },
+        {
+          "etape": "Éviction des attaquants",
+          "texte": "Incident du 28 octobre ; attaquants retirés du système du prestataire le 30 octobre [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "soap",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateforme Soapbox Engage",
+            "note": "Prestataire de dons"
+          },
+          {
+            "id": "base",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Base des donateurs Carnegie",
+            "note": "Coordonnées, historique"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "soap",
+            "etape": 1,
+            "texte": "Compromission, méthode non précisée"
+          },
+          {
+            "de": "soap",
+            "vers": "base",
+            "etape": 2,
+            "texte": "Accès temporaire par l'intégration"
+          },
+          {
+            "de": "base",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Données de donateurs exposées"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent ni comment le prestataire a été compromis, ni qui est l'attaquant, ni combien de donateurs sont touchés, hormis « un faible pourcentage » de la base [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Anciens donateurs du Carnegie Endowment for International Peace, via son prestataire Soapbox Engage [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Carnegie Endowment for International Peace says third-party breach leaked donation info",
+          "site": "The Record",
+          "url": "https://therecord.media/carnegie-endowment-data-breach",
+          "date": "2026-11-24",
+          "image": "https://cms.therecord.media/uploads/Carnegie_bec5554c90.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-24-unit42-agents-ia-portes-derobees-web",
+      "title": "Agents d'intelligence artificielle autonomes : plus de dix campagnes entrent par des portes dérobées web puis rebondissent de Linux à Windows",
+      "created": "2026-11-24T16:30:00+00:00",
+      "updated": "2026-11-24T16:30:00+00:00",
+      "version": 1,
+      "resume": "Unit 42 a observé plus de dix campagnes entre juillet et septembre 2026 où des agents d'intelligence artificielle autonomes, dirigés par un opérateur humain non identifié, ont mené des intrusions dans plusieurs secteurs [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Portes dérobées web déposées sur des applications web vulnérables → exécution de code et persistance sur le serveur [1]."
+        },
+        {
+          "etape": "Reconnaissance",
+          "texte": "Énumération des ressources cloud, du site et des bases ; chez une entreprise d'hôtellerie et de jeux, 20 services AWS énumérés dans huit régions [1]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Jusqu'à cinq techniques tentées tour à tour, dont PwnKit et des exploits de CVE-2024-1086 et de Copy Fail (CVE-2026-31431) [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Identifiants GitLab d'un prestataire trouvés sur le serveur compromis, force brute avec des noms réels de l'équipe marketing ; injections SQL contre le panneau d'administration de la société mère [1]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "Identifiants SMB volés → passage d'un serveur Linux à un serveur Windows IIS, portes dérobées web déposées à plus de 40 emplacements en 26 minutes [1]."
+        },
+        {
+          "etape": "Contournement des défenses",
+          "texte": "Dossiers des outils de détection exclus des recherches de fichiers ; processus de Microsoft Defender for Endpoint examiné avec strace [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Opérateur et agents IA",
+            "note": "Opérateur non identifié"
+          },
+          {
+            "id": "web",
+            "type": "serveur",
+            "zone": "expose",
+            "nom": "Serveur web Linux exposé",
+            "note": "Porte dérobée web"
+          },
+          {
+            "id": "cloud",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Comptes AWS",
+            "note": "20 services énumérés"
+          },
+          {
+            "id": "git",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "GitLab du prestataire",
+            "note": "Force brute"
+          },
+          {
+            "id": "win",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur Windows IIS",
+            "note": "Plus de 40 emplacements"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Dépôt de portes dérobées web"
+          },
+          {
+            "de": "web",
+            "vers": "cloud",
+            "etape": 2,
+            "texte": "Énumération des services AWS"
+          },
+          {
+            "de": "web",
+            "vers": "git",
+            "etape": 4,
+            "texte": "Identifiants GitLab trouvés, force brute"
+          },
+          {
+            "de": "web",
+            "vers": "win",
+            "etape": 5,
+            "texte": "Identifiants SMB volés, portes dérobées déposées"
+          }
+        ]
+      },
+      "limites": "Les cas décrits concernent des victimes différentes, jamais nommées ; Unit 42 n'identifie ni l'opérateur humain ni le modèle d'intelligence artificielle utilisé [1].",
+      "cves": [
+        {
+          "id": "CVE-2024-1086",
+          "explication": "Noyau Linux, composant nf_tables : utilisation de mémoire déjà libérée permettant une élévation de privilèges locale, gravité élevée 7,8 [2] ; exploit précompilé récupéré par un agent [1]."
+        },
+        {
+          "id": "CVE-2026-31431",
+          "explication": "Copy Fail, noyau Linux, module algif_aead : faille locale de gravité élevée 7,8 [3] ; exécution tentée par un agent pour élever ses privilèges [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Opérateur humain non identifié pilotant des agents d'intelligence artificielle autonomes [1]",
+        "Plateforme CyberStrikeAI repérée sur une infrastructure de commande, liée à une campagne décrite par ReliaQuest [1]"
+      ],
+      "cibles": [
+        "Gouvernement, logistique, hôtellerie, industrie, agriculture et éducation [1]",
+        "Entreprise américaine d'hôtellerie et de jeux ; prestataire informatique d'une victime et plus d'une douzaine d'entités sœurs [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "AWS",
+          "definition": "Amazon Web Services : services cloud d'Amazon"
+        },
+        {
+          "sigle": "SMB",
+          "definition": "Server Message Block : protocole Windows de partage de fichiers en réseau"
+        },
+        {
+          "sigle": "IIS",
+          "definition": "Internet Information Services : serveur web de Microsoft"
+        },
+        {
+          "sigle": "SQL",
+          "definition": "Langage d'interrogation des bases de données ; l'injection SQL détourne ces requêtes"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Recent Trends and Tactics of Agentic AI Attacks",
+          "site": "Unit 42 (Palo Alto Networks)",
+          "url": "https://unit42.paloaltonetworks.com/autonomous-ai-agent-threat-campaigns/",
+          "date": "2026-11-24",
+          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/11/AdobeStock_260323351-2.jpeg"
+        },
+        {
+          "titre": "Fiche NVD CVE-2024-1086",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-1086"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-31431",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31431"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-24-mcdonalds-japon-application-localisation",
       "title": "McDonald's Japon : la base de données de l'application mobile consultée, historiques d'achats et localisations exposés",
       "created": "2026-11-24T15:10:00+00:00",
@@ -57709,245 +57959,6 @@
           "url": "https://thehackernews.com/2026/10/clickfix-smuggles-payloads-through.html",
           "date": "2026-10-06",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8Vjgif5jASBMNSuYjBnVZcm9vGO378mJ7VTFTNo9HRROtViKbP_Nm0F0vf626be5n4cwnfDdqgfWVzjKrKboh0BnbM8ALWzt-W7kNq4PSc_TOUbNlwps6sCQgfNyK5DhXk3FHZCuJSo8D2eMOm4r89VmhNa6l5gPpadRZSgTuB_N2yPZlwj0voYddOoVr/s1700-nu-rw-lo-l85-e365/clickfix.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-05-rejetto-hfs-cve-2026-61500",
-      "title": "Rejetto HFS : faille exploitée pour forger une session administrateur et exécuter du code",
-      "created": "2026-10-05T18:14:12+00:00",
-      "updated": "2026-10-05T22:07:16+00:00",
-      "version": 2,
-      "resume": "Des attaquants exploitent CVE-2026-61500 dans Rejetto HTTP File Server pour forger un cookie administrateur puis exécuter du code à distance [1, 2, 3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Collecte de quelques réponses de connexion sans authentification → reconstitution de l'état du générateur de cookies de session [1, 2]."
-        },
-        {
-          "etape": "Clé de signature",
-          "texte": "Récupération de la clé de signature des cookies → fabrication d'un cookie de session administrateur valide [1, 2]."
-        },
-        {
-          "etape": "Exécution de code",
-          "texte": "Accès administrateur → code exécuté à distance, via des points d'accès exécutant du JavaScript [1] ou la fonction server_code [2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "hfs",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur Rejetto HFS",
-            "note": "Cookie administrateur forgé"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "hfs",
-            "etape": 1,
-            "texte": "Collecte de réponses de connexion"
-          },
-          {
-            "de": "att",
-            "vers": "hfs",
-            "etape": 2,
-            "texte": "Cookie administrateur forgé"
-          },
-          {
-            "de": "att",
-            "vers": "hfs",
-            "etape": 3,
-            "texte": "Exécution de code à distance"
-          }
-        ]
-      },
-      "limites": "Les sources divergent : exploitation détectée le 1er octobre [1], alerte de VulnCheck le 2 octobre [2].",
-      "cves": [
-        {
-          "id": "CVE-2026-61500",
-          "explication": "Rejetto HFS 3.0.0 à 3.2.0 : clé de signature des cookies tirée d'un générateur non cryptographique, session administrateur forgeable, gravité 9,3 sur 10 [1, 2]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "Acteur non nommé, activité de reconnaissance depuis une adresse China Telecom [1, 2]"
-      ],
-      "cibles": [
-        "Systèmes leurres au Japon et aux États-Unis [1, 2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "HTTP",
-          "definition": "HyperText Transfer Protocol : protocole d'échange du Web"
-        },
-        {
-          "sigle": "HFS",
-          "definition": "HTTP File Server : serveur de partage de fichiers de Rejetto"
-        },
-        {
-          "sigle": "JavaScript",
-          "definition": "Langage de programmation utilisé dans les pages et serveurs web"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Attackers Target Rejetto HFS Flaw That Enables Admin Session Forgery and RCE",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/attackers-target-rejetto-hfs-flaw-that.html",
-          "date": "2026-10-05",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTCvFj7lVSH1eLS0oYdxqBa4wQkNQvuemuCAL5XqwKueywAUl8Fg6zY-5UT9cdx3fZZ81DHX_emE9JXthW_OfH-axyWn3bE5CpCp4CDs4HREWjv_1uBtt5iJE947S-Bkn-4Mn1Shwt1kV9FF4RO9Wa7_4jmUtvbWrx2zs4-cdSg-FkUtxW-erVx2CXKhU3/s1700-nu-rw-lo-l85-e365/hfs-rce-main.jpg"
-        },
-        {
-          "titre": "Exploitation Hits Rejetto HFS Vulnerability Discovered by AI",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/exploitation-hits-rejetto-hfs-vulnerability-discovered-by-ai/",
-          "date": "2026-10-05",
-          "image": "https://www.securityweek.com/wp-content/uploads/2025/11/NPM-code-software-development.jpeg"
-        },
-        {
-          "titre": "Rejetto HFS servers now actively scanned for critical RCE flaw",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/rejetto-hfs-servers-now-actively-scanned-for-critical-rce-flaw/",
-          "date": "2026-10-05",
-          "image": "https://www.bleepstatic.com/content/hl-images/2025/11/05/Credit-card-hacker.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-05-cling-botnet-realtek-stun",
-      "title": "Cling : réseau de machines infectées pilotées via des messages STUN, par failles de routeurs",
-      "created": "2026-10-05T18:14:12+00:00",
-      "updated": "2026-10-05T22:07:16+00:00",
-      "version": 2,
-      "resume": "Le logiciel malveillant Cling infecte routeurs et enregistreurs vidéo en exploitant des failles dont CVE-2021-35394, puis reçoit ses ordres par le protocole STUN [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Exploitation de CVE-2021-35394 et d'environ vingt-quatre failles d'appareils de marques diverses → exécution de commandes sur l'appareil [1, 2, 3]."
-        },
-        {
-          "etape": "Persistance",
-          "texte": "Copie dans deux fichiers cachés et ajout de commandes aux scripts de démarrage → persistance de l'implant [1, 2]."
-        },
-        {
-          "etape": "Enregistrement",
-          "texte": "Messages d'enregistrement STUN modifiés envoyés aux serveurs → canal de commande camouflé en trafic STUN [1, 2]."
-        },
-        {
-          "etape": "Réception d'ordres",
-          "texte": "Écoute de paquets UDP dont les commandes sont dans le champ Transaction ID → exécution de code à distance [1, 2]."
-        },
-        {
-          "etape": "Propagation",
-          "texte": "Exploitation récursive → extension du réseau de machines infectées [1, 2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "dev",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Routeurs et caméras vulnérables",
-            "note": "Implant persistant"
-          },
-          {
-            "id": "srv",
-            "type": "serveur",
-            "zone": "internet",
-            "nom": "Serveurs STUN",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "dev",
-            "etape": 1,
-            "texte": "Exploitation de failles d'appareils"
-          },
-          {
-            "de": "dev",
-            "vers": "srv",
-            "etape": 3,
-            "texte": "Enregistrement par messages STUN modifiés"
-          },
-          {
-            "de": "att",
-            "vers": "dev",
-            "etape": 4,
-            "texte": "Ordres cachés dans des paquets STUN"
-          }
-        ]
-      },
-      "limites": "Aucun acteur ni appareil victime précis n'est nommé [1, 2].",
-      "cves": [
-        {
-          "id": "CVE-2021-35394",
-          "explication": "Kit de développement Realtek Jungle : exécution de code à distance, gravité 9,8 sur 10 [1]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "Non précisé par les sources [1, 2]"
-      ],
-      "cibles": [
-        "Routeurs et enregistreurs vidéo (Avtech, EnGenius, D-Link) [2]",
-        "Cibles d'attaques par déni de service : fournisseurs d'accès sud-coréens, serveurs Minecraft [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "STUN",
-          "definition": "Session Traversal Utilities for NAT : protocole d'échange réseau détourné pour passer des ordres"
-        },
-        {
-          "sigle": "ID",
-          "definition": "Identifiant"
-        },
-        {
-          "sigle": "UDP",
-          "definition": "User Datagram Protocol : protocole de transport sans connexion"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Realtek Jungle SDK Exploit Attempts Deliver Cling Botnet With STUN-Based C2",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/realtek-jungle-sdk-exploit-attempts.html",
-          "date": "2026-10-05",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgeczuQyi5eCbsZFxILJKWiHZ8_JC8gnKqr2sExCgq_Dk-7879VVbd8qcA475L-uEn3X30CIyqn-iDilE7Sl9T5FM3XGFPU6LbyE7KUH8OpWTjlirCFq8EaY-MuielVGOXFuECLLpehX9R8HQrniMulUnAUd2f_uRbZ1Fget8hT0Tf19c1N-q06dtFpAZPj/s1700-nu-rw-lo-l85-e365/botnet.jpg"
-        },
-        {
-          "titre": "Linux Backdoor Abuses STUN Protocol, Exploits Dozens of Flaws",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/linux-backdoor-abuses-stun-protocol-exploits-dozens-of-flaws/",
-          "date": "2026-10-05",
-          "image": "https://www.securityweek.com/wp-content/uploads/2025/02/Linux-malware.jpeg"
-        },
-        {
-          "titre": "ClingSTUN Turns Vulnerable IoT Devices Into Proxy Nodes",
-          "site": "Dark Reading",
-          "url": "https://www.darkreading.com/iot/clingstun-vulnerable-iot-devices-proxy-nodes",
-          "date": "2026-10-05"
         }
       ]
     }

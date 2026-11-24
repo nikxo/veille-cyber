@@ -1,45 +1,5 @@
 [
   {
-    "id": "604c1fcbf315093f",
-    "title": "RSSI : pourquoi l’accélération de l’IA rend les fondamentaux de la sécurité indispensables",
-    "link": "https://www.lemagit.fr/conseil/RSSI-pourquoi-lacceleration-de-lIA-rend-les-fondamentaux-de-la-securite-indispensables",
-    "source": "LeMagIT",
-    "raison": "conseils génériques",
-    "date": "2026-11-04T16:20:00+00:00"
-  },
-  {
-    "id": "c09f6d942d38cbd4",
-    "title": "Incidents Move Too Fast for Pen & Paper",
-    "link": "https://www.darkreading.com/cybersecurity-operations/incidents-move-fast-pen-paper",
-    "source": "Dark Reading",
-    "raison": "conseils génériques",
-    "date": "2026-11-04T16:20:00+00:00"
-  },
-  {
-    "id": "3a3aab10d663e8f2",
-    "title": "Monitoring AI agent sessions: Leveraging embedding models to aid threat hunting and attack discovery workflows",
-    "link": "https://www.elastic.co/security-labs/blog/ai-agent-session-monitoring-embedding-models",
-    "source": "Elastic Security Labs",
-    "raison": "aucune attaque décrite",
-    "date": "2026-11-04T17:20:00+00:00"
-  },
-  {
-    "id": "d229882219e53534",
-    "title": "Rapid7 Achieves ISO/IEC 42001 Certification for its AI Management System",
-    "link": "https://www.rapid7.com/blog/post/ai-iso-iec-42001-certification-achieved",
-    "source": "Rapid7",
-    "raison": "annonce produit",
-    "date": "2026-11-04T17:20:00+00:00"
-  },
-  {
-    "id": "1b9b96d402ef45a5",
-    "title": "SonicWall Won't Patch EoL GMS Flaws That Could Expose Files, Alter Database Records",
-    "link": "https://thehackernews.com/2026/11/sonicwall-wont-patch-eol-gms-flaws-that.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilités sans exploitation constatée",
-    "date": "2026-11-04T18:08:31+00:00"
-  },
-  {
     "id": "3632eace057e58a0",
     "title": "Debian and Ubuntu APT Flaw Lets MitM Attackers Swap Verified Packages and Run Code as Root",
     "link": "https://thehackernews.com/2026/11/debian-and-ubuntu-apt-flaw-lets-mitm.html",
@@ -3998,5 +3958,45 @@
     "source": "The Record",
     "raison": "tendance générale, sans détail sur une méthode d'attaque",
     "date": "2026-11-24T14:40:00+00:00"
+  },
+  {
+    "id": "0e0d7bdcc4e24a02",
+    "title": "AutomationDirect C-More EA9 Programming Software",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-328-01",
+    "source": "CISA Advisories",
+    "raison": "vulnérabilité sans exploitation constatée (avis CISA)",
+    "date": "2026-11-24T16:30:00+00:00"
+  },
+  {
+    "id": "153407077dbd1977",
+    "title": "Danfoss AK-SM 8xxA Series",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-328-03",
+    "source": "CISA Advisories",
+    "raison": "vulnérabilité sans exploitation constatée (avis CISA)",
+    "date": "2026-11-24T16:30:00+00:00"
+  },
+  {
+    "id": "e1d950e00d28b4bf",
+    "title": "Schneider Electric EcoStruxure Power Build Rapsody software",
+    "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-328-02",
+    "source": "CISA Advisories",
+    "raison": "vulnérabilité sans exploitation constatée (avis CISA)",
+    "date": "2026-11-24T16:30:00+00:00"
+  },
+  {
+    "id": "22b8415a8b1f6bf7",
+    "title": "How to compare MDR providers when every proposal looks promising",
+    "link": "https://www.rapid7.com/blog/post/dr-comparing-mdr-providers-scorecard",
+    "source": "Rapid7",
+    "raison": "conseils génériques",
+    "date": "2026-11-24T16:30:00+00:00"
+  },
+  {
+    "id": "1af614eaf9569a2d",
+    "title": "Police disrupt 57 illegal streaming services with 7.3 million visits",
+    "link": "https://www.bleepingcomputer.com/news/security/police-disrupt-57-illegal-streaming-services-with-73-million-visits/",
+    "source": "BleepingComputer",
+    "raison": "actualité judiciaire sans détail sur une méthode d'attaque",
+    "date": "2026-11-24T16:30:00+00:00"
   }
 ]

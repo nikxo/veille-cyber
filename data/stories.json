@@ -57859,6 +57859,86 @@
           "image": "https://www.securityweek.com/wp-content/uploads/2025/10/bank-finance-lender-credit-union-hack.jpeg"
         }
       ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-24-mcdonalds-japon-application-mobile",
+      "title": "McDonald's Japan : une base de données de l'application mobile consultée avec des identifiants, achats et localisations de clients exposés",
+      "created": "2026-11-24T13:20:00+00:00",
+      "updated": "2026-11-24T13:20:00+00:00",
+      "version": 1,
+      "resume": "Un tiers non autorisé a accédé à une base de données liée à l'application mobile de McDonald's Japan, où figuraient des historiques d'achat et des localisations d'appareils de clients [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Identifiants d'authentification utilisés dans l'attaque, origine non expliquée ; accès à une base de données de l'application mobile [1]."
+        },
+        {
+          "etape": "Accès aux données",
+          "texte": "Historiques d'achat, adresses IP, numéros clients internes et localisations d'appareils exposés ; le vol n'est pas confirmé [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "db",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Base de l'application mobile",
+            "note": "Identifiants en cours d'invalidation"
+          },
+          {
+            "id": "data",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Achats, IP, localisations",
+            "note": "Vol non confirmé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "db",
+            "etape": 1,
+            "texte": "Identifiants d'authentification utilisés, base de données atteinte"
+          },
+          {
+            "de": "db",
+            "vers": "data",
+            "etape": 2,
+            "texte": "Données de clients exposées"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas comment le pirate a obtenu les identifiants, quand l'intrusion a eu lieu, ni combien de clients sont touchés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Clients de l'application mobile officielle de McDonald's Japan, restauration rapide [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IP",
+          "definition": "Internet Protocol : l'adresse IP identifie un appareil connecté à un réseau"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "McDonald’s Japan discloses breach exposing customer purchase and location data",
+          "site": "The Record",
+          "url": "https://therecord.media/japan-mcdonalds-cyberattack-breach",
+          "date": "2026-11-24",
+          "image": "https://cms.therecord.media/uploads/Mc_Donalds_Japan_38f4a4b801.jpg"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "collected_at": "2026-11-24T16:06:19+00:00",
+  "feed_summary": "View CSAF Summary Successful exploitation of this vulnerability could allow attackers to corrupt application memory and cause instability or a crash, potentially leading to arbitrary code execution, if a user is convinced to open a malicious file. The following versions of AutomationDirect C-More EA9 Programming Software are affected: C-More EA9 Programming Software <=V6.80 (CVE-2026-127280) CVSS Vendor Equipment v3 7.8 AutomationDirect C-More EA9 Programming Software 1 Vulnerability Heap-based Buffer Overflow Background Critical Infrastructure Sectors: Critical Manufacturing, Energy, Water and Wastewater Systems Countries/Areas Deployed: Worldwide Company Headquarters Location: United States Vulnerabilities CVE-2026-127280 C-More EA9 Programming Software V6.80 does not adequately validate",
+  "id": "0e0d7bdcc4e24a02",
+  "image": null,
+  "lang": "en",
+  "link": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-328-01",
+  "published": "2026-11-24T12:00:00+00:00",
+  "source": "CISA Advisories",
+  "source_type": "officiel",
+  "title": "AutomationDirect C-More EA9 Programming Software"
+}

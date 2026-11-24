@@ -2,6 +2,218 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-24-radware-api-waf-cles-cloud",
+      "title": "Radware : une interface interne de gestion du pare-feu applicatif cloud exposée sans authentification livre des clés de stockage cloud de clients",
+      "created": "2026-11-24T18:30:00+00:00",
+      "updated": "2026-11-24T18:30:00+00:00",
+      "version": 1,
+      "resume": "Le 19 novembre 2026, un tiers non autorisé a consulté une interface de gestion interne du pare-feu applicatif cloud de Radware, accédant aux coordonnées de clients et, pour certains, à leurs identifiants d'export de journaux [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Appels à une interface de gestion interne du pare-feu applicatif cloud, joignable depuis Internet sans authentification → accès aux données de clients [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Consultation des coordonnées de clients et, pour une partie d'entre eux, des identifiants d'export de journaux vers AWS S3, Azure Blob Storage ou SFTP [1]."
+        },
+        {
+          "etape": "Usage des clés",
+          "texte": "Des clients ont reçu des alertes AWS signalant une adresse IP inconnue tentant d'accéder à leurs espaces d'export de journaux [1]."
+        },
+        {
+          "etape": "Détection et blocage",
+          "texte": "Détection environ dix heures après le premier accès → adresse IP et accès à l'interface bloqués, identifiants internes révoqués et remplacés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "api",
+            "type": "application",
+            "zone": "expose",
+            "nom": "Interface de gestion WAF",
+            "note": "Sans authentification"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données et identifiants clients",
+            "note": "Export de journaux"
+          },
+          {
+            "id": "ip",
+            "type": "inconnu",
+            "zone": "internet",
+            "nom": "Adresse IP inconnue",
+            "note": ""
+          },
+          {
+            "id": "s3",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Stockage cloud des clients",
+            "note": "Alertes AWS"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "api",
+            "etape": 1,
+            "texte": "Appels sans authentification"
+          },
+          {
+            "de": "api",
+            "vers": "don",
+            "etape": 2,
+            "texte": "Coordonnées et identifiants consultés"
+          },
+          {
+            "de": "ip",
+            "vers": "s3",
+            "etape": 3,
+            "texte": "Tentatives d'accès signalées par AWS"
+          }
+        ]
+      },
+      "limites": "La source ne nomme pas l'attaquant, ne précise pas le nombre de clients touchés et Radware ne sait pas encore si les clés exposées ont été utilisées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié : un tiers non autorisé selon Radware [1]"
+      ],
+      "cibles": [
+        "Radware, éditeur de sécurité aux plus de 12 500 clients entreprises et opérateurs télécoms ; une partie de ses clients touchés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "WAF",
+          "definition": "Web Application Firewall : pare-feu filtrant le trafic des applications web"
+        },
+        {
+          "sigle": "AWS",
+          "definition": "Amazon Web Services : plateforme cloud d'Amazon"
+        },
+        {
+          "sigle": "S3",
+          "definition": "Simple Storage Service : service de stockage de fichiers d'AWS"
+        },
+        {
+          "sigle": "SFTP",
+          "definition": "SSH File Transfer Protocol : transfert de fichiers chiffré"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole d'accès à distance chiffré"
+        },
+        {
+          "sigle": "IP",
+          "definition": "Internet Protocol : adresse identifiant une machine sur le réseau"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Radware discloses breach exposing customer cloud access keys",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/radware-discloses-breach-exposing-customer-cloud-access-keys/",
+          "date": "2026-11-24",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/24/Radware.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-24-idscan-scans-permis-nexus",
+      "title": "IDScan : des scans de permis de conduire de plus de 150 millions de personnes volés sur sa plateforme cloud et vendus sur le marché Nexus",
+      "created": "2026-11-24T18:30:00+00:00",
+      "updated": "2026-11-24T18:30:00+00:00",
+      "version": 1,
+      "resume": "Une fuite chez IDScan a conduit au vol de données stockées sur sa plateforme cloud ; des scans de permis de conduire de plus de 150 millions de personnes ont été mis en vente [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Exfiltration commencée plus d'un an avant la découverte, par des cybercriminels du marché clandestin Nexus, lié à la Russie [1]."
+        },
+        {
+          "etape": "Revente",
+          "texte": "Scans de permis avec images ultraviolettes et infrarouges mis en vente ; près de 600 000 cartes médicales, autorisations de travail et autres données exposées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (cybercriminels de Nexus)",
+            "note": ""
+          },
+          {
+            "id": "cl",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Plateforme cloud d'IDScan",
+            "note": "Accès non précisé"
+          },
+          {
+            "id": "mk",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Marché clandestin Nexus",
+            "note": "Mise en vente"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cl",
+            "etape": 2,
+            "texte": "Exfiltration commencée plus d'un an avant la découverte"
+          },
+          {
+            "de": "att",
+            "vers": "mk",
+            "etape": 3,
+            "texte": "Scans de documents mis en vente"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas comment les attaquants sont entrés dans la plateforme ni quel groupe précis est en cause [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Cybercriminels du marché clandestin Nexus, lié à la Russie [1]"
+      ],
+      "cibles": [
+        "IDScan, dont la plateforme cloud stockait les données volées [1]",
+        "Victimes canadiennes et américaines, dont de hauts responsables militaires et du renseignement ; nombreuses cartes médicales de dispensaires de cannabis [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Lawmakers warn ID verification companies to bolster security after September hack",
+          "site": "The Record",
+          "url": "https://therecord.media/idscan-data-breach-warning-congressional-letter",
+          "date": "2026-11-24",
+          "image": "https://cms.therecord.media/uploads/brian_schatz_sapprops_20260512_afe849fc45.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-24-carnegie-soapbox-engage-donateurs",
       "title": "Carnegie Endowment : une attaque contre le prestataire de dons Soapbox Engage expose les données de donateurs",
       "created": "2026-11-24T16:30:00+00:00",
@@ -509,25 +721,29 @@
       "id": "2026-11-24-volant-manticore-iran-faux-cv",
       "title": "Volant Manticore : un groupe iranien issu de MuddyWater vise Chypre et la santé saoudienne avec de faux CV et des outils d'administration à distance",
       "created": "2026-11-24T15:10:00+00:00",
-      "updated": "2026-11-24T15:10:00+00:00",
-      "version": 1,
-      "resume": "Check Point Research décrit Volant Manticore, groupe iranien qui serait formé d'anciens opérateurs de MuddyWater ; il a visé une compagnie aérienne chypriote, puis le secteur de la santé en Arabie saoudite [1].",
+      "updated": "2026-11-24T18:30:00+00:00",
+      "version": 2,
+      "resume": "Volant Manticore, groupe iranien qui serait formé d'anciens opérateurs de MuddyWater, a visé à Chypre une compagnie aérienne, des télécoms et des infrastructures critiques, puis la santé en Arabie saoudite [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Faux CV menant à une archive sur Catbox, document Word piégé à macros, archive sur la santé liée au compte d'un hôpital privé saoudien probablement compromis [1]."
+          "texte": "Faux CV au nom de personas générés par IA, document Word piégé à macros, archives sur la santé envoyées en partie depuis le compte compromis d'un hôpital saoudien [1, 2]."
         },
         {
           "etape": "Prise de contrôle",
-          "texte": "Porte dérobée KuboShell → exécution de commandes et reconnaissance, avec un canal de commande via IPFS interrogé toutes les 60 secondes [1]."
+          "texte": "Porte dérobée KuboShell → exécution de commandes et reconnaissance, avec un canal de commande via IPFS interrogé toutes les 60 secondes [1, 2]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "KuboShell vérifie ses droits administrateur et tente de se relancer avec des privilèges élevés, ce qui déclenche une invite de contrôle de compte [2]."
         },
         {
           "etape": "Outils d'accès à distance",
-          "texte": "Commande PowerShell via KuboShell pour télécharger et lancer un installateur de Remotely ; installateurs NetLock RMM et N-able RMM diffusés par hameçonnage en Arabie saoudite [1]."
+          "texte": "Installation de Remotely, NetLock RMM, N-able RMM ou MeshCentral → prise en main à distance des machines [1, 2]."
         },
         {
           "etape": "Porte dérobée Homa",
-          "texte": "Commande PowerShell exécutant en mémoire un chargeur qui lance une porte dérobée JavaScript (framework Homa) → commandes PowerShell, SSH et cmd exécutées, résultats renvoyés [1]."
+          "texte": "Chargeur PowerShell exécuté en mémoire lançant une porte dérobée JavaScript (framework Homa) → commandes PowerShell, SSH et cmd exécutées [1, 2]."
         }
       ],
       "parcours": {
@@ -583,26 +799,28 @@
           {
             "de": "att",
             "vers": "pc",
-            "etape": 3,
+            "etape": 4,
             "texte": "Outils d'administration à distance"
           },
           {
-            "de": "c2",
+            "de": "att",
             "vers": "pc",
-            "etape": 4,
-            "texte": "Porte dérobée Homa lancée"
+            "etape": 5,
+            "texte": "Porte dérobée Homa lancée en mémoire"
           }
         ]
       },
-      "limites": "Le rapport ne décrit ni vol de données constaté, ni mécanisme de persistance détaillé, ni nombre de victimes [1].",
+      "limites": "Les sources ne décrivent ni vol de données constaté, ni déplacement dans le réseau, ni nombre de victimes [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Volant Manticore, nommé par Check Point ; origine iranienne (confiance forte), lien historique avec le ministère iranien du Renseignement (confiance moyenne) [1]",
-        "Anciens opérateurs de MuddyWater formant un groupe distinct, avec des outils et méthodes en commun [1]"
+        "Probablement d'anciens opérateurs de MuddyWater formant un groupe distinct ; Homa réimplémente en JavaScript le client de MuddyC2Go [1, 2]",
+        "Actif depuis fin août 2025 selon le rapport [2]"
       ],
       "cibles": [
         "Chypre : compagnie aérienne en juillet 2026, entité gouvernementale probable en janvier 2026 [1]",
+        "Chypre : télécommunications, compagnies aériennes et infrastructures critiques [2]",
         "Arabie saoudite : santé ciblée depuis septembre 2026 ; compte de messagerie d'un hôpital privé saoudien probablement compromis et associé à un leurre [1]"
       ],
       "abreviations": [
@@ -625,6 +843,10 @@
         {
           "sigle": "cmd",
           "definition": "Invite de commandes de Windows"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
         }
       ],
       "sources": [
@@ -634,6 +856,13 @@
           "url": "https://research.checkpoint.com/2026/volant-manticore-flying-under-the-radar/",
           "date": "2026-11-24",
           "image": "https://research.checkpoint.com/wp-content/uploads/2026/11/volant-manticore-thumb-100x563px.jpg"
+        },
+        {
+          "titre": "Iran-Aligned Volant Manticore Uses IPFS-Based KuboShell Backdoor in Espionage Campaigns",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/iran-aligned-volant-manticore-uses-ipfs.html",
+          "date": "2026-11-24",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqukTcR2pkDWiTqMzORa4j7zZRB0MDUGfBly50X7gPwPHqSeBmfReQWpMR9IdPOP_NbeuQSBdYPknSgxvutDll4VAZNSoGqcwmXzhZNEez-UoE-MwTnM9i9XxjoLYRdhY0iY6tD9BK9IDB0o8RUU7sNsOex5tVNtoNwRHCCAxM9ri66c4G2wPa9AqW9saA/s1700-nu-rw-lo-l85-e365/iran-hackers.jpg"
         }
       ]
     },
@@ -57743,249 +57972,6 @@
           "url": "https://www.bleepingcomputer.com/news/security/nikkei-discloses-breaches-of-employees-microsoft-google-email-accounts/",
           "date": "2026-10-06",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/06/Nikkei.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-06-blinder-tunnel-irak",
-      "title": "Blinder Tunnel : faux recrutement Dubai Airports visant une infrastructure critique irakienne",
-      "created": "2026-10-06T10:30:00+00:00",
-      "updated": "2026-10-06T10:30:00+00:00",
-      "version": 1,
-      "resume": "Un acteur lié à l'Iran, suivi sous le nom CL-STA-1178, a visé un ingénieur logiciel irakien avec un faux recrutement de Dubai Airports et des logiciels malveillants pilotés via GitHub [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Ingénierie sociale en se faisant passer pour le service informatique de Dubai Airports → installateur piégé remis à un ingénieur logiciel irakien [1]."
-        },
-        {
-          "etape": "Exécution du code",
-          "texte": "Archive de projet Visual Studio présentée comme test de programmation → code malveillant lancé à la construction du projet, avant toute action de l'utilisateur [1]."
-        },
-        {
-          "etape": "Neutralisation des défenses",
-          "texte": "Fichier de configuration détourné → exécution dans un processus de confiance, traçage d'événements Windows désactivé [1]."
-        },
-        {
-          "etape": "Persistance et pilotage",
-          "texte": "Clé de registre et échanges avec un dépôt GitHub via un jeton codé en dur → balise envoyée toutes les 63 secondes [1]."
-        },
-        {
-          "etape": "Tunnel vers le réseau",
-          "texte": "Outil Blackwood, basé sur Chisel → tunnel chiffré sur HTTP vers le réseau compromis [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (CL-STA-1178)",
-            "note": ""
-          },
-          {
-            "id": "gh",
-            "type": "cloud",
-            "zone": "internet",
-            "nom": "Dépôt GitHub de pilotage",
-            "note": "Jeton codé en dur"
-          },
-          {
-            "id": "dev",
-            "type": "poste",
-            "zone": "victime",
-            "nom": "Poste de l'ingénieur irakien",
-            "note": "Projet piégé"
-          },
-          {
-            "id": "res",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Réseau compromis",
-            "note": "Tunnel chiffré"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "dev",
-            "etape": 1,
-            "texte": "Faux recrutement Dubai Airports, installateur piégé"
-          },
-          {
-            "de": "att",
-            "vers": "dev",
-            "etape": 2,
-            "texte": "Projet Visual Studio piégé exécuté"
-          },
-          {
-            "de": "dev",
-            "vers": "gh",
-            "etape": 4,
-            "texte": "Balise toutes les 63 secondes"
-          },
-          {
-            "de": "att",
-            "vers": "res",
-            "etape": 5,
-            "texte": "Tunnel chiffré Blackwood"
-          }
-        ]
-      },
-      "limites": "La source ne précise pas ce que les attaquants ont fait dans le réseau via le tunnel [1].",
-      "cves": [],
-      "mitre": [
-        "T1127 : Trusted Developer Utilities Proxy Execution, exécution via un outil de développement [1]",
-        "T1574.014 : détournement du gestionnaire AppDomain [1]",
-        "T1574.001 : chargement d'une bibliothèque DLL détournée [1]",
-        "T1059.001 : exécution PowerShell sans PowerShell.exe [1]"
-      ],
-      "acteurs": [
-        "CL-STA-1178, acteur lié à l'Iran, aussi suivi par Elastic sous le nom The Shelby Strategy [1]"
-      ],
-      "cibles": [
-        "Infrastructure critique irakienne, aviation des Émirats ; entité israélienne visée en mai-juin 2026 [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "DLL",
-          "definition": "Bibliothèque de code chargée par un programme Windows"
-        },
-        {
-          "sigle": "HTTP",
-          "definition": "Protocole de communication du web"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Blinder Tunnel Campaign Targets Iraqi Infrastructure",
-          "site": "Unit 42 (Palo Alto Networks)",
-          "url": "https://unit42.paloaltonetworks.com/blinder-tunnel-targets-critical-infrastructure/",
-          "date": "2026-10-06",
-          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/09/05_Malware_Category_1920x900-1.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-06-clickfix-cache-navigateur",
-      "title": "ClickFix : charge cachée dans le cache du navigateur pour contourner la limite de la boîte Exécuter",
-      "created": "2026-10-06T06:30:00+00:00",
-      "updated": "2026-10-06T06:30:00+00:00",
-      "version": 1,
-      "resume": "Une variante de ClickFix utilise des sites compromis qui placent un script dans le cache du navigateur, déguisé en image PNG, puis font exécuter une commande courte à l'utilisateur [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Faux message d'erreur ou fausse vérification sur un site compromis → l'utilisateur colle une commande dans Windows [1]."
-        },
-        {
-          "etape": "Dissimulation de la charge",
-          "texte": "Script préchargé dans le cache du navigateur, déguisé en PNG → contournement de la limite de caractères de la boîte Exécuter [1]."
-        },
-        {
-          "etape": "Exécution du script",
-          "texte": "Un script VBScript repère l'entrée de cache de la bonne taille, la copie dans le dossier Temp puis l'exécute avec wscript.exe [1]."
-        },
-        {
-          "etape": "Récupération de la suite",
-          "texte": "Collecte d'informations sur la machine, puis téléchargement de scripts PowerShell depuis un serveur externe [1]."
-        },
-        {
-          "etape": "Vol d'identifiants",
-          "texte": "Code injecté dans le processus Windows timeout.exe → ciblage des identifiants du navigateur et de l'appareil [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "web",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Site web compromis",
-            "note": "Script dans le cache"
-          },
-          {
-            "id": "pc",
-            "type": "poste",
-            "zone": "victime",
-            "nom": "Poste Windows",
-            "note": "Identifiants ciblés"
-          },
-          {
-            "id": "srv",
-            "type": "serveur",
-            "zone": "internet",
-            "nom": "Serveur externe",
-            "note": "Scripts PowerShell"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "web",
-            "etape": 1,
-            "texte": "Sites compromis servant de faux messages"
-          },
-          {
-            "de": "web",
-            "vers": "pc",
-            "etape": 2,
-            "texte": "Script préchargé dans le cache, déguisé en PNG"
-          },
-          {
-            "de": "pc",
-            "vers": "srv",
-            "etape": 4,
-            "texte": "Téléchargement de scripts PowerShell"
-          },
-          {
-            "de": "srv",
-            "vers": "pc",
-            "etape": 5,
-            "texte": "Code injecté, identifiants ciblés"
-          }
-        ]
-      },
-      "limites": "La source ne détaille pas ce que deviennent les identifiants volés ni la victime de chaque intrusion [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [],
-      "abreviations": [
-        {
-          "sigle": "ClickFix",
-          "definition": "Technique qui pousse l'utilisateur à exécuter lui-même une commande malveillante"
-        },
-        {
-          "sigle": "PNG",
-          "definition": "Format de fichier image"
-        },
-        {
-          "sigle": "VBScript",
-          "definition": "Langage de script Windows (Visual Basic Script)"
-        },
-        {
-          "sigle": "PowerShell",
-          "definition": "Interpréteur de commandes et langage de script de Windows"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "ClickFix Smuggles Payloads Through Browser Cache to Bypass Windows Run Limits",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/clickfix-smuggles-payloads-through.html",
-          "date": "2026-10-06",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8Vjgif5jASBMNSuYjBnVZcm9vGO378mJ7VTFTNo9HRROtViKbP_Nm0F0vf626be5n4cwnfDdqgfWVzjKrKboh0BnbM8ALWzt-W7kNq4PSc_TOUbNlwps6sCQgfNyK5DhXk3FHZCuJSo8D2eMOm4r89VmhNa6l5gPpadRZSgTuB_N2yPZlwj0voYddOoVr/s1700-nu-rw-lo-l85-e365/clickfix.jpg"
         }
       ]
     }

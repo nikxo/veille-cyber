@@ -89,17 +89,17 @@
       "id": "2026-11-23-laliga-donnees-supporters",
       "title": "LaLiga : un pirate extrait des données personnelles de supporters d'une plateforme de services aux fans",
       "created": "2026-11-23T19:07:08+00:00",
-      "updated": "2026-11-23T19:07:08+00:00",
-      "version": 1,
-      "resume": "LaLiga, première division masculine de football espagnole, a confirmé qu'un pirate a extrait des données personnelles d'utilisateurs de ses services et de ceux de certains clubs, entre le 14 et le 16 novembre [1].",
+      "updated": "2026-11-24T10:06:51+00:00",
+      "version": 2,
+      "resume": "LaLiga, première division masculine de football espagnole, a confirmé qu'un pirate a extrait des données personnelles d'utilisateurs de ses services et de ceux de certains clubs, entre le 14 et le 16 novembre [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé par les sources [1, 2]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Accès non autorisé à une plateforme de services aux supporters, du 14 au 16 novembre → données personnelles d'utilisateurs extraites [1]."
+          "texte": "Accès non autorisé à une plateforme de services aux supporters, du 14 au 16 novembre → données personnelles extraites, dont identités et coordonnées selon CD Eldense [1, 2]."
         },
         {
           "etape": "Blocage de l'attaque",
@@ -145,16 +145,26 @@
           }
         ]
       },
-      "limites": "Non précisés : point d'entrée, nombre de personnes touchées, types de données, clubs concernés ; aucun groupe de rançongiciel ne l'avait revendiquée à la publication [1].",
+      "limites": "Non précisés : point d'entrée et nombre de personnes touchées [1, 2] ; l'implication d'un rançongiciel n'est pas établie [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Cybercriminel non identifié ; aucune revendication d'un groupe de rançongiciel au moment de la publication [1]"
+        "Cybercriminel non identifié ; aucun groupe n'a été publiquement lié à l'attaque [1, 2]"
       ],
       "cibles": [
-        "LaLiga et certains clubs affiliés : utilisateurs inscrits à leurs services numériques [1]"
+        "LaLiga et certains clubs affiliés : utilisateurs de leurs services destinés aux supporters [1]",
+        "Clubs confirmant des données de supporters touchées : CD Eldense, Real Oviedo, Real Zaragoza, Córdoba CF, CD Leganés [2]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "CD",
+          "definition": "Club Deportivo : club sportif, préfixe du nom de clubs espagnols"
+        },
+        {
+          "sigle": "CF",
+          "definition": "Club de Fútbol : club de football, préfixe ou suffixe de nom de club"
+        }
+      ],
       "sources": [
         {
           "titre": "Spanish LaLiga confirms hackers stole soccer fans’ personal data",
@@ -162,6 +172,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data/",
           "date": "2026-11-23",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/23/laliga.jpg"
+        },
+        {
+          "titre": "LaLiga hacked: Spain’s top football league confirms theft of fans’ personal data",
+          "site": "The Record",
+          "url": "https://therecord.media/laliga-hacked-spain-top-professional-league-confirms-cyber-incident",
+          "date": "2026-11-24",
+          "image": "https://cms.therecord.media/uploads/Screenshot_2026_11_24_at_09_19_55_4ba843172f.png"
         }
       ]
     },

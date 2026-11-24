@@ -57876,24 +57876,20 @@
     },
     {
       "schema": 3,
-      "id": "2026-10-05-nikkei-comptes-google-microsoft",
-      "title": "Nikkei : deux comptes d'employés compromis, dont un utilisé pour envoyer 9 000 messages d'hameçonnage",
-      "created": "2026-10-05T18:14:12+00:00",
-      "updated": "2026-10-06T10:30:00+00:00",
-      "version": 2,
-      "resume": "Le groupe de presse japonais Nikkei révèle deux intrusions : un compte Google Workspace d'employé et un compte Microsoft 365 utilisé pour envoyer des messages malveillants [1].",
+      "id": "2026-11-24-turnitin-systemes-clients",
+      "title": "Turnitin : une activité non autorisée détectée sur des systèmes en contact avec les clients",
+      "created": "2026-11-24T19:10:00+00:00",
+      "updated": "2026-11-24T19:10:00+00:00",
+      "version": 1,
+      "resume": "Turnitin, éditeur de logiciels éducatifs utilisés par plus de 16 000 établissements, a détecté une activité non autorisée sur certains de ses systèmes en contact avec les clients [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 2]."
+          "texte": "Non précisé par les sources [1]."
         },
         {
-          "etape": "Compte Google Workspace",
-          "texte": "Accès non autorisé en juillet-août, découvert en août après une alerte de Google → noms et adresses e-mail de 1 646 personnes potentiellement exposés [1, 2]."
-        },
-        {
-          "etape": "Compte Microsoft 365",
-          "texte": "Compte Microsoft 365 compromis → environ 9 000 e-mails d'hameçonnage envoyés le 30 septembre à des contacts internes et externes [1, 2]."
+          "etape": "Activité non autorisée",
+          "texte": "Activité non autorisée sur certains systèmes en contact avec les clients → enquête lancée avec des spécialistes externes, autorités et régulateurs prévenus [1]."
         }
       ],
       "parcours": {
@@ -57906,72 +57902,37 @@
             "note": ""
           },
           {
-            "id": "gw",
-            "type": "cloud",
+            "id": "sys",
+            "type": "application",
             "zone": "victime",
-            "nom": "Compte Google Workspace",
-            "note": ""
-          },
-          {
-            "id": "ms",
-            "type": "cloud",
-            "zone": "victime",
-            "nom": "Compte Microsoft 365",
-            "note": ""
-          },
-          {
-            "id": "ct",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Contacts internes et externes",
-            "note": ""
+            "nom": "Systèmes en contact clients",
+            "note": "Activité non autorisée"
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "gw",
+            "vers": "sys",
             "etape": 2,
-            "texte": "Accès non autorisé au compte"
-          },
-          {
-            "de": "att",
-            "vers": "ms",
-            "etape": 3,
-            "texte": "Compte compromis"
-          },
-          {
-            "de": "ms",
-            "vers": "ct",
-            "etape": 3,
-            "texte": "Environ 9 000 e-mails d'hameçonnage"
+            "texte": "Accès non autorisé, vecteur non précisé"
           }
         ]
       },
-      "limites": "Le lien entre les deux incidents est indéterminé, le vecteur d'accès n'est pas précisé et aucun auteur n'est désigné [1, 2].",
+      "limites": "Les sources ne précisent ni la date de l'intrusion, ni le vecteur d'accès, ni les données consultées ou volées, et aucun groupe de rançongiciel ne l'avait publiquement revendiquée à la date de l'article [1].",
       "cves": [],
       "mitre": [],
-      "acteurs": [
-        "Non précisé par la source [1]"
-      ],
+      "acteurs": [],
       "cibles": [
-        "Employés, partenaires commerciaux, sources journalistiques et contacts externes [1]"
+        "Turnitin, éditeur de logiciels éducatifs présent dans 185 pays [1]"
       ],
       "abreviations": [],
       "sources": [
         {
-          "titre": "Japanese media group Nikkei discloses intrusions targeting employees and users",
-          "site": "The Record",
-          "url": "https://therecord.media/nikkei-cyberattack-japan-data",
-          "date": "2026-10-05",
-          "image": "https://cms.therecord.media/uploads/nikkei_headquarters_6e6f5a53cc.jpg"
-        },
-        {
-          "titre": "Nikkei discloses breaches of employees’ Microsoft, Google email accounts",
+          "titre": "Turnitin discloses cyberattack affecting customer-facing systems",
           "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/nikkei-discloses-breaches-of-employees-microsoft-google-email-accounts/",
-          "date": "2026-10-06",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/06/Nikkei.jpg"
+          "url": "https://www.bleepingcomputer.com/news/security/turnitin-discloses-cyberattack-affecting-customer-facing-systems/",
+          "date": "2026-11-24",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/24/turnitin.jpg"
         }
       ]
     }

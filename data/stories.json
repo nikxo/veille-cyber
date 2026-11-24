@@ -170,8 +170,8 @@
       "id": "2026-11-20-cairn-universites-zero-day-imagerie-medicale",
       "title": "Cairn : des pirates liés à la Chine font trouver par l'IA une faille inconnue de MONAI Label et obtiennent un accès root dans une université",
       "created": "2026-11-20T18:09:54+00:00",
-      "updated": "2026-11-23T22:10:00+00:00",
-      "version": 5,
+      "updated": "2026-11-24T07:07:41+00:00",
+      "version": 6,
       "resume": "Des pirates liés à la Chine ont confié à Cairn, outil d'intrusion autonome fondé sur l'IA, l'attaque d'universités d'Asie de l'Est [1, 3, 5]. Cairn a trouvé une faille inconnue dans MONAI Label, serveur d'imagerie médicale, et obtenu un accès root [3].",
       "chaine": [
         {
@@ -180,11 +180,11 @@
         },
         {
           "etape": "Élévation de privilèges",
-          "texte": "Dépôt d'un fichier que Python exécute au démarrage, chargé par un processus d'entraînement → connexion vers l'attaquant avec les droits root [3]."
+          "texte": "Dépôt d'un fichier que Python exécute au démarrage, chargé par un processus d'entraînement → connexion vers l'attaquant avec les droits root [3, 7]."
         },
         {
           "etape": "Seconde cible",
-          "texte": "Tunnel vers une seconde université fourni par l'opérateur [4] ; même faille réutilisée → seconde université pénétrée [1] ; selon Amazon, compromission supposée, non confirmée [3, 4]."
+          "texte": "Tunnel vers une seconde université fourni par l'opérateur [4, 7] ; même faille réutilisée → seconde université pénétrée [1] ; selon Amazon, compromission supposée, non confirmée [3, 4]."
         }
       ],
       "parcours": {
@@ -300,6 +300,13 @@
           "site": "CISA Advisories",
           "url": "https://www.cisa.gov/news-events/alerts/2026/11/23/cisa-adds-two-known-exploited-vulnerabilities-catalog",
           "date": "2026-11-23"
+        },
+        {
+          "titre": "Hackers Exploit N-able MailAssure Flaw While AI Agents Exploit MONAI Label Zero-Day",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-n-able-mailassure-flaw.html",
+          "date": "2026-11-24",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrPCPwSotVSX8IYSgpSrVceRAIYqba8YSZSlNwD5RjetEhPG6vLRhk_NKkatjg1h-fulZJDm4CucsLvQrEtCO6v0NtuJGo3nZD3mXSHyKpgPrUZMpq7YNpheStYC_AqyMWRfWIFiK9bcHJNAw6pwK9JqirhO8JESKdmsI5Pl8UgtsVsRivmMmMenQ01ClW/s1700-nu-rw-lo-l85-e365/cisa-kev.jpg"
         }
       ]
     },
@@ -715,8 +722,8 @@
       "id": "2026-11-19-n-able-mail-assure-spamexperts",
       "title": "N-able : un serveur web de Mail Assure et SpamExperts compromis, des identifiants stockés consultés et la gestion coupée",
       "created": "2026-11-19T11:20:00+00:00",
-      "updated": "2026-11-23T22:10:00+00:00",
-      "version": 6,
+      "updated": "2026-11-24T07:07:41+00:00",
+      "version": 7,
       "resume": "Un tiers non identifié a compromis un serveur du service cloud Mail Assure et SpamExperts de N-able, coupant portails de gestion et API [1, 2] ; il a peut-être accédé à des identifiants stockés sur la plateforme [2].",
       "chaine": [
         {
@@ -741,7 +748,7 @@
         },
         {
           "etape": "Faille découverte",
-          "texte": "Faille CVE-2026-134624 trouvée pendant l'enquête, corrigée dans la version 20261121.1943 [4, 5] ; tableau de bord et API rétablis le 21 novembre [5]."
+          "texte": "Faille CVE-2026-134624 trouvée pendant l'enquête, corrigée dans la version 20261121.1943 [4, 5] ; tableau de bord et API rétablis le 21 novembre [5, 7]."
         }
       ],
       "parcours": {
@@ -787,7 +794,7 @@
       "cves": [
         {
           "id": "CVE-2026-134624",
-          "explication": "Mail Assure : vérification de connexion sans restriction de destination ; un utilisateur API authentifié fait joindre au serveur des hôtes et ports internes arbitraires, score 9,3 [4, 5]."
+          "explication": "Mail Assure, synchronisation LDAP : falsification de requête côté serveur ; un utilisateur API authentifié joint des hôtes et ports internes arbitraires, score 9,3 [4, 5, 7] ; exploitée selon la CISA [6, 7]."
         }
       ],
       "mitre": [],
@@ -797,7 +804,8 @@
       "cibles": [
         "Partenaires et clients de Mail Assure et SpamExperts Hosted Cloud, dans trois régions [1] ou toutes les régions [2]",
         "N-able dit n'avoir trouvé aucune preuve de compromission des données clients, boîtes aux lettres comprises [3, 4]",
-        "N-able dit n'avoir trouvé aucune preuve d'exploitation au-delà du serveur identifié ; analyse de la cause promise sous deux semaines [5]"
+        "N-able dit n'avoir trouvé aucune preuve d'exploitation au-delà du serveur identifié ; analyse de la cause promise sous deux semaines [5]",
+        "Selon N-able, exploitation limitée à un seul serveur hébergé, sans activité malveillante constatée depuis la remédiation [7]"
       ],
       "abreviations": [
         {
@@ -811,6 +819,10 @@
         {
           "sigle": "CISA",
           "definition": "Cybersecurity and Infrastructure Security Agency : agence américaine de cybersécurité"
+        },
+        {
+          "sigle": "LDAP",
+          "definition": "Lightweight Directory Access Protocol : protocole d'accès aux annuaires d'utilisateurs"
         }
       ],
       "sources": [
@@ -854,6 +866,13 @@
           "site": "CISA Advisories",
           "url": "https://www.cisa.gov/news-events/alerts/2026/11/23/cisa-adds-two-known-exploited-vulnerabilities-catalog",
           "date": "2026-11-23"
+        },
+        {
+          "titre": "Hackers Exploit N-able MailAssure Flaw While AI Agents Exploit MONAI Label Zero-Day",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-n-able-mailassure-flaw.html",
+          "date": "2026-11-24",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrPCPwSotVSX8IYSgpSrVceRAIYqba8YSZSlNwD5RjetEhPG6vLRhk_NKkatjg1h-fulZJDm4CucsLvQrEtCO6v0NtuJGo3nZD3mXSHyKpgPrUZMpq7YNpheStYC_AqyMWRfWIFiK9bcHJNAw6pwK9JqirhO8JESKdmsI5Pl8UgtsVsRivmMmMenQ01ClW/s1700-nu-rw-lo-l85-e365/cisa-kev.jpg"
         }
       ]
     },
@@ -57716,74 +57735,6 @@
       ],
       "cibles": [
         "Clover Health Investments, Jersey City ; 138 677 personnes [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "250,000 Impacted by Data Breaches at New Jersey, Texas Healthcare Firms",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/250000-impacted-by-data-breaches-at-new-jersey-texas-healthcare-firms/",
-          "date": "2026-10-05",
-          "image": "https://www.securityweek.com/wp-content/uploads/2025/10/bank-finance-lender-credit-union-hack.jpeg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-05-angmar-interlock-rancongiciel",
-      "title": "AngMar Management Services : données de patients volées, rançongiciel Interlock",
-      "created": "2026-10-05T18:14:12+00:00",
-      "updated": "2026-10-05T18:14:12+00:00",
-      "version": 1,
-      "resume": "Interlock a ajouté AngMar Management Services (Texas) à son site de fuite, revendiquant plus de 700 gigaoctets ; 126 196 personnes sont concernées [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par la source [1]."
-        },
-        {
-          "etape": "Détection",
-          "texte": "Activité suspecte repérée mi-juillet 2026, confirmée début septembre [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Interlock revendique plus de 700 gigaoctets → noms, numéros de sécurité sociale, diagnostics, historique médical et ordonnances concernés [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (Interlock)",
-            "note": ""
-          },
-          {
-            "id": "dat",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Données de patients d'AngMar",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "dat",
-            "etape": 3,
-            "texte": "Plus de 700 gigaoctets revendiqués"
-          }
-        ]
-      },
-      "limites": "Le vecteur d'accès n'est pas précisé [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Interlock, groupe de rançongiciel [1]"
-      ],
-      "cibles": [
-        "AngMar Management Services, Mansfield (Texas) ; 126 196 personnes [1]"
       ],
       "abreviations": [],
       "sources": [

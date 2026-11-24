@@ -2,6 +2,85 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-24-mycolorado-application-donnees-volees",
+      "title": "Colorado : une cyberattaque met hors ligne l'application myColorado et touche les données de 150 000 personnes",
+      "created": "2026-11-24T21:30:00+00:00",
+      "updated": "2026-11-24T21:30:00+00:00",
+      "version": 1,
+      "resume": "Des pirates ont compromis myColorado, l'application d'identité numérique et de services de l'État du Colorado, qui l'a fermée ; selon l'État, l'attaque a probablement entraîné le vol de données de près de 150 000 personnes [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Compromission de l'application myColorado → vol probable de données liées à près de 150 000 personnes, selon l'État [1]."
+        },
+        {
+          "etape": "Impact",
+          "texte": "Incident découvert le soir du 18 novembre → application fermée par le service informatique de l'État, toujours indisponible le 24 novembre [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Application myColorado",
+            "note": "Fermée depuis le 18/11"
+          },
+          {
+            "id": "data",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données des utilisateurs",
+            "note": "Près de 150 000"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 2,
+            "texte": "Compromission de l'application"
+          },
+          {
+            "de": "app",
+            "vers": "data",
+            "etape": 2,
+            "texte": "Vol probable de données"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni le vecteur d'entrée, ni la nature des données volées, ni l'auteur de l'attaque [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Utilisateurs de myColorado : 2,1 millions d'utilisateurs, près de 150 000 personnes touchées [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Colorado says cyberattack took down myColorado app, warns 150,000 had data stolen",
+          "site": "The Record",
+          "url": "https://therecord.media/mycolorado-app-down-data-breach",
+          "date": "2026-11-24",
+          "image": "https://cms.therecord.media/uploads/my_colorado_app_fb8214e64c.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-24-radware-api-waf-cles-cloud",
       "title": "Radware : une interface interne de gestion du pare-feu applicatif cloud exposée sans authentification livre des clés de stockage cloud de clients",
       "created": "2026-11-24T18:30:00+00:00",
@@ -869,19 +948,19 @@
     {
       "schema": 3,
       "id": "2026-11-24-o-unc-053-inception-vishing",
-      "title": "O-UNC-053 : le groupe d'hameçonnage vocal lié à ShinyHunters réapparaît avec le site de fuite INCEPTION",
+      "title": "Inception : le groupe d'hameçonnage vocal O-UNC-053, lié à ShinyHunters, vise les comptes d'authentification unique",
       "created": "2026-11-24T14:40:00+00:00",
-      "updated": "2026-11-24T14:40:00+00:00",
-      "version": 1,
-      "resume": "Selon Okta, le groupe O-UNC-053, jusqu'ici jugé affilié à ShinyHunters, pourrait poursuivre ses opérations sous le nom INCEPTION, un nouveau site de fuite qui, au 16 novembre 2026, listait des données de ses cibles [1].",
+      "updated": "2026-11-24T21:30:00+00:00",
+      "version": 2,
+      "resume": "Selon Okta, le groupe O-UNC-053, jusqu'ici jugé affilié à ShinyHunters, opère très probablement sous le nom Inception, dont le site d'extorsion revendique sept victimes, dont AMD et PepsiCo, sans confirmation de leur part [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Appels téléphoniques aux employés ciblés → identifiants saisis sur une page d'hameçonnage et authentification multifacteur validée par la victime [1]."
+          "texte": "Appels téléphoniques aux employés ciblés → identifiants saisis sur une page d'hameçonnage et authentification multifacteur validée par la victime [1, 2]."
         },
         {
           "etape": "Vol d'identifiants",
-          "texte": "Kit intercalé dans l'authentification, adapté au fournisseur d'identité, sur des domaines comme legal-<cible>.com → identifiants et codes à usage unique captés [1]."
+          "texte": "Faux sites à thème juridique imitant surtout Okta, aussi NetIQ, comme legal-<cible>.com → identifiants d'authentification unique et codes captés [1, 2]."
         },
         {
           "etape": "Prise de contrôle",
@@ -893,7 +972,7 @@
         },
         {
           "etape": "Extorsion",
-          "texte": "Menace de publication → cibles listées sur le site de fuite de ShinyHunters, puis, au 16 novembre 2026, sur INCEPTION [1]."
+          "texte": "Menace de publication → cibles listées sur INCEPTION, au 16 novembre selon [1], le 17 novembre avec sept victimes selon [2]."
         }
       ],
       "parcours": {
@@ -902,7 +981,7 @@
             "id": "att",
             "type": "attaquant",
             "zone": "internet",
-            "nom": "Attaquant (O-UNC-053)",
+            "nom": "Attaquant (O-UNC-053 / Inception)",
             "note": ""
           },
           {
@@ -917,7 +996,7 @@
             "type": "application",
             "zone": "internet",
             "nom": "Page d'hameçonnage",
-            "note": "Domaines « legal »"
+            "note": "Imite Okta, NetIQ"
           },
           {
             "id": "apps",
@@ -973,25 +1052,30 @@
           }
         ]
       },
-      "limites": "La source ignore si les données publiées sur INCEPTION sont authentiques, et si le groupe gère lui-même le site ou collabore avec un autre gang d'extorsion [1].",
+      "limites": "Aucune victime revendiquée n'a confirmé de fuite, et les domaines ne prouvent pas une compromission [2]. Inception se dit indépendant, Okta le relie à O-UNC-053 [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "O-UNC-053, nom donné par Okta, auparavant jugé affilié à ShinyHunters, relation exacte inconnue [1]",
-        "INCEPTION, nouveau site de fuite dont l'opérateur n'est pas confirmé [1]"
+        "O-UNC-053, nom donné par Okta, auparavant jugé affilié à ShinyHunters, actif depuis mars [1, 2]",
+        "Inception, groupe d'extorsion qui se dit indépendant de tout groupe antérieur [2]"
       ],
       "cibles": [
         "Technologie, santé, biotechnologie, finance, assurance, divertissement, jeux, commerce, transport, hôtellerie et juridique [1]",
-        "Domaines confirmés liés à l'activité, aux noms de PepsiCo, Dropbox, AMD, Twitch ou Western Union [1]"
+        "Revendiquées sans confirmation : AMD, PepsiCo, Cigna Healthcare, AutoZone, Lucid Motors [2]",
+        "Marques imitées par l'infrastructure d'hameçonnage, dont Dropbox, Twitch, Western Union, Reddit [2]"
       ],
       "abreviations": [
         {
           "sigle": "INCEPTION",
-          "definition": "Nom du nouveau site de publication de données volées lié au groupe"
+          "definition": "Nom du site de publication de données volées lié au groupe"
         },
         {
           "sigle": "AMD",
           "definition": "Advanced Micro Devices : fabricant américain de processeurs"
+        },
+        {
+          "sigle": "SSO",
+          "definition": "Single Sign-On : authentification unique donnant accès à plusieurs applications"
         }
       ],
       "sources": [
@@ -1001,6 +1085,13 @@
           "url": "https://thehackernews.com/2026/11/okta-links-shinyhunters-associated.html",
           "date": "2026-11-24",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjete6dy8Fmd7sbjqKI5GKSySXkcnz4NF__irfVMBHzgRIDUnpGHtvRIbCywZYYsoKsnMdPhvanoXcnXbYvZpMjL2lL6d_F9a4ErEaI5rH_boPedH_ru2Ush9wonb8tYhGNVM6M_01DTue1THY7uGMbuKBJKNgMbrACkxHCGJiJylHWoxkkpCXNr2Z_CIdf/s1700-nu-rw-lo-l85-e365/leaks.jpg"
+        },
+        {
+          "titre": "New Inception extortion gang launches large-scale vishing campaign",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/new-inception-extortion-gang-launches-large-scale-vishing-campaign/",
+          "date": "2026-11-24",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/24/inception.jpg"
         }
       ]
     },
@@ -57782,95 +57873,6 @@
           "url": "https://www.huntress.com/blog/mapping-akira-ransomware-attack",
           "date": "2026-10-06",
           "image": "https://cdn.builder.io/api/v1/image/assets%2F3eb6f92aedf74f109c7b4b0897ec39a8%2F6cc6693ad7e4485f9b9d61ff3db41c56"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-05-danemark-registre-population-cpr",
-      "title": "Danemark : fuite du registre de la population via l'accès d'une entreprise privée",
-      "created": "2026-10-05T18:14:12+00:00",
-      "updated": "2026-10-06T10:30:00+00:00",
-      "version": 3,
-      "resume": "Les données personnelles d'environ 8,8 millions de personnes du registre central danois ont été exposées, soit 80 % des 11 millions d'inscrits [1]. L'accès non autorisé a duré environ 10 jours selon le ministre [2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Abus de l'accès autorisé d'une entreprise privée danoise au système du registre → accès aux données du registre [1, 2, 3]."
-        },
-        {
-          "etape": "Énumération",
-          "texte": "Très grand nombre de recherches automatisées pour trouver des numéros CPR valides → extraction des noms, adresses et numéros d'identification [1, 2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "reg",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Registre central de la population",
-            "note": "Noms, adresses, statut marital"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "reg",
-            "etape": 1,
-            "texte": "Abus de l'accès d'une entreprise privée"
-          },
-          {
-            "de": "att",
-            "vers": "reg",
-            "etape": 2,
-            "texte": "Force brute sur les numéros CPR"
-          }
-        ]
-      },
-      "limites": "Les sources ne nomment ni l'entreprise ni les auteurs ; la méthode de compromission du compte de l'entreprise n'est pas précisée [1, 2, 3].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non précisé par la source [1]"
-      ],
-      "cibles": [
-        "8,8 millions de personnes inscrites : résidents, expatriés, personnes décédées [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "CPR",
-          "definition": "Central Population Register : registre central de la population danois"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Denmark population registry data breach affects 8.8 million people",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/denmark-population-registry-data-breach-affects-88-million-people/",
-          "date": "2026-10-05",
-          "image": "https://www.bleepstatic.com/content/hl-images/2025/12/19/Denmark.jpg"
-        },
-        {
-          "titre": "Denmark Says Attackers Accessed CPR Data for 8.8 Million People via Company Account",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/denmark-says-attackers-accessed-cpr.html",
-          "date": "2026-10-05",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyl-dsAiVrN_a0ie2xM1-2S8GDtnp-OYIAY1Cd_nhYhGkY3q0VeVEvEInjHAYCJTtnRYkXag2mY_iFjcEkFjeLQ7LrF6JqbTQ6eLZQM7aVzTHQsZ37a7PMIWPNkPvc8yTvHgWRLhdnoXbHZSlYfXJMAgfKkPcgSWD6JVb6kBYfzz9LB3SQPx357xqsr8o/s1700-nu-rw-lo-l85-e365/cpr.jpg"
-        },
-        {
-          "titre": "8.8 Million Impacted by Data Breach at Denmark’s Central Person Register",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/8-8-million-impacted-by-data-breach-at-denmarks-central-person-register/",
-          "date": "2026-10-06",
-          "image": "https://www.securityweek.com/wp-content/uploads/2024/08/data-breach.jpeg"
         }
       ]
     },

@@ -1,29 +1,5 @@
 [
   {
-    "id": "3632eace057e58a0",
-    "title": "Debian and Ubuntu APT Flaw Lets MitM Attackers Swap Verified Packages and Run Code as Root",
-    "link": "https://thehackernews.com/2026/11/debian-and-ubuntu-apt-flaw-lets-mitm.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-11-04T18:08:31+00:00"
-  },
-  {
-    "id": "3ad8822087e7a40c",
-    "title": "CTF Social Engineering : trois jours pour piéger l’humain",
-    "link": "https://www.zataz.com/ctf-social-engineering-trois-jours-pour-pieger-lhumain/",
-    "source": "ZATAZ",
-    "raison": "compétition CTF, pas une attaque réelle",
-    "date": "2026-11-04T18:08:31+00:00"
-  },
-  {
-    "id": "1a733d9748b7718a",
-    "title": "IA en entreprise : l’industrialisation reste marginale (étude)",
-    "link": "https://www.lemagit.fr/actualites/366653539/IA-en-entreprise-lindustrialisation-reste-marginale-etude",
-    "source": "LeMagIT",
-    "raison": "étude sans attaque",
-    "date": "2026-11-04T19:10:00+00:00"
-  },
-  {
     "id": "1b4641ca37283c44",
     "title": "Critical Rails Bug Threatens to Derail Vulnerable Servers",
     "link": "https://www.darkreading.com/application-security/critical-rails-bug-derail-vulnerable-servers",
@@ -3998,5 +3974,29 @@
     "source": "BleepingComputer",
     "raison": "actualité judiciaire sans détail sur une méthode d'attaque",
     "date": "2026-11-24T16:30:00+00:00"
+  },
+  {
+    "id": "85f0bff41edf6ee0",
+    "title": "ShinyHunters claims to return after FBI arrests, uses old PGP keys as proof",
+    "link": "https://www.bleepingcomputer.com/news/security/shinyhunters-resurfaces-after-fbi-arrests-uses-old-pgp-keys-as-proof/",
+    "source": "BleepingComputer",
+    "raison": "revendication et actualité judiciaire sans détail sur la méthode d'attaque",
+    "date": "2026-11-24T17:30:00+00:00"
+  },
+  {
+    "id": "9a9fcc8bd904b706",
+    "title": "Cybersécurité : la CNIL est passée à la vitesse supérieure",
+    "link": "https://www.lemagit.fr/conseil/Cybersecurite-la-CNIL-est-passee-a-la-vitesse-superieure",
+    "source": "LeMagIT",
+    "raison": "conseil générique sur la doctrine de la CNIL",
+    "date": "2026-11-24T17:30:00+00:00"
+  },
+  {
+    "id": "a51efed49d2acb3c",
+    "title": "VMware Updates Patch Critical ESX, vCenter Vulnerabilities",
+    "link": "https://www.securityweek.com/vmware-updates-patch-critical-esx-vcenter-vulnerabilities/",
+    "source": "SecurityWeek",
+    "raison": "vulnérabilités sans exploitation constatée",
+    "date": "2026-11-24T17:30:00+00:00"
   }
 ]

@@ -326,33 +326,33 @@
       "id": "2026-11-24-gt13-check-point-campagne-ia",
       "title": "GT13 : des serveurs de gestion Check Point compromis dans une campagne assistée par intelligence artificielle",
       "created": "2026-11-24T15:10:00+00:00",
-      "updated": "2026-11-24T15:10:00+00:00",
-      "version": 1,
-      "resume": "Selon GreyNoise, l'acteur GT13 a compromis des serveurs Check Point Security Management d'au moins 22 organisations dans plusieurs pays, avec des outils offensifs assistés par intelligence artificielle [1].",
+      "updated": "2026-11-24T17:30:00+00:00",
+      "version": 2,
+      "resume": "Selon GreyNoise, l'acteur GT13 a compromis des serveurs de gestion Check Point de 22 organisations dans 17 pays [1, 4], avec des outils offensifs assistés par intelligence artificielle [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé : GreyNoise ignore quand et comment l'attaquant a obtenu l'accès aux équipements Check Point [1]."
+          "texte": "Non précisé : GreyNoise ignore quand et comment l'attaquant a obtenu l'accès aux équipements Check Point [1, 4]."
         },
         {
-          "etape": "Compromission d'un serveur HFS",
-          "texte": "Cookie de session administrateur signé forgé le 2 octobre → contrôle administrateur d'un serveur HFS, puis accès SSH ; serveur utilisé pour scanner et exfiltrer [1]."
+          "etape": "Prise de contrôle administrateur",
+          "texte": "Exploitation de CVE-2026-16232 après la compromission → jeton de connexion et authentification avec des privilèges administrateur [4]."
         },
         {
-          "etape": "Exploitation automatisée",
-          "texte": "Systèmes agentiques d'intelligence artificielle pour trouver des cibles et automatiser l'exploitation, complétés par des actions manuelles [1]."
+          "etape": "Relais d'attaque",
+          "texte": "Cookie administrateur forgé le 2 octobre → contrôle d'un serveur HFS puis accès SSH [1] ; serveur utilisé comme relais pour piloter les intrusions et collecter les données [4]."
         },
         {
           "etape": "Exploration du réseau",
-          "texte": "Outils dont Nmap, Chisel et Impacket → reconnaissance, déplacement dans le réseau et élévation de privilèges [1]."
+          "texte": "Outils dont Nmap, Chisel et Impacket → reconnaissance, déplacement et élévation de privilèges [1] ; reconnaissance du réseau interne et tentatives de déplacement latéral [4]."
         },
         {
-          "etape": "Vol de données",
-          "texte": "Données de 24 serveurs Check Point stockées sur un serveur relais d'une victime ; réponses d'une tâche de certificats en masse copiées par scp vers un dossier d'exfiltration [1]."
+          "etape": "Neutralisation des défenses",
+          "texte": "Politiques de sécurité déchargées → protections du pare-feu de fait désactivées [4]."
         },
         {
-          "etape": "Persistance",
-          "texte": "Chaque équipement compromis détient la clé privée SSH liée à une clé publique déposée sur le relais ; accès persistant conservé [1]."
+          "etape": "Vol de données, persistance",
+          "texte": "Vol de bases de pare-feu, identifiants, configurations et fichiers d'autorité de certification interne [4] ; clé privée SSH liée au relais sur chaque équipement ; accès persistant conservé [1]."
         }
       ],
       "parcours": {
@@ -368,14 +368,7 @@
             "id": "hfs",
             "type": "serveur",
             "zone": "victime",
-            "nom": "Serveur HFS d'une victime",
-            "note": "Cookie administrateur forgé"
-          },
-          {
-            "id": "rel",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur relais d'une victime",
+            "nom": "Serveur HFS relais d'une victime",
             "note": "Données stockées"
           },
           {
@@ -383,7 +376,14 @@
             "type": "postes",
             "zone": "victime",
             "nom": "Serveurs de gestion Check Point",
-            "note": "Au moins 22 organisations"
+            "note": "22 organisations"
+          },
+          {
+            "id": "net",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Réseau interne des victimes",
+            "note": "Reconnaissance"
           }
         ],
         "liens": [
@@ -395,35 +395,47 @@
           },
           {
             "de": "att",
-            "vers": "hfs",
+            "vers": "cp",
             "etape": 2,
-            "texte": "Cookie administrateur forgé, puis accès SSH"
+            "texte": "CVE-2026-16232, privilèges administrateur"
+          },
+          {
+            "de": "att",
+            "vers": "hfs",
+            "etape": 3,
+            "texte": "Cookie forgé, puis accès SSH"
+          },
+          {
+            "de": "cp",
+            "vers": "net",
+            "etape": 4,
+            "texte": "Reconnaissance, tentatives de déplacement latéral"
           },
           {
             "de": "att",
             "vers": "cp",
-            "etape": 4,
-            "texte": "Reconnaissance et déplacement dans le réseau"
+            "etape": 5,
+            "texte": "Politiques de sécurité déchargées"
           },
           {
             "de": "cp",
-            "vers": "rel",
-            "etape": 5,
+            "vers": "hfs",
+            "etape": 6,
             "texte": "Données stockées sur le relais"
           },
           {
-            "de": "rel",
+            "de": "hfs",
             "vers": "cp",
             "etape": 6,
             "texte": "Clés SSH partagées, accès persistant"
           }
         ]
       },
-      "limites": "GreyNoise ne précise ni l'accès initial aux serveurs Check Point ni l'origine de GT13 ; l'article cite des failles utilisées ou tentées sans dire lesquelles ont réussi [1].",
+      "limites": "Les sources ne précisent ni l'accès initial ni l'origine de GT13 [1, 4] ; des failles Citrix NetScaler, Ivanti, Windows NetLogon et Linux ont été visées par des tentatives, sans résultat précisé [4].",
       "cves": [
         {
           "id": "CVE-2026-16232",
-          "explication": "Check Point SmartConsole : contournement d'authentification donnant un accès administrateur complet sans identifiants, critique 9,8 [2] ; parmi les failles utilisées ou tentées par la campagne [1]."
+          "explication": "Check Point SmartConsole : contournement d'authentification donnant un accès administrateur complet sans identifiants, critique 9,8 [2] ; exploitée après la compromission pour s'authentifier en administrateur [4]."
         },
         {
           "id": "CVE-2026-61500",
@@ -437,7 +449,7 @@
       ],
       "cibles": [
         "Au moins 22 organisations : énergie, ingénierie, finance, administration, industrie, mines, transport [1]",
-        "États-Unis, Royaume-Uni, Australie, Autriche, Chine, France, Allemagne, Hong Kong, Pays-Bas, Corée du Sud et d'autres pays [1]"
+        "États-Unis, Royaume-Uni, Australie, Autriche, Chine, France, Allemagne, Hong Kong, Pays-Bas, Corée du Sud et d'autres [1] ; 17 pays au total [4]"
       ],
       "abreviations": [
         {
@@ -482,6 +494,13 @@
           "titre": "Fiche NVD CVE-2026-61500",
           "site": "NVD (NIST)",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61500"
+        },
+        {
+          "titre": "Hackers compromise Check Point Servers in 22 organizations",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-compromise-check-point-servers-in-22-organizations/",
+          "date": "2026-11-24",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/05/05/hacker.jpg"
         }
       ]
     },
@@ -5491,9 +5510,9 @@
       "id": "2026-11-19-commission-europeenne-campagne-ia",
       "title": "Commission européenne : une cyberattaque « générée par intelligence artificielle » perturbe la gestion du personnel et expose des utilisateurs d'EU Academy",
       "created": "2026-11-19T16:09:13+00:00",
-      "updated": "2026-11-24T15:10:00+00:00",
-      "version": 4,
-      "resume": "La Commission européenne confirme une cyberattaque menée avec un outil d'intelligence artificielle, détectée le 22 octobre [1, 3, 4] ; la gestion du personnel a été perturbée [2] et des données d'utilisateurs d'EU Academy ont fuité [4].",
+      "updated": "2026-11-24T17:30:00+00:00",
+      "version": 5,
+      "resume": "La Commission européenne confirme une cyberattaque menée avec un outil d'intelligence artificielle, détectée le 22 octobre [1, 3, 4] ; la gestion du personnel a été perturbée [2] et des données d'utilisateurs d'EU Academy ont fuité [4, 5].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -5509,7 +5528,7 @@
         },
         {
           "etape": "Données",
-          "texte": "Fuite confirmée lundi par la Commission : noms et adresses électroniques d'utilisateurs d'EU Academy, accès suspendu [4] ; aucune preuve de fuite de données du personnel selon la Commission [3]."
+          "texte": "Fuite confirmée lundi par la Commission : noms et adresses électroniques d'utilisateurs d'EU Academy, accès public désactivé [4, 5] ; aucune preuve de fuite de données du personnel selon la Commission [3]."
         }
       ],
       "parcours": {
@@ -5570,14 +5589,15 @@
           }
         ]
       },
-      "limites": "Les sources ne décrivent ni l'accès initial ni les actions dans le réseau [1, 2, 4] ; attribution attendue à la fin de l'enquête, attaque pas totalement contenue selon Euronews [4].",
+      "limites": "Les sources ne décrivent ni l'accès initial ni les actions dans le réseau [1, 2, 4] ; attribution attendue à la fin de l'enquête selon la Commission ; attaque pas encore totalement contenue selon Euronews [4].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Non identifiés ; la Commission ne précise ni l'outil ni la motivation [1] et n'attribue pas l'attaque à un groupe connu [3]",
         "Selon le FBI, Artex est utilisé par des criminels et des groupes soutenus par des États [1]",
         "Artex en général : Microsoft a d'abord attribué son usage à Storm-0940, aligné sur Pékin ; d'autres ont suivi, dont Storm-3358, acteur crapuleux au Cambodge [2]",
-        "Selon Euronews, la Commission soupçonne un groupe lié à la Chine, en partie à cause de l'usage d'Artex, outil d'origine chinoise [4]"
+        "Selon Euronews, la Commission soupçonne un groupe lié à la Chine, en partie à cause de l'usage d'Artex, outil d'origine chinoise [4]",
+        "Aucune demande de rançon reçue ; attribution attendue à la fin de l'enquête, selon la Commission [5]"
       ],
       "cibles": [
         "Commission européenne, systèmes de gestion du personnel [1]",
@@ -5629,6 +5649,13 @@
           "url": "https://www.securityweek.com/european-commission-uncovers-data-breach-in-cyberattack-investigation/",
           "date": "2026-11-24",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/06/EU-Europe-European-Union-.jpeg"
+        },
+        {
+          "titre": "European Commission confirms data theft in EU Academy breach",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/european-commission-confirms-data-theft-in-eu-academy-breach/",
+          "date": "2026-11-24",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/04/03/0_European_Union_flag.jpg"
         }
       ]
     },

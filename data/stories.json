@@ -2,6 +2,73 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-24-cia-systeme-non-classifie",
+      "version": 1,
+      "created": "2026-11-24T23:20:00+00:00",
+      "updated": "2026-11-24T23:20:00+00:00",
+      "title": "CIA : un système non classifié de renseignement en sources ouvertes piraté lors d'une cyberattaque",
+      "resume": "Un système non classifié de la CIA, consacré au renseignement en sources ouvertes, a été piraté lors d'une cyberattaque ; aucune information classifiée n'était concernée selon une source anonyme [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Compromission",
+          "texte": "Intrusion dans un système non classifié de renseignement en sources ouvertes → problème résolu, aucune information classifiée touchée selon la source [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "sys",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Système non classifié CIA",
+            "note": "Sources ouvertes"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Intrusion, vecteur non précisé"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'accès, ni les informations compromises, ni le responsable de l'attaque [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "CIA, système non classifié consacré au renseignement en sources ouvertes [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CIA",
+          "definition": "Central Intelligence Agency : agence de renseignement extérieur des États-Unis"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "An Unclassified CIA System Was Breached in a Cyberattack, AP Source Says",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/an-unclassified-cia-system-was-breached-in-a-cyberattack-ap-source-says/",
+          "date": "2026-11-24",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/CIA_Hacked.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-24-drupal-core-cve-2026-132165-kev",
       "title": "Drupal Core : la faille d'exécution de code CVE-2026-132165 exploitée, ajoutée au catalogue de la CISA",
       "created": "2026-11-24T22:20:00+00:00",
@@ -74,6 +141,625 @@
           "site": "CISA Advisories",
           "url": "https://www.cisa.gov/news-events/alerts/2026/11/24/cisa-adds-three-known-exploited-vulnerabilities-catalog",
           "date": "2026-11-24"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-23-idunno-anticsrf-aspnet-rce",
+      "title": "Idunno.AntiCsrf : une faille critique de cette bibliothèque ASP.NET abandonnée est exploitée pour exécuter du code sans authentification",
+      "created": "2026-11-23T11:20:00+00:00",
+      "updated": "2026-11-24T22:20:00+00:00",
+      "version": 2,
+      "resume": "Une faille critique d'Idunno.AntiCsrf, bibliothèque ASP.NET WebForms sans mise à jour depuis décembre 2008, est exploitée pour exécuter du code sans authentification [1]. La CISA l'a ajoutée le 24 novembre 2026 à son catalogue des failles exploitées [2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Une seule requête POST sans authentification, avec un cookie CSRF non vide et une chaîne de gadgets encodée en Base64 dans le champ CSRF [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Jeton désérialisé sans clé ni vérification de signature → exécution de code dans le processus IIS w3wp.exe, compromission complète du serveur d'applications web [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "web",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur web ASP.NET WebForms",
+            "note": "Code exécuté (w3wp.exe)"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Requête POST piégée sans authentification"
+          },
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 2,
+            "texte": "Exécution de code dans le processus IIS"
+          }
+        ]
+      },
+      "limites": "La source ne nomme ni les attaquants, ni les victimes, ni ce qu'ils ont fait après l'exécution de code ; la date de l'exploitation observée n'est pas donnée [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-131914",
+          "explication": "Idunno.AntiCsrf 0.9.1.0 et 0.9.1 Beta : désérialisation non sécurisée dans le module HTTP permettant l'exécution de code à distance, gravité 9,3 sur 10 [1] ; exploitation active confirmée [2]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié : Google n'a pas donné d'autres détails sur l'activité [1]"
+      ],
+      "cibles": [
+        "Applications ASP.NET WebForms utilisant Idunno.AntiCsrf ; victimes non précisées [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ASP.NET",
+          "definition": "Cadre de Microsoft pour créer des applications et sites web"
+        },
+        {
+          "sigle": "CSRF",
+          "definition": "Cross-Site Request Forgery : requête forcée à l'insu d'un utilisateur connecté"
+        },
+        {
+          "sigle": "POST",
+          "definition": "Type de requête web qui envoie des données au serveur"
+        },
+        {
+          "sigle": "IIS",
+          "definition": "Internet Information Services : serveur web de Microsoft"
+        },
+        {
+          "sigle": "HTTP",
+          "definition": "Protocole d'échange des pages et requêtes web"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers Exploit Critical ASP.NET Anti-CSRF Library Flaw Allowing Unauthenticated RCE",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-aspnet-anti.html",
+          "date": "2026-11-23",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWv3LP9w9Iv-ZmqonS5mwf1jDE-lTLUcDPxCOvYn3RF87-n2epMtdhqH5xXf-bsIIyKXq6U9qU5T1OQ6_Y3VeytS0CCA4TLJtFDcfcHR-I2EHY3t2e94UPvppaaXG9jDQPj4wNwt6CdwQCmXm5uK16BAp5Fn12DmxUk-Wu5ZwPT2kPQFo37oxSeqc6hX7X/s1700-nu-rw-lo-l85-e365/asp.net.jpg"
+        },
+        {
+          "titre": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/24/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-24"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-21-rackspace-spot-secrets-kubernetes",
+      "title": "Rackspace Spot : des identifiants compromis ouvrent l'accès aux secrets Kubernetes des clients, la plateforme fermée",
+      "created": "2026-11-21T23:30:00+00:00",
+      "updated": "2026-11-24T22:20:00+00:00",
+      "version": 2,
+      "resume": "Des attaquants ont accédé à la plateforme cloud Rackspace Spot avec des identifiants compromis le 17 novembre 2026 et ont pu lire les secrets Kubernetes des clusters clients [1, 2]. Rackspace ferme définitivement Spot le 8 décembre 2026 [2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Connexion à Rackspace Spot avec des identifiants divulgués ou compromis → actions possibles comme des utilisateurs légitimes de certaines organisations clientes [1, 2]."
+        },
+        {
+          "etape": "Exécution",
+          "texte": "Création de pods Kubernetes dans les clusters clients → charges de travail non autorisées déployées [1, 2]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Lecture possible des secrets des clusters, des jetons d'API Spot et de rafraîchissement [1], ainsi que de fichiers des volumes de stockage [2]."
+        },
+        {
+          "etape": "Reconnaissance",
+          "texte": "Listage des nœuds et des volumes des clusters [1, 2]."
+        },
+        {
+          "etape": "Découverte et fermeture",
+          "texte": "Intrusion découverte le 18 novembre après un signalement client → console d'administration coupée, puis arrêt définitif de Spot annoncé [2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Identifiants compromis"
+          },
+          {
+            "id": "spot",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Plateforme Rackspace Spot",
+            "note": ""
+          },
+          {
+            "id": "k8s",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Clusters Kubernetes des clients",
+            "note": "Pods non autorisés"
+          },
+          {
+            "id": "sec",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Secrets, jetons et volumes",
+            "note": "Lecture possible"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "spot",
+            "etape": 1,
+            "texte": "Connexion avec des identifiants divulgués ou compromis"
+          },
+          {
+            "de": "spot",
+            "vers": "k8s",
+            "etape": 2,
+            "texte": "Création de pods non autorisés"
+          },
+          {
+            "de": "k8s",
+            "vers": "sec",
+            "etape": 3,
+            "texte": "Accès aux secrets et jetons"
+          },
+          {
+            "de": "k8s",
+            "vers": "sec",
+            "etape": 4,
+            "texte": "Listage des nœuds et volumes"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent pas comment les identifiants ont été obtenus, combien de clients sont touchés ni qui sont les attaquants [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Clients de Rackspace Spot, plateforme de déploiement d'applications conteneurisées avec Kubernetes, nombre non précisé [1, 2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Application Programming Interface : interface permettant à des programmes de piloter un service"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Rackspace Spot breach let hackers access customer Kubernetes secrets",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/rackspace-spot-breach-let-hackers-access-customer-kubernetes-secrets/",
+          "date": "2026-11-21",
+          "image": "https://www.bleepstatic.com/content/hl-images/2022/12/09/Rackspace.jpg"
+        },
+        {
+          "titre": "Rackspace shuts down Spot cloud platform after security breach",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/rackspace-shuts-down-spot-cloud-platform-after-security-breach/",
+          "date": "2026-11-24",
+          "image": "https://www.bleepstatic.com/content/hl-images/2022/12/09/Rackspace.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-webworm-softether-pont-furtif",
+      "title": "Webworm : un pont VPN SoftEther modifié pour garder un accès discret aux réseaux de gouvernements",
+      "created": "2026-11-19T16:09:13+00:00",
+      "updated": "2026-11-24T22:20:00+00:00",
+      "version": 3,
+      "resume": "Rapid7 attribue au groupe d'espionnage Webworm, aligné sur la Chine, une version modifiée du VPN SoftEther, camouflée pour garder un accès discret aux réseaux compromis d'organisations gouvernementales [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Camouflage de l'outil",
+          "texte": "Pont VPN SoftEther recompilé, présenté comme logiciel de surveillance réseau « NtMonitor VPN », configuration chiffrée [1, 2] ; traces qui le trahiraient aux défenseurs retirées [3]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Règles ajoutées au pare-feu Windows par l'outil [1]."
+        },
+        {
+          "etape": "Dissimulation réseau",
+          "texte": "Adresses web renommées et filigrane d'origine remplacé → clients SoftEther standards bloqués et identification par filigrane évitée [1, 2]."
+        },
+        {
+          "etape": "Pont vers le réseau",
+          "texte": "Tunnel VPN reliant un réseau distant au réseau local → l'hôte infecté sert de relais vers les autres machines du réseau [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Webworm)",
+            "note": ""
+          },
+          {
+            "id": "dist",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Réseau distant",
+            "note": "Adresse chez AS 20473"
+          },
+          {
+            "id": "hote",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Hôte Windows infecté",
+            "note": "Pont NtMonitor VPN"
+          },
+          {
+            "id": "res",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Autres machines du réseau",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "hote",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "hote",
+            "vers": "dist",
+            "etape": 5,
+            "texte": "Tunnel VPN vers le réseau distant"
+          },
+          {
+            "de": "hote",
+            "vers": "res",
+            "etape": 5,
+            "texte": "Relais vers les autres machines"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni l'accès initial, ni les victimes exactes, ni ce que les attaquants ont fait une fois connectés au réseau [1, 2, 3].",
+      "cves": [],
+      "mitre": [
+        "T1587.001 : Develop Capabilities: Malware, développement de capacités, logiciel malveillant : création de l'outil SoftEther modifié [1].",
+        "T1027.013 : Encrypted/Encoded File, fichier chiffré ou encodé : configuration chiffrée de l'outil [1].",
+        "T1140 : Deobfuscate/Decode Files or Information, déchiffrement ou décodage de fichiers ou d'informations [1].",
+        "T1036.005 : Match Legitimate Resource Name or Location, imitation d'un nom ou d'un emplacement de ressource légitime [1].",
+        "T1027.005 : Indicator Removal from Tools, suppression d'indicateurs dans les outils [1].",
+        "T1686.003 : Windows Host Firewall, désactivation ou modification du pare-feu de l'hôte Windows [1].",
+        "T1599 : Network Boundary Bridging, franchissement de la frontière réseau [1].",
+        "T1071 : Application Layer Protocol, protocole de la couche application [1].",
+        "T1090.001 : Internal Proxy, relais interne : l'hôte infecté relaie l'accès de commande vers d'autres machines [1]."
+      ],
+      "acteurs": [
+        "Webworm, groupe d'espionnage aligné sur la Chine ; outil attribué avec une confiance modérée [1]",
+        "ESET avait déjà noté son passage d'outils sur mesure à des outils à double usage comme SoftEther [1]",
+        "Webworm a été décrit pour la première fois par Symantec (Broadcom) en septembre 2022 [2]"
+      ],
+      "cibles": [
+        "Organisations gouvernementales, surtout en Europe [1]",
+        "Cibles déjà visées par Webworm : gouvernements, services informatiques et énergie électrique en Russie, Géorgie, Mongolie et Asie [2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "VPN",
+          "definition": "Réseau privé virtuel : tunnel chiffré reliant des réseaux"
+        },
+        {
+          "sigle": "AS",
+          "definition": "Système autonome : bloc d'adresses Internet géré par un même opérateur"
+        },
+        {
+          "sigle": "ESET",
+          "definition": "Éditeur slovaque de logiciels de sécurité"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Spying on Governments with Zero Lines of Malware: A Custom SoftEther Bridge in Webworm’s Toolkit",
+          "site": "Rapid7",
+          "url": "https://www.rapid7.com/blog/post/tr-spying-on-governments-no-malware-custom-webworms-toolkit-softether-bridge",
+          "date": "2026-11-19",
+          "image": "https://www.rapid7.com/cdn/images/blt62de3c632e7d1ef7/6984a555a6b5ef052cb93196/Chrysalis-backdoor-blog.jpg"
+        },
+        {
+          "titre": "Webworm Suspected of Modifying SoftEther VPN to Evade Detection and Hide Remote Access",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/webworm-suspected-of-modifying.html",
+          "date": "2026-11-23",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9_mXkFA2_QQWa_ajcGxgoc3rSAfxGJqP-uIREqPGAfJGM7D7-mLrjwSE_F1egX-pwVRvMRinRGs4QbcBE1yJrmHFw4Fa_ILg6ZuTIOy1bf86-wPQ-Zgsqa-6hqdBapRROk97rOeT-Vfa002vHuWF6fCSE1KPttjswyjUeBxjrJzrmVU9KY724e75Giq1T/s1700-nu-rw-lo-l85-e365/chinese-malware.jpg"
+        },
+        {
+          "titre": "Webworm APT Slithers Into Networks With Customized SoftEther VPN",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/perimeter/webworm-slithers-customized-softether-vpn",
+          "date": "2026-11-24"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-17-optimizely-scripts-pieges",
+      "title": "Optimizely : des scripts piégés chargés sur les sites de 178 organisations visent cryptomonnaies et cartes bancaires",
+      "created": "2026-11-17T03:06:55+00:00",
+      "updated": "2026-11-24T22:20:00+00:00",
+      "version": 11,
+      "resume": "Du code malveillant inséré dans les fichiers JavaScript d'Optimizely de 178 organisations, selon Scott Helme, a visé les visiteurs de sites comme Zoom, GitLab et Salesforce pour voler cryptomonnaies et cartes bancaires [1, 2, 3]. Optimizely dit avoir corrigé la faille et retiré le code [2, 3, 7, 10, 11].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Selon Optimizely, exploitation d'une vulnérabilité dans le parcours d'inscription aux comptes Experimentation → ajout de JavaScript malveillant à des projets de clients, le 16 novembre selon Unit 42 [2, 5, 6, 7]."
+        },
+        {
+          "etape": "Diffusion du code",
+          "texte": "Code placé dans un champ facultatif réservé au JavaScript du client, exécuté sur chaque page [4] ; fichiers modifiés servis depuis cdn.optimizely.com [1, 2, 3] ; Smartsheet, nettoyé, réinfecté par une version cachée [3]."
+        },
+        {
+          "etape": "Chargement du script",
+          "texte": "Le code injecté charge le script track.js depuis un domaine externe ; selon Scott Helme, une variante exécute une copie embarquée si le script distant est bloqué [1, 2]."
+        },
+        {
+          "etape": "Vol de cryptomonnaies",
+          "texte": "Portefeuilles affichés remplacés par ceux des attaquants → environ 7 000 dollars selon Scott Helme [1, 2], 7 500 selon Report URI [10], plus de 6 200 euros selon ZATAZ [11]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Capture des cartes saisies dans les formulaires propres aux sites, pas ceux des prestataires de paiement → envoi tenté vers le même domaine [2, 8] ; cookies et captures d'écran visés [2, 8, 10]."
+        },
+        {
+          "etape": "Exploits iPhone et iPad",
+          "texte": "Sur iPhone et iPad, un script ouvre dans un cadre caché les chaînes d'exploitation Coruna ou DarkSword [1, 2, 3] ; Cynet parle d'une livraison conditionnelle, pas d'une compromission réussie d'appareil physique [3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "dom",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Domaine externe",
+            "note": "Script track.js"
+          },
+          {
+            "id": "opt",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Projets Optimizely de clients",
+            "note": "Code malveillant inséré"
+          },
+          {
+            "id": "sites",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Sites web des clients",
+            "note": ""
+          },
+          {
+            "id": "vis",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Visiteurs des sites",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "opt",
+            "etape": 1,
+            "texte": "Faille du parcours d'inscription exploitée"
+          },
+          {
+            "de": "opt",
+            "vers": "sites",
+            "etape": 2,
+            "texte": "Fichiers JavaScript modifiés chargés"
+          },
+          {
+            "de": "dom",
+            "vers": "sites",
+            "etape": 3,
+            "texte": "Script track.js chargé"
+          },
+          {
+            "de": "sites",
+            "vers": "vis",
+            "etape": 4,
+            "texte": "Adresses de portefeuilles remplacées"
+          },
+          {
+            "de": "vis",
+            "vers": "dom",
+            "etape": 5,
+            "texte": "Tentative d'envoi des données de carte"
+          },
+          {
+            "de": "sites",
+            "vers": "vis",
+            "etape": 6,
+            "texte": "Scripts visant iPhone et iPad"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment pas les attaquants [1, 2, 3, 4, 5, 6]. Report URI ne peut pas voir combien de numéros de cartes ont été exposés [3].",
+      "cves": [
+        {
+          "id": "CVE-2026-132224",
+          "explication": "Optimizely Web Experimentation avant le 17 novembre 2026 : inscription mal gérée → code de l'attaquant dans le champ projectJS de fichiers cdn.optimizely.com, gravité 8,7 sur 10 [13] ; exploitée [12]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Acteur non nommé ; certains chercheurs, dont Unit 42, appellent la campagne OPTIMJACK [3, 7]"
+      ],
+      "cibles": [
+        "Optimizely, plateforme d'expérimentation et de personnalisation de sites web [1]",
+        "188 fichiers JavaScript infectés appartenant à 178 organisations, selon le chercheur Scott Helme [1, 2, 5]",
+        "Au moins 178 organisations, dont plusieurs grandes marques, ont exposé leurs visiteurs via une plateforme tierce [9]",
+        "32 sites bancaires ou financiers parmi les 178, selon Report URI [8]",
+        "Sites de Zoom, GitLab, Smartsheet, Stamps.com, Scheels et Salesforce, entre autres [2]",
+        "Sites de Fox News, Air France, Change.org et Bitly, entre autres [1]",
+        "Sites d'Ikea, Air France, Zoom et du site de la communauté cybersécurité de Thales, entre autres [6]",
+        "Sites de CNN, BBC, IKEA, HSBC, Equifax, Ledger et TalkTalk, entre autres [3]",
+        "Scripts de Kissmetrics, StorifyMe et Minute-ly diffusant un petit chargeur, première observation le 13 novembre ; entrée du code inconnue [4]",
+        "Sites turcs, où Scott Helme (Report URI) dit avoir vu ce code injecté pour la première fois en septembre [8]",
+        "Sites de BBC, CNN, Equifax, Ledger et Zoom ; 68 des sites touchés sans politique de sécurité du contenu, selon Report URI [10]",
+        "Sites d'American Eagle, Air France et Change.org, entre autres ; Salesforce a désactivé par précaution les scripts Optimizely [11]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "BBC",
+          "definition": "British Broadcasting Corporation : groupe audiovisuel public britannique"
+        },
+        {
+          "sigle": "CNN",
+          "definition": "Cable News Network : chaîne d'information américaine"
+        },
+        {
+          "sigle": "HSBC",
+          "definition": "Groupe bancaire international dont le siège est à Londres"
+        },
+        {
+          "sigle": "IKEA",
+          "definition": "Enseigne suédoise d'ameublement"
+        },
+        {
+          "sigle": "OPTIMJACK",
+          "definition": "Nom donné à cette campagne par certains chercheurs"
+        },
+        {
+          "sigle": "URI",
+          "definition": "Uniform Resource Identifier ; ici, élément du nom de la société Report URI"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Optimizely supply chain attack infects major brands' sites with malware",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-infects-major-brands-sites-with-malware/",
+          "date": "2026-11-16",
+          "image": "https://www.bleepstatic.com/content/posts/2026/11/16/supply-chain-attack.jpg"
+        },
+        {
+          "titre": "Optimizely hack infected CNN, Fox News, BBC, Salesforce sites with malware",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-delivers-malware-to-cnn-fox-news-bbc-salesforce-sites/",
+          "date": "2026-11-16",
+          "image": "https://www.bleepstatic.com/content/posts/2026/11/16/supply-chain-attack.jpg"
+        },
+        {
+          "titre": "Hijacked Optimizely Scripts Served Card Skimmer and iOS Exploit Kits to CNN, BBC and Zoom Visitors",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hijacked-optimizely-scripts-served-card.html",
+          "date": "2026-11-17",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCKDXT71QJSnAqaPKmcBticVRjN0Q1diDWoOGKhoZ-wL5WIgLAPHX6dmetOkddYjLcZGIfxDAfLLN1LwbOV4zHqzONN7i8cIyMJLR-rc2t6LF7MnTzJAAoN54aIPEYoWPBf01znenuq43oDLwcVksxZbvP5xPnFsC-G-sDSjpzDegalBNU87YIe7z0YcI/s1700-nu-rw-lo-l85-e365/Optimizely-hacked.jpg"
+        },
+        {
+          "titre": "Optimizely Vulnerability Exploited to Serve Malware on Major Websites",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/optimizely-vulnerability-exploited-to-serve-malware-on-major-websites/",
+          "date": "2026-11-17",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/08/malware-infection.webp"
+        },
+        {
+          "titre": "Hijacked Optimizely snippets served malicious code on major websites",
+          "site": "Sophos Threat Research",
+          "url": "https://www.sophos.com/en-us/blog/hijacked-optimizely-snippets-served-malicious-code",
+          "date": "2026-11-17",
+          "image": "https://images.contentstack.io/v3/assets/blt38f1f401b66100ad/bltb4b6c0750dc5846c/6aad5e6160452d9f5056a4ef/logo.png"
+        },
+        {
+          "titre": "Un composant JavaScript malveillant distribué sur près de 180 sites Web majeurs",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366654823/Un-composant-JavaScript-malveillant-distribue-sur-pres-de-180-sites-Web-majeurs",
+          "date": "2026-11-17",
+          "image": "https://www.lemagit.fr/visuals/German/article/url_website_fotolia.jpg"
+        },
+        {
+          "titre": "Borrowed Code, Real Consequences: What OPTIMJACK Teaches Us",
+          "site": "Unit 42 (Palo Alto Networks)",
+          "url": "https://unit42.paloaltonetworks.com/optimjack-supply-chain-attack/",
+          "date": "2026-11-17",
+          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/11/09_Opinion_Category_1505x922.jpg"
+        },
+        {
+          "titre": "Website management platform Optimizely confirms hackers put malicious code into customer sites",
+          "site": "The Record",
+          "url": "https://therecord.media/optimizely-malicious-code-customer-sites",
+          "date": "2026-11-17",
+          "image": "https://cms.therecord.media/uploads/optimizely_logo_a558e0b619.png"
+        },
+        {
+          "titre": "Optimizely Malware Attacks Highlight Third-Party Vendor Risks",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/cyber-risk/optimizely-malware-attacks-third-party-vendor-risks",
+          "date": "2026-11-17"
+        },
+        {
+          "titre": "Attackers Used Optimizely to A/B Test Malware on Top Websites",
+          "site": "Krebs on Security",
+          "url": "https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/",
+          "date": "2026-11-18"
+        },
+        {
+          "titre": "Optimizely piraté, des géants du web exposés",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/optimizely-pirate-des-geants-du-web-exposes/",
+          "date": "2026-11-18"
+        },
+        {
+          "titre": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/24/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-24"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-132224",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132224"
         }
       ]
     },
@@ -153,6 +839,218 @@
           "url": "https://therecord.media/mycolorado-app-down-data-breach",
           "date": "2026-11-24",
           "image": "https://cms.therecord.media/uploads/my_colorado_app_fb8214e64c.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-24-o-unc-053-inception-vishing",
+      "title": "Inception : le groupe d'hameçonnage vocal O-UNC-053, lié à ShinyHunters, vise les comptes d'authentification unique",
+      "created": "2026-11-24T14:40:00+00:00",
+      "updated": "2026-11-24T21:30:00+00:00",
+      "version": 2,
+      "resume": "Selon Okta, le groupe O-UNC-053, jusqu'ici jugé affilié à ShinyHunters, opère très probablement sous le nom Inception, dont le site d'extorsion revendique sept victimes, dont AMD et PepsiCo, sans confirmation de leur part [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Appels téléphoniques aux employés ciblés → identifiants saisis sur une page d'hameçonnage et authentification multifacteur validée par la victime [1, 2]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Faux sites à thème juridique imitant surtout Okta, aussi NetIQ, comme legal-<cible>.com → identifiants d'authentification unique et codes captés [1, 2]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Prise de contrôle des comptes → accès aux applications en ligne de la victime [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Extraction de données sensibles depuis ces applications [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Menace de publication → cibles listées sur INCEPTION, au 16 novembre selon [1], le 17 novembre avec sept victimes selon [2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (O-UNC-053 / Inception)",
+            "note": ""
+          },
+          {
+            "id": "emp",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Employé ciblé",
+            "note": "Appel téléphonique"
+          },
+          {
+            "id": "phish",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Page d'hameçonnage",
+            "note": "Imite Okta, NetIQ"
+          },
+          {
+            "id": "apps",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Applications en ligne",
+            "note": "Comptes pris"
+          },
+          {
+            "id": "dls",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Site de fuite INCEPTION",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "emp",
+            "etape": 1,
+            "texte": "Appel pour manipuler l'employé"
+          },
+          {
+            "de": "emp",
+            "vers": "phish",
+            "etape": 2,
+            "texte": "Identifiants et codes saisis"
+          },
+          {
+            "de": "phish",
+            "vers": "att",
+            "etape": 2,
+            "texte": "Identifiants et codes captés"
+          },
+          {
+            "de": "att",
+            "vers": "apps",
+            "etape": 3,
+            "texte": "Prise de contrôle des comptes"
+          },
+          {
+            "de": "apps",
+            "vers": "att",
+            "etape": 4,
+            "texte": "Données sensibles extraites"
+          },
+          {
+            "de": "att",
+            "vers": "dls",
+            "etape": 5,
+            "texte": "Données de cibles listées"
+          }
+        ]
+      },
+      "limites": "Aucune victime revendiquée n'a confirmé de fuite, et les domaines ne prouvent pas une compromission [2]. Inception se dit indépendant, Okta le relie à O-UNC-053 [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "O-UNC-053, nom donné par Okta, auparavant jugé affilié à ShinyHunters, actif depuis mars [1, 2]",
+        "Inception, groupe d'extorsion qui se dit indépendant de tout groupe antérieur [2]"
+      ],
+      "cibles": [
+        "Technologie, santé, biotechnologie, finance, assurance, divertissement, jeux, commerce, transport, hôtellerie et juridique [1]",
+        "Revendiquées sans confirmation : AMD, PepsiCo, Cigna Healthcare, AutoZone, Lucid Motors [2]",
+        "Marques imitées par l'infrastructure d'hameçonnage, dont Dropbox, Twitch, Western Union, Reddit [2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "INCEPTION",
+          "definition": "Nom du site de publication de données volées lié au groupe"
+        },
+        {
+          "sigle": "AMD",
+          "definition": "Advanced Micro Devices : fabricant américain de processeurs"
+        },
+        {
+          "sigle": "SSO",
+          "definition": "Single Sign-On : authentification unique donnant accès à plusieurs applications"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Okta Links ShinyHunters-Associated Vishing Group to New INCEPTION Data Leak Site",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/okta-links-shinyhunters-associated.html",
+          "date": "2026-11-24",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjete6dy8Fmd7sbjqKI5GKSySXkcnz4NF__irfVMBHzgRIDUnpGHtvRIbCywZYYsoKsnMdPhvanoXcnXbYvZpMjL2lL6d_F9a4ErEaI5rH_boPedH_ru2Ush9wonb8tYhGNVM6M_01DTue1THY7uGMbuKBJKNgMbrACkxHCGJiJylHWoxkkpCXNr2Z_CIdf/s1700-nu-rw-lo-l85-e365/leaks.jpg"
+        },
+        {
+          "titre": "New Inception extortion gang launches large-scale vishing campaign",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/new-inception-extortion-gang-launches-large-scale-vishing-campaign/",
+          "date": "2026-11-24",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/24/inception.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-24-turnitin-systemes-clients",
+      "title": "Turnitin : une activité non autorisée détectée sur des systèmes en contact avec les clients",
+      "created": "2026-11-24T19:10:00+00:00",
+      "updated": "2026-11-24T19:10:00+00:00",
+      "version": 1,
+      "resume": "Turnitin, éditeur de logiciels éducatifs utilisés par plus de 16 000 établissements, a détecté une activité non autorisée sur certains de ses systèmes en contact avec les clients [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Activité non autorisée",
+          "texte": "Activité non autorisée sur certains systèmes en contact avec les clients → enquête lancée avec des spécialistes externes, autorités et régulateurs prévenus [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Systèmes en contact clients",
+            "note": "Activité non autorisée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Accès non autorisé, vecteur non précisé"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni la date de l'intrusion, ni le vecteur d'accès, ni les données consultées ou volées, et aucun groupe de rançongiciel ne l'avait publiquement revendiquée à la date de l'article [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Turnitin, éditeur de logiciels éducatifs présent dans 185 pays [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Turnitin discloses cyberattack affecting customer-facing systems",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/turnitin-discloses-cyberattack-affecting-customer-facing-systems/",
+          "date": "2026-11-24",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/24/turnitin.jpg"
         }
       ]
     },
@@ -365,6 +1263,493 @@
           "url": "https://therecord.media/idscan-data-breach-warning-congressional-letter",
           "date": "2026-11-24",
           "image": "https://cms.therecord.media/uploads/brian_schatz_sapprops_20260512_afe849fc45.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-24-volant-manticore-iran-faux-cv",
+      "title": "Volant Manticore : un groupe iranien issu de MuddyWater vise Chypre et la santé saoudienne avec de faux CV et des outils d'administration à distance",
+      "created": "2026-11-24T15:10:00+00:00",
+      "updated": "2026-11-24T18:30:00+00:00",
+      "version": 2,
+      "resume": "Volant Manticore, groupe iranien qui serait formé d'anciens opérateurs de MuddyWater, a visé à Chypre une compagnie aérienne, des télécoms et des infrastructures critiques, puis la santé en Arabie saoudite [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Faux CV au nom de personas générés par IA, document Word piégé à macros, archives sur la santé envoyées en partie depuis le compte compromis d'un hôpital saoudien [1, 2]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Porte dérobée KuboShell → exécution de commandes et reconnaissance, avec un canal de commande via IPFS interrogé toutes les 60 secondes [1, 2]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "KuboShell vérifie ses droits administrateur et tente de se relancer avec des privilèges élevés, ce qui déclenche une invite de contrôle de compte [2]."
+        },
+        {
+          "etape": "Outils d'accès à distance",
+          "texte": "Installation de Remotely, NetLock RMM, N-able RMM ou MeshCentral → prise en main à distance des machines [1, 2]."
+        },
+        {
+          "etape": "Porte dérobée Homa",
+          "texte": "Chargeur PowerShell exécuté en mémoire lançant une porte dérobée JavaScript (framework Homa) → commandes PowerShell, SSH et cmd exécutées [1, 2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Volant Manticore)",
+            "note": ""
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Destinataires des leurres",
+            "note": "Faux CV, archives"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste infecté",
+            "note": "KuboShell, Homa"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveurs de commande",
+            "note": "Via IPFS"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 1,
+            "texte": "Faux CV et archives piégées"
+          },
+          {
+            "de": "usr",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Porte dérobée KuboShell installée"
+          },
+          {
+            "de": "pc",
+            "vers": "c2",
+            "etape": 2,
+            "texte": "Commandes récupérées via IPFS"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Outils d'administration à distance"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 5,
+            "texte": "Porte dérobée Homa lancée en mémoire"
+          }
+        ]
+      },
+      "limites": "Les sources ne décrivent ni vol de données constaté, ni déplacement dans le réseau, ni nombre de victimes [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Volant Manticore, nommé par Check Point ; origine iranienne (confiance forte), lien historique avec le ministère iranien du Renseignement (confiance moyenne) [1]",
+        "Probablement d'anciens opérateurs de MuddyWater formant un groupe distinct ; Homa réimplémente en JavaScript le client de MuddyC2Go [1, 2]",
+        "Actif depuis fin août 2025 selon le rapport [2]"
+      ],
+      "cibles": [
+        "Chypre : compagnie aérienne en juillet 2026, entité gouvernementale probable en janvier 2026 [1]",
+        "Chypre : télécommunications, compagnies aériennes et infrastructures critiques [2]",
+        "Arabie saoudite : santé ciblée depuis septembre 2026 ; compte de messagerie d'un hôpital privé saoudien probablement compromis et associé à un leurre [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CV",
+          "definition": "Curriculum vitae"
+        },
+        {
+          "sigle": "IPFS",
+          "definition": "InterPlanetary File System : réseau décentralisé de stockage de fichiers"
+        },
+        {
+          "sigle": "RMM",
+          "definition": "Remote Monitoring and Management : logiciel de supervision et d'administration à distance"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole d'accès à distance chiffré à une machine"
+        },
+        {
+          "sigle": "cmd",
+          "definition": "Invite de commandes de Windows"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Volant Manticore: Flying Under the Radar",
+          "site": "Check Point Research",
+          "url": "https://research.checkpoint.com/2026/volant-manticore-flying-under-the-radar/",
+          "date": "2026-11-24",
+          "image": "https://research.checkpoint.com/wp-content/uploads/2026/11/volant-manticore-thumb-100x563px.jpg"
+        },
+        {
+          "titre": "Iran-Aligned Volant Manticore Uses IPFS-Based KuboShell Backdoor in Espionage Campaigns",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/iran-aligned-volant-manticore-uses-ipfs.html",
+          "date": "2026-11-24",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqukTcR2pkDWiTqMzORa4j7zZRB0MDUGfBly50X7gPwPHqSeBmfReQWpMR9IdPOP_NbeuQSBdYPknSgxvutDll4VAZNSoGqcwmXzhZNEez-UoE-MwTnM9i9XxjoLYRdhY0iY6tD9BK9IDB0o8RUU7sNsOex5tVNtoNwRHCCAxM9ri66c4G2wPa9AqW9saA/s1700-nu-rw-lo-l85-e365/iran-hackers.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-24-gt13-check-point-campagne-ia",
+      "title": "GT13 : des serveurs de gestion Check Point compromis dans une campagne assistée par intelligence artificielle",
+      "created": "2026-11-24T15:10:00+00:00",
+      "updated": "2026-11-24T17:30:00+00:00",
+      "version": 2,
+      "resume": "Selon GreyNoise, l'acteur GT13 a compromis des serveurs de gestion Check Point de 22 organisations dans 17 pays [1, 4], avec des outils offensifs assistés par intelligence artificielle [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé : GreyNoise ignore quand et comment l'attaquant a obtenu l'accès aux équipements Check Point [1, 4]."
+        },
+        {
+          "etape": "Prise de contrôle administrateur",
+          "texte": "Exploitation de CVE-2026-16232 après la compromission → jeton de connexion et authentification avec des privilèges administrateur [4]."
+        },
+        {
+          "etape": "Relais d'attaque",
+          "texte": "Cookie administrateur forgé le 2 octobre → contrôle d'un serveur HFS puis accès SSH [1] ; serveur utilisé comme relais pour piloter les intrusions et collecter les données [4]."
+        },
+        {
+          "etape": "Exploration du réseau",
+          "texte": "Outils dont Nmap, Chisel et Impacket → reconnaissance, déplacement et élévation de privilèges [1] ; reconnaissance du réseau interne et tentatives de déplacement latéral [4]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Politiques de sécurité déchargées → protections du pare-feu de fait désactivées [4]."
+        },
+        {
+          "etape": "Vol de données, persistance",
+          "texte": "Vol de bases de pare-feu, identifiants, configurations et fichiers d'autorité de certification interne [4] ; clé privée SSH liée au relais sur chaque équipement ; accès persistant conservé [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (GT13)",
+            "note": "Outils assistés par IA"
+          },
+          {
+            "id": "hfs",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur HFS relais d'une victime",
+            "note": "Données stockées"
+          },
+          {
+            "id": "cp",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Serveurs de gestion Check Point",
+            "note": "22 organisations"
+          },
+          {
+            "id": "net",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Réseau interne des victimes",
+            "note": "Reconnaissance"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cp",
+            "etape": 1,
+            "texte": "Accès, vecteur inconnu"
+          },
+          {
+            "de": "att",
+            "vers": "cp",
+            "etape": 2,
+            "texte": "CVE-2026-16232, privilèges administrateur"
+          },
+          {
+            "de": "att",
+            "vers": "hfs",
+            "etape": 3,
+            "texte": "Cookie forgé, puis accès SSH"
+          },
+          {
+            "de": "cp",
+            "vers": "net",
+            "etape": 4,
+            "texte": "Reconnaissance, tentatives de déplacement latéral"
+          },
+          {
+            "de": "att",
+            "vers": "cp",
+            "etape": 5,
+            "texte": "Politiques de sécurité déchargées"
+          },
+          {
+            "de": "cp",
+            "vers": "hfs",
+            "etape": 6,
+            "texte": "Données stockées sur le relais"
+          },
+          {
+            "de": "hfs",
+            "vers": "cp",
+            "etape": 6,
+            "texte": "Clés SSH partagées, accès persistant"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni l'accès initial ni l'origine de GT13 [1, 4] ; des failles Citrix NetScaler, Ivanti, Windows NetLogon et Linux ont été visées par des tentatives, sans résultat précisé [4].",
+      "cves": [
+        {
+          "id": "CVE-2026-16232",
+          "explication": "Check Point SmartConsole : contournement d'authentification donnant un accès administrateur complet sans identifiants, critique 9,8 [2] ; exploitée après la compromission pour s'authentifier en administrateur [4]."
+        },
+        {
+          "id": "CVE-2026-61500",
+          "explication": "Rejetto HFS 3.0.0 à 3.2.0 : clé de signature prévisible permettant de forger un cookie administrateur puis d'exécuter du code, critique 9,8 [3] ; utilisée ou tentée par la campagne [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "GT13 (GreyNoise Threat 13), nom donné par GreyNoise ; origine non précisée [1]",
+        "99 adresses IP utilisées : sorties ExpressVPN ou équipements Check Point de victimes compromis [1]"
+      ],
+      "cibles": [
+        "Au moins 22 organisations : énergie, ingénierie, finance, administration, industrie, mines, transport [1]",
+        "États-Unis, Royaume-Uni, Australie, Autriche, Chine, France, Allemagne, Hong Kong, Pays-Bas, Corée du Sud et d'autres [1] ; 17 pays au total [4]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "HFS",
+          "definition": "HTTP File Server : logiciel de partage de fichiers par le web"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole d'accès à distance chiffré à une machine"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "IP",
+          "definition": "Internet Protocol : l'adresse IP identifie une machine sur le réseau"
+        },
+        {
+          "sigle": "scp",
+          "definition": "Secure Copy : copie de fichiers à travers une connexion SSH"
+        },
+        {
+          "sigle": "GT13",
+          "definition": "GreyNoise Threat 13 : nom donné à l'acteur par la société GreyNoise"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Check Point Security Management Servers Hacked in AI-Assisted Campaign",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/check-point-security-management-servers-hacked-in-ai-assisted-campaign/",
+          "date": "2026-11-24",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/cyberattack-vulnerability-exploited.jpeg"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-16232",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16232"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-61500",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61500"
+        },
+        {
+          "titre": "Hackers compromise Check Point Servers in 22 organizations",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-compromise-check-point-servers-in-22-organizations/",
+          "date": "2026-11-24",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/05/05/hacker.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-commission-europeenne-campagne-ia",
+      "title": "Commission européenne : une cyberattaque « générée par intelligence artificielle » perturbe la gestion du personnel et expose des utilisateurs d'EU Academy",
+      "created": "2026-11-19T16:09:13+00:00",
+      "updated": "2026-11-24T17:30:00+00:00",
+      "version": 5,
+      "resume": "La Commission européenne confirme une cyberattaque menée avec un outil d'intelligence artificielle, détectée le 22 octobre [1, 3, 4] ; la gestion du personnel a été perturbée [2] et des données d'utilisateurs d'EU Academy ont fuité [4, 5].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1, 2]."
+        },
+        {
+          "etape": "Attaque outillée par IA",
+          "texte": "Campagne générée par intelligence artificielle ; selon Politico, le CERT-EU a repéré l'usage de la plateforme Artex [1], un outil offensif agentique [2]."
+        },
+        {
+          "etape": "Perturbation des services",
+          "texte": "Applications mises hors ligne par précaution, la plupart rétablies depuis [3] ; paie, congés, remboursements médicaux et traduction auraient été perturbés plus de dix jours [1]."
+        },
+        {
+          "etape": "Données",
+          "texte": "Fuite confirmée lundi par la Commission : noms et adresses électroniques d'utilisateurs d'EU Academy, accès public désactivé [4, 5] ; aucune preuve de fuite de données du personnel selon la Commission [3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "artex",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Plateforme Artex",
+            "note": "Selon Politico"
+          },
+          {
+            "id": "sys",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Systèmes de gestion du personnel",
+            "note": "Services perturbés"
+          },
+          {
+            "id": "don",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données d'utilisateurs EU Academy",
+            "note": "Noms et courriels"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "att",
+            "vers": "artex",
+            "etape": 2,
+            "texte": "Usage repéré par le CERT-EU"
+          },
+          {
+            "de": "artex",
+            "vers": "sys",
+            "etape": 3,
+            "texte": "Services du personnel perturbés"
+          },
+          {
+            "de": "att",
+            "vers": "don",
+            "etape": 4,
+            "texte": "Fuite confirmée par la Commission"
+          }
+        ]
+      },
+      "limites": "Les sources ne décrivent ni l'accès initial ni les actions dans le réseau [1, 2, 4] ; attribution attendue à la fin de l'enquête selon la Commission ; attaque pas encore totalement contenue selon Euronews [4].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifiés ; la Commission ne précise ni l'outil ni la motivation [1] et n'attribue pas l'attaque à un groupe connu [3]",
+        "Selon le FBI, Artex est utilisé par des criminels et des groupes soutenus par des États [1]",
+        "Artex en général : Microsoft a d'abord attribué son usage à Storm-0940, aligné sur Pékin ; d'autres ont suivi, dont Storm-3358, acteur crapuleux au Cambodge [2]",
+        "Selon Euronews, la Commission soupçonne un groupe lié à la Chine, en partie à cause de l'usage d'Artex, outil d'origine chinoise [4]",
+        "Aucune demande de rançon reçue ; attribution attendue à la fin de l'enquête, selon la Commission [5]"
+      ],
+      "cibles": [
+        "Commission européenne, systèmes de gestion du personnel [1]",
+        "Utilisateurs de la plateforme EU Academy, nombre en cours d'évaluation [4]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CERT-EU",
+          "definition": "Équipe de réponse aux incidents informatiques des institutions européennes"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "FBI",
+          "definition": "Police fédérale américaine"
+        },
+        {
+          "sigle": "EU",
+          "definition": "European Union : Union européenne"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "European Commission confirms cyberattack, says hackers used AI tool",
+          "site": "The Record",
+          "url": "https://therecord.media/european-commission-confirms-cyberattack-using-ai",
+          "date": "2026-11-19",
+          "image": "https://cms.therecord.media/uploads/30917367864_8dc9286dcf_o_dc03237cec.jpg"
+        },
+        {
+          "titre": "La Commission européenne frappée par une lourde cyberattaque",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366654993/La-Commission-Europeenne-frappee-par-une-lourde-cyberattaque",
+          "date": "2026-11-19",
+          "image": "https://www.lemagit.fr/visuals/German/article/Hero-europe-geopolitics-Waran-Photographic-AdobeStock_33341551.jpg"
+        },
+        {
+          "titre": "European Commission Confirms AI-Assisted Cyberattack Disrupted Services",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/european-commission-confirms-ai-assisted-cyberattack-disrupted-services/",
+          "date": "2026-11-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/EU-Europe-European-Union-.jpeg"
+        },
+        {
+          "titre": "European Commission Uncovers Data Breach in Cyberattack Investigation",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/european-commission-uncovers-data-breach-in-cyberattack-investigation/",
+          "date": "2026-11-24",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/EU-Europe-European-Union-.jpeg"
+        },
+        {
+          "titre": "European Commission confirms data theft in EU Academy breach",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/european-commission-confirms-data-theft-in-eu-academy-breach/",
+          "date": "2026-11-24",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/04/03/0_European_Union_flag.jpg"
         }
       ]
     },
@@ -691,36 +2076,32 @@
     },
     {
       "schema": 3,
-      "id": "2026-11-24-gt13-check-point-campagne-ia",
-      "title": "GT13 : des serveurs de gestion Check Point compromis dans une campagne assistée par intelligence artificielle",
-      "created": "2026-11-24T15:10:00+00:00",
-      "updated": "2026-11-24T17:30:00+00:00",
-      "version": 2,
-      "resume": "Selon GreyNoise, l'acteur GT13 a compromis des serveurs de gestion Check Point de 22 organisations dans 17 pays [1, 4], avec des outils offensifs assistés par intelligence artificielle [1].",
+      "id": "2026-11-18-equinor-cyberattaque-services-internes",
+      "title": "Equinor et Skagerak Energi : une faille d'Azure API Management exploitée pour viser des secrets, les services internes d'Equinor perturbés",
+      "created": "2026-11-18T14:30:00+00:00",
+      "updated": "2026-11-24T15:10:00+00:00",
+      "version": 6,
+      "resume": "Selon l'autorité norvégienne de sécurité, une faille des anciennes offres « Classic » d'Azure API Management a été exploitée contre plusieurs organisations, dont Equinor et Skagerak Energi [4, 5, 6, 7] ; chez Equinor, l'accès aux applications internes a été perturbé, sans toucher la production [1, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé : GreyNoise ignore quand et comment l'attaquant a obtenu l'accès aux équipements Check Point [1, 4]."
+          "texte": "Faille des instances Azure API Management « Classic » ne suivant pas les recommandations de sécurité exploitée → accès à des fonctions d'administration de l'instance [4, 6, 7]."
         },
         {
-          "etape": "Prise de contrôle administrateur",
-          "texte": "Exploitation de CVE-2026-16232 après la compromission → jeton de connexion et authentification avec des privilèges administrateur [4]."
+          "etape": "Vol de secrets",
+          "texte": "Jetons d'accès, secrets et valeurs nommées recherchés [4, 5, 7, 8] : clés d'abonnement, secrets de fournisseurs d'identité, jetons d'administration potentiellement exposés [6, 7]."
         },
         {
-          "etape": "Relais d'attaque",
-          "texte": "Cookie administrateur forgé le 2 octobre → contrôle d'un serveur HFS puis accès SSH [1] ; serveur utilisé comme relais pour piloter les intrusions et collecter les données [4]."
+          "etape": "Perturbation des services",
+          "texte": "Attaque contre des systèmes informatiques d'Equinor détectée le 17 novembre → employés gênés pour accéder aux applications internes, messagerie interne hors service selon Reuters [1, 2, 3]."
         },
         {
-          "etape": "Exploration du réseau",
-          "texte": "Outils dont Nmap, Chisel et Impacket → reconnaissance, déplacement et élévation de privilèges [1] ; reconnaissance du réseau interne et tentatives de déplacement latéral [4]."
+          "etape": "Correction par Microsoft",
+          "texte": "Problème découvert par Microsoft le 18 novembre → voie d'accès fermée le lendemain [4, 5, 7], puis conseils de renouvellement des secrets publiés le 21 novembre [7]."
         },
         {
-          "etape": "Neutralisation des défenses",
-          "texte": "Politiques de sécurité déchargées → protections du pare-feu de fait désactivées [4]."
-        },
-        {
-          "etape": "Vol de données, persistance",
-          "texte": "Vol de bases de pare-feu, identifiants, configurations et fichiers d'autorité de certification interne [4] ; clé privée SSH liée au relais sur chaque équipement ; accès persistant conservé [1]."
+          "etape": "Arrêt de l'attaque",
+          "texte": "Attaque stoppée par Equinor ; production non affectée et aucun indice de vol ou d'altération de données [3, 5]."
         }
       ],
       "parcours": {
@@ -729,465 +2110,168 @@
             "id": "att",
             "type": "attaquant",
             "zone": "internet",
-            "nom": "Attaquant (GT13)",
-            "note": "Outils assistés par IA"
-          },
-          {
-            "id": "hfs",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur HFS relais d'une victime",
-            "note": "Données stockées"
-          },
-          {
-            "id": "cp",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Serveurs de gestion Check Point",
-            "note": "22 organisations"
-          },
-          {
-            "id": "net",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Réseau interne des victimes",
-            "note": "Reconnaissance"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "cp",
-            "etape": 1,
-            "texte": "Accès, vecteur inconnu"
-          },
-          {
-            "de": "att",
-            "vers": "cp",
-            "etape": 2,
-            "texte": "CVE-2026-16232, privilèges administrateur"
-          },
-          {
-            "de": "att",
-            "vers": "hfs",
-            "etape": 3,
-            "texte": "Cookie forgé, puis accès SSH"
-          },
-          {
-            "de": "cp",
-            "vers": "net",
-            "etape": 4,
-            "texte": "Reconnaissance, tentatives de déplacement latéral"
-          },
-          {
-            "de": "att",
-            "vers": "cp",
-            "etape": 5,
-            "texte": "Politiques de sécurité déchargées"
-          },
-          {
-            "de": "cp",
-            "vers": "hfs",
-            "etape": 6,
-            "texte": "Données stockées sur le relais"
-          },
-          {
-            "de": "hfs",
-            "vers": "cp",
-            "etape": 6,
-            "texte": "Clés SSH partagées, accès persistant"
-          }
-        ]
-      },
-      "limites": "Les sources ne précisent ni l'accès initial ni l'origine de GT13 [1, 4] ; des failles Citrix NetScaler, Ivanti, Windows NetLogon et Linux ont été visées par des tentatives, sans résultat précisé [4].",
-      "cves": [
-        {
-          "id": "CVE-2026-16232",
-          "explication": "Check Point SmartConsole : contournement d'authentification donnant un accès administrateur complet sans identifiants, critique 9,8 [2] ; exploitée après la compromission pour s'authentifier en administrateur [4]."
-        },
-        {
-          "id": "CVE-2026-61500",
-          "explication": "Rejetto HFS 3.0.0 à 3.2.0 : clé de signature prévisible permettant de forger un cookie administrateur puis d'exécuter du code, critique 9,8 [3] ; utilisée ou tentée par la campagne [1]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "GT13 (GreyNoise Threat 13), nom donné par GreyNoise ; origine non précisée [1]",
-        "99 adresses IP utilisées : sorties ExpressVPN ou équipements Check Point de victimes compromis [1]"
-      ],
-      "cibles": [
-        "Au moins 22 organisations : énergie, ingénierie, finance, administration, industrie, mines, transport [1]",
-        "États-Unis, Royaume-Uni, Australie, Autriche, Chine, France, Allemagne, Hong Kong, Pays-Bas, Corée du Sud et d'autres [1] ; 17 pays au total [4]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "HFS",
-          "definition": "HTTP File Server : logiciel de partage de fichiers par le web"
-        },
-        {
-          "sigle": "SSH",
-          "definition": "Secure Shell : protocole d'accès à distance chiffré à une machine"
-        },
-        {
-          "sigle": "IA",
-          "definition": "Intelligence artificielle"
-        },
-        {
-          "sigle": "IP",
-          "definition": "Internet Protocol : l'adresse IP identifie une machine sur le réseau"
-        },
-        {
-          "sigle": "scp",
-          "definition": "Secure Copy : copie de fichiers à travers une connexion SSH"
-        },
-        {
-          "sigle": "GT13",
-          "definition": "GreyNoise Threat 13 : nom donné à l'acteur par la société GreyNoise"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Check Point Security Management Servers Hacked in AI-Assisted Campaign",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/check-point-security-management-servers-hacked-in-ai-assisted-campaign/",
-          "date": "2026-11-24",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/cyberattack-vulnerability-exploited.jpeg"
-        },
-        {
-          "titre": "Fiche NVD CVE-2026-16232",
-          "site": "NVD (NIST)",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16232"
-        },
-        {
-          "titre": "Fiche NVD CVE-2026-61500",
-          "site": "NVD (NIST)",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61500"
-        },
-        {
-          "titre": "Hackers compromise Check Point Servers in 22 organizations",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/hackers-compromise-check-point-servers-in-22-organizations/",
-          "date": "2026-11-24",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/05/05/hacker.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-24-volant-manticore-iran-faux-cv",
-      "title": "Volant Manticore : un groupe iranien issu de MuddyWater vise Chypre et la santé saoudienne avec de faux CV et des outils d'administration à distance",
-      "created": "2026-11-24T15:10:00+00:00",
-      "updated": "2026-11-24T18:30:00+00:00",
-      "version": 2,
-      "resume": "Volant Manticore, groupe iranien qui serait formé d'anciens opérateurs de MuddyWater, a visé à Chypre une compagnie aérienne, des télécoms et des infrastructures critiques, puis la santé en Arabie saoudite [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Faux CV au nom de personas générés par IA, document Word piégé à macros, archives sur la santé envoyées en partie depuis le compte compromis d'un hôpital saoudien [1, 2]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Porte dérobée KuboShell → exécution de commandes et reconnaissance, avec un canal de commande via IPFS interrogé toutes les 60 secondes [1, 2]."
-        },
-        {
-          "etape": "Élévation de privilèges",
-          "texte": "KuboShell vérifie ses droits administrateur et tente de se relancer avec des privilèges élevés, ce qui déclenche une invite de contrôle de compte [2]."
-        },
-        {
-          "etape": "Outils d'accès à distance",
-          "texte": "Installation de Remotely, NetLock RMM, N-able RMM ou MeshCentral → prise en main à distance des machines [1, 2]."
-        },
-        {
-          "etape": "Porte dérobée Homa",
-          "texte": "Chargeur PowerShell exécuté en mémoire lançant une porte dérobée JavaScript (framework Homa) → commandes PowerShell, SSH et cmd exécutées [1, 2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (Volant Manticore)",
+            "nom": "Attaquant (non identifié)",
             "note": ""
           },
           {
-            "id": "usr",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Destinataires des leurres",
-            "note": "Faux CV, archives"
-          },
-          {
-            "id": "pc",
-            "type": "poste",
-            "zone": "victime",
-            "nom": "Poste infecté",
-            "note": "KuboShell, Homa"
-          },
-          {
-            "id": "c2",
-            "type": "serveur",
-            "zone": "internet",
-            "nom": "Serveurs de commande",
-            "note": "Via IPFS"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "usr",
-            "etape": 1,
-            "texte": "Faux CV et archives piégées"
-          },
-          {
-            "de": "usr",
-            "vers": "pc",
-            "etape": 2,
-            "texte": "Porte dérobée KuboShell installée"
-          },
-          {
-            "de": "pc",
-            "vers": "c2",
-            "etape": 2,
-            "texte": "Commandes récupérées via IPFS"
-          },
-          {
-            "de": "att",
-            "vers": "pc",
-            "etape": 4,
-            "texte": "Outils d'administration à distance"
-          },
-          {
-            "de": "att",
-            "vers": "pc",
-            "etape": 5,
-            "texte": "Porte dérobée Homa lancée en mémoire"
-          }
-        ]
-      },
-      "limites": "Les sources ne décrivent ni vol de données constaté, ni déplacement dans le réseau, ni nombre de victimes [1, 2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Volant Manticore, nommé par Check Point ; origine iranienne (confiance forte), lien historique avec le ministère iranien du Renseignement (confiance moyenne) [1]",
-        "Probablement d'anciens opérateurs de MuddyWater formant un groupe distinct ; Homa réimplémente en JavaScript le client de MuddyC2Go [1, 2]",
-        "Actif depuis fin août 2025 selon le rapport [2]"
-      ],
-      "cibles": [
-        "Chypre : compagnie aérienne en juillet 2026, entité gouvernementale probable en janvier 2026 [1]",
-        "Chypre : télécommunications, compagnies aériennes et infrastructures critiques [2]",
-        "Arabie saoudite : santé ciblée depuis septembre 2026 ; compte de messagerie d'un hôpital privé saoudien probablement compromis et associé à un leurre [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "CV",
-          "definition": "Curriculum vitae"
-        },
-        {
-          "sigle": "IPFS",
-          "definition": "InterPlanetary File System : réseau décentralisé de stockage de fichiers"
-        },
-        {
-          "sigle": "RMM",
-          "definition": "Remote Monitoring and Management : logiciel de supervision et d'administration à distance"
-        },
-        {
-          "sigle": "SSH",
-          "definition": "Secure Shell : protocole d'accès à distance chiffré à une machine"
-        },
-        {
-          "sigle": "cmd",
-          "definition": "Invite de commandes de Windows"
-        },
-        {
-          "sigle": "IA",
-          "definition": "Intelligence artificielle"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Volant Manticore: Flying Under the Radar",
-          "site": "Check Point Research",
-          "url": "https://research.checkpoint.com/2026/volant-manticore-flying-under-the-radar/",
-          "date": "2026-11-24",
-          "image": "https://research.checkpoint.com/wp-content/uploads/2026/11/volant-manticore-thumb-100x563px.jpg"
-        },
-        {
-          "titre": "Iran-Aligned Volant Manticore Uses IPFS-Based KuboShell Backdoor in Espionage Campaigns",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/iran-aligned-volant-manticore-uses-ipfs.html",
-          "date": "2026-11-24",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqukTcR2pkDWiTqMzORa4j7zZRB0MDUGfBly50X7gPwPHqSeBmfReQWpMR9IdPOP_NbeuQSBdYPknSgxvutDll4VAZNSoGqcwmXzhZNEez-UoE-MwTnM9i9XxjoLYRdhY0iY6tD9BK9IDB0o8RUU7sNsOex5tVNtoNwRHCCAxM9ri66c4G2wPa9AqW9saA/s1700-nu-rw-lo-l85-e365/iran-hackers.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-24-o-unc-053-inception-vishing",
-      "title": "Inception : le groupe d'hameçonnage vocal O-UNC-053, lié à ShinyHunters, vise les comptes d'authentification unique",
-      "created": "2026-11-24T14:40:00+00:00",
-      "updated": "2026-11-24T21:30:00+00:00",
-      "version": 2,
-      "resume": "Selon Okta, le groupe O-UNC-053, jusqu'ici jugé affilié à ShinyHunters, opère très probablement sous le nom Inception, dont le site d'extorsion revendique sept victimes, dont AMD et PepsiCo, sans confirmation de leur part [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Appels téléphoniques aux employés ciblés → identifiants saisis sur une page d'hameçonnage et authentification multifacteur validée par la victime [1, 2]."
-        },
-        {
-          "etape": "Vol d'identifiants",
-          "texte": "Faux sites à thème juridique imitant surtout Okta, aussi NetIQ, comme legal-<cible>.com → identifiants d'authentification unique et codes captés [1, 2]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Prise de contrôle des comptes → accès aux applications en ligne de la victime [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Extraction de données sensibles depuis ces applications [1]."
-        },
-        {
-          "etape": "Extorsion",
-          "texte": "Menace de publication → cibles listées sur INCEPTION, au 16 novembre selon [1], le 17 novembre avec sept victimes selon [2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (O-UNC-053 / Inception)",
-            "note": ""
-          },
-          {
-            "id": "emp",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Employé ciblé",
-            "note": "Appel téléphonique"
-          },
-          {
-            "id": "phish",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Page d'hameçonnage",
-            "note": "Imite Okta, NetIQ"
-          },
-          {
-            "id": "apps",
+            "id": "apim",
             "type": "cloud",
             "zone": "victime",
-            "nom": "Applications en ligne",
-            "note": "Comptes pris"
+            "nom": "Azure API Management Classic",
+            "note": "Secrets exposés"
           },
           {
-            "id": "dls",
+            "id": "sys",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes informatiques d'Equinor",
+            "note": "Attaque stoppée"
+          },
+          {
+            "id": "app",
             "type": "application",
-            "zone": "internet",
-            "nom": "Site de fuite INCEPTION",
-            "note": ""
+            "zone": "victime",
+            "nom": "Applications et messagerie internes",
+            "note": "Accès perturbé"
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "emp",
+            "vers": "apim",
             "etape": 1,
-            "texte": "Appel pour manipuler l'employé"
+            "texte": "Faille exploitée, accès aux fonctions d'administration"
           },
           {
-            "de": "emp",
-            "vers": "phish",
-            "etape": 2,
-            "texte": "Identifiants et codes saisis"
-          },
-          {
-            "de": "phish",
+            "de": "apim",
             "vers": "att",
             "etape": 2,
-            "texte": "Identifiants et codes captés"
+            "texte": "Secrets stockés potentiellement exposés"
           },
           {
             "de": "att",
-            "vers": "apps",
+            "vers": "sys",
             "etape": 3,
-            "texte": "Prise de contrôle des comptes"
+            "texte": "Attaque détectée le 17 novembre"
           },
           {
-            "de": "apps",
-            "vers": "att",
-            "etape": 4,
-            "texte": "Données sensibles extraites"
-          },
-          {
-            "de": "att",
-            "vers": "dls",
-            "etape": 5,
-            "texte": "Données de cibles listées"
+            "de": "sys",
+            "vers": "app",
+            "etape": 3,
+            "texte": "Accès des employés perturbé"
           }
         ]
       },
-      "limites": "Aucune victime revendiquée n'a confirmé de fuite, et les domaines ne prouvent pas une compromission [2]. Inception se dit indépendant, Okta le relie à O-UNC-053 [1, 2].",
+      "limites": "L'avis de Microsoft n'est pas public [7] ; un contournement d'authentification évoqué sur Reddit reste non vérifié [6]. Ampleur de l'exploitation encore incertaine selon l'autorité norvégienne [7] ; le correctif n'invalide pas les secrets déjà compromis [6].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "O-UNC-053, nom donné par Okta, auparavant jugé affilié à ShinyHunters, actif depuis mars [1, 2]",
-        "Inception, groupe d'extorsion qui se dit indépendant de tout groupe antérieur [2]"
+        "Acteur non identifié selon l'autorité norvégienne de sécurité [4, 6, 7] ; Microsoft ne dit pas si le même acteur est derrière les incidents norvégiens [5]"
       ],
       "cibles": [
-        "Technologie, santé, biotechnologie, finance, assurance, divertissement, jeux, commerce, transport, hôtellerie et juridique [1]",
-        "Revendiquées sans confirmation : AMD, PepsiCo, Cigna Healthcare, AutoZone, Lucid Motors [2]",
-        "Marques imitées par l'infrastructure d'hameçonnage, dont Dropbox, Twitch, Western Union, Reddit [2]"
+        "Secteur de l'énergie norvégien, premier à avoir détecté la faille selon l'autorité norvégienne de sécurité [6]",
+        "Equinor, groupe énergétique norvégien ; selon l'entreprise, aucun indice d'atteinte aux employés, partenaires ou fournisseurs [1]",
+        "Skagerak Energi, entreprise norvégienne d'électricité, attaque révélée le 18 novembre [5, 8] ; opérations et production non affectées selon elle [4]",
+        "Autres organisations de plusieurs secteurs, en Norvège et à l'étranger [4, 5]",
+        "Instances Classic ne suivant pas les recommandations de sécurité de Microsoft ; les instances v2 ne sont pas touchées [4, 6]"
       ],
       "abreviations": [
         {
-          "sigle": "INCEPTION",
-          "definition": "Nom du site de publication de données volées lié au groupe"
-        },
-        {
-          "sigle": "AMD",
-          "definition": "Advanced Micro Devices : fabricant américain de processeurs"
-        },
-        {
-          "sigle": "SSO",
-          "definition": "Single Sign-On : authentification unique donnant accès à plusieurs applications"
+          "sigle": "API",
+          "definition": "Application Programming Interface : interface permettant à des programmes de communiquer"
         }
       ],
       "sources": [
         {
-          "titre": "Okta Links ShinyHunters-Associated Vishing Group to New INCEPTION Data Leak Site",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/okta-links-shinyhunters-associated.html",
-          "date": "2026-11-24",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjete6dy8Fmd7sbjqKI5GKSySXkcnz4NF__irfVMBHzgRIDUnpGHtvRIbCywZYYsoKsnMdPhvanoXcnXbYvZpMjL2lL6d_F9a4ErEaI5rH_boPedH_ru2Ush9wonb8tYhGNVM6M_01DTue1THY7uGMbuKBJKNgMbrACkxHCGJiJylHWoxkkpCXNr2Z_CIdf/s1700-nu-rw-lo-l85-e365/leaks.jpg"
+          "titre": "Cyberattack hits Norwegian energy giant Equinor, disrupting internal services",
+          "site": "The Record",
+          "url": "https://therecord.media/norway-equinor-cyberattack-energy",
+          "date": "2026-11-18",
+          "image": "https://cms.therecord.media/uploads/Equinor_Northern_Lights_4aa869f98c.jpg"
         },
         {
-          "titre": "New Inception extortion gang launches large-scale vishing campaign",
+          "titre": "Cyberhebdo du 20 novembre 2026 : deux énergéticiens norvégiens attaqués",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366655112/Cyberhebdo-du-20-novembre-2026",
+          "date": "2026-11-20",
+          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/Hero Images/Oslo-Norway-adobe-1.jpg"
+        },
+        {
+          "titre": "In Other News: Norwegian Energy Firm Cyberattacks, Supercomputer Hack, New Nightmare Eclipse Exploit",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/in-other-news-norwegian-energy-firm-cyberattacks-supercomputer-hack-new-nightmare-eclipse-exploit/",
+          "date": "2026-11-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
+        },
+        {
+          "titre": "Azure Flaw Exploited to Target Secrets at Norwegian Energy Firms",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/azure-flaw-exploited-to-target-secrets-at-norwegian-energy-firms/",
+          "date": "2026-11-23",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
+        },
+        {
+          "titre": "Norway says hackers exploited Microsoft security flaw to attack energy firms Equinor, Skagerak Energi",
+          "site": "The Record",
+          "url": "https://therecord.media/norway-microsoft-cyberattack-equinor",
+          "date": "2026-11-23",
+          "image": "https://cms.therecord.media/uploads/Refinery_e1c59e2a0a.jpg"
+        },
+        {
+          "titre": "Microsoft Azure flaw exploited to steal customers' API credentials",
           "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/new-inception-extortion-gang-launches-large-scale-vishing-campaign/",
+          "url": "https://www.bleepingcomputer.com/news/security/microsoft-azure-flaw-exploited-to-steal-customers-api-credentials/",
+          "date": "2026-11-23",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/08/21/Microsoft.jpg"
+        },
+        {
+          "titre": "Microsoft Fixes Azure API Management Classic Flaw as Actor Targets Customer Secrets",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/microsoft-fixes-azure-api-management.html",
           "date": "2026-11-24",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/24/inception.jpg"
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSM2FAnf9UEb3Do4v-r8AEBpoI8byXOrHgng-eRjEyudSf0hiKMpymmDiK_NLTxYuzXdtrWvMrBzY9qmLqDo31r3JOpVefOQxLE77gdkoOAYMkCK__-Bc-AJoWg-8nEOEVjcY6SswkzLbCfYl6kK9clg6xXw3xginWqIwnMxBUaS6wgPKVVwXZNhZA5G85/s1700-nu-rw-lo-l85-e365/azure-ms.jpg"
+        },
+        {
+          "titre": "Cyberattaques en Norvège : une vulnérabilité affectait Microsoft API Manager",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366655435/Cyberattaques-en-Norvege-une-vulnerabilite-affectait-Microsoft-API-Manager",
+          "date": "2026-11-24",
+          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/HeroImages/energy-power-electricity-pylons-bizioti-adobe.jpg"
         }
       ]
     },
     {
       "schema": 3,
-      "id": "2026-11-24-peninsula-energy-mine-uranium-lance",
-      "title": "Peninsula Energy : un incident de cybersécurité touche la mine d'uranium de Lance, la cotation suspendue",
-      "created": "2026-11-24T11:30:00+00:00",
-      "updated": "2026-11-24T11:30:00+00:00",
-      "version": 1,
-      "resume": "Peninsula Energy a subi un incident de cybersécurité touchant son projet d'uranium de Lance, dans le Wyoming, qui doit affecter temporairement ses opérations ; la société a demandé la suspension de sa cotation à la Bourse australienne [1].",
+      "id": "2026-11-19-n-able-mail-assure-spamexperts",
+      "title": "N-able : un serveur web de Mail Assure et SpamExperts compromis, des identifiants stockés consultés et la gestion coupée",
+      "created": "2026-11-19T11:20:00+00:00",
+      "updated": "2026-11-24T15:10:00+00:00",
+      "version": 8,
+      "resume": "Un tiers non identifié a compromis un serveur du service cloud Mail Assure et SpamExperts de N-able, coupant portails de gestion et API [1, 2] ; il a peut-être accédé à des identifiants stockés sur la plateforme [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé par N-able [1, 2, 4, 5] ; selon The Record, le serveur a été compromis via la faille CVE-2026-134624 [8]."
         },
         {
-          "etape": "Atteinte aux opérations",
-          "texte": "Un vendredi soir, brèche de ce que la société appelle son « operating system » → opérations temporairement affectées, systèmes administratifs épargnés [1]."
+          "etape": "Accès au serveur",
+          "texte": "Accès non autorisé à un seul serveur web de la plateforme → accès possible à certains identifiants stockés sur la plateforme [1, 2]."
+        },
+        {
+          "etape": "Détection",
+          "texte": "Panne constatée le 16 novembre, d'abord attribuée à la configuration de la plateforme → cyberattaque confirmée le 18 novembre [1, 2]."
+        },
+        {
+          "etape": "Réaction",
+          "texte": "Serveur mis hors ligne, identifiants internes changés, jetons API et OAuth des clients révoqués, mots de passe locaux réinitialisés [2]."
+        },
+        {
+          "etape": "Impact",
+          "texte": "Portail de gestion, API, quarantaine, journalisation et synchronisation des boîtes indisponibles ; le flux et le filtrage des courriels restent assurés [1, 2, 3]."
+        },
+        {
+          "etape": "Faille découverte",
+          "texte": "Faille CVE-2026-134624 trouvée pendant l'enquête, corrigée dans la version 20261121.1943 [4, 5] ; tableau de bord et API rétablis le 21 novembre [5, 7]."
         }
       ],
       "parcours": {
@@ -1197,40 +2281,375 @@
             "type": "attaquant",
             "zone": "internet",
             "nom": "Attaquant",
-            "note": ""
+            "note": "Non identifié"
           },
           {
-            "id": "sys",
-            "type": "inconnu",
+            "id": "srv",
+            "type": "serveur",
             "zone": "victime",
-            "nom": "Système touché, non précisé",
-            "note": "Opérations affectées"
+            "nom": "Serveur web de la plateforme",
+            "note": "Identifiants stockés"
+          },
+          {
+            "id": "cli",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Partenaires et clients",
+            "note": "Gestion indisponible"
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "sys",
+            "vers": "srv",
             "etape": 2,
-            "texte": "Brèche, vecteur non précisé"
+            "texte": "Accès non autorisé au serveur web"
+          },
+          {
+            "de": "srv",
+            "vers": "cli",
+            "etape": 5,
+            "texte": "Portail de gestion et API coupés"
           }
         ]
       },
-      "limites": "Les sources ne disent ni comment l'intrusion s'est produite, ni quels systèmes techniques ont été touchés, ni si la production d'uranium a été interrompue [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Peninsula Energy, projet de Lance (comté de Crook, Wyoming) extrayant l'uranium par récupération in situ [1]"
+      "limites": "Acteur inconnu [1, 2, 3, 4, 5] ; N-able ne dit pas si CVE-2026-134624 a servi d'entrée [4, 5], contrairement à The Record [8] ; régions touchées : trois [1] ou toutes [2].",
+      "cves": [
+        {
+          "id": "CVE-2026-134624",
+          "explication": "Mail Assure, synchronisation LDAP : falsification de requête côté serveur ; un utilisateur API authentifié joint des hôtes et ports internes arbitraires, score 9,3 [4, 5, 7] ; exploitée selon la CISA [6, 7, 8]."
+        }
       ],
-      "abreviations": [],
+      "mitre": [],
+      "acteurs": [
+        "Attaquants non identifiés ; incident sans lien avec les failles N-central Able2Shell, 4EverAble2Shell et Agent2Shell [1]"
+      ],
+      "cibles": [
+        "Partenaires et clients de Mail Assure et SpamExperts Hosted Cloud, dans trois régions [1] ou toutes les régions [2]",
+        "N-able dit n'avoir trouvé aucune preuve de compromission des données clients, boîtes aux lettres comprises [3, 4]",
+        "N-able dit n'avoir trouvé aucune preuve d'exploitation au-delà du serveur identifié ; analyse de la cause promise sous deux semaines [5]",
+        "Selon N-able, exploitation limitée à un seul serveur hébergé, sans activité malveillante constatée depuis la remédiation [7]",
+        "Agences fédérales américaines, tenues par la CISA de corriger la faille avant Thanksgiving [8]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "API",
+          "definition": "Application Programming Interface : interface permettant à des programmes de communiquer"
+        },
+        {
+          "sigle": "OAuth",
+          "definition": "Protocole d'autorisation qui délivre des jetons d'accès à des applications"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Cybersecurity and Infrastructure Security Agency : agence américaine de cybersécurité"
+        },
+        {
+          "sigle": "LDAP",
+          "definition": "Lightweight Directory Access Protocol : protocole d'accès aux annuaires d'utilisateurs"
+        }
+      ],
       "sources": [
         {
-          "titre": "Peninsula Energy Halts Trading After Cyber Incident Hits US Uranium Mine",
+          "titre": "Hackers Breach N-able Cloud Server, Disrupting Email Security Management Across 3 Regions",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html",
+          "date": "2026-11-19",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjPpZ9yL9D7JBQvp4_ZmnP8S_U6HKdq3rSM_FVv_uDgT9Iz8D56tO6GNDNE4rs29pejUiKQlxi1HpZ38KYbaSB01PmgPItVL8N-Y9G9vcuJlnadltKvmGhvUKYntAEIVCXFixjdBMyu6S9-zEUlIgGf7E5euvodJbn9LIYWTkRpxwH0g7nz2xp2v5PGMdq/s1700-nu-rw-lo-l85-e365/n-able-hacked.jpg"
+        },
+        {
+          "titre": "N-able Blames Service Disruption on Cyberattack",
           "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/peninsula-energy-halts-trading-after-cyber-incident-hits-us-uranium-mine/",
+          "url": "https://www.securityweek.com/n-able-blames-service-disruption-on-cyberattack/",
+          "date": "2026-11-20",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/08/N-Able.jpeg"
+        },
+        {
+          "titre": "N-able says recent security breach led to major service outage",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/microsoft/n-able-says-recent-security-breach-led-to-major-service-outage/",
+          "date": "2026-11-20",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/20/N-able.jpg"
+        },
+        {
+          "titre": "N-able Discloses Critical Mail Assure Vulnerability Found During Breach Investigation",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/n-able-discloses-critical-mail-assure.html",
+          "date": "2026-11-23",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgcXbCG8v5Kc2mTfNCFEiow0EHLJWtsrsrEodqvL8qF8awCnrDzw2TfxtPq7rYI3u78mviB8ekGNGL1Of8FZrSM6uZT1lhz2mfRHwHQyhQT8234u03WGZ9M4UZzmj2cYMs8qlsJ54PwNPvVMb2awEzinXAYL0Y25iOGjjikMvq4NQ-v03mqluZnI53PNdk/s1700-nu-rw-lo-l85-e365/nables.jpg"
+        },
+        {
+          "titre": "N-able Patches Critical Flaw Disclosed After Mail Assure Cyberattack",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/n-able-patches-critical-flaw-disclosed-after-mail-assure-cyberattack/",
+          "date": "2026-11-23",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/08/N-Able.jpeg"
+        },
+        {
+          "titre": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/23/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-23"
+        },
+        {
+          "titre": "Hackers Exploit N-able MailAssure Flaw While AI Agents Exploit MONAI Label Zero-Day",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-n-able-mailassure-flaw.html",
           "date": "2026-11-24",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/mining.jpeg"
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrPCPwSotVSX8IYSgpSrVceRAIYqba8YSZSlNwD5RjetEhPG6vLRhk_NKkatjg1h-fulZJDm4CucsLvQrEtCO6v0NtuJGo3nZD3mXSHyKpgPrUZMpq7YNpheStYC_AqyMWRfWIFiK9bcHJNAw6pwK9JqirhO8JESKdmsI5Pl8UgtsVsRivmMmMenQ01ClW/s1700-nu-rw-lo-l85-e365/cisa-kev.jpg"
+        },
+        {
+          "titre": "CISA warns of exploited N-able bug as company restores email platform",
+          "site": "The Record",
+          "url": "https://therecord.media/cisa-nable-cybersecurity-bug",
+          "date": "2026-11-24",
+          "image": "https://cms.therecord.media/uploads/N_able_c2975eadbd.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-19-armory-castle-vcenter-esxi",
+      "title": "Armory Castle : de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day",
+      "created": "2026-11-19T15:20:00+00:00",
+      "updated": "2026-11-24T14:40:00+00:00",
+      "version": 10,
+      "resume": "Le groupe d'espionnage Armory Castle, soupçonné d'être lié à la Chine, a exploité deux failles zero-day pour passer de BeyondTrust Remote Support à vCenter puis à un hôte ESXi [1, 4, 6, 7]. Broadcom a corrigé la faille de vCenter le 19 novembre 2026 [6, 7].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de la faille zero-day CVE-2026-102764 de BeyondTrust Remote Support → contrôle administrateur de l'appliance [1, 6, 7]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Webshells Slimsavage et Cagematch déposés sur une appliance Linux sans EDR, bit SUID activé sur /bin/env → commandes exécutées en root [1]."
+        },
+        {
+          "etape": "Prise de vCenter",
+          "texte": "Bonesaw exploite la zero-day CVE-2026-123890 → compte administrateur SSO créé [1, 4, 7]. Clé maître volée, jetons SAML forgés avec Sawsnake → authentification multifacteur contournée [1, 7]."
+        },
+        {
+          "etape": "Accès aux hôtes ESXi",
+          "texte": "Connexion à l'interface ESXi avec le compte vpxuser et en SSH avec le compte root ; clé publique ajoutée aux clés autorisées de root [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Fichier NTDS et ruches de registre extraits d'un disque de machine virtuelle → archivés puis rapatriés vers l'appliance Remote Support [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Porte dérobée Bearbones enregistrant les identifiants en clair, puis Lazybones pilotée via Slack sur une autre appliance Linux → accès persistant [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Armory Castle)",
+            "note": ""
+          },
+          {
+            "id": "bt",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Appliance BeyondTrust Remote Support",
+            "note": "Faille zero-day"
+          },
+          {
+            "id": "lin",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Appliances Linux",
+            "note": "Webshells, portes dérobées"
+          },
+          {
+            "id": "vc",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur vCenter",
+            "note": "Clé maître volée"
+          },
+          {
+            "id": "esx",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Hôtes ESXi",
+            "note": "Accès root"
+          },
+          {
+            "id": "vm",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Disque de machine virtuelle",
+            "note": "Fichier NTDS"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "bt",
+            "etape": 1,
+            "texte": "Exploitation de CVE-2026-102764"
+          },
+          {
+            "de": "bt",
+            "vers": "lin",
+            "etape": 2,
+            "texte": "Webshells déposés, droits root obtenus"
+          },
+          {
+            "de": "lin",
+            "vers": "vc",
+            "etape": 3,
+            "texte": "Bonesaw exploite CVE-2026-123890"
+          },
+          {
+            "de": "vc",
+            "vers": "esx",
+            "etape": 4,
+            "texte": "Connexion via vpxuser et SSH root"
+          },
+          {
+            "de": "esx",
+            "vers": "vm",
+            "etape": 5,
+            "texte": "Fichiers extraits et archivés"
+          },
+          {
+            "de": "att",
+            "vers": "lin",
+            "etape": 6,
+            "texte": "Porte dérobée Lazybones pilotée via Slack"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment ni victime ni secteur [1, 4, 5, 6, 7, 10]. Broadcom ne signale aucune attaque exploitant CVE-2026-123890 [3, 4, 6], alors que Mandiant décrit son exploitation [1, 5, 6].",
+      "cves": [
+        {
+          "id": "CVE-2026-102764",
+          "explication": "BeyondTrust Remote Support jusqu'à 26.2.3 : origine des messages mal vérifiée, permettant des opérations sur ses fichiers ; gravité 9,8 sur 10 [2], 9,3 sur 10 [7]."
+        },
+        {
+          "id": "CVE-2026-123890",
+          "explication": "Service d'annuaire de vCenter [4, 6] : clé de session d'une connexion administrateur en cours récupérable sans authentification [11] ; exploitée depuis septembre 2026 [5, 6], cataloguée par la CISA [8, 10] ; 9,8/10 [3, 4]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Armory Castle [1, 4, 6, 7, 9, 10], anciennement UNC5221 [1, 4, 6, 7, 10], aussi connu sous le nom Warp Panda [4], soupçonné d'être lié à la Chine [1, 4, 6, 7, 9, 10]"
+      ],
+      "cibles": [
+        "Environnements VMware vCenter et ESXi ; aucune victime ni secteur nommés [1, 4]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "EDR",
+          "definition": "Endpoint Detection and Response : outil de détection et de réponse sur les machines"
+        },
+        {
+          "sigle": "SUID",
+          "definition": "Bit de permission faisant exécuter un fichier avec les droits de son propriétaire"
+        },
+        {
+          "sigle": "SSO",
+          "definition": "Single Sign-On : authentification unique pour plusieurs services"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole d'administration à distance chiffré"
+        },
+        {
+          "sigle": "NTDS",
+          "definition": "Base de données des comptes d'un domaine Windows"
+        },
+        {
+          "sigle": "UNC5221",
+          "definition": "Ancien nom de suivi de Mandiant pour ce groupe"
+        },
+        {
+          "sigle": "SAML",
+          "definition": "Security Assertion Markup Language : standard de jetons d'authentification signés"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Cybersecurity and Infrastructure Security Agency : agence américaine de cybersécurité"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "ARMORY CASTLE Exploits vSphere",
+          "site": "Google Threat Intelligence (Mandiant)",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/armory-castle-exploits-vsphere/",
+          "date": "2026-11-19",
+          "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-102764",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102764"
+        },
+        {
+          "titre": "Critical VMware vCenter Flaw (CVSS 9.8) Lets Network Attackers Bypass Authentication",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
+          "date": "2026-11-19",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZ5IDT81eb7KUE0LzwGJAzuAETft3pD5sOz2dJxnQin_-zR_hH8tDKFTsLNBNoe35KM4DhFJjP7K-0YwaMoVwz7xUhTiP2vKeNqmN3kenPgwflENu35qx-QlFj-rDFdyXx1HMz6ykegw6nlnPDXppYbotjoRj-ammlyUZ-Cr0JYLS5iyZXkJXkaIO5UAc/s1700-nu-rw-lo-l85-e365/vmware.jpg"
+        },
+        {
+          "titre": "Newly Patched VMware vCenter Flaw Exploited as Zero-Day by Chinese APT",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/newly-patched-vmware-vcenter-flaw-exploited-as-zero-day-by-chinese-apt/",
+          "date": "2026-11-19",
+          "image": "https://www.securityweek.com/wp-content/uploads/2022/08/VMWare.jpg"
+        },
+        {
+          "titre": "CVE-2026-123890: Critical Authentication Bypass in VMware vCenter",
+          "site": "Rapid7",
+          "url": "https://www.rapid7.com/blog/post/etr-cve-2026-123890-critical-authentication-bypass-vmware-vcenter",
+          "date": "2026-11-19",
+          "image": "https://www.rapid7.com/cdn/images/blt65a432ba319f4043/6846abddaf18306debe6cf4d/ETR.webp"
+        },
+        {
+          "titre": "VMware patches vCenter zero-day exploited in attacks since September",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september/",
+          "date": "2026-11-19",
+          "image": "https://www.bleepstatic.com/content/hl-images/2023/10/25/VMware_red.jpg"
+        },
+        {
+          "titre": "China-Linked Hackers Exploit Critical VMware vCenter Zero-Day to Gain Admin Access and Steal Data",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/china-linked-hackers-exploit-critical.html",
+          "date": "2026-11-20",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjTSAI-N-DRII1YA3I98ZVnKnG0SMgm97oEAqyiSXZB23DPwzvTk3figFLsTCKsMJRxRhjKEPFblxfcOuB_UXc_OAXJRiVI07Jxjn-CebJVHiRQ5sc43AifBpUPNfU5-LRD6QEGbX7Vnt_HAmJZiLojS32PtNWwIWeideJZnIpgjrstJ0Iy84lYd47bePk/s1700-nu-rw-lo-l85-e365/chinese-vmware.jpg"
+        },
+        {
+          "titre": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/20/cisa-adds-four-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-20"
+        },
+        {
+          "titre": "China's 'Armory Castle' Lays Siege to VMware vCenter Zero-Day",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/cyberattacks-data-breaches/china-armory-castle-vmware-vcenter-zero-day",
+          "date": "2026-11-20"
+        },
+        {
+          "titre": "Hackers Exploit Critical VMware, Cisco, and Apache Flaws as Espionage Attacks Emerge",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-vmware-cisco.html",
+          "date": "2026-11-21",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFnWnBDigw8RogBTSInXktn1vUISbzwjHm5GuAFBNX0_ClLBk83WOa2BYiHUbgtva76TY8Oz2kJvEZtvEjqZlFFCuvQ-u-l-4l5dzo2MXw7zHLEuklv_Gn1mB-f5TL9GP_3n1NxQkzkZ-fAX7UpcqfZqUefQiRQZm21sq6IZOzmyuQ1hYs4AFHWQAj83WX/s1700-nu-rw-lo-l85-e365/vmware-cisco.jpg"
+        },
+        {
+          "titre": "Rapid7 Analysis: VMware vCenter SRP Authentication Bypass to Root (CVE-2026-123890)",
+          "site": "Rapid7",
+          "url": "https://www.rapid7.com/blog/post/ra-rapid7-analysis-vmware-vcenter-srp-authentication-bypass-to-root-cve-2026-123890",
+          "date": "2026-11-24",
+          "image": "https://www.rapid7.com/cdn/images/bltcbf09ec3af35e28e/6a15c63f08221ed5144dbf77/webinar-rapid7-logo.jpg"
         }
       ]
     },
@@ -1342,6 +2761,68 @@
           "url": "https://www.securityweek.com/1-5-million-impacted-by-data-breach-at-south-korean-electric-company-kepco/",
           "date": "2026-11-24",
           "image": "https://www.securityweek.com/wp-content/uploads/2023/05/COSMICENERGY-OT-Malware.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-24-peninsula-energy-mine-uranium-lance",
+      "title": "Peninsula Energy : un incident de cybersécurité touche la mine d'uranium de Lance, la cotation suspendue",
+      "created": "2026-11-24T11:30:00+00:00",
+      "updated": "2026-11-24T11:30:00+00:00",
+      "version": 1,
+      "resume": "Peninsula Energy a subi un incident de cybersécurité touchant son projet d'uranium de Lance, dans le Wyoming, qui doit affecter temporairement ses opérations ; la société a demandé la suspension de sa cotation à la Bourse australienne [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Atteinte aux opérations",
+          "texte": "Un vendredi soir, brèche de ce que la société appelle son « operating system » → opérations temporairement affectées, systèmes administratifs épargnés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Système touché, non précisé",
+            "note": "Opérations affectées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Brèche, vecteur non précisé"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent ni comment l'intrusion s'est produite, ni quels systèmes techniques ont été touchés, ni si la production d'uranium a été interrompue [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Peninsula Energy, projet de Lance (comté de Crook, Wyoming) extrayant l'uranium par récupération in situ [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Peninsula Energy Halts Trading After Cyber Incident Hits US Uranium Mine",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/peninsula-energy-halts-trading-after-cyber-incident-hits-us-uranium-mine/",
+          "date": "2026-11-24",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/mining.jpeg"
         }
       ]
     },
@@ -1742,6 +3223,102 @@
     },
     {
       "schema": 3,
+      "id": "2026-11-21-fbi-ncic-intrusion",
+      "title": "FBI : une intrusion présumée dans la base nationale de la police, deuxième piratage signalé en deux mois",
+      "created": "2026-11-21T15:30:00+00:00",
+      "updated": "2026-11-23T19:07:08+00:00",
+      "version": 3,
+      "resume": "Le FBI enquête sur une intrusion présumée dans le National Crime Information Center, base partagée par les forces de l'ordre américaines ; ce serait le deuxième incident de cybersécurité touchant le FBI cette année [1, 2, 3].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources : on ignore comment les attaquants ont obtenu l'accès [1]."
+        },
+        {
+          "etape": "Accès à la base",
+          "texte": "Intrusion présumée dans le National Crime Information Center, survenue un jeudi selon la presse et confirmée par une source anonyme → ampleur et impact encore inconnus [1, 2, 3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "entree",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée",
+            "note": "Non précisé"
+          },
+          {
+            "id": "ncic",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Base nationale de la police",
+            "note": "Intrusion présumée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "entree",
+            "etape": 1,
+            "texte": "Accès obtenu par un moyen inconnu"
+          },
+          {
+            "de": "entree",
+            "vers": "ncic",
+            "etape": 2,
+            "texte": "Intrusion présumée dans la base"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent ni comment l'accès a été obtenu, ni si des données ont été volées ou consultées ; le FBI a refusé de commenter [1, 2] et n'a pas répondu à The Record [3].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié ; aucun lien établi avec ShinyHunters, qui avait revendiqué l'intrusion précédente [1]"
+      ],
+      "cibles": [
+        "FBI : base utilisée par les polices locales, des États et fédérales, sur fugitifs, personnes disparues, antécédents judiciaires et biens volés [1, 2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "FBI",
+          "definition": "Federal Bureau of Investigation : police fédérale des États-Unis"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "FBI reportedly hacked again, this time targeting nationwide police database",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/fbi-reportedly-hacked-again-this-time-targeting-nationwide-police-database/",
+          "date": "2026-11-21",
+          "image": "https://www.bleepstatic.com/content/hl-images/2022/12/16/FBI__headpic.jpg"
+        },
+        {
+          "titre": "FBI Investigating Apparent Hack of Its Key National Criminal Justice Database, AP Source Says",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/fbi-investigating-apparent-hack-of-its-key-national-criminal-justice-database-ap-source-says/",
+          "date": "2026-11-21",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/04/FBI-Surveillance.jpg"
+        },
+        {
+          "titre": "FBI reportedly facing second data breach involving National Crime Information Center",
+          "site": "The Record",
+          "url": "https://therecord.media/fbi-cyberattack-data-breach",
+          "date": "2026-11-23",
+          "image": "https://cms.therecord.media/uploads/fbi_613c45ceeb.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-23-globetopper-cartes-cadeaux",
       "title": "GlobeTopper : une intrusion coupe la plateforme de cartes cadeaux, 70 000 dollars de cartes rachetées par le pirate",
       "created": "2026-11-23T17:30:00+00:00",
@@ -1840,339 +3417,6 @@
           "url": "https://www.bleepingcomputer.com/news/security/globetopper-loses-25-million-after-hackers-steal-70k-in-gift-cards/",
           "date": "2026-11-23",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/23/giftcard.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-18-equinor-cyberattaque-services-internes",
-      "title": "Equinor et Skagerak Energi : une faille d'Azure API Management exploitée pour viser des secrets, les services internes d'Equinor perturbés",
-      "created": "2026-11-18T14:30:00+00:00",
-      "updated": "2026-11-24T15:10:00+00:00",
-      "version": 6,
-      "resume": "Selon l'autorité norvégienne de sécurité, une faille des anciennes offres « Classic » d'Azure API Management a été exploitée contre plusieurs organisations, dont Equinor et Skagerak Energi [4, 5, 6, 7] ; chez Equinor, l'accès aux applications internes a été perturbé, sans toucher la production [1, 3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Faille des instances Azure API Management « Classic » ne suivant pas les recommandations de sécurité exploitée → accès à des fonctions d'administration de l'instance [4, 6, 7]."
-        },
-        {
-          "etape": "Vol de secrets",
-          "texte": "Jetons d'accès, secrets et valeurs nommées recherchés [4, 5, 7, 8] : clés d'abonnement, secrets de fournisseurs d'identité, jetons d'administration potentiellement exposés [6, 7]."
-        },
-        {
-          "etape": "Perturbation des services",
-          "texte": "Attaque contre des systèmes informatiques d'Equinor détectée le 17 novembre → employés gênés pour accéder aux applications internes, messagerie interne hors service selon Reuters [1, 2, 3]."
-        },
-        {
-          "etape": "Correction par Microsoft",
-          "texte": "Problème découvert par Microsoft le 18 novembre → voie d'accès fermée le lendemain [4, 5, 7], puis conseils de renouvellement des secrets publiés le 21 novembre [7]."
-        },
-        {
-          "etape": "Arrêt de l'attaque",
-          "texte": "Attaque stoppée par Equinor ; production non affectée et aucun indice de vol ou d'altération de données [3, 5]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (non identifié)",
-            "note": ""
-          },
-          {
-            "id": "apim",
-            "type": "cloud",
-            "zone": "victime",
-            "nom": "Azure API Management Classic",
-            "note": "Secrets exposés"
-          },
-          {
-            "id": "sys",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Systèmes informatiques d'Equinor",
-            "note": "Attaque stoppée"
-          },
-          {
-            "id": "app",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Applications et messagerie internes",
-            "note": "Accès perturbé"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "apim",
-            "etape": 1,
-            "texte": "Faille exploitée, accès aux fonctions d'administration"
-          },
-          {
-            "de": "apim",
-            "vers": "att",
-            "etape": 2,
-            "texte": "Secrets stockés potentiellement exposés"
-          },
-          {
-            "de": "att",
-            "vers": "sys",
-            "etape": 3,
-            "texte": "Attaque détectée le 17 novembre"
-          },
-          {
-            "de": "sys",
-            "vers": "app",
-            "etape": 3,
-            "texte": "Accès des employés perturbé"
-          }
-        ]
-      },
-      "limites": "L'avis de Microsoft n'est pas public [7] ; un contournement d'authentification évoqué sur Reddit reste non vérifié [6]. Ampleur de l'exploitation encore incertaine selon l'autorité norvégienne [7] ; le correctif n'invalide pas les secrets déjà compromis [6].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Acteur non identifié selon l'autorité norvégienne de sécurité [4, 6, 7] ; Microsoft ne dit pas si le même acteur est derrière les incidents norvégiens [5]"
-      ],
-      "cibles": [
-        "Secteur de l'énergie norvégien, premier à avoir détecté la faille selon l'autorité norvégienne de sécurité [6]",
-        "Equinor, groupe énergétique norvégien ; selon l'entreprise, aucun indice d'atteinte aux employés, partenaires ou fournisseurs [1]",
-        "Skagerak Energi, entreprise norvégienne d'électricité, attaque révélée le 18 novembre [5, 8] ; opérations et production non affectées selon elle [4]",
-        "Autres organisations de plusieurs secteurs, en Norvège et à l'étranger [4, 5]",
-        "Instances Classic ne suivant pas les recommandations de sécurité de Microsoft ; les instances v2 ne sont pas touchées [4, 6]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "API",
-          "definition": "Application Programming Interface : interface permettant à des programmes de communiquer"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Cyberattack hits Norwegian energy giant Equinor, disrupting internal services",
-          "site": "The Record",
-          "url": "https://therecord.media/norway-equinor-cyberattack-energy",
-          "date": "2026-11-18",
-          "image": "https://cms.therecord.media/uploads/Equinor_Northern_Lights_4aa869f98c.jpg"
-        },
-        {
-          "titre": "Cyberhebdo du 20 novembre 2026 : deux énergéticiens norvégiens attaqués",
-          "site": "LeMagIT",
-          "url": "https://www.lemagit.fr/actualites/366655112/Cyberhebdo-du-20-novembre-2026",
-          "date": "2026-11-20",
-          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/Hero Images/Oslo-Norway-adobe-1.jpg"
-        },
-        {
-          "titre": "In Other News: Norwegian Energy Firm Cyberattacks, Supercomputer Hack, New Nightmare Eclipse Exploit",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/in-other-news-norwegian-energy-firm-cyberattacks-supercomputer-hack-new-nightmare-eclipse-exploit/",
-          "date": "2026-11-20",
-          "image": "https://www.securityweek.com/wp-content/uploads/2023/10/cybersecurity-news.jpg"
-        },
-        {
-          "titre": "Azure Flaw Exploited to Target Secrets at Norwegian Energy Firms",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/azure-flaw-exploited-to-target-secrets-at-norwegian-energy-firms/",
-          "date": "2026-11-23",
-          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-        },
-        {
-          "titre": "Norway says hackers exploited Microsoft security flaw to attack energy firms Equinor, Skagerak Energi",
-          "site": "The Record",
-          "url": "https://therecord.media/norway-microsoft-cyberattack-equinor",
-          "date": "2026-11-23",
-          "image": "https://cms.therecord.media/uploads/Refinery_e1c59e2a0a.jpg"
-        },
-        {
-          "titre": "Microsoft Azure flaw exploited to steal customers' API credentials",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/microsoft-azure-flaw-exploited-to-steal-customers-api-credentials/",
-          "date": "2026-11-23",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/08/21/Microsoft.jpg"
-        },
-        {
-          "titre": "Microsoft Fixes Azure API Management Classic Flaw as Actor Targets Customer Secrets",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/microsoft-fixes-azure-api-management.html",
-          "date": "2026-11-24",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSM2FAnf9UEb3Do4v-r8AEBpoI8byXOrHgng-eRjEyudSf0hiKMpymmDiK_NLTxYuzXdtrWvMrBzY9qmLqDo31r3JOpVefOQxLE77gdkoOAYMkCK__-Bc-AJoWg-8nEOEVjcY6SswkzLbCfYl6kK9clg6xXw3xginWqIwnMxBUaS6wgPKVVwXZNhZA5G85/s1700-nu-rw-lo-l85-e365/azure-ms.jpg"
-        },
-        {
-          "titre": "Cyberattaques en Norvège : une vulnérabilité affectait Microsoft API Manager",
-          "site": "LeMagIT",
-          "url": "https://www.lemagit.fr/actualites/366655435/Cyberattaques-en-Norvege-une-vulnerabilite-affectait-Microsoft-API-Manager",
-          "date": "2026-11-24",
-          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/HeroImages/energy-power-electricity-pylons-bizioti-adobe.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-19-n-able-mail-assure-spamexperts",
-      "title": "N-able : un serveur web de Mail Assure et SpamExperts compromis, des identifiants stockés consultés et la gestion coupée",
-      "created": "2026-11-19T11:20:00+00:00",
-      "updated": "2026-11-24T15:10:00+00:00",
-      "version": 8,
-      "resume": "Un tiers non identifié a compromis un serveur du service cloud Mail Assure et SpamExperts de N-able, coupant portails de gestion et API [1, 2] ; il a peut-être accédé à des identifiants stockés sur la plateforme [2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par N-able [1, 2, 4, 5] ; selon The Record, le serveur a été compromis via la faille CVE-2026-134624 [8]."
-        },
-        {
-          "etape": "Accès au serveur",
-          "texte": "Accès non autorisé à un seul serveur web de la plateforme → accès possible à certains identifiants stockés sur la plateforme [1, 2]."
-        },
-        {
-          "etape": "Détection",
-          "texte": "Panne constatée le 16 novembre, d'abord attribuée à la configuration de la plateforme → cyberattaque confirmée le 18 novembre [1, 2]."
-        },
-        {
-          "etape": "Réaction",
-          "texte": "Serveur mis hors ligne, identifiants internes changés, jetons API et OAuth des clients révoqués, mots de passe locaux réinitialisés [2]."
-        },
-        {
-          "etape": "Impact",
-          "texte": "Portail de gestion, API, quarantaine, journalisation et synchronisation des boîtes indisponibles ; le flux et le filtrage des courriels restent assurés [1, 2, 3]."
-        },
-        {
-          "etape": "Faille découverte",
-          "texte": "Faille CVE-2026-134624 trouvée pendant l'enquête, corrigée dans la version 20261121.1943 [4, 5] ; tableau de bord et API rétablis le 21 novembre [5, 7]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": "Non identifié"
-          },
-          {
-            "id": "srv",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur web de la plateforme",
-            "note": "Identifiants stockés"
-          },
-          {
-            "id": "cli",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Partenaires et clients",
-            "note": "Gestion indisponible"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "srv",
-            "etape": 2,
-            "texte": "Accès non autorisé au serveur web"
-          },
-          {
-            "de": "srv",
-            "vers": "cli",
-            "etape": 5,
-            "texte": "Portail de gestion et API coupés"
-          }
-        ]
-      },
-      "limites": "Acteur inconnu [1, 2, 3, 4, 5] ; N-able ne dit pas si CVE-2026-134624 a servi d'entrée [4, 5], contrairement à The Record [8] ; régions touchées : trois [1] ou toutes [2].",
-      "cves": [
-        {
-          "id": "CVE-2026-134624",
-          "explication": "Mail Assure, synchronisation LDAP : falsification de requête côté serveur ; un utilisateur API authentifié joint des hôtes et ports internes arbitraires, score 9,3 [4, 5, 7] ; exploitée selon la CISA [6, 7, 8]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "Attaquants non identifiés ; incident sans lien avec les failles N-central Able2Shell, 4EverAble2Shell et Agent2Shell [1]"
-      ],
-      "cibles": [
-        "Partenaires et clients de Mail Assure et SpamExperts Hosted Cloud, dans trois régions [1] ou toutes les régions [2]",
-        "N-able dit n'avoir trouvé aucune preuve de compromission des données clients, boîtes aux lettres comprises [3, 4]",
-        "N-able dit n'avoir trouvé aucune preuve d'exploitation au-delà du serveur identifié ; analyse de la cause promise sous deux semaines [5]",
-        "Selon N-able, exploitation limitée à un seul serveur hébergé, sans activité malveillante constatée depuis la remédiation [7]",
-        "Agences fédérales américaines, tenues par la CISA de corriger la faille avant Thanksgiving [8]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "API",
-          "definition": "Application Programming Interface : interface permettant à des programmes de communiquer"
-        },
-        {
-          "sigle": "OAuth",
-          "definition": "Protocole d'autorisation qui délivre des jetons d'accès à des applications"
-        },
-        {
-          "sigle": "CISA",
-          "definition": "Cybersecurity and Infrastructure Security Agency : agence américaine de cybersécurité"
-        },
-        {
-          "sigle": "LDAP",
-          "definition": "Lightweight Directory Access Protocol : protocole d'accès aux annuaires d'utilisateurs"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Hackers Breach N-able Cloud Server, Disrupting Email Security Management Across 3 Regions",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html",
-          "date": "2026-11-19",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjPpZ9yL9D7JBQvp4_ZmnP8S_U6HKdq3rSM_FVv_uDgT9Iz8D56tO6GNDNE4rs29pejUiKQlxi1HpZ38KYbaSB01PmgPItVL8N-Y9G9vcuJlnadltKvmGhvUKYntAEIVCXFixjdBMyu6S9-zEUlIgGf7E5euvodJbn9LIYWTkRpxwH0g7nz2xp2v5PGMdq/s1700-nu-rw-lo-l85-e365/n-able-hacked.jpg"
-        },
-        {
-          "titre": "N-able Blames Service Disruption on Cyberattack",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/n-able-blames-service-disruption-on-cyberattack/",
-          "date": "2026-11-20",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/08/N-Able.jpeg"
-        },
-        {
-          "titre": "N-able says recent security breach led to major service outage",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/microsoft/n-able-says-recent-security-breach-led-to-major-service-outage/",
-          "date": "2026-11-20",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/20/N-able.jpg"
-        },
-        {
-          "titre": "N-able Discloses Critical Mail Assure Vulnerability Found During Breach Investigation",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/n-able-discloses-critical-mail-assure.html",
-          "date": "2026-11-23",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgcXbCG8v5Kc2mTfNCFEiow0EHLJWtsrsrEodqvL8qF8awCnrDzw2TfxtPq7rYI3u78mviB8ekGNGL1Of8FZrSM6uZT1lhz2mfRHwHQyhQT8234u03WGZ9M4UZzmj2cYMs8qlsJ54PwNPvVMb2awEzinXAYL0Y25iOGjjikMvq4NQ-v03mqluZnI53PNdk/s1700-nu-rw-lo-l85-e365/nables.jpg"
-        },
-        {
-          "titre": "N-able Patches Critical Flaw Disclosed After Mail Assure Cyberattack",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/n-able-patches-critical-flaw-disclosed-after-mail-assure-cyberattack/",
-          "date": "2026-11-23",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/08/N-Able.jpeg"
-        },
-        {
-          "titre": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
-          "site": "CISA Advisories",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/11/23/cisa-adds-two-known-exploited-vulnerabilities-catalog",
-          "date": "2026-11-23"
-        },
-        {
-          "titre": "Hackers Exploit N-able MailAssure Flaw While AI Agents Exploit MONAI Label Zero-Day",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/hackers-exploit-n-able-mailassure-flaw.html",
-          "date": "2026-11-24",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrPCPwSotVSX8IYSgpSrVceRAIYqba8YSZSlNwD5RjetEhPG6vLRhk_NKkatjg1h-fulZJDm4CucsLvQrEtCO6v0NtuJGo3nZD3mXSHyKpgPrUZMpq7YNpheStYC_AqyMWRfWIFiK9bcHJNAw6pwK9JqirhO8JESKdmsI5Pl8UgtsVsRivmMmMenQ01ClW/s1700-nu-rw-lo-l85-e365/cisa-kev.jpg"
-        },
-        {
-          "titre": "CISA warns of exploited N-able bug as company restores email platform",
-          "site": "The Record",
-          "url": "https://therecord.media/cisa-nable-cybersecurity-bug",
-          "date": "2026-11-24",
-          "image": "https://cms.therecord.media/uploads/N_able_c2975eadbd.jpg"
         }
       ]
     },
@@ -3072,112 +4316,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-11-23-idunno-anticsrf-aspnet-rce",
-      "title": "Idunno.AntiCsrf : une faille critique de cette bibliothèque ASP.NET abandonnée est exploitée pour exécuter du code sans authentification",
-      "created": "2026-11-23T11:20:00+00:00",
-      "updated": "2026-11-24T22:20:00+00:00",
-      "version": 2,
-      "resume": "Une faille critique d'Idunno.AntiCsrf, bibliothèque ASP.NET WebForms sans mise à jour depuis décembre 2008, est exploitée pour exécuter du code sans authentification [1]. La CISA l'a ajoutée le 24 novembre 2026 à son catalogue des failles exploitées [2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Une seule requête POST sans authentification, avec un cookie CSRF non vide et une chaîne de gadgets encodée en Base64 dans le champ CSRF [1]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Jeton désérialisé sans clé ni vérification de signature → exécution de code dans le processus IIS w3wp.exe, compromission complète du serveur d'applications web [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": "Non identifié"
-          },
-          {
-            "id": "web",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur web ASP.NET WebForms",
-            "note": "Code exécuté (w3wp.exe)"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "web",
-            "etape": 1,
-            "texte": "Requête POST piégée sans authentification"
-          },
-          {
-            "de": "att",
-            "vers": "web",
-            "etape": 2,
-            "texte": "Exécution de code dans le processus IIS"
-          }
-        ]
-      },
-      "limites": "La source ne nomme ni les attaquants, ni les victimes, ni ce qu'ils ont fait après l'exécution de code ; la date de l'exploitation observée n'est pas donnée [1].",
-      "cves": [
-        {
-          "id": "CVE-2026-131914",
-          "explication": "Idunno.AntiCsrf 0.9.1.0 et 0.9.1 Beta : désérialisation non sécurisée dans le module HTTP permettant l'exécution de code à distance, gravité 9,3 sur 10 [1] ; exploitation active confirmée [2]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "Non identifié : Google n'a pas donné d'autres détails sur l'activité [1]"
-      ],
-      "cibles": [
-        "Applications ASP.NET WebForms utilisant Idunno.AntiCsrf ; victimes non précisées [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "ASP.NET",
-          "definition": "Cadre de Microsoft pour créer des applications et sites web"
-        },
-        {
-          "sigle": "CSRF",
-          "definition": "Cross-Site Request Forgery : requête forcée à l'insu d'un utilisateur connecté"
-        },
-        {
-          "sigle": "POST",
-          "definition": "Type de requête web qui envoie des données au serveur"
-        },
-        {
-          "sigle": "IIS",
-          "definition": "Internet Information Services : serveur web de Microsoft"
-        },
-        {
-          "sigle": "HTTP",
-          "definition": "Protocole d'échange des pages et requêtes web"
-        },
-        {
-          "sigle": "CISA",
-          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Hackers Exploit Critical ASP.NET Anti-CSRF Library Flaw Allowing Unauthenticated RCE",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-aspnet-anti.html",
-          "date": "2026-11-23",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWv3LP9w9Iv-ZmqonS5mwf1jDE-lTLUcDPxCOvYn3RF87-n2epMtdhqH5xXf-bsIIyKXq6U9qU5T1OQ6_Y3VeytS0CCA4TLJtFDcfcHR-I2EHY3t2e94UPvppaaXG9jDQPj4wNwt6CdwQCmXm5uK16BAp5Fn12DmxUk-Wu5ZwPT2kPQFo37oxSeqc6hX7X/s1700-nu-rw-lo-l85-e365/asp.net.jpg"
-        },
-        {
-          "titre": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
-          "site": "CISA Advisories",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/11/24/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-          "date": "2026-11-24"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-11-23-bulgarie-cyberespionnage-administration",
       "title": "Bulgarie : près de cinq ans d'espionnage dans l'infrastructure d'échange de documents de l'administration",
       "created": "2026-11-23T11:20:00+00:00",
@@ -4047,220 +5185,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-11-21-fbi-ncic-intrusion",
-      "title": "FBI : une intrusion présumée dans la base nationale de la police, deuxième piratage signalé en deux mois",
-      "created": "2026-11-21T15:30:00+00:00",
-      "updated": "2026-11-23T19:07:08+00:00",
-      "version": 3,
-      "resume": "Le FBI enquête sur une intrusion présumée dans le National Crime Information Center, base partagée par les forces de l'ordre américaines ; ce serait le deuxième incident de cybersécurité touchant le FBI cette année [1, 2, 3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources : on ignore comment les attaquants ont obtenu l'accès [1]."
-        },
-        {
-          "etape": "Accès à la base",
-          "texte": "Intrusion présumée dans le National Crime Information Center, survenue un jeudi selon la presse et confirmée par une source anonyme → ampleur et impact encore inconnus [1, 2, 3]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": "Non identifié"
-          },
-          {
-            "id": "entree",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Point d'entrée",
-            "note": "Non précisé"
-          },
-          {
-            "id": "ncic",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Base nationale de la police",
-            "note": "Intrusion présumée"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "entree",
-            "etape": 1,
-            "texte": "Accès obtenu par un moyen inconnu"
-          },
-          {
-            "de": "entree",
-            "vers": "ncic",
-            "etape": 2,
-            "texte": "Intrusion présumée dans la base"
-          }
-        ]
-      },
-      "limites": "Les sources ne disent ni comment l'accès a été obtenu, ni si des données ont été volées ou consultées ; le FBI a refusé de commenter [1, 2] et n'a pas répondu à The Record [3].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non identifié ; aucun lien établi avec ShinyHunters, qui avait revendiqué l'intrusion précédente [1]"
-      ],
-      "cibles": [
-        "FBI : base utilisée par les polices locales, des États et fédérales, sur fugitifs, personnes disparues, antécédents judiciaires et biens volés [1, 2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "FBI",
-          "definition": "Federal Bureau of Investigation : police fédérale des États-Unis"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "FBI reportedly hacked again, this time targeting nationwide police database",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/fbi-reportedly-hacked-again-this-time-targeting-nationwide-police-database/",
-          "date": "2026-11-21",
-          "image": "https://www.bleepstatic.com/content/hl-images/2022/12/16/FBI__headpic.jpg"
-        },
-        {
-          "titre": "FBI Investigating Apparent Hack of Its Key National Criminal Justice Database, AP Source Says",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/fbi-investigating-apparent-hack-of-its-key-national-criminal-justice-database-ap-source-says/",
-          "date": "2026-11-21",
-          "image": "https://www.securityweek.com/wp-content/uploads/2024/04/FBI-Surveillance.jpg"
-        },
-        {
-          "titre": "FBI reportedly facing second data breach involving National Crime Information Center",
-          "site": "The Record",
-          "url": "https://therecord.media/fbi-cyberattack-data-breach",
-          "date": "2026-11-23",
-          "image": "https://cms.therecord.media/uploads/fbi_613c45ceeb.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-21-rackspace-spot-secrets-kubernetes",
-      "title": "Rackspace Spot : des identifiants compromis ouvrent l'accès aux secrets Kubernetes des clients, la plateforme fermée",
-      "created": "2026-11-21T23:30:00+00:00",
-      "updated": "2026-11-24T22:20:00+00:00",
-      "version": 2,
-      "resume": "Des attaquants ont accédé à la plateforme cloud Rackspace Spot avec des identifiants compromis le 17 novembre 2026 et ont pu lire les secrets Kubernetes des clusters clients [1, 2]. Rackspace ferme définitivement Spot le 8 décembre 2026 [2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Connexion à Rackspace Spot avec des identifiants divulgués ou compromis → actions possibles comme des utilisateurs légitimes de certaines organisations clientes [1, 2]."
-        },
-        {
-          "etape": "Exécution",
-          "texte": "Création de pods Kubernetes dans les clusters clients → charges de travail non autorisées déployées [1, 2]."
-        },
-        {
-          "etape": "Vol d'identifiants",
-          "texte": "Lecture possible des secrets des clusters, des jetons d'API Spot et de rafraîchissement [1], ainsi que de fichiers des volumes de stockage [2]."
-        },
-        {
-          "etape": "Reconnaissance",
-          "texte": "Listage des nœuds et des volumes des clusters [1, 2]."
-        },
-        {
-          "etape": "Découverte et fermeture",
-          "texte": "Intrusion découverte le 18 novembre après un signalement client → console d'administration coupée, puis arrêt définitif de Spot annoncé [2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": "Identifiants compromis"
-          },
-          {
-            "id": "spot",
-            "type": "cloud",
-            "zone": "internet",
-            "nom": "Plateforme Rackspace Spot",
-            "note": ""
-          },
-          {
-            "id": "k8s",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Clusters Kubernetes des clients",
-            "note": "Pods non autorisés"
-          },
-          {
-            "id": "sec",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Secrets, jetons et volumes",
-            "note": "Lecture possible"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "spot",
-            "etape": 1,
-            "texte": "Connexion avec des identifiants divulgués ou compromis"
-          },
-          {
-            "de": "spot",
-            "vers": "k8s",
-            "etape": 2,
-            "texte": "Création de pods non autorisés"
-          },
-          {
-            "de": "k8s",
-            "vers": "sec",
-            "etape": 3,
-            "texte": "Accès aux secrets et jetons"
-          },
-          {
-            "de": "k8s",
-            "vers": "sec",
-            "etape": 4,
-            "texte": "Listage des nœuds et volumes"
-          }
-        ]
-      },
-      "limites": "Les sources ne disent pas comment les identifiants ont été obtenus, combien de clients sont touchés ni qui sont les attaquants [1, 2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Clients de Rackspace Spot, plateforme de déploiement d'applications conteneurisées avec Kubernetes, nombre non précisé [1, 2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "API",
-          "definition": "Application Programming Interface : interface permettant à des programmes de piloter un service"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Rackspace Spot breach let hackers access customer Kubernetes secrets",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/rackspace-spot-breach-let-hackers-access-customer-kubernetes-secrets/",
-          "date": "2026-11-21",
-          "image": "https://www.bleepstatic.com/content/hl-images/2022/12/09/Rackspace.jpg"
-        },
-        {
-          "titre": "Rackspace shuts down Spot cloud platform after security breach",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/rackspace-shuts-down-spot-cloud-platform-after-security-breach/",
-          "date": "2026-11-24",
-          "image": "https://www.bleepstatic.com/content/hl-images/2022/12/09/Rackspace.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-11-21-microsoft-entra-connect-health",
       "title": "Microsoft Entra Connect Health : une faille exploitée pour lire les adresses des administrateurs et la configuration des clients",
       "created": "2026-11-21T18:30:00+00:00",
@@ -4338,252 +5262,6 @@
           "url": "https://www.bleepingcomputer.com/news/security/microsoft-entra-connect-health-flaw-exploited-to-steal-tenant-data/",
           "date": "2026-11-21",
           "image": "https://www.bleepstatic.com/content/hl-images/2024/01/26/microsoft-red-header.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-19-armory-castle-vcenter-esxi",
-      "title": "Armory Castle : de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day",
-      "created": "2026-11-19T15:20:00+00:00",
-      "updated": "2026-11-24T14:40:00+00:00",
-      "version": 10,
-      "resume": "Le groupe d'espionnage Armory Castle, soupçonné d'être lié à la Chine, a exploité deux failles zero-day pour passer de BeyondTrust Remote Support à vCenter puis à un hôte ESXi [1, 4, 6, 7]. Broadcom a corrigé la faille de vCenter le 19 novembre 2026 [6, 7].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Exploitation de la faille zero-day CVE-2026-102764 de BeyondTrust Remote Support → contrôle administrateur de l'appliance [1, 6, 7]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Webshells Slimsavage et Cagematch déposés sur une appliance Linux sans EDR, bit SUID activé sur /bin/env → commandes exécutées en root [1]."
-        },
-        {
-          "etape": "Prise de vCenter",
-          "texte": "Bonesaw exploite la zero-day CVE-2026-123890 → compte administrateur SSO créé [1, 4, 7]. Clé maître volée, jetons SAML forgés avec Sawsnake → authentification multifacteur contournée [1, 7]."
-        },
-        {
-          "etape": "Accès aux hôtes ESXi",
-          "texte": "Connexion à l'interface ESXi avec le compte vpxuser et en SSH avec le compte root ; clé publique ajoutée aux clés autorisées de root [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Fichier NTDS et ruches de registre extraits d'un disque de machine virtuelle → archivés puis rapatriés vers l'appliance Remote Support [1]."
-        },
-        {
-          "etape": "Persistance",
-          "texte": "Porte dérobée Bearbones enregistrant les identifiants en clair, puis Lazybones pilotée via Slack sur une autre appliance Linux → accès persistant [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (Armory Castle)",
-            "note": ""
-          },
-          {
-            "id": "bt",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Appliance BeyondTrust Remote Support",
-            "note": "Faille zero-day"
-          },
-          {
-            "id": "lin",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Appliances Linux",
-            "note": "Webshells, portes dérobées"
-          },
-          {
-            "id": "vc",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur vCenter",
-            "note": "Clé maître volée"
-          },
-          {
-            "id": "esx",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Hôtes ESXi",
-            "note": "Accès root"
-          },
-          {
-            "id": "vm",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Disque de machine virtuelle",
-            "note": "Fichier NTDS"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "bt",
-            "etape": 1,
-            "texte": "Exploitation de CVE-2026-102764"
-          },
-          {
-            "de": "bt",
-            "vers": "lin",
-            "etape": 2,
-            "texte": "Webshells déposés, droits root obtenus"
-          },
-          {
-            "de": "lin",
-            "vers": "vc",
-            "etape": 3,
-            "texte": "Bonesaw exploite CVE-2026-123890"
-          },
-          {
-            "de": "vc",
-            "vers": "esx",
-            "etape": 4,
-            "texte": "Connexion via vpxuser et SSH root"
-          },
-          {
-            "de": "esx",
-            "vers": "vm",
-            "etape": 5,
-            "texte": "Fichiers extraits et archivés"
-          },
-          {
-            "de": "att",
-            "vers": "lin",
-            "etape": 6,
-            "texte": "Porte dérobée Lazybones pilotée via Slack"
-          }
-        ]
-      },
-      "limites": "Les sources ne nomment ni victime ni secteur [1, 4, 5, 6, 7, 10]. Broadcom ne signale aucune attaque exploitant CVE-2026-123890 [3, 4, 6], alors que Mandiant décrit son exploitation [1, 5, 6].",
-      "cves": [
-        {
-          "id": "CVE-2026-102764",
-          "explication": "BeyondTrust Remote Support jusqu'à 26.2.3 : origine des messages mal vérifiée, permettant des opérations sur ses fichiers ; gravité 9,8 sur 10 [2], 9,3 sur 10 [7]."
-        },
-        {
-          "id": "CVE-2026-123890",
-          "explication": "Service d'annuaire de vCenter [4, 6] : clé de session d'une connexion administrateur en cours récupérable sans authentification [11] ; exploitée depuis septembre 2026 [5, 6], cataloguée par la CISA [8, 10] ; 9,8/10 [3, 4]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "Armory Castle [1, 4, 6, 7, 9, 10], anciennement UNC5221 [1, 4, 6, 7, 10], aussi connu sous le nom Warp Panda [4], soupçonné d'être lié à la Chine [1, 4, 6, 7, 9, 10]"
-      ],
-      "cibles": [
-        "Environnements VMware vCenter et ESXi ; aucune victime ni secteur nommés [1, 4]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "EDR",
-          "definition": "Endpoint Detection and Response : outil de détection et de réponse sur les machines"
-        },
-        {
-          "sigle": "SUID",
-          "definition": "Bit de permission faisant exécuter un fichier avec les droits de son propriétaire"
-        },
-        {
-          "sigle": "SSO",
-          "definition": "Single Sign-On : authentification unique pour plusieurs services"
-        },
-        {
-          "sigle": "SSH",
-          "definition": "Secure Shell : protocole d'administration à distance chiffré"
-        },
-        {
-          "sigle": "NTDS",
-          "definition": "Base de données des comptes d'un domaine Windows"
-        },
-        {
-          "sigle": "UNC5221",
-          "definition": "Ancien nom de suivi de Mandiant pour ce groupe"
-        },
-        {
-          "sigle": "SAML",
-          "definition": "Security Assertion Markup Language : standard de jetons d'authentification signés"
-        },
-        {
-          "sigle": "CISA",
-          "definition": "Cybersecurity and Infrastructure Security Agency : agence américaine de cybersécurité"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "ARMORY CASTLE Exploits vSphere",
-          "site": "Google Threat Intelligence (Mandiant)",
-          "url": "https://cloud.google.com/blog/topics/threat-intelligence/armory-castle-exploits-vsphere/",
-          "date": "2026-11-19",
-          "image": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
-        },
-        {
-          "titre": "Fiche NVD CVE-2026-102764",
-          "site": "NVD (NIST)",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102764"
-        },
-        {
-          "titre": "Critical VMware vCenter Flaw (CVSS 9.8) Lets Network Attackers Bypass Authentication",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
-          "date": "2026-11-19",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZ5IDT81eb7KUE0LzwGJAzuAETft3pD5sOz2dJxnQin_-zR_hH8tDKFTsLNBNoe35KM4DhFJjP7K-0YwaMoVwz7xUhTiP2vKeNqmN3kenPgwflENu35qx-QlFj-rDFdyXx1HMz6ykegw6nlnPDXppYbotjoRj-ammlyUZ-Cr0JYLS5iyZXkJXkaIO5UAc/s1700-nu-rw-lo-l85-e365/vmware.jpg"
-        },
-        {
-          "titre": "Newly Patched VMware vCenter Flaw Exploited as Zero-Day by Chinese APT",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/newly-patched-vmware-vcenter-flaw-exploited-as-zero-day-by-chinese-apt/",
-          "date": "2026-11-19",
-          "image": "https://www.securityweek.com/wp-content/uploads/2022/08/VMWare.jpg"
-        },
-        {
-          "titre": "CVE-2026-123890: Critical Authentication Bypass in VMware vCenter",
-          "site": "Rapid7",
-          "url": "https://www.rapid7.com/blog/post/etr-cve-2026-123890-critical-authentication-bypass-vmware-vcenter",
-          "date": "2026-11-19",
-          "image": "https://www.rapid7.com/cdn/images/blt65a432ba319f4043/6846abddaf18306debe6cf4d/ETR.webp"
-        },
-        {
-          "titre": "VMware patches vCenter zero-day exploited in attacks since September",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september/",
-          "date": "2026-11-19",
-          "image": "https://www.bleepstatic.com/content/hl-images/2023/10/25/VMware_red.jpg"
-        },
-        {
-          "titre": "China-Linked Hackers Exploit Critical VMware vCenter Zero-Day to Gain Admin Access and Steal Data",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/china-linked-hackers-exploit-critical.html",
-          "date": "2026-11-20",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjTSAI-N-DRII1YA3I98ZVnKnG0SMgm97oEAqyiSXZB23DPwzvTk3figFLsTCKsMJRxRhjKEPFblxfcOuB_UXc_OAXJRiVI07Jxjn-CebJVHiRQ5sc43AifBpUPNfU5-LRD6QEGbX7Vnt_HAmJZiLojS32PtNWwIWeideJZnIpgjrstJ0Iy84lYd47bePk/s1700-nu-rw-lo-l85-e365/chinese-vmware.jpg"
-        },
-        {
-          "titre": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
-          "site": "CISA",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/11/20/cisa-adds-four-known-exploited-vulnerabilities-catalog",
-          "date": "2026-11-20"
-        },
-        {
-          "titre": "China's 'Armory Castle' Lays Siege to VMware vCenter Zero-Day",
-          "site": "Dark Reading",
-          "url": "https://www.darkreading.com/cyberattacks-data-breaches/china-armory-castle-vmware-vcenter-zero-day",
-          "date": "2026-11-20"
-        },
-        {
-          "titre": "Hackers Exploit Critical VMware, Cisco, and Apache Flaws as Espionage Attacks Emerge",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-vmware-cisco.html",
-          "date": "2026-11-21",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFnWnBDigw8RogBTSInXktn1vUISbzwjHm5GuAFBNX0_ClLBk83WOa2BYiHUbgtva76TY8Oz2kJvEZtvEjqZlFFCuvQ-u-l-4l5dzo2MXw7zHLEuklv_Gn1mB-f5TL9GP_3n1NxQkzkZ-fAX7UpcqfZqUefQiRQZm21sq6IZOzmyuQ1hYs4AFHWQAj83WX/s1700-nu-rw-lo-l85-e365/vmware-cisco.jpg"
-        },
-        {
-          "titre": "Rapid7 Analysis: VMware vCenter SRP Authentication Bypass to Root (CVE-2026-123890)",
-          "site": "Rapid7",
-          "url": "https://www.rapid7.com/blog/post/ra-rapid7-analysis-vmware-vcenter-srp-authentication-bypass-to-root-cve-2026-123890",
-          "date": "2026-11-24",
-          "image": "https://www.rapid7.com/cdn/images/bltcbf09ec3af35e28e/6a15c63f08221ed5144dbf77/webinar-rapid7-logo.jpg"
         }
       ]
     },
@@ -5931,160 +6609,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-11-19-commission-europeenne-campagne-ia",
-      "title": "Commission européenne : une cyberattaque « générée par intelligence artificielle » perturbe la gestion du personnel et expose des utilisateurs d'EU Academy",
-      "created": "2026-11-19T16:09:13+00:00",
-      "updated": "2026-11-24T17:30:00+00:00",
-      "version": 5,
-      "resume": "La Commission européenne confirme une cyberattaque menée avec un outil d'intelligence artificielle, détectée le 22 octobre [1, 3, 4] ; la gestion du personnel a été perturbée [2] et des données d'utilisateurs d'EU Academy ont fuité [4, 5].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 2]."
-        },
-        {
-          "etape": "Attaque outillée par IA",
-          "texte": "Campagne générée par intelligence artificielle ; selon Politico, le CERT-EU a repéré l'usage de la plateforme Artex [1], un outil offensif agentique [2]."
-        },
-        {
-          "etape": "Perturbation des services",
-          "texte": "Applications mises hors ligne par précaution, la plupart rétablies depuis [3] ; paie, congés, remboursements médicaux et traduction auraient été perturbés plus de dix jours [1]."
-        },
-        {
-          "etape": "Données",
-          "texte": "Fuite confirmée lundi par la Commission : noms et adresses électroniques d'utilisateurs d'EU Academy, accès public désactivé [4, 5] ; aucune preuve de fuite de données du personnel selon la Commission [3]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "artex",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Plateforme Artex",
-            "note": "Selon Politico"
-          },
-          {
-            "id": "sys",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Systèmes de gestion du personnel",
-            "note": "Services perturbés"
-          },
-          {
-            "id": "don",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Données d'utilisateurs EU Academy",
-            "note": "Noms et courriels"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "sys",
-            "etape": 1,
-            "texte": "Accès non précisé"
-          },
-          {
-            "de": "att",
-            "vers": "artex",
-            "etape": 2,
-            "texte": "Usage repéré par le CERT-EU"
-          },
-          {
-            "de": "artex",
-            "vers": "sys",
-            "etape": 3,
-            "texte": "Services du personnel perturbés"
-          },
-          {
-            "de": "att",
-            "vers": "don",
-            "etape": 4,
-            "texte": "Fuite confirmée par la Commission"
-          }
-        ]
-      },
-      "limites": "Les sources ne décrivent ni l'accès initial ni les actions dans le réseau [1, 2, 4] ; attribution attendue à la fin de l'enquête selon la Commission ; attaque pas encore totalement contenue selon Euronews [4].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non identifiés ; la Commission ne précise ni l'outil ni la motivation [1] et n'attribue pas l'attaque à un groupe connu [3]",
-        "Selon le FBI, Artex est utilisé par des criminels et des groupes soutenus par des États [1]",
-        "Artex en général : Microsoft a d'abord attribué son usage à Storm-0940, aligné sur Pékin ; d'autres ont suivi, dont Storm-3358, acteur crapuleux au Cambodge [2]",
-        "Selon Euronews, la Commission soupçonne un groupe lié à la Chine, en partie à cause de l'usage d'Artex, outil d'origine chinoise [4]",
-        "Aucune demande de rançon reçue ; attribution attendue à la fin de l'enquête, selon la Commission [5]"
-      ],
-      "cibles": [
-        "Commission européenne, systèmes de gestion du personnel [1]",
-        "Utilisateurs de la plateforme EU Academy, nombre en cours d'évaluation [4]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "CERT-EU",
-          "definition": "Équipe de réponse aux incidents informatiques des institutions européennes"
-        },
-        {
-          "sigle": "IA",
-          "definition": "Intelligence artificielle"
-        },
-        {
-          "sigle": "FBI",
-          "definition": "Police fédérale américaine"
-        },
-        {
-          "sigle": "EU",
-          "definition": "European Union : Union européenne"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "European Commission confirms cyberattack, says hackers used AI tool",
-          "site": "The Record",
-          "url": "https://therecord.media/european-commission-confirms-cyberattack-using-ai",
-          "date": "2026-11-19",
-          "image": "https://cms.therecord.media/uploads/30917367864_8dc9286dcf_o_dc03237cec.jpg"
-        },
-        {
-          "titre": "La Commission européenne frappée par une lourde cyberattaque",
-          "site": "LeMagIT",
-          "url": "https://www.lemagit.fr/actualites/366654993/La-Commission-Europeenne-frappee-par-une-lourde-cyberattaque",
-          "date": "2026-11-19",
-          "image": "https://www.lemagit.fr/visuals/German/article/Hero-europe-geopolitics-Waran-Photographic-AdobeStock_33341551.jpg"
-        },
-        {
-          "titre": "European Commission Confirms AI-Assisted Cyberattack Disrupted Services",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/european-commission-confirms-ai-assisted-cyberattack-disrupted-services/",
-          "date": "2026-11-20",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/EU-Europe-European-Union-.jpeg"
-        },
-        {
-          "titre": "European Commission Uncovers Data Breach in Cyberattack Investigation",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/european-commission-uncovers-data-breach-in-cyberattack-investigation/",
-          "date": "2026-11-24",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/06/EU-Europe-European-Union-.jpeg"
-        },
-        {
-          "titre": "European Commission confirms data theft in EU Academy breach",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/european-commission-confirms-data-theft-in-eu-academy-breach/",
-          "date": "2026-11-24",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/04/03/0_European_Union_flag.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-11-20-romulus-clickfix-cncmachinerms",
       "title": "ROMULUS : des leurres ClickFix installent un cheval de Troie inédit, proche de CNCMachineRMS, qui espionne micro et caméra",
       "created": "2026-11-20T08:30:00+00:00",
@@ -6706,147 +7230,6 @@
           "url": "https://www.zataz.com/un-sms-blaster-decouvert-dans-une-voiture/",
           "date": "2026-11-19",
           "image": "https://www.zataz.com/wp-content/uploads/sms_blaster_titre.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-19-webworm-softether-pont-furtif",
-      "title": "Webworm : un pont VPN SoftEther modifié pour garder un accès discret aux réseaux de gouvernements",
-      "created": "2026-11-19T16:09:13+00:00",
-      "updated": "2026-11-24T22:20:00+00:00",
-      "version": 3,
-      "resume": "Rapid7 attribue au groupe d'espionnage Webworm, aligné sur la Chine, une version modifiée du VPN SoftEther, camouflée pour garder un accès discret aux réseaux compromis d'organisations gouvernementales [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Camouflage de l'outil",
-          "texte": "Pont VPN SoftEther recompilé, présenté comme logiciel de surveillance réseau « NtMonitor VPN », configuration chiffrée [1, 2] ; traces qui le trahiraient aux défenseurs retirées [3]."
-        },
-        {
-          "etape": "Neutralisation des défenses",
-          "texte": "Règles ajoutées au pare-feu Windows par l'outil [1]."
-        },
-        {
-          "etape": "Dissimulation réseau",
-          "texte": "Adresses web renommées et filigrane d'origine remplacé → clients SoftEther standards bloqués et identification par filigrane évitée [1, 2]."
-        },
-        {
-          "etape": "Pont vers le réseau",
-          "texte": "Tunnel VPN reliant un réseau distant au réseau local → l'hôte infecté sert de relais vers les autres machines du réseau [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (Webworm)",
-            "note": ""
-          },
-          {
-            "id": "dist",
-            "type": "serveur",
-            "zone": "internet",
-            "nom": "Réseau distant",
-            "note": "Adresse chez AS 20473"
-          },
-          {
-            "id": "hote",
-            "type": "poste",
-            "zone": "victime",
-            "nom": "Hôte Windows infecté",
-            "note": "Pont NtMonitor VPN"
-          },
-          {
-            "id": "res",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Autres machines du réseau",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "hote",
-            "etape": 1,
-            "texte": "Accès non précisé"
-          },
-          {
-            "de": "hote",
-            "vers": "dist",
-            "etape": 5,
-            "texte": "Tunnel VPN vers le réseau distant"
-          },
-          {
-            "de": "hote",
-            "vers": "res",
-            "etape": 5,
-            "texte": "Relais vers les autres machines"
-          }
-        ]
-      },
-      "limites": "Les sources ne précisent ni l'accès initial, ni les victimes exactes, ni ce que les attaquants ont fait une fois connectés au réseau [1, 2, 3].",
-      "cves": [],
-      "mitre": [
-        "T1587.001 : Develop Capabilities: Malware, développement de capacités, logiciel malveillant : création de l'outil SoftEther modifié [1].",
-        "T1027.013 : Encrypted/Encoded File, fichier chiffré ou encodé : configuration chiffrée de l'outil [1].",
-        "T1140 : Deobfuscate/Decode Files or Information, déchiffrement ou décodage de fichiers ou d'informations [1].",
-        "T1036.005 : Match Legitimate Resource Name or Location, imitation d'un nom ou d'un emplacement de ressource légitime [1].",
-        "T1027.005 : Indicator Removal from Tools, suppression d'indicateurs dans les outils [1].",
-        "T1686.003 : Windows Host Firewall, désactivation ou modification du pare-feu de l'hôte Windows [1].",
-        "T1599 : Network Boundary Bridging, franchissement de la frontière réseau [1].",
-        "T1071 : Application Layer Protocol, protocole de la couche application [1].",
-        "T1090.001 : Internal Proxy, relais interne : l'hôte infecté relaie l'accès de commande vers d'autres machines [1]."
-      ],
-      "acteurs": [
-        "Webworm, groupe d'espionnage aligné sur la Chine ; outil attribué avec une confiance modérée [1]",
-        "ESET avait déjà noté son passage d'outils sur mesure à des outils à double usage comme SoftEther [1]",
-        "Webworm a été décrit pour la première fois par Symantec (Broadcom) en septembre 2022 [2]"
-      ],
-      "cibles": [
-        "Organisations gouvernementales, surtout en Europe [1]",
-        "Cibles déjà visées par Webworm : gouvernements, services informatiques et énergie électrique en Russie, Géorgie, Mongolie et Asie [2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "VPN",
-          "definition": "Réseau privé virtuel : tunnel chiffré reliant des réseaux"
-        },
-        {
-          "sigle": "AS",
-          "definition": "Système autonome : bloc d'adresses Internet géré par un même opérateur"
-        },
-        {
-          "sigle": "ESET",
-          "definition": "Éditeur slovaque de logiciels de sécurité"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Spying on Governments with Zero Lines of Malware: A Custom SoftEther Bridge in Webworm’s Toolkit",
-          "site": "Rapid7",
-          "url": "https://www.rapid7.com/blog/post/tr-spying-on-governments-no-malware-custom-webworms-toolkit-softether-bridge",
-          "date": "2026-11-19",
-          "image": "https://www.rapid7.com/cdn/images/blt62de3c632e7d1ef7/6984a555a6b5ef052cb93196/Chrysalis-backdoor-blog.jpg"
-        },
-        {
-          "titre": "Webworm Suspected of Modifying SoftEther VPN to Evade Detection and Hide Remote Access",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/webworm-suspected-of-modifying.html",
-          "date": "2026-11-23",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9_mXkFA2_QQWa_ajcGxgoc3rSAfxGJqP-uIREqPGAfJGM7D7-mLrjwSE_F1egX-pwVRvMRinRGs4QbcBE1yJrmHFw4Fa_ILg6ZuTIOy1bf86-wPQ-Zgsqa-6hqdBapRROk97rOeT-Vfa002vHuWF6fCSE1KPttjswyjUeBxjrJzrmVU9KY724e75Giq1T/s1700-nu-rw-lo-l85-e365/chinese-malware.jpg"
-        },
-        {
-          "titre": "Webworm APT Slithers Into Networks With Customized SoftEther VPN",
-          "site": "Dark Reading",
-          "url": "https://www.darkreading.com/perimeter/webworm-slithers-customized-softether-vpn",
-          "date": "2026-11-24"
         }
       ]
     },
@@ -9438,260 +9821,6 @@
           "url": "https://www.zataz.com/osaka-exposee-a-une-fuite-massive/",
           "date": "2026-11-18",
           "image": "https://www.zataz.com/wp-content/uploads/japon_mail_leak.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-17-optimizely-scripts-pieges",
-      "title": "Optimizely : des scripts piégés chargés sur les sites de 178 organisations visent cryptomonnaies et cartes bancaires",
-      "created": "2026-11-17T03:06:55+00:00",
-      "updated": "2026-11-24T22:20:00+00:00",
-      "version": 11,
-      "resume": "Du code malveillant inséré dans les fichiers JavaScript d'Optimizely de 178 organisations, selon Scott Helme, a visé les visiteurs de sites comme Zoom, GitLab et Salesforce pour voler cryptomonnaies et cartes bancaires [1, 2, 3]. Optimizely dit avoir corrigé la faille et retiré le code [2, 3, 7, 10, 11].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Selon Optimizely, exploitation d'une vulnérabilité dans le parcours d'inscription aux comptes Experimentation → ajout de JavaScript malveillant à des projets de clients, le 16 novembre selon Unit 42 [2, 5, 6, 7]."
-        },
-        {
-          "etape": "Diffusion du code",
-          "texte": "Code placé dans un champ facultatif réservé au JavaScript du client, exécuté sur chaque page [4] ; fichiers modifiés servis depuis cdn.optimizely.com [1, 2, 3] ; Smartsheet, nettoyé, réinfecté par une version cachée [3]."
-        },
-        {
-          "etape": "Chargement du script",
-          "texte": "Le code injecté charge le script track.js depuis un domaine externe ; selon Scott Helme, une variante exécute une copie embarquée si le script distant est bloqué [1, 2]."
-        },
-        {
-          "etape": "Vol de cryptomonnaies",
-          "texte": "Portefeuilles affichés remplacés par ceux des attaquants → environ 7 000 dollars selon Scott Helme [1, 2], 7 500 selon Report URI [10], plus de 6 200 euros selon ZATAZ [11]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Capture des cartes saisies dans les formulaires propres aux sites, pas ceux des prestataires de paiement → envoi tenté vers le même domaine [2, 8] ; cookies et captures d'écran visés [2, 8, 10]."
-        },
-        {
-          "etape": "Exploits iPhone et iPad",
-          "texte": "Sur iPhone et iPad, un script ouvre dans un cadre caché les chaînes d'exploitation Coruna ou DarkSword [1, 2, 3] ; Cynet parle d'une livraison conditionnelle, pas d'une compromission réussie d'appareil physique [3]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "dom",
-            "type": "serveur",
-            "zone": "internet",
-            "nom": "Domaine externe",
-            "note": "Script track.js"
-          },
-          {
-            "id": "opt",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Projets Optimizely de clients",
-            "note": "Code malveillant inséré"
-          },
-          {
-            "id": "sites",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Sites web des clients",
-            "note": ""
-          },
-          {
-            "id": "vis",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Visiteurs des sites",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "opt",
-            "etape": 1,
-            "texte": "Faille du parcours d'inscription exploitée"
-          },
-          {
-            "de": "opt",
-            "vers": "sites",
-            "etape": 2,
-            "texte": "Fichiers JavaScript modifiés chargés"
-          },
-          {
-            "de": "dom",
-            "vers": "sites",
-            "etape": 3,
-            "texte": "Script track.js chargé"
-          },
-          {
-            "de": "sites",
-            "vers": "vis",
-            "etape": 4,
-            "texte": "Adresses de portefeuilles remplacées"
-          },
-          {
-            "de": "vis",
-            "vers": "dom",
-            "etape": 5,
-            "texte": "Tentative d'envoi des données de carte"
-          },
-          {
-            "de": "sites",
-            "vers": "vis",
-            "etape": 6,
-            "texte": "Scripts visant iPhone et iPad"
-          }
-        ]
-      },
-      "limites": "Les sources ne nomment pas les attaquants [1, 2, 3, 4, 5, 6]. Report URI ne peut pas voir combien de numéros de cartes ont été exposés [3].",
-      "cves": [
-        {
-          "id": "CVE-2026-132224",
-          "explication": "Optimizely Web Experimentation avant le 17 novembre 2026 : inscription mal gérée → code de l'attaquant dans le champ projectJS de fichiers cdn.optimizely.com, gravité 8,7 sur 10 [13] ; exploitée [12]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "Acteur non nommé ; certains chercheurs, dont Unit 42, appellent la campagne OPTIMJACK [3, 7]"
-      ],
-      "cibles": [
-        "Optimizely, plateforme d'expérimentation et de personnalisation de sites web [1]",
-        "188 fichiers JavaScript infectés appartenant à 178 organisations, selon le chercheur Scott Helme [1, 2, 5]",
-        "Au moins 178 organisations, dont plusieurs grandes marques, ont exposé leurs visiteurs via une plateforme tierce [9]",
-        "32 sites bancaires ou financiers parmi les 178, selon Report URI [8]",
-        "Sites de Zoom, GitLab, Smartsheet, Stamps.com, Scheels et Salesforce, entre autres [2]",
-        "Sites de Fox News, Air France, Change.org et Bitly, entre autres [1]",
-        "Sites d'Ikea, Air France, Zoom et du site de la communauté cybersécurité de Thales, entre autres [6]",
-        "Sites de CNN, BBC, IKEA, HSBC, Equifax, Ledger et TalkTalk, entre autres [3]",
-        "Scripts de Kissmetrics, StorifyMe et Minute-ly diffusant un petit chargeur, première observation le 13 novembre ; entrée du code inconnue [4]",
-        "Sites turcs, où Scott Helme (Report URI) dit avoir vu ce code injecté pour la première fois en septembre [8]",
-        "Sites de BBC, CNN, Equifax, Ledger et Zoom ; 68 des sites touchés sans politique de sécurité du contenu, selon Report URI [10]",
-        "Sites d'American Eagle, Air France et Change.org, entre autres ; Salesforce a désactivé par précaution les scripts Optimizely [11]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "BBC",
-          "definition": "British Broadcasting Corporation : groupe audiovisuel public britannique"
-        },
-        {
-          "sigle": "CNN",
-          "definition": "Cable News Network : chaîne d'information américaine"
-        },
-        {
-          "sigle": "HSBC",
-          "definition": "Groupe bancaire international dont le siège est à Londres"
-        },
-        {
-          "sigle": "IKEA",
-          "definition": "Enseigne suédoise d'ameublement"
-        },
-        {
-          "sigle": "OPTIMJACK",
-          "definition": "Nom donné à cette campagne par certains chercheurs"
-        },
-        {
-          "sigle": "URI",
-          "definition": "Uniform Resource Identifier ; ici, élément du nom de la société Report URI"
-        },
-        {
-          "sigle": "CISA",
-          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Optimizely supply chain attack infects major brands' sites with malware",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-infects-major-brands-sites-with-malware/",
-          "date": "2026-11-16",
-          "image": "https://www.bleepstatic.com/content/posts/2026/11/16/supply-chain-attack.jpg"
-        },
-        {
-          "titre": "Optimizely hack infected CNN, Fox News, BBC, Salesforce sites with malware",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-delivers-malware-to-cnn-fox-news-bbc-salesforce-sites/",
-          "date": "2026-11-16",
-          "image": "https://www.bleepstatic.com/content/posts/2026/11/16/supply-chain-attack.jpg"
-        },
-        {
-          "titre": "Hijacked Optimizely Scripts Served Card Skimmer and iOS Exploit Kits to CNN, BBC and Zoom Visitors",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/hijacked-optimizely-scripts-served-card.html",
-          "date": "2026-11-17",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCKDXT71QJSnAqaPKmcBticVRjN0Q1diDWoOGKhoZ-wL5WIgLAPHX6dmetOkddYjLcZGIfxDAfLLN1LwbOV4zHqzONN7i8cIyMJLR-rc2t6LF7MnTzJAAoN54aIPEYoWPBf01znenuq43oDLwcVksxZbvP5xPnFsC-G-sDSjpzDegalBNU87YIe7z0YcI/s1700-nu-rw-lo-l85-e365/Optimizely-hacked.jpg"
-        },
-        {
-          "titre": "Optimizely Vulnerability Exploited to Serve Malware on Major Websites",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/optimizely-vulnerability-exploited-to-serve-malware-on-major-websites/",
-          "date": "2026-11-17",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/08/malware-infection.webp"
-        },
-        {
-          "titre": "Hijacked Optimizely snippets served malicious code on major websites",
-          "site": "Sophos Threat Research",
-          "url": "https://www.sophos.com/en-us/blog/hijacked-optimizely-snippets-served-malicious-code",
-          "date": "2026-11-17",
-          "image": "https://images.contentstack.io/v3/assets/blt38f1f401b66100ad/bltb4b6c0750dc5846c/6aad5e6160452d9f5056a4ef/logo.png"
-        },
-        {
-          "titre": "Un composant JavaScript malveillant distribué sur près de 180 sites Web majeurs",
-          "site": "LeMagIT",
-          "url": "https://www.lemagit.fr/actualites/366654823/Un-composant-JavaScript-malveillant-distribue-sur-pres-de-180-sites-Web-majeurs",
-          "date": "2026-11-17",
-          "image": "https://www.lemagit.fr/visuals/German/article/url_website_fotolia.jpg"
-        },
-        {
-          "titre": "Borrowed Code, Real Consequences: What OPTIMJACK Teaches Us",
-          "site": "Unit 42 (Palo Alto Networks)",
-          "url": "https://unit42.paloaltonetworks.com/optimjack-supply-chain-attack/",
-          "date": "2026-11-17",
-          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/11/09_Opinion_Category_1505x922.jpg"
-        },
-        {
-          "titre": "Website management platform Optimizely confirms hackers put malicious code into customer sites",
-          "site": "The Record",
-          "url": "https://therecord.media/optimizely-malicious-code-customer-sites",
-          "date": "2026-11-17",
-          "image": "https://cms.therecord.media/uploads/optimizely_logo_a558e0b619.png"
-        },
-        {
-          "titre": "Optimizely Malware Attacks Highlight Third-Party Vendor Risks",
-          "site": "Dark Reading",
-          "url": "https://www.darkreading.com/cyber-risk/optimizely-malware-attacks-third-party-vendor-risks",
-          "date": "2026-11-17"
-        },
-        {
-          "titre": "Attackers Used Optimizely to A/B Test Malware on Top Websites",
-          "site": "Krebs on Security",
-          "url": "https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/",
-          "date": "2026-11-18"
-        },
-        {
-          "titre": "Optimizely piraté, des géants du web exposés",
-          "site": "ZATAZ",
-          "url": "https://www.zataz.com/optimizely-pirate-des-geants-du-web-exposes/",
-          "date": "2026-11-18"
-        },
-        {
-          "titre": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
-          "site": "CISA Advisories",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/11/24/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-          "date": "2026-11-24"
-        },
-        {
-          "titre": "Fiche NVD CVE-2026-132224",
-          "site": "NVD (NIST)",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132224"
         }
       ]
     },
@@ -57773,145 +57902,6 @@
           "url": "https://www.bleepingcomputer.com/news/security/fake-chatgpt-gemini-sites-steal-advertising-accounts-mfa-codes/",
           "date": "2026-10-06",
           "image": "https://www.bleepstatic.com/content/hl-images/2024/05/13/Phishing.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-06-osaka-metropolitan-university-rancongiciel",
-      "title": "Université métropolitaine d'Osaka : panne massive, rançongiciel soupçonné",
-      "created": "2026-10-06T15:07:50+00:00",
-      "updated": "2026-10-06T15:07:50+00:00",
-      "version": 1,
-      "resume": "L'université métropolitaine d'Osaka a perdu son réseau interne, sa messagerie et des systèmes administratifs et pédagogiques. Elle pense qu'un rançongiciel est en cause [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Perturbation des systèmes",
-          "texte": "Panne d'environ 500 serveurs → réseau interne, messagerie et systèmes administratifs et académiques indisponibles [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "inc",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Point d'entrée inconnu",
-            "note": ""
-          },
-          {
-            "id": "srv",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveurs de l'université",
-            "note": "Environ 500 à l'arrêt"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "inc",
-            "etape": 1,
-            "texte": "Accès initial non précisé"
-          },
-          {
-            "de": "inc",
-            "vers": "srv",
-            "etape": 2,
-            "texte": "Panne des serveurs, rançongiciel soupçonné"
-          }
-        ]
-      },
-      "limites": "Les sources ne précisent ni le vecteur d'accès, ni l'auteur, ni si une rançon a été demandée [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non identifié [1]"
-      ],
-      "cibles": [
-        "Université métropolitaine d'Osaka : au moins 130 000 étudiants, enseignants et personnels actuels et anciens, données potentiellement exposées [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Osaka Metropolitan University cancels classes after suspected ransomware attack",
-          "site": "The Record",
-          "url": "https://therecord.media/osaka-university-cancels-classes-ransomware",
-          "date": "2026-10-06",
-          "image": "https://cms.therecord.media/uploads/Osaka_Metropolitan_University_Sugimoto_Campus_1_b2a0608dc0.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-24-turnitin-systemes-clients",
-      "title": "Turnitin : une activité non autorisée détectée sur des systèmes en contact avec les clients",
-      "created": "2026-11-24T19:10:00+00:00",
-      "updated": "2026-11-24T19:10:00+00:00",
-      "version": 1,
-      "resume": "Turnitin, éditeur de logiciels éducatifs utilisés par plus de 16 000 établissements, a détecté une activité non autorisée sur certains de ses systèmes en contact avec les clients [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Activité non autorisée",
-          "texte": "Activité non autorisée sur certains systèmes en contact avec les clients → enquête lancée avec des spécialistes externes, autorités et régulateurs prévenus [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "sys",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Systèmes en contact clients",
-            "note": "Activité non autorisée"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "sys",
-            "etape": 2,
-            "texte": "Accès non autorisé, vecteur non précisé"
-          }
-        ]
-      },
-      "limites": "Les sources ne précisent ni la date de l'intrusion, ni le vecteur d'accès, ni les données consultées ou volées, et aucun groupe de rançongiciel ne l'avait publiquement revendiquée à la date de l'article [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Turnitin, éditeur de logiciels éducatifs présent dans 185 pays [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Turnitin discloses cyberattack affecting customer-facing systems",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/turnitin-discloses-cyberattack-affecting-customer-facing-systems/",
-          "date": "2026-11-24",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/24/turnitin.jpg"
         }
       ]
     }

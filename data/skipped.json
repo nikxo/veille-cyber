@@ -1,21 +1,5 @@
 [
   {
-    "id": "4e9930632b3b4bbe",
-    "title": "STMicroelectronics face aux défis de la conformité CRA",
-    "link": "https://www.lemagit.fr/etude/STMicroelectronics-face-aux-defis-de-la-conformite-CRA",
-    "source": "LeMagIT",
-    "raison": "conformité réglementaire, aucune attaque décrite",
-    "date": "2026-11-05T09:30:00+00:00"
-  },
-  {
-    "id": "c3be2112dd1104f4",
-    "title": "GhostMap Android flaw lets malicious app trigger persistent boot loop",
-    "link": "https://www.bleepingcomputer.com/news/security/ghostmap-android-flaw-lets-malicious-app-trigger-persistent-boot-loop/",
-    "source": "BleepingComputer",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-11-05T10:08:33+00:00"
-  },
-  {
     "id": "96a1ace9f58c677e",
     "title": "Apple to Start Scanning Publicly Shared iCloud Photos and Files for Harmful Content",
     "link": "https://thehackernews.com/2026/11/apple-to-start-scanning-publicly-shared.html",
@@ -3998,5 +3982,21 @@
     "source": "Dark Reading",
     "raison": "vulnérabilités sans exploitation constatée (article inaccessible, résumé : attaques seulement possibles)",
     "date": "2026-11-24T22:20:00+00:00"
+  },
+  {
+    "id": "6a6218931c47e3bc",
+    "title": "Satellites Have a Ground-Level Cybersecurity Problem",
+    "link": "https://www.darkreading.com/cyber-risk/satellites-ground-level-cybersecurity-problem",
+    "source": "Dark Reading",
+    "raison": "analyse générale sans attaque décrite (article inaccessible, résumé générique)",
+    "date": "2026-11-24T23:20:00+00:00"
+  },
+  {
+    "id": "d1803105347bba54",
+    "title": "NGINX HTTP/2 Use-After-Free: CVE-2026-123633",
+    "link": "https://unit42.paloaltonetworks.com/cve-2026-123633-nginx-http2-vulnerability/",
+    "source": "Unit 42 (Palo Alto Networks)",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-24T23:20:00+00:00"
   }
 ]

@@ -2,6 +2,83 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-24-drupal-core-cve-2026-132165-kev",
+      "title": "Drupal Core : la faille d'exécution de code CVE-2026-132165 exploitée, ajoutée au catalogue de la CISA",
+      "created": "2026-11-24T22:20:00+00:00",
+      "updated": "2026-11-24T22:20:00+00:00",
+      "version": 1,
+      "resume": "La CISA a ajouté le 24 novembre 2026 à son catalogue des failles exploitées la vulnérabilité CVE-2026-132165 de Drupal Core, qui permet l'exécution de code à distance [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Exécution de code",
+          "texte": "Exploitation active de la faille CVE-2026-132165 de Drupal Core, de type exécution de code à distance [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "web",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Site sous Drupal Core",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 2,
+            "texte": "Exploitation de CVE-2026-132165"
+          }
+        ]
+      },
+      "limites": "La source ne décrit ni la faille en détail, ni les versions touchées, ni les attaquants, ni les victimes [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-132165",
+          "explication": "Drupal Core : vulnérabilité d'exécution de code à distance, exploitation active confirmée ; gravité non précisée [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Sites utilisant Drupal Core ; victimes non précisées [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/24/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-24"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-24-mycolorado-application-donnees-volees",
       "title": "Colorado : une cyberattaque met hors ligne l'application myColorado et touche les données de 150 000 personnes",
       "created": "2026-11-24T21:30:00+00:00",
@@ -2998,9 +3075,9 @@
       "id": "2026-11-23-idunno-anticsrf-aspnet-rce",
       "title": "Idunno.AntiCsrf : une faille critique de cette bibliothèque ASP.NET abandonnée est exploitée pour exécuter du code sans authentification",
       "created": "2026-11-23T11:20:00+00:00",
-      "updated": "2026-11-23T11:20:00+00:00",
-      "version": 1,
-      "resume": "Une faille critique d'Idunno.AntiCsrf, bibliothèque de protection pour ASP.NET WebForms abandonnée, sans mise à jour depuis décembre 2008 ni correctif officiel, est exploitée dans la nature ; elle permet d'exécuter du code sans authentification [1].",
+      "updated": "2026-11-24T22:20:00+00:00",
+      "version": 2,
+      "resume": "Une faille critique d'Idunno.AntiCsrf, bibliothèque ASP.NET WebForms sans mise à jour depuis décembre 2008, est exploitée pour exécuter du code sans authentification [1]. La CISA l'a ajoutée le 24 novembre 2026 à son catalogue des failles exploitées [2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -3047,7 +3124,7 @@
       "cves": [
         {
           "id": "CVE-2026-131914",
-          "explication": "Idunno.AntiCsrf 0.9.1.0 et 0.9.1 Beta : désérialisation non sécurisée dans le module HTTP permettant l'exécution de code à distance, gravité 9,3 sur 10 [1]."
+          "explication": "Idunno.AntiCsrf 0.9.1.0 et 0.9.1 Beta : désérialisation non sécurisée dans le module HTTP permettant l'exécution de code à distance, gravité 9,3 sur 10 [1] ; exploitation active confirmée [2]."
         }
       ],
       "mitre": [],
@@ -3077,6 +3154,10 @@
         {
           "sigle": "HTTP",
           "definition": "Protocole d'échange des pages et requêtes web"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
         }
       ],
       "sources": [
@@ -3086,6 +3167,12 @@
           "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-aspnet-anti.html",
           "date": "2026-11-23",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWv3LP9w9Iv-ZmqonS5mwf1jDE-lTLUcDPxCOvYn3RF87-n2epMtdhqH5xXf-bsIIyKXq6U9qU5T1OQ6_Y3VeytS0CCA4TLJtFDcfcHR-I2EHY3t2e94UPvppaaXG9jDQPj4wNwt6CdwQCmXm5uK16BAp5Fn12DmxUk-Wu5ZwPT2kPQFo37oxSeqc6hX7X/s1700-nu-rw-lo-l85-e365/asp.net.jpg"
+        },
+        {
+          "titre": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/24/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-24"
         }
       ]
     },
@@ -4057,27 +4144,31 @@
     {
       "schema": 3,
       "id": "2026-11-21-rackspace-spot-secrets-kubernetes",
-      "title": "Rackspace Spot : des identifiants divulgués ouvrent l'accès aux secrets Kubernetes des clients",
+      "title": "Rackspace Spot : des identifiants compromis ouvrent l'accès aux secrets Kubernetes des clients, la plateforme fermée",
       "created": "2026-11-21T23:30:00+00:00",
-      "updated": "2026-11-21T23:30:00+00:00",
-      "version": 1,
-      "resume": "Des attaquants ont accédé à des parties de la plateforme cloud Rackspace Spot avec des identifiants divulgués ou compromis le 17 novembre 2026, ont lancé des charges de travail non autorisées et ont pu lire les secrets Kubernetes des clusters clients [1].",
+      "updated": "2026-11-24T22:20:00+00:00",
+      "version": 2,
+      "resume": "Des attaquants ont accédé à la plateforme cloud Rackspace Spot avec des identifiants compromis le 17 novembre 2026 et ont pu lire les secrets Kubernetes des clusters clients [1, 2]. Rackspace ferme définitivement Spot le 8 décembre 2026 [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Connexion à Rackspace Spot avec des identifiants divulgués ou compromis → actions possibles comme des utilisateurs légitimes de certaines organisations clientes [1]."
+          "texte": "Connexion à Rackspace Spot avec des identifiants divulgués ou compromis → actions possibles comme des utilisateurs légitimes de certaines organisations clientes [1, 2]."
         },
         {
           "etape": "Exécution",
-          "texte": "Création de pods Kubernetes dans les clusters clients → charges de travail non autorisées déployées [1]."
+          "texte": "Création de pods Kubernetes dans les clusters clients → charges de travail non autorisées déployées [1, 2]."
         },
         {
           "etape": "Vol d'identifiants",
-          "texte": "Lecture possible des secrets des clusters et des jetons d'API Spot et de rafraîchissement des utilisateurs touchés [1]."
+          "texte": "Lecture possible des secrets des clusters, des jetons d'API Spot et de rafraîchissement [1], ainsi que de fichiers des volumes de stockage [2]."
         },
         {
           "etape": "Reconnaissance",
-          "texte": "Listage des nœuds et des volumes des clusters [1]."
+          "texte": "Listage des nœuds et des volumes des clusters [1, 2]."
+        },
+        {
+          "etape": "Découverte et fermeture",
+          "texte": "Intrusion découverte le 18 novembre après un signalement client → console d'administration coupée, puis arrêt définitif de Spot annoncé [2]."
         }
       ],
       "parcours": {
@@ -4107,7 +4198,7 @@
             "id": "sec",
             "type": "donnees",
             "zone": "victime",
-            "nom": "Secrets et jetons",
+            "nom": "Secrets, jetons et volumes",
             "note": "Lecture possible"
           }
         ],
@@ -4129,15 +4220,21 @@
             "vers": "sec",
             "etape": 3,
             "texte": "Accès aux secrets et jetons"
+          },
+          {
+            "de": "k8s",
+            "vers": "sec",
+            "etape": 4,
+            "texte": "Listage des nœuds et volumes"
           }
         ]
       },
-      "limites": "La source ne dit pas comment les identifiants ont fuité, combien de clients sont touchés, qui sont les attaquants ni si des données ont été volées [1].",
+      "limites": "Les sources ne disent pas comment les identifiants ont été obtenus, combien de clients sont touchés ni qui sont les attaquants [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Clients de Rackspace Spot, plateforme de déploiement d'applications conteneurisées avec Kubernetes, nombre non précisé [1]"
+        "Clients de Rackspace Spot, plateforme de déploiement d'applications conteneurisées avec Kubernetes, nombre non précisé [1, 2]"
       ],
       "abreviations": [
         {
@@ -4151,6 +4248,13 @@
           "site": "BleepingComputer",
           "url": "https://www.bleepingcomputer.com/news/security/rackspace-spot-breach-let-hackers-access-customer-kubernetes-secrets/",
           "date": "2026-11-21",
+          "image": "https://www.bleepstatic.com/content/hl-images/2022/12/09/Rackspace.jpg"
+        },
+        {
+          "titre": "Rackspace shuts down Spot cloud platform after security breach",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/rackspace-shuts-down-spot-cloud-platform-after-security-breach/",
+          "date": "2026-11-24",
           "image": "https://www.bleepstatic.com/content/hl-images/2022/12/09/Rackspace.jpg"
         }
       ]
@@ -6610,8 +6714,8 @@
       "id": "2026-11-19-webworm-softether-pont-furtif",
       "title": "Webworm : un pont VPN SoftEther modifié pour garder un accès discret aux réseaux de gouvernements",
       "created": "2026-11-19T16:09:13+00:00",
-      "updated": "2026-11-23T18:30:00+00:00",
-      "version": 2,
+      "updated": "2026-11-24T22:20:00+00:00",
+      "version": 3,
       "resume": "Rapid7 attribue au groupe d'espionnage Webworm, aligné sur la Chine, une version modifiée du VPN SoftEther, camouflée pour garder un accès discret aux réseaux compromis d'organisations gouvernementales [1, 2].",
       "chaine": [
         {
@@ -6620,7 +6724,7 @@
         },
         {
           "etape": "Camouflage de l'outil",
-          "texte": "Pont VPN SoftEther recompilé, présenté comme logiciel de surveillance réseau « NtMonitor VPN », ressources intégrées à l'exécutable, configuration chiffrée [1, 2]."
+          "texte": "Pont VPN SoftEther recompilé, présenté comme logiciel de surveillance réseau « NtMonitor VPN », configuration chiffrée [1, 2] ; traces qui le trahiraient aux défenseurs retirées [3]."
         },
         {
           "etape": "Neutralisation des défenses",
@@ -6687,7 +6791,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni l'accès initial, ni les victimes exactes, ni ce que les attaquants ont fait une fois connectés au réseau [1, 2].",
+      "limites": "Les sources ne précisent ni l'accès initial, ni les victimes exactes, ni ce que les attaquants ont fait une fois connectés au réseau [1, 2, 3].",
       "cves": [],
       "mitre": [
         "T1587.001 : Develop Capabilities: Malware, développement de capacités, logiciel malveillant : création de l'outil SoftEther modifié [1].",
@@ -6737,6 +6841,12 @@
           "url": "https://thehackernews.com/2026/11/webworm-suspected-of-modifying.html",
           "date": "2026-11-23",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9_mXkFA2_QQWa_ajcGxgoc3rSAfxGJqP-uIREqPGAfJGM7D7-mLrjwSE_F1egX-pwVRvMRinRGs4QbcBE1yJrmHFw4Fa_ILg6ZuTIOy1bf86-wPQ-Zgsqa-6hqdBapRROk97rOeT-Vfa002vHuWF6fCSE1KPttjswyjUeBxjrJzrmVU9KY724e75Giq1T/s1700-nu-rw-lo-l85-e365/chinese-malware.jpg"
+        },
+        {
+          "titre": "Webworm APT Slithers Into Networks With Customized SoftEther VPN",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/perimeter/webworm-slithers-customized-softether-vpn",
+          "date": "2026-11-24"
         }
       ]
     },
@@ -9336,8 +9446,8 @@
       "id": "2026-11-17-optimizely-scripts-pieges",
       "title": "Optimizely : des scripts piégés chargés sur les sites de 178 organisations visent cryptomonnaies et cartes bancaires",
       "created": "2026-11-17T03:06:55+00:00",
-      "updated": "2026-11-18T09:20:00+00:00",
-      "version": 10,
+      "updated": "2026-11-24T22:20:00+00:00",
+      "version": 11,
       "resume": "Du code malveillant inséré dans les fichiers JavaScript d'Optimizely de 178 organisations, selon Scott Helme, a visé les visiteurs de sites comme Zoom, GitLab et Salesforce pour voler cryptomonnaies et cartes bancaires [1, 2, 3]. Optimizely dit avoir corrigé la faille et retiré le code [2, 3, 7, 10, 11].",
       "chaine": [
         {
@@ -9442,8 +9552,13 @@
           }
         ]
       },
-      "limites": "Les sources ne nomment pas les attaquants et ne détaillent pas la vulnérabilité exploitée [1, 2, 3, 4, 5, 6]. Report URI ne peut pas voir combien de numéros de cartes ont été exposés [3].",
-      "cves": [],
+      "limites": "Les sources ne nomment pas les attaquants [1, 2, 3, 4, 5, 6]. Report URI ne peut pas voir combien de numéros de cartes ont été exposés [3].",
+      "cves": [
+        {
+          "id": "CVE-2026-132224",
+          "explication": "Optimizely Web Experimentation avant le 17 novembre 2026 : inscription mal gérée → code de l'attaquant dans le champ projectJS de fichiers cdn.optimizely.com, gravité 8,7 sur 10 [13] ; exploitée [12]."
+        }
+      ],
       "mitre": [],
       "acteurs": [
         "Acteur non nommé ; certains chercheurs, dont Unit 42, appellent la campagne OPTIMJACK [3, 7]"
@@ -9486,6 +9601,10 @@
         {
           "sigle": "URI",
           "definition": "Uniform Resource Identifier ; ici, élément du nom de la société Report URI"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
         }
       ],
       "sources": [
@@ -9562,6 +9681,17 @@
           "site": "ZATAZ",
           "url": "https://www.zataz.com/optimizely-pirate-des-geants-du-web-exposes/",
           "date": "2026-11-18"
+        },
+        {
+          "titre": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/24/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-24"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-132224",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132224"
         }
       ]
     },
@@ -57720,159 +57850,6 @@
           "url": "https://therecord.media/osaka-university-cancels-classes-ransomware",
           "date": "2026-10-06",
           "image": "https://cms.therecord.media/uploads/Osaka_Metropolitan_University_Sugimoto_Campus_1_b2a0608dc0.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-06-akira-rdp-bitdefender",
-      "title": "Akira : intrusion par bureau à distance, antivirus coupé puis chiffrement",
-      "created": "2026-10-06T13:20:00+00:00",
-      "updated": "2026-10-06T13:20:00+00:00",
-      "version": 1,
-      "resume": "Un affilié du rançongiciel Akira s'est connecté en RDP, a désactivé l'antivirus Bitdefender, volé des identifiants, copié des données puis chiffré les dossiers partagés [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Connexion par bureau à distance (RDP) depuis un poste externe → accès au réseau de la victime [1]."
-        },
-        {
-          "etape": "Neutralisation des défenses",
-          "texte": "Accès à la console Bitdefender → services antivirus désactivés [1]."
-        },
-        {
-          "etape": "Vol d'identifiants",
-          "texte": "Lancement de procdump depuis le dossier C:\\PerfLogs pour extraire le processus lsass.exe [1]."
-        },
-        {
-          "etape": "Tunnel vers l'attaquant",
-          "texte": "Outil de tunnel GOST déployé environ 4 heures après le début du chiffrement → communication avec un serveur de commande [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Lancement de Rclone depuis C:\\PerfLogs → synchronisation de données vers le cloud [1]."
-        },
-        {
-          "etape": "Chiffrement",
-          "texte": "Rançongiciel lancé, copies shadow supprimées par une commande PowerShell → plusieurs cycles de chiffrement des dossiers partagés [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (affilié Akira)",
-            "note": ""
-          },
-          {
-            "id": "pc",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Machines du réseau",
-            "note": "Accès RDP"
-          },
-          {
-            "id": "bd",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Console Bitdefender",
-            "note": "Antivirus coupé"
-          },
-          {
-            "id": "c2",
-            "type": "serveur",
-            "zone": "internet",
-            "nom": "Serveur de commande",
-            "note": "Via tunnel GOST"
-          },
-          {
-            "id": "cl",
-            "type": "cloud",
-            "zone": "internet",
-            "nom": "Stockage cloud",
-            "note": "Rclone"
-          },
-          {
-            "id": "sh",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Dossiers partagés",
-            "note": "Chiffrés"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "pc",
-            "etape": 1,
-            "texte": "Connexion RDP depuis un poste externe"
-          },
-          {
-            "de": "att",
-            "vers": "bd",
-            "etape": 2,
-            "texte": "Accès à la console, antivirus désactivé"
-          },
-          {
-            "de": "pc",
-            "vers": "c2",
-            "etape": 4,
-            "texte": "Tunnel GOST vers le serveur de commande"
-          },
-          {
-            "de": "pc",
-            "vers": "cl",
-            "etape": 5,
-            "texte": "Synchronisation de données avec Rclone"
-          },
-          {
-            "de": "pc",
-            "vers": "sh",
-            "etape": 6,
-            "texte": "Chiffrement des dossiers partagés"
-          }
-        ]
-      },
-      "limites": "L'article ne précise ni le secteur de la victime, ni comment l'attaquant a obtenu l'accès RDP, ni techniques MITRE [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Affilié du rançongiciel Akira, sans attribution plus précise [1]"
-      ],
-      "cibles": [
-        "Victime non précisée [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "RDP",
-          "definition": "Remote Desktop Protocol : prise de contrôle d'un ordinateur à distance"
-        },
-        {
-          "sigle": "GOST",
-          "definition": "Go Simple Tunnel : outil de tunnel réseau"
-        },
-        {
-          "sigle": "Rclone",
-          "definition": "Outil en ligne de commande de synchronisation de fichiers vers le cloud"
-        },
-        {
-          "sigle": "procdump",
-          "definition": "Outil Microsoft qui vide la mémoire d'un processus dans un fichier"
-        },
-        {
-          "sigle": "lsass.exe",
-          "definition": "Processus Windows qui gère l'authentification des utilisateurs"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Up a Creek Without a Command Line: Mapping an Akira Ransomware Attack",
-          "site": "Huntress",
-          "url": "https://www.huntress.com/blog/mapping-akira-ransomware-attack",
-          "date": "2026-10-06",
-          "image": "https://cdn.builder.io/api/v1/image/assets%2F3eb6f92aedf74f109c7b4b0897ec39a8%2F6cc6693ad7e4485f9b9d61ff3db41c56"
         }
       ]
     },

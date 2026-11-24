@@ -1,21 +1,5 @@
 [
   {
-    "id": "fe2f58fadfc9d2f1",
-    "title": "When trust becomes the payload: Inside the threats, etc quarterly report",
-    "link": "https://www.elastic.co/security-labs/reports/threats-etc-report-november-2026-trouble-with-trust",
-    "source": "Elastic Security Labs",
-    "raison": "rapport trimestriel agrégé, aucune intrusion précise décrite",
-    "date": "2026-11-04T13:08:22+00:00"
-  },
-  {
-    "id": "5ce5c8d2c37fde75",
-    "title": "Phishing-Resistant Isn't Enough; Yubico Takes Aim at Identity-Verification Gap",
-    "link": "https://www.darkreading.com/identity-access-management-security/beyond-phishing-resistant-yubico-identity-verification-gap",
-    "source": "Dark Reading",
-    "raison": "annonce produit",
-    "date": "2026-11-04T14:30:00+00:00"
-  },
-  {
     "id": "7562a94fe89e9f1d",
     "title": "TikTok, une passerelle vers les casinos illégaux ?",
     "link": "https://www.zataz.com/tiktok-une-passerelle-vers-les-casinos-illegaux/",
@@ -3998,5 +3982,21 @@
     "source": "LeMagIT",
     "raison": "acquisition d'entreprise, pas une attaque",
     "date": "2026-11-24T10:06:51+00:00"
+  },
+  {
+    "id": "06ddd1a6880766e0",
+    "title": "WHMCS SQL Injection Could Expose Customer Data and Admin Password Hashes without Login",
+    "link": "https://thehackernews.com/2026/11/whmcs-sql-injection-flaw-could-expose.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-24T11:30:00+00:00"
+  },
+  {
+    "id": "f939251927d934e9",
+    "title": "Elecbrakes Bluetooth Vulnerabilities Expose Trailers to Forced Braking",
+    "link": "https://www.securityweek.com/elecbrakes-bluetooth-vulnerabilities-expose-trailers-to-forced-braking/",
+    "source": "SecurityWeek",
+    "raison": "vulnérabilité sans exploitation constatée",
+    "date": "2026-11-24T11:30:00+00:00"
   }
 ]

@@ -2,6 +2,68 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-24-peninsula-energy-mine-uranium-lance",
+      "title": "Peninsula Energy : un incident de cybersécurité touche la mine d'uranium de Lance, la cotation suspendue",
+      "created": "2026-11-24T11:30:00+00:00",
+      "updated": "2026-11-24T11:30:00+00:00",
+      "version": 1,
+      "resume": "Peninsula Energy a subi un incident de cybersécurité touchant son projet d'uranium de Lance, dans le Wyoming, qui doit affecter temporairement ses opérations ; la société a demandé la suspension de sa cotation à la Bourse australienne [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Atteinte aux opérations",
+          "texte": "Un vendredi soir, brèche de ce que la société appelle son « operating system » → opérations temporairement affectées, systèmes administratifs épargnés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "sys",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Système touché, non précisé",
+            "note": "Opérations affectées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Brèche, vecteur non précisé"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent ni comment l'intrusion s'est produite, ni quels systèmes techniques ont été touchés, ni si la production d'uranium a été interrompue [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Peninsula Energy, projet de Lance (comté de Crook, Wyoming) extrayant l'uranium par récupération in situ [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Peninsula Energy Halts Trading After Cyber Incident Hits US Uranium Mine",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/peninsula-energy-halts-trading-after-cyber-incident-hits-us-uranium-mine/",
+          "date": "2026-11-24",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/mining.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-23-kepco-fuite-donnees",
       "title": "KEPCO : un pirate s'introduit dans le réseau interne du géant sud-coréen de l'électricité et accède à des données clients",
       "created": "2026-11-23T21:10:00+00:00",
@@ -587,17 +649,17 @@
       "id": "2026-11-18-equinor-cyberattaque-services-internes",
       "title": "Equinor et Skagerak Energi : une faille d'Azure API Management exploitée pour viser des secrets, les services internes d'Equinor perturbés",
       "created": "2026-11-18T14:30:00+00:00",
-      "updated": "2026-11-23T20:15:00+00:00",
-      "version": 4,
-      "resume": "Selon l'autorité norvégienne de sécurité, une faille des anciennes offres « Classic » d'Azure API Management a été exploitée contre plusieurs organisations, dont Equinor et Skagerak Energi [4, 5, 6] ; chez Equinor, l'accès aux applications internes a été perturbé, sans toucher la production [1, 3].",
+      "updated": "2026-11-24T11:30:00+00:00",
+      "version": 5,
+      "resume": "Selon l'autorité norvégienne de sécurité, une faille des anciennes offres « Classic » d'Azure API Management a été exploitée contre plusieurs organisations, dont Equinor et Skagerak Energi [4, 5, 6, 7] ; chez Equinor, l'accès aux applications internes a été perturbé, sans toucher la production [1, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Faille des instances Azure API Management « Classic » ne suivant pas les recommandations de sécurité exploitée → accès à des fonctions d'administration de l'instance [4, 6]."
+          "texte": "Faille des instances Azure API Management « Classic » ne suivant pas les recommandations de sécurité exploitée → accès à des fonctions d'administration de l'instance [4, 6, 7]."
         },
         {
           "etape": "Vol de secrets",
-          "texte": "Secrets stockés visés [4, 5] : clés d'abonnement, secrets de fournisseurs d'identité, jetons d'administration potentiellement exposés → accès possible à d'autres services selon leurs droits [6]."
+          "texte": "Jetons d'accès, secrets et valeurs nommées recherchés [4, 5, 7] : clés d'abonnement, secrets de fournisseurs d'identité, jetons d'administration potentiellement exposés [6, 7]."
         },
         {
           "etape": "Perturbation des services",
@@ -605,7 +667,7 @@
         },
         {
           "etape": "Correction par Microsoft",
-          "texte": "Problème découvert par Microsoft le 18 novembre → voie d'accès fermée le lendemain [4, 5], clés gérées par Microsoft renouvelées [6]."
+          "texte": "Problème découvert par Microsoft le 18 novembre → voie d'accès fermée le lendemain [4, 5, 7], puis conseils de renouvellement des secrets publiés le 21 novembre [7]."
         },
         {
           "etape": "Arrêt de l'attaque",
@@ -670,11 +732,11 @@
           }
         ]
       },
-      "limites": "Mécanisme non décrit ; un administrateur évoque sur Reddit un contournement d'authentification, non vérifié [6]. Microsoft n'a pas confirmé le lien avec les attaques norvégiennes [5] ; le correctif n'invalide pas les secrets déjà compromis [6].",
+      "limites": "L'avis de Microsoft n'est pas public [7] ; un contournement d'authentification évoqué sur Reddit reste non vérifié [6]. Ampleur de l'exploitation encore incertaine selon l'autorité norvégienne [7] ; le correctif n'invalide pas les secrets déjà compromis [6].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Acteur non identifié selon l'autorité norvégienne de sécurité [4, 6] ; Microsoft ne dit pas si le même acteur est derrière les incidents norvégiens [5]"
+        "Acteur non identifié selon l'autorité norvégienne de sécurité [4, 6, 7] ; Microsoft ne dit pas si le même acteur est derrière les incidents norvégiens [5]"
       ],
       "cibles": [
         "Secteur de l'énergie norvégien, premier à avoir détecté la faille selon l'autorité norvégienne de sécurité [6]",
@@ -731,6 +793,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/microsoft-azure-flaw-exploited-to-steal-customers-api-credentials/",
           "date": "2026-11-23",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/08/21/Microsoft.jpg"
+        },
+        {
+          "titre": "Microsoft Fixes Azure API Management Classic Flaw as Actor Targets Customer Secrets",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/microsoft-fixes-azure-api-management.html",
+          "date": "2026-11-24",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSM2FAnf9UEb3Do4v-r8AEBpoI8byXOrHgng-eRjEyudSf0hiKMpymmDiK_NLTxYuzXdtrWvMrBzY9qmLqDo31r3JOpVefOQxLE77gdkoOAYMkCK__-Bc-AJoWg-8nEOEVjcY6SswkzLbCfYl6kK9clg6xXw3xginWqIwnMxBUaS6wgPKVVwXZNhZA5G85/s1700-nu-rw-lo-l85-e365/azure-ms.jpg"
         }
       ]
     },

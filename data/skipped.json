@@ -1,45 +1,5 @@
 [
   {
-    "id": "3e1f905366b18a0e",
-    "title": "Sysdig Adds Runtime Security and Governance for AI Agents",
-    "link": "https://www.securityweek.com/sysdig-adds-runtime-security-and-governance-for-ai-agents/",
-    "source": "SecurityWeek",
-    "raison": "annonce produit",
-    "date": "2026-11-04T15:20:00+00:00"
-  },
-  {
-    "id": "4eb831ff0078ad54",
-    "title": "The Race Against the 3-Day Clock: How Rapid7 Helps Meet BOD 26-04 Compliance",
-    "link": "https://www.rapid7.com/blog/post/it-racing-the-three-day-clock-cisa-bod-26-04",
-    "source": "Rapid7",
-    "raison": "contenu promotionnel sans attaque",
-    "date": "2026-11-04T15:20:00+00:00"
-  },
-  {
-    "id": "b8e97617ad2d7d7d",
-    "title": "Agentic Data Security Firm Sentra Raises $150 Million",
-    "link": "https://www.securityweek.com/agentic-data-security-firm-sentra-raises-150-million/",
-    "source": "SecurityWeek",
-    "raison": "levée de fonds",
-    "date": "2026-11-04T15:20:00+00:00"
-  },
-  {
-    "id": "2ea21575cedf4b38",
-    "title": "SonicWall warns of unpatched flaws in end-of-life GMS software",
-    "link": "https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-unpatched-flaws-in-end-of-life-gms-software/",
-    "source": "BleepingComputer",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-11-04T15:20:00+00:00"
-  },
-  {
-    "id": "ab5049fcc466967d",
-    "title": "Barracuda ESG Authentication Bypass Flaw Opens Path to Root",
-    "link": "https://www.securityweek.com/barracuda-email-security-gateway-authentication-bypass-opens-path-to-root/",
-    "source": "SecurityWeek",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-11-04T15:20:00+00:00"
-  },
-  {
     "id": "604c1fcbf315093f",
     "title": "RSSI : pourquoi l’accélération de l’IA rend les fondamentaux de la sécurité indispensables",
     "link": "https://www.lemagit.fr/conseil/RSSI-pourquoi-lacceleration-de-lIA-rend-les-fondamentaux-de-la-securite-indispensables",
@@ -3998,5 +3958,45 @@
     "source": "SecurityWeek",
     "raison": "annonce d'outil défensif",
     "date": "2026-11-24T13:20:00+00:00"
+  },
+  {
+    "id": "8adf827050c2e8d6",
+    "title": "New Shirudo tool uses AI to shield unpatched Linux systems from exploits",
+    "link": "https://www.bleepingcomputer.com/news/security/new-shirudo-tool-uses-ai-to-shield-unpatched-linux-systems-from-exploits/",
+    "source": "BleepingComputer",
+    "raison": "annonce produit (outil de sécurité Shirudo)",
+    "date": "2026-11-24T14:40:00+00:00"
+  },
+  {
+    "id": "bb0fd83485c9dcba",
+    "title": "Anthropic Expands Enterprise Safeguards for Detecting AI Misuse",
+    "link": "https://www.securityweek.com/anthropic-expands-enterprise-safeguards-for-detecting-ai-misuse/",
+    "source": "SecurityWeek",
+    "raison": "annonce produit (fonction de détection des abus)",
+    "date": "2026-11-24T14:40:00+00:00"
+  },
+  {
+    "id": "db22ce6bdf496569",
+    "title": "VMware vCenter Hit by Another Critical 9.8-Rated Auth Bypass Flaw After Zero-Day Exploitation",
+    "link": "https://thehackernews.com/2026/11/vmware-vcenter-hit-by-another-critical.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilités corrigées sans exploitation constatée (CVE-2026-123903 et autres)",
+    "date": "2026-11-24T14:40:00+00:00"
+  },
+  {
+    "id": "d776fb99c1e5c71b",
+    "title": "A Buffet of ClickFix: Lures, Infrastructure & Payloads",
+    "link": "https://www.huntress.com/blog/tradecraft-tuesday-clickfix-lures-and-infrastructure",
+    "source": "Huntress",
+    "raison": "récapitulatif de webinaire générique, sans campagne datée ni victime",
+    "date": "2026-11-24T14:40:00+00:00"
+  },
+  {
+    "id": "f11098c507607eb0",
+    "title": "UK cyber agency seeing ‘marked rise’ in AI-driven attacks",
+    "link": "https://therecord.media/cyberattacks-uk-artificial-intelligence",
+    "source": "The Record",
+    "raison": "tendance générale, sans détail sur une méthode d'attaque",
+    "date": "2026-11-24T14:40:00+00:00"
   }
 ]

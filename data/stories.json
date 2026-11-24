@@ -2,6 +2,144 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-24-o-unc-053-inception-vishing",
+      "title": "O-UNC-053 : le groupe d'hameçonnage vocal lié à ShinyHunters réapparaît avec le site de fuite INCEPTION",
+      "created": "2026-11-24T14:40:00+00:00",
+      "updated": "2026-11-24T14:40:00+00:00",
+      "version": 1,
+      "resume": "Selon Okta, le groupe O-UNC-053, jusqu'ici jugé affilié à ShinyHunters, pourrait poursuivre ses opérations sous le nom INCEPTION, un nouveau site de fuite qui, au 16 novembre 2026, listait des données de ses cibles [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Appels téléphoniques aux employés ciblés → identifiants saisis sur une page d'hameçonnage et authentification multifacteur validée par la victime [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Kit intercalé dans l'authentification, adapté au fournisseur d'identité, sur des domaines comme legal-<cible>.com → identifiants et codes à usage unique captés [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Prise de contrôle des comptes → accès aux applications en ligne de la victime [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Extraction de données sensibles depuis ces applications [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Menace de publication → cibles listées sur le site de fuite de ShinyHunters, puis, au 16 novembre 2026, sur INCEPTION [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (O-UNC-053)",
+            "note": ""
+          },
+          {
+            "id": "emp",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Employé ciblé",
+            "note": "Appel téléphonique"
+          },
+          {
+            "id": "phish",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Page d'hameçonnage",
+            "note": "Domaines « legal »"
+          },
+          {
+            "id": "apps",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Applications en ligne",
+            "note": "Comptes pris"
+          },
+          {
+            "id": "dls",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Site de fuite INCEPTION",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "emp",
+            "etape": 1,
+            "texte": "Appel pour manipuler l'employé"
+          },
+          {
+            "de": "emp",
+            "vers": "phish",
+            "etape": 2,
+            "texte": "Identifiants et codes saisis"
+          },
+          {
+            "de": "phish",
+            "vers": "att",
+            "etape": 2,
+            "texte": "Identifiants et codes captés"
+          },
+          {
+            "de": "att",
+            "vers": "apps",
+            "etape": 3,
+            "texte": "Prise de contrôle des comptes"
+          },
+          {
+            "de": "apps",
+            "vers": "att",
+            "etape": 4,
+            "texte": "Données sensibles extraites"
+          },
+          {
+            "de": "att",
+            "vers": "dls",
+            "etape": 5,
+            "texte": "Données de cibles listées"
+          }
+        ]
+      },
+      "limites": "La source ignore si les données publiées sur INCEPTION sont authentiques, et si le groupe gère lui-même le site ou collabore avec un autre gang d'extorsion [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "O-UNC-053, nom donné par Okta, auparavant jugé affilié à ShinyHunters, relation exacte inconnue [1]",
+        "INCEPTION, nouveau site de fuite dont l'opérateur n'est pas confirmé [1]"
+      ],
+      "cibles": [
+        "Technologie, santé, biotechnologie, finance, assurance, divertissement, jeux, commerce, transport, hôtellerie et juridique [1]",
+        "Domaines confirmés liés à l'activité, aux noms de PepsiCo, Dropbox, AMD, Twitch ou Western Union [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "INCEPTION",
+          "definition": "Nom du nouveau site de publication de données volées lié au groupe"
+        },
+        {
+          "sigle": "AMD",
+          "definition": "Advanced Micro Devices : fabricant américain de processeurs"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Okta Links ShinyHunters-Associated Vishing Group to New INCEPTION Data Leak Site",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/okta-links-shinyhunters-associated.html",
+          "date": "2026-11-24",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjete6dy8Fmd7sbjqKI5GKSySXkcnz4NF__irfVMBHzgRIDUnpGHtvRIbCywZYYsoKsnMdPhvanoXcnXbYvZpMjL2lL6d_F9a4ErEaI5rH_boPedH_ru2Ush9wonb8tYhGNVM6M_01DTue1THY7uGMbuKBJKNgMbrACkxHCGJiJylHWoxkkpCXNr2Z_CIdf/s1700-nu-rw-lo-l85-e365/leaks.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-24-peninsula-energy-mine-uranium-lance",
       "title": "Peninsula Energy : un incident de cybersécurité touche la mine d'uranium de Lance, la cotation suspendue",
       "created": "2026-11-24T11:30:00+00:00",
@@ -3132,8 +3270,8 @@
       "id": "2026-11-19-armory-castle-vcenter-esxi",
       "title": "Armory Castle : de BeyondTrust Remote Support à vCenter puis aux hôtes ESXi grâce à deux failles zero-day",
       "created": "2026-11-19T15:20:00+00:00",
-      "updated": "2026-11-21T10:07:07+00:00",
-      "version": 9,
+      "updated": "2026-11-24T14:40:00+00:00",
+      "version": 10,
       "resume": "Le groupe d'espionnage Armory Castle, soupçonné d'être lié à la Chine, a exploité deux failles zero-day pour passer de BeyondTrust Remote Support à vCenter puis à un hôte ESXi [1, 4, 6, 7]. Broadcom a corrigé la faille de vCenter le 19 novembre 2026 [6, 7].",
       "chaine": [
         {
@@ -3253,7 +3391,7 @@
         },
         {
           "id": "CVE-2026-123890",
-          "explication": "vCenter Server, composant VMware Directory Service [4, 6] : contournement d'authentification administrateur sans identifiants [1, 5], exploité depuis septembre 2026 [5, 6], cataloguée par la CISA [8, 10] ; 9,8 sur 10 [3, 4]."
+          "explication": "Service d'annuaire de vCenter [4, 6] : clé de session d'une connexion administrateur en cours récupérable sans authentification [11] ; exploitée depuis septembre 2026 [5, 6], cataloguée par la CISA [8, 10] ; 9,8/10 [3, 4]."
         }
       ],
       "mitre": [],
@@ -3363,6 +3501,13 @@
           "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-vmware-cisco.html",
           "date": "2026-11-21",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFnWnBDigw8RogBTSInXktn1vUISbzwjHm5GuAFBNX0_ClLBk83WOa2BYiHUbgtva76TY8Oz2kJvEZtvEjqZlFFCuvQ-u-l-4l5dzo2MXw7zHLEuklv_Gn1mB-f5TL9GP_3n1NxQkzkZ-fAX7UpcqfZqUefQiRQZm21sq6IZOzmyuQ1hYs4AFHWQAj83WX/s1700-nu-rw-lo-l85-e365/vmware-cisco.jpg"
+        },
+        {
+          "titre": "Rapid7 Analysis: VMware vCenter SRP Authentication Bypass to Root (CVE-2026-123890)",
+          "site": "Rapid7",
+          "url": "https://www.rapid7.com/blog/post/ra-rapid7-analysis-vmware-vcenter-srp-authentication-bypass-to-root-cve-2026-123890",
+          "date": "2026-11-24",
+          "image": "https://www.rapid7.com/cdn/images/bltcbf09ec3af35e28e/6a15c63f08221ed5144dbf77/webinar-rapid7-logo.jpg"
         }
       ]
     },
@@ -57706,237 +57851,6 @@
           "url": "https://therecord.media/atb-ukraine-cyberattack-ransomware",
           "date": "2026-10-05",
           "image": "https://cms.therecord.media/uploads/ATB_PP_78875b5712.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-05-booba-universite-illinois-chicago",
-      "title": "Rançongiciel Booba : faculté de médecine de l'Université de l'Illinois à Chicago touchée",
-      "created": "2026-10-05T18:14:12+00:00",
-      "updated": "2026-10-05T18:14:12+00:00",
-      "version": 1,
-      "resume": "Une attaque par rançongiciel a touché la faculté de médecine de l'Université de l'Illinois à Chicago ; des informations ont été volées sur ses serveurs [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par la source [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Le groupe Booba revendique 344 gigaoctets de données volées [1]."
-        },
-        {
-          "etape": "Indisponibilité",
-          "texte": "Systèmes de la faculté de médecine temporairement indisponibles → tous restaurés ensuite [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "srv",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveurs faculté de médecine",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "srv",
-            "etape": 2,
-            "texte": "Données volées, 344 gigaoctets revendiqués"
-          },
-          {
-            "de": "att",
-            "vers": "srv",
-            "etape": 3,
-            "texte": "Systèmes temporairement indisponibles"
-          }
-        ]
-      },
-      "limites": "Les données personnelles, de recherche ou académiques touchées restent à déterminer [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Booba, présenté comme une renommée du rançongiciel Frag, apparu fin juillet 2026, 49 attaques revendiquées [1]"
-      ],
-      "cibles": [
-        "Faculté de médecine de l'Université de l'Illinois à Chicago ; comté de Merrimack, New Hampshire [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "University of Illinois Chicago affected by ransomware attack on medical school",
-          "site": "The Record",
-          "url": "https://therecord.media/ransomware-university-illinois-chicago",
-          "date": "2026-10-05",
-          "image": "https://cms.therecord.media/uploads/UIC_Chicago_PP_0e7645909d.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-05-clover-health-comptes-employes",
-      "title": "Clover Health : trois comptes d'employés compromis par ingénierie sociale",
-      "created": "2026-10-05T18:14:12+00:00",
-      "updated": "2026-10-05T18:14:12+00:00",
-      "version": 1,
-      "resume": "Des pirates ont volé des données de santé de 138 677 personnes chez Clover Health Investments (New Jersey) en début juillet 2026 [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Ingénierie sociale → compromission de trois comptes d'employés non cadres du régime de santé [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Noms, dates de naissance, identifiants d'assurance et numéros de compte volés → 138 677 personnes concernées [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "usr",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Trois employés du régime",
-            "note": ""
-          },
-          {
-            "id": "dat",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Données de santé et personnelles",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "usr",
-            "etape": 1,
-            "texte": "Ingénierie sociale, trois comptes compromis"
-          },
-          {
-            "de": "att",
-            "vers": "dat",
-            "etape": 2,
-            "texte": "Données personnelles et de santé volées"
-          }
-        ]
-      },
-      "limites": "L'acteur n'est pas nommé et le détail de l'intrusion n'est pas précisé [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non précisé par la source [1]"
-      ],
-      "cibles": [
-        "Clover Health Investments, Jersey City ; 138 677 personnes [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "250,000 Impacted by Data Breaches at New Jersey, Texas Healthcare Firms",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/250000-impacted-by-data-breaches-at-new-jersey-texas-healthcare-firms/",
-          "date": "2026-10-05",
-          "image": "https://www.securityweek.com/wp-content/uploads/2025/10/bank-finance-lender-credit-union-hack.jpeg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-24-mcdonalds-japon-application-mobile",
-      "title": "McDonald's Japan : une base de données de l'application mobile consultée avec des identifiants, achats et localisations de clients exposés",
-      "created": "2026-11-24T13:20:00+00:00",
-      "updated": "2026-11-24T13:20:00+00:00",
-      "version": 1,
-      "resume": "Un tiers non autorisé a accédé à une base de données liée à l'application mobile de McDonald's Japan, où figuraient des historiques d'achat et des localisations d'appareils de clients [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Identifiants d'authentification utilisés dans l'attaque, origine non expliquée ; accès à une base de données de l'application mobile [1]."
-        },
-        {
-          "etape": "Accès aux données",
-          "texte": "Historiques d'achat, adresses IP, numéros clients internes et localisations d'appareils exposés ; le vol n'est pas confirmé [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "db",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Base de l'application mobile",
-            "note": "Identifiants en cours d'invalidation"
-          },
-          {
-            "id": "data",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Achats, IP, localisations",
-            "note": "Vol non confirmé"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "db",
-            "etape": 1,
-            "texte": "Identifiants d'authentification utilisés, base de données atteinte"
-          },
-          {
-            "de": "db",
-            "vers": "data",
-            "etape": 2,
-            "texte": "Données de clients exposées"
-          }
-        ]
-      },
-      "limites": "La source ne dit pas comment le pirate a obtenu les identifiants, quand l'intrusion a eu lieu, ni combien de clients sont touchés [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Clients de l'application mobile officielle de McDonald's Japan, restauration rapide [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "IP",
-          "definition": "Internet Protocol : l'adresse IP identifie un appareil connecté à un réseau"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "McDonald’s Japan discloses breach exposing customer purchase and location data",
-          "site": "The Record",
-          "url": "https://therecord.media/japan-mcdonalds-cyberattack-breach",
-          "date": "2026-11-24",
-          "image": "https://cms.therecord.media/uploads/Mc_Donalds_Japan_38f4a4b801.jpg"
         }
       ]
     }

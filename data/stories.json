@@ -65,23 +65,23 @@
     {
       "schema": 3,
       "id": "2026-11-23-kepco-fuite-donnees",
-      "title": "KEPCO : un pirate s'introduit dans le réseau interne du géant sud-coréen de l'électricité et accède à des données clients",
+      "title": "KEPCO : un pirate exfiltre des données de clients, dont des coordonnées bancaires, et de fournisseurs, 1,5 million de personnes touchées",
       "created": "2026-11-23T21:10:00+00:00",
-      "updated": "2026-11-23T21:10:00+00:00",
-      "version": 1,
-      "resume": "Korea Electric Power Corporation, géant sud-coréen de l'électricité, a confirmé une fuite de données dont l'impact est chiffré à 1,5 million [1]. Un acteur malveillant a accédé à des données de clients, d'employés et de sous-traitants [1].",
+      "updated": "2026-11-24T12:20:00+00:00",
+      "version": 2,
+      "resume": "Korea Electric Power Corporation, fournisseur public d'électricité sud-coréen, a confirmé une fuite de données touchant environ 1,5 million de personnes [1, 2]. Un attaquant externe a exfiltré des données de clients, d'employés et de fournisseurs, dont des coordonnées bancaires [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé par les sources [1, 2]."
         },
         {
           "etape": "Intrusion",
           "texte": "Pénétration du réseau interne de l'entreprise → accès à deux systèmes internes [1]."
         },
         {
-          "etape": "Accès aux données",
-          "texte": "Consultation des deux systèmes → accès à des données de clients, d'employés et de sous-traitants [1]."
+          "etape": "Vol de données",
+          "texte": "Exfiltration depuis le portail client KEPCO ON et la plateforme de gestion des fournisseurs → identités, coordonnées, données bancaires et de cartes volées [2]."
         }
       ],
       "parcours": {
@@ -101,11 +101,18 @@
             "note": "Entrée non précisée"
           },
           {
-            "id": "sys",
-            "type": "donnees",
+            "id": "kon",
+            "type": "application",
             "zone": "victime",
-            "nom": "Deux systèmes internes",
-            "note": "Clients, employés, sous-traitants"
+            "nom": "Portail client KEPCO ON",
+            "note": "650 487 personnes"
+          },
+          {
+            "id": "frn",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateforme de gestion fournisseurs",
+            "note": "869 761 personnes"
           }
         ],
         "liens": [
@@ -117,23 +124,36 @@
           },
           {
             "de": "res",
-            "vers": "sys",
+            "vers": "kon",
             "etape": 3,
-            "texte": "Accès aux données"
+            "texte": "Exfiltration de données clients et bancaires"
+          },
+          {
+            "de": "res",
+            "vers": "frn",
+            "etape": 3,
+            "texte": "Exfiltration de données d'employés et partenaires"
           }
         ]
       },
-      "limites": "Les sources ne précisent ni le vecteur d'entrée, ni les dates, ni l'identité de l'acteur, ni la nature exacte des données consultées [1].",
+      "limites": "Les sources ne précisent ni le vecteur d'entrée ni la date de l'intrusion [1, 2]. L'autorité sud-coréenne de protection des données n'attribue pas la fuite à l'utilisateur qui l'a revendiquée [2].",
       "cves": [],
       "mitre": [],
-      "acteurs": [],
+      "acteurs": [
+        "Attaquant externe non identifié selon KEPCO ; un utilisateur nommé Noiem a revendiqué le vol sur un forum du dark web le 19 novembre [2]"
+      ],
       "cibles": [
-        "Korea Electric Power Corporation, fournisseur d'électricité sud-coréen : clients, employés et sous-traitants [1]"
+        "Korea Electric Power Corporation, fournisseur d'électricité sud-coréen : clients, employés et sous-traitants [1]",
+        "650 487 personnes via le portail client et 869 761 via la plateforme de gestion des fournisseurs [2]"
       ],
       "abreviations": [
         {
           "sigle": "KEPCO",
           "definition": "Korea Electric Power Corporation : grand fournisseur d'électricité de Corée du Sud"
+        },
+        {
+          "sigle": "ON",
+          "definition": "Partie du nom KEPCO ON, portail intégré de service client de KEPCO"
         }
       ],
       "sources": [
@@ -143,6 +163,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/south-koreas-power-giant-kepco-confirms-data-breach-impacting-15-million/",
           "date": "2026-11-23",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/23/towers.jpg"
+        },
+        {
+          "titre": "1.5 Million Impacted by Data Breach at South Korean Electric Company KEPCO",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/1-5-million-impacted-by-data-breach-at-south-korean-electric-company-kepco/",
+          "date": "2026-11-24",
+          "image": "https://www.securityweek.com/wp-content/uploads/2023/05/COSMICENERGY-OT-Malware.jpg"
         }
       ]
     },

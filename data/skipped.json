@@ -1,29 +1,5 @@
 [
   {
-    "id": "7cc7abc127313281",
-    "title": "Bring a tent, I've got the coffee: Lessons from it-sa",
-    "link": "https://blog.talosintelligence.com/bring-a-tent-ive-got-the-coffee-lessons-from-it-sa/",
-    "source": "Cisco Talos",
-    "raison": "contenu sans attaque (salon et formation)",
-    "date": "2026-11-05T19:10:00+00:00"
-  },
-  {
-    "id": "b98c37bd1b7578bc",
-    "title": "SUSE s’appuie sur Nvidia pour muscler son AI Factory",
-    "link": "https://www.lemagit.fr/actualites/366653792/SUSE-sappuie-sur-Nvidia-pour-muscler-son-AI-Factory",
-    "source": "LeMagIT",
-    "raison": "annonce produit",
-    "date": "2026-11-05T19:10:00+00:00"
-  },
-  {
-    "id": "16ffc1548b7f90e4",
-    "title": "Defense Drill Interventions",
-    "link": "https://www.huntress.com/blog/defense-drill-interventions",
-    "source": "Huntress",
-    "raison": "annonce produit",
-    "date": "2026-11-05T20:20:00+00:00"
-  },
-  {
     "id": "f36911c184fa0935",
     "title": "OpenAI’s GPT-6 Astra silently obstructed safety research tasks",
     "link": "https://www.bleepingcomputer.com/news/security/openais-gpt-6-astra-silently-obstructed-safety-research-tasks/",
@@ -3998,5 +3974,29 @@
     "source": "BleepingComputer",
     "raison": "rapport d'éditeur récapitulant des avis de sécurité, sans nouvelle méthode d'attaque décrite",
     "date": "2026-11-25T16:08:00+00:00"
+  },
+  {
+    "id": "01d2f9e53963e1a2",
+    "title": "Facture électronique : un rodage freiné par l’interopérabilité des systèmes IT",
+    "link": "https://www.lemagit.fr/actualites/366655414/Facture-electronique-un-rodage-freine-par-linteroperabilite-des-systemes-IT",
+    "source": "LeMagIT",
+    "raison": "article sur l'adoption de la facture électronique, sans attaque",
+    "date": "2026-11-25T17:06:53+00:00"
+  },
+  {
+    "id": "82de10c3a753ffa3",
+    "title": "CISA warns of critical unpatched flaw in Danfoss refrigeration controllers",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-critical-unpatched-flaw-in-danfoss-refrigeration-controllers/",
+    "source": "BleepingComputer",
+    "raison": "faille Danfoss CVE-2026-129713 sans exploitation constatée ; les attaques de supermarchés ne sont citées qu'en contexte, sans lien avec cette CVE",
+    "date": "2026-11-25T17:06:53+00:00"
+  },
+  {
+    "id": "faee9b0e8465bf0e",
+    "title": "Résultats financiers : le sursaut de HPE",
+    "link": "https://www.lemagit.fr/actualites/366655501/Resultats-financiers-le-sursaut-de-HPE",
+    "source": "LeMagIT",
+    "raison": "résultats financiers de HPE, sans attaque",
+    "date": "2026-11-25T17:06:53+00:00"
   }
 ]

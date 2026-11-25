@@ -2383,9 +2383,9 @@
       "id": "2026-11-24-o-unc-053-inception-vishing",
       "title": "Inception : le groupe d'hameçonnage vocal O-UNC-053, lié à ShinyHunters, vise les comptes d'authentification unique",
       "created": "2026-11-24T14:40:00+00:00",
-      "updated": "2026-11-24T21:30:00+00:00",
-      "version": 2,
-      "resume": "Selon Okta, le groupe O-UNC-053, jusqu'ici jugé affilié à ShinyHunters, opère très probablement sous le nom Inception, dont le site d'extorsion revendique sept victimes, dont AMD et PepsiCo, sans confirmation de leur part [1, 2].",
+      "updated": "2026-11-25T15:07:00+00:00",
+      "version": 3,
+      "resume": "Selon Okta, le groupe O-UNC-053, jusqu'ici jugé affilié à ShinyHunters, opère très probablement sous le nom Inception, dont le site d'extorsion revendique des victimes comme AMD et PepsiCo, sans confirmation de leur part [1, 2]. Inception nie tout lien avec ShinyHunters [3].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -2485,17 +2485,19 @@
           }
         ]
       },
-      "limites": "Aucune victime revendiquée n'a confirmé de fuite, et les domaines ne prouvent pas une compromission [2]. Inception se dit indépendant, Okta le relie à O-UNC-053 [1, 2].",
+      "limites": "Aucune victime revendiquée n'a confirmé de fuite [2], ni aucune marque visée par les domaines de compromission [3]. Okta ne peut établir avec forte confiance si le groupe gère seul le site de fuite [3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "O-UNC-053, nom donné par Okta, auparavant jugé affilié à ShinyHunters, actif depuis mars [1, 2]",
-        "Inception, groupe d'extorsion qui se dit indépendant de tout groupe antérieur [2]"
+        "Inception, groupe d'extorsion qui se dit indépendant de tout groupe antérieur [2]",
+        "ShinyHunters : un compte lié au groupe depuis 2020 annonce son retour sur le forum Exploit, une usurpation n'est pas exclue [3]"
       ],
       "cibles": [
         "Technologie, santé, biotechnologie, finance, assurance, divertissement, jeux, commerce, transport, hôtellerie et juridique [1]",
         "Revendiquées sans confirmation : AMD, PepsiCo, Cigna Healthcare, AutoZone, Lucid Motors [2]",
-        "Marques imitées par l'infrastructure d'hameçonnage, dont Dropbox, Twitch, Western Union, Reddit [2]"
+        "Marques imitées par l'infrastructure d'hameçonnage, dont Dropbox, Twitch, Western Union, Reddit [2]",
+        "Domaines d'hameçonnage visant notamment Anthropic, Amazon, Adobe, Netflix, OpenAI et Tesla, sans compromission signalée [3]"
       ],
       "abreviations": [
         {
@@ -2525,6 +2527,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/new-inception-extortion-gang-launches-large-scale-vishing-campaign/",
           "date": "2026-11-24",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/24/inception.jpg"
+        },
+        {
+          "titre": "ShinyHunters Claims Comeback, New Inception Group Rejects Alleged Ties",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/shinyhunters-claims-comeback-new-inception-group-rejects-alleged-ties/",
+          "date": "2026-11-25",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/09/cybercrime-hacker.jpeg"
         }
       ]
     },

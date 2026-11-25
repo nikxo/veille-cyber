@@ -2,20 +2,116 @@
   "stories": [
     {
       "schema": 3,
-      "id": "2026-11-24-drupal-core-cve-2026-132165-kev",
-      "title": "Drupal Core : la faille de l'installeur CVE-2026-132165 exploitée pour prendre le contrôle de sites",
-      "created": "2026-11-24T22:20:00+00:00",
-      "updated": "2026-11-25T11:30:00+00:00",
-      "version": 3,
-      "resume": "La faille CVE-2026-132165 de l'installeur de Drupal Core, découverte par l'outil OSS Scanner d'Anthropic, est exploitée sur des sites depuis le 19 novembre selon l'équipe de sécurité de Drupal [2, 3]. La CISA l'a ajoutée le 24 novembre à son catalogue des failles exploitées [1, 2, 3].",
+      "id": "2026-11-25-skimming-alsace-stations-carburant",
+      "title": "Alsace : des cartes bancaires copiées lors de pleins de carburant, des retraits frauduleux à Londres et Milan",
+      "created": "2026-11-25T12:08:00+00:00",
+      "updated": "2026-11-25T12:08:00+00:00",
+      "version": 1,
+      "resume": "Après un plein payé par carte en Alsace, notamment à Wintzenheim et Obernai, des automobilistes ont subi des retraits frauduleux de 500 à 1 000 euros, dont certains signalés à Londres et Milan [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Abus sans authentification, sous certaines conditions, de l'installeur install.php fourni avec Drupal → réinstallation de Drupal [2, 3]."
+          "texte": "Non précisé par les sources ; les gendarmes privilégient la piste d'un dispositif copiant les données de la carte au moment du paiement [1]."
+        },
+        {
+          "etape": "Retraits frauduleux",
+          "texte": "Utilisation frauduleuse des cartes → retraits de 500 à 1 000 euros, certains signalés à Londres et Milan ; une tentative de 558 euros en Angleterre bloquée [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Auteurs non identifiés",
+            "note": ""
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Automobilistes",
+            "note": "Paiement par carte"
+          },
+          {
+            "id": "tpe",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Terminaux de paiement des stations",
+            "note": "Une dizaine évoquée"
+          },
+          {
+            "id": "ret",
+            "type": "inconnu",
+            "zone": "internet",
+            "nom": "Retraits frauduleux",
+            "note": "Dont Londres, Milan"
+          }
+        ],
+        "liens": [
+          {
+            "de": "usr",
+            "vers": "tpe",
+            "etape": 1,
+            "texte": "Plein payé par carte bancaire"
+          },
+          {
+            "de": "att",
+            "vers": "tpe",
+            "etape": 1,
+            "texte": "Piste : dispositif copiant les données de carte"
+          },
+          {
+            "de": "att",
+            "vers": "ret",
+            "etape": 2,
+            "texte": "Retraits de 500 à 1 000 euros"
+          }
+        ]
+      },
+      "limites": "Les gendarmes ne font que soupçonner un dispositif piégé ; les sources ne précisent ni les auteurs, ni comment le code confidentiel aurait été obtenu, ni le nombre exact de victimes [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Automobilistes clients de stations-service du Haut-Rhin et du Bas-Rhin, dont Wintzenheim et Obernai [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Skimming en Alsace, des cartes bancaires piégées à la pompe",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/skimming-en-alsace-des-cartes-bancaires-piegees-a-la-pompe/",
+          "date": "2026-11-25",
+          "image": "https://www.zataz.com/wp-content/uploads/piratage_cb_skim.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-24-drupal-core-cve-2026-132165-kev",
+      "title": "Drupal Core : la faille Fail2Install (CVE-2026-132165) de l'installeur exploitée pour prendre le contrôle de sites",
+      "created": "2026-11-24T22:20:00+00:00",
+      "updated": "2026-11-25T12:08:00+00:00",
+      "version": 4,
+      "resume": "La faille CVE-2026-132165 de l'installeur de Drupal Core permet, sans authentification, de prendre le contrôle d'un site ou d'y exécuter du code [1, 2, 3, 4]. Selon un signalement reçu par l'équipe de Drupal, elle a été exploitée dès le 19 novembre [2, 3, 4].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Épuisement des ressources du serveur → Drupal croit le site non installé et, grâce à une condition de concurrence, son installeur install.php reprend sur le site existant [4]."
+        },
+        {
+          "etape": "Dépôt du code",
+          "texte": "Base SQLite créée à un chemin finissant par .php sous la racine du site, code PHP saisi comme nom du site → code écrit dans ce fichier [4]."
+        },
+        {
+          "etape": "Neutralisation des protections",
+          "texte": "Faiblesse de gestion des chemins dans une règle de réécriture Apache → fichier accessible malgré le .htaccess par défaut de Drupal [4]."
         },
         {
           "etape": "Prise de contrôle",
-          "texte": "Réinstallation du site → prise de contrôle du site ou exécution de code à distance [1, 2, 3]."
+          "texte": "Résultat : exécution de code PHP arbitraire et création d'un compte administrateur contrôlé par l'attaquant [4]."
         }
       ],
       "parcours": {
@@ -31,8 +127,22 @@
             "id": "web",
             "type": "serveur",
             "zone": "victime",
-            "nom": "Site sous Drupal Core",
-            "note": "Installeur abusé"
+            "nom": "Serveur du site Drupal",
+            "note": "Installeur relancé"
+          },
+          {
+            "id": "php",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Base SQLite en .php",
+            "note": "Code PHP injecté"
+          },
+          {
+            "id": "adm",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Compte administrateur",
+            "note": "Créé par l'attaquant"
           }
         ],
         "liens": [
@@ -40,21 +150,33 @@
             "de": "att",
             "vers": "web",
             "etape": 1,
-            "texte": "Abus de l'installeur, réinstallation de Drupal"
+            "texte": "Ressources épuisées, installeur relancé"
+          },
+          {
+            "de": "web",
+            "vers": "php",
+            "etape": 2,
+            "texte": "Base SQLite créée avec code PHP"
           },
           {
             "de": "att",
-            "vers": "web",
-            "etape": 2,
-            "texte": "Prise de contrôle ou exécution de code"
+            "vers": "php",
+            "etape": 3,
+            "texte": "Accès direct via faiblesse de réécriture Apache"
+          },
+          {
+            "de": "php",
+            "vers": "adm",
+            "etape": 4,
+            "texte": "Code PHP exécuté, compte administrateur créé"
           }
         ]
       },
-      "limites": "Les sources ne précisent ni les attaquants, ni les victimes, ni le nombre de sites touchés [1, 2, 3].",
+      "limites": "Les sources ne précisent ni les attaquants, ni les victimes, ni le nombre de sites touchés [1, 2, 3, 4].",
       "cves": [
         {
           "id": "CVE-2026-132165",
-          "explication": "Drupal Core, installeur : exécution de code à distance sans authentification, corrigée en 11.4.13, 11.3.22 et 10.6.22 ; gravité « très critique », 20 sur 25 [2]."
+          "explication": "Drupal Core, installeur : échec non sécurisé permettant sans authentification de prendre le contrôle d'un site ou d'exécuter du code ; CVSS 9,8 [4], « très critique » [2]."
         }
       ],
       "mitre": [],
@@ -68,8 +190,16 @@
           "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
         },
         {
-          "sigle": "OSS",
-          "definition": "Open Source Software : logiciel à code source ouvert"
+          "sigle": "PHP",
+          "definition": "Langage de programmation utilisé pour les sites web, exécuté par le serveur"
+        },
+        {
+          "sigle": "SQLite",
+          "definition": "Base de données stockée dans un simple fichier"
+        },
+        {
+          "sigle": "CVSS",
+          "definition": "Common Vulnerability Scoring System : note de gravité d'une faille sur 10"
         }
       ],
       "sources": [
@@ -92,6 +222,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/hackers-now-exploit-critical-drupal-rce-flaw-to-hijack-sites/",
           "date": "2026-11-25",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/19/Drupal-headpic.jpg"
+        },
+        {
+          "titre": "Drupal Fail2Install Exploit Details Emerge as Critical RCE Flaw Faces Active Exploitation",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/drupal-fail2install-exploit-details.html",
+          "date": "2026-11-25",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbChdPRqvJHt9cIG4Z1W9o12tl4thtxIDNNcntDjmIytSIC1PWvOytT0JjY0OJtnba6UVJcEmqNxgOMuWxX2pvNJzjQ70-CIeruqZEDdgaDG66Lv2T6lLMv8cEhrXRie1gcaLz6OoNw6f2822s2yz8jl958kok6WpHmZ7p_n3TRWTdEWSpr1le5T28kFQO/s1700-nu-rw-lo-l85-e365/drupal.gif"
         }
       ]
     },
@@ -57766,91 +57903,6 @@
           "url": "https://www.huntress.com/blog/screenconnect-power-bi",
           "date": "2026-10-07",
           "image": "https://cdn.builder.io/api/v1/image/assets%2F3eb6f92aedf74f109c7b4b0897ec39a8%2Facce5451b9ab47c29d80897f3d4e5149"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-07-dread-adresses-detournees",
-      "title": "Forum Dread : deux adresses détournées par un pirate",
-      "created": "2026-10-07T13:30:00+00:00",
-      "updated": "2026-10-07T13:30:00+00:00",
-      "version": 1,
-      "resume": "Un pirate nommé nohugbaunter a détourné deux adresses successives du forum Dread pour y promouvoir une plateforme concurrente [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Détournement de l'adresse principale",
-          "texte": "Le 5 octobre, l'adresse principale du forum affiche une page promouvant une plateforme concurrente [1]."
-        },
-        {
-          "etape": "Second détournement",
-          "texte": "Après la communication d'une adresse alternative par l'administration, celle-ci est détournée quelques heures plus tard [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (nohugbaunter)",
-            "note": ""
-          },
-          {
-            "id": "main",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Adresse principale de Dread",
-            "note": ""
-          },
-          {
-            "id": "alt",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Adresse alternative de Dread",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "main",
-            "etape": 2,
-            "texte": "Détournement, page de la plateforme concurrente"
-          },
-          {
-            "de": "att",
-            "vers": "alt",
-            "etape": 3,
-            "texte": "Second détournement"
-          }
-        ]
-      },
-      "limites": "La méthode du détournement n'est pas décrite par la source [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Pirate nommé nohugbaunter, qui revendique l'attaque, menace les administrateurs et exige réparation [1]"
-      ],
-      "cibles": [
-        "Forum Dread, ses administrateurs et ses utilisateurs [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "Dread",
-          "definition": "Forum de discussion du dark web"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Dread : deux adresses détournées par un pirate",
-          "site": "ZATAZ",
-          "url": "https://www.zataz.com/dread-deux-adresses-detournees-par-un-pirate/",
-          "date": "2026-10-07"
         }
       ]
     }

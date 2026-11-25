@@ -1,29 +1,5 @@
 [
   {
-    "id": "260025e601bbcf9c",
-    "title": "Ukraine fires two senior security officials amid corruption probe into scam call centers",
-    "link": "https://therecord.media/ukraine-fires-senior-security-officials-amid-scam-center-corruption-investigation",
-    "source": "The Record",
-    "raison": "actualité judiciaire sans détail sur la méthode d'attaque",
-    "date": "2026-11-05T12:15:00+00:00"
-  },
-  {
-    "id": "02b6d8596b0df08d",
-    "title": "Cisco, WatchGuard Release Patches; SonicWall Won’t Fix GMS Flaws",
-    "link": "https://www.securityweek.com/cisco-watchguard-release-patches-sonicwall-wont-fix-gms-flaws/",
-    "source": "SecurityWeek",
-    "raison": "bulletin de correctifs sans description d'attaque",
-    "date": "2026-11-05T13:10:31+00:00"
-  },
-  {
-    "id": "38249ac3d64eeec7",
-    "title": "The Agent Smith Dilemma: Governing Agentic Identities",
-    "link": "https://www.securityweek.com/the-agent-smith-dilemma-governing-agentic-identities/",
-    "source": "SecurityWeek",
-    "raison": "opinion, aucune attaque décrite",
-    "date": "2026-11-05T13:10:31+00:00"
-  },
-  {
     "id": "1e9f8c6cb4be4924",
     "title": "ChatGPT Lockdown Mode Bypass: Phishing, Malware Delivery, and Silent Data Exfiltration",
     "link": "https://research.checkpoint.com/2026/chatgpt-lockdown-mode-bypass-phishing-malware-delivery-and-silent-data-exfiltration/",
@@ -3998,5 +3974,29 @@
     "source": "Cisco Talos",
     "raison": "portrait d'un professionnel, aucune attaque décrite",
     "date": "2026-11-25T11:30:00+00:00"
+  },
+  {
+    "id": "3885183f32787fc7",
+    "title": "Ex-OpenAI Employee Accused of Bugging Company Offices Granted $1 Million Bail",
+    "link": "https://thehackernews.com/2026/11/ex-openai-employee-accused-of-bugging.html",
+    "source": "The Hacker News",
+    "raison": "actualité judiciaire (mise en liberté sous caution), méthode d'espionnage non décrite",
+    "date": "2026-11-25T12:08:00+00:00"
+  },
+  {
+    "id": "6a8ceb0f7d1b2b64",
+    "title": "Credential Remediation Is Slow When You Don’t Know What Will Break",
+    "link": "https://thehackernews.com/2026/11/credential-remediation-is-slow-when-you.html",
+    "source": "The Hacker News",
+    "raison": "contenu sponsorisé et conseils génériques, aucune attaque décrite",
+    "date": "2026-11-25T12:08:00+00:00"
+  },
+  {
+    "id": "74b608e4c0cfebe9",
+    "title": "Microsoft fixes Microsoft 365 bug blocking access to Office apps",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/microsoft-fixes-blank-dialog-that-made-microsoft-365-office-apps-unusable/",
+    "source": "BleepingComputer",
+    "raison": "bogue logiciel corrigé, aucune attaque",
+    "date": "2026-11-25T12:08:00+00:00"
   }
 ]

@@ -2,6 +2,272 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-25-fincen-systemes-hors-ligne",
+      "title": "FinCEN, agence du Trésor américain, coupe des systèmes après un accès non autorisé",
+      "created": "2026-11-25T11:30:00+00:00",
+      "updated": "2026-11-25T14:20:00+00:00",
+      "version": 2,
+      "resume": "FinCEN, service du Trésor américain contre la criminalité financière, a subi un accès non autorisé à une partie limitée de ses systèmes et en a mis certains hors ligne par précaution [1, 2, 3].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1, 2, 3]."
+        },
+        {
+          "etape": "Accès non autorisé",
+          "texte": "Accès à un sous-ensemble limité de systèmes → mise hors ligne préventive de certains d'entre eux [1, 2, 3]."
+        },
+        {
+          "etape": "Perturbation des déclarations",
+          "texte": "Portail de dépôt accessible mais certains services indisponibles ; délais prolongés au 30 décembre pour certaines déclarations dues du 18 novembre au 29 décembre [2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non revendiqué"
+          },
+          {
+            "id": "sys",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes de FinCEN",
+            "note": "Certains mis hors ligne"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Accès non autorisé, vecteur non précisé"
+          }
+        ]
+      },
+      "limites": "Nature de l'incident, systèmes touchés, auteur et données consultées non précisés ; l'agence n'a pas dit si l'intrusion explique les échecs de dépôt signalés dès le 18 novembre [2, 3].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "FinCEN (Trésor américain) et les déclarants touchés par les interruptions, dont les délais sont prolongés [1, 2, 3]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "FinCEN",
+          "definition": "Financial Crimes Enforcement Network : cellule américaine contre la criminalité financière"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Treasury's FinCEN takes systems offline after cybersecurity incident",
+          "site": "The Record",
+          "url": "https://therecord.media/treasury-fincen-takes-systems-offline-after-cyber-incident",
+          "date": "2026-11-25",
+          "image": "https://cms.therecord.media/uploads/treasury_26f25f72ad.jpg"
+        },
+        {
+          "titre": "U.S. Treasury's Financial Crimes Agency Takes Some Systems Offline After Cyber Intrusion",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/us-treasurys-fincen-takes-some-systems.html",
+          "date": "2026-11-25",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJn89Gr-RFxS6UFEzrbUZ5Ys11fK1OwvmMYUPl29eJudnlmmp7Q34p8O0DqV8SvGu4whZke8tiysvZNQWeE4Tm3zRhJSpojYAagBXGUEVM5w6lAw2Z5C-lfRaC2IwOYrnwQSWxwso31woM4CSoluNEjA3N0gFe0RQpsV0r3MCobiKFArLMa1or-QTIBcQ/s1700-nu-rw-lo-l85-e365/fincern.jpg"
+        },
+        {
+          "titre": "US Treasury’s FinCEN Disconnects Systems Following Cyber Incident",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/us-treasurys-fincen-disconnects-systems-following-cyber-incident/",
+          "date": "2026-11-25",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/Treasury-Department.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-25-geoserver-failles-exploitees",
+      "title": "GeoServer : deux failles récemment corrigées exploitées, des chaînes d'exécution de code sans authentification décrites",
+      "resume": "watchTowr observe l'exploitation active de deux failles récemment corrigées de GeoServer ; des chercheurs décrivent comment les enchaîner avec d'autres failles jusqu'à l'exécution de code [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de CVE-2026-120705 et CVE-2026-129243, sans authentification ; sondes d'erreur créant puis appelant des requêtes stockées pour vérifier la vulnérabilité [1]."
+        },
+        {
+          "etape": "Scénario des chercheurs",
+          "texte": "Non observé : fichiers de clé et mot de passe lus, cookie administrateur forgé, puis code exécuté via une base de données téléversée [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquants",
+            "note": "Non nommés"
+          },
+          {
+            "id": "geo",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Serveur GeoServer",
+            "note": "Non mis à jour"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "geo",
+            "etape": 1,
+            "texte": "Sondes créant et appelant des requêtes stockées"
+          },
+          {
+            "de": "att",
+            "vers": "geo",
+            "etape": 2,
+            "texte": "Scénario non observé : cookie administrateur forgé, code exécuté"
+          }
+        ]
+      },
+      "limites": "La source ne décrit aucune compromission réelle ni victime ; les chaînes menant à l'exécution de code sont des scénarios de chercheurs, pas des attaques observées [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-120705",
+          "explication": "GeoServer : lecture arbitraire de fichiers et requêtes sortantes via une requête de service d'entités sans authentification, gravité 8,6 sur 10 ; exploitée dans la nature [1]."
+        },
+        {
+          "id": "CVE-2026-129243",
+          "explication": "GeoServer : autorisation incorrecte permettant d'appeler des opérations protégées par les règles de sécurité de service, gravité 8,8 sur 10 ; exploitée dans la nature [1]."
+        },
+        {
+          "id": "CVE-2026-129245",
+          "explication": "GeoServer : clé de signature codée en dur pour la connexion persistante, permettant de forger une authentification administrateur, gravité 9,2 sur 10 [1]."
+        },
+        {
+          "id": "CVE-2026-129244",
+          "explication": "GeoServer : l'erreur d'une requête stockée révèle le chemin du répertoire de données, gravité 6,9 sur 10 [1]."
+        },
+        {
+          "id": "CVE-2026-120704",
+          "explication": "GeoServer : un administrateur peut exécuter du code arbitraire avec les droits du processus GeoServer, gravité 7,2 sur 10 [1]."
+        },
+        {
+          "id": "CVE-2026-129242",
+          "explication": "GeoServer : désérialisation permettant à un administrateur d'exécuter du code, gravité 8,6 sur 10 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Serveurs GeoServer non mis à jour vers 2.27.7, 2.28.6 ou 3.0.2 ; victimes non précisées [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Hackers Exploit Two GeoServer Flaws as Researchers Warn of Unauthenticated RCE Chains",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-two-geoserver-flaws-as.html",
+          "date": "2026-11-25",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhi8jBS9UW1bUouUo2cLun5A5rtqPOFJoVQctV4ZsoX9uuMottAxM0HLjLZrvTVGU1GtrewszjOwVMBkvHgyFIBsOndc049nwMidNiVnnoKCOePOhy-XDsjiVjxFvubbxn-Z6ca8VJAxxgLmyQ9KGYBRMWV5GP2et02dmXzcG3jKJw1p_njPdaPuJAaxAz1/s1700-nu-rw-lo-l85-e365/geoserver.png"
+        }
+      ],
+      "created": "2026-11-25T14:20:00+00:00",
+      "updated": "2026-11-25T14:20:00+00:00",
+      "version": 1
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-25-chu-guadeloupe-rancongiciel",
+      "title": "CHU de Guadeloupe : un rançongiciel présumé chiffre les bases de données, chirurgies et traitements contre le cancer perturbés",
+      "resume": "Le CHU de Guadeloupe a subi une attaque présumée par rançongiciel qui a chiffré ses bases de données, forçant à reporter des opérations, suspendre la radiothérapie et revenir au papier [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé ; l'ANSSI examine un accès via un prestataire informatique qui aurait été compromis plusieurs mois avant [1]."
+        },
+        {
+          "etape": "Chiffrement",
+          "texte": "Bases de données de l'hôpital chiffrées, attaque révélée par des pannes informatiques et téléphoniques un samedi soir [1]."
+        },
+        {
+          "etape": "Impact sur les soins",
+          "texte": "Opérations reportées, radiothérapie suspendue, chimiothérapies annulées, dossiers médicaux électroniques inaccessibles, retour au papier ; urgences et dialyse maintenues [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "pre",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Prestataire informatique",
+            "note": "Piste non confirmée"
+          },
+          {
+            "id": "db",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Bases de données du CHU",
+            "note": "Chiffrées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pre",
+            "etape": 1,
+            "texte": "Accès possible via le prestataire, examiné par l'ANSSI"
+          },
+          {
+            "de": "att",
+            "vers": "db",
+            "etape": 2,
+            "texte": "Chiffrement des bases de données"
+          }
+        ]
+      },
+      "limites": "L'accès via le prestataire n'est pas confirmé ; l'auteur est inconnu, aucune rançon n'a été demandée selon l'hôpital, qui ignore si des données ont été volées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "CHU de Guadeloupe, plus grand hôpital de l'île [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CHU",
+          "definition": "Centre hospitalier universitaire : hôpital public associé à une faculté de médecine"
+        },
+        {
+          "sigle": "ANSSI",
+          "definition": "Agence nationale de la sécurité des systèmes d'information, autorité française de cybersécurité"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Suspected ransomware attack disrupts cancer treatments, surgeries at Guadeloupe hospital",
+          "site": "The Record",
+          "url": "https://therecord.media/guadeloupe-ransomware-hospital-cyber",
+          "date": "2026-11-25",
+          "image": "https://cms.therecord.media/uploads/hush_naidoo_jade_photography_yo01_Z_9_HQ_Aw_unsplash_1b7f562bb0.jpg"
+        }
+      ],
+      "created": "2026-11-25T14:20:00+00:00",
+      "updated": "2026-11-25T14:20:00+00:00",
+      "version": 1
+    },
+    {
+      "schema": 3,
       "id": "2026-11-25-skimming-alsace-stations-carburant",
       "title": "Alsace : des cartes bancaires copiées lors de pleins de carburant, des retraits frauduleux à Londres et Milan",
       "created": "2026-11-25T12:08:00+00:00",
@@ -299,73 +565,6 @@
           "url": "https://www.securityweek.com/plagiarism-checker-turnitin-investigating-cyberattack/",
           "date": "2026-11-25",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/06/Hacker-Log-files.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-25-fincen-systemes-hors-ligne",
-      "title": "FinCEN, agence du Trésor américain, coupe des systèmes après un accès non autorisé",
-      "created": "2026-11-25T11:30:00+00:00",
-      "updated": "2026-11-25T11:30:00+00:00",
-      "version": 1,
-      "resume": "FinCEN, service du Trésor américain chargé de lutter contre la criminalité financière, a subi un accès non autorisé à une partie limitée de ses systèmes et en a mis certains hors ligne par précaution [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Accès non autorisé",
-          "texte": "Accès à un sous-ensemble limité de systèmes → mise hors ligne préventive de certains services et délais de déclaration prolongés [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": "Non revendiqué"
-          },
-          {
-            "id": "sys",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Systèmes de FinCEN",
-            "note": "Mis hors ligne"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "sys",
-            "etape": 2,
-            "texte": "Accès non autorisé, vecteur non précisé"
-          }
-        ]
-      },
-      "limites": "La source ne précise ni le vecteur d'accès, ni les systèmes touchés, ni les données consultées ; aucun groupe n'a revendiqué l'attaque [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "FinCEN (Trésor américain) et les déclarants touchés par les interruptions, dont les délais sont prolongés [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "FinCEN",
-          "definition": "Financial Crimes Enforcement Network : cellule américaine contre la criminalité financière"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Treasury's FinCEN takes systems offline after cybersecurity incident",
-          "site": "The Record",
-          "url": "https://therecord.media/treasury-fincen-takes-systems-offline-after-cyber-incident",
-          "date": "2026-11-25",
-          "image": "https://cms.therecord.media/uploads/treasury_26f25f72ad.jpg"
         }
       ]
     },
@@ -57622,287 +57821,6 @@
           "url": "https://www.securityweek.com/advantest-discloses-data-breach-months-after-ransomware-attack/",
           "date": "2026-10-07",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/02/Advantest.jpeg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-07-atlassian-cve-2026-21589",
-      "title": "Atlassian Data Center : faille CVE-2026-21589 exploitée peu après la publication des détails",
-      "created": "2026-10-07T13:30:00+00:00",
-      "updated": "2026-10-07T13:30:00+00:00",
-      "version": 1,
-      "resume": "Des attaquants exploitent sans authentification CVE-2026-21589 dans des produits Atlassian Data Center, environ deux heures après la publication des détails techniques [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Requête sans authentification sur une ressource de plugin, où « :: » devient « / » → lecture de fichiers de la racine web de l'application [1, 2, 3]."
-        },
-        {
-          "etape": "Vol d'identifiants",
-          "texte": "Lecture du fichier WEB-INF/classes/crowd.properties → identifiants récupérés [1, 2]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Création d'un compte administrateur Jira via l'API de Crowd → accès administrateur confirmé sur Jira, Confluence et Bitbucket intégrés à Crowd [1, 2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "srv",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Produit Atlassian Data Center",
-            "note": "Fichiers lus"
-          },
-          {
-            "id": "cro",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Crowd",
-            "note": "Compte créé"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "srv",
-            "etape": 1,
-            "texte": "Traversée de répertoires via « :: »"
-          },
-          {
-            "de": "att",
-            "vers": "srv",
-            "etape": 2,
-            "texte": "Lecture de crowd.properties"
-          },
-          {
-            "de": "att",
-            "vers": "cro",
-            "etape": 3,
-            "texte": "Compte administrateur créé via l'API"
-          }
-        ]
-      },
-      "limites": "Aucune source ne nomme l'acteur ni une victime ; les tentatives décrites visent des pots de miel [1, 2].",
-      "cves": [
-        {
-          "id": "CVE-2026-21589",
-          "explication": "Huit produits Atlassian Data Center : accès sans authentification à des fichiers de la racine web, gravité critique 9,3 sur 10 [1, 3]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Huit produits Atlassian : Bitbucket, Confluence, Jira Service Management, Jira Software, Bamboo, Crowd, Crucible, Fisheye [1, 3]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "API",
-          "definition": "Interface permettant à un programme de piloter un autre logiciel"
-        },
-        {
-          "sigle": "Crowd",
-          "definition": "Produit Atlassian de gestion des identités et des accès"
-        },
-        {
-          "sigle": "Jira",
-          "definition": "Produit Atlassian de gestion de tickets et de projets"
-        },
-        {
-          "sigle": "Confluence",
-          "definition": "Produit Atlassian de documentation collaborative"
-        },
-        {
-          "sigle": "Bitbucket",
-          "definition": "Produit Atlassian d'hébergement de code"
-        },
-        {
-          "sigle": "pots de miel",
-          "definition": "Systèmes leurres qui enregistrent les attaques"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Atlassian Data Center Flaw Draws Exploitation Attempts Within Two Hours of Public Details",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/atlassian-data-center-flaw-draws.html",
-          "date": "2026-10-07",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEityRbZfy1N9Y0SuqWl7yeWTYMjeirrTbDx719fM65Be6yXOt2Zl0YweAi0hAfswNzV_LrHa4eFCpcCemC3FNwxZve4bPkSelQiRnCdXpZofAnI7Si96nULBV6i25jgFaZkEY1T3LuPRhj6QzTSsWHZtLuoH1zXlLKZN3WwSiKS7QoY_Zug0CtaaCGozT6N/s1700-nu-rw-lo-l85-e365/jira-attack.jpg"
-        },
-        {
-          "titre": "Hackers exploit critical Atlassian flaw after public PoC release",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-atlassian-flaw-after-public-poc-release/",
-          "date": "2026-10-07",
-          "image": "https://www.bleepstatic.com/content/hl-images/2022/04/11/Atlassian-headpic.jpg"
-        },
-        {
-          "titre": "CVE-2026-21589: Critical unauthenticated arbitrary file access in Atlassian products",
-          "site": "Rapid7",
-          "url": "https://www.rapid7.com/blog/post/etr-cve-2026-21589-critical-unauthenticated-arbitrary-file-access-in-atlassian-products",
-          "date": "2026-10-07",
-          "image": "https://www.rapid7.com/cdn/images/blt65a432ba319f4043/6846abddaf18306debe6cf4d/ETR.webp"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-07-powerbi-screenconnect-hameconnage",
-      "title": "Hameçonnage via Microsoft Power BI pour installer de faux outils ScreenConnect",
-      "created": "2026-10-07T13:30:00+00:00",
-      "updated": "2026-10-07T13:30:00+00:00",
-      "version": 1,
-      "resume": "Depuis le 10 septembre 2026, une campagne d'hameçonnage utilise un faux document hébergé sur Microsoft Power BI pour installer plusieurs clients ScreenConnect malveillants [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Courriel d'hameçonnage envoyé via Outlook avec un lien vers un faux document sur Power BI → victime dirigée vers des domaines de l'attaquant [1]."
-        },
-        {
-          "etape": "Profilage de la victime",
-          "texte": "Clic sur « Download Reference » → collecte de l'IP, de la localisation et de l'appareil, transmise via l'API d'un robot Telegram [1]."
-        },
-        {
-          "etape": "Premier accès distant",
-          "texte": "Téléchargement automatique différé d'un installateur ScreenConnect → premier client d'accès à distance installé [1]."
-        },
-        {
-          "etape": "Second accès distant",
-          "texte": "Script PowerShell SCAutoFix.ps1 lancé par le premier client → seconde instance ScreenConnect connectée à un autre serveur [1]."
-        },
-        {
-          "etape": "Dissimulation",
-          "texte": "Exécution de HideUL_x64.exe et d'une tâche planifiée relançant un script d'évasion toutes les deux minutes [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "mail",
-            "type": "messagerie",
-            "zone": "victime",
-            "nom": "Boîte Outlook de la victime",
-            "note": ""
-          },
-          {
-            "id": "pbi",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Power BI (service légitime)",
-            "note": "Faux document"
-          },
-          {
-            "id": "pc",
-            "type": "poste",
-            "zone": "victime",
-            "nom": "Poste de la victime",
-            "note": "Deux clients installés"
-          },
-          {
-            "id": "sc",
-            "type": "serveur",
-            "zone": "internet",
-            "nom": "Serveurs ScreenConnect",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "mail",
-            "etape": 1,
-            "texte": "Courriel avec lien Power BI"
-          },
-          {
-            "de": "mail",
-            "vers": "pbi",
-            "etape": 1,
-            "texte": "Clic sur le lien"
-          },
-          {
-            "de": "pc",
-            "vers": "att",
-            "etape": 2,
-            "texte": "Empreinte envoyée via Telegram"
-          },
-          {
-            "de": "sc",
-            "vers": "pc",
-            "etape": 3,
-            "texte": "Installateur ScreenConnect téléchargé"
-          },
-          {
-            "de": "pc",
-            "vers": "sc",
-            "etape": 4,
-            "texte": "Seconde instance connectée"
-          }
-        ]
-      },
-      "limites": "La source ne nomme ni l'acteur, ni les victimes visées, ni le but des accès [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Au moins 22 postes supplémentaires touchés, dans des incidents séparés, selon une recherche rétroactive [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "RMM",
-          "definition": "Remote Monitoring and Management : outil de gestion à distance d'ordinateurs"
-        },
-        {
-          "sigle": "ScreenConnect",
-          "definition": "Logiciel de prise de contrôle à distance"
-        },
-        {
-          "sigle": "Power BI",
-          "definition": "Service Microsoft de tableaux de bord et de rapports"
-        },
-        {
-          "sigle": "Outlook",
-          "definition": "Messagerie de Microsoft"
-        },
-        {
-          "sigle": "PowerShell",
-          "definition": "Langage de script de Windows"
-        },
-        {
-          "sigle": "Telegram",
-          "definition": "Application de messagerie, utilisée ici par un robot de l'attaquant"
-        },
-        {
-          "sigle": "API",
-          "definition": "Interface permettant à un programme de piloter un autre logiciel"
-        },
-        {
-          "sigle": "IP",
-          "definition": "Adresse réseau d'une machine"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Phishing Campaign Abuses Microsoft Power BI to Deploy Rogue RMMs",
-          "site": "Huntress",
-          "url": "https://www.huntress.com/blog/screenconnect-power-bi",
-          "date": "2026-10-07",
-          "image": "https://cdn.builder.io/api/v1/image/assets%2F3eb6f92aedf74f109c7b4b0897ec39a8%2Facce5451b9ab47c29d80897f3d4e5149"
         }
       ]
     }

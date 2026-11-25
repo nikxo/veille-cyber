@@ -1,29 +1,5 @@
 [
   {
-    "id": "5d4d032693916d5d",
-    "title": "Is Your Exposure Management Platform Leaving You Exposed? Five Tests to Find Out",
-    "link": "https://thehackernews.com/2026/11/is-your-exposure-management-platform.html",
-    "source": "The Hacker News",
-    "raison": "contenu sponsorisé, aucune attaque décrite",
-    "date": "2026-11-05T14:20:00+00:00"
-  },
-  {
-    "id": "f48e93c22ba094c6",
-    "title": "Snowflake précise les contours de sa Business Ontology",
-    "link": "https://www.lemagit.fr/actualites/366653696/Snowflake-precise-les-contours-de-sa-Business-Ontology",
-    "source": "LeMagIT",
-    "raison": "annonce produit, aucune attaque décrite",
-    "date": "2026-11-05T14:20:00+00:00"
-  },
-  {
-    "id": "c96273161e421dcd",
-    "title": "Gartner Report: The Attack Path is Closing Faster than Most Teams Can Patch",
-    "link": "https://www.rapid7.com/blog/post/ai-gartner-report-attack-paths-closing-faster-than-patchable",
-    "source": "Rapid7",
-    "raison": "contenu promotionnel (rapport d'analyste), aucune attaque décrite",
-    "date": "2026-11-05T15:06:37+00:00"
-  },
-  {
     "id": "59043a85553579c0",
     "title": "ThreatsDay: Apache OFBiz RCE, DreamHost Breach, DeFi Site Hijacks + 17 More Stories",
     "link": "https://thehackernews.com/2026/11/threatsday-apache-ofbiz-rce-dreamhost.html",
@@ -3998,5 +3974,29 @@
     "source": "Rapid7",
     "raison": "vulnérabilité sans exploitation constatée (CVE-2026-123903, aucun signalement d'exploitation selon la source)",
     "date": "2026-11-25T13:20:00+00:00"
+  },
+  {
+    "id": "7c0a3009349718ce",
+    "title": "Latin America Sees Cyberattacks on Ports, Pipelines & Manufacturing",
+    "link": "https://www.darkreading.com/cyberattacks-data-breaches/latin-america-cyberattacks-ports-pipelines-manufacturing",
+    "source": "Dark Reading",
+    "raison": "tendance régionale sans méthode d'attaque détaillée (page inaccessible, résumé seul)",
+    "date": "2026-11-25T14:20:00+00:00"
+  },
+  {
+    "id": "53b9a53ef0e17be9",
+    "title": "How Southeastern University Got a Handle on Its Data",
+    "link": "https://www.darkreading.com/cybersecurity-operations/how-southeastern-university-handle-data",
+    "source": "Dark Reading",
+    "raison": "retour d'expérience sur la gestion des données, pas d'attaque",
+    "date": "2026-11-25T14:20:00+00:00"
+  },
+  {
+    "id": "8aecfebcb487c923",
+    "title": "Ground Truth: CISO Matt Martin on Building a Real Security Program Without an Enterprise Budget",
+    "link": "https://www.securityweek.com/ground-truth-ciso-matt-martin-on-building-a-real-security-program-without-an-enterprise-budget/",
+    "source": "SecurityWeek",
+    "raison": "entretien et conseils de RSSI, pas d'attaque",
+    "date": "2026-11-25T14:20:00+00:00"
   }
 ]

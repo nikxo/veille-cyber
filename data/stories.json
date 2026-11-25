@@ -2,6 +2,484 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-24-gt13-check-point-campagne-ia",
+      "title": "GT13 : des serveurs de gestion Check Point compromis dans une campagne assistée par intelligence artificielle",
+      "created": "2026-11-24T15:10:00+00:00",
+      "updated": "2026-11-25T07:30:00+00:00",
+      "version": 3,
+      "resume": "Selon GreyNoise, l'acteur GT13 a compromis des serveurs de gestion Check Point de 22 organisations dans 17 pays [1, 4], 24 serveurs au total selon [5], avec des outils offensifs assistés par intelligence artificielle [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé : GreyNoise ignore quand et comment l'attaquant a obtenu l'accès aux équipements Check Point [1, 4, 5]."
+        },
+        {
+          "etape": "Prise de contrôle administrateur",
+          "texte": "Exploitation de CVE-2026-16232 après la compromission → authentification administrateur [4] ; plus de 100 tâches de gestion lancées sur plusieurs serveurs [5]."
+        },
+        {
+          "etape": "Relais d'attaque",
+          "texte": "Faille de Rejetto HFS exploitée début octobre → contrôle d'un serveur HFS [1, 5] ; clé SSH ajoutée pour root, serveur devenu relais de collecte des données [4, 5]."
+        },
+        {
+          "etape": "Exploration du réseau",
+          "texte": "Outils dont Nmap, Chisel et Impacket → reconnaissance, déplacement et élévation de privilèges [1] ; reconnaissance du réseau interne et tentatives de déplacement latéral [4]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Politiques de sécurité déchargées → protections du pare-feu de fait désactivées [4, 5]."
+        },
+        {
+          "etape": "Vol de données, persistance",
+          "texte": "Vol de bases de pare-feu, identifiants, configurations et fichiers d'autorité de certification interne [4, 5] ; clé privée SSH liée au relais sur chaque équipement ; accès persistant conservé [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (GT13)",
+            "note": "Outils assistés par IA"
+          },
+          {
+            "id": "hfs",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur HFS relais d'une victime",
+            "note": "Données stockées"
+          },
+          {
+            "id": "cp",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Serveurs de gestion Check Point",
+            "note": "24 serveurs, 22 organisations"
+          },
+          {
+            "id": "net",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Réseau interne des victimes",
+            "note": "Reconnaissance"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "cp",
+            "etape": 1,
+            "texte": "Accès, vecteur inconnu"
+          },
+          {
+            "de": "att",
+            "vers": "cp",
+            "etape": 2,
+            "texte": "CVE-2026-16232, privilèges administrateur"
+          },
+          {
+            "de": "att",
+            "vers": "hfs",
+            "etape": 3,
+            "texte": "Cookie forgé, puis accès SSH"
+          },
+          {
+            "de": "cp",
+            "vers": "net",
+            "etape": 4,
+            "texte": "Reconnaissance, tentatives de déplacement latéral"
+          },
+          {
+            "de": "att",
+            "vers": "cp",
+            "etape": 5,
+            "texte": "Politiques de sécurité déchargées"
+          },
+          {
+            "de": "cp",
+            "vers": "hfs",
+            "etape": 6,
+            "texte": "Données stockées sur le relais"
+          },
+          {
+            "de": "hfs",
+            "vers": "cp",
+            "etape": 6,
+            "texte": "Clés SSH partagées, accès persistant"
+          }
+        ]
+      },
+      "limites": "Ni l'accès initial ni l'origine de GT13 ne sont connus [1, 4, 5] ; le recours à l'IA reste soupçonné [5] ; des failles Citrix, Ivanti, NetLogon et Linux ont été visées sans résultat précisé [4, 5].",
+      "cves": [
+        {
+          "id": "CVE-2026-16232",
+          "explication": "Check Point SmartConsole : contournement d'authentification donnant un accès administrateur complet sans identifiants, critique 9,8 [2] ; exploitée après la compromission pour s'authentifier en administrateur [4]."
+        },
+        {
+          "id": "CVE-2026-61500",
+          "explication": "Rejetto HFS 3.0.0 à 3.2.0 : clé de signature prévisible permettant de forger un cookie administrateur puis d'exécuter du code, critique 9,8 [3] ; exploitée contre le serveur relais [5]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "GT13 (GreyNoise Threat 13), nom donné par GreyNoise ; origine non précisée [1], rattaché à aucun groupe connu [5]",
+        "99 adresses IP utilisées : sorties ExpressVPN ou équipements Check Point de victimes compromis [1]"
+      ],
+      "cibles": [
+        "Au moins 22 organisations : énergie, ingénierie, finance, administration, industrie, mines, transport [1]",
+        "États-Unis, Royaume-Uni, Australie, Autriche, Chine, France, Allemagne, Hong Kong, Pays-Bas, Corée du Sud et d'autres [1] ; 17 pays au total [4]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "HFS",
+          "definition": "HTTP File Server : logiciel de partage de fichiers par le web"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole d'accès à distance chiffré à une machine"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "IP",
+          "definition": "Internet Protocol : l'adresse IP identifie une machine sur le réseau"
+        },
+        {
+          "sigle": "scp",
+          "definition": "Secure Copy : copie de fichiers à travers une connexion SSH"
+        },
+        {
+          "sigle": "GT13",
+          "definition": "GreyNoise Threat 13 : nom donné à l'acteur par la société GreyNoise"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Check Point Security Management Servers Hacked in AI-Assisted Campaign",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/check-point-security-management-servers-hacked-in-ai-assisted-campaign/",
+          "date": "2026-11-24",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/cyberattack-vulnerability-exploited.jpeg"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-16232",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16232"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-61500",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61500"
+        },
+        {
+          "titre": "Hackers compromise Check Point Servers in 22 organizations",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-compromise-check-point-servers-in-22-organizations/",
+          "date": "2026-11-24",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/05/05/hacker.jpg"
+        },
+        {
+          "titre": "Hackers Compromise 24 Check Point Management Servers in Suspected AI-Driven Attack Campaign",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-compromise-24-check-point.html",
+          "date": "2026-11-25",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzxhgIKTt8K5ep8a4qHW9dDpkSYcBC5D1CWgkvvh9Ee5DRlNRSg-2UcZZVNoXrHXVTeIcdzj47FFcSz6gAssLknSDf6f0JDyQCoH51D4GYLSju_wh4smA6-2yE3Z7I30SPeuY8LOKA__Y9xPiU66t1aPsHTzuRnX0QUq2iadcKXFfv7ZhAhcXti_BDnrmu/s1700-nu-rw-lo-l85-e365/code.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-20-com-vishing-vol-donnees-cloud",
+      "title": "Affiliés du Com : de faux appels du support informatique pour voler les données cloud de la finance et de la santé, puis les extorquer",
+      "created": "2026-11-20T23:20:00+00:00",
+      "updated": "2026-11-25T07:30:00+00:00",
+      "version": 2,
+      "resume": "Des groupes affiliés au Com, dont Bling Libra (ShinyHunters), piègent des employés par téléphone, volent des données dans leurs services cloud puis font chanter les organisations, surtout dans la finance et la santé [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Appels se faisant passer pour le support informatique → employé dirigé vers une page d'hameçonnage adaptée à son organisation [1, 2]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Kit d'hameçonnage intercalé entre la victime et le vrai service → identifiants, jetons de session et validations d'authentification multifacteur captés en temps réel [1, 2]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Ajout de leur propre appareil d'authentification multifacteur, parfois en quelques minutes, et d'applications OAuth non approuvées [1, 2] ; comptes secondaires [1] ; identifiants cloud temporaires [2]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Modification des règles de messagerie et effacement des alertes de sécurité [1, 2]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Scripts Python visant Microsoft 365, OneDrive et SharePoint, outils comme Rclone → parfois des dizaines de millions d'enregistrements clients et de recrutement exfiltrés [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Messages Teams aux employés [1, 2] ou courriels internes depuis un compte compromis [2] → renvoi vers un site de négociation hébergé sur Tor [1, 2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (affiliés du Com)",
+            "note": ""
+          },
+          {
+            "id": "emp",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Employés appelés",
+            "note": "Faux support informatique"
+          },
+          {
+            "id": "phish",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Page d'hameçonnage",
+            "note": "Kit intercalé"
+          },
+          {
+            "id": "m365",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Microsoft 365, OneDrive, SharePoint",
+            "note": "Appareil multifacteur ajouté"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "emp",
+            "etape": 1,
+            "texte": "Appel au nom du support informatique"
+          },
+          {
+            "de": "emp",
+            "vers": "phish",
+            "etape": 2,
+            "texte": "Identifiants et validations saisis"
+          },
+          {
+            "de": "phish",
+            "vers": "att",
+            "etape": 2,
+            "texte": "Identifiants et jetons captés en temps réel"
+          },
+          {
+            "de": "att",
+            "vers": "m365",
+            "etape": 3,
+            "texte": "Propre appareil multifacteur enregistré"
+          },
+          {
+            "de": "m365",
+            "vers": "att",
+            "etape": 5,
+            "texte": "Données exfiltrées par scripts Python"
+          },
+          {
+            "de": "att",
+            "vers": "emp",
+            "etape": 6,
+            "texte": "Messages Teams d'extorsion"
+          }
+        ]
+      },
+      "limites": "Les sources décrivent les méthodes de plusieurs groupes affiliés sans retracer une intrusion précise de bout en bout [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Bling Libra, aussi appelé ShinyHunters, observé depuis 2019 [1]",
+        "CL-CRI-1116 (Redact), CL-CRI-1147 (Pink), CL-CRI-1182 (Falcon), CL-CRI-1192 (Helix, UNC6671 chez Google) [1]",
+        "CL-CRI-1264 (Vortex) et CL-CRI-1274 (Cinder) [1]",
+        "CL-CRI-1192 installe une fausse extension « Google Chrome » qui enregistre les frappes, vole les cookies et pilote le navigateur [2]"
+      ],
+      "cibles": [
+        "Services financiers, santé et services juridiques en priorité [1] ; la santé dépasse la finance en septembre [2]",
+        "Surtout des organisations américaines, puis australiennes, environ 13 % des sous-domaines observés en octobre 2026 [1]",
+        "États-Unis, Royaume-Uni, Australie ; aussi construction, haute technologie, transport, industrie, pharmacie, assurance, immobilier [2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "OAuth",
+          "definition": "Protocole qui autorise une application à accéder à un compte sans son mot de passe"
+        },
+        {
+          "sigle": "UNC6671",
+          "definition": "Nom sous lequel Google suit le groupe Helix"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Dialing for Data: Inside the Com’s High-Profile Heists",
+          "site": "Unit 42 (Palo Alto Networks)",
+          "url": "https://unit42.paloaltonetworks.com/com-affiliate-vishing-attacks/",
+          "date": "2026-11-20",
+          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/11/12_Cybercrime_Category_1920x900.jpg"
+        },
+        {
+          "titre": "Com-Affiliated Hackers Hijack Cloud Accounts via Vishing for Data Theft and Extortion",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/com-affiliated-hackers-hijack-cloud.html",
+          "date": "2026-11-25",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoCQn2zL8-RpfdhDeb1Zmyn46vLk1s9lerpXtGlcMkN5IGF9nlhEejtwoOXwhznjS7JVrix_FeG_G6yJ6Jb8mI31CU4Mi2dndKvLp-4nG4wWsqMaBpI60HFIk5d8_5uIxj6XEjSt4sixJYkJN8Xeqs4OrgSzOPK48esNtXbQ_FgtVe67B_WZkfpuUSEiD7/s1700-nu-rw-lo-l85-e365/vishing.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-25-wp-connect-extensions-piegees",
+      "title": "WP Connect : six extensions WordPress piégées après le piratage présumé du compte du développeur, bloquées avant publication",
+      "created": "2026-11-25T07:30:00+00:00",
+      "updated": "2026-11-25T07:30:00+00:00",
+      "version": 1,
+      "resume": "Six extensions WordPress de WP Connect ont reçu le 22 novembre une porte dérobée permettant d'exécuter du code, après une compromission présumée du compte du développeur ; WordPress les a bloquées avant publication [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Compromission présumée du compte WordPress.org du développeur [1]."
+        },
+        {
+          "etape": "Injection de code",
+          "texte": "Code malveillant ajouté délibérément au dépôt de chaque extension le 22 novembre → versions chargeant un même module de contrôle à distance [1]."
+        },
+        {
+          "etape": "Contact du serveur pirate",
+          "texte": "Fichier includes/airwp-online.php lancé à chaque requête → envoi de l'adresse du site et des versions logicielles à tascredit-pay[.]com [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Code PHP renvoyé par ce serveur exécuté → commandes système, fichiers, base de données et table des utilisateurs accessibles [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Portes dérobées web et tâche WP-Cron horaire → accès qui survit à la suppression de l'extension [1]."
+        },
+        {
+          "etape": "Blocage par WordPress",
+          "texte": "Détection par l'équipe des extensions WordPress → versions jamais publiées grâce au nouveau délai de mise en ligne [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "dev",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Compte du développeur",
+            "note": "Compromission présumée"
+          },
+          {
+            "id": "repo",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Dépôts des six extensions",
+            "note": "Code malveillant ajouté"
+          },
+          {
+            "id": "sites",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Sites WordPress utilisant les extensions",
+            "note": "Versions jamais publiées"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur tascredit-pay[.]com",
+            "note": "Envoie du code PHP"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "dev",
+            "etape": 1,
+            "texte": "Compte compromis (présumé)"
+          },
+          {
+            "de": "dev",
+            "vers": "repo",
+            "etape": 2,
+            "texte": "Module de contrôle à distance ajouté"
+          },
+          {
+            "de": "repo",
+            "vers": "sites",
+            "etape": 6,
+            "texte": "Versions bloquées avant publication"
+          },
+          {
+            "de": "sites",
+            "vers": "c2",
+            "etape": 3,
+            "texte": "Adresse du site et versions envoyées"
+          },
+          {
+            "de": "c2",
+            "vers": "sites",
+            "etape": 4,
+            "texte": "Code PHP à exécuter"
+          }
+        ]
+      },
+      "limites": "Les versions piégées n'ayant jamais été publiées, la source juge peu probable que des sites soient touchés, sans l'exclure, et n'identifie pas l'attaquant [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-135202",
+          "explication": "Extensions WP Connect : compromission de la chaîne d'approvisionnement permettant d'exécuter du code, gravité 9,8 sur 10, non corrigée [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié ; seule une compromission présumée du compte du développeur est évoquée [1]"
+      ],
+      "cibles": [
+        "Plus de 3 600 sites WordPress équipés de ces extensions, selon Wordfence [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "PHP",
+          "definition": "Langage de programmation utilisé par WordPress côté serveur"
+        },
+        {
+          "sigle": "WP-Cron",
+          "definition": "Planificateur de tâches intégré à WordPress"
+        },
+        {
+          "sigle": "WP",
+          "definition": "Abréviation de WordPress"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "WordPress Blocks Six Backdoored WP Connect Plugins Before Malicious Releases Go Live",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/wordpress-blocks-six-backdoored-wp.html",
+          "date": "2026-11-25",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNbawIx8zYCfd7sCTbVfIzPFBtykkY65lf8EOswU62pIdZKTrx9ReB3mGnqYqujmW5eGzN_w8pEijAZMTpmOZ3fGB5zFyFaPo4ZhRQ8V0BkAmDCH3WoVqJ3kAfjDcw3_wRjhwphfyJxjF3_rDYiudb-cxt0pY3t8s-IRjNP1aEYHqtO5L1eZMkgBX6y2xD/s1700-nu-rw-lo-l85-e365/wp.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-24-cia-systeme-non-classifie",
       "version": 1,
       "created": "2026-11-24T23:20:00+00:00",
@@ -1413,189 +1891,6 @@
           "url": "https://thehackernews.com/2026/11/iran-aligned-volant-manticore-uses-ipfs.html",
           "date": "2026-11-24",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqukTcR2pkDWiTqMzORa4j7zZRB0MDUGfBly50X7gPwPHqSeBmfReQWpMR9IdPOP_NbeuQSBdYPknSgxvutDll4VAZNSoGqcwmXzhZNEez-UoE-MwTnM9i9XxjoLYRdhY0iY6tD9BK9IDB0o8RUU7sNsOex5tVNtoNwRHCCAxM9ri66c4G2wPa9AqW9saA/s1700-nu-rw-lo-l85-e365/iran-hackers.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-24-gt13-check-point-campagne-ia",
-      "title": "GT13 : des serveurs de gestion Check Point compromis dans une campagne assistée par intelligence artificielle",
-      "created": "2026-11-24T15:10:00+00:00",
-      "updated": "2026-11-24T17:30:00+00:00",
-      "version": 2,
-      "resume": "Selon GreyNoise, l'acteur GT13 a compromis des serveurs de gestion Check Point de 22 organisations dans 17 pays [1, 4], avec des outils offensifs assistés par intelligence artificielle [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé : GreyNoise ignore quand et comment l'attaquant a obtenu l'accès aux équipements Check Point [1, 4]."
-        },
-        {
-          "etape": "Prise de contrôle administrateur",
-          "texte": "Exploitation de CVE-2026-16232 après la compromission → jeton de connexion et authentification avec des privilèges administrateur [4]."
-        },
-        {
-          "etape": "Relais d'attaque",
-          "texte": "Cookie administrateur forgé le 2 octobre → contrôle d'un serveur HFS puis accès SSH [1] ; serveur utilisé comme relais pour piloter les intrusions et collecter les données [4]."
-        },
-        {
-          "etape": "Exploration du réseau",
-          "texte": "Outils dont Nmap, Chisel et Impacket → reconnaissance, déplacement et élévation de privilèges [1] ; reconnaissance du réseau interne et tentatives de déplacement latéral [4]."
-        },
-        {
-          "etape": "Neutralisation des défenses",
-          "texte": "Politiques de sécurité déchargées → protections du pare-feu de fait désactivées [4]."
-        },
-        {
-          "etape": "Vol de données, persistance",
-          "texte": "Vol de bases de pare-feu, identifiants, configurations et fichiers d'autorité de certification interne [4] ; clé privée SSH liée au relais sur chaque équipement ; accès persistant conservé [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (GT13)",
-            "note": "Outils assistés par IA"
-          },
-          {
-            "id": "hfs",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur HFS relais d'une victime",
-            "note": "Données stockées"
-          },
-          {
-            "id": "cp",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Serveurs de gestion Check Point",
-            "note": "22 organisations"
-          },
-          {
-            "id": "net",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Réseau interne des victimes",
-            "note": "Reconnaissance"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "cp",
-            "etape": 1,
-            "texte": "Accès, vecteur inconnu"
-          },
-          {
-            "de": "att",
-            "vers": "cp",
-            "etape": 2,
-            "texte": "CVE-2026-16232, privilèges administrateur"
-          },
-          {
-            "de": "att",
-            "vers": "hfs",
-            "etape": 3,
-            "texte": "Cookie forgé, puis accès SSH"
-          },
-          {
-            "de": "cp",
-            "vers": "net",
-            "etape": 4,
-            "texte": "Reconnaissance, tentatives de déplacement latéral"
-          },
-          {
-            "de": "att",
-            "vers": "cp",
-            "etape": 5,
-            "texte": "Politiques de sécurité déchargées"
-          },
-          {
-            "de": "cp",
-            "vers": "hfs",
-            "etape": 6,
-            "texte": "Données stockées sur le relais"
-          },
-          {
-            "de": "hfs",
-            "vers": "cp",
-            "etape": 6,
-            "texte": "Clés SSH partagées, accès persistant"
-          }
-        ]
-      },
-      "limites": "Les sources ne précisent ni l'accès initial ni l'origine de GT13 [1, 4] ; des failles Citrix NetScaler, Ivanti, Windows NetLogon et Linux ont été visées par des tentatives, sans résultat précisé [4].",
-      "cves": [
-        {
-          "id": "CVE-2026-16232",
-          "explication": "Check Point SmartConsole : contournement d'authentification donnant un accès administrateur complet sans identifiants, critique 9,8 [2] ; exploitée après la compromission pour s'authentifier en administrateur [4]."
-        },
-        {
-          "id": "CVE-2026-61500",
-          "explication": "Rejetto HFS 3.0.0 à 3.2.0 : clé de signature prévisible permettant de forger un cookie administrateur puis d'exécuter du code, critique 9,8 [3] ; utilisée ou tentée par la campagne [1]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "GT13 (GreyNoise Threat 13), nom donné par GreyNoise ; origine non précisée [1]",
-        "99 adresses IP utilisées : sorties ExpressVPN ou équipements Check Point de victimes compromis [1]"
-      ],
-      "cibles": [
-        "Au moins 22 organisations : énergie, ingénierie, finance, administration, industrie, mines, transport [1]",
-        "États-Unis, Royaume-Uni, Australie, Autriche, Chine, France, Allemagne, Hong Kong, Pays-Bas, Corée du Sud et d'autres [1] ; 17 pays au total [4]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "HFS",
-          "definition": "HTTP File Server : logiciel de partage de fichiers par le web"
-        },
-        {
-          "sigle": "SSH",
-          "definition": "Secure Shell : protocole d'accès à distance chiffré à une machine"
-        },
-        {
-          "sigle": "IA",
-          "definition": "Intelligence artificielle"
-        },
-        {
-          "sigle": "IP",
-          "definition": "Internet Protocol : l'adresse IP identifie une machine sur le réseau"
-        },
-        {
-          "sigle": "scp",
-          "definition": "Secure Copy : copie de fichiers à travers une connexion SSH"
-        },
-        {
-          "sigle": "GT13",
-          "definition": "GreyNoise Threat 13 : nom donné à l'acteur par la société GreyNoise"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Check Point Security Management Servers Hacked in AI-Assisted Campaign",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/check-point-security-management-servers-hacked-in-ai-assisted-campaign/",
-          "date": "2026-11-24",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/cyberattack-vulnerability-exploited.jpeg"
-        },
-        {
-          "titre": "Fiche NVD CVE-2026-16232",
-          "site": "NVD (NIST)",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16232"
-        },
-        {
-          "titre": "Fiche NVD CVE-2026-61500",
-          "site": "NVD (NIST)",
-          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61500"
-        },
-        {
-          "titre": "Hackers compromise Check Point Servers in 22 organizations",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/hackers-compromise-check-point-servers-in-22-organizations/",
-          "date": "2026-11-24",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/05/05/hacker.jpg"
         }
       ]
     },
@@ -5262,142 +5557,6 @@
           "url": "https://www.bleepingcomputer.com/news/security/microsoft-entra-connect-health-flaw-exploited-to-steal-tenant-data/",
           "date": "2026-11-21",
           "image": "https://www.bleepstatic.com/content/hl-images/2024/01/26/microsoft-red-header.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-20-com-vishing-vol-donnees-cloud",
-      "title": "Affiliés du Com : de faux appels du support informatique pour voler les données cloud de la finance et de la santé, puis les extorquer",
-      "created": "2026-11-20T23:20:00+00:00",
-      "updated": "2026-11-20T23:20:00+00:00",
-      "version": 1,
-      "resume": "Des groupes affiliés au Com, dont Bling Libra (ShinyHunters), piègent des employés par téléphone, volent des données dans leurs services cloud puis font chanter les organisations, surtout dans la finance et la santé [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Appels se faisant passer pour le support informatique → employé dirigé vers une page d'hameçonnage adaptée à son organisation [1]."
-        },
-        {
-          "etape": "Vol d'identifiants",
-          "texte": "Kit d'hameçonnage intercalé entre la victime et le vrai service → identifiants, jetons de session et validations d'authentification multifacteur captés en temps réel [1]."
-        },
-        {
-          "etape": "Persistance",
-          "texte": "Ajout de leur propre appareil d'authentification multifacteur, parfois en quelques minutes, applications OAuth non approuvées et comptes secondaires [1]."
-        },
-        {
-          "etape": "Neutralisation des défenses",
-          "texte": "Modification des règles de messagerie et effacement des alertes de sécurité [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Scripts Python visant Microsoft 365, OneDrive et SharePoint, outils comme Rclone → parfois des dizaines de millions d'enregistrements clients et de recrutement exfiltrés [1]."
-        },
-        {
-          "etape": "Extorsion",
-          "texte": "Messages Teams directs aux employés annonçant le vol → renvoi vers un site de négociation hébergé sur Tor [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (affiliés du Com)",
-            "note": ""
-          },
-          {
-            "id": "emp",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Employés appelés",
-            "note": "Faux support informatique"
-          },
-          {
-            "id": "phish",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Page d'hameçonnage",
-            "note": "Kit intercalé"
-          },
-          {
-            "id": "m365",
-            "type": "cloud",
-            "zone": "victime",
-            "nom": "Microsoft 365, OneDrive, SharePoint",
-            "note": "Appareil multifacteur ajouté"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "emp",
-            "etape": 1,
-            "texte": "Appel au nom du support informatique"
-          },
-          {
-            "de": "emp",
-            "vers": "phish",
-            "etape": 2,
-            "texte": "Identifiants et validations saisis"
-          },
-          {
-            "de": "phish",
-            "vers": "att",
-            "etape": 2,
-            "texte": "Identifiants et jetons captés en temps réel"
-          },
-          {
-            "de": "att",
-            "vers": "m365",
-            "etape": 3,
-            "texte": "Propre appareil multifacteur enregistré"
-          },
-          {
-            "de": "m365",
-            "vers": "att",
-            "etape": 5,
-            "texte": "Données exfiltrées par scripts Python"
-          },
-          {
-            "de": "att",
-            "vers": "emp",
-            "etape": 6,
-            "texte": "Messages Teams d'extorsion"
-          }
-        ]
-      },
-      "limites": "La source décrit les méthodes de plusieurs groupes affiliés sans retracer une intrusion précise de bout en bout [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Bling Libra, aussi appelé ShinyHunters, observé depuis 2019 [1]",
-        "CL-CRI-1116 (Redact), CL-CRI-1147 (Pink), CL-CRI-1182 (Falcon), CL-CRI-1192 (Helix, UNC6671 chez Google) [1]",
-        "CL-CRI-1264 (Vortex) et CL-CRI-1274 (Cinder) [1]"
-      ],
-      "cibles": [
-        "Services financiers, santé et services juridiques en priorité [1]",
-        "Surtout des organisations américaines, puis australiennes, environ 13 % des sous-domaines observés en octobre 2026 [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "OAuth",
-          "definition": "Protocole qui autorise une application à accéder à un compte sans son mot de passe"
-        },
-        {
-          "sigle": "UNC6671",
-          "definition": "Nom sous lequel Google suit le groupe Helix"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Dialing for Data: Inside the Com’s High-Profile Heists",
-          "site": "Unit 42 (Palo Alto Networks)",
-          "url": "https://unit42.paloaltonetworks.com/com-affiliate-vishing-attacks/",
-          "date": "2026-11-20",
-          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/11/12_Cybercrime_Category_1920x900.jpg"
         }
       ]
     },
@@ -57799,109 +57958,6 @@
           "url": "https://therecord.media/south-korean-bank-hacks-ai-agents",
           "date": "2026-10-06",
           "image": "https://cms.therecord.media/uploads/Lee_Jae_Myung_South_Korea_3d287bbf5d.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-06-faux-sites-ia-comptes-publicitaires",
-      "title": "Faux sites ChatGPT, Gemini, Claude et Perplexity : vol de comptes publicitaires et de codes multifacteur",
-      "created": "2026-10-06T16:30:00+00:00",
-      "updated": "2026-10-06T16:30:00+00:00",
-      "version": 1,
-      "resume": "Une campagne vise les responsables de comptes publicitaires avec de faux sites d'assistants d'IA qui volent identifiants et codes d'authentification multifacteur [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Faux sites imitant ChatGPT, Gemini, Claude et Perplexity, mettant en avant le lancement de l'agent Muse de Meta → visiteurs attirés sur les pages [1]."
-        },
-        {
-          "etape": "Vol d'identifiants",
-          "texte": "Le bouton « Connect » affiche une fausse fenêtre Google dans la page → un opérateur humain prend la main et demande mots de passe, codes ou QR codes [1]."
-        },
-        {
-          "etape": "Contrôle des comptes",
-          "texte": "Accès aux comptes publicitaires des victimes → dépenses frauduleuses [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "site",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Faux sites d'assistants d'IA",
-            "note": "Fausse fenêtre Google"
-          },
-          {
-            "id": "usr",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Responsables de comptes publicitaires",
-            "note": ""
-          },
-          {
-            "id": "cpt",
-            "type": "cloud",
-            "zone": "victime",
-            "nom": "Comptes publicitaires",
-            "note": "Dépenses frauduleuses"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "site",
-            "etape": 1,
-            "texte": "Faux sites d'assistants d'IA mis en ligne"
-          },
-          {
-            "de": "usr",
-            "vers": "site",
-            "etape": 2,
-            "texte": "Identifiants et codes saisis dans la fausse fenêtre"
-          },
-          {
-            "de": "att",
-            "vers": "cpt",
-            "etape": 3,
-            "texte": "Accès aux comptes publicitaires"
-          }
-        ]
-      },
-      "limites": "La source ne nomme pas l'acteur et ne donne pas le montant des dépenses frauduleuses [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non identifié [1]"
-      ],
-      "cibles": [
-        "Responsables de comptes publicitaires, acheteurs médias et administrateurs de comptes multi-clients [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "IA",
-          "definition": "Intelligence artificielle"
-        },
-        {
-          "sigle": "QR",
-          "definition": "Quick Response : code-barres carré lu avec un téléphone"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Fake ChatGPT, Gemini Sites steal advertising accounts, MFA codes",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/fake-chatgpt-gemini-sites-steal-advertising-accounts-mfa-codes/",
-          "date": "2026-10-06",
-          "image": "https://www.bleepstatic.com/content/hl-images/2024/05/13/Phishing.jpg"
         }
       ]
     }

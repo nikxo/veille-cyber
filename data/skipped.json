@@ -1,13 +1,5 @@
 [
   {
-    "id": "3fe484f436f5a815",
-    "title": "OpenSSH Issues Emergency Fix for Flaw Letting Long Passwords Bypass SSH Auth on Alpine Linux",
-    "link": "https://thehackernews.com/2026/11/openssh-issues-emergency-fix-for-flaw.html",
-    "source": "The Hacker News",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-11-05T22:07:35+00:00"
-  },
-  {
     "id": "6ae54b5becb8074a",
     "title": "What We Missed: Knicks Phishing Test Goes Out of Bounds",
     "link": "https://www.darkreading.com/cyber-risk/what-we-missed-knicks-phishing-test-out-of-bounds",
@@ -3998,5 +3990,13 @@
     "source": "BleepingComputer",
     "raison": "avertissement générique sans détail sur la méthode d'attaque (article inaccessible, résumé seul)",
     "date": "2026-11-25T20:10:30+00:00"
+  },
+  {
+    "id": "b368c84bce94ed6c",
+    "title": "CISA Adds 10 Known Exploited Vulnerabilities to Catalog",
+    "link": "https://www.cisa.gov/news-events/alerts/2026/11/25/cisa-adds-10-known-exploited-vulnerabilities-catalog",
+    "source": "CISA Advisories",
+    "raison": "liste de CVE sans détail sur la méthode d'attaque",
+    "date": "2026-11-25T22:10:00+00:00"
   }
 ]

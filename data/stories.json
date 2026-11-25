@@ -2,123 +2,12 @@
   "stories": [
     {
       "schema": 3,
-      "id": "2026-11-25-fifa-vol-donnees-hbhc",
-      "title": "FIFA : des pirates accèdent à des données personnelles et commerciales, le groupe HBHC revendique le vol",
-      "created": "2026-11-25T21:20:00+00:00",
-      "updated": "2026-11-25T21:20:00+00:00",
-      "version": 1,
-      "resume": "La FIFA confirme un accès non autorisé à un ensemble limité d'informations personnelles et commerciales [1]. Le groupe Handsome Boy Hacking Club revendique le vol de plus de 12 gigaoctets de données [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Accès revendiqué",
-          "texte": "Le groupe affirme avoir accédé à l'environnement Microsoft de la FIFA [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Plus de 12 gigaoctets revendiqués : pièces d'identité, documents d'immigration, relevés financiers, documents juridiques, informations de gouvernance, entre autres [1]."
-        },
-        {
-          "etape": "Extorsion",
-          "texte": "Tentative d'extorsion de la FIFA → sans succès, selon le groupe [1]."
-        },
-        {
-          "etape": "Publication",
-          "texte": "Mise en ligne des données sur un forum cybercriminel [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (HBHC)",
-            "note": ""
-          },
-          {
-            "id": "ms",
-            "type": "cloud",
-            "zone": "victime",
-            "nom": "Environnement Microsoft de la FIFA",
-            "note": "Accès revendiqué"
-          },
-          {
-            "id": "data",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Données personnelles et commerciales",
-            "note": "Plus de 12 gigaoctets"
-          },
-          {
-            "id": "forum",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Forum cybercriminel",
-            "note": "Données publiées"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "ms",
-            "etape": 2,
-            "texte": "Accès revendiqué à l'environnement Microsoft"
-          },
-          {
-            "de": "ms",
-            "vers": "data",
-            "etape": 3,
-            "texte": "Vol de données revendiqué"
-          },
-          {
-            "de": "data",
-            "vers": "forum",
-            "etape": 5,
-            "texte": "Données mises en ligne"
-          }
-        ]
-      },
-      "limites": "Les sources ne décrivent ni la méthode ni la date de l'intrusion, et la FIFA n'a pas répondu aux questions complémentaires sur la nature de l'incident [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Handsome Boy Hacking Club, groupe apparu récemment, membres et affiliations peu connus [1]"
-      ],
-      "cibles": [
-        "FIFA, instance dirigeante du football international basée à Zurich, environ 700 employés [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "FIFA",
-          "definition": "Fédération internationale de football association, instance dirigeante du football mondial"
-        },
-        {
-          "sigle": "HBHC",
-          "definition": "Handsome Boy Hacking Club : groupe de pirates revendiquant l'attaque"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "FIFA says hackers accessed ‘limited set of personal and business information’",
-          "site": "The Record",
-          "url": "https://therecord.media/fifa-data-breach-limited",
-          "date": "2026-11-25",
-          "image": "https://cms.therecord.media/uploads/fifa_sign_wc_final_202655407277531_c63256a9d9_o_77bc61d70a.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-11-25-artex-microsoft-acteurs-etatiques",
       "title": "ARTEX : Microsoft détaille comment Storm-0940, Salt Typhoon et d'autres groupes utilisent ce framework d'intrusion par agents d'IA",
       "created": "2026-11-25T20:30:00+00:00",
-      "updated": "2026-11-25T20:30:00+00:00",
-      "version": 1,
-      "resume": "Microsoft décrit l'usage du framework d'intrusion par agents d'IA ARTEX par des acteurs étatiques et cybercriminels, dont Storm-0940, Onyx Sleet et Salt Typhoon ; Storm-0940 a obtenu un accès privilégié moins de trois heures après le ciblage initial [1].",
+      "updated": "2026-11-25T22:10:00+00:00",
+      "version": 2,
+      "resume": "Microsoft décrit l'usage du framework d'intrusion par agents d'IA ARTEX par des acteurs étatiques et cybercriminels, dont Storm-0940, Onyx Sleet et Salt Typhoon [1, 2] ; l'outil est lié à des attaques contre des institutions financières sud-coréennes et japonaises [2].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -236,7 +125,7 @@
           }
         ]
       },
-      "limites": "Microsoft regroupe des observations de plusieurs intrusions sans nommer de victime ; l'article ne rattache pas chaque étape à un acteur précis, sauf pour Storm-0940 [1].",
+      "limites": "Microsoft ne nomme pas de victime et ne rattache les étapes à un acteur que pour Storm-0940 [1] ; les attaques contre des agences américaines ne sont pas détaillées [2].",
       "cves": [],
       "mitre": [
         "T1588.007 : Obtain Capabilities: Artificial Intelligence, se procurer des outils d'IA, ici ARTEX [1].",
@@ -251,10 +140,13 @@
       ],
       "acteurs": [
         "Storm-0940 : pulvérisation de mots de passe contre Microsoft 365 accélérée par ARTEX, identifiants d'applications volés [1]",
-        "Storm-3358, Onyx Sleet, Pearl Sleet, Crystal Typhoon et Salt Typhoon, cités comme intégrant ARTEX à leurs outils [1]"
+        "Storm-3358, Onyx Sleet, Pearl Sleet, Crystal Typhoon et Salt Typhoon, cités comme intégrant ARTEX à leurs outils [1]",
+        "Crystal Typhoon et Salt Typhoon (Chine), d'autres groupes chinois et nord-coréens, des acteurs financièrement motivés [2]"
       ],
       "cibles": [
-        "Organisations non nommées : applications web exposées, locataires Microsoft 365 et ressources Azure [1]"
+        "Organisations non nommées : applications web exposées, locataires Microsoft 365 et ressources Azure [1]",
+        "Institutions financières sud-coréennes et japonaises ; ConnectWise, via une attaque de la chaîne d'approvisionnement selon Microsoft [2]",
+        "Agences américaines CIA, NGA et ODNI, selon le New York Times et NextGov [2]"
       ],
       "abreviations": [
         {
@@ -276,6 +168,18 @@
         {
           "sigle": "DCSync",
           "definition": "Imitation d'un contrôleur de domaine pour copier les secrets des comptes"
+        },
+        {
+          "sigle": "CIA",
+          "definition": "Central Intelligence Agency : agence de renseignement extérieur américaine"
+        },
+        {
+          "sigle": "NGA",
+          "definition": "National Geospatial-Intelligence Agency : agence américaine de renseignement géospatial"
+        },
+        {
+          "sigle": "ODNI",
+          "definition": "Office of the Director of National Intelligence : coordination du renseignement américain"
         }
       ],
       "sources": [
@@ -285,6 +189,366 @@
           "url": "https://www.microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse/",
           "date": "2026-11-25",
           "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/11/ARTEX-featured.png"
+        },
+        {
+          "titre": "Microsoft: China’s Salt Typhoon hackers are using Artex",
+          "site": "The Record",
+          "url": "https://therecord.media/microsoft-china-salt-typhoon-using-artex-ai-tool",
+          "date": "2026-11-25",
+          "image": "https://cms.therecord.media/uploads/microsoft_sign_pexels_altabena_efbc5ae4db.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-25-pan-os-fragnesia-correctif",
+      "title": "PAN-OS : Palo Alto corrige Fragnesia, faille du noyau Linux chaînée à PHP2Shell pour prendre le contrôle root de pare-feu",
+      "created": "2026-11-25T09:15:00+00:00",
+      "updated": "2026-11-25T22:10:00+00:00",
+      "version": 2,
+      "resume": "Un groupe lié à la Chine a chaîné PHP2Shell et Fragnesia dans une campagne assistée par intelligence artificielle qui a compromis 25 serveurs, dont 24 pare-feu [1]. Palo Alto Networks confirme que ces attaques visent aussi PAN-OS et publie des correctifs [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de PHP2Shell sur l'interface de gestion de pare-feu PAN-OS exposée sur Internet → exécution de code à distance sans authentification [1, 2]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Exploit Fragnesia → déploiement de shells web avec les privilèges root [1] ; la CISA signale des shells web PHP et des commandes exécutées en root [2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant lié à la Chine",
+            "note": ""
+          },
+          {
+            "id": "fw",
+            "type": "passerelle",
+            "zone": "expose",
+            "nom": "Pare-feu PAN-OS",
+            "note": "Shells web PHP, root"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "fw",
+            "etape": 1,
+            "texte": "PHP2Shell sur l'interface de gestion exposée"
+          },
+          {
+            "de": "att",
+            "vers": "fw",
+            "etape": 2,
+            "texte": "Fragnesia, shells web en root"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment pas le groupe et ne décrivent pas les actions menées après le dépôt des shells web [1, 2] ; le rôle de l'intelligence artificielle n'est pas détaillé [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-46300",
+          "explication": "Fragnesia : élévation de privilèges dans le noyau Linux donnant les droits root à un attaquant local peu privilégié ; contre PAN-OS, il faut d'abord passer par PHP2Shell [1, 2]."
+        },
+        {
+          "id": "CVE-2026-109618",
+          "explication": "PHP2Shell : faille PHP critique permettant l'exécution de code à distance sans authentification ; correctifs PAN-OS disponibles au plus tard le 30 octobre [1, 2]."
+        },
+        {
+          "id": "CVE-2026-109619",
+          "explication": "PHP2Shell : seconde faille PHP critique permettant l'exécution de code à distance sans authentification [2]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Groupe de pirates lié à la Chine, non nommé [1]"
+      ],
+      "cibles": [
+        "Pare-feu PAN-OS dont l'interface de gestion est exposée sur Internet [1, 2]",
+        "Organisation américaine affiliée au gouvernement : deux serveurs piratés selon la société Dream [1]",
+        "Serveurs aux États-Unis, au Japon, à Taïwan et en Corée du Sud, selon Dream Security [2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "PAN-OS",
+          "definition": "Système d'exploitation des pare-feu de Palo Alto Networks"
+        },
+        {
+          "sigle": "PHP",
+          "definition": "Langage de programmation très utilisé pour les sites web"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Palo Alto Networks Patches Fragnesia Flaw Used to Root Firewalls",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/palo-alto-networks-patches-fragnesia-flaw-used-to-root-firewalls/",
+          "date": "2026-11-25",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/04/Palo-Alto-Networks.jpeg"
+        },
+        {
+          "titre": "Palo Alto Networks warns of Fragnesia flaw exploited in PAN-OS attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/palo-alto-networks-warns-of-fragnesia-flaw-exploited-in-pan-os-attacks/",
+          "date": "2026-11-25",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/25/paloalto.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-25-1password-compte-github-employe",
+      "title": "1Password : le compte GitHub piraté d'un employé sert à injecter du code et voler des données clients",
+      "created": "2026-11-25T22:10:00+00:00",
+      "updated": "2026-11-25T22:10:00+00:00",
+      "version": 1,
+      "resume": "1Password a révélé qu'un attaquant, via le compte GitHub piraté d'un employé, a injecté du code malveillant dans ses services internes et volé des données d'un petit nombre de clients ; selon l'entreprise, coffres et clés de chiffrement ne sont pas compromis [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Compromission du compte GitHub professionnel d'un employé, par une méthode non précisée → accès à des dépôts de code source privés [1]."
+        },
+        {
+          "etape": "Injection de code",
+          "texte": "Code malveillant injecté dans des services internes de l'entreprise → téléchargement des enregistrements de comptes clients [1]."
+        },
+        {
+          "etape": "Chaîne de déploiement",
+          "texte": "Accès à l'environnement d'intégration et de déploiement continus → exposition possible d'identifiants d'infrastructure internes [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Vol de code source interne et de données de comptes : noms, adresses e-mail, identifiants, clés publiques, paramètres SRP, jetons d'invitation et de récupération [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "gh",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Compte GitHub d'un employé",
+            "note": "Compromis"
+          },
+          {
+            "id": "repo",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Dépôts de code privés",
+            "note": "Code source volé"
+          },
+          {
+            "id": "svc",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Services internes 1Password",
+            "note": "Code malveillant injecté"
+          },
+          {
+            "id": "cicd",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Environnement CI/CD",
+            "note": "Identifiants exposés"
+          },
+          {
+            "id": "dat",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données de comptes clients",
+            "note": "Volées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gh",
+            "etape": 1,
+            "texte": "Compte GitHub compromis"
+          },
+          {
+            "de": "gh",
+            "vers": "repo",
+            "etape": 1,
+            "texte": "Accès aux dépôts privés"
+          },
+          {
+            "de": "repo",
+            "vers": "svc",
+            "etape": 2,
+            "texte": "Code malveillant injecté"
+          },
+          {
+            "de": "svc",
+            "vers": "dat",
+            "etape": 2,
+            "texte": "Téléchargement des comptes clients"
+          },
+          {
+            "de": "att",
+            "vers": "cicd",
+            "etape": 3,
+            "texte": "Accès à l'intégration et au déploiement continus"
+          },
+          {
+            "de": "dat",
+            "vers": "att",
+            "etape": 4,
+            "texte": "Données et code source volés"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni comment le compte GitHub a été compromis, ni la date de l'intrusion, ni le nombre exact de clients touchés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "1Password et un petit nombre de ses clients, notifiés individuellement [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CI/CD",
+          "definition": "Intégration et déploiement continus : chaîne automatisée de compilation et de mise en production"
+        },
+        {
+          "sigle": "SRP",
+          "definition": "Secure Remote Password : protocole d'authentification par mot de passe sans l'envoyer"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "1Password customer data stolen after employee GitHub account breach",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/1password-customer-data-stolen-after-employee-github-account-breach/",
+          "date": "2026-11-25",
+          "image": "https://www.bleepstatic.com/content/hl-images/2023/10/23/1Password_binary.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-25-fifa-vol-donnees-hbhc",
+      "title": "FIFA : des pirates accèdent à des données personnelles et commerciales, le groupe HBHC revendique le vol",
+      "created": "2026-11-25T21:20:00+00:00",
+      "updated": "2026-11-25T21:20:00+00:00",
+      "version": 1,
+      "resume": "La FIFA confirme un accès non autorisé à un ensemble limité d'informations personnelles et commerciales [1]. Le groupe Handsome Boy Hacking Club revendique le vol de plus de 12 gigaoctets de données [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Accès revendiqué",
+          "texte": "Le groupe affirme avoir accédé à l'environnement Microsoft de la FIFA [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Plus de 12 gigaoctets revendiqués : pièces d'identité, documents d'immigration, relevés financiers, documents juridiques, informations de gouvernance, entre autres [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Tentative d'extorsion de la FIFA → sans succès, selon le groupe [1]."
+        },
+        {
+          "etape": "Publication",
+          "texte": "Mise en ligne des données sur un forum cybercriminel [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (HBHC)",
+            "note": ""
+          },
+          {
+            "id": "ms",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Environnement Microsoft de la FIFA",
+            "note": "Accès revendiqué"
+          },
+          {
+            "id": "data",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données personnelles et commerciales",
+            "note": "Plus de 12 gigaoctets"
+          },
+          {
+            "id": "forum",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Forum cybercriminel",
+            "note": "Données publiées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ms",
+            "etape": 2,
+            "texte": "Accès revendiqué à l'environnement Microsoft"
+          },
+          {
+            "de": "ms",
+            "vers": "data",
+            "etape": 3,
+            "texte": "Vol de données revendiqué"
+          },
+          {
+            "de": "data",
+            "vers": "forum",
+            "etape": 5,
+            "texte": "Données mises en ligne"
+          }
+        ]
+      },
+      "limites": "Les sources ne décrivent ni la méthode ni la date de l'intrusion, et la FIFA n'a pas répondu aux questions complémentaires sur la nature de l'incident [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Handsome Boy Hacking Club, groupe apparu récemment, membres et affiliations peu connus [1]"
+      ],
+      "cibles": [
+        "FIFA, instance dirigeante du football international basée à Zurich, environ 700 employés [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "FIFA",
+          "definition": "Fédération internationale de football association, instance dirigeante du football mondial"
+        },
+        {
+          "sigle": "HBHC",
+          "definition": "Handsome Boy Hacking Club : groupe de pirates revendiquant l'attaque"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "FIFA says hackers accessed ‘limited set of personal and business information’",
+          "site": "The Record",
+          "url": "https://therecord.media/fifa-data-breach-limited",
+          "date": "2026-11-25",
+          "image": "https://cms.therecord.media/uploads/fifa_sign_wc_final_202655407277531_c63256a9d9_o_77bc61d70a.jpg"
         }
       ]
     },
@@ -1455,91 +1719,6 @@
           "url": "https://thehackernews.com/2026/11/hackers-exploited-cvss-100-hexpm-rce.html",
           "date": "2026-11-25",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBxy4VIOekOumZfm8RElWJl6ZTKoIJ1QLc3U7ynLQ8p9PCqm_kYX1T-akwbZwbthTYcNwfVW-aWbRB4wIkvbUeM_gvQmnw8EH-hpY0542jCwFUAaI2mNEXGE3dct9K4JKFURV1smdERZlx4tV1zCy3AbS_NwF4o926_KSW-OKMPfDXT2gWbbZ4lKjFm6Y/s1700-nu-rw-lo-l85-e365/hex-hack.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-25-pan-os-fragnesia-correctif",
-      "title": "PAN-OS : Palo Alto corrige Fragnesia, faille du noyau Linux chaînée à PHP2Shell pour prendre le contrôle root de pare-feu",
-      "created": "2026-11-25T09:15:00+00:00",
-      "updated": "2026-11-25T09:15:00+00:00",
-      "version": 1,
-      "resume": "Un groupe lié à la Chine a chaîné PHP2Shell et Fragnesia dans une campagne assistée par intelligence artificielle qui a compromis 25 serveurs, dont 24 pare-feu [1]. Palo Alto Networks publie des versions de PAN-OS corrigeant Fragnesia [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Exploitation de PHP2Shell sur l'interface de gestion de pare-feu PAN-OS exposée sur Internet → exécution de code à distance [1]."
-        },
-        {
-          "etape": "Élévation de privilèges",
-          "texte": "Exploit Fragnesia → déploiement de shells web avec les privilèges root [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant lié à la Chine",
-            "note": ""
-          },
-          {
-            "id": "fw",
-            "type": "passerelle",
-            "zone": "expose",
-            "nom": "Pare-feu PAN-OS",
-            "note": "Shells web root"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "fw",
-            "etape": 1,
-            "texte": "PHP2Shell sur l'interface de gestion exposée"
-          },
-          {
-            "de": "att",
-            "vers": "fw",
-            "etape": 2,
-            "texte": "Fragnesia, shells web en root"
-          }
-        ]
-      },
-      "limites": "La source ne nomme pas le groupe, ne détaille pas le rôle de l'intelligence artificielle ni les actions menées après le dépôt des shells web [1].",
-      "cves": [
-        {
-          "id": "CVE-2026-46300",
-          "explication": "Fragnesia : élévation de privilèges dans le noyau Linux donnant les droits root à un attaquant non privilégié ; contre PAN-OS, seul chemin connu : passer d'abord par PHP2Shell [1]."
-        },
-        {
-          "id": "CVE-2026-109618",
-          "explication": "PHP2Shell : failles critiques permettant l'exécution de code à distance, vecteur d'accès initial connu ; correctifs PAN-OS publiés le 30 octobre [1]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "Groupe de pirates lié à la Chine, non nommé [1]"
-      ],
-      "cibles": [
-        "Pare-feu PAN-OS dont l'interface de gestion est exposée sur Internet [1]",
-        "Organisation américaine affiliée au gouvernement : deux serveurs piratés selon la société Dream [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "PAN-OS",
-          "definition": "Système d'exploitation des pare-feu de Palo Alto Networks"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Palo Alto Networks Patches Fragnesia Flaw Used to Root Firewalls",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/palo-alto-networks-patches-fragnesia-flaw-used-to-root-firewalls/",
-          "date": "2026-11-25",
-          "image": "https://www.securityweek.com/wp-content/uploads/2024/04/Palo-Alto-Networks.jpeg"
         }
       ]
     },
@@ -57822,116 +58001,6 @@
           "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-google-domains-after-breaching-cctld-registries/",
           "date": "2026-10-07",
           "image": "https://www.bleepstatic.com/content/hl-images/2023/12/29/google-flare.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-07-arizona-tribunaux-donnees-personnelles",
-      "title": "Système judiciaire de l'Arizona : données personnelles de 1,3 million de personnes copiées après un lien piégé",
-      "created": "2026-10-07T02:30:00+00:00",
-      "updated": "2026-10-07T19:07:56+00:00",
-      "version": 2,
-      "resume": "Le système judiciaire de l'Arizona a subi une cyberattaque détectée le 24 septembre 2026 : des données personnelles de 1,3 million de personnes ont été copiées [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Un employé de la cour clique sur un lien malveillant reçu par courriel → compromission du système [1]."
-        },
-        {
-          "etape": "Accès aux dossiers",
-          "texte": "Consultation de dossiers de protection (près de 30 000) et de rapports de protection de l'enfance (150 000 depuis 2010) → données exposées [1, 2]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Copie de fichiers de sauvegarde et des informations de 1,3 million de personnes (programme FARE) → données volées [1, 2], sans modification ni suppression [1]."
-        },
-        {
-          "etape": "Présence sur les sauvegardes",
-          "texte": "Présence détectée sur un serveur de sauvegarde → l'attaque est arrêtée environ 2 heures après sa détection [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "emp",
-            "type": "messagerie",
-            "zone": "victime",
-            "nom": "Employé de la cour",
-            "note": "Lien malveillant"
-          },
-          {
-            "id": "sys",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Dossiers judiciaires",
-            "note": "Données copiées"
-          },
-          {
-            "id": "sav",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur de sauvegarde",
-            "note": "Présence détectée"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "emp",
-            "etape": 1,
-            "texte": "Lien malveillant dans un courriel"
-          },
-          {
-            "de": "emp",
-            "vers": "sys",
-            "etape": 3,
-            "texte": "Copie des données personnelles"
-          },
-          {
-            "de": "att",
-            "vers": "sav",
-            "etape": 4,
-            "texte": "Présence détectée sur la sauvegarde"
-          }
-        ]
-      },
-      "limites": "Aucun acteur nommé, aucune revendication ni demande de rançon [2] ; le chemin vers le serveur de sauvegarde n'est pas précisé [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non précisé par les sources [1, 2]"
-      ],
-      "cibles": [
-        "Système judiciaire de l'Arizona : 1,3 million de personnes concernées par le programme FARE [1, 2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "FARE",
-          "definition": "Fines/Fees and Restitution Enforcement : programme de recouvrement des amendes"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Personal Information for Over 1 Million People Stolen in a Cyberattack on Arizona’s Court System",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/personal-information-for-over-1-million-people-stolen-in-a-cyberattack-on-arizonas-court-system/",
-          "date": "2026-10-07",
-          "image": "https://www.securityweek.com/wp-content/uploads/2023/01/Cybersecurity_News-SecurityWeek.jpg"
-        },
-        {
-          "titre": "Arizona courts say hackers stole info on more than 1.3 million people",
-          "site": "The Record",
-          "url": "https://therecord.media/arizona-courts-say-hackers-stole-info-on-over-1-million",
-          "date": "2026-10-07",
-          "image": "https://cms.therecord.media/uploads/courtroom_gavel_joe_gratz_887e3f2669.jpg"
         }
       ]
     }

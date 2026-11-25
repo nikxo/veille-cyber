@@ -1,13 +1,5 @@
 [
   {
-    "id": "1e9f8c6cb4be4924",
-    "title": "ChatGPT Lockdown Mode Bypass: Phishing, Malware Delivery, and Silent Data Exfiltration",
-    "link": "https://research.checkpoint.com/2026/chatgpt-lockdown-mode-bypass-phishing-malware-delivery-and-silent-data-exfiltration/",
-    "source": "Check Point Research",
-    "raison": "vulnérabilité de recherche corrigée, aucune exploitation constatée",
-    "date": "2026-11-05T14:20:00+00:00"
-  },
-  {
     "id": "5d4d032693916d5d",
     "title": "Is Your Exposure Management Platform Leaving You Exposed? Five Tests to Find Out",
     "link": "https://thehackernews.com/2026/11/is-your-exposure-management-platform.html",
@@ -3998,5 +3990,13 @@
     "source": "BleepingComputer",
     "raison": "bogue logiciel corrigé, aucune attaque",
     "date": "2026-11-25T12:08:00+00:00"
+  },
+  {
+    "id": "c2d9c9d48347efce",
+    "title": "CVE-2026-123903: Critical VMware Directory Service Authentication Bypass affects vCenter",
+    "link": "https://www.rapid7.com/blog/post/etr-cve-2026-123903-critical-vmware-directory-service-authentication-bypass-affects-vcenter",
+    "source": "Rapid7",
+    "raison": "vulnérabilité sans exploitation constatée (CVE-2026-123903, aucun signalement d'exploitation selon la source)",
+    "date": "2026-11-25T13:20:00+00:00"
   }
 ]

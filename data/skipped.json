@@ -1,21 +1,5 @@
 [
   {
-    "id": "9d52b0bab9b23d08",
-    "title": "Nearly 1.5 million exposed secrets targeted in new revocation program",
-    "link": "https://www.bleepingcomputer.com/news/security/truffle-security-launches-program-to-revoke-14-million-live-secrets/",
-    "source": "BleepingComputer",
-    "raison": "annonce de programme, aucune attaque décrite",
-    "date": "2026-11-05T21:10:00+00:00"
-  },
-  {
-    "id": "835e42a20ded7d60",
-    "title": "Social media giants sue California to overturn law shielding kids 15 and under from compulsive use",
-    "link": "https://therecord.media/social-media-giants-sue-california-over-social-media-law",
-    "source": "The Record",
-    "raison": "actualité judiciaire sans méthode d'attaque",
-    "date": "2026-11-05T21:10:00+00:00"
-  },
-  {
     "id": "2e711d3789ca8a2b",
     "title": "Barracuda Networks is your new best friend (Barracuda Email Security Gateway Pre-Auth Remote Root RCE CVE-2026-116606 / CVE-2026-111560)",
     "link": "https://labs.watchtowr.com/barracuda-networks-is-your-new-best-friend-barracuda-email-security-gateway-pre-auth-remote-root-rce-cve-2026-116606-cve-2026-111560/",
@@ -3998,5 +3982,21 @@
     "source": "The Record",
     "raison": "actualité législative, aucune attaque décrite",
     "date": "2026-11-25T18:20:00+00:00"
+  },
+  {
+    "id": "e856b7df17f6ce18",
+    "title": "Oh, is it Thanksgiving? I hadn’t noticed!",
+    "link": "https://blog.talosintelligence.com/oh-is-it-thanksgiving-i-hadnt-noticed/",
+    "source": "Cisco Talos",
+    "raison": "éditorial et newsletter hebdomadaire, brèves sans détail sur la méthode d'attaque",
+    "date": "2026-11-25T19:06:43+00:00"
+  },
+  {
+    "id": "f645ee4919e4e300",
+    "title": "Shirudo : le « bouclier » IA pour Linux d’OpenAI et Cisco, encore loin de parer tous les assauts",
+    "link": "https://www.lemagit.fr/actualites/366655460/Shirudo-le-bouclier-IA-pour-Linux-dOpenAI-et-Cisco-encore-loin-de-parer-tous-les-assauts",
+    "source": "LeMagIT",
+    "raison": "annonce produit (outil de protection Linux), aucune exploitation constatée décrite",
+    "date": "2026-11-25T19:06:43+00:00"
   }
 ]

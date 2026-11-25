@@ -2,6 +2,290 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-24-cia-systeme-non-classifie",
+      "version": 2,
+      "created": "2026-11-24T23:20:00+00:00",
+      "updated": "2026-11-25T08:08:31+00:00",
+      "title": "CIA : un système non classifié de renseignement en sources ouvertes piraté, l'outil d'intrusion ARTEX cité",
+      "resume": "Un système non classifié d'analyse du renseignement en sources ouvertes de la CIA a été piraté, sans exposition d'informations classifiées selon une source anonyme [1, 2]. L'attaque aurait aussi touché le bureau du directeur du renseignement national et l'agence de renseignement géospatial [2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1, 2]."
+        },
+        {
+          "etape": "Compromission",
+          "texte": "Intrusion menée avec ARTEX, cadre de tests d'intrusion fondé sur l'intelligence artificielle → système d'analyse en sources ouvertes compromis [2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Outil ARTEX"
+          },
+          {
+            "id": "sys",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Système non classifié CIA",
+            "note": "Sources ouvertes"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Intrusion avec ARTEX, vecteur non précisé"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'accès, ni les informations compromises, ni le responsable de l'attaque [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "CIA, système non classifié d'analyse du renseignement en sources ouvertes [1, 2]",
+        "Bureau du directeur du renseignement national (ODNI) et agence nationale de renseignement géospatial (NGA), également touchés selon l'article [2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CIA",
+          "definition": "Central Intelligence Agency : agence de renseignement extérieur des États-Unis"
+        },
+        {
+          "sigle": "ODNI",
+          "definition": "Office of the Director of National Intelligence : coordination du renseignement américain"
+        },
+        {
+          "sigle": "NGA",
+          "definition": "National Geospatial-Intelligence Agency : renseignement géospatial américain"
+        },
+        {
+          "sigle": "ARTEX",
+          "definition": "Nom d'un cadre de tests d'intrusion fondé sur l'intelligence artificielle"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "An Unclassified CIA System Was Breached in a Cyberattack, AP Source Says",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/an-unclassified-cia-system-was-breached-in-a-cyberattack-ap-source-says/",
+          "date": "2026-11-24",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/CIA_Hacked.jpg"
+        },
+        {
+          "titre": "Hackers reportedly breached CIA intelligence analysis system",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-reportedly-breached-cia-intelligence-analysis-system/",
+          "date": "2026-11-25",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/25/CIA_headpic.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-24-drupal-core-cve-2026-132165-kev",
+      "title": "Drupal Core : la faille de l'installeur CVE-2026-132165 exploitée pour prendre le contrôle de sites",
+      "created": "2026-11-24T22:20:00+00:00",
+      "updated": "2026-11-25T08:08:31+00:00",
+      "version": 2,
+      "resume": "La faille CVE-2026-132165 de l'installeur de Drupal Core, découverte par l'outil OSS Scanner d'Anthropic, est exploitée sur des sites dès le 19 novembre selon l'équipe de sécurité de Drupal [2]. La CISA l'a ajoutée le 24 novembre à son catalogue des failles exploitées [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Abus sans authentification, sous certaines conditions, de l'installeur fourni avec Drupal Core → réinstallation de Drupal [2]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Réinstallation du site → prise de contrôle du site ou exécution de code arbitraire [1, 2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "web",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Site sous Drupal Core",
+            "note": "Installeur abusé"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Abus de l'installeur, réinstallation de Drupal"
+          },
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 2,
+            "texte": "Prise de contrôle ou exécution de code"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni les attaquants, ni les victimes, ni le nombre de sites touchés, ni les conditions exactes d'exploitation [1, 2].",
+      "cves": [
+        {
+          "id": "CVE-2026-132165",
+          "explication": "Drupal Core, installeur : exécution de code à distance sans authentification, corrigée en 11.4.13, 11.3.22 et 10.6.22 ; gravité « très critique », 20 sur 25 [2]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Sites utilisant Drupal Core ; victimes et nombre de sites non précisés [1, 2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
+        },
+        {
+          "sigle": "OSS",
+          "definition": "Open Source Software : logiciel à code source ouvert"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/24/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-24"
+        },
+        {
+          "titre": "Drupal Flaw Found by Anthropic Scanner Exploited in Attacks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/drupal-flaw-found-by-anthropic-scanner-exploited-in-attacks/",
+          "date": "2026-11-25",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Drupal.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-25-chu-bordeaux-scarlettgroup",
+      "title": "CHU de Bordeaux : ScarlettGroup revendique une intrusion confirmée par l'hôpital et menace de publier des données de patients",
+      "created": "2026-11-25T08:08:31+00:00",
+      "updated": "2026-11-25T08:08:31+00:00",
+      "version": 1,
+      "resume": "Le CHU de Bordeaux a confirmé le 24 novembre une compromission de son système d'information, revendiquée par ScarlettGroup, qui menace de publier ou de vendre des données de patients faute d'accord [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Envoi de courriels",
+          "texte": "Deux adresses électroniques du CHU utilisées le 23 novembre pour envoyer en masse des courriels à des professionnels [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Exfiltration revendiquée par ScarlettGroup, extraits à l'appui : identités de patients, numéros de Sécurité sociale, ordonnances, imagerie, dossiers de ressources humaines [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Fiche du CHU publiée le 22 novembre avec compte à rebours → publication ou vente des données menacée sans accord [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (ScarlettGroup)",
+            "note": ""
+          },
+          {
+            "id": "mail",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Deux adresses du CHU",
+            "note": "Envois massifs"
+          },
+          {
+            "id": "si",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Système d'information du CHU",
+            "note": "Compromission confirmée"
+          },
+          {
+            "id": "fuite",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Site de fuite ScarlettGroup",
+            "note": "Compte à rebours"
+          }
+        ],
+        "liens": [
+          {
+            "de": "mail",
+            "vers": "si",
+            "etape": 2,
+            "texte": "Adresses utilisées pour des envois massifs"
+          },
+          {
+            "de": "si",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Exfiltration revendiquée"
+          },
+          {
+            "de": "att",
+            "vers": "fuite",
+            "etape": 4,
+            "texte": "Fiche publiée, menace de publication ou vente"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni le point d'entrée, ni le lien entre ces courriels et l'intrusion ; le CHU cherche encore à établir si des données ont été extraites [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "ScarlettGroup, jeune groupe de cybercriminels qui négocie fiche par fiche et menace de publier ou vendre les données [1]"
+      ],
+      "cibles": [
+        "CHU de Bordeaux, santé, France : compromission confirmée par l'hôpital [1]",
+        "SIG Sauer, fabricant d'armes américain : revendiqué, fiche marquée « Leaked » le 4 novembre [1]",
+        "Autres revendications : hôpital Sunnybrook à Toronto, Medina Healthcare System, Knox College, NBCUniversal, Genesys [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CHU",
+          "definition": "Centre hospitalier universitaire"
+        },
+        {
+          "sigle": "SIG",
+          "definition": "Élément du nom de l'armurier SIG Sauer, nom propre de l'entreprise"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CHU de Bordeaux et SIG Sauer ciblés par ScarlettGroup",
+          "site": "ZATAZ",
+          "url": "https://www.zataz.com/chu-de-bordeaux-et-sig-sauer-cibles-par-scarlettgroup/",
+          "date": "2026-11-25",
+          "image": "https://www.zataz.com/wp-content/uploads/Scarlettgroup.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-24-gt13-check-point-campagne-ia",
       "title": "GT13 : des serveurs de gestion Check Point compromis dans une campagne assistée par intelligence artificielle",
       "created": "2026-11-24T15:10:00+00:00",
@@ -475,150 +759,6 @@
           "url": "https://thehackernews.com/2026/11/wordpress-blocks-six-backdoored-wp.html",
           "date": "2026-11-25",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNbawIx8zYCfd7sCTbVfIzPFBtykkY65lf8EOswU62pIdZKTrx9ReB3mGnqYqujmW5eGzN_w8pEijAZMTpmOZ3fGB5zFyFaPo4ZhRQ8V0BkAmDCH3WoVqJ3kAfjDcw3_wRjhwphfyJxjF3_rDYiudb-cxt0pY3t8s-IRjNP1aEYHqtO5L1eZMkgBX6y2xD/s1700-nu-rw-lo-l85-e365/wp.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-24-cia-systeme-non-classifie",
-      "version": 1,
-      "created": "2026-11-24T23:20:00+00:00",
-      "updated": "2026-11-24T23:20:00+00:00",
-      "title": "CIA : un système non classifié de renseignement en sources ouvertes piraté lors d'une cyberattaque",
-      "resume": "Un système non classifié de la CIA, consacré au renseignement en sources ouvertes, a été piraté lors d'une cyberattaque ; aucune information classifiée n'était concernée selon une source anonyme [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Compromission",
-          "texte": "Intrusion dans un système non classifié de renseignement en sources ouvertes → problème résolu, aucune information classifiée touchée selon la source [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": "Non identifié"
-          },
-          {
-            "id": "sys",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Système non classifié CIA",
-            "note": "Sources ouvertes"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "sys",
-            "etape": 2,
-            "texte": "Intrusion, vecteur non précisé"
-          }
-        ]
-      },
-      "limites": "Les sources ne précisent ni le vecteur d'accès, ni les informations compromises, ni le responsable de l'attaque [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "CIA, système non classifié consacré au renseignement en sources ouvertes [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "CIA",
-          "definition": "Central Intelligence Agency : agence de renseignement extérieur des États-Unis"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "An Unclassified CIA System Was Breached in a Cyberattack, AP Source Says",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/an-unclassified-cia-system-was-breached-in-a-cyberattack-ap-source-says/",
-          "date": "2026-11-24",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/CIA_Hacked.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-24-drupal-core-cve-2026-132165-kev",
-      "title": "Drupal Core : la faille d'exécution de code CVE-2026-132165 exploitée, ajoutée au catalogue de la CISA",
-      "created": "2026-11-24T22:20:00+00:00",
-      "updated": "2026-11-24T22:20:00+00:00",
-      "version": 1,
-      "resume": "La CISA a ajouté le 24 novembre 2026 à son catalogue des failles exploitées la vulnérabilité CVE-2026-132165 de Drupal Core, qui permet l'exécution de code à distance [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Exécution de code",
-          "texte": "Exploitation active de la faille CVE-2026-132165 de Drupal Core, de type exécution de code à distance [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": "Non identifié"
-          },
-          {
-            "id": "web",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Site sous Drupal Core",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "web",
-            "etape": 1,
-            "texte": "Accès non précisé"
-          },
-          {
-            "de": "att",
-            "vers": "web",
-            "etape": 2,
-            "texte": "Exploitation de CVE-2026-132165"
-          }
-        ]
-      },
-      "limites": "La source ne décrit ni la faille en détail, ni les versions touchées, ni les attaquants, ni les victimes [1].",
-      "cves": [
-        {
-          "id": "CVE-2026-132165",
-          "explication": "Drupal Core : vulnérabilité d'exécution de code à distance, exploitation active confirmée ; gravité non précisée [1]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Sites utilisant Drupal Core ; victimes non précisées [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "CISA",
-          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
-          "site": "CISA Advisories",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/11/24/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-          "date": "2026-11-24"
         }
       ]
     },
@@ -57836,128 +57976,6 @@
           "url": "https://thehackernews.com/2026/10/fake-chatgpt-gemini-and-claude-ad.html",
           "date": "2026-10-06",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOD8Nta3AzEJA8JDouSAdwr3Obls6VzxBZwHHerzX0eZDKBTqWzVrAmZbX8VrvxKN1QNooX5GVAahBTaqPkWWcqRCO12MDDHWjboFPyw5FU1BaH07_wQhZkUNOROwHLFneZKKBY8oxjPTs0CpBF52UrLjeloGDwolt4udNn-ojCQNvvGvmo1TXdS3wNJlw/s1700-nu-rw-lo-l85-e365/muse.png"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-05-coree-banques-attaques-ia",
-      "title": "Corée du Sud : attaques contre sept banques, un outil chinois d'intelligence artificielle soupçonné",
-      "created": "2026-10-05T18:14:12+00:00",
-      "updated": "2026-10-06T16:30:00+00:00",
-      "version": 2,
-      "resume": "Des attaques ont touché Shinhan Bank, Kookmin Bank et Hana Bank en Corée du Sud, avec 25 000 clients concernés chez Shinhan et 119 000 chez Kookmin [1]. Au moins 68 000 personnes sont exposées dans au moins sept établissements [2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 2]."
-        },
-        {
-          "etape": "Hana Bank",
-          "texte": "Compromission du système de support commercial de Hana Bank → portée limitée [1]."
-        },
-        {
-          "etape": "Outil chinois",
-          "texte": "Utilisation de l'outil chinois Artex AI pour accéder aux systèmes des banques [2]."
-        },
-        {
-          "etape": "Données clients",
-          "texte": "Accès aux données de clients de Shinhan Bank et aux informations de carte de crédit de clients de Kookmin Bank [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "hana",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Support commercial Hana Bank",
-            "note": ""
-          },
-          {
-            "id": "dat",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Données clients Shinhan, Kookmin",
-            "note": ""
-          },
-          {
-            "id": "out",
-            "type": "inconnu",
-            "zone": "internet",
-            "nom": "Outil Artex AI",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "hana",
-            "etape": 2,
-            "texte": "Compromission du système de support commercial"
-          },
-          {
-            "de": "att",
-            "vers": "out",
-            "etape": 3,
-            "texte": "Outil chinois Artex AI utilisé"
-          },
-          {
-            "de": "out",
-            "vers": "dat",
-            "etape": 4,
-            "texte": "Accès aux données clients et cartes"
-          }
-        ]
-      },
-      "limites": "Des outils d'automatisation d'IA sont soupçonnés, avec une référence à ARTEX AI sur un serveur attaquant, sans confirmation officielle [1]. Les sources ne précisent pas l'accès initial [1, 2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non identifié ; outils d'automatisation d'IA soupçonnés [1] ; outil chinois Artex AI, avec 33 adresses IP tracées vers 12 pays [2]"
-      ],
-      "cibles": [
-        "Shinhan Bank (25 000 clients), Kookmin Bank (119 000 clients), Hana Bank [1] ; au moins sept établissements financiers [2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "IA",
-          "definition": "Intelligence artificielle"
-        },
-        {
-          "sigle": "AI",
-          "definition": "Artificial Intelligence : intelligence artificielle en anglais"
-        },
-        {
-          "sigle": "ARTEX",
-          "definition": "Nom d'outil cité par la source sur un serveur attaquant"
-        },
-        {
-          "sigle": "IP",
-          "definition": "Internet Protocol : adresse qui identifie une machine sur Internet"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "South Korea probes bank breaches amid suspected AI-powered attacks",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/south-korea-probes-bank-breaches-amid-suspected-ai-powered-attacks/",
-          "date": "2026-10-05",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/07/22/korea.jpg"
-        },
-        {
-          "titre": "South Korean officials believe AI agents were used to hack several banks",
-          "site": "The Record",
-          "url": "https://therecord.media/south-korean-bank-hacks-ai-agents",
-          "date": "2026-10-06",
-          "image": "https://cms.therecord.media/uploads/Lee_Jae_Myung_South_Korea_3d287bbf5d.jpg"
         }
       ]
     }

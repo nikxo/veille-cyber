@@ -1,29 +1,5 @@
 [
   {
-    "id": "02b4125588749d90",
-    "title": "OpenSSH flaw lets attackers log into password-disabled Linux accounts",
-    "link": "https://www.bleepingcomputer.com/news/security/openssh-flaw-lets-attackers-log-into-password-disabled-linux-accounts/",
-    "source": "BleepingComputer",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-11-05T18:08:02+00:00"
-  },
-  {
-    "id": "9e6a98593911664e",
-    "title": "Vulnérabilité dans OpenSSH (05 novembre 2026)",
-    "link": "https://www.cert.cyber.gouv.fr/alerte/CERTFR-2026-ALE-015/",
-    "source": "CERT-FR (alertes)",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-11-05T18:08:02+00:00"
-  },
-  {
-    "id": "f49c8cffc26c8dcf",
-    "title": "AI Agents Got Root on Linux via 948 Kernel Flaws in OpenAI Research",
-    "link": "https://www.securityweek.com/ai-agents-got-root-on-linux-via-948-kernel-flaws-in-openai-research/",
-    "source": "SecurityWeek",
-    "raison": "recherche, aucune exploitation dans la nature",
-    "date": "2026-11-05T18:08:02+00:00"
-  },
-  {
     "id": "7cc7abc127313281",
     "title": "Bring a tent, I've got the coffee: Lessons from it-sa",
     "link": "https://blog.talosintelligence.com/bring-a-tent-ive-got-the-coffee-lessons-from-it-sa/",
@@ -3998,5 +3974,29 @@
     "source": "Dark Reading",
     "raison": "tribune de conseils sur la détection des robots",
     "date": "2026-11-25T15:07:00+00:00"
+  },
+  {
+    "id": "5f45da81b6f63519",
+    "title": "Gestion du risque lié aux tiers : fournisseurs et clients, impossible à réconcilier ?",
+    "link": "https://www.lemagit.fr/actualites/366655500/Gestion-du-risque-lie-aux-tiers-fournisseurs-et-clients-impossible-a-reconcilier",
+    "source": "LeMagIT",
+    "raison": "étude générale sur le risque lié aux tiers, sans détail de méthode d'attaque",
+    "date": "2026-11-25T16:08:00+00:00"
+  },
+  {
+    "id": "7f1dc136f63a10d3",
+    "title": "Dette technique : l'IA offensive risque de la faire payer au prix fort",
+    "link": "https://www.lemagit.fr/actualites/366655515/Dette-technique-lIA-offensive-risque-de-la-faire-payer-au-prix-fort",
+    "source": "LeMagIT",
+    "raison": "analyse et opinion générales sur la dette technique, sans attaque décrite",
+    "date": "2026-11-25T16:08:00+00:00"
+  },
+  {
+    "id": "cc22ea94d15f907e",
+    "title": "InfraTrust warns of exploited supply chain flaws in network appliances",
+    "link": "https://www.bleepingcomputer.com/news/security/infratrust-warns-of-exploited-supply-chain-flaws-in-network-appliances/",
+    "source": "BleepingComputer",
+    "raison": "rapport d'éditeur récapitulant des avis de sécurité, sans nouvelle méthode d'attaque décrite",
+    "date": "2026-11-25T16:08:00+00:00"
   }
 ]

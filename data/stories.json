@@ -2,6 +2,85 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-25-nuget-faux-recrutement-dotnet",
+      "title": "Développeurs .NET : 13 paquets NuGet malveillants diffusés par de faux tests d'embauche",
+      "created": "2026-11-25T16:08:00+00:00",
+      "updated": "2026-11-25T16:08:00+00:00",
+      "version": 1,
+      "resume": "Des chercheurs ont découvert 13 paquets NuGet malveillants utilisés dans une fausse campagne de recrutement visant des développeurs .NET, qui donne aux attaquants l'accès à leurs machines [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Faux recrutement avec des tests d'embauche piégés visant des développeurs .NET [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "13 paquets NuGet malveillants diffusent un logiciel malveillant → accès des attaquants aux machines des développeurs [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquants",
+            "note": "Non nommés"
+          },
+          {
+            "id": "dev",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Développeur .NET",
+            "note": "Faux recrutement"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Machine du développeur",
+            "note": "Accès des attaquants"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "dev",
+            "etape": 1,
+            "texte": "Tests d'embauche piégés"
+          },
+          {
+            "de": "dev",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Paquets NuGet malveillants, logiciel malveillant diffusé"
+          }
+        ]
+      },
+      "limites": "L'article n'a pu être lu qu'à travers son résumé : noms des paquets, logiciel malveillant, actions après l'infection et auteurs ne sont pas précisés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Développeurs .NET [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": ".NET",
+          "definition": "Plateforme de développement logicielle de Microsoft"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Attackers Target .NET Developers With Poisoned Job Assessments",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/threat-intelligence/attackers-net-developers-poisoned-job-assessments",
+          "date": "2026-11-25"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-25-fincen-systemes-hors-ligne",
       "title": "FinCEN, agence du Trésor américain, coupe des systèmes après un accès non autorisé",
       "created": "2026-11-25T11:30:00+00:00",
@@ -89,15 +168,19 @@
       "schema": 3,
       "id": "2026-11-25-geoserver-failles-exploitees",
       "title": "GeoServer : deux failles récemment corrigées exploitées, des chaînes d'exécution de code sans authentification décrites",
-      "resume": "watchTowr observe l'exploitation active de deux failles récemment corrigées de GeoServer ; des chercheurs décrivent comment les enchaîner avec d'autres failles jusqu'à l'exécution de code [1].",
+      "resume": "watchTowr observe des tentatives d'exploitation de deux failles récemment corrigées de GeoServer ; des chercheurs de Rapid7 et d'Eye Security décrivent comment les enchaîner jusqu'à l'exécution de code sans authentification [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Exploitation de CVE-2026-120705 et CVE-2026-129243, sans authentification ; sondes d'erreur créant puis appelant des requêtes stockées pour vérifier la vulnérabilité [1]."
+          "texte": "Exploitation de CVE-2026-120705 et CVE-2026-129243, sans authentification ; sondes d'erreur créant puis appelant des requêtes stockées pour vérifier la vulnérabilité [1, 2]."
         },
         {
           "etape": "Scénario des chercheurs",
           "texte": "Non observé : fichiers de clé et mot de passe lus, cookie administrateur forgé, puis code exécuté via une base de données téléversée [1]."
+        },
+        {
+          "etape": "Scénario d'Eye Security",
+          "texte": "Non observé : CVE-2026-120705, CVE-2026-129245 et CVE-2026-120704 enchaînées → exécution de code sans authentification sous Linux et Windows [2]."
         }
       ],
       "parcours": {
@@ -129,18 +212,24 @@
             "vers": "geo",
             "etape": 2,
             "texte": "Scénario non observé : cookie administrateur forgé, code exécuté"
+          },
+          {
+            "de": "att",
+            "vers": "geo",
+            "etape": 3,
+            "texte": "Scénario non observé : trois failles enchaînées, code exécuté"
           }
         ]
       },
-      "limites": "La source ne décrit aucune compromission réelle ni victime ; les chaînes menant à l'exécution de code sont des scénarios de chercheurs, pas des attaques observées [1].",
+      "limites": "Les sources ne décrivent aucune compromission réelle ni victime ; watchTowr n'a signalé aucune exécution de code réussie, les chaînes complètes restent des scénarios de chercheurs [1, 2].",
       "cves": [
         {
           "id": "CVE-2026-120705",
-          "explication": "GeoServer : lecture arbitraire de fichiers et requêtes sortantes via une requête de service d'entités sans authentification, gravité 8,6 sur 10 ; exploitée dans la nature [1]."
+          "explication": "GeoServer : injection XML permettant, sans authentification, de lire des fichiers et d'envoyer des requêtes sortantes, gravité 8,6 sur 10 ; exploitée dans la nature [1, 2]."
         },
         {
           "id": "CVE-2026-129243",
-          "explication": "GeoServer : autorisation incorrecte permettant d'appeler des opérations protégées par les règles de sécurité de service, gravité 8,8 sur 10 ; exploitée dans la nature [1]."
+          "explication": "GeoServer : contrôle d'accès contourné permettant d'appeler des opérations réservées aux administrateurs, gravité 8,8 sur 10 ; exploitée dans la nature [1, 2]."
         },
         {
           "id": "CVE-2026-129245",
@@ -162,9 +251,15 @@
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Serveurs GeoServer non mis à jour vers 2.27.7, 2.28.6 ou 3.0.2 ; victimes non précisées [1]"
+        "Serveurs GeoServer non mis à jour vers 2.27.7, 2.28.6 ou 3.0.2 ; victimes non précisées [1]",
+        "Plus de 3 000 instances GeoServer accessibles sur Internet, selon Eye Security [2]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "XML",
+          "definition": "Format de texte balisé servant à structurer et échanger des données"
+        }
+      ],
       "sources": [
         {
           "titre": "Hackers Exploit Two GeoServer Flaws as Researchers Warn of Unauthenticated RCE Chains",
@@ -172,11 +267,18 @@
           "url": "https://thehackernews.com/2026/11/hackers-exploit-two-geoserver-flaws-as.html",
           "date": "2026-11-25",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhi8jBS9UW1bUouUo2cLun5A5rtqPOFJoVQctV4ZsoX9uuMottAxM0HLjLZrvTVGU1GtrewszjOwVMBkvHgyFIBsOndc049nwMidNiVnnoKCOePOhy-XDsjiVjxFvubbxn-Z6ca8VJAxxgLmyQ9KGYBRMWV5GP2et02dmXzcG3jKJw1p_njPdaPuJAaxAz1/s1700-nu-rw-lo-l85-e365/geoserver.png"
+        },
+        {
+          "titre": "Two Newly Disclosed GeoServer Vulnerabilities Under Attack",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/two-newly-disclosed-geoserver-vulnerabilities-under-attack/",
+          "date": "2026-11-25",
+          "image": "https://www.securityweek.com/wp-content/uploads/2024/04/Vulnerability-Databases.jpg"
         }
       ],
       "created": "2026-11-25T14:20:00+00:00",
-      "updated": "2026-11-25T14:20:00+00:00",
-      "version": 1
+      "updated": "2026-11-25T16:08:00+00:00",
+      "version": 2
     },
     {
       "schema": 3,

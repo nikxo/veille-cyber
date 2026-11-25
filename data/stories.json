@@ -2,6 +2,183 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-25-artex-microsoft-acteurs-etatiques",
+      "title": "ARTEX : Microsoft détaille comment Storm-0940, Salt Typhoon et d'autres groupes utilisent ce framework d'intrusion par agents d'IA",
+      "created": "2026-11-25T20:30:00+00:00",
+      "updated": "2026-11-25T20:30:00+00:00",
+      "version": 1,
+      "resume": "Microsoft décrit l'usage du framework d'intrusion par agents d'IA ARTEX par des acteurs étatiques et cybercriminels, dont Storm-0940, Onyx Sleet et Salt Typhoon ; Storm-0940 a obtenu un accès privilégié moins de trois heures après le ciblage initial [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Failles d'applications web exposées (injection, téléversement de fichiers), attaques sur les mots de passe ou identifiants volés → premier accès [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Dépôt de portes dérobées web, relancées par les agents jusqu'à ce qu'elles fonctionnent → exécution de commandes à distance [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Lecture de fichiers de configuration, de clés privées et de /etc/shadow, Kerberoasting et DCSync → nouveaux identifiants [1]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "Réutilisation des identifiants capturés via SSH et WinRM → accès à d'autres systèmes [1]."
+        },
+        {
+          "etape": "Prise de contrôle cloud",
+          "texte": "Connexion avec des identifiants volés, ajout d'identifiants à des applications et attribution de rôles privilégiés, jusqu'à administrateur global → accès durable et élevé [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Extraction de bases de données et lectures massives du stockage cloud avec des identifiants volés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (outil ARTEX)",
+            "note": "Storm-0940 et autres"
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "expose",
+            "nom": "Applications web exposées",
+            "note": ""
+          },
+          {
+            "id": "srv",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveurs compromis",
+            "note": "Portes dérobées web"
+          },
+          {
+            "id": "sec",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Fichiers de configuration et clés",
+            "note": "Identifiants récupérés"
+          },
+          {
+            "id": "pc",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Autres systèmes",
+            "note": "SSH, WinRM"
+          },
+          {
+            "id": "cl",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Environnement cloud",
+            "note": "Rôles privilégiés"
+          },
+          {
+            "id": "dat",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Bases et stockage cloud",
+            "note": "Données extraites"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Exploitation de failles web"
+          },
+          {
+            "de": "web",
+            "vers": "srv",
+            "etape": 2,
+            "texte": "Portes dérobées web déposées"
+          },
+          {
+            "de": "srv",
+            "vers": "sec",
+            "etape": 3,
+            "texte": "Lecture des fichiers et clés"
+          },
+          {
+            "de": "srv",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Réutilisation des identifiants capturés"
+          },
+          {
+            "de": "att",
+            "vers": "cl",
+            "etape": 5,
+            "texte": "Connexion avec identifiants volés"
+          },
+          {
+            "de": "cl",
+            "vers": "dat",
+            "etape": 6,
+            "texte": "Lectures massives et extraction"
+          }
+        ]
+      },
+      "limites": "Microsoft regroupe des observations de plusieurs intrusions sans nommer de victime ; l'article ne rattache pas chaque étape à un acteur précis, sauf pour Storm-0940 [1].",
+      "cves": [],
+      "mitre": [
+        "T1588.007 : Obtain Capabilities: Artificial Intelligence, se procurer des outils d'IA, ici ARTEX [1].",
+        "T1190 : Exploit Public-Facing Application, exploiter une application exposée sur Internet [1].",
+        "T1110.003 : Password Spraying, essayer quelques mots de passe courants sur de nombreux comptes [1].",
+        "T1505.003 : Web Shell, porte dérobée web pour exécuter des commandes sur le serveur [1].",
+        "T1558.003 : Kerberoasting, récupérer des tickets de service pour casser des mots de passe [1].",
+        "T1003.006 : DCSync, se faire passer pour un contrôleur de domaine pour copier les condensats de mots de passe [1].",
+        "T1021 : Remote Services, se déplacer via des services d'accès à distance [1].",
+        "T1098.003 : Additional Cloud Roles, s'attribuer des rôles cloud privilégiés [1].",
+        "T1530 : Data from Cloud Storage, lire des données dans le stockage cloud [1]."
+      ],
+      "acteurs": [
+        "Storm-0940 : pulvérisation de mots de passe contre Microsoft 365 accélérée par ARTEX, identifiants d'applications volés [1]",
+        "Storm-3358, Onyx Sleet, Pearl Sleet, Crystal Typhoon et Salt Typhoon, cités comme intégrant ARTEX à leurs outils [1]"
+      ],
+      "cibles": [
+        "Organisations non nommées : applications web exposées, locataires Microsoft 365 et ressources Azure [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "ARTEX",
+          "definition": "Framework de test d'intrusion piloté par des agents d'IA"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole d'administration à distance chiffré"
+        },
+        {
+          "sigle": "WinRM",
+          "definition": "Windows Remote Management : service d'administration à distance de Windows"
+        },
+        {
+          "sigle": "DCSync",
+          "definition": "Imitation d'un contrôleur de domaine pour copier les secrets des comptes"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "What defenders need to know about ARTEX, the agentic AI framework threat actors abuse",
+          "site": "Microsoft Threat Intelligence",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse/",
+          "date": "2026-11-25",
+          "image": "https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/11/ARTEX-featured.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-25-nuget-faux-recrutement-dotnet",
       "title": "Développeurs .NET : 13 paquets NuGet malveillants diffusés par de faux tests d'embauche",
       "created": "2026-11-25T16:08:00+00:00",
@@ -76,91 +253,6 @@
           "site": "Dark Reading",
           "url": "https://www.darkreading.com/threat-intelligence/attackers-net-developers-poisoned-job-assessments",
           "date": "2026-11-25"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-25-fincen-systemes-hors-ligne",
-      "title": "FinCEN, agence du Trésor américain, coupe des systèmes après un accès non autorisé",
-      "created": "2026-11-25T11:30:00+00:00",
-      "updated": "2026-11-25T14:20:00+00:00",
-      "version": 2,
-      "resume": "FinCEN, service du Trésor américain contre la criminalité financière, a subi un accès non autorisé à une partie limitée de ses systèmes et en a mis certains hors ligne par précaution [1, 2, 3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 2, 3]."
-        },
-        {
-          "etape": "Accès non autorisé",
-          "texte": "Accès à un sous-ensemble limité de systèmes → mise hors ligne préventive de certains d'entre eux [1, 2, 3]."
-        },
-        {
-          "etape": "Perturbation des déclarations",
-          "texte": "Portail de dépôt accessible mais certains services indisponibles ; délais prolongés au 30 décembre pour certaines déclarations dues du 18 novembre au 29 décembre [2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": "Non revendiqué"
-          },
-          {
-            "id": "sys",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Systèmes de FinCEN",
-            "note": "Certains mis hors ligne"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "sys",
-            "etape": 2,
-            "texte": "Accès non autorisé, vecteur non précisé"
-          }
-        ]
-      },
-      "limites": "Nature de l'incident, systèmes touchés, auteur et données consultées non précisés ; l'agence n'a pas dit si l'intrusion explique les échecs de dépôt signalés dès le 18 novembre [2, 3].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "FinCEN (Trésor américain) et les déclarants touchés par les interruptions, dont les délais sont prolongés [1, 2, 3]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "FinCEN",
-          "definition": "Financial Crimes Enforcement Network : cellule américaine contre la criminalité financière"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Treasury's FinCEN takes systems offline after cybersecurity incident",
-          "site": "The Record",
-          "url": "https://therecord.media/treasury-fincen-takes-systems-offline-after-cyber-incident",
-          "date": "2026-11-25",
-          "image": "https://cms.therecord.media/uploads/treasury_26f25f72ad.jpg"
-        },
-        {
-          "titre": "U.S. Treasury's Financial Crimes Agency Takes Some Systems Offline After Cyber Intrusion",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/us-treasurys-fincen-takes-some-systems.html",
-          "date": "2026-11-25",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJn89Gr-RFxS6UFEzrbUZ5Ys11fK1OwvmMYUPl29eJudnlmmp7Q34p8O0DqV8SvGu4whZke8tiysvZNQWeE4Tm3zRhJSpojYAagBXGUEVM5w6lAw2Z5C-lfRaC2IwOYrnwQSWxwso31woM4CSoluNEjA3N0gFe0RQpsV0r3MCobiKFArLMa1or-QTIBcQ/s1700-nu-rw-lo-l85-e365/fincern.jpg"
-        },
-        {
-          "titre": "US Treasury’s FinCEN Disconnects Systems Following Cyber Incident",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/us-treasurys-fincen-disconnects-systems-following-cyber-incident/",
-          "date": "2026-11-25",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/Treasury-Department.jpeg"
         }
       ]
     },
@@ -279,6 +371,250 @@
       "created": "2026-11-25T14:20:00+00:00",
       "updated": "2026-11-25T16:08:00+00:00",
       "version": 2
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-24-o-unc-053-inception-vishing",
+      "title": "Inception : le groupe d'hameçonnage vocal O-UNC-053, lié à ShinyHunters, vise les comptes d'authentification unique",
+      "created": "2026-11-24T14:40:00+00:00",
+      "updated": "2026-11-25T15:07:00+00:00",
+      "version": 3,
+      "resume": "Selon Okta, le groupe O-UNC-053, jusqu'ici jugé affilié à ShinyHunters, opère très probablement sous le nom Inception, dont le site d'extorsion revendique des victimes comme AMD et PepsiCo, sans confirmation de leur part [1, 2]. Inception nie tout lien avec ShinyHunters [3].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Appels téléphoniques aux employés ciblés → identifiants saisis sur une page d'hameçonnage et authentification multifacteur validée par la victime [1, 2]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Faux sites à thème juridique imitant surtout Okta, aussi NetIQ, comme legal-<cible>.com → identifiants d'authentification unique et codes captés [1, 2]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Prise de contrôle des comptes → accès aux applications en ligne de la victime [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Extraction de données sensibles depuis ces applications [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Menace de publication → cibles listées sur INCEPTION, au 16 novembre selon [1], le 17 novembre avec sept victimes selon [2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (O-UNC-053 / Inception)",
+            "note": ""
+          },
+          {
+            "id": "emp",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Employé ciblé",
+            "note": "Appel téléphonique"
+          },
+          {
+            "id": "phish",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Page d'hameçonnage",
+            "note": "Imite Okta, NetIQ"
+          },
+          {
+            "id": "apps",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Applications en ligne",
+            "note": "Comptes pris"
+          },
+          {
+            "id": "dls",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Site de fuite INCEPTION",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "emp",
+            "etape": 1,
+            "texte": "Appel pour manipuler l'employé"
+          },
+          {
+            "de": "emp",
+            "vers": "phish",
+            "etape": 2,
+            "texte": "Identifiants et codes saisis"
+          },
+          {
+            "de": "phish",
+            "vers": "att",
+            "etape": 2,
+            "texte": "Identifiants et codes captés"
+          },
+          {
+            "de": "att",
+            "vers": "apps",
+            "etape": 3,
+            "texte": "Prise de contrôle des comptes"
+          },
+          {
+            "de": "apps",
+            "vers": "att",
+            "etape": 4,
+            "texte": "Données sensibles extraites"
+          },
+          {
+            "de": "att",
+            "vers": "dls",
+            "etape": 5,
+            "texte": "Données de cibles listées"
+          }
+        ]
+      },
+      "limites": "Aucune victime revendiquée n'a confirmé de fuite [2], ni aucune marque visée par les domaines de compromission [3]. Okta ne peut établir avec forte confiance si le groupe gère seul le site de fuite [3].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "O-UNC-053, nom donné par Okta, auparavant jugé affilié à ShinyHunters, actif depuis mars [1, 2]",
+        "Inception, groupe d'extorsion qui se dit indépendant de tout groupe antérieur [2]",
+        "ShinyHunters : un compte lié au groupe depuis 2020 annonce son retour sur le forum Exploit, une usurpation n'est pas exclue [3]"
+      ],
+      "cibles": [
+        "Technologie, santé, biotechnologie, finance, assurance, divertissement, jeux, commerce, transport, hôtellerie et juridique [1]",
+        "Revendiquées sans confirmation : AMD, PepsiCo, Cigna Healthcare, AutoZone, Lucid Motors [2]",
+        "Marques imitées par l'infrastructure d'hameçonnage, dont Dropbox, Twitch, Western Union, Reddit [2]",
+        "Domaines d'hameçonnage visant notamment Anthropic, Amazon, Adobe, Netflix, OpenAI et Tesla, sans compromission signalée [3]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "INCEPTION",
+          "definition": "Nom du site de publication de données volées lié au groupe"
+        },
+        {
+          "sigle": "AMD",
+          "definition": "Advanced Micro Devices : fabricant américain de processeurs"
+        },
+        {
+          "sigle": "SSO",
+          "definition": "Single Sign-On : authentification unique donnant accès à plusieurs applications"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Okta Links ShinyHunters-Associated Vishing Group to New INCEPTION Data Leak Site",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/okta-links-shinyhunters-associated.html",
+          "date": "2026-11-24",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjete6dy8Fmd7sbjqKI5GKSySXkcnz4NF__irfVMBHzgRIDUnpGHtvRIbCywZYYsoKsnMdPhvanoXcnXbYvZpMjL2lL6d_F9a4ErEaI5rH_boPedH_ru2Ush9wonb8tYhGNVM6M_01DTue1THY7uGMbuKBJKNgMbrACkxHCGJiJylHWoxkkpCXNr2Z_CIdf/s1700-nu-rw-lo-l85-e365/leaks.jpg"
+        },
+        {
+          "titre": "New Inception extortion gang launches large-scale vishing campaign",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/new-inception-extortion-gang-launches-large-scale-vishing-campaign/",
+          "date": "2026-11-24",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/24/inception.jpg"
+        },
+        {
+          "titre": "ShinyHunters Claims Comeback, New Inception Group Rejects Alleged Ties",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/shinyhunters-claims-comeback-new-inception-group-rejects-alleged-ties/",
+          "date": "2026-11-25",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/09/cybercrime-hacker.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-25-fincen-systemes-hors-ligne",
+      "title": "FinCEN, agence du Trésor américain, coupe des systèmes après un accès non autorisé",
+      "created": "2026-11-25T11:30:00+00:00",
+      "updated": "2026-11-25T14:20:00+00:00",
+      "version": 2,
+      "resume": "FinCEN, service du Trésor américain contre la criminalité financière, a subi un accès non autorisé à une partie limitée de ses systèmes et en a mis certains hors ligne par précaution [1, 2, 3].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1, 2, 3]."
+        },
+        {
+          "etape": "Accès non autorisé",
+          "texte": "Accès à un sous-ensemble limité de systèmes → mise hors ligne préventive de certains d'entre eux [1, 2, 3]."
+        },
+        {
+          "etape": "Perturbation des déclarations",
+          "texte": "Portail de dépôt accessible mais certains services indisponibles ; délais prolongés au 30 décembre pour certaines déclarations dues du 18 novembre au 29 décembre [2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non revendiqué"
+          },
+          {
+            "id": "sys",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes de FinCEN",
+            "note": "Certains mis hors ligne"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 2,
+            "texte": "Accès non autorisé, vecteur non précisé"
+          }
+        ]
+      },
+      "limites": "Nature de l'incident, systèmes touchés, auteur et données consultées non précisés ; l'agence n'a pas dit si l'intrusion explique les échecs de dépôt signalés dès le 18 novembre [2, 3].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "FinCEN (Trésor américain) et les déclarants touchés par les interruptions, dont les délais sont prolongés [1, 2, 3]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "FinCEN",
+          "definition": "Financial Crimes Enforcement Network : cellule américaine contre la criminalité financière"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Treasury's FinCEN takes systems offline after cybersecurity incident",
+          "site": "The Record",
+          "url": "https://therecord.media/treasury-fincen-takes-systems-offline-after-cyber-incident",
+          "date": "2026-11-25",
+          "image": "https://cms.therecord.media/uploads/treasury_26f25f72ad.jpg"
+        },
+        {
+          "titre": "U.S. Treasury's Financial Crimes Agency Takes Some Systems Offline After Cyber Intrusion",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/us-treasurys-fincen-takes-some-systems.html",
+          "date": "2026-11-25",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJn89Gr-RFxS6UFEzrbUZ5Ys11fK1OwvmMYUPl29eJudnlmmp7Q34p8O0DqV8SvGu4whZke8tiysvZNQWeE4Tm3zRhJSpojYAagBXGUEVM5w6lAw2Z5C-lfRaC2IwOYrnwQSWxwso31woM4CSoluNEjA3N0gFe0RQpsV0r3MCobiKFArLMa1or-QTIBcQ/s1700-nu-rw-lo-l85-e365/fincern.jpg"
+        },
+        {
+          "titre": "US Treasury’s FinCEN Disconnects Systems Following Cyber Incident",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/us-treasurys-fincen-disconnects-systems-following-cyber-incident/",
+          "date": "2026-11-25",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/Treasury-Department.jpeg"
+        }
+      ]
     },
     {
       "schema": 3,
@@ -2477,165 +2813,6 @@
           "url": "https://therecord.media/mycolorado-app-down-data-breach",
           "date": "2026-11-24",
           "image": "https://cms.therecord.media/uploads/my_colorado_app_fb8214e64c.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-24-o-unc-053-inception-vishing",
-      "title": "Inception : le groupe d'hameçonnage vocal O-UNC-053, lié à ShinyHunters, vise les comptes d'authentification unique",
-      "created": "2026-11-24T14:40:00+00:00",
-      "updated": "2026-11-25T15:07:00+00:00",
-      "version": 3,
-      "resume": "Selon Okta, le groupe O-UNC-053, jusqu'ici jugé affilié à ShinyHunters, opère très probablement sous le nom Inception, dont le site d'extorsion revendique des victimes comme AMD et PepsiCo, sans confirmation de leur part [1, 2]. Inception nie tout lien avec ShinyHunters [3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Appels téléphoniques aux employés ciblés → identifiants saisis sur une page d'hameçonnage et authentification multifacteur validée par la victime [1, 2]."
-        },
-        {
-          "etape": "Vol d'identifiants",
-          "texte": "Faux sites à thème juridique imitant surtout Okta, aussi NetIQ, comme legal-<cible>.com → identifiants d'authentification unique et codes captés [1, 2]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Prise de contrôle des comptes → accès aux applications en ligne de la victime [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Extraction de données sensibles depuis ces applications [1]."
-        },
-        {
-          "etape": "Extorsion",
-          "texte": "Menace de publication → cibles listées sur INCEPTION, au 16 novembre selon [1], le 17 novembre avec sept victimes selon [2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (O-UNC-053 / Inception)",
-            "note": ""
-          },
-          {
-            "id": "emp",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Employé ciblé",
-            "note": "Appel téléphonique"
-          },
-          {
-            "id": "phish",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Page d'hameçonnage",
-            "note": "Imite Okta, NetIQ"
-          },
-          {
-            "id": "apps",
-            "type": "cloud",
-            "zone": "victime",
-            "nom": "Applications en ligne",
-            "note": "Comptes pris"
-          },
-          {
-            "id": "dls",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Site de fuite INCEPTION",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "emp",
-            "etape": 1,
-            "texte": "Appel pour manipuler l'employé"
-          },
-          {
-            "de": "emp",
-            "vers": "phish",
-            "etape": 2,
-            "texte": "Identifiants et codes saisis"
-          },
-          {
-            "de": "phish",
-            "vers": "att",
-            "etape": 2,
-            "texte": "Identifiants et codes captés"
-          },
-          {
-            "de": "att",
-            "vers": "apps",
-            "etape": 3,
-            "texte": "Prise de contrôle des comptes"
-          },
-          {
-            "de": "apps",
-            "vers": "att",
-            "etape": 4,
-            "texte": "Données sensibles extraites"
-          },
-          {
-            "de": "att",
-            "vers": "dls",
-            "etape": 5,
-            "texte": "Données de cibles listées"
-          }
-        ]
-      },
-      "limites": "Aucune victime revendiquée n'a confirmé de fuite [2], ni aucune marque visée par les domaines de compromission [3]. Okta ne peut établir avec forte confiance si le groupe gère seul le site de fuite [3].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "O-UNC-053, nom donné par Okta, auparavant jugé affilié à ShinyHunters, actif depuis mars [1, 2]",
-        "Inception, groupe d'extorsion qui se dit indépendant de tout groupe antérieur [2]",
-        "ShinyHunters : un compte lié au groupe depuis 2020 annonce son retour sur le forum Exploit, une usurpation n'est pas exclue [3]"
-      ],
-      "cibles": [
-        "Technologie, santé, biotechnologie, finance, assurance, divertissement, jeux, commerce, transport, hôtellerie et juridique [1]",
-        "Revendiquées sans confirmation : AMD, PepsiCo, Cigna Healthcare, AutoZone, Lucid Motors [2]",
-        "Marques imitées par l'infrastructure d'hameçonnage, dont Dropbox, Twitch, Western Union, Reddit [2]",
-        "Domaines d'hameçonnage visant notamment Anthropic, Amazon, Adobe, Netflix, OpenAI et Tesla, sans compromission signalée [3]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "INCEPTION",
-          "definition": "Nom du site de publication de données volées lié au groupe"
-        },
-        {
-          "sigle": "AMD",
-          "definition": "Advanced Micro Devices : fabricant américain de processeurs"
-        },
-        {
-          "sigle": "SSO",
-          "definition": "Single Sign-On : authentification unique donnant accès à plusieurs applications"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Okta Links ShinyHunters-Associated Vishing Group to New INCEPTION Data Leak Site",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/okta-links-shinyhunters-associated.html",
-          "date": "2026-11-24",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjete6dy8Fmd7sbjqKI5GKSySXkcnz4NF__irfVMBHzgRIDUnpGHtvRIbCywZYYsoKsnMdPhvanoXcnXbYvZpMjL2lL6d_F9a4ErEaI5rH_boPedH_ru2Ush9wonb8tYhGNVM6M_01DTue1THY7uGMbuKBJKNgMbrACkxHCGJiJylHWoxkkpCXNr2Z_CIdf/s1700-nu-rw-lo-l85-e365/leaks.jpg"
-        },
-        {
-          "titre": "New Inception extortion gang launches large-scale vishing campaign",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/new-inception-extortion-gang-launches-large-scale-vishing-campaign/",
-          "date": "2026-11-24",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/24/inception.jpg"
-        },
-        {
-          "titre": "ShinyHunters Claims Comeback, New Inception Group Rejects Alleged Ties",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/shinyhunters-claims-comeback-new-inception-group-rejects-alleged-ties/",
-          "date": "2026-11-25",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/09/cybercrime-hacker.jpeg"
         }
       ]
     },
@@ -57775,163 +57952,6 @@
           "url": "https://thehackernews.com/2026/10/poellm-malware-infects-3400-servers-to.html",
           "date": "2026-10-07",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDjQ8O0UFcl1dpOxEJoAM0s1mXXZHJNpJF4uJV_4jg7UPhHlDEvGHVxHKtyZQpnFC4HC3stGB-jJOSYUB5vdayfwx_eWPq-0F_l_ViYZNcA768t1N95JWhhbhUzY8anGOjVSL06QtsKVv_mz4lKgGrBMNBckAtFPxaW-KuG3mbWuUJrsyJP2vdWVbq8r9P/s1700-nu-rw-lo-l85-e365/crypto.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-07-southern-company-portail-client",
-      "title": "Georgia Power et Alabama Power : 400 000 comptes clients consultés via le portail en ligne",
-      "created": "2026-10-07T16:30:00+00:00",
-      "updated": "2026-10-07T16:30:00+00:00",
-      "version": 1,
-      "resume": "Un tiers non autorisé a accédé à des informations limitées de comptes clients de Southern Company : environ 300 000 chez Georgia Power et 100 000 chez Alabama Power [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Accès aux comptes",
-          "texte": "Un tiers non autorisé accède à des informations limitées sur le portail client → nom, adresse, téléphone, courriel ou 4 derniers chiffres du numéro de sécurité sociale exposés [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Tiers non autorisé",
-            "note": ""
-          },
-          {
-            "id": "por",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Portail client en ligne",
-            "note": "Données de comptes"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "por",
-            "etape": 2,
-            "texte": "Accès non autorisé aux comptes"
-          }
-        ]
-      },
-      "limites": "Les sources ne précisent ni la date, ni la méthode d'accès, ni l'auteur [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Tiers non autorisé, non identifié [1]"
-      ],
-      "cibles": [
-        "Georgia Power (environ 300 000 comptes), Alabama Power (environ 100 000 comptes), Mississippi Power [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Georgia Power, Alabama Power Data Breach Hits 400,000 Accounts",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/georgia-power-alabama-power-data-breach-hits-400000-accounts/",
-          "date": "2026-10-07",
-          "image": "https://www.securityweek.com/wp-content/uploads/2023/05/COSMICENERGY-OT-Malware.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-07-advantest-rancongiciel-donnees",
-      "title": "Advantest : données personnelles volées lors d'une attaque par rançongiciel en février",
-      "created": "2026-10-07T11:30:00+00:00",
-      "updated": "2026-10-07T13:30:00+00:00",
-      "version": 2,
-      "resume": "Advantest Corporation a subi une attaque par rançongiciel en février 2026 ; des données personnelles ont été extraites de ses serveurs, et les personnes touchées sont notifiées depuis le 6 octobre [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Accès aux systèmes",
-          "texte": "Un acteur non identifié pénètre le réseau le 15 février 2026 → accès à certains systèmes [1]."
-        },
-        {
-          "etape": "Chiffrement",
-          "texte": "Déploiement d'une charge de rançongiciel → systèmes touchés par l'attaque [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Extraction de données depuis les serveurs → informations personnelles exposées [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "res",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Réseau et serveurs Advantest",
-            "note": "Rançongiciel déployé"
-          },
-          {
-            "id": "don",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Données personnelles",
-            "note": "Extraites"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "res",
-            "etape": 2,
-            "texte": "Intrusion dans le réseau, rançongiciel déployé"
-          },
-          {
-            "de": "res",
-            "vers": "don",
-            "etape": 4,
-            "texte": "Extraction de données des serveurs"
-          }
-        ]
-      },
-      "limites": "Les sources ne précisent ni le vecteur d'accès ni le nombre total de personnes touchées [1, 2]. Aucun groupe n'a revendiqué l'attaque [2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Aucun groupe de rançongiciel n'a revendiqué l'attaque [2]"
-      ],
-      "cibles": [
-        "Advantest Corporation ; données de contact, dates de naissance, numéros d'identification, données médicales et financières [1]",
-        "Plus de 500 résidents californiens, 14 du Massachusetts et 8 du Vermont notifiés [2]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Advantest confirms personal information stolen in ransomware attack",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/advantest-confirms-personal-information-stolen-in-ransomware-attack/",
-          "date": "2026-10-07",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/02/20/Advantest.jpg"
-        },
-        {
-          "titre": "Advantest Discloses Data Breach Months After Ransomware Attack",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/advantest-discloses-data-breach-months-after-ransomware-attack/",
-          "date": "2026-10-07",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/02/Advantest.jpeg"
         }
       ]
     }

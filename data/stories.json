@@ -2,6 +2,235 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-26-remus-extension-chrome-gmail",
+      "title": "Remus : le voleur d'informations lit les courriels Gmail via une fausse extension Chrome Google Sheets",
+      "created": "2026-11-26T16:20:00+00:00",
+      "updated": "2026-11-26T16:20:00+00:00",
+      "version": 1,
+      "resume": "Le voleur d'informations Remus, vendu comme exploitant une faille inédite de Gmail, lit en réalité les courriels des victimes grâce à une extension Chrome malveillante déguisée en Google Sheets [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Installation de l'extension",
+          "texte": "Module DLL chargé par Remus → extension malveillante enregistrée dans le profil Chrome et mode développeur activé [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Extension déguisée en Google Sheets restée installée → accès à Gmail conservé malgré changement de mot de passe et révocation des sessions [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Vérification chaque minute des courriels non lus de jusqu'à 10 comptes → objet, corps et expéditeur envoyés au serveur de l'attaquant [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (opérateurs de Remus)",
+            "note": ""
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Navigateur Chrome de la victime",
+            "note": "Fausse extension Google Sheets"
+          },
+          {
+            "id": "gm",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Comptes Gmail",
+            "note": "Courriels non lus"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de l'attaquant",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Module DLL installe l'extension malveillante"
+          },
+          {
+            "de": "pc",
+            "vers": "gm",
+            "etape": 4,
+            "texte": "Lecture des courriels non lus chaque minute"
+          },
+          {
+            "de": "pc",
+            "vers": "c2",
+            "etape": 4,
+            "texte": "Envoi des courriels volés"
+          }
+        ]
+      },
+      "limites": "La source ne dit pas comment Remus arrive sur la machine, ni qui sont les victimes ; l'envoi des pièces jointes n'est peut-être pas encore terminé [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Développeur et vendeur du voleur Remus, non nommé, qui annonçait le 8 novembre une faille inédite de Gmail [1]"
+      ],
+      "cibles": [
+        "Utilisateurs de Chrome connectés à Gmail [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "DLL",
+          "definition": "Dynamic Link Library : bibliothèque de code chargée par un programme Windows"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Remus malware steals Gmail messages via fake Google Sheets extension",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/remus-malware-steals-gmail-messages-via-fake-google-sheets-extension/",
+          "date": "2026-11-26",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/25/Gmail.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-26-polinrider-depots-github",
+      "title": "PolinRider : un groupe lié à la Corée du Nord piège plus de 7 600 dépôts GitHub avec un chargeur caché dans la blockchain",
+      "created": "2026-11-26T16:20:00+00:00",
+      "updated": "2026-11-26T16:20:00+00:00",
+      "version": 1,
+      "resume": "La campagne PolinRider, liée à la Corée du Nord, a caché un chargeur malveillant dans au moins 7 609 dépôts GitHub de 2 330 comptes, surtout de développeurs, pour livrer un voleur d'informations [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Faux tests d'embauche et jetons GitHub volés sur des machines de développeurs compromises → accès aux dépôts [1]."
+        },
+        {
+          "etape": "Infection des dépôts",
+          "texte": "Commits existants réécrits en gardant auteur, message et date, puis poussés en force → chargeur caché dans les projets [1]."
+        },
+        {
+          "etape": "Exécution",
+          "texte": "Import du fichier par Python → le chargeur lit une transaction Ethereum et exécute avec Node.js le JavaScript qu'elle contient [1]."
+        },
+        {
+          "etape": "Commande à distance",
+          "texte": "Lecture d'un second portefeuille Ethereum → adresse du serveur de l'attaquant, qui fournit la suite du code [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Applications de développement modifiées pour exécuter le code de l'attaquant → installation d'un voleur d'informations [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (PolinRider)",
+            "note": "Lien nord-coréen"
+          },
+          {
+            "id": "dev",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Machines des développeurs",
+            "note": "Voleur installé"
+          },
+          {
+            "id": "gh",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Dépôts GitHub",
+            "note": "7 609 dépôts piégés"
+          },
+          {
+            "id": "eth",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Blockchain Ethereum",
+            "note": "Code caché"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de l'attaquant",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "dev",
+            "etape": 1,
+            "texte": "Faux tests d'embauche, jetons GitHub volés"
+          },
+          {
+            "de": "dev",
+            "vers": "gh",
+            "etape": 2,
+            "texte": "Commits réécrits poussés en force"
+          },
+          {
+            "de": "gh",
+            "vers": "dev",
+            "etape": 3,
+            "texte": "Chargeur exécuté à l'import ou l'ouverture"
+          },
+          {
+            "de": "dev",
+            "vers": "eth",
+            "etape": 3,
+            "texte": "Lecture de transactions Ethereum"
+          },
+          {
+            "de": "c2",
+            "vers": "dev",
+            "etape": 5,
+            "texte": "Livraison du voleur d'informations"
+          }
+        ]
+      },
+      "limites": "La nature exacte de la charge finale actuelle est inconnue ; les vagues précédentes volaient secrets, mots de passe de navigateurs, cookies et portefeuilles [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Sous-groupe lié à la Corée du Nord, opérant en parallèle de la campagne Contagious Interview [1]"
+      ],
+      "cibles": [
+        "Développeurs : 7 609 dépôts de 2 330 comptes selon Apiiro, dont Neutralinojs, InstaWP Connect et fxhash [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "VS Code",
+          "definition": "Visual Studio Code : éditeur de code de Microsoft"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "North Korea-Linked PolinRider Poisons Over 7,600 GitHub Repositories to Spread Malware",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/north-korea-linked-polinrider-poisons.html",
+          "date": "2026-11-26",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgquhPuqGJrSE3xNpn5ZUELVAv-Y7qXqkHgpw7nbVqCay4gyraYO5NNE12rAGzuqk_zhreNwcyzjZf3vZZB5C4teohyuppUP-JlP41PQiLu-hGEFCsqMZO0T6MoaVk-uY818yaTaiJaX-d2O0h0RER22knXbUQc7qnwIcVbleLQrEspMQ8btNa4Q9mFrmue/s1700-nu-rw-lo-l85-e365/gitcat.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-26-kev-mitel-xen-orchestra-juniper",
       "title": "Mitel MiCollab : failles exploitées avant correctif pour voler des données, et autres failles ajoutées au catalogue de la CISA",
       "created": "2026-11-26T08:08:05+00:00",
@@ -58016,206 +58245,6 @@
           "url": "https://thehackernews.com/2026/10/tensorlake-npm-package-compromised-to.html",
           "date": "2026-10-08",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1ZJrw-vCazDC3YJlfmY9WewJ170my9lYex6Ccg7VTa8UQCrXWoCiy_F9w_LoP-GDEarC_RoYnx63fAa_i_RmR5564MS6tgcoqi77wlcqPzX7kambOt4Gga7rsMlWWBwyHKZtCb1lAowiE4bf5up8aIJuwoVsZSKTq15TTynJ-uNPirAGnY8uwMMGqBsgU/s1700-nu-rw-lo-l85-e365/npm-hack.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-08-youtube-fausses-offres-hollyland",
-      "title": "Fausses offres de sponsoring visant à voler des comptes Google de créateurs YouTube",
-      "created": "2026-10-08T05:30:00+00:00",
-      "updated": "2026-10-08T05:30:00+00:00",
-      "version": 1,
-      "resume": "Une campagne se faisant passer pour la marque Hollyland, ainsi que Nike et Spotify, contacte des créateurs YouTube au Pérou, au Japon et dans le monde anglophone pour leur voler leur compte Google [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Courriel personnalisé proposant une collaboration sponsorisée, envoyé depuis un domaine sans lien avec Hollyland → premier contact avec le créateur [1]."
-        },
-        {
-          "etape": "Mise en confiance",
-          "texte": "Second courriel après l'envoi des tarifs, invitant à vérifier l'accord et le paiement sur un site → la cible arrive sur une fausse plateforme [1]."
-        },
-        {
-          "etape": "Fausse plateforme",
-          "texte": "Le site affiche statistiques, logos et calculateur de revenus, puis demande l'adresse de la chaîne YouTube → informations publiques utilisées pour personnaliser la page [1]."
-        },
-        {
-          "etape": "Vol d'identifiants",
-          "texte": "Fausse page de connexion Google présentée comme vérification de propriété de la chaîne → capture du mot de passe et du code à usage unique [1]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Dans le cas d'une créatrice, remplacement du téléphone et de l'adresse de récupération, ajout de codes de secours → récupération du compte entravée [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "bal",
-            "type": "messagerie",
-            "zone": "victime",
-            "nom": "Boîte mail du créateur",
-            "note": "Fausse offre reçue"
-          },
-          {
-            "id": "pf",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Fausse plateforme de marque",
-            "note": "Fausse page Google"
-          },
-          {
-            "id": "cpt",
-            "type": "cloud",
-            "zone": "victime",
-            "nom": "Compte Google du créateur",
-            "note": "Gmail, Drive"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "bal",
-            "etape": 1,
-            "texte": "Courriel d'offre de sponsoring"
-          },
-          {
-            "de": "bal",
-            "vers": "pf",
-            "etape": 2,
-            "texte": "Invitation à vérifier l'accord sur un site"
-          },
-          {
-            "de": "pf",
-            "vers": "att",
-            "etape": 4,
-            "texte": "Mot de passe et code à usage unique capturés"
-          },
-          {
-            "de": "att",
-            "vers": "cpt",
-            "etape": 5,
-            "texte": "Téléphone et adresse de récupération remplacés"
-          }
-        ]
-      },
-      "limites": "L'article n'attribue la campagne à aucun acteur nommé [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non identifié; l'article parle d'attaquants sans attribution [1]"
-      ],
-      "cibles": [
-        "Créateurs YouTube au Pérou, au Japon et anglophones; marque Hollyland usurpée [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Inside a brand deal scam targeting YouTube creators",
-          "site": "WeLiveSecurity (ESET)",
-          "url": "https://www.welivesecurity.com/en/social-media/brand-deal-scam-targeting-youtube-creators/",
-          "date": "2026-10-07",
-          "image": "https://web-assets.esetstatic.com/wls/2026/09-26/influencers-scams.png"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-08-byod-trump-mobile",
-      "title": "Le groupe BYOD revendique le piratage de Trump Mobile et menace Gate",
-      "created": "2026-10-08T00:30:00+00:00",
-      "updated": "2026-10-08T00:30:00+00:00",
-      "version": 1,
-      "resume": "Le groupe d'extorsion BYOD affirme avoir volé les données de 3 615 personnes liées à Trump Mobile et menace la plateforme de cryptomonnaies Gate, qui compterait 12 millions d'utilisateurs [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Selon BYOD, récupération de noms, e-mails, téléphones, adresses et détails de commandes → ZATAZ confirme que ces données sont accessibles [1]."
-        },
-        {
-          "etape": "Extorsion",
-          "texte": "BYOD dit détenir les données de 12 millions d'utilisateurs de Gate → menace d'extorsion, sans diffusion signalée à ce stade [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (BYOD)",
-            "note": ""
-          },
-          {
-            "id": "tm",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Systèmes de Trump Mobile",
-            "note": "3 615 personnes touchées"
-          },
-          {
-            "id": "gate",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Plateforme Gate",
-            "note": "Menace seulement"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "tm",
-            "etape": 1,
-            "texte": "Accès non précisé"
-          },
-          {
-            "de": "att",
-            "vers": "tm",
-            "etape": 2,
-            "texte": "Données de 3 615 personnes obtenues"
-          },
-          {
-            "de": "att",
-            "vers": "gate",
-            "etape": 3,
-            "texte": "Menace d'extorsion, 12 millions d'utilisateurs"
-          }
-        ]
-      },
-      "limites": "Les faits viennent des affirmations du groupe, sans confirmation indépendante de l'intrusion. Vecteur d'accès, dates et montant demandé ne sont pas mentionnés [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "BYOD, nouveau groupe d'extorsion [1]"
-      ],
-      "cibles": [
-        "Trump Mobile Wireless, plateforme Gate; quatre autres victimes présumées au Canada, en Malaisie et ailleurs [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "BYOD",
-          "definition": "Nom du groupe d'extorsion qui revendique l'attaque"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Trump Mobile : BYOD revendique 3 615 dossiers piratés",
-          "site": "ZATAZ",
-          "url": "https://www.zataz.com/trump-mobile-byod-revendique-3-615-dossiers-pirates/",
-          "date": "2026-10-07",
-          "image": "https://www.zataz.com/wp-content/uploads/byod_trump_mobile.jpg"
         }
       ]
     }

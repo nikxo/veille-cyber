@@ -309,17 +309,17 @@
       "id": "2026-11-25-1password-compte-github-employe",
       "title": "1Password : le compte GitHub piraté d'un employé sert à injecter du code et voler des données clients",
       "created": "2026-11-25T22:10:00+00:00",
-      "updated": "2026-11-25T22:10:00+00:00",
-      "version": 1,
-      "resume": "1Password a révélé qu'un attaquant, via le compte GitHub piraté d'un employé, a injecté du code malveillant dans ses services internes et volé des données d'un petit nombre de clients ; selon l'entreprise, coffres et clés de chiffrement ne sont pas compromis [1].",
+      "updated": "2026-11-26T06:06:43+00:00",
+      "version": 2,
+      "resume": "1Password a révélé qu'un attaquant, via le compte GitHub piraté d'un employé, a poussé du code malveillant dans ses services internes, volé du code source et des données d'un petit nombre de clients ; selon l'entreprise, le contenu des coffres n'a pas été consulté [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Compromission du compte GitHub professionnel d'un employé, par une méthode non précisée → accès à des dépôts de code source privés [1]."
+          "texte": "Compromission du compte GitHub professionnel d'un employé, par une méthode non précisée → accès au code source de dépôts privés [1, 2]."
         },
         {
           "etape": "Injection de code",
-          "texte": "Code malveillant injecté dans des services internes de l'entreprise → téléchargement des enregistrements de comptes clients [1]."
+          "texte": "Code malveillant poussé vers des services internes de l'entreprise → téléchargement de données de comptes clients [1, 2]."
         },
         {
           "etape": "Chaîne de déploiement",
@@ -327,7 +327,7 @@
         },
         {
           "etape": "Vol de données",
-          "texte": "Vol de code source interne et de données de comptes : noms, adresses e-mail, identifiants, clés publiques, paramètres SRP, jetons d'invitation et de récupération [1]."
+          "texte": "Copie de code source et vol de données de comptes : noms, adresses e-mail, identifiants, clés publiques, paramètres SRP, jetons d'invitation et de récupération [1, 2]."
         }
       ],
       "parcours": {
@@ -414,12 +414,14 @@
           }
         ]
       },
-      "limites": "La source ne précise ni comment le compte GitHub a été compromis, ni la date de l'intrusion, ni le nombre exact de clients touchés [1].",
+      "limites": "Les sources ne précisent ni comment le compte GitHub a été compromis ni le nombre exact de clients touchés ; l'enquête a débuté le 19 novembre 2026 [1, 2].",
       "cves": [],
       "mitre": [],
-      "acteurs": [],
+      "acteurs": [
+        "Acteur malveillant inconnu, sans attribution [2]"
+      ],
       "cibles": [
-        "1Password et un petit nombre de ses clients, notifiés individuellement [1]"
+        "1Password et un petit nombre de ses clients, notifiés individuellement [1, 2]"
       ],
       "abreviations": [
         {
@@ -438,6 +440,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/1password-customer-data-stolen-after-employee-github-account-breach/",
           "date": "2026-11-25",
           "image": "https://www.bleepstatic.com/content/hl-images/2023/10/23/1Password_binary.jpg"
+        },
+        {
+          "titre": "1Password Hacked, Customer Data and Source Code Stolen in GitHub Account Breach",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/1password-hacked-customer-data-and.html",
+          "date": "2026-11-26",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbu9vulg5_P2PLmwCbF5nNRu8UujJDFNLLCGackgRWjz4lmkQcAom8TerCouyPh1pF8sgBAiJTwO7qAQN3kLVd-_0e7czxqhyphenhyphenUQuSG6WyCJvoNsI92X7tl1ukE6h8QDLmQBUBJaKBCyTYXjaGMUeaczy-sTIjMvDHdQjphWmWyCsUyIG4Y7WD4J2FoQfgY/s1700-nu-rw-lo-l85-e365/1password.jpg"
         }
       ]
     },

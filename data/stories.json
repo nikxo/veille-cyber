@@ -309,25 +309,25 @@
       "id": "2026-11-25-1password-compte-github-employe",
       "title": "1Password : le compte GitHub piraté d'un employé sert à injecter du code et voler des données clients",
       "created": "2026-11-25T22:10:00+00:00",
-      "updated": "2026-11-26T06:06:43+00:00",
-      "version": 2,
-      "resume": "1Password a révélé qu'un attaquant, via le compte GitHub piraté d'un employé, a poussé du code malveillant dans ses services internes, volé du code source et des données d'un petit nombre de clients ; selon l'entreprise, le contenu des coffres n'a pas été consulté [1, 2].",
+      "updated": "2026-11-26T09:20:00+00:00",
+      "version": 3,
+      "resume": "1Password a révélé qu'un attaquant, via le compte GitHub piraté d'un employé, a poussé du code malveillant dans ses services internes, volé du code source et des données d'un petit nombre de clients ; selon l'entreprise, le contenu des coffres n'a pas été consulté [1, 2, 3].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Compromission du compte GitHub professionnel d'un employé, par une méthode non précisée → accès au code source de dépôts privés [1, 2]."
+          "texte": "Compromission du compte GitHub professionnel d'un employé, par une méthode non précisée → accès au code source de dépôts privés [1, 2, 3]."
         },
         {
           "etape": "Injection de code",
-          "texte": "Code malveillant poussé vers des services internes de l'entreprise → téléchargement de données de comptes clients [1, 2]."
+          "texte": "Code malveillant poussé vers des services internes de l'entreprise → téléchargement de données de comptes clients [1, 2, 3]."
         },
         {
           "etape": "Chaîne de déploiement",
-          "texte": "Accès à l'environnement d'intégration et de déploiement continus → exposition possible d'identifiants d'infrastructure internes [1]."
+          "texte": "Accès à l'environnement d'intégration et de déploiement continus → exposition possible d'identifiants d'infrastructure internes [1, 3]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Copie de code source et vol de données de comptes : noms, adresses e-mail, identifiants, clés publiques, paramètres SRP, jetons d'invitation et de récupération [1, 2]."
+          "texte": "Copie de code source et vol de données de comptes : noms, adresses e-mail, identifiants, clés publiques, paramètres SRP, jetons d'invitation et de récupération [1, 2, 3]."
         }
       ],
       "parcours": {
@@ -414,14 +414,14 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni comment le compte GitHub a été compromis ni le nombre exact de clients touchés ; l'enquête a débuté le 19 novembre 2026 [1, 2].",
+      "limites": "Les sources ne précisent ni comment le compte GitHub a été compromis ni le nombre exact de clients touchés ; l'enquête a débuté le 19 novembre [1, 2, 3].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Acteur malveillant inconnu, sans attribution [2]"
       ],
       "cibles": [
-        "1Password et un petit nombre de ses clients, notifiés individuellement [1, 2]"
+        "1Password et un petit nombre de ses clients, notifiés individuellement [1, 2, 3]"
       ],
       "abreviations": [
         {
@@ -447,6 +447,13 @@
           "url": "https://thehackernews.com/2026/11/1password-hacked-customer-data-and.html",
           "date": "2026-11-26",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbu9vulg5_P2PLmwCbF5nNRu8UujJDFNLLCGackgRWjz4lmkQcAom8TerCouyPh1pF8sgBAiJTwO7qAQN3kLVd-_0e7czxqhyphenhyphenUQuSG6WyCJvoNsI92X7tl1ukE6h8QDLmQBUBJaKBCyTYXjaGMUeaczy-sTIjMvDHdQjphWmWyCsUyIG4Y7WD4J2FoQfgY/s1700-nu-rw-lo-l85-e365/1password.jpg"
+        },
+        {
+          "titre": "1Password Breach Exposes Customer Data, Internal Source Code",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/1password-breach-exposes-customer-data-internal-source-code/",
+          "date": "2026-11-26",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/1password.jpeg"
         }
       ]
     },

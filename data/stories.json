@@ -557,17 +557,25 @@
       "id": "2026-11-25-nuget-faux-recrutement-dotnet",
       "title": "Développeurs .NET : 13 paquets NuGet malveillants diffusés par de faux tests d'embauche",
       "created": "2026-11-25T16:08:00+00:00",
-      "updated": "2026-11-25T16:08:00+00:00",
-      "version": 1,
-      "resume": "Des chercheurs ont découvert 13 paquets NuGet malveillants utilisés dans une fausse campagne de recrutement visant des développeurs .NET, qui donne aux attaquants l'accès à leurs machines [1].",
+      "updated": "2026-11-26T05:06:00+00:00",
+      "version": 2,
+      "resume": "Des attaquants non identifiés ont diffusé 13 paquets NuGet malveillants via de faux tests d'embauche visant des développeurs .NET, ce qui leur donne accès aux machines de ces développeurs [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Faux recrutement avec des tests d'embauche piégés visant des développeurs .NET [1]."
+          "texte": "Faux test technique d'embauche, annoncé notamment sur la plateforme de travail indépendant LaborX, qui intègre des paquets NuGet malveillants [1, 2]."
+        },
+        {
+          "etape": "Exécution du code",
+          "texte": "Compilation du projet → téléchargement depuis GitHub d'une DLL malveillante, chargée en lançant le clavier visuel de Microsoft copié à côté [2]."
         },
         {
           "etape": "Prise de contrôle",
-          "texte": "13 paquets NuGet malveillants diffusent un logiciel malveillant → accès des attaquants aux machines des développeurs [1]."
+          "texte": "Chargeurs utilisant des dépôts GitHub comme canal de commande dans les deux sens [2]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Programmes hébergés sur de faux dépôts liés à la campagne : profils Chrome envoyés sur GitHub, informations système transmises à un bot Telegram [2]."
         }
       ],
       "parcours": {
@@ -577,21 +585,35 @@
             "type": "attaquant",
             "zone": "internet",
             "nom": "Attaquants",
-            "note": "Non nommés"
+            "note": "Non attribués"
           },
           {
             "id": "dev",
             "type": "utilisateur",
             "zone": "victime",
             "nom": "Développeur .NET",
-            "note": "Faux recrutement"
+            "note": "Faux test d'embauche"
           },
           {
             "id": "pc",
             "type": "poste",
             "zone": "victime",
             "nom": "Machine du développeur",
-            "note": "Accès des attaquants"
+            "note": "Paquets NuGet piégés"
+          },
+          {
+            "id": "gh",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Dépôts GitHub",
+            "note": "Charges et commande"
+          },
+          {
+            "id": "tg",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Bot Telegram",
+            "note": ""
           }
         ],
         "liens": [
@@ -599,27 +621,57 @@
             "de": "att",
             "vers": "dev",
             "etape": 1,
-            "texte": "Tests d'embauche piégés"
+            "texte": "Faux test technique d'embauche"
           },
           {
             "de": "dev",
             "vers": "pc",
             "etape": 2,
-            "texte": "Paquets NuGet malveillants, logiciel malveillant diffusé"
+            "texte": "Compilation du projet piégé"
+          },
+          {
+            "de": "gh",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "DLL malveillante téléchargée"
+          },
+          {
+            "de": "gh",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Commandes des chargeurs via GitHub"
+          },
+          {
+            "de": "pc",
+            "vers": "gh",
+            "etape": 4,
+            "texte": "Profils Chrome envoyés"
+          },
+          {
+            "de": "pc",
+            "vers": "tg",
+            "etape": 4,
+            "texte": "Informations système envoyées"
           }
         ]
       },
-      "limites": "L'article n'a pu être lu qu'à travers son résumé : noms des paquets, logiciel malveillant, actions après l'infection et auteurs ne sont pas précisés [1].",
+      "limites": "Les sources ne donnent pas le nombre de développeurs touchés ni le nombre de téléchargements des paquets [1, 2].",
       "cves": [],
       "mitre": [],
-      "acteurs": [],
+      "acteurs": [
+        "Non attribué : Socket relève des ressemblances avec des campagnes nord-coréennes et iraniennes, sans indicateur ni code commun avec Contagious Interview [2]"
+      ],
       "cibles": [
-        "Développeurs .NET [1]"
+        "Développeurs .NET sous Windows candidats à un emploi [1, 2]"
       ],
       "abreviations": [
         {
           "sigle": ".NET",
           "definition": "Plateforme de développement logicielle de Microsoft"
+        },
+        {
+          "sigle": "DLL",
+          "definition": "Dynamic Link Library : bibliothèque de code chargée par un programme Windows"
         }
       ],
       "sources": [
@@ -628,6 +680,13 @@
           "site": "Dark Reading",
           "url": "https://www.darkreading.com/threat-intelligence/attackers-net-developers-poisoned-job-assessments",
           "date": "2026-11-25"
+        },
+        {
+          "titre": "13 Malicious NuGet Packages Turn Fake .NET Job Assessments Into Malware Delivery Traps",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/13-malicious-nuget-packages-turn-fake.html",
+          "date": "2026-11-26",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjt0w3YJQrn6VoUVUTTj46NLfeL_JJE-sDoxKsuBe-_OxBtQ3iX8AZTZ1CEn39-N5TGKYd-0ZKdOT43UwAWUbpIXlFdDwhyphenhyphenEKpkQVVJYJVodQRHyz0pJeKEvJIJgUpAEQqXizajmrriq9Mj1aqioeK1Zug__X26Ra4HwzFg8ImTajGc6b7Ck9LW2OCIpPoa/s1700-nu-rw-lo-l85-e365/dotnet.jpg"
         }
       ]
     },

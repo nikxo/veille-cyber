@@ -1238,11 +1238,11 @@
     {
       "schema": 3,
       "id": "2026-11-24-drupal-core-cve-2026-132165-kev",
-      "title": "Drupal Core : la faille Fail2Install (CVE-2026-132165) de l'installeur exploitée pour prendre le contrôle de sites",
+      "title": "Drupal Core : la faille Fail2Install (CVE-2026-132165) puis CVE-2026-136716 exploitées pour prendre le contrôle de sites",
       "created": "2026-11-24T22:20:00+00:00",
-      "updated": "2026-11-25T12:08:00+00:00",
-      "version": 4,
-      "resume": "La faille CVE-2026-132165 de l'installeur de Drupal Core permet, sans authentification, de prendre le contrôle d'un site ou d'y exécuter du code [1, 2, 3, 4]. Selon un signalement reçu par l'équipe de Drupal, elle a été exploitée dès le 19 novembre [2, 3, 4].",
+      "updated": "2026-11-26T08:08:05+00:00",
+      "version": 5,
+      "resume": "La faille CVE-2026-132165 de l'installeur de Drupal Core permet, sans authentification, de prendre le contrôle d'un site ou d'y exécuter du code, et a été exploitée dès le 19 novembre [2, 3, 4]. Une seconde faille, CVE-2026-136716, est aussi exploitée [5].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -1319,17 +1319,22 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni les attaquants, ni les victimes, ni le nombre de sites touchés [1, 2, 3, 4].",
+      "limites": "Les sources ne précisent ni les attaquants, ni les victimes, ni le nombre de sites touchés [1, 2, 3, 4, 5], ni comment CVE-2026-136716 est exploitée [5].",
       "cves": [
         {
           "id": "CVE-2026-132165",
           "explication": "Drupal Core, installeur : échec non sécurisé permettant sans authentification de prendre le contrôle d'un site ou d'exécuter du code ; CVSS 9,8 [4], « très critique » [2]."
+        },
+        {
+          "id": "CVE-2026-136716",
+          "explication": "Drupal Core : vérification incorrecte de conditions exceptionnelles ; des états d'installation encore vulnérables après le correctif de CVE-2026-132165 permettent de prendre le contrôle du site [5]."
         }
       ],
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Sites utilisant Drupal Core ; victimes et nombre de sites non précisés [1, 2, 3]"
+        "Sites utilisant Drupal Core ; victimes et nombre de sites non précisés [1, 2, 3]",
+        "Environ 55 800 sites Drupal exposés sur Internet, dont 31 500 sur des branches vulnérables à CVE-2026-132165, selon StepSecurity [5]"
       ],
       "abreviations": [
         {
@@ -1376,6 +1381,13 @@
           "url": "https://thehackernews.com/2026/11/drupal-fail2install-exploit-details.html",
           "date": "2026-11-25",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbChdPRqvJHt9cIG4Z1W9o12tl4thtxIDNNcntDjmIytSIC1PWvOytT0JjY0OJtnba6UVJcEmqNxgOMuWxX2pvNJzjQ70-CIeruqZEDdgaDG66Lv2T6lLMv8cEhrXRie1gcaLz6OoNw6f2822s2yz8jl958kok6WpHmZ7p_n3TRWTdEWSpr1le5T28kFQO/s1700-nu-rw-lo-l85-e365/drupal.gif"
+        },
+        {
+          "titre": "Drupal Warns of New Highly Critical Site Takeover Vulnerability Under Active Exploitation",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html",
+          "date": "2026-11-26",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiy2EcytpsKiKLhUfvQEADKBG6Ht2NprR2VIhIXPJcNQMIGqKT20l0afBPUVhehKFhRzpkHvl3Qu_qaPjFL3L4UsLYH3L4C1DM63zqskhJV1UAjaPqONaEbNkBFsxVDX2jpPZrMym52WvBx2pHktUiRfdXOcp_23xjTdUOxxjxJtI906XLMmw258Bjah1J2/s1700-nu-rw-lo-l85-e365/drupal-rce.png"
         }
       ]
     },
@@ -3391,8 +3403,8 @@
       "id": "2026-11-24-volant-manticore-iran-faux-cv",
       "title": "Volant Manticore : un groupe iranien issu de MuddyWater vise Chypre et la santé saoudienne avec de faux CV et des outils d'administration à distance",
       "created": "2026-11-24T15:10:00+00:00",
-      "updated": "2026-11-24T18:30:00+00:00",
-      "version": 2,
+      "updated": "2026-11-26T08:08:05+00:00",
+      "version": 3,
       "resume": "Volant Manticore, groupe iranien qui serait formé d'anciens opérateurs de MuddyWater, a visé à Chypre une compagnie aérienne, des télécoms et des infrastructures critiques, puis la santé en Arabie saoudite [1, 2].",
       "chaine": [
         {
@@ -3486,12 +3498,14 @@
       "acteurs": [
         "Volant Manticore, nommé par Check Point ; origine iranienne (confiance forte), lien historique avec le ministère iranien du Renseignement (confiance moyenne) [1]",
         "Probablement d'anciens opérateurs de MuddyWater formant un groupe distinct ; Homa réimplémente en JavaScript le client de MuddyC2Go [1, 2]",
-        "Actif depuis fin août 2025 selon le rapport [2]"
+        "Actif depuis fin août 2025 selon le rapport [2]",
+        "Groupe iranien jusque-là non documenté selon Dark Reading [3]"
       ],
       "cibles": [
         "Chypre : compagnie aérienne en juillet 2026, entité gouvernementale probable en janvier 2026 [1]",
         "Chypre : télécommunications, compagnies aériennes et infrastructures critiques [2]",
-        "Arabie saoudite : santé ciblée depuis septembre 2026 ; compte de messagerie d'un hôpital privé saoudien probablement compromis et associé à un leurre [1]"
+        "Arabie saoudite : santé ciblée depuis septembre 2026 ; compte de messagerie d'un hôpital privé saoudien probablement compromis et associé à un leurre [1]",
+        "Organisations chypriotes, visées pour recueillir du renseignement au profit de Téhéran [3]"
       ],
       "abreviations": [
         {
@@ -3533,6 +3547,12 @@
           "url": "https://thehackernews.com/2026/11/iran-aligned-volant-manticore-uses-ipfs.html",
           "date": "2026-11-24",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqukTcR2pkDWiTqMzORa4j7zZRB0MDUGfBly50X7gPwPHqSeBmfReQWpMR9IdPOP_NbeuQSBdYPknSgxvutDll4VAZNSoGqcwmXzhZNEez-UoE-MwTnM9i9XxjoLYRdhY0iY6tD9BK9IDB0o8RUU7sNsOex5tVNtoNwRHCCAxM9ri66c4G2wPa9AqW9saA/s1700-nu-rw-lo-l85-e365/iran-hackers.jpg"
+        },
+        {
+          "titre": "Cyprus Becomes Espionage Target for Iranian Hackers",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/cyberattacks-data-breaches/cyprus-espionage-target-iranian-hackers",
+          "date": "2026-11-26"
         }
       ]
     },
@@ -58069,6 +58089,160 @@
           "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-google-domains-after-breaching-cctld-registries/",
           "date": "2026-10-07",
           "image": "https://www.bleepstatic.com/content/hl-images/2023/12/29/google-flare.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-26-kev-mitel-xen-orchestra-juniper",
+      "title": "Mitel MiCollab, Xen Orchestra, Juniper Session Smart : dix failles exploitées ajoutées au catalogue de la CISA",
+      "created": "2026-11-26T08:08:05+00:00",
+      "updated": "2026-11-26T08:08:05+00:00",
+      "version": 1,
+      "resume": "La CISA a ajouté dix failles exploitées à son catalogue, dont cinq de Mitel MiCollab ; Vates et Juniper confirment l'exploitation de failles de Xen Orchestra et de Session Smart, sans nommer les attaquants [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Jeton contenant un objet JSON vide envoyé à Xen Orchestra → actions avec droits administrateur, sans authentification [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Identifiant « salt minion » spécialement conçu envoyé à Juniper Session Smart → commandes exécutées en root à distance [1]."
+        },
+        {
+          "etape": "Failles Mitel MiCollab",
+          "texte": "Exploitation constatée par la CISA, sans aucune information sur la manière dont les attaquants s'y prennent [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "xo",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Xen Orchestra",
+            "note": "Droits administrateur"
+          },
+          {
+            "id": "jun",
+            "type": "passerelle",
+            "zone": "victime",
+            "nom": "Juniper Session Smart",
+            "note": "Commandes en root"
+          },
+          {
+            "id": "mit",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Mitel MiCollab",
+            "note": "Méthode inconnue"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "xo",
+            "etape": 1,
+            "texte": "Jeton à objet JSON vide, authentification contournée"
+          },
+          {
+            "de": "att",
+            "vers": "jun",
+            "etape": 2,
+            "texte": "Identifiant salt minion forgé"
+          },
+          {
+            "de": "att",
+            "vers": "mit",
+            "etape": 3,
+            "texte": "Failles exploitées"
+          }
+        ]
+      },
+      "limites": "Les sources ne nomment ni victimes ni attaquants pour Mitel, Xen Orchestra et Juniper ; Danfoss ne confirme pas l'exploitation de ses failles, que l'article juge probable contre des supermarchés européens [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-133275",
+          "explication": "Mitel MiCollab : téléversement de fichiers arbitraires sur le système, CVSS 5,3 [1]."
+        },
+        {
+          "id": "CVE-2026-133303",
+          "explication": "Mitel MiCollab : injection XML permettant d'exécuter des commandes dans le contexte du système, CVSS 9,0 [1]."
+        },
+        {
+          "id": "CVE-2026-133311",
+          "explication": "Mitel MiCollab : accès non autorisé à des informations sensibles, CVSS 5,9 [1]."
+        },
+        {
+          "id": "CVE-2026-133323",
+          "explication": "Mitel MiCollab : injection de commandes permettant d'exécuter des commandes dans le contexte du système, CVSS 10,0 [1]."
+        },
+        {
+          "id": "CVE-2026-133324",
+          "explication": "Mitel MiCollab : contournement d'authentification permettant des actions non autorisées dans l'application, CVSS 5,3 [1]."
+        },
+        {
+          "id": "CVE-2026-133469",
+          "explication": "Vates Xen Orchestra : jeton contenant un objet JSON vide permettant, sans authentification, des actions administrateur, CVSS 9,8 [1]."
+        },
+        {
+          "id": "CVE-2026-103406",
+          "explication": "Juniper Session Smart Conductor et Router : injection de commandes système permettant d'exécuter des commandes en root à distance, CVSS 9,8 [1]."
+        },
+        {
+          "id": "CVE-2023-25914",
+          "explication": "Danfoss AK-SM 800A, contrôleur de réfrigération : traversée de répertoires permettant de lire des fichiers système, CVSS 8,8 [1]."
+        },
+        {
+          "id": "CVE-2023-25915",
+          "explication": "Danfoss AK-SM 800A : validation insuffisante des entrées permettant d'exécuter des commandes à distance, CVSS 9,9 [1]."
+        },
+        {
+          "id": "CVE-2025-41450",
+          "explication": "Danfoss AK-SM 800A : authentification défaillante exposant adresses internes, noms d'utilisateurs et de magasins, CVSS 8,5 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Utilisateurs de Mitel MiCollab, Vates Xen Orchestra, Juniper Session Smart et Danfoss AK-SM 800A ; victimes non précisées [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
+        },
+        {
+          "sigle": "JSON",
+          "definition": "Format texte d'échange de données structurées"
+        },
+        {
+          "sigle": "XML",
+          "definition": "Langage de balisage pour structurer des données"
+        },
+        {
+          "sigle": "CVSS",
+          "definition": "Common Vulnerability Scoring System : note de gravité d'une faille sur 10"
+        },
+        {
+          "sigle": "AK-SM",
+          "definition": "Gamme de contrôleurs de supervision de réfrigération de Danfoss"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers Exploit 10 Vulnerabilities Across Mitel, Juniper, Vates, and Danfoss Products",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-10-vulnerabilities.html",
+          "date": "2026-11-26",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEht82Zul6A6D_rTYZuOr0QQWkA4p8kQXRI-4qAYhdGBdTR0ZNzlHkHCiz3eSv5wm9Gq1rADX0CIEBUu08HBUbWd4fVKtL6f7UrWcaa_nVetYt0DyPj2-f_yM80HEIUbuy57mpftPYHHp1FKCNXvkDnFtsj-V5PWGUvWiNL38OKY3EIKUwKHuoKsIc4oSXeC/s1700-nu-rw-lo-l85-e365/mitel.jpg"
         }
       ]
     }

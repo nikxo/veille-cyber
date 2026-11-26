@@ -2,6 +2,977 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-26-kev-mitel-xen-orchestra-juniper",
+      "title": "Mitel MiCollab : failles exploitées avant correctif pour voler des données, et autres failles ajoutées au catalogue de la CISA",
+      "created": "2026-11-26T08:08:05+00:00",
+      "updated": "2026-11-26T12:08:16+00:00",
+      "version": 2,
+      "resume": "Selon Accenture, des attaquants non identifiés ont exploité des failles de Mitel MiCollab avant l'avis de Mitel pour voler des informations commerciales sensibles [2]. La CISA a aussi ajouté des failles exploitées de Xen Orchestra, Juniper et Danfoss à son catalogue [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de failles de Mitel MiCollab avant l'avis de l'éditeur → commandes exécutées sur le serveur 12 minutes après la première requête [2]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Droits root obtenus en moins d'une demi-heure, puis collecte d'identifiants supplémentaires [2]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "Accès rapide à l'infrastructure d'identité, puis aux serveurs internes de sauvegarde et de bases de données environ 20 heures après la première requête [2]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Vol d'informations commerciales sensibles, dans ce qui pourrait être une campagne d'extorsion selon les chercheurs [2]."
+        },
+        {
+          "etape": "Faille Xen Orchestra",
+          "texte": "Jeton contenant un objet JSON vide envoyé à Xen Orchestra → actions avec droits administrateur, sans authentification [1]."
+        },
+        {
+          "etape": "Faille Juniper",
+          "texte": "Identifiant « salt minion » spécialement conçu envoyé à Juniper Session Smart → commandes exécutées en root à distance [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "mit",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur Mitel MiCollab",
+            "note": "Droits root obtenus"
+          },
+          {
+            "id": "idn",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Infrastructure d'identité",
+            "note": ""
+          },
+          {
+            "id": "sav",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Serveurs de sauvegarde et bases",
+            "note": "Atteints après 20 heures"
+          },
+          {
+            "id": "xo",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Xen Orchestra",
+            "note": "Droits administrateur"
+          },
+          {
+            "id": "jun",
+            "type": "passerelle",
+            "zone": "victime",
+            "nom": "Juniper Session Smart",
+            "note": "Commandes en root"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "mit",
+            "etape": 1,
+            "texte": "Failles MiCollab exploitées, commandes exécutées"
+          },
+          {
+            "de": "mit",
+            "vers": "idn",
+            "etape": 3,
+            "texte": "Accès à l'infrastructure d'identité"
+          },
+          {
+            "de": "mit",
+            "vers": "sav",
+            "etape": 3,
+            "texte": "Accès aux sauvegardes et bases de données"
+          },
+          {
+            "de": "att",
+            "vers": "xo",
+            "etape": 5,
+            "texte": "Jeton à objet JSON vide, authentification contournée"
+          },
+          {
+            "de": "att",
+            "vers": "jun",
+            "etape": 6,
+            "texte": "Identifiant salt minion forgé"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent pas quelle faille Mitel a servi à entrer ni comment un second serveur MiCollab a été compromis ; Danfoss ne confirme pas l'exploitation de ses failles [1, 2].",
+      "cves": [
+        {
+          "id": "CVE-2026-133275",
+          "explication": "Mitel MiCollab : téléversement de fichiers arbitraires sur le système, CVSS 5,3 [1]."
+        },
+        {
+          "id": "CVE-2026-133303",
+          "explication": "Mitel MiCollab : injection XML permettant d'exécuter des commandes dans le contexte du système, CVSS 9,0 [1]."
+        },
+        {
+          "id": "CVE-2026-133311",
+          "explication": "Mitel MiCollab : accès non autorisé à des informations sensibles, CVSS 5,9 [1]."
+        },
+        {
+          "id": "CVE-2026-133323",
+          "explication": "Mitel MiCollab : injection de commandes permettant d'exécuter des commandes dans le contexte du système, CVSS 10,0 [1]."
+        },
+        {
+          "id": "CVE-2026-133324",
+          "explication": "Mitel MiCollab : contournement d'authentification permettant des actions non autorisées dans l'application, CVSS 5,3 [1]."
+        },
+        {
+          "id": "CVE-2026-133469",
+          "explication": "Vates Xen Orchestra : jeton contenant un objet JSON vide permettant, sans authentification, des actions administrateur, CVSS 9,8 [1]."
+        },
+        {
+          "id": "CVE-2026-103406",
+          "explication": "Juniper Session Smart Conductor et Router : injection de commandes système permettant d'exécuter des commandes en root à distance, CVSS 9,8 [1]."
+        },
+        {
+          "id": "CVE-2023-25914",
+          "explication": "Danfoss AK-SM 800A, contrôleur de réfrigération : traversée de répertoires permettant de lire des fichiers système, CVSS 8,8 [1]."
+        },
+        {
+          "id": "CVE-2023-25915",
+          "explication": "Danfoss AK-SM 800A : validation insuffisante des entrées permettant d'exécuter des commandes à distance, CVSS 9,9 [1]."
+        },
+        {
+          "id": "CVE-2025-41450",
+          "explication": "Danfoss AK-SM 800A : authentification défaillante exposant adresses internes, noms d'utilisateurs et de magasins, CVSS 8,5 [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Attaquant non identifié ; son infrastructure communiquait avec deux services commerciaux d'intelligence artificielle, usage exact indéterminé selon Accenture [2]"
+      ],
+      "cibles": [
+        "Deux victimes non nommées utilisant Mitel MiCollab, dont l'une avec un serveur en contact avec l'infrastructure des attaquants depuis le 9 novembre [2]",
+        "Utilisateurs de Vates Xen Orchestra, Juniper Session Smart et Danfoss AK-SM 800A ; victimes non précisées [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
+        },
+        {
+          "sigle": "JSON",
+          "definition": "Format texte d'échange de données structurées"
+        },
+        {
+          "sigle": "XML",
+          "definition": "Langage de balisage pour structurer des données"
+        },
+        {
+          "sigle": "CVSS",
+          "definition": "Common Vulnerability Scoring System : note de gravité d'une faille sur 10"
+        },
+        {
+          "sigle": "AK-SM",
+          "definition": "Gamme de contrôleurs de supervision de réfrigération de Danfoss"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers Exploit 10 Vulnerabilities Across Mitel, Juniper, Vates, and Danfoss Products",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploit-10-vulnerabilities.html",
+          "date": "2026-11-26",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEht82Zul6A6D_rTYZuOr0QQWkA4p8kQXRI-4qAYhdGBdTR0ZNzlHkHCiz3eSv5wm9Gq1rADX0CIEBUu08HBUbWd4fVKtL6f7UrWcaa_nVetYt0DyPj2-f_yM80HEIUbuy57mpftPYHHp1FKCNXvkDnFtsj-V5PWGUvWiNL38OKY3EIKUwKHuoKsIc4oSXeC/s1700-nu-rw-lo-l85-e365/mitel.jpg"
+        },
+        {
+          "titre": "Mitel MiCollab Zero-Days Exploited in Suspected AI-Assisted Attacks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/mitel-micollab-zero-days-exploited-in-suspected-ai-assisted-attacks/",
+          "date": "2026-11-26",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/Mitel.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-26-sys010-extensions-navigateur-meta",
+      "title": "SYS010 : de fausses applications de fonds d'écran promues sur Meta imposent des extensions espionnes aux navigateurs",
+      "created": "2026-11-26T12:08:16+00:00",
+      "updated": "2026-11-26T12:08:16+00:00",
+      "version": 1,
+      "resume": "Bitdefender décrit SYS010, probablement une nouvelle version du voleur de données SYS01 diffusée par des publicités Meta, qui place les navigateurs sous la gestion de l'attaquant pour voler sessions, comptes publicitaires Facebook et courriels Gmail et Outlook [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Publicités Meta usurpant Wallpaper Engine et Lively Wallpapers → installation d'une application Windows fonctionnelle qui cache le logiciel malveillant [1]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Demandes d'autorisation Windows répétées toutes les trois secondes, jusqu'à 99 fois, jusqu'à acceptation → droits administrateur pour modifier les politiques des navigateurs [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Chrome inscrit dans une console Google de l'attaquant, inscription possible du poste Windows dans son serveur de gestion pour Edge, politique Firefox → extensions impossibles à supprimer [1]."
+        },
+        {
+          "etape": "Vol de sessions",
+          "texte": "Extensions « Docs Helper » et « Document Hub » volant les cookies de session → accès aux comptes connectés sans mot de passe ni double authentification [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Collecte des pages, comptes publicitaires et professionnels Facebook avec données de paiement, et envoi des courriels récents Gmail et Outlook à l'attaquant [1]."
+        },
+        {
+          "etape": "Effacement des traces",
+          "texte": "L'extension Chrome peut supprimer définitivement des messages → ce qui pourrait, selon Bitdefender, intercepter les codes de connexion et effacer les alertes de sécurité [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "pub",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Publicités Meta",
+            "note": "Faux fonds d'écran"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste Windows",
+            "note": "Droits administrateur"
+          },
+          {
+            "id": "con",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Consoles de gestion de l'attaquant",
+            "note": ""
+          },
+          {
+            "id": "nav",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Navigateurs Chrome, Edge, Firefox",
+            "note": "Extensions imposées"
+          },
+          {
+            "id": "cpt",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Comptes Facebook, Gmail, Outlook",
+            "note": "Sessions volées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "pub",
+            "etape": 1,
+            "texte": "Publicités usurpant des applications de fonds d'écran"
+          },
+          {
+            "de": "pub",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Installation de l'application piégée"
+          },
+          {
+            "de": "pc",
+            "vers": "nav",
+            "etape": 3,
+            "texte": "Politiques des navigateurs modifiées"
+          },
+          {
+            "de": "con",
+            "vers": "nav",
+            "etape": 3,
+            "texte": "Extensions installées de force"
+          },
+          {
+            "de": "nav",
+            "vers": "att",
+            "etape": 4,
+            "texte": "Cookies de session envoyés"
+          },
+          {
+            "de": "att",
+            "vers": "cpt",
+            "etape": 4,
+            "texte": "Connexion aux comptes sans mot de passe"
+          },
+          {
+            "de": "nav",
+            "vers": "cpt",
+            "etape": 5,
+            "texte": "Lecture des courriels Gmail et Outlook"
+          }
+        ]
+      },
+      "limites": "L'article ne nomme pas l'opérateur et précise que les requêtes vers ses serveurs, venues de plusieurs pays, ne confirment pas des infections [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Opérateur non identifié ; la famille SYS01 est utilisée depuis au moins 2022 dans des publicités malveillantes sur Facebook [1]"
+      ],
+      "cibles": [
+        "Utilisateurs de Windows et entreprises gérant des comptes Meta ; une publicité a touché 6 275 utilisateurs dans l'Union européenne [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SYS01",
+          "definition": "Famille de logiciels voleurs de données diffusée par publicités Facebook"
+        },
+        {
+          "sigle": "SYS010",
+          "definition": "Nouvelle version de SYS01, « 010 » signifiant 2 en binaire"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "SYS010 malware abuses browser management to spy on Gmail, Outlook",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/sys010-malware-abuses-browser-management-to-spy-on-gmail-outlook/",
+          "date": "2026-11-26",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/26/Gmail,Outlook_browser_inboxe.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-24-drupal-core-cve-2026-132165-kev",
+      "title": "Drupal Core : la faille Fail2Install (CVE-2026-132165) puis CVE-2026-136716 exploitées pour prendre le contrôle de sites",
+      "created": "2026-11-24T22:20:00+00:00",
+      "updated": "2026-11-26T10:20:00+00:00",
+      "version": 6,
+      "resume": "La faille CVE-2026-132165 de l'installeur de Drupal Core permet, sans authentification, de prendre le contrôle d'un site ou d'y exécuter du code, et a été exploitée dès le 19 novembre [2, 3, 4]. Une seconde faille, CVE-2026-136716, est aussi exploitée [5].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Épuisement des ressources du serveur → Drupal croit le site non installé et, grâce à une condition de concurrence, son installeur install.php reprend sur le site existant [4]."
+        },
+        {
+          "etape": "Dépôt du code",
+          "texte": "Base SQLite créée à un chemin finissant par .php sous la racine du site, code PHP saisi comme nom du site → code écrit dans ce fichier [4]."
+        },
+        {
+          "etape": "Neutralisation des protections",
+          "texte": "Faiblesse de gestion des chemins dans une règle de réécriture Apache → fichier accessible malgré le .htaccess par défaut de Drupal [4]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Résultat : exécution de code PHP arbitraire et création d'un compte administrateur contrôlé par l'attaquant [4]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "web",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur du site Drupal",
+            "note": "Installeur relancé"
+          },
+          {
+            "id": "php",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Base SQLite en .php",
+            "note": "Code PHP injecté"
+          },
+          {
+            "id": "adm",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Compte administrateur",
+            "note": "Créé par l'attaquant"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Ressources épuisées, installeur relancé"
+          },
+          {
+            "de": "web",
+            "vers": "php",
+            "etape": 2,
+            "texte": "Base SQLite créée avec code PHP"
+          },
+          {
+            "de": "att",
+            "vers": "php",
+            "etape": 3,
+            "texte": "Accès direct via faiblesse de réécriture Apache"
+          },
+          {
+            "de": "php",
+            "vers": "adm",
+            "etape": 4,
+            "texte": "Code PHP exécuté, compte administrateur créé"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni les attaquants, ni les victimes, ni le nombre de sites touchés [1, 2, 3, 4, 5, 6], ni comment CVE-2026-136716 est exploitée [5, 6].",
+      "cves": [
+        {
+          "id": "CVE-2026-132165",
+          "explication": "Drupal Core, installeur : échec non sécurisé permettant sans authentification de prendre le contrôle d'un site ou d'exécuter du code ; CVSS 9,8 [4], « très critique » [2]."
+        },
+        {
+          "id": "CVE-2026-136716",
+          "explication": "Drupal Core : contournement d'accès ; des installations restées vulnérables après le correctif de CVE-2026-132165 permettent de prendre le contrôle du site [5, 6], gravité CMSS 21 sur 25 [6]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Sites utilisant Drupal Core ; victimes et nombre de sites non précisés [1, 2, 3]",
+        "Environ 55 800 sites Drupal exposés sur Internet, dont 31 500 sur des branches vulnérables à CVE-2026-132165, selon StepSecurity [5]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
+        },
+        {
+          "sigle": "PHP",
+          "definition": "Langage de programmation utilisé pour les sites web, exécuté par le serveur"
+        },
+        {
+          "sigle": "SQLite",
+          "definition": "Base de données stockée dans un simple fichier"
+        },
+        {
+          "sigle": "CVSS",
+          "definition": "Common Vulnerability Scoring System : note de gravité d'une faille sur 10"
+        },
+        {
+          "sigle": "CMSS",
+          "definition": "Common Misuse Scoring System : note de gravité utilisée dans les avis de Drupal"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/24/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-24"
+        },
+        {
+          "titre": "Drupal Flaw Found by Anthropic Scanner Exploited in Attacks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/drupal-flaw-found-by-anthropic-scanner-exploited-in-attacks/",
+          "date": "2026-11-25",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Drupal.jpg"
+        },
+        {
+          "titre": "Hackers now exploit critical Drupal RCE flaw to hijack sites",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-now-exploit-critical-drupal-rce-flaw-to-hijack-sites/",
+          "date": "2026-11-25",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/19/Drupal-headpic.jpg"
+        },
+        {
+          "titre": "Drupal Fail2Install Exploit Details Emerge as Critical RCE Flaw Faces Active Exploitation",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/drupal-fail2install-exploit-details.html",
+          "date": "2026-11-25",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbChdPRqvJHt9cIG4Z1W9o12tl4thtxIDNNcntDjmIytSIC1PWvOytT0JjY0OJtnba6UVJcEmqNxgOMuWxX2pvNJzjQ70-CIeruqZEDdgaDG66Lv2T6lLMv8cEhrXRie1gcaLz6OoNw6f2822s2yz8jl958kok6WpHmZ7p_n3TRWTdEWSpr1le5T28kFQO/s1700-nu-rw-lo-l85-e365/drupal.gif"
+        },
+        {
+          "titre": "Drupal Warns of New Highly Critical Site Takeover Vulnerability Under Active Exploitation",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html",
+          "date": "2026-11-26",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiy2EcytpsKiKLhUfvQEADKBG6Ht2NprR2VIhIXPJcNQMIGqKT20l0afBPUVhehKFhRzpkHvl3Qu_qaPjFL3L4UsLYH3L4C1DM63zqskhJV1UAjaPqONaEbNkBFsxVDX2jpPZrMym52WvBx2pHktUiRfdXOcp_23xjTdUOxxjxJtI906XLMmw258Bjah1J2/s1700-nu-rw-lo-l85-e365/drupal-rce.png"
+        },
+        {
+          "titre": "Drupal Installer Patch Left a Gap Attackers Are Already Exploiting",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/drupal-installer-patch-left-a-gap-attackers-are-already-exploiting/",
+          "date": "2026-11-26",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Drupal.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-25-1password-compte-github-employe",
+      "title": "1Password : le compte GitHub piraté d'un employé sert à injecter du code et voler des données clients",
+      "created": "2026-11-25T22:10:00+00:00",
+      "updated": "2026-11-26T09:20:00+00:00",
+      "version": 3,
+      "resume": "1Password a révélé qu'un attaquant, via le compte GitHub piraté d'un employé, a poussé du code malveillant dans ses services internes, volé du code source et des données d'un petit nombre de clients ; selon l'entreprise, le contenu des coffres n'a pas été consulté [1, 2, 3].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Compromission du compte GitHub professionnel d'un employé, par une méthode non précisée → accès au code source de dépôts privés [1, 2, 3]."
+        },
+        {
+          "etape": "Injection de code",
+          "texte": "Code malveillant poussé vers des services internes de l'entreprise → téléchargement de données de comptes clients [1, 2, 3]."
+        },
+        {
+          "etape": "Chaîne de déploiement",
+          "texte": "Accès à l'environnement d'intégration et de déploiement continus → exposition possible d'identifiants d'infrastructure internes [1, 3]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Copie de code source et vol de données de comptes : noms, adresses e-mail, identifiants, clés publiques, paramètres SRP, jetons d'invitation et de récupération [1, 2, 3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "gh",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Compte GitHub d'un employé",
+            "note": "Compromis"
+          },
+          {
+            "id": "repo",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Dépôts de code privés",
+            "note": "Code source volé"
+          },
+          {
+            "id": "svc",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Services internes 1Password",
+            "note": "Code malveillant injecté"
+          },
+          {
+            "id": "cicd",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Environnement CI/CD",
+            "note": "Identifiants exposés"
+          },
+          {
+            "id": "dat",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données de comptes clients",
+            "note": "Volées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "gh",
+            "etape": 1,
+            "texte": "Compte GitHub compromis"
+          },
+          {
+            "de": "gh",
+            "vers": "repo",
+            "etape": 1,
+            "texte": "Accès aux dépôts privés"
+          },
+          {
+            "de": "repo",
+            "vers": "svc",
+            "etape": 2,
+            "texte": "Code malveillant injecté"
+          },
+          {
+            "de": "svc",
+            "vers": "dat",
+            "etape": 2,
+            "texte": "Téléchargement des comptes clients"
+          },
+          {
+            "de": "att",
+            "vers": "cicd",
+            "etape": 3,
+            "texte": "Accès à l'intégration et au déploiement continus"
+          },
+          {
+            "de": "dat",
+            "vers": "att",
+            "etape": 4,
+            "texte": "Données et code source volés"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni comment le compte GitHub a été compromis ni le nombre exact de clients touchés ; l'enquête a débuté le 19 novembre [1, 2, 3].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Acteur malveillant inconnu, sans attribution [2]"
+      ],
+      "cibles": [
+        "1Password et un petit nombre de ses clients, notifiés individuellement [1, 2, 3]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CI/CD",
+          "definition": "Intégration et déploiement continus : chaîne automatisée de compilation et de mise en production"
+        },
+        {
+          "sigle": "SRP",
+          "definition": "Secure Remote Password : protocole d'authentification par mot de passe sans l'envoyer"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "1Password customer data stolen after employee GitHub account breach",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/1password-customer-data-stolen-after-employee-github-account-breach/",
+          "date": "2026-11-25",
+          "image": "https://www.bleepstatic.com/content/hl-images/2023/10/23/1Password_binary.jpg"
+        },
+        {
+          "titre": "1Password Hacked, Customer Data and Source Code Stolen in GitHub Account Breach",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/1password-hacked-customer-data-and.html",
+          "date": "2026-11-26",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbu9vulg5_P2PLmwCbF5nNRu8UujJDFNLLCGackgRWjz4lmkQcAom8TerCouyPh1pF8sgBAiJTwO7qAQN3kLVd-_0e7czxqhyphenhyphenUQuSG6WyCJvoNsI92X7tl1ukE6h8QDLmQBUBJaKBCyTYXjaGMUeaczy-sTIjMvDHdQjphWmWyCsUyIG4Y7WD4J2FoQfgY/s1700-nu-rw-lo-l85-e365/1password.jpg"
+        },
+        {
+          "titre": "1Password Breach Exposes Customer Data, Internal Source Code",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/1password-breach-exposes-customer-data-internal-source-code/",
+          "date": "2026-11-26",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/1password.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-24-volant-manticore-iran-faux-cv",
+      "title": "Volant Manticore : un groupe iranien issu de MuddyWater vise Chypre et la santé saoudienne avec de faux CV et des outils d'administration à distance",
+      "created": "2026-11-24T15:10:00+00:00",
+      "updated": "2026-11-26T08:08:05+00:00",
+      "version": 3,
+      "resume": "Volant Manticore, groupe iranien qui serait formé d'anciens opérateurs de MuddyWater, a visé à Chypre une compagnie aérienne, des télécoms et des infrastructures critiques, puis la santé en Arabie saoudite [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Faux CV au nom de personas générés par IA, document Word piégé à macros, archives sur la santé envoyées en partie depuis le compte compromis d'un hôpital saoudien [1, 2]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Porte dérobée KuboShell → exécution de commandes et reconnaissance, avec un canal de commande via IPFS interrogé toutes les 60 secondes [1, 2]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "KuboShell vérifie ses droits administrateur et tente de se relancer avec des privilèges élevés, ce qui déclenche une invite de contrôle de compte [2]."
+        },
+        {
+          "etape": "Outils d'accès à distance",
+          "texte": "Installation de Remotely, NetLock RMM, N-able RMM ou MeshCentral → prise en main à distance des machines [1, 2]."
+        },
+        {
+          "etape": "Porte dérobée Homa",
+          "texte": "Chargeur PowerShell exécuté en mémoire lançant une porte dérobée JavaScript (framework Homa) → commandes PowerShell, SSH et cmd exécutées [1, 2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Volant Manticore)",
+            "note": ""
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Destinataires des leurres",
+            "note": "Faux CV, archives"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Poste infecté",
+            "note": "KuboShell, Homa"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveurs de commande",
+            "note": "Via IPFS"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 1,
+            "texte": "Faux CV et archives piégées"
+          },
+          {
+            "de": "usr",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Porte dérobée KuboShell installée"
+          },
+          {
+            "de": "pc",
+            "vers": "c2",
+            "etape": 2,
+            "texte": "Commandes récupérées via IPFS"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 4,
+            "texte": "Outils d'administration à distance"
+          },
+          {
+            "de": "att",
+            "vers": "pc",
+            "etape": 5,
+            "texte": "Porte dérobée Homa lancée en mémoire"
+          }
+        ]
+      },
+      "limites": "Les sources ne décrivent ni vol de données constaté, ni déplacement dans le réseau, ni nombre de victimes [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Volant Manticore, nommé par Check Point ; origine iranienne (confiance forte), lien historique avec le ministère iranien du Renseignement (confiance moyenne) [1]",
+        "Probablement d'anciens opérateurs de MuddyWater formant un groupe distinct ; Homa réimplémente en JavaScript le client de MuddyC2Go [1, 2]",
+        "Actif depuis fin août 2025 selon le rapport [2]",
+        "Groupe iranien jusque-là non documenté selon Dark Reading [3]"
+      ],
+      "cibles": [
+        "Chypre : compagnie aérienne en juillet 2026, entité gouvernementale probable en janvier 2026 [1]",
+        "Chypre : télécommunications, compagnies aériennes et infrastructures critiques [2]",
+        "Arabie saoudite : santé ciblée depuis septembre 2026 ; compte de messagerie d'un hôpital privé saoudien probablement compromis et associé à un leurre [1]",
+        "Organisations chypriotes, visées pour recueillir du renseignement au profit de Téhéran [3]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CV",
+          "definition": "Curriculum vitae"
+        },
+        {
+          "sigle": "IPFS",
+          "definition": "InterPlanetary File System : réseau décentralisé de stockage de fichiers"
+        },
+        {
+          "sigle": "RMM",
+          "definition": "Remote Monitoring and Management : logiciel de supervision et d'administration à distance"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole d'accès à distance chiffré à une machine"
+        },
+        {
+          "sigle": "cmd",
+          "definition": "Invite de commandes de Windows"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Volant Manticore: Flying Under the Radar",
+          "site": "Check Point Research",
+          "url": "https://research.checkpoint.com/2026/volant-manticore-flying-under-the-radar/",
+          "date": "2026-11-24",
+          "image": "https://research.checkpoint.com/wp-content/uploads/2026/11/volant-manticore-thumb-100x563px.jpg"
+        },
+        {
+          "titre": "Iran-Aligned Volant Manticore Uses IPFS-Based KuboShell Backdoor in Espionage Campaigns",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/iran-aligned-volant-manticore-uses-ipfs.html",
+          "date": "2026-11-24",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqukTcR2pkDWiTqMzORa4j7zZRB0MDUGfBly50X7gPwPHqSeBmfReQWpMR9IdPOP_NbeuQSBdYPknSgxvutDll4VAZNSoGqcwmXzhZNEez-UoE-MwTnM9i9XxjoLYRdhY0iY6tD9BK9IDB0o8RUU7sNsOex5tVNtoNwRHCCAxM9ri66c4G2wPa9AqW9saA/s1700-nu-rw-lo-l85-e365/iran-hackers.jpg"
+        },
+        {
+          "titre": "Cyprus Becomes Espionage Target for Iranian Hackers",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/cyberattacks-data-breaches/cyprus-espionage-target-iranian-hackers",
+          "date": "2026-11-26"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-25-nuget-faux-recrutement-dotnet",
+      "title": "Développeurs .NET : 13 paquets NuGet malveillants diffusés par de faux tests d'embauche",
+      "created": "2026-11-25T16:08:00+00:00",
+      "updated": "2026-11-26T05:06:00+00:00",
+      "version": 2,
+      "resume": "Des attaquants non identifiés ont diffusé 13 paquets NuGet malveillants via de faux tests d'embauche visant des développeurs .NET, ce qui leur donne accès aux machines de ces développeurs [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Faux test technique d'embauche, annoncé notamment sur la plateforme de travail indépendant LaborX, qui intègre des paquets NuGet malveillants [1, 2]."
+        },
+        {
+          "etape": "Exécution du code",
+          "texte": "Compilation du projet → téléchargement depuis GitHub d'une DLL malveillante, chargée en lançant le clavier visuel de Microsoft copié à côté [2]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Chargeurs utilisant des dépôts GitHub comme canal de commande dans les deux sens [2]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Programmes hébergés sur de faux dépôts liés à la campagne : profils Chrome envoyés sur GitHub, informations système transmises à un bot Telegram [2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquants",
+            "note": "Non attribués"
+          },
+          {
+            "id": "dev",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Développeur .NET",
+            "note": "Faux test d'embauche"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Machine du développeur",
+            "note": "Paquets NuGet piégés"
+          },
+          {
+            "id": "gh",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Dépôts GitHub",
+            "note": "Charges et commande"
+          },
+          {
+            "id": "tg",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Bot Telegram",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "dev",
+            "etape": 1,
+            "texte": "Faux test technique d'embauche"
+          },
+          {
+            "de": "dev",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Compilation du projet piégé"
+          },
+          {
+            "de": "gh",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "DLL malveillante téléchargée"
+          },
+          {
+            "de": "gh",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Commandes des chargeurs via GitHub"
+          },
+          {
+            "de": "pc",
+            "vers": "gh",
+            "etape": 4,
+            "texte": "Profils Chrome envoyés"
+          },
+          {
+            "de": "pc",
+            "vers": "tg",
+            "etape": 4,
+            "texte": "Informations système envoyées"
+          }
+        ]
+      },
+      "limites": "Les sources ne donnent pas le nombre de développeurs touchés ni le nombre de téléchargements des paquets [1, 2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non attribué : Socket relève des ressemblances avec des campagnes nord-coréennes et iraniennes, sans indicateur ni code commun avec Contagious Interview [2]"
+      ],
+      "cibles": [
+        "Développeurs .NET sous Windows candidats à un emploi [1, 2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": ".NET",
+          "definition": "Plateforme de développement logicielle de Microsoft"
+        },
+        {
+          "sigle": "DLL",
+          "definition": "Dynamic Link Library : bibliothèque de code chargée par un programme Windows"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Attackers Target .NET Developers With Poisoned Job Assessments",
+          "site": "Dark Reading",
+          "url": "https://www.darkreading.com/threat-intelligence/attackers-net-developers-poisoned-job-assessments",
+          "date": "2026-11-25"
+        },
+        {
+          "titre": "13 Malicious NuGet Packages Turn Fake .NET Job Assessments Into Malware Delivery Traps",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/13-malicious-nuget-packages-turn-fake.html",
+          "date": "2026-11-26",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjt0w3YJQrn6VoUVUTTj46NLfeL_JJE-sDoxKsuBe-_OxBtQ3iX8AZTZ1CEn39-N5TGKYd-0ZKdOT43UwAWUbpIXlFdDwhyphenhyphenEKpkQVVJYJVodQRHyz0pJeKEvJIJgUpAEQqXizajmrriq9Mj1aqioeK1Zug__X26Ra4HwzFg8ImTajGc6b7Ck9LW2OCIpPoa/s1700-nu-rw-lo-l85-e365/dotnet.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-25-artex-microsoft-acteurs-etatiques",
       "title": "ARTEX : Microsoft détaille comment Storm-0940, Salt Typhoon et d'autres groupes utilisent ce framework d'intrusion par agents d'IA",
       "created": "2026-11-25T20:30:00+00:00",
@@ -306,159 +1277,6 @@
     },
     {
       "schema": 3,
-      "id": "2026-11-25-1password-compte-github-employe",
-      "title": "1Password : le compte GitHub piraté d'un employé sert à injecter du code et voler des données clients",
-      "created": "2026-11-25T22:10:00+00:00",
-      "updated": "2026-11-26T09:20:00+00:00",
-      "version": 3,
-      "resume": "1Password a révélé qu'un attaquant, via le compte GitHub piraté d'un employé, a poussé du code malveillant dans ses services internes, volé du code source et des données d'un petit nombre de clients ; selon l'entreprise, le contenu des coffres n'a pas été consulté [1, 2, 3].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Compromission du compte GitHub professionnel d'un employé, par une méthode non précisée → accès au code source de dépôts privés [1, 2, 3]."
-        },
-        {
-          "etape": "Injection de code",
-          "texte": "Code malveillant poussé vers des services internes de l'entreprise → téléchargement de données de comptes clients [1, 2, 3]."
-        },
-        {
-          "etape": "Chaîne de déploiement",
-          "texte": "Accès à l'environnement d'intégration et de déploiement continus → exposition possible d'identifiants d'infrastructure internes [1, 3]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Copie de code source et vol de données de comptes : noms, adresses e-mail, identifiants, clés publiques, paramètres SRP, jetons d'invitation et de récupération [1, 2, 3]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "gh",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Compte GitHub d'un employé",
-            "note": "Compromis"
-          },
-          {
-            "id": "repo",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Dépôts de code privés",
-            "note": "Code source volé"
-          },
-          {
-            "id": "svc",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Services internes 1Password",
-            "note": "Code malveillant injecté"
-          },
-          {
-            "id": "cicd",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Environnement CI/CD",
-            "note": "Identifiants exposés"
-          },
-          {
-            "id": "dat",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Données de comptes clients",
-            "note": "Volées"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "gh",
-            "etape": 1,
-            "texte": "Compte GitHub compromis"
-          },
-          {
-            "de": "gh",
-            "vers": "repo",
-            "etape": 1,
-            "texte": "Accès aux dépôts privés"
-          },
-          {
-            "de": "repo",
-            "vers": "svc",
-            "etape": 2,
-            "texte": "Code malveillant injecté"
-          },
-          {
-            "de": "svc",
-            "vers": "dat",
-            "etape": 2,
-            "texte": "Téléchargement des comptes clients"
-          },
-          {
-            "de": "att",
-            "vers": "cicd",
-            "etape": 3,
-            "texte": "Accès à l'intégration et au déploiement continus"
-          },
-          {
-            "de": "dat",
-            "vers": "att",
-            "etape": 4,
-            "texte": "Données et code source volés"
-          }
-        ]
-      },
-      "limites": "Les sources ne précisent ni comment le compte GitHub a été compromis ni le nombre exact de clients touchés ; l'enquête a débuté le 19 novembre [1, 2, 3].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Acteur malveillant inconnu, sans attribution [2]"
-      ],
-      "cibles": [
-        "1Password et un petit nombre de ses clients, notifiés individuellement [1, 2, 3]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "CI/CD",
-          "definition": "Intégration et déploiement continus : chaîne automatisée de compilation et de mise en production"
-        },
-        {
-          "sigle": "SRP",
-          "definition": "Secure Remote Password : protocole d'authentification par mot de passe sans l'envoyer"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "1Password customer data stolen after employee GitHub account breach",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/1password-customer-data-stolen-after-employee-github-account-breach/",
-          "date": "2026-11-25",
-          "image": "https://www.bleepstatic.com/content/hl-images/2023/10/23/1Password_binary.jpg"
-        },
-        {
-          "titre": "1Password Hacked, Customer Data and Source Code Stolen in GitHub Account Breach",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/1password-hacked-customer-data-and.html",
-          "date": "2026-11-26",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbu9vulg5_P2PLmwCbF5nNRu8UujJDFNLLCGackgRWjz4lmkQcAom8TerCouyPh1pF8sgBAiJTwO7qAQN3kLVd-_0e7czxqhyphenhyphenUQuSG6WyCJvoNsI92X7tl1ukE6h8QDLmQBUBJaKBCyTYXjaGMUeaczy-sTIjMvDHdQjphWmWyCsUyIG4Y7WD4J2FoQfgY/s1700-nu-rw-lo-l85-e365/1password.jpg"
-        },
-        {
-          "titre": "1Password Breach Exposes Customer Data, Internal Source Code",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/1password-breach-exposes-customer-data-internal-source-code/",
-          "date": "2026-11-26",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/1password.jpeg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
       "id": "2026-11-25-fifa-vol-donnees-hbhc",
       "title": "FIFA : des pirates accèdent à des données personnelles et commerciales, le groupe HBHC revendique le vol",
       "created": "2026-11-25T21:20:00+00:00",
@@ -565,144 +1383,6 @@
           "url": "https://therecord.media/fifa-data-breach-limited",
           "date": "2026-11-25",
           "image": "https://cms.therecord.media/uploads/fifa_sign_wc_final_202655407277531_c63256a9d9_o_77bc61d70a.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-25-nuget-faux-recrutement-dotnet",
-      "title": "Développeurs .NET : 13 paquets NuGet malveillants diffusés par de faux tests d'embauche",
-      "created": "2026-11-25T16:08:00+00:00",
-      "updated": "2026-11-26T05:06:00+00:00",
-      "version": 2,
-      "resume": "Des attaquants non identifiés ont diffusé 13 paquets NuGet malveillants via de faux tests d'embauche visant des développeurs .NET, ce qui leur donne accès aux machines de ces développeurs [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Faux test technique d'embauche, annoncé notamment sur la plateforme de travail indépendant LaborX, qui intègre des paquets NuGet malveillants [1, 2]."
-        },
-        {
-          "etape": "Exécution du code",
-          "texte": "Compilation du projet → téléchargement depuis GitHub d'une DLL malveillante, chargée en lançant le clavier visuel de Microsoft copié à côté [2]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Chargeurs utilisant des dépôts GitHub comme canal de commande dans les deux sens [2]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Programmes hébergés sur de faux dépôts liés à la campagne : profils Chrome envoyés sur GitHub, informations système transmises à un bot Telegram [2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquants",
-            "note": "Non attribués"
-          },
-          {
-            "id": "dev",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Développeur .NET",
-            "note": "Faux test d'embauche"
-          },
-          {
-            "id": "pc",
-            "type": "poste",
-            "zone": "victime",
-            "nom": "Machine du développeur",
-            "note": "Paquets NuGet piégés"
-          },
-          {
-            "id": "gh",
-            "type": "cloud",
-            "zone": "internet",
-            "nom": "Dépôts GitHub",
-            "note": "Charges et commande"
-          },
-          {
-            "id": "tg",
-            "type": "cloud",
-            "zone": "internet",
-            "nom": "Bot Telegram",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "dev",
-            "etape": 1,
-            "texte": "Faux test technique d'embauche"
-          },
-          {
-            "de": "dev",
-            "vers": "pc",
-            "etape": 2,
-            "texte": "Compilation du projet piégé"
-          },
-          {
-            "de": "gh",
-            "vers": "pc",
-            "etape": 2,
-            "texte": "DLL malveillante téléchargée"
-          },
-          {
-            "de": "gh",
-            "vers": "pc",
-            "etape": 3,
-            "texte": "Commandes des chargeurs via GitHub"
-          },
-          {
-            "de": "pc",
-            "vers": "gh",
-            "etape": 4,
-            "texte": "Profils Chrome envoyés"
-          },
-          {
-            "de": "pc",
-            "vers": "tg",
-            "etape": 4,
-            "texte": "Informations système envoyées"
-          }
-        ]
-      },
-      "limites": "Les sources ne donnent pas le nombre de développeurs touchés ni le nombre de téléchargements des paquets [1, 2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non attribué : Socket relève des ressemblances avec des campagnes nord-coréennes et iraniennes, sans indicateur ni code commun avec Contagious Interview [2]"
-      ],
-      "cibles": [
-        "Développeurs .NET sous Windows candidats à un emploi [1, 2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": ".NET",
-          "definition": "Plateforme de développement logicielle de Microsoft"
-        },
-        {
-          "sigle": "DLL",
-          "definition": "Dynamic Link Library : bibliothèque de code chargée par un programme Windows"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Attackers Target .NET Developers With Poisoned Job Assessments",
-          "site": "Dark Reading",
-          "url": "https://www.darkreading.com/threat-intelligence/attackers-net-developers-poisoned-job-assessments",
-          "date": "2026-11-25"
-        },
-        {
-          "titre": "13 Malicious NuGet Packages Turn Fake .NET Job Assessments Into Malware Delivery Traps",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/13-malicious-nuget-packages-turn-fake.html",
-          "date": "2026-11-26",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjt0w3YJQrn6VoUVUTTj46NLfeL_JJE-sDoxKsuBe-_OxBtQ3iX8AZTZ1CEn39-N5TGKYd-0ZKdOT43UwAWUbpIXlFdDwhyphenhyphenEKpkQVVJYJVodQRHyz0pJeKEvJIJgUpAEQqXizajmrriq9Mj1aqioeK1Zug__X26Ra4HwzFg8ImTajGc6b7Ck9LW2OCIpPoa/s1700-nu-rw-lo-l85-e365/dotnet.jpg"
         }
       ]
     },
@@ -1239,173 +1919,6 @@
           "url": "https://www.zataz.com/skimming-en-alsace-des-cartes-bancaires-piegees-a-la-pompe/",
           "date": "2026-11-25",
           "image": "https://www.zataz.com/wp-content/uploads/piratage_cb_skim.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-24-drupal-core-cve-2026-132165-kev",
-      "title": "Drupal Core : la faille Fail2Install (CVE-2026-132165) puis CVE-2026-136716 exploitées pour prendre le contrôle de sites",
-      "created": "2026-11-24T22:20:00+00:00",
-      "updated": "2026-11-26T10:20:00+00:00",
-      "version": 6,
-      "resume": "La faille CVE-2026-132165 de l'installeur de Drupal Core permet, sans authentification, de prendre le contrôle d'un site ou d'y exécuter du code, et a été exploitée dès le 19 novembre [2, 3, 4]. Une seconde faille, CVE-2026-136716, est aussi exploitée [5].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Épuisement des ressources du serveur → Drupal croit le site non installé et, grâce à une condition de concurrence, son installeur install.php reprend sur le site existant [4]."
-        },
-        {
-          "etape": "Dépôt du code",
-          "texte": "Base SQLite créée à un chemin finissant par .php sous la racine du site, code PHP saisi comme nom du site → code écrit dans ce fichier [4]."
-        },
-        {
-          "etape": "Neutralisation des protections",
-          "texte": "Faiblesse de gestion des chemins dans une règle de réécriture Apache → fichier accessible malgré le .htaccess par défaut de Drupal [4]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Résultat : exécution de code PHP arbitraire et création d'un compte administrateur contrôlé par l'attaquant [4]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": "Non identifié"
-          },
-          {
-            "id": "web",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur du site Drupal",
-            "note": "Installeur relancé"
-          },
-          {
-            "id": "php",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Base SQLite en .php",
-            "note": "Code PHP injecté"
-          },
-          {
-            "id": "adm",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Compte administrateur",
-            "note": "Créé par l'attaquant"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "web",
-            "etape": 1,
-            "texte": "Ressources épuisées, installeur relancé"
-          },
-          {
-            "de": "web",
-            "vers": "php",
-            "etape": 2,
-            "texte": "Base SQLite créée avec code PHP"
-          },
-          {
-            "de": "att",
-            "vers": "php",
-            "etape": 3,
-            "texte": "Accès direct via faiblesse de réécriture Apache"
-          },
-          {
-            "de": "php",
-            "vers": "adm",
-            "etape": 4,
-            "texte": "Code PHP exécuté, compte administrateur créé"
-          }
-        ]
-      },
-      "limites": "Les sources ne précisent ni les attaquants, ni les victimes, ni le nombre de sites touchés [1, 2, 3, 4, 5, 6], ni comment CVE-2026-136716 est exploitée [5, 6].",
-      "cves": [
-        {
-          "id": "CVE-2026-132165",
-          "explication": "Drupal Core, installeur : échec non sécurisé permettant sans authentification de prendre le contrôle d'un site ou d'exécuter du code ; CVSS 9,8 [4], « très critique » [2]."
-        },
-        {
-          "id": "CVE-2026-136716",
-          "explication": "Drupal Core : contournement d'accès ; des installations restées vulnérables après le correctif de CVE-2026-132165 permettent de prendre le contrôle du site [5, 6], gravité CMSS 21 sur 25 [6]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Sites utilisant Drupal Core ; victimes et nombre de sites non précisés [1, 2, 3]",
-        "Environ 55 800 sites Drupal exposés sur Internet, dont 31 500 sur des branches vulnérables à CVE-2026-132165, selon StepSecurity [5]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "CISA",
-          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
-        },
-        {
-          "sigle": "PHP",
-          "definition": "Langage de programmation utilisé pour les sites web, exécuté par le serveur"
-        },
-        {
-          "sigle": "SQLite",
-          "definition": "Base de données stockée dans un simple fichier"
-        },
-        {
-          "sigle": "CVSS",
-          "definition": "Common Vulnerability Scoring System : note de gravité d'une faille sur 10"
-        },
-        {
-          "sigle": "CMSS",
-          "definition": "Common Misuse Scoring System : note de gravité utilisée dans les avis de Drupal"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
-          "site": "CISA Advisories",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/11/24/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-          "date": "2026-11-24"
-        },
-        {
-          "titre": "Drupal Flaw Found by Anthropic Scanner Exploited in Attacks",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/drupal-flaw-found-by-anthropic-scanner-exploited-in-attacks/",
-          "date": "2026-11-25",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Drupal.jpg"
-        },
-        {
-          "titre": "Hackers now exploit critical Drupal RCE flaw to hijack sites",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/hackers-now-exploit-critical-drupal-rce-flaw-to-hijack-sites/",
-          "date": "2026-11-25",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/19/Drupal-headpic.jpg"
-        },
-        {
-          "titre": "Drupal Fail2Install Exploit Details Emerge as Critical RCE Flaw Faces Active Exploitation",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/drupal-fail2install-exploit-details.html",
-          "date": "2026-11-25",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbChdPRqvJHt9cIG4Z1W9o12tl4thtxIDNNcntDjmIytSIC1PWvOytT0JjY0OJtnba6UVJcEmqNxgOMuWxX2pvNJzjQ70-CIeruqZEDdgaDG66Lv2T6lLMv8cEhrXRie1gcaLz6OoNw6f2822s2yz8jl958kok6WpHmZ7p_n3TRWTdEWSpr1le5T28kFQO/s1700-nu-rw-lo-l85-e365/drupal.gif"
-        },
-        {
-          "titre": "Drupal Warns of New Highly Critical Site Takeover Vulnerability Under Active Exploitation",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html",
-          "date": "2026-11-26",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiy2EcytpsKiKLhUfvQEADKBG6Ht2NprR2VIhIXPJcNQMIGqKT20l0afBPUVhehKFhRzpkHvl3Qu_qaPjFL3L4UsLYH3L4C1DM63zqskhJV1UAjaPqONaEbNkBFsxVDX2jpPZrMym52WvBx2pHktUiRfdXOcp_23xjTdUOxxjxJtI906XLMmw258Bjah1J2/s1700-nu-rw-lo-l85-e365/drupal-rce.png"
-        },
-        {
-          "titre": "Drupal Installer Patch Left a Gap Attackers Are Already Exploiting",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/drupal-installer-patch-left-a-gap-attackers-are-already-exploiting/",
-          "date": "2026-11-26",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Drupal.jpg"
         }
       ]
     },
@@ -3413,164 +3926,6 @@
           "url": "https://therecord.media/idscan-data-breach-warning-congressional-letter",
           "date": "2026-11-24",
           "image": "https://cms.therecord.media/uploads/brian_schatz_sapprops_20260512_afe849fc45.png"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-24-volant-manticore-iran-faux-cv",
-      "title": "Volant Manticore : un groupe iranien issu de MuddyWater vise Chypre et la santé saoudienne avec de faux CV et des outils d'administration à distance",
-      "created": "2026-11-24T15:10:00+00:00",
-      "updated": "2026-11-26T08:08:05+00:00",
-      "version": 3,
-      "resume": "Volant Manticore, groupe iranien qui serait formé d'anciens opérateurs de MuddyWater, a visé à Chypre une compagnie aérienne, des télécoms et des infrastructures critiques, puis la santé en Arabie saoudite [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Faux CV au nom de personas générés par IA, document Word piégé à macros, archives sur la santé envoyées en partie depuis le compte compromis d'un hôpital saoudien [1, 2]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Porte dérobée KuboShell → exécution de commandes et reconnaissance, avec un canal de commande via IPFS interrogé toutes les 60 secondes [1, 2]."
-        },
-        {
-          "etape": "Élévation de privilèges",
-          "texte": "KuboShell vérifie ses droits administrateur et tente de se relancer avec des privilèges élevés, ce qui déclenche une invite de contrôle de compte [2]."
-        },
-        {
-          "etape": "Outils d'accès à distance",
-          "texte": "Installation de Remotely, NetLock RMM, N-able RMM ou MeshCentral → prise en main à distance des machines [1, 2]."
-        },
-        {
-          "etape": "Porte dérobée Homa",
-          "texte": "Chargeur PowerShell exécuté en mémoire lançant une porte dérobée JavaScript (framework Homa) → commandes PowerShell, SSH et cmd exécutées [1, 2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (Volant Manticore)",
-            "note": ""
-          },
-          {
-            "id": "usr",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Destinataires des leurres",
-            "note": "Faux CV, archives"
-          },
-          {
-            "id": "pc",
-            "type": "poste",
-            "zone": "victime",
-            "nom": "Poste infecté",
-            "note": "KuboShell, Homa"
-          },
-          {
-            "id": "c2",
-            "type": "serveur",
-            "zone": "internet",
-            "nom": "Serveurs de commande",
-            "note": "Via IPFS"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "usr",
-            "etape": 1,
-            "texte": "Faux CV et archives piégées"
-          },
-          {
-            "de": "usr",
-            "vers": "pc",
-            "etape": 2,
-            "texte": "Porte dérobée KuboShell installée"
-          },
-          {
-            "de": "pc",
-            "vers": "c2",
-            "etape": 2,
-            "texte": "Commandes récupérées via IPFS"
-          },
-          {
-            "de": "att",
-            "vers": "pc",
-            "etape": 4,
-            "texte": "Outils d'administration à distance"
-          },
-          {
-            "de": "att",
-            "vers": "pc",
-            "etape": 5,
-            "texte": "Porte dérobée Homa lancée en mémoire"
-          }
-        ]
-      },
-      "limites": "Les sources ne décrivent ni vol de données constaté, ni déplacement dans le réseau, ni nombre de victimes [1, 2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Volant Manticore, nommé par Check Point ; origine iranienne (confiance forte), lien historique avec le ministère iranien du Renseignement (confiance moyenne) [1]",
-        "Probablement d'anciens opérateurs de MuddyWater formant un groupe distinct ; Homa réimplémente en JavaScript le client de MuddyC2Go [1, 2]",
-        "Actif depuis fin août 2025 selon le rapport [2]",
-        "Groupe iranien jusque-là non documenté selon Dark Reading [3]"
-      ],
-      "cibles": [
-        "Chypre : compagnie aérienne en juillet 2026, entité gouvernementale probable en janvier 2026 [1]",
-        "Chypre : télécommunications, compagnies aériennes et infrastructures critiques [2]",
-        "Arabie saoudite : santé ciblée depuis septembre 2026 ; compte de messagerie d'un hôpital privé saoudien probablement compromis et associé à un leurre [1]",
-        "Organisations chypriotes, visées pour recueillir du renseignement au profit de Téhéran [3]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "CV",
-          "definition": "Curriculum vitae"
-        },
-        {
-          "sigle": "IPFS",
-          "definition": "InterPlanetary File System : réseau décentralisé de stockage de fichiers"
-        },
-        {
-          "sigle": "RMM",
-          "definition": "Remote Monitoring and Management : logiciel de supervision et d'administration à distance"
-        },
-        {
-          "sigle": "SSH",
-          "definition": "Secure Shell : protocole d'accès à distance chiffré à une machine"
-        },
-        {
-          "sigle": "cmd",
-          "definition": "Invite de commandes de Windows"
-        },
-        {
-          "sigle": "IA",
-          "definition": "Intelligence artificielle"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Volant Manticore: Flying Under the Radar",
-          "site": "Check Point Research",
-          "url": "https://research.checkpoint.com/2026/volant-manticore-flying-under-the-radar/",
-          "date": "2026-11-24",
-          "image": "https://research.checkpoint.com/wp-content/uploads/2026/11/volant-manticore-thumb-100x563px.jpg"
-        },
-        {
-          "titre": "Iran-Aligned Volant Manticore Uses IPFS-Based KuboShell Backdoor in Espionage Campaigns",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/iran-aligned-volant-manticore-uses-ipfs.html",
-          "date": "2026-11-24",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqukTcR2pkDWiTqMzORa4j7zZRB0MDUGfBly50X7gPwPHqSeBmfReQWpMR9IdPOP_NbeuQSBdYPknSgxvutDll4VAZNSoGqcwmXzhZNEez-UoE-MwTnM9i9XxjoLYRdhY0iY6tD9BK9IDB0o8RUU7sNsOex5tVNtoNwRHCCAxM9ri66c4G2wPa9AqW9saA/s1700-nu-rw-lo-l85-e365/iran-hackers.jpg"
-        },
-        {
-          "titre": "Cyprus Becomes Espionage Target for Iranian Hackers",
-          "site": "Dark Reading",
-          "url": "https://www.darkreading.com/cyberattacks-data-breaches/cyprus-espionage-target-iranian-hackers",
-          "date": "2026-11-26"
         }
       ]
     },
@@ -57853,313 +58208,6 @@
           "url": "https://www.zataz.com/trump-mobile-byod-revendique-3-615-dossiers-pirates/",
           "date": "2026-10-07",
           "image": "https://www.zataz.com/wp-content/uploads/byod_trump_mobile.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-07-web3-chaine-approvisionnement-cloud",
-      "title": "Paquets open source empoisonnés : vol d'identifiants cloud et commande via Web3",
-      "created": "2026-10-07T22:30:00+00:00",
-      "updated": "2026-10-07T22:30:00+00:00",
-      "version": 1,
-      "resume": "Unit 42 décrit des campagnes d'empoisonnement de dépendances open source qui volent des identifiants cloud sur les postes développeurs et les pipelines de build, avec une infrastructure de commande cachée dans des contrats intelligents [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Empoisonnement de dépendances open source (paquets npm, modules, crates) → code malveillant exécuté sur les postes développeurs et les pipelines de build [1]."
-        },
-        {
-          "etape": "Exécution du code",
-          "texte": "ChainDrop : script lancé avant l'installation du paquet ; PolinRider : chargeurs cachés dans des fichiers de configuration de dépôts → collecteur d'identifiants exécuté sans installation classique [1]."
-        },
-        {
-          "etape": "Vol d'identifiants",
-          "texte": "Recherche de clés cloud, jetons de pipeline et clés à courte durée de vie sur le disque et en mémoire des processus de build → identifiants éphémères volés [1]."
-        },
-        {
-          "etape": "Commande via blockchain",
-          "texte": "Lecture de transactions de contrats intelligents (EtherHiding) pour obtenir les adresses d'exfiltration → communication de commande sans domaine fixe [1]."
-        },
-        {
-          "etape": "Persistance",
-          "texte": "Tâches persistantes injectées, déclenchées à l'ouverture d'un projet ou d'une session de codage assisté par IA → maintien sur le poste développeur [1]."
-        },
-        {
-          "etape": "Accès au cloud",
-          "texte": "Identifiants développeur et jetons de session cloud exfiltrés → accès possible aux consoles et API cloud [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "dep",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Dépôts de paquets open source",
-            "note": "Paquets empoisonnés"
-          },
-          {
-            "id": "dev",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Postes développeurs et pipelines",
-            "note": "Identifiants volés"
-          },
-          {
-            "id": "bc",
-            "type": "inconnu",
-            "zone": "internet",
-            "nom": "Contrats intelligents (Web3)",
-            "note": "Adresses de commande"
-          },
-          {
-            "id": "cl",
-            "type": "cloud",
-            "zone": "victime",
-            "nom": "Environnement cloud d'entreprise",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "dep",
-            "etape": 1,
-            "texte": "Dépendances open source empoisonnées"
-          },
-          {
-            "de": "dep",
-            "vers": "dev",
-            "etape": 2,
-            "texte": "Code malveillant exécuté à l'installation ou à l'ouverture"
-          },
-          {
-            "de": "dev",
-            "vers": "bc",
-            "etape": 4,
-            "texte": "Lecture des adresses de commande"
-          },
-          {
-            "de": "dev",
-            "vers": "cl",
-            "etape": 6,
-            "texte": "Accès avec les identifiants volés"
-          }
-        ]
-      },
-      "limites": "L'article ne donne ni la date des campagnes ChainDrop et PolinRider, ni victime nommée, ni acteur pour ChainDrop [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Alluring Pisces (aussi Sapphire Sleet, Midnight Neptune), groupe lié à la Corée du Nord, associé aux cas Axios, Mastra AI et arrayref [1]",
-        "PolinRider décrit comme des opérations liées à la Corée du Nord [1]"
-      ],
-      "cibles": [
-        "Environnements cloud d'entreprise, postes développeurs, pipelines de build, flux de développement avec IA [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "npm",
-          "definition": "Gestionnaire de paquets JavaScript et son dépôt public"
-        },
-        {
-          "sigle": "Web3",
-          "definition": "Services décentralisés fondés sur des blockchains"
-        },
-        {
-          "sigle": "EtherHiding",
-          "definition": "Technique qui cache des instructions dans des contrats intelligents Ethereum"
-        },
-        {
-          "sigle": "ChainDrop",
-          "definition": "Campagne de ver npm de la famille Shai-Hulud"
-        },
-        {
-          "sigle": "PolinRider",
-          "definition": "Campagne d'opérations liées à la Corée du Nord"
-        },
-        {
-          "sigle": "IA",
-          "definition": "Intelligence artificielle : logiciels qui imitent des tâches humaines"
-        },
-        {
-          "sigle": "AI",
-          "definition": "Artificial Intelligence : intelligence artificielle (nom de projet Mastra AI)"
-        },
-        {
-          "sigle": "API",
-          "definition": "Interface permettant à des programmes de communiquer avec un service"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Evolution of Web3 in Cloud Supply Chain Attacks",
-          "site": "Unit 42 (Palo Alto Networks)",
-          "url": "https://unit42.paloaltonetworks.com/web3-cloud-supply-chain-attacks/",
-          "date": "2026-10-07",
-          "image": "https://unit42.paloaltonetworks.com/wp-content/uploads/2026/01/10_Myth-Busting_Category_1505x922.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-26-kev-mitel-xen-orchestra-juniper",
-      "title": "Mitel MiCollab, Xen Orchestra, Juniper Session Smart : dix failles exploitées ajoutées au catalogue de la CISA",
-      "created": "2026-11-26T08:08:05+00:00",
-      "updated": "2026-11-26T08:08:05+00:00",
-      "version": 1,
-      "resume": "La CISA a ajouté dix failles exploitées à son catalogue, dont cinq de Mitel MiCollab ; Vates et Juniper confirment l'exploitation de failles de Xen Orchestra et de Session Smart, sans nommer les attaquants [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Jeton contenant un objet JSON vide envoyé à Xen Orchestra → actions avec droits administrateur, sans authentification [1]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Identifiant « salt minion » spécialement conçu envoyé à Juniper Session Smart → commandes exécutées en root à distance [1]."
-        },
-        {
-          "etape": "Failles Mitel MiCollab",
-          "texte": "Exploitation constatée par la CISA, sans aucune information sur la manière dont les attaquants s'y prennent [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": "Non identifié"
-          },
-          {
-            "id": "xo",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Xen Orchestra",
-            "note": "Droits administrateur"
-          },
-          {
-            "id": "jun",
-            "type": "passerelle",
-            "zone": "victime",
-            "nom": "Juniper Session Smart",
-            "note": "Commandes en root"
-          },
-          {
-            "id": "mit",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Mitel MiCollab",
-            "note": "Méthode inconnue"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "xo",
-            "etape": 1,
-            "texte": "Jeton à objet JSON vide, authentification contournée"
-          },
-          {
-            "de": "att",
-            "vers": "jun",
-            "etape": 2,
-            "texte": "Identifiant salt minion forgé"
-          },
-          {
-            "de": "att",
-            "vers": "mit",
-            "etape": 3,
-            "texte": "Failles exploitées"
-          }
-        ]
-      },
-      "limites": "Les sources ne nomment ni victimes ni attaquants pour Mitel, Xen Orchestra et Juniper ; Danfoss ne confirme pas l'exploitation de ses failles, que l'article juge probable contre des supermarchés européens [1].",
-      "cves": [
-        {
-          "id": "CVE-2026-133275",
-          "explication": "Mitel MiCollab : téléversement de fichiers arbitraires sur le système, CVSS 5,3 [1]."
-        },
-        {
-          "id": "CVE-2026-133303",
-          "explication": "Mitel MiCollab : injection XML permettant d'exécuter des commandes dans le contexte du système, CVSS 9,0 [1]."
-        },
-        {
-          "id": "CVE-2026-133311",
-          "explication": "Mitel MiCollab : accès non autorisé à des informations sensibles, CVSS 5,9 [1]."
-        },
-        {
-          "id": "CVE-2026-133323",
-          "explication": "Mitel MiCollab : injection de commandes permettant d'exécuter des commandes dans le contexte du système, CVSS 10,0 [1]."
-        },
-        {
-          "id": "CVE-2026-133324",
-          "explication": "Mitel MiCollab : contournement d'authentification permettant des actions non autorisées dans l'application, CVSS 5,3 [1]."
-        },
-        {
-          "id": "CVE-2026-133469",
-          "explication": "Vates Xen Orchestra : jeton contenant un objet JSON vide permettant, sans authentification, des actions administrateur, CVSS 9,8 [1]."
-        },
-        {
-          "id": "CVE-2026-103406",
-          "explication": "Juniper Session Smart Conductor et Router : injection de commandes système permettant d'exécuter des commandes en root à distance, CVSS 9,8 [1]."
-        },
-        {
-          "id": "CVE-2023-25914",
-          "explication": "Danfoss AK-SM 800A, contrôleur de réfrigération : traversée de répertoires permettant de lire des fichiers système, CVSS 8,8 [1]."
-        },
-        {
-          "id": "CVE-2023-25915",
-          "explication": "Danfoss AK-SM 800A : validation insuffisante des entrées permettant d'exécuter des commandes à distance, CVSS 9,9 [1]."
-        },
-        {
-          "id": "CVE-2025-41450",
-          "explication": "Danfoss AK-SM 800A : authentification défaillante exposant adresses internes, noms d'utilisateurs et de magasins, CVSS 8,5 [1]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Utilisateurs de Mitel MiCollab, Vates Xen Orchestra, Juniper Session Smart et Danfoss AK-SM 800A ; victimes non précisées [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "CISA",
-          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
-        },
-        {
-          "sigle": "JSON",
-          "definition": "Format texte d'échange de données structurées"
-        },
-        {
-          "sigle": "XML",
-          "definition": "Langage de balisage pour structurer des données"
-        },
-        {
-          "sigle": "CVSS",
-          "definition": "Common Vulnerability Scoring System : note de gravité d'une faille sur 10"
-        },
-        {
-          "sigle": "AK-SM",
-          "definition": "Gamme de contrôleurs de supervision de réfrigération de Danfoss"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Hackers Exploit 10 Vulnerabilities Across Mitel, Juniper, Vates, and Danfoss Products",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/hackers-exploit-10-vulnerabilities.html",
-          "date": "2026-11-26",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEht82Zul6A6D_rTYZuOr0QQWkA4p8kQXRI-4qAYhdGBdTR0ZNzlHkHCiz3eSv5wm9Gq1rADX0CIEBUu08HBUbWd4fVKtL6f7UrWcaa_nVetYt0DyPj2-f_yM80HEIUbuy57mpftPYHHp1FKCNXvkDnFtsj-V5PWGUvWiNL38OKY3EIKUwKHuoKsIc4oSXeC/s1700-nu-rw-lo-l85-e365/mitel.jpg"
         }
       ]
     }

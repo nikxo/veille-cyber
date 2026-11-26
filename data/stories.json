@@ -1247,8 +1247,8 @@
       "id": "2026-11-24-drupal-core-cve-2026-132165-kev",
       "title": "Drupal Core : la faille Fail2Install (CVE-2026-132165) puis CVE-2026-136716 exploitées pour prendre le contrôle de sites",
       "created": "2026-11-24T22:20:00+00:00",
-      "updated": "2026-11-26T08:08:05+00:00",
-      "version": 5,
+      "updated": "2026-11-26T10:20:00+00:00",
+      "version": 6,
       "resume": "La faille CVE-2026-132165 de l'installeur de Drupal Core permet, sans authentification, de prendre le contrôle d'un site ou d'y exécuter du code, et a été exploitée dès le 19 novembre [2, 3, 4]. Une seconde faille, CVE-2026-136716, est aussi exploitée [5].",
       "chaine": [
         {
@@ -1326,7 +1326,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni les attaquants, ni les victimes, ni le nombre de sites touchés [1, 2, 3, 4, 5], ni comment CVE-2026-136716 est exploitée [5].",
+      "limites": "Les sources ne précisent ni les attaquants, ni les victimes, ni le nombre de sites touchés [1, 2, 3, 4, 5, 6], ni comment CVE-2026-136716 est exploitée [5, 6].",
       "cves": [
         {
           "id": "CVE-2026-132165",
@@ -1334,7 +1334,7 @@
         },
         {
           "id": "CVE-2026-136716",
-          "explication": "Drupal Core : vérification incorrecte de conditions exceptionnelles ; des états d'installation encore vulnérables après le correctif de CVE-2026-132165 permettent de prendre le contrôle du site [5]."
+          "explication": "Drupal Core : contournement d'accès ; des installations restées vulnérables après le correctif de CVE-2026-132165 permettent de prendre le contrôle du site [5, 6], gravité CMSS 21 sur 25 [6]."
         }
       ],
       "mitre": [],
@@ -1359,6 +1359,10 @@
         {
           "sigle": "CVSS",
           "definition": "Common Vulnerability Scoring System : note de gravité d'une faille sur 10"
+        },
+        {
+          "sigle": "CMSS",
+          "definition": "Common Misuse Scoring System : note de gravité utilisée dans les avis de Drupal"
         }
       ],
       "sources": [
@@ -1395,6 +1399,13 @@
           "url": "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html",
           "date": "2026-11-26",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiy2EcytpsKiKLhUfvQEADKBG6Ht2NprR2VIhIXPJcNQMIGqKT20l0afBPUVhehKFhRzpkHvl3Qu_qaPjFL3L4UsLYH3L4C1DM63zqskhJV1UAjaPqONaEbNkBFsxVDX2jpPZrMym52WvBx2pHktUiRfdXOcp_23xjTdUOxxjxJtI906XLMmw258Bjah1J2/s1700-nu-rw-lo-l85-e365/drupal-rce.png"
+        },
+        {
+          "titre": "Drupal Installer Patch Left a Gap Attackers Are Already Exploiting",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/drupal-installer-patch-left-a-gap-attackers-are-already-exploiting/",
+          "date": "2026-11-26",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Drupal.jpg"
         }
       ]
     },

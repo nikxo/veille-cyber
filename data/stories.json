@@ -5,8 +5,8 @@
       "id": "2026-11-26-kev-mitel-xen-orchestra-juniper",
       "title": "Mitel MiCollab : failles exploitées avant correctif pour voler des données, et autres failles ajoutées au catalogue de la CISA",
       "created": "2026-11-26T08:08:05+00:00",
-      "updated": "2026-11-26T12:08:16+00:00",
-      "version": 2,
+      "updated": "2026-11-26T14:07:04+00:00",
+      "version": 3,
       "resume": "Selon Accenture, des attaquants non identifiés ont exploité des failles de Mitel MiCollab avant l'avis de Mitel pour voler des informations commerciales sensibles [2]. La CISA a aussi ajouté des failles exploitées de Xen Orchestra, Juniper et Danfoss à son catalogue [1].",
       "chaine": [
         {
@@ -31,7 +31,7 @@
         },
         {
           "etape": "Faille Juniper",
-          "texte": "Identifiant « salt minion » spécialement conçu envoyé à Juniper Session Smart → commandes exécutées en root à distance [1]."
+          "texte": "Identifiant « salt minion » forgé envoyé au service AutomatedProvisioner de Juniper Session Smart → commandes exécutées en root à distance [1, 3]."
         }
       ],
       "parcours": {
@@ -140,7 +140,7 @@
         },
         {
           "id": "CVE-2026-103406",
-          "explication": "Juniper Session Smart Conductor et Router : injection de commandes système permettant d'exécuter des commandes en root à distance, CVSS 9,8 [1]."
+          "explication": "Juniper Session Smart Conductor et Router : injection de commandes système dans le service AutomatedProvisioner permettant d'exécuter des commandes en root à distance, CVSS 9,8, corrigée le 28 octobre [1, 3]."
         },
         {
           "id": "CVE-2023-25914",
@@ -161,7 +161,8 @@
       ],
       "cibles": [
         "Deux victimes non nommées utilisant Mitel MiCollab, dont l'une avec un serveur en contact avec l'infrastructure des attaquants depuis le 9 novembre [2]",
-        "Utilisateurs de Vates Xen Orchestra, Juniper Session Smart et Danfoss AK-SM 800A ; victimes non précisées [1]"
+        "Utilisateurs de Vates Xen Orchestra, Juniper Session Smart et Danfoss AK-SM 800A ; victimes non précisées [1]",
+        "Au moins un cas d'exploitation de la faille Juniper signalé à l'équipe de sécurité de Juniper, victime non nommée [3]"
       ],
       "abreviations": [
         {
@@ -199,6 +200,13 @@
           "url": "https://www.securityweek.com/mitel-micollab-zero-days-exploited-in-suspected-ai-assisted-attacks/",
           "date": "2026-11-26",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/11/Mitel.jpeg"
+        },
+        {
+          "titre": "Critical Juniper Session Smart Conductor Flaw Exploited in Attacks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/critical-juniper-session-smart-conductor-flaw-exploited-in-attacks/",
+          "date": "2026-11-26",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/01/Juniper-Networks.jpeg"
         }
       ]
     },

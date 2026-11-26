@@ -2,6 +2,245 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-26-goodguys-faux-entretiens-google-okta",
+      "title": "GoodGuys : de faux entretiens d'experts rémunérés au nom de grandes marques pour voler des comptes Google et Okta d'entreprise",
+      "created": "2026-11-26T18:20:00+00:00",
+      "updated": "2026-11-26T18:20:00+00:00",
+      "version": 1,
+      "resume": "La campagne d'hameçonnage GoodGuys usurpe Google Cloud, Nvidia, Accenture, SpaceX et d'autres marques pour voler les identifiants Google et Okta professionnels de salariés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Fausses invitations à des entretiens d'experts payés ou à des webinaires, envoyées via HireVue, SendGrid, Mandrill et Cvent [1]."
+        },
+        {
+          "etape": "Faux site",
+          "texte": "Clic sur le lien → CAPTCHA puis faux site aux couleurs de la marque usurpée [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Connexion Google demandée pour valider l'invitation → identifiants saisis dans un faux formulaire hébergé par les attaquants, adresses personnelles rejetées [1]."
+        },
+        {
+          "etape": "Contournement double authentification",
+          "texte": "La page affiche les défis demandés (codes SMS, application d'authentification, Okta Verify) → selon Push Security, relayés manuellement par les attaquants [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (GoodGuys)",
+            "note": ""
+          },
+          {
+            "id": "plat",
+            "type": "messagerie",
+            "zone": "internet",
+            "nom": "Plateformes d'envoi légitimes",
+            "note": "HireVue, SendGrid, Cvent"
+          },
+          {
+            "id": "user",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Salarié ciblé",
+            "note": ""
+          },
+          {
+            "id": "site",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux site de marque",
+            "note": "Faux formulaires"
+          },
+          {
+            "id": "cpt",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Compte Google ou Okta",
+            "note": "Professionnel"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "plat",
+            "etape": 1,
+            "texte": "Envoi des fausses invitations"
+          },
+          {
+            "de": "plat",
+            "vers": "user",
+            "etape": 1,
+            "texte": "Invitation à un entretien payé"
+          },
+          {
+            "de": "user",
+            "vers": "site",
+            "etape": 3,
+            "texte": "Saisie des identifiants professionnels"
+          },
+          {
+            "de": "att",
+            "vers": "cpt",
+            "etape": 4,
+            "texte": "Connexion avec codes de double authentification relayés"
+          }
+        ]
+      },
+      "limites": "Les sources ne donnent ni le nombre de victimes, ni les secteurs visés, ni ce que les attaquants font des comptes volés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "GoodGuys, campagne suivie par Push Security depuis le 13 octobre, auteurs non nommés par la source [1]"
+      ],
+      "cibles": [
+        "Salariés disposant de comptes Google ou Okta professionnels [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CAPTCHA",
+          "definition": "Test censé distinguer un humain d'un robot avant d'accéder à une page"
+        },
+        {
+          "sigle": "SMS",
+          "definition": "Message texte envoyé sur un téléphone mobile"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Fake paid expert interviews impersonate brands to steal Google logins",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/apple/fake-paid-expert-interviews-impersonate-brands-to-steal-google-logins/",
+          "date": "2026-11-26",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/06/Phishing.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-25-fifa-vol-donnees-hbhc",
+      "title": "FIFA : des pirates accèdent à des données personnelles et commerciales, le groupe HBHC revendique le vol",
+      "created": "2026-11-25T21:20:00+00:00",
+      "updated": "2026-11-26T18:20:00+00:00",
+      "version": 2,
+      "resume": "La FIFA confirme une cyberattaque ayant donné accès à un ensemble limité d'informations personnelles et commerciales [1, 2]. Le groupe Handsome Boy Hacking Club revendique le vol de plus de 12 gigaoctets de données [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Accès revendiqué",
+          "texte": "Le groupe affirme avoir accédé à l'environnement Microsoft de la FIFA [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Plus de 12 gigaoctets revendiqués : pièces d'identité, documents d'immigration, relevés financiers, documents juridiques, informations de gouvernance, entre autres [1]."
+        },
+        {
+          "etape": "Extorsion",
+          "texte": "Tentative d'extorsion de la FIFA → sans succès, selon le groupe [1]."
+        },
+        {
+          "etape": "Publication",
+          "texte": "Capture d'écran de fichiers présentés comme ceux de la FIFA diffusée sur un réseau social [2], données mises en ligne sur un forum cybercriminel [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (HBHC)",
+            "note": ""
+          },
+          {
+            "id": "ms",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Environnement Microsoft de la FIFA",
+            "note": "Accès revendiqué"
+          },
+          {
+            "id": "data",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données personnelles et commerciales",
+            "note": "Plus de 12 gigaoctets"
+          },
+          {
+            "id": "forum",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Forum cybercriminel",
+            "note": "Données publiées"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ms",
+            "etape": 2,
+            "texte": "Accès revendiqué à l'environnement Microsoft"
+          },
+          {
+            "de": "ms",
+            "vers": "data",
+            "etape": 3,
+            "texte": "Vol de données revendiqué"
+          },
+          {
+            "de": "data",
+            "vers": "forum",
+            "etape": 5,
+            "texte": "Données mises en ligne"
+          }
+        ]
+      },
+      "limites": "Les sources ne décrivent ni la méthode ni la date de l'intrusion [1, 2]. La FIFA n'a pas confirmé l'attribution ni le volume revendiqué [2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Handsome Boy Hacking Club, groupe apparu récemment, membres et affiliations peu connus [1]"
+      ],
+      "cibles": [
+        "FIFA, instance dirigeante du football international basée à Zurich, environ 700 employés [1]",
+        "La FIFA indique collaborer avec les autorités, dont les forces de l'ordre [2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "FIFA",
+          "definition": "Fédération internationale de football association, instance dirigeante du football mondial"
+        },
+        {
+          "sigle": "HBHC",
+          "definition": "Handsome Boy Hacking Club : groupe de pirates revendiquant l'attaque"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "FIFA says hackers accessed ‘limited set of personal and business information’",
+          "site": "The Record",
+          "url": "https://therecord.media/fifa-data-breach-limited",
+          "date": "2026-11-25",
+          "image": "https://cms.therecord.media/uploads/fifa_sign_wc_final_202655407277531_c63256a9d9_o_77bc61d70a.jpg"
+        },
+        {
+          "titre": "FIFA Says It Has Been Victim of a Cyberattack Accessing ‘Personal and Business Information’",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/fifa-says-it-has-been-victim-of-a-cyberattack-accessing-personal-and-business-information/",
+          "date": "2026-11-26",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/11/FIFA-stadium-football-soccer.webp"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-26-remus-extension-chrome-gmail",
       "title": "Remus : le voleur d'informations lit les courriels Gmail via une fausse extension Chrome Google Sheets",
       "created": "2026-11-26T16:20:00+00:00",
@@ -1509,117 +1748,6 @@
           "url": "https://www.bleepingcomputer.com/news/security/palo-alto-networks-warns-of-fragnesia-flaw-exploited-in-pan-os-attacks/",
           "date": "2026-11-25",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/25/paloalto.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-25-fifa-vol-donnees-hbhc",
-      "title": "FIFA : des pirates accèdent à des données personnelles et commerciales, le groupe HBHC revendique le vol",
-      "created": "2026-11-25T21:20:00+00:00",
-      "updated": "2026-11-25T21:20:00+00:00",
-      "version": 1,
-      "resume": "La FIFA confirme un accès non autorisé à un ensemble limité d'informations personnelles et commerciales [1]. Le groupe Handsome Boy Hacking Club revendique le vol de plus de 12 gigaoctets de données [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Accès revendiqué",
-          "texte": "Le groupe affirme avoir accédé à l'environnement Microsoft de la FIFA [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Plus de 12 gigaoctets revendiqués : pièces d'identité, documents d'immigration, relevés financiers, documents juridiques, informations de gouvernance, entre autres [1]."
-        },
-        {
-          "etape": "Extorsion",
-          "texte": "Tentative d'extorsion de la FIFA → sans succès, selon le groupe [1]."
-        },
-        {
-          "etape": "Publication",
-          "texte": "Mise en ligne des données sur un forum cybercriminel [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (HBHC)",
-            "note": ""
-          },
-          {
-            "id": "ms",
-            "type": "cloud",
-            "zone": "victime",
-            "nom": "Environnement Microsoft de la FIFA",
-            "note": "Accès revendiqué"
-          },
-          {
-            "id": "data",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Données personnelles et commerciales",
-            "note": "Plus de 12 gigaoctets"
-          },
-          {
-            "id": "forum",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Forum cybercriminel",
-            "note": "Données publiées"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "ms",
-            "etape": 2,
-            "texte": "Accès revendiqué à l'environnement Microsoft"
-          },
-          {
-            "de": "ms",
-            "vers": "data",
-            "etape": 3,
-            "texte": "Vol de données revendiqué"
-          },
-          {
-            "de": "data",
-            "vers": "forum",
-            "etape": 5,
-            "texte": "Données mises en ligne"
-          }
-        ]
-      },
-      "limites": "Les sources ne décrivent ni la méthode ni la date de l'intrusion, et la FIFA n'a pas répondu aux questions complémentaires sur la nature de l'incident [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Handsome Boy Hacking Club, groupe apparu récemment, membres et affiliations peu connus [1]"
-      ],
-      "cibles": [
-        "FIFA, instance dirigeante du football international basée à Zurich, environ 700 employés [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "FIFA",
-          "definition": "Fédération internationale de football association, instance dirigeante du football mondial"
-        },
-        {
-          "sigle": "HBHC",
-          "definition": "Handsome Boy Hacking Club : groupe de pirates revendiquant l'attaque"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "FIFA says hackers accessed ‘limited set of personal and business information’",
-          "site": "The Record",
-          "url": "https://therecord.media/fifa-data-breach-limited",
-          "date": "2026-11-25",
-          "image": "https://cms.therecord.media/uploads/fifa_sign_wc_final_202655407277531_c63256a9d9_o_77bc61d70a.jpg"
         }
       ]
     },
@@ -58092,159 +58220,6 @@
           "url": "https://www.securityweek.com/fortibleed-attackers-locking-victims-out-of-fortinet-devices/",
           "date": "2026-10-08",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Fortinet.jpeg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-08-tensorlake-npm-shai-hulud",
-      "title": "Paquet npm tensorlake compromis : ver Shai-Hulud voleur d'identifiants",
-      "created": "2026-10-08T07:30:00+00:00",
-      "updated": "2026-10-08T07:30:00+00:00",
-      "version": 1,
-      "resume": "La version 0.5.144 du paquet npm tensorlake contenait un logiciel malveillant qui vole des identifiants, exfiltre des secrets et exécute du code fourni à distance. L'attaque est rattachée à ChainDrop / Shai-Hulud [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Fichiers malveillants poussés sur la branche principale du dépôt tensorlake sous le nom d'un mainteneur → source piégée ; l'article ne précise pas comment le compte a été utilisé [1]."
-        },
-        {
-          "etape": "Publication",
-          "texte": "Le workflow de release publie la version 0.5.144 sur npm, retirée ensuite du registre [1]."
-        },
-        {
-          "etape": "Exécution",
-          "texte": "Un script lancé avant l'installation démarre un chargeur obfusqué → exécution du code malveillant avec le runtime Bun [1]."
-        },
-        {
-          "etape": "Vol d'identifiants",
-          "texte": "Collecte de jetons npm et GitHub, identifiants AWS, Vault et Kubernetes, clés SSH, fichiers .env → secrets exfiltrés vers le serveur de commande ou un dépôt GitHub public [1]."
-        },
-        {
-          "etape": "Persistance",
-          "texte": "Écriture de .claude/settings.json et .vscode/tasks.json dans les dépôts accessibles → relance à l'ouverture du projet dans Claude Code ou VS Code [1]."
-        },
-        {
-          "etape": "Propagation",
-          "texte": "Énumération des paquets liés à l'identité de publication de la victime → republication de versions compromises [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (ChainDrop / Shai-Hulud)",
-            "note": ""
-          },
-          {
-            "id": "dep",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Dépôt tensorlake et registre npm",
-            "note": "Version 0.5.144"
-          },
-          {
-            "id": "dev",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Machines ayant installé le paquet",
-            "note": "Secrets volés"
-          },
-          {
-            "id": "c2",
-            "type": "serveur",
-            "zone": "internet",
-            "nom": "Serveur de commande ou GitHub",
-            "note": "Réception des secrets"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "dep",
-            "etape": 1,
-            "texte": "Fichiers malveillants poussés sous le nom d'un mainteneur"
-          },
-          {
-            "de": "dep",
-            "vers": "dev",
-            "etape": 3,
-            "texte": "Script exécuté avant l'installation du paquet"
-          },
-          {
-            "de": "dev",
-            "vers": "c2",
-            "etape": 4,
-            "texte": "Exfiltration des secrets collectés"
-          },
-          {
-            "de": "dev",
-            "vers": "dep",
-            "etape": 6,
-            "texte": "Republication de paquets avec l'identité de la victime"
-          }
-        ]
-      },
-      "limites": "L'article ne précise ni comment le compte du mainteneur a été utilisé, ni l'acteur, ni le nombre de victimes [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non nommé ; campagne rattachée à ChainDrop / Shai-Hulud [1]"
-      ],
-      "cibles": [
-        "Utilisateurs ayant installé la version 0.5.144 de tensorlake, identifiants de développeurs et de CI [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "npm",
-          "definition": "Gestionnaire de paquets JavaScript et son dépôt public"
-        },
-        {
-          "sigle": "SSH",
-          "definition": "Protocole d'accès distant sécurisé, utilisé avec des clés"
-        },
-        {
-          "sigle": "AWS",
-          "definition": "Amazon Web Services : service de cloud d'Amazon"
-        },
-        {
-          "sigle": "Vault",
-          "definition": "HashiCorp Vault : outil de stockage de secrets"
-        },
-        {
-          "sigle": "Kubernetes",
-          "definition": "Plateforme d'orchestration de conteneurs"
-        },
-        {
-          "sigle": "Bun",
-          "definition": "Environnement d'exécution JavaScript"
-        },
-        {
-          "sigle": "VS Code",
-          "definition": "Visual Studio Code : éditeur de code de Microsoft"
-        },
-        {
-          "sigle": "ChainDrop",
-          "definition": "Campagne de ver npm de la famille Shai-Hulud"
-        },
-        {
-          "sigle": "Shai-Hulud",
-          "definition": "Famille de vers qui se propagent via des paquets npm"
-        },
-        {
-          "sigle": "CI",
-          "definition": "Intégration continue : automatisation des builds et tests"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Tensorlake npm Package Compromised to Deliver Shai-Hulud Credential-Stealing Worm",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/tensorlake-npm-package-compromised-to.html",
-          "date": "2026-10-08",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1ZJrw-vCazDC3YJlfmY9WewJ170my9lYex6Ccg7VTa8UQCrXWoCiy_F9w_LoP-GDEarC_RoYnx63fAa_i_RmR5564MS6tgcoqi77wlcqPzX7kambOt4Gga7rsMlWWBwyHKZtCb1lAowiE4bf5up8aIJuwoVsZSKTq15TTynJ-uNPirAGnY8uwMMGqBsgU/s1700-nu-rw-lo-l85-e365/npm-hack.jpg"
         }
       ]
     }

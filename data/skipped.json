@@ -1,21 +1,5 @@
 [
   {
-    "id": "0da6cf00fb542a34",
-    "title": "EU accuses TikTok of trapping users in harmful ‘rabbit holes’",
-    "link": "https://therecord.media/eu-accuses-tiktok-of-rabbit-hole-DSA-violation",
-    "source": "The Record",
-    "raison": "actualité réglementaire sans méthode d'attaque",
-    "date": "2026-11-06T12:07:15+00:00"
-  },
-  {
-    "id": "42ceb030c2a9b434",
-    "title": "IA agentique et programmation réactive : pourquoi Mistral AI acquiert SkipLabs",
-    "link": "https://www.lemagit.fr/actualites/366653932/IA-agentique-et-programmation-reactive-pourquoi-Mistral-AI-acquiert-SkipLabs",
-    "source": "LeMagIT",
-    "raison": "annonce d'acquisition, hors sujet",
-    "date": "2026-11-06T12:07:17+00:00"
-  },
-  {
     "id": "649e0d8b078ebcc3",
     "title": "Microsoft Paint RCE Fix Now Available, but Windows Update Won't Deliver It",
     "link": "https://thehackernews.com/2026/11/microsoft-paint-rce-fix-now-available.html",
@@ -3998,5 +3982,21 @@
     "source": "LeMagIT",
     "raison": "étude de marché sur la livraison logicielle, aucune attaque décrite",
     "date": "2026-11-26T20:20:00+00:00"
+  },
+  {
+    "id": "2cde4a64c5deb9d2",
+    "title": "ThreatsDay: 10M NGINX Services at Risk, 250+ Malicious Extensions, AI Server Hijacking + 17 More Stories",
+    "link": "https://thehackernews.com/2026/11/threatsday-250-rogue-extensions-10m.html",
+    "source": "The Hacker News",
+    "raison": "récapitulatif hebdomadaire d'une vingtaine de sujets sans lien entre eux, impossible à regrouper en un sujet",
+    "date": "2026-11-26T21:15:00+00:00"
+  },
+  {
+    "id": "daae5f75cb1aab54",
+    "title": "OpenAI warns GPT-6.2 Astra will hit usage limits 40% faster because it fixed a bug",
+    "link": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-warns-gpt-62-astra-will-hit-usage-limits-40-percent-faster-because-it-fixed-a-bug/",
+    "source": "BleepingComputer",
+    "raison": "actualité produit (limites d'usage d'un service d'IA), aucune attaque",
+    "date": "2026-11-26T21:15:00+00:00"
   }
 ]

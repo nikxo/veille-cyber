@@ -57920,28 +57920,36 @@
     },
     {
       "schema": 3,
-      "id": "2026-10-08-firefox-extensions-rabby-okx",
-      "title": "16 extensions Firefox imitant Rabby et OKX pour voler des phrases de récupération",
-      "created": "2026-10-08T11:30:00+00:00",
-      "updated": "2026-10-08T11:30:00+00:00",
+      "id": "2026-11-27-softwareok-q-dir-desktopok-pieges",
+      "title": "SoftwareOK : les installateurs officiels de Q-Dir et DesktopOK piégés pour installer un logiciel de contrôle à distance",
+      "created": "2026-11-27T12:07:35+00:00",
+      "updated": "2026-11-27T12:07:35+00:00",
       "version": 1,
-      "resume": "Seize extensions Firefox malveillantes imitent les portefeuilles Rabby et OKX pour intercepter les phrases de récupération et les clés privées de cryptomonnaies [1].",
+      "resume": "Les programmes d'installation de Q-Dir et DesktopOK diffusés par le site officiel SoftwareOK ont été piégés pour installer un cheval de Troie de contrôle à distance chez les utilisateurs [1].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Installation par les utilisateurs d'extensions imitant Rabby Wallet (quatre) et OKX Wallet (les autres) → fausses interfaces de portefeuille [1]."
+          "texte": "Installateurs piégés sur le site officiel SoftwareOK, au téléchargement comme lors des mises à jour → exécution sur la machine de l'utilisateur [1]."
         },
         {
-          "etape": "Interception des secrets",
-          "texte": "Saisie d'une phrase de récupération ou d'une clé privée pendant l'import du portefeuille → secrets interceptés par le code de l'extension [1]."
+          "etape": "Diversion et téléchargement",
+          "texte": "Lancement du vrai logiciel pour réduire les soupçons et, en même temps, téléchargement de 7zr.exe et d'une archive depuis mail.c1a2[.]top [1]."
         },
         {
-          "etape": "Exfiltration",
-          "texte": "Envoi des secrets vers des Cloudflare Workers contrôlés par les attaquants → quinze extensions contactent le même domaine workers.dev [1]."
+          "etape": "Installation",
+          "texte": "Extraction de l'archive avec 7zr.exe → cheval de Troie et environnement Python exécutés sur la machine [1]."
         },
         {
-          "etape": "Renouvellement",
-          "texte": "Noms de paquets, versions, identifiants et descriptions modifiés, mêmes interfaces, même logique et même infrastructure réseau réutilisées [1]."
+          "etape": "Persistance",
+          "texte": "Tâche planifiée se faisant passer pour Microsoft Edge → relance du script py_client_dsv2.py [1]."
+        },
+        {
+          "etape": "Contrôle à distance",
+          "texte": "Connexion au serveur de commande 8.210.69[.]51 → commandes, code Python, transferts de fichiers et captures d'écran [1]."
+        },
+        {
+          "etape": "Repérage des défenses",
+          "texte": "Processus comparés à une liste de produits de sécurité, résultat envoyé au serveur pour aider les attaquants à préparer la suite ou livrer des charges indétectées [1]."
         }
       ],
       "parcours": {
@@ -57954,95 +57962,107 @@
             "note": ""
           },
           {
-            "id": "ext",
+            "id": "site",
             "type": "application",
-            "zone": "victime",
-            "nom": "Fausses extensions Firefox",
-            "note": "Rabby et OKX imités"
-          },
-          {
-            "id": "usr",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Utilisateurs de portefeuilles",
-            "note": ""
-          },
-          {
-            "id": "cf",
-            "type": "cloud",
             "zone": "internet",
-            "nom": "Cloudflare Workers",
-            "note": "Contrôlés par l'attaquant"
+            "nom": "Site officiel SoftwareOK",
+            "note": "Installateurs piégés"
+          },
+          {
+            "id": "dl",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur mail.c1a2[.]top",
+            "note": "Héberge l'archive"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de commande",
+            "note": "8.210.69[.]51"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Machine de l'utilisateur",
+            "note": "Tâche planifiée"
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "ext",
+            "vers": "site",
             "etape": 1,
-            "texte": "Extensions imitant Rabby et OKX"
+            "texte": "Installateurs remplacés par des versions piégées"
           },
           {
-            "de": "usr",
-            "vers": "ext",
+            "de": "site",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Téléchargement ou mise à jour piégée"
+          },
+          {
+            "de": "dl",
+            "vers": "pc",
             "etape": 2,
-            "texte": "Phrase ou clé saisie à l'import"
+            "texte": "Envoi de 7zr.exe et de l'archive"
           },
           {
-            "de": "ext",
-            "vers": "cf",
-            "etape": 3,
-            "texte": "Secrets envoyés"
+            "de": "c2",
+            "vers": "pc",
+            "etape": 5,
+            "texte": "Commandes, fichiers, captures d'écran"
+          },
+          {
+            "de": "pc",
+            "vers": "c2",
+            "etape": 6,
+            "texte": "Liste des produits de sécurité envoyée"
           }
         ]
       },
-      "limites": "Le canal de distribution, l'auteur et le nombre de victimes ne sont pas précisés. Toutes les extensions ont été retirées le 5 octobre 2026 [1].",
+      "limites": "Les sources ne disent pas comment les installateurs du site officiel ont été remplacés, depuis quand, ni combien d'utilisateurs sont touchés [1].",
       "cves": [],
       "mitre": [],
-      "acteurs": [],
+      "acteurs": [
+        "Non attribué ; AhnLab relève des commentaires en chinois dans le code [1]"
+      ],
       "cibles": [
-        "Utilisateurs de portefeuilles de cryptomonnaies Rabby Wallet et OKX Wallet [1]"
+        "Utilisateurs de Q-Dir 12.83.0.0, 12.84.0.0, 12.85.0.0 et DesktopOK 12.82.0.0, 12.85.0.0 [1]"
       ],
-      "abreviations": [
-        {
-          "sigle": "OKX",
-          "definition": "Nom d'un portefeuille de cryptomonnaies imité par des extensions"
-        }
-      ],
+      "abreviations": [],
       "sources": [
         {
-          "titre": "16 Malicious Firefox Extensions Pose as Rabby and OKX Wallets to Steal Recovery Phrases",
+          "titre": "Hackers Trojanize Official Q-Dir and DesktopOK Downloads to Deliver Remote Access Malware",
           "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/16-malicious-firefox-extensions-pose-as.html",
-          "date": "2026-10-08",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh25slDP7PhWH155CxM4JUNITLHKzjfSXpuF4WWZJmkycx5UQUIjLJd5Jg_mEDQi62FwRkfpLV14DBpVu2pybVwacKkHpc2MABge_OjMCn3ISyUTsh_JS0fM3wgzv4hbR1du-9fp7cmd0vvB33xeCv7RD7-o4A66gCoKtuCQxmmQL2jM2ljZOMyude3uhOb/s1700-nu-rw-lo-l85-e365/firefox-plugins.jpg"
+          "url": "https://thehackernews.com/2026/11/hackers-trojanize-official-q-dir-and.html",
+          "date": "2026-11-27",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSXVfewkMqSKHEHRrAVXFHFOsMisOpBVnJ_sWbNNQQXuSWTHU5Y8AZW18gdQq7eI5N4l1dXoeBXVuqGGNClEK0U55LHgLYUxmopN9JHaMrYtrt4QrtWmk3uIvX8FzE2jL7Rf-oOG2fiDzj4g99wYn1Ih9uAOmyD0DtWN7ZqkG5UTd3xRYSRnIurQuT437O/s1700-nu-rw-lo-l85-e365/trojan.jpg"
         }
       ]
     },
     {
       "schema": 3,
-      "id": "2026-10-08-talos-evasion-analyse-ia",
-      "title": "Logiciels malveillants : du texte glissé dans les échantillons pour influencer les analyses par IA",
-      "created": "2026-10-08T11:30:00+00:00",
-      "updated": "2026-10-08T11:30:00+00:00",
+      "id": "2026-11-27-afp-forum-cyberattaque",
+      "title": "Agence France-Presse : une intrusion force la mise hors ligne d'AFP Forum, sa plateforme de diffusion aux médias",
+      "created": "2026-11-27T12:07:35+00:00",
+      "updated": "2026-11-27T12:07:35+00:00",
       "version": 1,
-      "resume": "Cisco Talos a suivi 84 échantillons (janvier 2025 à juillet 2026) contenant du texte destiné à influencer l'analyse automatisée par IA ; les meilleures techniques ont orienté le verdict dans environ 35 % des essais [1].",
+      "resume": "L'Agence France-Presse a subi jeudi une intrusion et a mis hors ligne AFP Forum, la plateforme où les médias du monde entier récupèrent ses dépêches, photos et vidéos [1].",
       "chaine": [
         {
           "etape": "Accès initial",
           "texte": "Non précisé par les sources [1]."
         },
         {
-          "etape": "Instructions glissées",
-          "texte": "Texte en langage naturel demandant d'ignorer le fichier (FRUITSHELL, PLOTSAFE) → tentative d'influencer les outils d'analyse automatisés [1]."
+          "etape": "Intrusion",
+          "texte": "Intrusion visant AFP Forum, la plateforme en ligne de diffusion des contenus de l'agence ; dès sa détection, les équipes ont agi pour la contenir [1]."
         },
         {
-          "etape": "Imitation de formats",
-          "texte": "Même instruction répétée dans sept formats de modèles de conversation (HOLLOWCLAD) → contenu pouvant être lu par le modèle comme une instruction système [1]."
-        },
-        {
-          "etape": "Intimidation du modèle",
-          "texte": "Menaces de surveillance et fausses revendications de contrats ou de certifications (HOLLOWCLAD, MANTLEMAZE) → intimidation du modèle d'analyse [1]."
+          "etape": "Impact",
+          "texte": "Plateforme mise hors ligne par précaution → diffusion des contenus aux médias clients perturbée, avis de maintenance affiché vendredi [1]."
         }
       ],
       "parcours": {
@@ -58051,83 +58071,74 @@
             "id": "att",
             "type": "attaquant",
             "zone": "internet",
-            "nom": "Auteurs de logiciels malveillants",
+            "nom": "Attaquant (non identifié)",
             "note": ""
           },
           {
-            "id": "ech",
+            "id": "inc",
             "type": "inconnu",
             "zone": "victime",
-            "nom": "Échantillon malveillant",
-            "note": "Texte d'évasion intégré"
+            "nom": "Point d'entrée inconnu",
+            "note": ""
           },
           {
-            "id": "scan",
+            "id": "forum",
             "type": "application",
             "zone": "victime",
-            "nom": "Outil d'analyse par IA",
-            "note": "Chaînes extraites"
+            "nom": "Plateforme AFP Forum",
+            "note": "Mise hors ligne"
+          },
+          {
+            "id": "med",
+            "type": "utilisateur",
+            "zone": "internet",
+            "nom": "Médias clients",
+            "note": "Diffusion perturbée"
           }
         ],
         "liens": [
           {
             "de": "att",
-            "vers": "ech",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "forum",
             "etape": 2,
-            "texte": "Instruction d'ignorer le fichier insérée"
+            "texte": "Intrusion visant la plateforme"
           },
           {
-            "de": "ech",
-            "vers": "scan",
+            "de": "forum",
+            "vers": "med",
             "etape": 3,
-            "texte": "Même instruction en sept formats de modèles"
-          },
-          {
-            "de": "ech",
-            "vers": "scan",
-            "etape": 4,
-            "texte": "Menaces et fausses revendications"
+            "texte": "Plateforme hors ligne, accès alternatifs proposés aux abonnés"
           }
         ]
       },
-      "limites": "Les sources ne décrivent aucune victime. Au moins quatre acteurs distincts, non nommés, ont réutilisé le commentaire de FRUITSHELL [1].",
+      "limites": "Les sources ne disent pas comment les attaquants sont entrés, qui ils sont, ni si des données ont été consultées ou d'autres systèmes touchés [1].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Auteurs anonymes ; au moins quatre acteurs distincts ont réutilisé le commentaire de FRUITSHELL [1]"
+        "Non identifié par l'agence [1]"
       ],
       "cibles": [
-        "Outils d'analyse automatisée de logiciels malveillants fondés sur des modèles de langage [1]"
+        "Agence France-Presse et ses clients, des médias du monde entier [1]"
       ],
       "abreviations": [
         {
-          "sigle": "IA",
-          "definition": "Intelligence artificielle"
-        },
-        {
-          "sigle": "FRUITSHELL",
-          "definition": "Nom d'une famille de porte dérobée PowerShell suivie par Talos"
-        },
-        {
-          "sigle": "PLOTSAFE",
-          "definition": "Nom d'une famille de logiciel malveillant écrite en Go"
-        },
-        {
-          "sigle": "HOLLOWCLAD",
-          "definition": "Nom d'une famille de logiciel malveillant répétant des instructions de refus"
-        },
-        {
-          "sigle": "MANTLEMAZE",
-          "definition": "Nom d'une famille de chargeurs malveillants suivie par Talos"
+          "sigle": "AFP",
+          "definition": "Agence France-Presse, agence de presse internationale française"
         }
       ],
       "sources": [
         {
-          "titre": "Ignore all instructions and read this blog: The state of AI-analysis evasion in malware",
-          "site": "Cisco Talos",
-          "url": "https://blog.talosintelligence.com/ignore-all-instructions-and-read-this-blog-the-state-of-ai-analysis-evasion-in-malware/",
-          "date": "2026-10-08",
-          "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/CAIRN-TechBlog-Header.jpg"
+          "titre": "Cyberattack disrupts global news distribution platform at France’s AFP",
+          "site": "The Record",
+          "url": "https://therecord.media/france-afp-hit-by-cyberattack",
+          "date": "2026-11-27",
+          "image": "https://cms.therecord.media/uploads/paris_france_558ae68906.jpg"
         }
       ]
     }

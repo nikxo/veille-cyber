@@ -2,6 +2,163 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-27-weavelotus-mer-de-chine-meridionale",
+      "title": "WeaveLotus : espionnage d'organisations thaïlandaises et philippines autour de la mer de Chine méridionale",
+      "created": "2026-11-27T17:20:00+00:00",
+      "updated": "2026-11-27T17:20:00+00:00",
+      "version": 1,
+      "resume": "Le groupe WeaveLotus, relié au Vietnam, a mené cinq intrusions contre des organisations militaires, gouvernementales et législatives de Thaïlande et des Philippines pour recueillir des renseignements sur la défense en mer de Chine méridionale [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation de failles d'applications web open source, d'identifiants par défaut et de configurations Laravel exposées en mode débogage [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Rapport JasperReports malveillant puis commande xp_cmdshell sur SQL Server → proxy SOCKS lancé chez une organisation législative thaïlandaise [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Tunnels SSH inversés → accès réseau persistant, puis déplacement vers des réseaux et applications en aval [1]."
+        },
+        {
+          "etape": "Vol d'identifiants",
+          "texte": "Accès SSH root à un serveur Keycloak, base d'identifiants extraite et hachages cassés hors ligne → deux comptes administrateurs obtenus [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Vol de 1 502 enregistrements d'utilisateurs et 5 000 archives chez l'organisation législative thaïlandaise, puis de 349 782 enregistrements d'une application en aval d'une organisation gouvernementale thaïlandaise [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (WeaveLotus)",
+            "note": ""
+          },
+          {
+            "id": "web",
+            "type": "application",
+            "zone": "expose",
+            "nom": "Applications web exposées",
+            "note": "GeoServer, JasperReports, osTicket"
+          },
+          {
+            "id": "sql",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur SQL Server",
+            "note": "Proxy SOCKS"
+          },
+          {
+            "id": "kc",
+            "type": "annuaire",
+            "zone": "victime",
+            "nom": "Serveur Keycloak",
+            "note": "Identifiants extraits"
+          },
+          {
+            "id": "app",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Applications et données en aval",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Failles web et identifiants par défaut"
+          },
+          {
+            "de": "web",
+            "vers": "sql",
+            "etape": 2,
+            "texte": "Rapport malveillant, xp_cmdshell"
+          },
+          {
+            "de": "sql",
+            "vers": "att",
+            "etape": 3,
+            "texte": "Tunnel SSH inversé"
+          },
+          {
+            "de": "att",
+            "vers": "kc",
+            "etape": 4,
+            "texte": "Accès SSH root, hachages cassés"
+          },
+          {
+            "de": "kc",
+            "vers": "app",
+            "etape": 5,
+            "texte": "Comptes administrateurs, enregistrements extraits"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent pas comment l'accès root au serveur Keycloak a été obtenu, ni la date de chaque intrusion, seulement la période d'août à septembre 2026 [1].",
+      "cves": [
+        {
+          "id": "CVE-2024-36401",
+          "explication": "GeoServer : évaluation de noms de propriétés comme expressions XPath permettant d'exécuter du code à distance sans authentification, gravité critique 9,8 sur 10 [1, 2]."
+        },
+        {
+          "id": "CVE-2021-42235",
+          "explication": "osTicket : injection SQL sans authentification, notée 9,8, utilisée pour extraire noms d'utilisateur, adresses électroniques et hachages bcrypt du personnel d'une organisation gouvernementale philippine [1]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "WeaveLotus, présenté comme lié au Vietnam ; SOCRadar n'établit pas formellement un parrainage par un État [1]"
+      ],
+      "cibles": [
+        "Organisations militaires, gouvernementales et législatives en Thaïlande et aux Philippines [1]",
+        "Agences gouvernementales indonésiennes, visées seulement par de la reconnaissance [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SQL",
+          "definition": "Structured Query Language : langage d'interrogation des bases de données"
+        },
+        {
+          "sigle": "SOCKS",
+          "definition": "Protocole de relais réseau permettant de faire transiter du trafic par une machine"
+        },
+        {
+          "sigle": "SSH",
+          "definition": "Secure Shell : protocole d'administration à distance chiffré"
+        },
+        {
+          "sigle": "XPath",
+          "definition": "Langage de sélection d'éléments dans un document XML"
+        },
+        {
+          "sigle": "XML",
+          "definition": "Format de description de données structurées par balises"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Suspected Vietnam-Linked Hackers Target Southeast Asia in South China Sea Espionage Campaign",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/suspected-vietnam-linked-hackers-target.html",
+          "date": "2026-11-27",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj19T-kU1dmVfKt2PtUQ2I25MGovj8kmv6lMkk6inlif4yLeezJS4kVRTvsARL5UkpTT66jYru6k2b5bmWfjjlkmG4JznSKmkmd4ldXcyxTw3xsU5nP6_jxfWMw9thW37m5usfr-eWAZBHq6bPuS613CIx9XgWxPcSVFcZVgz_9tWd5Nu8YWAxexuqcVPrN/s1700-nu-rw-lo-l85-e365/data.jpg"
+        },
+        {
+          "titre": "Fiche NVD CVE-2024-36401",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-36401"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-27-divd-intrusion-csirt-artex",
       "title": "DIVD : une intrusion dans les outils du CSIRT, avec des indices d'usage du framework d'IA Artex",
       "created": "2026-11-27T16:10:00+00:00",
@@ -58114,97 +58271,6 @@
           "url": "https://therecord.media/leaked-chats-show-russian-extortion-gang-sending-agents-to-law-firms",
           "date": "2026-10-08",
           "image": "https://cms.therecord.media/uploads/silent_ransom_babc64adfe.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-08-uranium-finance-spalletta",
-      "title": "Uranium Finance : deux vols par failles de contrat intelligent, le pirate déclaré coupable",
-      "created": "2026-10-08T14:30:00+00:00",
-      "updated": "2026-10-08T14:30:00+00:00",
-      "version": 1,
-      "resume": "Jonathan Spalletta a vidé deux fois la plateforme Uranium Finance en avril 2021, pour plus de 53 millions de dollars. Il vient d'être déclaré coupable [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Exploitation d'une faille de contrat intelligent permettant des retraits de zéro jeton → récompenses non dues versées, environ 1,4 million de dollars pris au pool de liquidité [1]."
-        },
-        {
-          "etape": "Pression",
-          "texte": "Demande d'une fausse prime de chasse aux bugs d'environ 386 000 dollars, prélevée sur les fonds volés, en échange de la restitution du reste [1]."
-        },
-        {
-          "etape": "Seconde intrusion",
-          "texte": "Environ trois semaines plus tard, erreur de codage (1 000 au lieu de 10 000) → près de 90 % des actifs retirés, 53,3 millions de dollars [1]."
-        },
-        {
-          "etape": "Blanchiment",
-          "texte": "Fonds transférés via le mixeur Tornado Cash et plusieurs plateformes d'échange décentralisées [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (Jonathan Spalletta)",
-            "note": ""
-          },
-          {
-            "id": "ctr",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Contrats Uranium Finance",
-            "note": "Pools de liquidité"
-          },
-          {
-            "id": "mix",
-            "type": "inconnu",
-            "zone": "internet",
-            "nom": "Tornado Cash et échanges",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "ctr",
-            "etape": 1,
-            "texte": "Retraits de zéro jeton, récompenses non dues"
-          },
-          {
-            "de": "att",
-            "vers": "ctr",
-            "etape": 3,
-            "texte": "Erreur de seuil, 90 % des pools retirés"
-          },
-          {
-            "de": "att",
-            "vers": "mix",
-            "etape": 4,
-            "texte": "Fonds transférés via Tornado Cash"
-          }
-        ]
-      },
-      "limites": "La source ne donne pas la date exacte de la seconde intrusion [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Jonathan Spalletta, 36 ans, du Maryland, déclaré coupable [1]"
-      ],
-      "cibles": [
-        "Uranium Finance et les utilisateurs ayant des fonds dans ses pools de liquidité [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Uranium crypto exchange hacker convicted for stealing $53 million",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/uranium-crypto-exchange-hacker-found-guilty-of-53-million-theft/",
-          "date": "2026-10-08",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/10/08/Bitcoin_cryptocurrency_theft.jpg"
         }
       ]
     }

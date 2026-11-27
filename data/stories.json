@@ -110,17 +110,21 @@
       "id": "2026-11-27-sap-github-jetons-code-source",
       "title": "SAP : une activité suspecte sur GitHub, des jetons d'employés volés auraient servi à copier et modifier du code source",
       "created": "2026-11-27T08:10:00+00:00",
-      "updated": "2026-11-27T08:10:00+00:00",
-      "version": 1,
-      "resume": "SAP confirme une activité suspecte, que des communications internes situent sur GitHub ; selon Der Spiegel, des pirates ont utilisé des jetons d'employés volés pour copier et modifier du code source [1].",
+      "updated": "2026-11-27T10:20:00+00:00",
+      "version": 2,
+      "resume": "SAP confirme avoir détecté une activité suspecte dans son environnement informatique ; selon des sources internes citées par Der Spiegel, des pirates ont utilisé des jetons d'employés volés pour copier et modifier du code source sur GitHub [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Vol de jetons d'authentification d'employés de SAP, selon un initié cité par Der Spiegel et non confirmé par SAP [1]."
+          "texte": "Vol de jetons d'authentification d'employés de SAP, selon des sources internes citées par Der Spiegel, non confirmé par SAP [1, 2]."
         },
         {
           "etape": "Atteinte au code",
-          "texte": "Jetons utilisés sur GitHub → code source copié et modifié, selon Der Spiegel [1]."
+          "texte": "Jetons utilisés dans l'environnement GitHub de SAP → code source copié puis modifié [1, 2]."
+        },
+        {
+          "etape": "Réaction",
+          "texte": "Activité suspecte détectée → mesures urgentes prises par SAP, sans compromission constatée des systèmes ou données des clients selon l'entreprise [2]."
         }
       ],
       "parcours": {
@@ -162,14 +166,14 @@
           }
         ]
       },
-      "limites": "SAP n'a pas confirmé le vol de jetons ni donné de détails ; la source ne précise pas comment les jetons ont été obtenus ni si du code propriétaire a été consulté [1].",
+      "limites": "SAP ne donne aucun détail sur l'attaque, ne précise pas les environnements touchés et ne dit pas si les clients téléchargeant son code doivent agir [1, 2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
-        "Attaquant non identifié ; des sources de Der Spiegel évoquent une aide de l'intelligence artificielle, non confirmée [1]"
+        "Attaquant non identifié ; une aide d'outils d'intelligence artificielle est évoquée par des sources internes, sans confirmation [1, 2]"
       ],
       "cibles": [
-        "SAP, éditeur de logiciels d'entreprise ; aucune preuve d'accès aux données métier des clients selon l'entreprise [1]"
+        "SAP, éditeur de logiciels d'entreprise ; aucune preuve d'accès aux données métier des clients selon l'entreprise [1, 2]"
       ],
       "abreviations": [
         {
@@ -184,6 +188,13 @@
           "url": "https://www.securityweek.com/sap-confirms-cyberattack-source-code-reportedly-compromised/",
           "date": "2026-11-27",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/09/SAP_vulnerability-patches.jpg"
+        },
+        {
+          "titre": "SAP confirms security incident after suspicious GitHub activity",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/sap-confirms-security-incident-after-suspicious-github-activity/",
+          "date": "2026-11-27",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/27/sap.jpg"
         }
       ]
     },
@@ -4184,21 +4195,25 @@
       "id": "2026-11-24-mycolorado-application-donnees-volees",
       "title": "Colorado : une cyberattaque met hors ligne l'application myColorado et touche les données de 150 000 personnes",
       "created": "2026-11-24T21:30:00+00:00",
-      "updated": "2026-11-24T21:30:00+00:00",
-      "version": 1,
-      "resume": "Des pirates ont compromis myColorado, l'application d'identité numérique et de services de l'État du Colorado, qui l'a fermée ; selon l'État, l'attaque a probablement entraîné le vol de données de près de 150 000 personnes [1].",
+      "updated": "2026-11-27T10:20:00+00:00",
+      "version": 2,
+      "resume": "Des pirates ont consulté des documents d'utilisateurs de myColorado, l'application d'identité numérique de l'État du Colorado, qui l'a fermée ; l'État a d'abord évoqué près de 150 000 personnes touchées [1], puis environ 100 000, estimation en cours d'affinage [2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé par les sources [1, 2]."
         },
         {
           "etape": "Vol de données",
-          "texte": "Compromission de l'application myColorado → vol probable de données liées à près de 150 000 personnes, selon l'État [1]."
+          "texte": "Accès aux documents téléversés par les utilisateurs (pièces d'identité, cartes grises, cartes d'assurance) → données consultées, sans informations de paiement selon l'État [2]."
+        },
+        {
+          "etape": "Détection",
+          "texte": "Les attaquants déclenchent la détection automatisée des menaces de l'environnement AWS de l'État → incident découvert [2], le soir du 18 novembre [1]."
         },
         {
           "etape": "Impact",
-          "texte": "Incident découvert le soir du 18 novembre → application fermée par le service informatique de l'État, toujours indisponible le 24 novembre [1]."
+          "texte": "Application fermée par le service informatique de l'État, toujours indisponible ensuite, notifications aux personnes à partir du 27 novembre [1, 2]."
         }
       ],
       "parcours": {
@@ -4215,14 +4230,21 @@
             "type": "application",
             "zone": "victime",
             "nom": "Application myColorado",
-            "note": "Fermée depuis le 18/11"
+            "note": "Fermée par l'État"
+          },
+          {
+            "id": "cloud",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Environnement AWS de l'État",
+            "note": "Détection déclenchée"
           },
           {
             "id": "data",
             "type": "donnees",
             "zone": "victime",
-            "nom": "Données des utilisateurs",
-            "note": "Près de 150 000"
+            "nom": "Documents téléversés des utilisateurs",
+            "note": "Pièces d'identité, assurances"
           }
         ],
         "liens": [
@@ -4230,24 +4252,35 @@
             "de": "att",
             "vers": "app",
             "etape": 2,
-            "texte": "Compromission de l'application"
+            "texte": "Accès non autorisé à la plateforme"
           },
           {
             "de": "app",
             "vers": "data",
             "etape": 2,
-            "texte": "Vol probable de données"
+            "texte": "Documents des utilisateurs consultés"
+          },
+          {
+            "de": "att",
+            "vers": "cloud",
+            "etape": 3,
+            "texte": "Détection automatisée des menaces déclenchée"
           }
         ]
       },
-      "limites": "La source ne précise ni le vecteur d'entrée, ni la nature des données volées, ni l'auteur de l'attaque [1].",
+      "limites": "Les sources ne précisent ni le vecteur d'entrée ni l'auteur ; le nombre de personnes touchées reste une estimation de l'État : près de 150 000 [1], puis environ 100 000 [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Utilisateurs de myColorado : 2,1 millions d'utilisateurs, près de 150 000 personnes touchées [1]"
+        "Utilisateurs de myColorado : 2,1 millions d'utilisateurs [1, 2], près de 150 000 [1] ou environ 100 000 [2] personnes touchées"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "AWS",
+          "definition": "Amazon Web Services : plateforme d'informatique en nuage d'Amazon"
+        }
+      ],
       "sources": [
         {
           "titre": "Colorado says cyberattack took down myColorado app, warns 150,000 had data stolen",
@@ -4255,6 +4288,13 @@
           "url": "https://therecord.media/mycolorado-app-down-data-breach",
           "date": "2026-11-24",
           "image": "https://cms.therecord.media/uploads/my_colorado_app_fb8214e64c.jpg"
+        },
+        {
+          "titre": "100,000 Potentially Impacted by Colorado Data Breach",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/100000-potentially-impacted-by-colorado-data-breach/",
+          "date": "2026-11-27",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/07/data-tracking-report.jpeg"
         }
       ]
     },

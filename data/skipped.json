@@ -1,13 +1,5 @@
 [
   {
-    "id": "e7267a328ffa57e4",
-    "title": "OpenSSH Rushes Patches for ‘SSHole’ Authentication Bypass",
-    "link": "https://www.securityweek.com/openssh-rushes-patches-for-sshole-authentication-bypass/",
-    "source": "SecurityWeek",
-    "raison": "vulnérabilité sans exploitation constatée",
-    "date": "2026-11-06T13:30:00+00:00"
-  },
-  {
     "id": "c8d137c916001a92",
     "title": "OpenAI Says New GPT-6 Cyber Model Hunts Flaws Without Crossing the Line",
     "link": "https://www.securityweek.com/openai-says-new-gpt-6-cyber-model-hunts-flaws-without-crossing-the-line/",
@@ -3998,5 +3990,13 @@
     "source": "BleepingComputer",
     "raison": "vulnérabilité sans exploitation constatée (article inaccessible, résumé ne mentionne pas d'exploitation dans la nature)",
     "date": "2026-11-27T09:15:00+00:00"
+  },
+  {
+    "id": "c4f4c770d4bbe9e6",
+    "title": "Microsoft pushes emergency hotpatch to fix Windows Server crashes",
+    "link": "https://www.bleepingcomputer.com/news/microsoft/new-out-of-band-oob-emergency-hotpatch-fixes-windows-server-2025-crashes/",
+    "source": "BleepingComputer",
+    "raison": "correctif de bug non lié à une attaque",
+    "date": "2026-11-27T10:20:00+00:00"
   }
 ]

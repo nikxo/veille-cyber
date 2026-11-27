@@ -2,6 +2,96 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-27-boston-scientific-vishing-cloud",
+      "title": "Boston Scientific : un hameçonnage vocal ouvre l'accès au cloud et expose les données médicales de 117 789 personnes",
+      "created": "2026-11-27T19:07:21+00:00",
+      "updated": "2026-11-27T19:07:21+00:00",
+      "version": 1,
+      "resume": "Le fabricant de dispositifs médicaux Boston Scientific a subi une intrusion dans son infrastructure cloud qui a exposé des données personnelles et médicales de 117 789 personnes [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Hameçonnage vocal (vishing), une manipulation par téléphone → accès à l'infrastructure cloud de l'entreprise [1]."
+        },
+        {
+          "etape": "Exposition des données",
+          "texte": "Exposition d'applications et de données hébergées dans le cloud : noms, numéros de sécurité sociale, informations médicales et d'assurance santé [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "usr",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Personne appelée",
+            "note": "Hameçonnage vocal"
+          },
+          {
+            "id": "cloud",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Infrastructure cloud",
+            "note": ""
+          },
+          {
+            "id": "data",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Données personnelles et médicales",
+            "note": "117 789 personnes"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "usr",
+            "etape": 1,
+            "texte": "Appel d'hameçonnage vocal"
+          },
+          {
+            "de": "usr",
+            "vers": "cloud",
+            "etape": 1,
+            "texte": "Accès à l'infrastructure cloud obtenu"
+          },
+          {
+            "de": "cloud",
+            "vers": "data",
+            "etape": 2,
+            "texte": "Données hébergées dans le cloud exposées"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni l'identité de l'attaquant, ni qui a été appelé, ni si les données ont été dérobées [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié, la source parle seulement d'un pirate [1]"
+      ],
+      "cibles": [
+        "Boston Scientific, fabricant de dispositifs médicaux [1]",
+        "117 789 personnes dans plusieurs États américains, selon le procureur général du Texas [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "New Boston Scientific data breach exposes personal, medical info",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/new-boston-scientific-data-breach-exposes-personal-medical-info/",
+          "date": "2026-11-27"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-27-weavelotus-mer-de-chine-meridionale",
       "title": "WeaveLotus : espionnage d'organisations thaïlandaises et philippines autour de la mer de Chine méridionale",
       "created": "2026-11-27T17:20:00+00:00",

@@ -2,6 +2,77 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-27-dwp-royaume-uni-services-hors-ligne",
+      "title": "Royaume-Uni : le ministère du Travail et des Pensions coupe des services en ligne après un incident de cybersécurité",
+      "created": "2026-11-27T11:07:00+00:00",
+      "updated": "2026-11-27T11:07:00+00:00",
+      "version": 1,
+      "resume": "Le ministère britannique du Travail et des Pensions (DWP) a subi un incident de cybersécurité et a coupé par précaution certains services en ligne ; les paiements de prestations et de retraites ne sont pas touchés [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Réponse de la victime",
+          "texte": "Mise hors ligne par précaution de certains services en ligne, avec l'appui du NCSC et du Government Cyber Coordination Centre pour les rétablir [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "dwp",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Systèmes du DWP",
+            "note": "Services coupés"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "dwp",
+            "etape": 1,
+            "texte": "Incident, vecteur non précisé"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni la nature de l'incident, ni le vecteur d'accès, ni l'auteur, ni les services coupés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Department for Work and Pensions, premier ministère britannique par les dépenses, chargé des retraites d'État et de plusieurs prestations [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "DWP",
+          "definition": "Department for Work and Pensions : ministère britannique du Travail et des Pensions"
+        },
+        {
+          "sigle": "NCSC",
+          "definition": "National Cyber Security Centre : agence britannique de cybersécurité"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "British government takes services offline following ‘cyber incident’",
+          "site": "The Record",
+          "url": "https://therecord.media/uk-department-work-pensions-cyber-incident",
+          "date": "2026-11-27",
+          "image": "https://cms.therecord.media/uploads/Screenshot_2026_11_27_at_10_31_16_df724c9ca7.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-25-hexpm-rce-serveurs-registre",
       "title": "Hex.pm : une faille critique du registre de paquets Elixir et Erlang exploitée pour exécuter des commandes sur six serveurs",
       "created": "2026-11-25T10:30:00+00:00",
@@ -1120,9 +1191,9 @@
       "id": "2026-11-24-drupal-core-cve-2026-132165-kev",
       "title": "Drupal Core : la faille Fail2Install (CVE-2026-132165) puis CVE-2026-136716 exploitées pour prendre le contrôle de sites",
       "created": "2026-11-24T22:20:00+00:00",
-      "updated": "2026-11-26T10:20:00+00:00",
-      "version": 6,
-      "resume": "La faille CVE-2026-132165 de l'installeur de Drupal Core permet, sans authentification, de prendre le contrôle d'un site ou d'y exécuter du code, et a été exploitée dès le 19 novembre [2, 3, 4]. Une seconde faille, CVE-2026-136716, est aussi exploitée [5].",
+      "updated": "2026-11-27T11:07:00+00:00",
+      "version": 7,
+      "resume": "La faille CVE-2026-132165 de l'installeur de Drupal Core permet, sans authentification, de prendre le contrôle d'un site ou d'y exécuter du code, et a été exploitée dès le 19 novembre [2, 3, 4]. Une seconde faille, CVE-2026-136716, est aussi exploitée [5, 7].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -1199,7 +1270,7 @@
           }
         ]
       },
-      "limites": "Les sources ne précisent ni les attaquants, ni les victimes, ni le nombre de sites touchés [1, 2, 3, 4, 5, 6], ni comment CVE-2026-136716 est exploitée [5, 6].",
+      "limites": "Les sources ne précisent ni les attaquants, ni les victimes, ni le nombre de sites touchés [1, 2, 3, 4, 5, 6, 7], ni comment CVE-2026-136716 est exploitée [5, 6, 7].",
       "cves": [
         {
           "id": "CVE-2026-132165",
@@ -1207,14 +1278,15 @@
         },
         {
           "id": "CVE-2026-136716",
-          "explication": "Drupal Core : contournement d'accès ; des installations restées vulnérables après le correctif de CVE-2026-132165 permettent de prendre le contrôle du site [5, 6], gravité CMSS 21 sur 25 [6]."
+          "explication": "Drupal Core : contournement d'accès ; des sites dans un état d'installation incomplet, même en production, restent exposés à une prise de contrôle [5, 6, 7] ; gravité CMSS 21 sur 25 [6]."
         }
       ],
       "mitre": [],
       "acteurs": [],
       "cibles": [
         "Sites utilisant Drupal Core ; victimes et nombre de sites non précisés [1, 2, 3]",
-        "Environ 55 800 sites Drupal exposés sur Internet, dont 31 500 sur des branches vulnérables à CVE-2026-132165, selon StepSecurity [5]"
+        "Environ 55 800 sites Drupal exposés sur Internet, et 31 500 services sur des branches vulnérables à CVE-2026-132165, selon StepSecurity [5]",
+        "Sites ayant laissé leur installeur accessible à distance après le premier avis de Drupal, possiblement compromis selon l'éditeur [7]"
       ],
       "abreviations": [
         {
@@ -1279,6 +1351,13 @@
           "url": "https://www.securityweek.com/drupal-installer-patch-left-a-gap-attackers-are-already-exploiting/",
           "date": "2026-11-26",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Drupal.jpg"
+        },
+        {
+          "titre": "Drupal warns of new site takeover flaw exploited in attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/drupal-warns-of-new-access-bypass-flaw-exploited-in-attacks/",
+          "date": "2026-11-27",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/27/Drupal_headpic.jpg"
         }
       ]
     },
@@ -57836,115 +57915,6 @@
           "url": "https://therecord.media/russia-ukraine-malware-transportation",
           "date": "2026-10-08",
           "image": "https://cms.therecord.media/uploads/Ukraine_railroad_f8f0a5b0ec.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-08-wazza-phishkit-device-code",
-      "title": "Wazza : kit d'hameçonnage filtrant les visiteurs avant une page Adobe en Device Code",
-      "created": "2026-10-08T11:30:00+00:00",
-      "updated": "2026-10-08T11:30:00+00:00",
-      "version": 1,
-      "resume": "Un nouveau kit d'hameçonnage nommé Wazza vise des organisations bancaires, industrielles et gouvernementales aux États-Unis, en Europe et en Australie, avec une page Adobe en Device Code [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Lien suspect vers un domaine d'atterrissage générique → vérification que le nom d'hôte appartient à une campagne active [1]."
-        },
-        {
-          "etape": "Filtrage des visiteurs",
-          "texte": "Marqueur client, jeton signé de courte durée et contrôle anti-bot avec télémétrie du navigateur → trafic indésirable filtré [1]."
-        },
-        {
-          "etape": "Redirection finale",
-          "texte": "Seuls les visiteurs retenus sont redirigés → page d'hameçonnage Adobe en Device Code [1]."
-        },
-        {
-          "etape": "Vol d'authentification",
-          "texte": "Ce flux vise l'authentification du compte plutôt que la seule capture de mots de passe [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "dom",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Domaine d'atterrissage générique",
-            "note": ""
-          },
-          {
-            "id": "flt",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Contrôle anti-bot",
-            "note": "Jeton et télémétrie"
-          },
-          {
-            "id": "pg",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Page Adobe Device Code",
-            "note": ""
-          },
-          {
-            "id": "usr",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Visiteurs ciblés",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "dom",
-            "etape": 1,
-            "texte": "Lien suspect vers le domaine"
-          },
-          {
-            "de": "dom",
-            "vers": "flt",
-            "etape": 2,
-            "texte": "Marqueur, jeton signé, contrôle anti-bot"
-          },
-          {
-            "de": "flt",
-            "vers": "pg",
-            "etape": 3,
-            "texte": "Visiteurs retenus redirigés"
-          },
-          {
-            "de": "usr",
-            "vers": "pg",
-            "etape": 4,
-            "texte": "Authentification du compte visée"
-          }
-        ]
-      },
-      "limites": "Les sources ne précisent ni le mode de diffusion du lien, ni l'acteur, ni la date de début de la campagne, ni les victimes nommées [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Banque, industrie manufacturière et gouvernement aux États-Unis, en Europe et en Australie [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Wazza Phishkit Targets Banking, Government, and Manufacturing Across the US, EU, and Australia",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/wazza-phishkit-targets-banking.html",
-          "date": "2026-10-08",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnlTrJzuyuM3FgdyTkx-JLieOXeR9fK_hENZFrdItZ09E4ZFhk8UYOPslpbGGidTUGCDgcTHqY7wvYrThg-Hwl24MQhL63GIfmRsBLy9MJ7iDXn1XbbX1W_EgGFw9eRyT4LOJq0aoyWhmOHF3O5a9L5LcKNS1IJxQqs_UBwmOnPRmx3fXwUPpKeYdARVE/s1700-nu-rw-lo-l85-e365/anyrun.jpg"
         }
       ]
     },

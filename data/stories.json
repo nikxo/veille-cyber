@@ -1203,9 +1203,9 @@
       "id": "2026-11-24-drupal-core-cve-2026-132165-kev",
       "title": "Drupal Core : la faille Fail2Install (CVE-2026-132165) puis CVE-2026-136716 exploitées pour prendre le contrôle de sites",
       "created": "2026-11-24T22:20:00+00:00",
-      "updated": "2026-11-27T11:07:00+00:00",
-      "version": 7,
-      "resume": "La faille CVE-2026-132165 de l'installeur de Drupal Core permet, sans authentification, de prendre le contrôle d'un site ou d'y exécuter du code, et a été exploitée dès le 19 novembre [2, 3, 4]. Une seconde faille, CVE-2026-136716, est aussi exploitée [5, 7].",
+      "updated": "2026-11-27T21:06:27+00:00",
+      "version": 8,
+      "resume": "La faille CVE-2026-132165 de l'installeur de Drupal Core permet, sans authentification, de prendre le contrôle d'un site ou d'y exécuter du code, et a été exploitée dès le 19 novembre [2, 3, 4]. Une seconde faille, CVE-2026-136716, est aussi exploitée [5, 7, 8].",
       "chaine": [
         {
           "etape": "Accès initial",
@@ -1298,7 +1298,8 @@
       "cibles": [
         "Sites utilisant Drupal Core ; victimes et nombre de sites non précisés [1, 2, 3]",
         "Environ 55 800 sites Drupal exposés sur Internet, et 31 500 services sur des branches vulnérables à CVE-2026-132165, selon StepSecurity [5]",
-        "Sites ayant laissé leur installeur accessible à distance après le premier avis de Drupal, possiblement compromis selon l'éditeur [7]"
+        "Sites ayant laissé leur installeur accessible à distance après le premier avis de Drupal, possiblement compromis selon l'éditeur [7]",
+        "La CISA a ajouté CVE-2026-136716 à son catalogue des failles exploitées le 27 novembre 2026 ; victimes non précisées [8]"
       ],
       "abreviations": [
         {
@@ -1370,6 +1371,12 @@
           "url": "https://www.bleepingcomputer.com/news/security/drupal-warns-of-new-access-bypass-flaw-exploited-in-attacks/",
           "date": "2026-11-27",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/27/Drupal_headpic.jpg"
+        },
+        {
+          "titre": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/27/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-27"
         }
       ]
     },
@@ -3317,11 +3324,11 @@
       "cves": [
         {
           "id": "CVE-2026-120705",
-          "explication": "GeoServer : injection XML permettant, sans authentification, de lire des fichiers et d'envoyer des requêtes sortantes, gravité 8,6 sur 10 ; exploitée dans la nature [1, 2]."
+          "explication": "GeoServer : injection XML permettant, sans authentification, de lire des fichiers et d'envoyer des requêtes sortantes, gravité 8,6 sur 10 [1, 2] ; exploitée dans la nature [1, 2, 3]."
         },
         {
           "id": "CVE-2026-129243",
-          "explication": "GeoServer : contrôle d'accès contourné permettant d'appeler des opérations réservées aux administrateurs, gravité 8,8 sur 10 ; exploitée dans la nature [1, 2]."
+          "explication": "GeoServer : contrôle d'accès contourné permettant d'appeler des opérations réservées aux administrateurs, gravité 8,8 sur 10 [1, 2] ; exploitée dans la nature [1, 2, 3]."
         },
         {
           "id": "CVE-2026-129245",
@@ -3344,12 +3351,17 @@
       "acteurs": [],
       "cibles": [
         "Serveurs GeoServer non mis à jour vers 2.27.7, 2.28.6 ou 3.0.2 ; victimes non précisées [1]",
-        "Plus de 3 000 instances GeoServer accessibles sur Internet, selon Eye Security [2]"
+        "Plus de 3 000 instances GeoServer accessibles sur Internet, selon Eye Security [2]",
+        "La CISA a ajouté CVE-2026-120705 et CVE-2026-129243 à son catalogue des failles exploitées le 27 novembre 2026 ; victimes non précisées [3]"
       ],
       "abreviations": [
         {
           "sigle": "XML",
           "definition": "Format de texte balisé servant à structurer et échanger des données"
+        },
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
         }
       ],
       "sources": [
@@ -3366,11 +3378,17 @@
           "url": "https://www.securityweek.com/two-newly-disclosed-geoserver-vulnerabilities-under-attack/",
           "date": "2026-11-25",
           "image": "https://www.securityweek.com/wp-content/uploads/2024/04/Vulnerability-Databases.jpg"
+        },
+        {
+          "titre": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/27/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-27"
         }
       ],
       "created": "2026-11-25T14:20:00+00:00",
-      "updated": "2026-11-25T16:08:00+00:00",
-      "version": 2
+      "updated": "2026-11-27T21:06:27+00:00",
+      "version": 3
     },
     {
       "schema": 3,

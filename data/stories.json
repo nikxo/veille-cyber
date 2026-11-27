@@ -2,6 +2,98 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-27-pcloud-pass-adresses-exposees",
+      "title": "pCloud Pass : cyberattaque, adresses email exposées et tentatives de connexion",
+      "created": "2026-11-27T20:20:00+00:00",
+      "updated": "2026-11-27T20:20:00+00:00",
+      "version": 1,
+      "resume": "Le gestionnaire de mots de passe pCloud Pass a subi une cyberattaque que l'éditeur dit rapidement contenue : un petit nombre d'adresses email d'utilisateurs ont été exposées et des tentatives de connexion ont eu lieu [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Exposition de données",
+          "texte": "Exposition d'un petit nombre d'adresses email d'utilisateurs de pCloud Pass, selon l'éditeur [1]."
+        },
+        {
+          "etape": "Tentatives de connexion",
+          "texte": "Tentatives de connexion aux comptes ; des utilisateurs, même protégés par double authentification, ont reçu des alertes de nouvel appareil connecté [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "entree",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "mails",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Adresses email d'utilisateurs",
+            "note": "Petit nombre exposé"
+          },
+          {
+            "id": "comptes",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Comptes pCloud Pass",
+            "note": "Alertes nouvel appareil"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "entree",
+            "etape": 1,
+            "texte": "Accès non précisé"
+          },
+          {
+            "de": "entree",
+            "vers": "mails",
+            "etape": 2,
+            "texte": "Adresses email exposées"
+          },
+          {
+            "de": "att",
+            "vers": "comptes",
+            "etape": 3,
+            "texte": "Tentatives de connexion aux comptes"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni le point d'entrée, ni l'auteur, ni le nombre d'adresses exposées, ni si des coffres chiffrés ont été consultés ou volés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Utilisateurs de pCloud Pass ; des personnes n'ayant jamais utilisé le service ont aussi reçu des alertes [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "pCloud confirms password manager hack after suspicious login alerts",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/pcloud-confirms-password-manager-hack-after-suspicious-login-alerts/",
+          "date": "2026-11-27",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/27/pcloud-logo.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-27-boston-scientific-vishing-cloud",
       "title": "Boston Scientific : un hameçonnage vocal ouvre l'accès au cloud et expose les données médicales de 117 789 personnes",
       "created": "2026-11-27T19:07:21+00:00",
@@ -58171,196 +58263,6 @@
           "url": "https://thehackernews.com/2026/10/uac-0099-targets-ukrainian-government.html",
           "date": "2026-10-08",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZWPW7zD0DZUCKyeRcD-sBZtZ28n4PPaJDPjiskf9ghOI7b3aYbYCEbNvITxaYjCkejq8Vfuc0xeZtJ7p2R4j4dEqGXwfb1JLqQVHrgE4uxdSCq-JJgAeLA0WZbz5Fi98LQbxr3ncRXodrBd83xaX2UpXtDb-Q55ryWBPeXGAQlDBykN_BYecleld5rxJM/s1700-nu-rw-lo-l85-e365/uk.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-08-artex-banques-coree-sud",
-      "title": "Outil ARTEX d'attaque pilotée par IA contre des organisations financières sud-coréennes",
-      "created": "2026-10-08T16:30:00+00:00",
-      "updated": "2026-10-08T16:30:00+00:00",
-      "version": 1,
-      "resume": "Une campagne de fin septembre à début octobre 2026 a visé des organisations financières sud-coréennes avec l'outil de test d'intrusion ARTEX, et a abouti à un vol de données [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Attaque par ARTEX",
-          "texte": "Instance ARTEX hébergée sur une adresse dédiée, avec plusieurs modèles de langage comme moteur → attaques menées contre les victimes [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Les attaques ont abouti à une exfiltration de données [1]."
-        },
-        {
-          "etape": "Revente envisagée",
-          "texte": "L'opérateur a cherché où vendre des données sud-coréennes volées, notamment des groupes Telegram [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (opérateur ARTEX)",
-            "note": ""
-          },
-          {
-            "id": "srv",
-            "type": "serveur",
-            "zone": "internet",
-            "nom": "Serveur ARTEX",
-            "note": ""
-          },
-          {
-            "id": "fin",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Organisations financières",
-            "note": "Données volées"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "srv",
-            "etape": 2,
-            "texte": "Pilotage de l'instance ARTEX"
-          },
-          {
-            "de": "srv",
-            "vers": "fin",
-            "etape": 2,
-            "texte": "Attaques contre les organisations"
-          }
-        ]
-      },
-      "limites": "Les sources ne donnent ni le vecteur d'accès initial, ni le détail des actions dans les systèmes des victimes, ni l'acteur [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non attribué ; CrowdStrike évoque un opérateur probablement chinophone, motivé financièrement [1]"
-      ],
-      "cibles": [
-        "Organisations financières sud-coréennes [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "IA",
-          "definition": "Intelligence artificielle"
-        },
-        {
-          "sigle": "ARTEX",
-          "definition": "Outil open source de test d'intrusion piloté par IA"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "ARTEX AI Pentesting Tool Used in Data Theft Attacks on South Korean Financial Firms",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/artex-ai-pentesting-tool-used-in-data.html",
-          "date": "2026-10-08",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrg8bHUppR3zYriUhWwJig9yJq8F69XCeJrtY040zk39DNhblhBRkcTcQSqRo6K3PwnMVoygOCmbWf2X7ySQDxpfDlgmXFBDGhoiicnG3_5E84RhV6muyzgGacKye5eiB5dLcvsNfny5yS-4TlrypAdPcU1PVfT-jMxWvdfg9algqsvxycUV1Jy1xUjGiT/s1700-nu-rw-lo-l85-e365/ai-hacker.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-08-silent-ransom-agents-cabinets-avocats",
-      "title": "Silent Ransom Group : des « agents » envoyés dans des cabinets d'avocats américains",
-      "created": "2026-10-08T15:07:49+00:00",
-      "updated": "2026-10-08T15:07:49+00:00",
-      "version": 1,
-      "resume": "Des messages internes du groupe d'extorsion russe Silent Ransom Group ont fuité. Ils montrent des recrues qui se font passer pour du personnel informatique pour accéder physiquement aux ordinateurs d'environ 50 organisations, surtout des cabinets d'avocats [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Des « agents » se font passer pour du personnel informatique → accès physique aux ordinateurs des victimes [1]."
-        },
-        {
-          "etape": "Recrutement et préparation",
-          "texte": "Annonces Telegram déguisées en offres d'emploi, puis achat de matériel pour de faux badges et uniformes → agents équipés pour entrer dans les locaux [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Un individu entre dans un cabinet new-yorkais → fichiers copiés sur une clé USB [1]."
-        },
-        {
-          "etape": "Extorsion",
-          "texte": "Suivi des victimes en étapes de négociation → le cabinet new-yorkais accepte une demande de 1 million de dollars [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (Silent Ransom Group)",
-            "note": ""
-          },
-          {
-            "id": "ag",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Agent recruté sur place",
-            "note": "Faux informaticien"
-          },
-          {
-            "id": "pc",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Ordinateurs du cabinet",
-            "note": "Fichiers copiés"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "ag",
-            "etape": 2,
-            "texte": "Recrutement via annonces Telegram"
-          },
-          {
-            "de": "ag",
-            "vers": "pc",
-            "etape": 1,
-            "texte": "Accès physique en se faisant passer pour l'informatique"
-          },
-          {
-            "de": "pc",
-            "vers": "att",
-            "etape": 3,
-            "texte": "Fichiers copiés sur clé USB"
-          }
-        ]
-      },
-      "limites": "L'article ne cite aucune faille ni technique MITRE. Les enlèvements, filatures et le ciblage d'un sous-traitant militaire sont évoqués dans les messages, sans confirmation d'exécution [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Silent Ransom Group, aussi suivi sous les noms Luna Moth et Chatty Spider [1]"
-      ],
-      "cibles": [
-        "Environ 50 organisations, principalement des cabinets d'avocats [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "USB",
-          "definition": "Universal Serial Bus : port et clé de stockage amovible"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Leaked chats show Russian extortion gang sending ‘agents’ into US law firms",
-          "site": "The Record",
-          "url": "https://therecord.media/leaked-chats-show-russian-extortion-gang-sending-agents-to-law-firms",
-          "date": "2026-10-08",
-          "image": "https://cms.therecord.media/uploads/silent_ransom_babc64adfe.jpg"
         }
       ]
     }

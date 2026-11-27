@@ -2,6 +2,85 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-27-japon-mext-systeme-marches-publics",
+      "title": "Japon : le ministère de l'Éducation signale l'intrusion de pirates dans son système de marchés publics",
+      "created": "2026-11-27T15:30:00+00:00",
+      "updated": "2026-11-27T15:30:00+00:00",
+      "version": 1,
+      "resume": "Des pirates non identifiés ont pénétré le système de marchés publics du ministère japonais de l'Éducation et ont pu obtenir près de 1 700 adresses électroniques et 164 000 enregistrements d'entreprises [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Accès aux données",
+          "texte": "Intrusion dans le système publiant appels d'offres et contrats → informations de sa base de données possiblement obtenues [1]."
+        },
+        {
+          "etape": "Réponse de la victime",
+          "texte": "Intrusion détectée le 1er octobre ; communications du système avec les réseaux internes et externes bloquées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "sys",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Système de marchés publics",
+            "note": "Isolé du réseau"
+          },
+          {
+            "id": "bdd",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Base de données du système",
+            "note": "Données possiblement obtenues"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "sys",
+            "etape": 1,
+            "texte": "Intrusion, vecteur non précisé"
+          },
+          {
+            "de": "sys",
+            "vers": "bdd",
+            "etape": 2,
+            "texte": "Informations possiblement obtenues"
+          }
+        ]
+      },
+      "limites": "Le ministère n'a pas révélé comment les pirates ont accédé au système ; il dit n'avoir trouvé aucune preuve de diffusion ou d'utilisation abusive des données [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Ministère japonais de l'Éducation et entreprises admises à ses appels d'offres, avec leurs employés [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Japan’s education ministry discloses breach of government procurement system",
+          "site": "The Record",
+          "url": "https://therecord.media/japan-education-ministry-cyberattack",
+          "date": "2026-11-27",
+          "image": "https://cms.therecord.media/uploads/Japan_school_ministry_4ac8c35089.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-27-vinci-rat-microsoft-store",
       "title": "Vinci RAT : une application du Microsoft Store sert de porte dérobée pour installer un cheval de Troie",
       "created": "2026-11-27T14:20:00+00:00",
@@ -58087,91 +58166,6 @@
           "url": "https://www.bleepingcomputer.com/news/security/uranium-crypto-exchange-hacker-found-guilty-of-53-million-theft/",
           "date": "2026-10-08",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/10/08/Bitcoin_cryptocurrency_theft.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-08-midnight-mimosa-android-fraude-publicitaire",
-      "title": "Midnight Mimosa : téléphones Android bon marché livrés avec un malware de fraude publicitaire",
-      "created": "2026-10-08T13:30:00+00:00",
-      "updated": "2026-10-08T13:30:00+00:00",
-      "version": 1,
-      "resume": "Bitdefender a trouvé sur des milliers de téléphones Android bon marché, dans plus de 150 pays, un malware présent avant le premier allumage et impossible à désinstaller, utilisé pour la fraude publicitaire [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Malware intégré au système des téléphones avant leur vente → présent dès le premier allumage, sans désinstallation possible [1]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Application malveillante dotée de privilèges système → installation et suppression d'applications, permissions accordées, code téléchargé et exécuté sans accord du propriétaire [1]."
-        },
-        {
-          "etape": "Installation d'applications",
-          "texte": "Au moins 32 applications déguisées en utilitaires installées en secret, le Play Store étant désactivé temporairement avant certaines installations → présence cachée [1]."
-        },
-        {
-          "etape": "Fraude publicitaire",
-          "texte": "Vraies publicités affichées dans des fenêtres invisibles, avec des clics automatisés sur certaines composantes → impressions et clics que l'utilisateur ne voit pas, revenus frauduleux [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (non identifié)",
-            "note": ""
-          },
-          {
-            "id": "tel",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Téléphones Android bon marché",
-            "note": "Malware préinstallé"
-          },
-          {
-            "id": "pub",
-            "type": "cloud",
-            "zone": "internet",
-            "nom": "Services publicitaires légitimes",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "tel",
-            "etape": 1,
-            "texte": "Malware intégré avant la vente"
-          },
-          {
-            "de": "pub",
-            "vers": "tel",
-            "etape": 4,
-            "texte": "Publicités chargées puis affichées invisibles"
-          }
-        ]
-      },
-      "limites": "Bitdefender n'a pas déterminé qui a placé le malware ni à quel endroit de la chaîne d'approvisionnement il a été ajouté [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non identifié ; des certificats au nom de Shenzhen Zediel ont signé des firmwares, sans preuve de son implication [1]"
-      ],
-      "cibles": [
-        "Utilisateurs de milliers de téléphones, surtout Mexique, France et Italie [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Thousands of cheap Android phones shipped with ad-fraud malware",
-          "site": "The Record",
-          "url": "https://therecord.media/cheap-androids-shipped-with-ad-fraud-malware",
-          "date": "2026-10-08",
-          "image": "https://cms.therecord.media/uploads/phones_yianni_mathioudakis_unsplash_686f0c639b.jpg"
         }
       ]
     }

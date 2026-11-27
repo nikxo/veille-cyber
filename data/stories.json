@@ -2,6 +2,258 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-27-divd-intrusion-csirt-artex",
+      "title": "DIVD : une intrusion dans les outils du CSIRT, avec des indices d'usage du framework d'IA Artex",
+      "created": "2026-11-27T16:10:00+00:00",
+      "updated": "2026-11-27T16:10:00+00:00",
+      "version": 1,
+      "resume": "Le DIVD, institut de divulgation des vulnérabilités, a subi à partir du 21 septembre une intrusion dans les outils de son CSIRT, avec vol de fichiers et de titres de tickets ; les enquêteurs relèvent des indices d'usage du framework Artex [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Tentatives de mots de passe sur un serveur FTP le 21 septembre, puis exploitation réussie d'une faille inédite environ 12 heures plus tard [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Moins d'une demi-heure plus tard, exploitation d'une faille d'exécution de code à distance → entrée dans le réseau interne, puis reverse shell déployé [1]."
+        },
+        {
+          "etape": "Élévation de privilèges",
+          "texte": "Exploitation d'une faille inédite → privilèges élevés ; moins de deux heures après, prise de contrôle d'un compte IMAP [1]."
+        },
+        {
+          "etape": "Accès aux outils",
+          "texte": "Moment non précisé : exploitation de CVE-2026-102489 → accès complet à la base Zammad du CSIRT, administration de Confluence et Jira, boîte mail du CSIRT [1]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Exfiltration de 2 806 fichiers via le proxy inverse du DIVD et d'environ 41 000 titres de tickets via l'interface de programmation de Zammad [1]."
+        },
+        {
+          "etape": "Déplacement dans le réseau",
+          "texte": "Mouvement latéral à partir du 22 septembre, poursuivi pendant le délai de vérification d'une alerte → environnement entier isolé ensuite par le DIVD [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (Artex suggéré)",
+            "note": "Non nommé"
+          },
+          {
+            "id": "ftp",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur FTP",
+            "note": "Mots de passe testés"
+          },
+          {
+            "id": "ent",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Système exploité non précisé",
+            "note": "Faille inédite"
+          },
+          {
+            "id": "res",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Réseau interne du DIVD",
+            "note": "Privilèges élevés"
+          },
+          {
+            "id": "imap",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Compte IMAP",
+            "note": "Pris"
+          },
+          {
+            "id": "zam",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Zammad, Confluence et Jira",
+            "note": "Outils du CSIRT"
+          },
+          {
+            "id": "mail",
+            "type": "messagerie",
+            "zone": "victime",
+            "nom": "Boîte mail du CSIRT",
+            "note": ""
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ftp",
+            "etape": 1,
+            "texte": "Tentatives de mots de passe"
+          },
+          {
+            "de": "att",
+            "vers": "ent",
+            "etape": 1,
+            "texte": "Faille inédite exploitée"
+          },
+          {
+            "de": "ent",
+            "vers": "res",
+            "etape": 2,
+            "texte": "Exécution de code, reverse shell"
+          },
+          {
+            "de": "res",
+            "vers": "imap",
+            "etape": 3,
+            "texte": "Compte IMAP pris"
+          },
+          {
+            "de": "att",
+            "vers": "zam",
+            "etape": 4,
+            "texte": "CVE-2026-102489, moment non précisé"
+          },
+          {
+            "de": "att",
+            "vers": "mail",
+            "etape": 4,
+            "texte": "Accès via CVE-2026-102489"
+          },
+          {
+            "de": "zam",
+            "vers": "att",
+            "etape": 5,
+            "texte": "Environ 41 000 titres de tickets exfiltrés"
+          },
+          {
+            "de": "res",
+            "vers": "att",
+            "etape": 5,
+            "texte": "2 806 fichiers via le proxy inverse"
+          }
+        ]
+      },
+      "limites": "La source ne nomme ni les failles inédites ni le système d'entrée, ne situe pas CVE-2026-102489 dans la chronologie et présente l'usage d'Artex comme une suggestion, pas une attribution [1].",
+      "cves": [
+        {
+          "id": "CVE-2026-102489",
+          "explication": "Zammad 6.3.0 à 6.5.4 : détournement de session menant à l'exécution de code à distance, gravité critique 9,8 sur 10 [2]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [
+        "Auteur non nommé par la source ; les enquêteurs relèvent des éléments suggérant le recours au framework offensif agentique Artex [1]"
+      ],
+      "cibles": [
+        "DIVD, institut de divulgation des vulnérabilités, et son CSIRT [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "DIVD",
+          "definition": "Institut de divulgation des vulnérabilités"
+        },
+        {
+          "sigle": "CSIRT",
+          "definition": "Computer Security Incident Response Team : équipe de réponse aux incidents de sécurité"
+        },
+        {
+          "sigle": "FTP",
+          "definition": "File Transfer Protocol : protocole de transfert de fichiers"
+        },
+        {
+          "sigle": "IMAP",
+          "definition": "Internet Message Access Protocol : protocole de consultation de boîtes mail"
+        },
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Artex : le DIVD donne un aperçu précieux de ce à quoi s'attendre",
+          "site": "LeMagIT",
+          "url": "https://www.lemagit.fr/actualites/366655506/Artex-le-DIVD-donne-un-apercu-precieux-de-ce-a-quoi-sattendre",
+          "date": "2026-11-27",
+          "image": "https://www.lemagit.fr/visuals/German/article/Hero-telemetry-InfiniteFlow-Adobe-05.jpg"
+        },
+        {
+          "titre": "Fiche NVD CVE-2026-102489",
+          "site": "NVD (NIST)",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102489"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-27-us-air-force-cloud-one",
+      "title": "Armée de l'air américaine : la plateforme Cloud One aurait été piratée via une faille logicielle",
+      "created": "2026-11-27T16:10:00+00:00",
+      "updated": "2026-11-27T16:10:00+00:00",
+      "version": 1,
+      "resume": "Selon Reuters, des pirates ont pénétré Cloud One, plateforme infonuagique de l'armée de l'air américaine utilisée par des agences de la Défense ; un vol de données n'est pas établi [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Exploitation d'une faille logicielle non identifiée, selon une source de Reuters [1]."
+        },
+        {
+          "etape": "Découverte",
+          "texte": "Intrusion découverte lors d'une mise à niveau de la plateforme, mise à niveau qui perturbe les migrations d'applications et les mises à jour logicielles [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "c1",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Plateforme Cloud One",
+            "note": "Intrusion découverte"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "c1",
+            "etape": 1,
+            "texte": "Exploitation d'une faille logicielle"
+          }
+        ]
+      },
+      "limites": "La source ne précise ni l'auteur, ni la faille, ni les actions des pirates, et ignore si l'intrusion est liée aux autres piratages fédéraux récents ou si Artex a servi [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifiés [1]"
+      ],
+      "cibles": [
+        "Armée de l'air américaine : Cloud One, utilisée par des agences de la Défense pour opérations militaires, personnel, logistique et maintenance [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "US Air Force cloud platform reportedly hacked in latest federal breach",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/us-air-force-cloud-platform-reportedly-hacked-in-latest-federal-breach/",
+          "date": "2026-11-27",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/27/air-force-red-blue-2.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-27-japon-mext-systeme-marches-publics",
       "title": "Japon : le ministère de l'Éducation signale l'intrusion de pirates dans son système de marchés publics",
       "created": "2026-11-27T15:30:00+00:00",
@@ -57862,219 +58114,6 @@
           "url": "https://therecord.media/leaked-chats-show-russian-extortion-gang-sending-agents-to-law-firms",
           "date": "2026-10-08",
           "image": "https://cms.therecord.media/uploads/silent_ransom_babc64adfe.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-08-eglises-coree-sud-oasis",
-      "title": "Deux grandes églises sud-coréennes visées par des intrusions touchant des données de membres",
-      "created": "2026-10-08T14:30:00+00:00",
-      "updated": "2026-10-08T14:30:00+00:00",
-      "version": 1,
-      "resume": "Deux grandes églises protestantes sud-coréennes enquêtent sur des cyberattaques. Selon Oasis Security, des données personnelles de membres et d'employés ont été touchées ; une église a identifié un jeu de données d'environ 850 000 membres [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Première intrusion : vecteur non précisé. Seconde : mots de passe divulgués et failles d'applications internes → accès à des comptes non autorisés [1]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Installation d'une porte dérobée web (première intrusion) → contrôle du serveur à distance et accès administrateur aux systèmes internes [1]."
-        },
-        {
-          "etape": "Accès aux données",
-          "texte": "Accès aux bases de données et au stockage réseau → données de membres, paie, comptabilité, identifiants d'employés, rapports et sauvegardes [1]."
-        },
-        {
-          "etape": "Accès au logiciel SAP",
-          "texte": "Certaines failles permettaient de réinitialiser les mots de passe d'autres utilisateurs ; accès à SAP → données d'environ 89 000 membres et 286 employés [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "apps",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Applications internes",
-            "note": "Failles, mots de passe"
-          },
-          {
-            "id": "srv",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur de l'église",
-            "note": "Porte dérobée web"
-          },
-          {
-            "id": "db",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Bases de données et stockage",
-            "note": ""
-          },
-          {
-            "id": "sap",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Logiciel SAP",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "apps",
-            "etape": 1,
-            "texte": "Mots de passe divulgués et failles d'applications"
-          },
-          {
-            "de": "att",
-            "vers": "srv",
-            "etape": 2,
-            "texte": "Porte dérobée web installée"
-          },
-          {
-            "de": "srv",
-            "vers": "db",
-            "etape": 3,
-            "texte": "Accès aux bases et au stockage réseau"
-          },
-          {
-            "de": "apps",
-            "vers": "sap",
-            "etape": 4,
-            "texte": "Accès au logiciel SAP"
-          }
-        ]
-      },
-      "limites": "La source ne dit pas quelle église correspond à quelle intrusion, ni qui sont les attaquants, ni les raisons du ciblage [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non identifiés ; l'infrastructure réutilise celle d'une compromission antérieure d'une plateforme chrétienne américaine [1]"
-      ],
-      "cibles": [
-        "Yoido Full Gospel Church et SaRang Church, deux églises protestantes sud-coréennes [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "SAP",
-          "definition": "Logiciel de gestion des opérations et des ressources humaines"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Hackers target two South Korean megachurches, potentially exposing congregant data",
-          "site": "The Record",
-          "url": "https://therecord.media/south-korea-hackers-megachurches",
-          "date": "2026-10-08",
-          "image": "https://cms.therecord.media/uploads/yoido_full_gospel_church_d661db7832.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-08-atlassian-cve-2026-21589",
-      "title": "Atlassian Data Center : tentatives d'exploitation de CVE-2026-21589 après publication d'une analyse",
-      "created": "2026-10-08T14:30:00+00:00",
-      "updated": "2026-10-08T14:30:00+00:00",
-      "version": 1,
-      "resume": "Des acteurs non identifiés tentent d'exploiter CVE-2026-21589 dans les produits Atlassian Data Center : Previdian a recensé 190 tentatives depuis 32 adresses IP dans 10 pays [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Requête à distance sans authentification sur l'application web, avec nom et chemin exacts du fichier → lecture d'un fichier du répertoire racine [1]."
-        },
-        {
-          "etape": "Vol d'identifiants",
-          "texte": "Lecture du fichier de configuration Crowd, si Jira est relié à Crowd → identifiants d'application Crowd en clair [1]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Création d'un utilisateur ajouté au groupe des administrateurs Jira → accès administrateur complet, démontré par WatchTowr [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "app",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Instance Atlassian Data Center",
-            "note": ""
-          },
-          {
-            "id": "cfg",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Configuration Crowd",
-            "note": "Identifiants en clair"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "app",
-            "etape": 1,
-            "texte": "Lecture de fichiers sans authentification"
-          },
-          {
-            "de": "app",
-            "vers": "cfg",
-            "etape": 2,
-            "texte": "Lecture du fichier de configuration Crowd"
-          },
-          {
-            "de": "att",
-            "vers": "app",
-            "etape": 3,
-            "texte": "Création d'un administrateur Jira"
-          }
-        ]
-      },
-      "limites": "Seules des tentatives d'exploitation sont décrites ; les étapes 2 et 3 ont été démontrées par des chercheurs, sans attaque réelle citée [1].",
-      "cves": [
-        {
-          "id": "CVE-2026-21589",
-          "explication": "Produits Atlassian Data Center auto-hébergés (Bitbucket, Confluence, Jira, Bamboo, Crowd, Crucible, Fisheye) : lecture de fichiers arbitraires sans authentification, gravité critique 9,3 sur 10 [1]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [
-        "Non identifiés [1]"
-      ],
-      "cibles": [
-        "Instances Atlassian Data Center auto-hébergées ; aucune victime citée [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "IP",
-          "definition": "Adresse identifiant une machine sur un réseau"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Attackers Target Critical Atlassian Vulnerability Within Hours of PoC Publication",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/attackers-target-critical-atlassian-vulnerability-within-hours-of-poc-publication/",
-          "date": "2026-10-08",
-          "image": "https://www.securityweek.com/wp-content/uploads/2025/12/Atlassian.jpg"
         }
       ]
     },

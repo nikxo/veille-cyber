@@ -2,6 +2,193 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-25-hexpm-rce-serveurs-registre",
+      "title": "Hex.pm : une faille critique du registre de paquets Elixir et Erlang exploitée pour exécuter des commandes sur six serveurs",
+      "created": "2026-11-25T10:30:00+00:00",
+      "updated": "2026-11-27T08:10:00+00:00",
+      "version": 2,
+      "resume": "Le 23 novembre, un attaquant a exécuté des commandes système sur six serveurs web de Hex.pm, le registre de paquets d'Elixir et Erlang, exposant potentiellement identifiants et secrets des comptes [1, 2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Requêtes POST non authentifiées vers l'analyseur du corps de requête, exécuté avant l'authentification → corps transformé en structure Elixir choisie par l'attaquant [1]."
+        },
+        {
+          "etape": "Exécution de code",
+          "texte": "Structure inspectée par le code de gestion des erreurs via Ecto et DBConnection → commandes système exécutées avec les droits du compte de service du registre [1]."
+        },
+        {
+          "etape": "Accès aux secrets",
+          "texte": "69 requêtes en 13 minutes → identifiants des serveurs lisibles, accès au contenu de la base des comptes non exclu par Hex [1, 2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Deux adresses"
+          },
+          {
+            "id": "web",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Six serveurs web Hex.pm",
+            "note": "Commandes exécutées"
+          },
+          {
+            "id": "db",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Base des comptes",
+            "note": "Lecture non exclue"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Requêtes POST non authentifiées forgées"
+          },
+          {
+            "de": "web",
+            "vers": "db",
+            "etape": 3,
+            "texte": "Lecture possible, non exclue"
+          }
+        ]
+      },
+      "limites": "Les sources n'identifient pas l'attaquant ; les lectures de la base de données ne sont pas journalisées, ce qui limite la visibilité sur une éventuelle fuite [1, 2].",
+      "cves": [
+        {
+          "id": "CVE-2026-129514",
+          "explication": "Hex.pm : l'analyseur du corps de requête accepte une structure Elixir forgée, ce qui permet d'exécuter des commandes système sans authentification, gravité 10 sur 10 [1, 2]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Registre de paquets Hex.pm, utilisé par les développeurs Elixir et Erlang pour récupérer leurs dépendances [1]",
+        "Comptes Hex.pm : adresses électroniques, empreintes de mots de passe, sessions et secrets de double authentification potentiellement exposés [2]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "POST",
+          "definition": "Méthode HTTP servant à envoyer des données à un serveur web"
+        },
+        {
+          "sigle": "HTTP",
+          "definition": "Protocole d'échange des pages et requêtes web"
+        },
+        {
+          "sigle": "IP",
+          "definition": "Internet Protocol : adresse identifiant une machine sur le réseau"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Hackers Exploited CVSS 10.0 Hex.pm RCE Flaw to Compromise 6 Package Registry Servers",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-exploited-cvss-100-hexpm-rce.html",
+          "date": "2026-11-25",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBxy4VIOekOumZfm8RElWJl6ZTKoIJ1QLc3U7ynLQ8p9PCqm_kYX1T-akwbZwbthTYcNwfVW-aWbRB4wIkvbUeM_gvQmnw8EH-hpY0542jCwFUAaI2mNEXGE3dct9K4JKFURV1smdERZlx4tV1zCy3AbS_NwF4o926_KSW-OKMPfDXT2gWbbZ4lKjFm6Y/s1700-nu-rw-lo-l85-e365/hex-hack.jpg"
+        },
+        {
+          "titre": "Hex Package Manager Warns of Potential Data Breach",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/hex-package-manager-warns-of-potential-data-breach/",
+          "date": "2026-11-27",
+          "image": "https://www.securityweek.com/wp-content/uploads/2025/11/NPM-code-software-development.jpeg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-27-sap-github-jetons-code-source",
+      "title": "SAP : une activité suspecte sur GitHub, des jetons d'employés volés auraient servi à copier et modifier du code source",
+      "created": "2026-11-27T08:10:00+00:00",
+      "updated": "2026-11-27T08:10:00+00:00",
+      "version": 1,
+      "resume": "SAP confirme une activité suspecte, que des communications internes situent sur GitHub ; selon Der Spiegel, des pirates ont utilisé des jetons d'employés volés pour copier et modifier du code source [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Vol de jetons d'authentification d'employés de SAP, selon un initié cité par Der Spiegel et non confirmé par SAP [1]."
+        },
+        {
+          "etape": "Atteinte au code",
+          "texte": "Jetons utilisés sur GitHub → code source copié et modifié, selon Der Spiegel [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "emp",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Employés de SAP",
+            "note": "Jetons volés"
+          },
+          {
+            "id": "gh",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Dépôts GitHub de SAP",
+            "note": "Code copié, modifié"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "emp",
+            "etape": 1,
+            "texte": "Vol de jetons d'authentification"
+          },
+          {
+            "de": "att",
+            "vers": "gh",
+            "etape": 2,
+            "texte": "Connexion avec les jetons volés"
+          }
+        ]
+      },
+      "limites": "SAP n'a pas confirmé le vol de jetons ni donné de détails ; la source ne précise pas comment les jetons ont été obtenus ni si du code propriétaire a été consulté [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Attaquant non identifié ; des sources de Der Spiegel évoquent une aide de l'intelligence artificielle, non confirmée [1]"
+      ],
+      "cibles": [
+        "SAP, éditeur de logiciels d'entreprise ; aucune preuve d'accès aux données métier des clients selon l'entreprise [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SAP",
+          "definition": "Éditeur allemand de logiciels de gestion d'entreprise (nom de la société)"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "SAP Confirms Cyberattack, Source Code Reportedly Compromised",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/sap-confirms-cyberattack-source-code-reportedly-compromised/",
+          "date": "2026-11-27",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/09/SAP_vulnerability-patches.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-27-suisse-attaques-agents-ia",
       "title": "Suisse : des agents d'IA ont compromis quatre organisations, dont deux opérateurs d'infrastructures critiques",
       "created": "2026-11-27T07:40:00+00:00",
@@ -2684,103 +2871,6 @@
           "url": "https://www.zataz.com/faux-jeu-ducros-sur-tiktok-le-piege-du-coffret-de-noel/",
           "date": "2026-11-25",
           "image": "https://www.zataz.com/wp-content/uploads/ducros_noel.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-25-hexpm-rce-serveurs-registre",
-      "title": "Hex.pm : une faille critique du registre de paquets Elixir et Erlang exploitée pour exécuter des commandes sur six serveurs",
-      "created": "2026-11-25T10:30:00+00:00",
-      "updated": "2026-11-25T10:30:00+00:00",
-      "version": 1,
-      "resume": "Un attaquant a exécuté des commandes système sur six serveurs de production de Hex.pm, le registre de paquets d'Elixir et Erlang, via une faille présente depuis février 2016 [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Requêtes POST non authentifiées vers l'analyseur du corps de requête, exécuté avant l'authentification → corps transformé en structure Elixir choisie par l'attaquant [1]."
-        },
-        {
-          "etape": "Exécution de code",
-          "texte": "Structure inspectée par le code de gestion des erreurs via Ecto et DBConnection → commandes système exécutées avec les droits du compte de service du registre [1]."
-        },
-        {
-          "etape": "Accès aux données",
-          "texte": "69 requêtes d'exploitation en 13 minutes → fichiers créés sur six serveurs web, lecture de la base des comptes et des paquets privés non exclue par l'équipe [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": "Deux adresses IP"
-          },
-          {
-            "id": "web",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Six serveurs web Hex.pm",
-            "note": "Commandes exécutées"
-          },
-          {
-            "id": "db",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Base des comptes",
-            "note": "Lecture non exclue"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "web",
-            "etape": 1,
-            "texte": "Requêtes POST non authentifiées forgées"
-          },
-          {
-            "de": "web",
-            "vers": "db",
-            "etape": 3,
-            "texte": "Lecture possible, non exclue"
-          }
-        ]
-      },
-      "limites": "La source n'identifie pas l'attaquant et ne permet pas de savoir si des données ont été lues, ces lectures n'étant pas journalisées [1].",
-      "cves": [
-        {
-          "id": "CVE-2026-129514",
-          "explication": "Hex.pm : l'analyseur du corps de requête accepte une structure Elixir forgée, ce qui permet d'exécuter des commandes système sans authentification, gravité 10,0 sur 10 [1]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Registre de paquets Hex.pm, utilisé par les développeurs Elixir et Erlang pour récupérer leurs dépendances [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "POST",
-          "definition": "Méthode HTTP servant à envoyer des données à un serveur web"
-        },
-        {
-          "sigle": "HTTP",
-          "definition": "Protocole d'échange des pages et requêtes web"
-        },
-        {
-          "sigle": "IP",
-          "definition": "Internet Protocol : adresse identifiant une machine sur le réseau"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Hackers Exploited CVSS 10.0 Hex.pm RCE Flaw to Compromise 6 Package Registry Servers",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/hackers-exploited-cvss-100-hexpm-rce.html",
-          "date": "2026-11-25",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBxy4VIOekOumZfm8RElWJl6ZTKoIJ1QLc3U7ynLQ8p9PCqm_kYX1T-akwbZwbthTYcNwfVW-aWbRB4wIkvbUeM_gvQmnw8EH-hpY0542jCwFUAaI2mNEXGE3dct9K4JKFURV1smdERZlx4tV1zCy3AbS_NwF4o926_KSW-OKMPfDXT2gWbbZ4lKjFm6Y/s1700-nu-rw-lo-l85-e365/hex-hack.jpg"
         }
       ]
     },
@@ -58028,100 +58118,6 @@
           "url": "https://blog.talosintelligence.com/ignore-all-instructions-and-read-this-blog-the-state-of-ai-analysis-evasion-in-malware/",
           "date": "2026-10-08",
           "image": "https://storage.ghost.io/c/af/a0/afa04ee3-414f-4481-8d23-7e7c146f192e/content/images/size/w1200/2026/10/CAIRN-TechBlog-Header.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-08-oracle-health-cerner-donnees-sante",
-      "title": "Oracle Health : des identifiants clients volés ouvrent un serveur Cerner, près de 20 millions de personnes touchées",
-      "created": "2026-10-08T09:30:00+00:00",
-      "updated": "2026-10-08T09:30:00+00:00",
-      "version": 1,
-      "resume": "Un attaquant a copié des données de santé depuis un serveur Cerner d'Oracle Health, puis a exigé des cryptomonnaies aux hôpitaux. Le total avancé est de près de 20 millions de personnes, non confirmé par Oracle [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Utilisation d'identifiants clients volés → accès à un serveur Cerner ancien, non encore migré vers Oracle Cloud [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Copie des données vers un serveur distant → noms, numéros de sécurité sociale et informations de dossiers médicaux exposés [1]."
-        },
-        {
-          "etape": "Extorsion",
-          "texte": "Demande de millions de dollars en cryptomonnaies et création de sites publics sur la violation → pression sur les hôpitaux [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "srv",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur Cerner ancien",
-            "note": "Non migré"
-          },
-          {
-            "id": "dist",
-            "type": "serveur",
-            "zone": "internet",
-            "nom": "Serveur distant",
-            "note": "Données copiées"
-          },
-          {
-            "id": "hop",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Hôpitaux clients",
-            "note": "Extorqués"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "srv",
-            "etape": 1,
-            "texte": "Identifiants clients volés"
-          },
-          {
-            "de": "srv",
-            "vers": "dist",
-            "etape": 2,
-            "texte": "Copie des données"
-          },
-          {
-            "de": "att",
-            "vers": "hop",
-            "etape": 3,
-            "texte": "Extorsion en cryptomonnaies"
-          }
-        ]
-      },
-      "limites": "La source ne dit pas comment les identifiants ont été obtenus. Oracle n'a pas confirmé le chiffre de près de 20 millions [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Individu isolé appelé « Andrew » selon des sources citées par BleepingComputer, sans lien revendiqué avec un groupe établi [1]"
-      ],
-      "cibles": [
-        "Secteur de la santé : hôpitaux clients de Cerner et d'Oracle Health, notamment au Texas, en Caroline du Sud et à Washington [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Oracle Health Data Breach Tally Climbs to Nearly 20 Million",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/oracle-health-data-breach-tally-climbs-to-nearly-20-million/",
-          "date": "2026-10-08",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/03/healthcare-medical.jpeg"
         }
       ]
     }

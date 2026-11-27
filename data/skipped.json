@@ -1,13 +1,5 @@
 [
   {
-    "id": "803a1f71a44e1479",
-    "title": "D-Link warns of multiple zero-days in DGS-3130 Series switches",
-    "link": "https://www.bleepingcomputer.com/news/security/d-link-warns-of-multiple-zero-days-in-dgs-3130-series-switches/",
-    "source": "BleepingComputer",
-    "raison": "vulnérabilités sans exploitation constatée",
-    "date": "2026-11-06T13:30:00+00:00"
-  },
-  {
     "id": "cea41b0360f6d357",
     "title": "Malicious Browser Extensions Could Use Claude Dispatch to Run Code on Users' Computers",
     "link": "https://thehackernews.com/2026/11/malicious-browser-extensions-could-use.html",
@@ -3998,5 +3990,13 @@
     "source": "LeMagIT",
     "raison": "annonce produit (partenariat Microsoft/Dell), aucune attaque décrite",
     "date": "2026-11-26T22:20:00+00:00"
+  },
+  {
+    "id": "706168821faab9b6",
+    "title": "Unpatched Cacti Zero-Day Enables RCE in Just Four HTTP Requests via Guest Access",
+    "link": "https://thehackernews.com/2026/11/unpatched-cacti-zero-day-enables-rce-in.html",
+    "source": "The Hacker News",
+    "raison": "vulnérabilité sans exploitation constatée (preuve de concept seulement)",
+    "date": "2026-11-27T07:08:44+00:00"
   }
 ]

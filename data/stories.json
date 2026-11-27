@@ -2,6 +2,92 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-27-suisse-attaques-agents-ia",
+      "title": "Suisse : des agents d'IA ont compromis quatre organisations, dont deux opérateurs d'infrastructures critiques",
+      "created": "2026-11-27T07:40:00+00:00",
+      "updated": "2026-11-27T07:40:00+00:00",
+      "version": 1,
+      "resume": "Le centre national de cybersécurité suisse confirme cinq attaques menées avec des agents d'IA contre des organisations suisses : quatre ont compromis des systèmes, dont ceux de deux opérateurs d'infrastructures critiques, sans perturbation majeure signalée pour ces derniers [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Compromission",
+          "texte": "Cinq attaques menées avec des agents d'IA contre des organisations suisses → systèmes compromis dans quatre cas, dont deux opérateurs d'infrastructures critiques sur trois visés [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (agents d'IA)",
+            "note": "Auteurs inconnus"
+          },
+          {
+            "id": "ent",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée non décrit",
+            "note": ""
+          },
+          {
+            "id": "org",
+            "type": "postes",
+            "zone": "victime",
+            "nom": "Systèmes des organisations visées",
+            "note": "Quatre attaques réussies"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "ent",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "ent",
+            "vers": "org",
+            "etape": 2,
+            "texte": "Systèmes compromis dans quatre cas sur cinq"
+          }
+        ]
+      },
+      "limites": "Les sources ne décrivent ni le point d'entrée, ni les agents utilisés, ni les actions après la compromission ; ARTEX et CyberStrikeAI sont cités comme agents disponibles, pas comme outils de ces attaques [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Auteurs non identifiés [1]"
+      ],
+      "cibles": [
+        "Organisations suisses, dont des petites et moyennes entreprises et des opérateurs d'infrastructures critiques d'au moins deux secteurs [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "IA",
+          "definition": "Intelligence artificielle"
+        },
+        {
+          "sigle": "ARTEX",
+          "definition": "Agent d'attaque par IA accessible sur Internet, cité par l'avis suisse"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Switzerland Confirms AI-Assisted Cyberattacks Breached Critical Infrastructure Operators",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/switzerland-confirms-ai-assisted.html",
+          "date": "2026-11-27",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjviiPK0v6Kpjxjo_jDNE9vaZ8-JKiq6Oct4uU6qPDfTXq66QnxuV2iExRo2Rx2FyHhyphenhyphenDquMIoxmlfo5GwxfKoEXRG8Pj38FDOzEKitDdhXBNOGN7b6sddsMozMuhI44c-3mimoE4OxU-Xg7h8IzhDiyrXmP6qBO-wW6xmitkIEv_EkU-FJUJBTNtQ8uY/s1700-nu-rw-lo-l85-e365/swiss.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-26-goodguys-faux-entretiens-google-okta",
       "title": "GoodGuys : de faux entretiens d'experts rémunérés au nom de grandes marques pour voler des comptes Google et Okta d'entreprise",
       "created": "2026-11-26T18:20:00+00:00",
@@ -58036,190 +58122,6 @@
           "url": "https://www.securityweek.com/oracle-health-data-breach-tally-climbs-to-nearly-20-million/",
           "date": "2026-10-08",
           "image": "https://www.securityweek.com/wp-content/uploads/2026/03/healthcare-medical.jpeg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-07-fortibleed-fortigate-identifiants",
-      "title": "FortiBleed : vol d'identifiants sur plus de 86 000 pare-feu Fortinet exposés",
-      "created": "2026-10-07T13:30:00+00:00",
-      "updated": "2026-10-08T08:07:54+00:00",
-      "version": 4,
-      "resume": "La campagne FortiBleed vise des pare-feu et passerelles VPN FortiGate exposés sur Internet. Le FBI et le Secret Service avertissent qu'elle reste active après 86 644 identifiants récoltés [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Balayage d'Internet pour trouver des portails VPN FortiGate exposés, puis essais d'identifiants réutilisés ou issus de fuites, et force brute → accès aux pare-feu [1, 2, 3, 4, 5]."
-        },
-        {
-          "etape": "Récolte d'identifiants",
-          "texte": "Outil FortigateSniffer déployé → authentifications interceptées sur 24 protocoles, identifiants et empreintes de mots de passe récoltés [1]."
-        },
-        {
-          "etape": "Cassage des empreintes",
-          "texte": "Empreintes envoyées vers une grappe de calcul à cartes graphiques (Hashmat, Hashtopolis) → mots de passe retrouvés hors ligne [1]."
-        },
-        {
-          "etape": "Persistance, déplacement",
-          "texte": "Nouveaux comptes sur les pare-feu [2, 4], mots de passe d'origine modifiés ou comptes supprimés → administrateurs légitimes bloqués [3, 4, 5] ; annuaire Active Directory exploré, comptes administrateurs créés [1]."
-        },
-        {
-          "etape": "Revente des accès",
-          "texte": "Accès revendus à des affiliés de rançongiciels ou utilisés directement → au moins 12 organisations compromises et chiffrées [2] ; FortiGate utilisé comme point d'entrée du rançongiciel [3]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (FortiBleed)",
-            "note": ""
-          },
-          {
-            "id": "fw",
-            "type": "passerelle",
-            "zone": "expose",
-            "nom": "Pare-feu et VPN FortiGate",
-            "note": "Comptes ajoutés"
-          },
-          {
-            "id": "ad",
-            "type": "annuaire",
-            "zone": "victime",
-            "nom": "Active Directory de la victime",
-            "note": ""
-          },
-          {
-            "id": "ran",
-            "type": "utilisateur",
-            "zone": "internet",
-            "nom": "Affiliés de rançongiciels",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "fw",
-            "etape": 1,
-            "texte": "Identifiants volés ou réutilisés testés"
-          },
-          {
-            "de": "att",
-            "vers": "fw",
-            "etape": 2,
-            "texte": "Outil d'interception FortigateSniffer"
-          },
-          {
-            "de": "fw",
-            "vers": "ad",
-            "etape": 4,
-            "texte": "Exploration de l'annuaire, comptes administrateurs"
-          },
-          {
-            "de": "att",
-            "vers": "ran",
-            "etape": 5,
-            "texte": "Accès revendus"
-          }
-        ]
-      },
-      "limites": "Les sources ne nomment pas les victimes ; le nombre de pare-feu compromis (plus de 86 000 [2]) et d'identifiants récoltés (86 644 [1]) est présenté différemment.",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Opération de langue russe, courtier en accès soupçonné, qui vend à des opérateurs de rançongiciels INC et Lynx [1]",
-        "affiliés INC, Lynx et Payload cités [2, 4]",
-        "Courtier en accès initiaux, nom non mentionné [3] ; décrit comme russe [5]"
-      ],
-      "cibles": [
-        "Pare-feu et passerelles VPN FortiGate exposés dans 194 pays [1] ; au moins 12 organisations chiffrées, fonctionnaires britanniques visés [2]",
-        "Surtout des organisations de moins de 200 employés, dont un sous-traitant de défense de l'OTAN [3]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "VPN",
-          "definition": "Réseau privé virtuel : accès distant chiffré au réseau d'une organisation"
-        },
-        {
-          "sigle": "FortiGate",
-          "definition": "Gamme de pare-feu de l'éditeur Fortinet"
-        },
-        {
-          "sigle": "Active Directory",
-          "definition": "Annuaire Windows qui gère les comptes et les droits des utilisateurs"
-        },
-        {
-          "sigle": "FortigateSniffer",
-          "definition": "Outil de l'attaquant qui intercepte les authentifications"
-        },
-        {
-          "sigle": "Hashmat",
-          "definition": "Outil de cassage d'empreintes de mots de passe"
-        },
-        {
-          "sigle": "Hashtopolis",
-          "definition": "Plateforme répartissant le cassage de mots de passe sur plusieurs machines"
-        },
-        {
-          "sigle": "FBI",
-          "definition": "Police fédérale américaine"
-        },
-        {
-          "sigle": "INC",
-          "definition": "Groupe de rançongiciel"
-        },
-        {
-          "sigle": "Lynx",
-          "definition": "Groupe de rançongiciel"
-        },
-        {
-          "sigle": "Payload",
-          "definition": "Groupe de rançongiciel"
-        },
-        {
-          "sigle": "OTAN",
-          "definition": "Alliance militaire de pays occidentaux"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "FBI Warns FortiBleed Remains Active After Amassing 86,644 Fortinet Device Credentials",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/10/fbi-warns-fortibleed-remains-active.html",
-          "date": "2026-10-07",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQZeKQIcHTVLgqnHpZYN73YclFawl51QxpykrKEb97sAJjA8qtN7FaUJaS0jLMeSS29cTB0nR_yFzsITX_e5SI8Xa8BfM1LDOGsEEEpDmVC8YNqOcEYEuep1UbHovyLlxrwRmYZ3FrbaaKq9eKwICiUTkkPleIibOHdWnbV5cpwYPCrHQasrTxVFA9seQ-/s1700-nu-rw-lo-l85-e365/forti-admin.jpg"
-        },
-        {
-          "titre": "FBI, Secret Service add to warnings of FortiBleed credential stealing campaign",
-          "site": "The Record",
-          "url": "https://therecord.media/fortibleed-warning-fbi-secret-service",
-          "date": "2026-10-07",
-          "image": "https://cms.therecord.media/uploads/fortigate_ports_4f1884633e.png"
-        },
-        {
-          "titre": "FortiBleed : une tempête loin d'être passée",
-          "site": "LeMagIT",
-          "url": "https://www.lemagit.fr/actualites/366651777/FortiBleed-une-tempete-loin-detre-passee",
-          "date": "2026-10-07",
-          "image": "https://www.lemagit.fr/visuals/ComputerWeekly/Hero Images/LAN-ethernet-cables-internet-Wi-Fi-OleksandrDelyk-adobe.jpg"
-        },
-        {
-          "titre": "FBI: Ongoing FortiBleed attacks lock out FortiGate VPN admins",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/fbi-ongoing-fortibleed-attacks-lock-out-fortigate-vpn-admins/",
-          "date": "2026-10-07",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/06/19/Fortinet-headpic.jpg"
-        },
-        {
-          "titre": "FortiBleed Attackers Locking Victims Out of Fortinet Devices",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/fortibleed-attackers-locking-victims-out-of-fortinet-devices/",
-          "date": "2026-10-08",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/10/Fortinet.jpeg"
         }
       ]
     }

@@ -2,6 +2,463 @@
   "stories": [
     {
       "schema": 3,
+      "id": "2026-11-27-vinci-rat-microsoft-store",
+      "title": "Vinci RAT : une application du Microsoft Store sert de porte dérobée pour installer un cheval de Troie",
+      "created": "2026-11-27T14:20:00+00:00",
+      "updated": "2026-11-27T14:20:00+00:00",
+      "version": 1,
+      "resume": "Selon eSentire, une application du Microsoft Store nommée Setup Assistant a servi de porte dérobée pour installer Vinci RAT, un cheval de Troie de contrôle à distance jusque-là non documenté [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Redirection depuis les moteurs de recherche vers un faux site d'outil de capture d'écran → téléchargement d'un installateur signé par Microsoft [1]."
+        },
+        {
+          "etape": "Installation",
+          "texte": "L'installateur installe Setup Assistant, application du Microsoft Store publiée par ETPS Ltd → porte dérobée sur la machine [1]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Setup Assistant exécute du code PowerShell ou JavaScript envoyé par setup-assistant[.]com → contrôle continu de la machine [1]."
+        },
+        {
+          "etape": "Neutralisation des défenses",
+          "texte": "Script PowerShell lancé par l'application → interface d'analyse antimalware AMSI désactivée [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Tâche planifiée exécutée toutes les 10 minutes, puis téléchargement de Vinci RAT depuis monkeysholder[.]info [1]."
+        },
+        {
+          "etape": "Contrôle à distance",
+          "texte": "Vinci RAT → inventaire de la machine et des outils de sécurité, invite de commande à distance, envoi et exécution de fichiers et de code [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "site",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Faux site snipp.codes-team[.]com",
+            "note": "Outil de capture"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Machine de l'utilisateur",
+            "note": "Setup Assistant installé"
+          },
+          {
+            "id": "c1",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur setup-assistant[.]com",
+            "note": "Envoie du code"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur monkeysholder[.]info",
+            "note": "Livre Vinci RAT"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "site",
+            "etape": 1,
+            "texte": "Redirection depuis les moteurs de recherche"
+          },
+          {
+            "de": "site",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Installateur signé par Microsoft téléchargé"
+          },
+          {
+            "de": "c1",
+            "vers": "pc",
+            "etape": 3,
+            "texte": "Code PowerShell ou JavaScript exécuté"
+          },
+          {
+            "de": "c2",
+            "vers": "pc",
+            "etape": 5,
+            "texte": "Téléchargement de Vinci RAT"
+          }
+        ]
+      },
+      "limites": "La source ne nomme pas l'acteur, ne précise pas les victimes et ne sait pas qui a retiré l'application du Microsoft Store [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Acteur non identifié [1]"
+      ],
+      "cibles": [
+        "Utilisateurs cherchant un outil de capture d'écran ; d'autres sous-domaines imitent Microsoft Teams et Roblox [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "RAT",
+          "definition": "Remote Access Trojan : cheval de Troie donnant le contrôle à distance d'une machine"
+        },
+        {
+          "sigle": "AMSI",
+          "definition": "Antimalware Scan Interface : interface Windows qui fait analyser les scripts par l'antivirus"
+        },
+        {
+          "sigle": "ETPS",
+          "definition": "Nom de l'éditeur ayant publié l'application Setup Assistant"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Microsoft Store App Found Delivering Vinci RAT Capable of Remote System Control",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/microsoft-store-app-found-delivering.html",
+          "date": "2026-11-27",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpD815FTK1v-12AKbFYOz3fplAY5EWVRrb1mh5LOUSmUmG7u7mdgGnppCpL9-ZaG-3CyWm_2KP4icW3UY1Q3AYG6lEe03ezqY9Jx49mW9SC4D0JqiUhT-Rmet7lin7u1bHdyppzeay-bTKDty53IDUI_P9md3iUp5xaY-ko1U2uBRTkNdPhAVTYuW9hDmO/s1700-nu-rw-lo-l85-e365/ms-store.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-27-sap-github-jetons-code-source",
+      "title": "SAP : une activité suspecte sur GitHub, des jetons d'employés volés auraient servi à copier et modifier du code source",
+      "created": "2026-11-27T08:10:00+00:00",
+      "updated": "2026-11-27T14:20:00+00:00",
+      "version": 3,
+      "resume": "SAP confirme un incident après avoir détecté une activité suspecte ; selon Der Spiegel, des pirates ont utilisé des jetons d'employés volés pour copier et modifier du code source sur GitHub [1, 2, 3].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Obtention de jetons d'authentification d'employés de SAP, selon Der Spiegel, sans précision sur la méthode [1, 3]."
+        },
+        {
+          "etape": "Atteinte au code",
+          "texte": "Jetons utilisés dans l'environnement GitHub de SAP → code source copié puis modifié [1, 2, 3]."
+        },
+        {
+          "etape": "Réaction",
+          "texte": "Accès à GitHub restreint, développement automatisé arrêté, clés de signature du logiciel remplacées, selon Handelsblatt [1, 3]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "emp",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Employés de SAP",
+            "note": "Jetons volés"
+          },
+          {
+            "id": "gh",
+            "type": "cloud",
+            "zone": "internet",
+            "nom": "Dépôts GitHub de SAP",
+            "note": "Code copié, modifié"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "emp",
+            "etape": 1,
+            "texte": "Obtention de jetons d'authentification"
+          },
+          {
+            "de": "att",
+            "vers": "gh",
+            "etape": 2,
+            "texte": "Connexion avec les jetons volés"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent pas comment les jetons ont été obtenus, ni si du code modifié a atteint des logiciels livrés aux clients [1, 3].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Attaquant non identifié ; une aide d'outils d'intelligence artificielle est évoquée par des sources internes, sans confirmation [1, 2]"
+      ],
+      "cibles": [
+        "SAP, éditeur de logiciels d'entreprise ; les mesures de réponse auraient affecté plusieurs équipes de développement [3]",
+        "Aucune preuve d'accès aux données métier des clients selon l'entreprise [1, 2, 3]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "SAP",
+          "definition": "Éditeur allemand de logiciels de gestion d'entreprise (nom de la société)"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "SAP Confirms Cyberattack, Source Code Reportedly Compromised",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/sap-confirms-cyberattack-source-code-reportedly-compromised/",
+          "date": "2026-11-27",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/09/SAP_vulnerability-patches.jpg"
+        },
+        {
+          "titre": "SAP confirms security incident after suspicious GitHub activity",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/sap-confirms-security-incident-after-suspicious-github-activity/",
+          "date": "2026-11-27",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/27/sap.jpg"
+        },
+        {
+          "titre": "Software giant SAP confirms cyber incident amid reports of source code breach",
+          "site": "The Record",
+          "url": "https://therecord.media/sap-germany-cyberattack-github",
+          "date": "2026-11-27",
+          "image": "https://cms.therecord.media/uploads/SAP_HQ_d46716f5d4.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-27-softwareok-q-dir-desktopok-pieges",
+      "title": "SoftwareOK : les installateurs officiels de Q-Dir et DesktopOK piégés pour installer un logiciel de contrôle à distance",
+      "created": "2026-11-27T12:07:35+00:00",
+      "updated": "2026-11-27T12:07:35+00:00",
+      "version": 1,
+      "resume": "Les programmes d'installation de Q-Dir et DesktopOK diffusés par le site officiel SoftwareOK ont été piégés pour installer un cheval de Troie de contrôle à distance chez les utilisateurs [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Installateurs piégés sur le site officiel SoftwareOK, au téléchargement comme lors des mises à jour → exécution sur la machine de l'utilisateur [1]."
+        },
+        {
+          "etape": "Diversion et téléchargement",
+          "texte": "Lancement du vrai logiciel pour réduire les soupçons et, en même temps, téléchargement de 7zr.exe et d'une archive depuis mail.c1a2[.]top [1]."
+        },
+        {
+          "etape": "Installation",
+          "texte": "Extraction de l'archive avec 7zr.exe → cheval de Troie et environnement Python exécutés sur la machine [1]."
+        },
+        {
+          "etape": "Persistance",
+          "texte": "Tâche planifiée se faisant passer pour Microsoft Edge → relance du script py_client_dsv2.py [1]."
+        },
+        {
+          "etape": "Contrôle à distance",
+          "texte": "Connexion au serveur de commande 8.210.69[.]51 → commandes, code Python, transferts de fichiers et captures d'écran [1]."
+        },
+        {
+          "etape": "Repérage des défenses",
+          "texte": "Processus comparés à une liste de produits de sécurité, résultat envoyé au serveur pour aider les attaquants à préparer la suite ou livrer des charges indétectées [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "site",
+            "type": "application",
+            "zone": "internet",
+            "nom": "Site officiel SoftwareOK",
+            "note": "Installateurs piégés"
+          },
+          {
+            "id": "dl",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur mail.c1a2[.]top",
+            "note": "Héberge l'archive"
+          },
+          {
+            "id": "c2",
+            "type": "serveur",
+            "zone": "internet",
+            "nom": "Serveur de commande",
+            "note": "8.210.69[.]51"
+          },
+          {
+            "id": "pc",
+            "type": "poste",
+            "zone": "victime",
+            "nom": "Machine de l'utilisateur",
+            "note": "Tâche planifiée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "site",
+            "etape": 1,
+            "texte": "Installateurs remplacés par des versions piégées"
+          },
+          {
+            "de": "site",
+            "vers": "pc",
+            "etape": 1,
+            "texte": "Téléchargement ou mise à jour piégée"
+          },
+          {
+            "de": "dl",
+            "vers": "pc",
+            "etape": 2,
+            "texte": "Envoi de 7zr.exe et de l'archive"
+          },
+          {
+            "de": "c2",
+            "vers": "pc",
+            "etape": 5,
+            "texte": "Commandes, fichiers, captures d'écran"
+          },
+          {
+            "de": "pc",
+            "vers": "c2",
+            "etape": 6,
+            "texte": "Liste des produits de sécurité envoyée"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent pas comment les installateurs du site officiel ont été remplacés, depuis quand, ni combien d'utilisateurs sont touchés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non attribué ; AhnLab relève des commentaires en chinois dans le code [1]"
+      ],
+      "cibles": [
+        "Utilisateurs de Q-Dir 12.83.0.0, 12.84.0.0, 12.85.0.0 et DesktopOK 12.82.0.0, 12.85.0.0 [1]"
+      ],
+      "abreviations": [],
+      "sources": [
+        {
+          "titre": "Hackers Trojanize Official Q-Dir and DesktopOK Downloads to Deliver Remote Access Malware",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/hackers-trojanize-official-q-dir-and.html",
+          "date": "2026-11-27",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSXVfewkMqSKHEHRrAVXFHFOsMisOpBVnJ_sWbNNQQXuSWTHU5Y8AZW18gdQq7eI5N4l1dXoeBXVuqGGNClEK0U55LHgLYUxmopN9JHaMrYtrt4QrtWmk3uIvX8FzE2jL7Rf-oOG2fiDzj4g99wYn1Ih9uAOmyD0DtWN7ZqkG5UTd3xRYSRnIurQuT437O/s1700-nu-rw-lo-l85-e365/trojan.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-27-afp-forum-cyberattaque",
+      "title": "Agence France-Presse : une intrusion force la mise hors ligne d'AFP Forum, sa plateforme de diffusion aux médias",
+      "created": "2026-11-27T12:07:35+00:00",
+      "updated": "2026-11-27T12:07:35+00:00",
+      "version": 1,
+      "resume": "L'Agence France-Presse a subi jeudi une intrusion et a mis hors ligne AFP Forum, la plateforme où les médias du monde entier récupèrent ses dépêches, photos et vidéos [1].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1]."
+        },
+        {
+          "etape": "Intrusion",
+          "texte": "Intrusion visant AFP Forum, la plateforme en ligne de diffusion des contenus de l'agence ; dès sa détection, les équipes ont agi pour la contenir [1]."
+        },
+        {
+          "etape": "Impact",
+          "texte": "Plateforme mise hors ligne par précaution → diffusion des contenus aux médias clients perturbée, avis de maintenance affiché vendredi [1]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant (non identifié)",
+            "note": ""
+          },
+          {
+            "id": "inc",
+            "type": "inconnu",
+            "zone": "victime",
+            "nom": "Point d'entrée inconnu",
+            "note": ""
+          },
+          {
+            "id": "forum",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Plateforme AFP Forum",
+            "note": "Mise hors ligne"
+          },
+          {
+            "id": "med",
+            "type": "utilisateur",
+            "zone": "internet",
+            "nom": "Médias clients",
+            "note": "Diffusion perturbée"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "inc",
+            "etape": 1,
+            "texte": "Accès initial non précisé"
+          },
+          {
+            "de": "inc",
+            "vers": "forum",
+            "etape": 2,
+            "texte": "Intrusion visant la plateforme"
+          },
+          {
+            "de": "forum",
+            "vers": "med",
+            "etape": 3,
+            "texte": "Plateforme hors ligne, accès alternatifs proposés aux abonnés"
+          }
+        ]
+      },
+      "limites": "Les sources ne disent pas comment les attaquants sont entrés, qui ils sont, ni si des données ont été consultées ou d'autres systèmes touchés [1].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [
+        "Non identifié par l'agence [1]"
+      ],
+      "cibles": [
+        "Agence France-Presse et ses clients, des médias du monde entier [1]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "AFP",
+          "definition": "Agence France-Presse, agence de presse internationale française"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Cyberattack disrupts global news distribution platform at France’s AFP",
+          "site": "The Record",
+          "url": "https://therecord.media/france-afp-hit-by-cyberattack",
+          "date": "2026-11-27",
+          "image": "https://cms.therecord.media/uploads/paris_france_558ae68906.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
       "id": "2026-11-27-dwp-royaume-uni-services-hors-ligne",
       "title": "Royaume-Uni : le ministère du Travail et des Pensions coupe des services en ligne après un incident de cybersécurité",
       "created": "2026-11-27T11:07:00+00:00",
@@ -68,6 +525,289 @@
           "url": "https://therecord.media/uk-department-work-pensions-cyber-incident",
           "date": "2026-11-27",
           "image": "https://cms.therecord.media/uploads/Screenshot_2026_11_27_at_10_31_16_df724c9ca7.png"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-24-drupal-core-cve-2026-132165-kev",
+      "title": "Drupal Core : la faille Fail2Install (CVE-2026-132165) puis CVE-2026-136716 exploitées pour prendre le contrôle de sites",
+      "created": "2026-11-24T22:20:00+00:00",
+      "updated": "2026-11-27T11:07:00+00:00",
+      "version": 7,
+      "resume": "La faille CVE-2026-132165 de l'installeur de Drupal Core permet, sans authentification, de prendre le contrôle d'un site ou d'y exécuter du code, et a été exploitée dès le 19 novembre [2, 3, 4]. Une seconde faille, CVE-2026-136716, est aussi exploitée [5, 7].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Épuisement des ressources du serveur → Drupal croit le site non installé et, grâce à une condition de concurrence, son installeur install.php reprend sur le site existant [4]."
+        },
+        {
+          "etape": "Dépôt du code",
+          "texte": "Base SQLite créée à un chemin finissant par .php sous la racine du site, code PHP saisi comme nom du site → code écrit dans ce fichier [4]."
+        },
+        {
+          "etape": "Neutralisation des protections",
+          "texte": "Faiblesse de gestion des chemins dans une règle de réécriture Apache → fichier accessible malgré le .htaccess par défaut de Drupal [4]."
+        },
+        {
+          "etape": "Prise de contrôle",
+          "texte": "Résultat : exécution de code PHP arbitraire et création d'un compte administrateur contrôlé par l'attaquant [4]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": "Non identifié"
+          },
+          {
+            "id": "web",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Serveur du site Drupal",
+            "note": "Installeur relancé"
+          },
+          {
+            "id": "php",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Base SQLite en .php",
+            "note": "Code PHP injecté"
+          },
+          {
+            "id": "adm",
+            "type": "utilisateur",
+            "zone": "victime",
+            "nom": "Compte administrateur",
+            "note": "Créé par l'attaquant"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "web",
+            "etape": 1,
+            "texte": "Ressources épuisées, installeur relancé"
+          },
+          {
+            "de": "web",
+            "vers": "php",
+            "etape": 2,
+            "texte": "Base SQLite créée avec code PHP"
+          },
+          {
+            "de": "att",
+            "vers": "php",
+            "etape": 3,
+            "texte": "Accès direct via faiblesse de réécriture Apache"
+          },
+          {
+            "de": "php",
+            "vers": "adm",
+            "etape": 4,
+            "texte": "Code PHP exécuté, compte administrateur créé"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni les attaquants, ni les victimes, ni le nombre de sites touchés [1, 2, 3, 4, 5, 6, 7], ni comment CVE-2026-136716 est exploitée [5, 6, 7].",
+      "cves": [
+        {
+          "id": "CVE-2026-132165",
+          "explication": "Drupal Core, installeur : échec non sécurisé permettant sans authentification de prendre le contrôle d'un site ou d'exécuter du code ; CVSS 9,8 [4], « très critique » [2]."
+        },
+        {
+          "id": "CVE-2026-136716",
+          "explication": "Drupal Core : contournement d'accès ; des sites dans un état d'installation incomplet, même en production, restent exposés à une prise de contrôle [5, 6, 7] ; gravité CMSS 21 sur 25 [6]."
+        }
+      ],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Sites utilisant Drupal Core ; victimes et nombre de sites non précisés [1, 2, 3]",
+        "Environ 55 800 sites Drupal exposés sur Internet, et 31 500 services sur des branches vulnérables à CVE-2026-132165, selon StepSecurity [5]",
+        "Sites ayant laissé leur installeur accessible à distance après le premier avis de Drupal, possiblement compromis selon l'éditeur [7]"
+      ],
+      "abreviations": [
+        {
+          "sigle": "CISA",
+          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
+        },
+        {
+          "sigle": "PHP",
+          "definition": "Langage de programmation utilisé pour les sites web, exécuté par le serveur"
+        },
+        {
+          "sigle": "SQLite",
+          "definition": "Base de données stockée dans un simple fichier"
+        },
+        {
+          "sigle": "CVSS",
+          "definition": "Common Vulnerability Scoring System : note de gravité d'une faille sur 10"
+        },
+        {
+          "sigle": "CMSS",
+          "definition": "Common Misuse Scoring System : note de gravité utilisée dans les avis de Drupal"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
+          "site": "CISA Advisories",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/11/24/cisa-adds-three-known-exploited-vulnerabilities-catalog",
+          "date": "2026-11-24"
+        },
+        {
+          "titre": "Drupal Flaw Found by Anthropic Scanner Exploited in Attacks",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/drupal-flaw-found-by-anthropic-scanner-exploited-in-attacks/",
+          "date": "2026-11-25",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Drupal.jpg"
+        },
+        {
+          "titre": "Hackers now exploit critical Drupal RCE flaw to hijack sites",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-now-exploit-critical-drupal-rce-flaw-to-hijack-sites/",
+          "date": "2026-11-25",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/19/Drupal-headpic.jpg"
+        },
+        {
+          "titre": "Drupal Fail2Install Exploit Details Emerge as Critical RCE Flaw Faces Active Exploitation",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/drupal-fail2install-exploit-details.html",
+          "date": "2026-11-25",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbChdPRqvJHt9cIG4Z1W9o12tl4thtxIDNNcntDjmIytSIC1PWvOytT0JjY0OJtnba6UVJcEmqNxgOMuWxX2pvNJzjQ70-CIeruqZEDdgaDG66Lv2T6lLMv8cEhrXRie1gcaLz6OoNw6f2822s2yz8jl958kok6WpHmZ7p_n3TRWTdEWSpr1le5T28kFQO/s1700-nu-rw-lo-l85-e365/drupal.gif"
+        },
+        {
+          "titre": "Drupal Warns of New Highly Critical Site Takeover Vulnerability Under Active Exploitation",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html",
+          "date": "2026-11-26",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiy2EcytpsKiKLhUfvQEADKBG6Ht2NprR2VIhIXPJcNQMIGqKT20l0afBPUVhehKFhRzpkHvl3Qu_qaPjFL3L4UsLYH3L4C1DM63zqskhJV1UAjaPqONaEbNkBFsxVDX2jpPZrMym52WvBx2pHktUiRfdXOcp_23xjTdUOxxjxJtI906XLMmw258Bjah1J2/s1700-nu-rw-lo-l85-e365/drupal-rce.png"
+        },
+        {
+          "titre": "Drupal Installer Patch Left a Gap Attackers Are Already Exploiting",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/drupal-installer-patch-left-a-gap-attackers-are-already-exploiting/",
+          "date": "2026-11-26",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Drupal.jpg"
+        },
+        {
+          "titre": "Drupal warns of new site takeover flaw exploited in attacks",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/drupal-warns-of-new-access-bypass-flaw-exploited-in-attacks/",
+          "date": "2026-11-27",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/27/Drupal_headpic.jpg"
+        }
+      ]
+    },
+    {
+      "schema": 3,
+      "id": "2026-11-24-mycolorado-application-donnees-volees",
+      "title": "Colorado : une cyberattaque met hors ligne l'application myColorado et touche les données de 150 000 personnes",
+      "created": "2026-11-24T21:30:00+00:00",
+      "updated": "2026-11-27T10:20:00+00:00",
+      "version": 2,
+      "resume": "Des pirates ont consulté des documents d'utilisateurs de myColorado, l'application d'identité numérique de l'État du Colorado, qui l'a fermée ; l'État a d'abord évoqué près de 150 000 personnes touchées [1], puis environ 100 000, estimation en cours d'affinage [2].",
+      "chaine": [
+        {
+          "etape": "Accès initial",
+          "texte": "Non précisé par les sources [1, 2]."
+        },
+        {
+          "etape": "Vol de données",
+          "texte": "Accès aux documents téléversés par les utilisateurs (pièces d'identité, cartes grises, cartes d'assurance) → données consultées, sans informations de paiement selon l'État [2]."
+        },
+        {
+          "etape": "Détection",
+          "texte": "Les attaquants déclenchent la détection automatisée des menaces de l'environnement AWS de l'État → incident découvert [2], le soir du 18 novembre [1]."
+        },
+        {
+          "etape": "Impact",
+          "texte": "Application fermée par le service informatique de l'État, toujours indisponible ensuite, notifications aux personnes à partir du 27 novembre [1, 2]."
+        }
+      ],
+      "parcours": {
+        "noeuds": [
+          {
+            "id": "att",
+            "type": "attaquant",
+            "zone": "internet",
+            "nom": "Attaquant",
+            "note": ""
+          },
+          {
+            "id": "app",
+            "type": "application",
+            "zone": "victime",
+            "nom": "Application myColorado",
+            "note": "Fermée par l'État"
+          },
+          {
+            "id": "cloud",
+            "type": "cloud",
+            "zone": "victime",
+            "nom": "Environnement AWS de l'État",
+            "note": "Détection déclenchée"
+          },
+          {
+            "id": "data",
+            "type": "donnees",
+            "zone": "victime",
+            "nom": "Documents téléversés des utilisateurs",
+            "note": "Pièces d'identité, assurances"
+          }
+        ],
+        "liens": [
+          {
+            "de": "att",
+            "vers": "app",
+            "etape": 2,
+            "texte": "Accès non autorisé à la plateforme"
+          },
+          {
+            "de": "app",
+            "vers": "data",
+            "etape": 2,
+            "texte": "Documents des utilisateurs consultés"
+          },
+          {
+            "de": "att",
+            "vers": "cloud",
+            "etape": 3,
+            "texte": "Détection automatisée des menaces déclenchée"
+          }
+        ]
+      },
+      "limites": "Les sources ne précisent ni le vecteur d'entrée ni l'auteur ; le nombre de personnes touchées reste une estimation de l'État : près de 150 000 [1], puis environ 100 000 [2].",
+      "cves": [],
+      "mitre": [],
+      "acteurs": [],
+      "cibles": [
+        "Utilisateurs de myColorado : 2,1 millions d'utilisateurs [1, 2], près de 150 000 [1] ou environ 100 000 [2] personnes touchées"
+      ],
+      "abreviations": [
+        {
+          "sigle": "AWS",
+          "definition": "Amazon Web Services : plateforme d'informatique en nuage d'Amazon"
+        }
+      ],
+      "sources": [
+        {
+          "titre": "Colorado says cyberattack took down myColorado app, warns 150,000 had data stolen",
+          "site": "The Record",
+          "url": "https://therecord.media/mycolorado-app-down-data-breach",
+          "date": "2026-11-24",
+          "image": "https://cms.therecord.media/uploads/my_colorado_app_fb8214e64c.jpg"
+        },
+        {
+          "titre": "100,000 Potentially Impacted by Colorado Data Breach",
+          "site": "SecurityWeek",
+          "url": "https://www.securityweek.com/100000-potentially-impacted-by-colorado-data-breach/",
+          "date": "2026-11-27",
+          "image": "https://www.securityweek.com/wp-content/uploads/2026/07/data-tracking-report.jpeg"
         }
       ]
     },
@@ -173,99 +913,6 @@
           "url": "https://www.securityweek.com/hex-package-manager-warns-of-potential-data-breach/",
           "date": "2026-11-27",
           "image": "https://www.securityweek.com/wp-content/uploads/2025/11/NPM-code-software-development.jpeg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-27-sap-github-jetons-code-source",
-      "title": "SAP : une activité suspecte sur GitHub, des jetons d'employés volés auraient servi à copier et modifier du code source",
-      "created": "2026-11-27T08:10:00+00:00",
-      "updated": "2026-11-27T10:20:00+00:00",
-      "version": 2,
-      "resume": "SAP confirme avoir détecté une activité suspecte dans son environnement informatique ; selon des sources internes citées par Der Spiegel, des pirates ont utilisé des jetons d'employés volés pour copier et modifier du code source sur GitHub [1, 2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Vol de jetons d'authentification d'employés de SAP, selon des sources internes citées par Der Spiegel, non confirmé par SAP [1, 2]."
-        },
-        {
-          "etape": "Atteinte au code",
-          "texte": "Jetons utilisés dans l'environnement GitHub de SAP → code source copié puis modifié [1, 2]."
-        },
-        {
-          "etape": "Réaction",
-          "texte": "Activité suspecte détectée → mesures urgentes prises par SAP, sans compromission constatée des systèmes ou données des clients selon l'entreprise [2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": "Non identifié"
-          },
-          {
-            "id": "emp",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Employés de SAP",
-            "note": "Jetons volés"
-          },
-          {
-            "id": "gh",
-            "type": "cloud",
-            "zone": "internet",
-            "nom": "Dépôts GitHub de SAP",
-            "note": "Code copié, modifié"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "emp",
-            "etape": 1,
-            "texte": "Vol de jetons d'authentification"
-          },
-          {
-            "de": "att",
-            "vers": "gh",
-            "etape": 2,
-            "texte": "Connexion avec les jetons volés"
-          }
-        ]
-      },
-      "limites": "SAP ne donne aucun détail sur l'attaque, ne précise pas les environnements touchés et ne dit pas si les clients téléchargeant son code doivent agir [1, 2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Attaquant non identifié ; une aide d'outils d'intelligence artificielle est évoquée par des sources internes, sans confirmation [1, 2]"
-      ],
-      "cibles": [
-        "SAP, éditeur de logiciels d'entreprise ; aucune preuve d'accès aux données métier des clients selon l'entreprise [1, 2]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "SAP",
-          "definition": "Éditeur allemand de logiciels de gestion d'entreprise (nom de la société)"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "SAP Confirms Cyberattack, Source Code Reportedly Compromised",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/sap-confirms-cyberattack-source-code-reportedly-compromised/",
-          "date": "2026-11-27",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/09/SAP_vulnerability-patches.jpg"
-        },
-        {
-          "titre": "SAP confirms security incident after suspicious GitHub activity",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/sap-confirms-security-incident-after-suspicious-github-activity/",
-          "date": "2026-11-27",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/27/sap.jpg"
         }
       ]
     },
@@ -1183,181 +1830,6 @@
           "url": "https://www.bleepingcomputer.com/news/security/sys010-malware-abuses-browser-management-to-spy-on-gmail-outlook/",
           "date": "2026-11-26",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/26/Gmail,Outlook_browser_inboxe.png"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-24-drupal-core-cve-2026-132165-kev",
-      "title": "Drupal Core : la faille Fail2Install (CVE-2026-132165) puis CVE-2026-136716 exploitées pour prendre le contrôle de sites",
-      "created": "2026-11-24T22:20:00+00:00",
-      "updated": "2026-11-27T11:07:00+00:00",
-      "version": 7,
-      "resume": "La faille CVE-2026-132165 de l'installeur de Drupal Core permet, sans authentification, de prendre le contrôle d'un site ou d'y exécuter du code, et a été exploitée dès le 19 novembre [2, 3, 4]. Une seconde faille, CVE-2026-136716, est aussi exploitée [5, 7].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Épuisement des ressources du serveur → Drupal croit le site non installé et, grâce à une condition de concurrence, son installeur install.php reprend sur le site existant [4]."
-        },
-        {
-          "etape": "Dépôt du code",
-          "texte": "Base SQLite créée à un chemin finissant par .php sous la racine du site, code PHP saisi comme nom du site → code écrit dans ce fichier [4]."
-        },
-        {
-          "etape": "Neutralisation des protections",
-          "texte": "Faiblesse de gestion des chemins dans une règle de réécriture Apache → fichier accessible malgré le .htaccess par défaut de Drupal [4]."
-        },
-        {
-          "etape": "Prise de contrôle",
-          "texte": "Résultat : exécution de code PHP arbitraire et création d'un compte administrateur contrôlé par l'attaquant [4]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": "Non identifié"
-          },
-          {
-            "id": "web",
-            "type": "serveur",
-            "zone": "victime",
-            "nom": "Serveur du site Drupal",
-            "note": "Installeur relancé"
-          },
-          {
-            "id": "php",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Base SQLite en .php",
-            "note": "Code PHP injecté"
-          },
-          {
-            "id": "adm",
-            "type": "utilisateur",
-            "zone": "victime",
-            "nom": "Compte administrateur",
-            "note": "Créé par l'attaquant"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "web",
-            "etape": 1,
-            "texte": "Ressources épuisées, installeur relancé"
-          },
-          {
-            "de": "web",
-            "vers": "php",
-            "etape": 2,
-            "texte": "Base SQLite créée avec code PHP"
-          },
-          {
-            "de": "att",
-            "vers": "php",
-            "etape": 3,
-            "texte": "Accès direct via faiblesse de réécriture Apache"
-          },
-          {
-            "de": "php",
-            "vers": "adm",
-            "etape": 4,
-            "texte": "Code PHP exécuté, compte administrateur créé"
-          }
-        ]
-      },
-      "limites": "Les sources ne précisent ni les attaquants, ni les victimes, ni le nombre de sites touchés [1, 2, 3, 4, 5, 6, 7], ni comment CVE-2026-136716 est exploitée [5, 6, 7].",
-      "cves": [
-        {
-          "id": "CVE-2026-132165",
-          "explication": "Drupal Core, installeur : échec non sécurisé permettant sans authentification de prendre le contrôle d'un site ou d'exécuter du code ; CVSS 9,8 [4], « très critique » [2]."
-        },
-        {
-          "id": "CVE-2026-136716",
-          "explication": "Drupal Core : contournement d'accès ; des sites dans un état d'installation incomplet, même en production, restent exposés à une prise de contrôle [5, 6, 7] ; gravité CMSS 21 sur 25 [6]."
-        }
-      ],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Sites utilisant Drupal Core ; victimes et nombre de sites non précisés [1, 2, 3]",
-        "Environ 55 800 sites Drupal exposés sur Internet, et 31 500 services sur des branches vulnérables à CVE-2026-132165, selon StepSecurity [5]",
-        "Sites ayant laissé leur installeur accessible à distance après le premier avis de Drupal, possiblement compromis selon l'éditeur [7]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "CISA",
-          "definition": "Agence américaine de cybersécurité et de sécurité des infrastructures"
-        },
-        {
-          "sigle": "PHP",
-          "definition": "Langage de programmation utilisé pour les sites web, exécuté par le serveur"
-        },
-        {
-          "sigle": "SQLite",
-          "definition": "Base de données stockée dans un simple fichier"
-        },
-        {
-          "sigle": "CVSS",
-          "definition": "Common Vulnerability Scoring System : note de gravité d'une faille sur 10"
-        },
-        {
-          "sigle": "CMSS",
-          "definition": "Common Misuse Scoring System : note de gravité utilisée dans les avis de Drupal"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "CISA Adds Three Known Exploited Vulnerabilities to Catalog",
-          "site": "CISA Advisories",
-          "url": "https://www.cisa.gov/news-events/alerts/2026/11/24/cisa-adds-three-known-exploited-vulnerabilities-catalog",
-          "date": "2026-11-24"
-        },
-        {
-          "titre": "Drupal Flaw Found by Anthropic Scanner Exploited in Attacks",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/drupal-flaw-found-by-anthropic-scanner-exploited-in-attacks/",
-          "date": "2026-11-25",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Drupal.jpg"
-        },
-        {
-          "titre": "Hackers now exploit critical Drupal RCE flaw to hijack sites",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/hackers-now-exploit-critical-drupal-rce-flaw-to-hijack-sites/",
-          "date": "2026-11-25",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/19/Drupal-headpic.jpg"
-        },
-        {
-          "titre": "Drupal Fail2Install Exploit Details Emerge as Critical RCE Flaw Faces Active Exploitation",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/drupal-fail2install-exploit-details.html",
-          "date": "2026-11-25",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbChdPRqvJHt9cIG4Z1W9o12tl4thtxIDNNcntDjmIytSIC1PWvOytT0JjY0OJtnba6UVJcEmqNxgOMuWxX2pvNJzjQ70-CIeruqZEDdgaDG66Lv2T6lLMv8cEhrXRie1gcaLz6OoNw6f2822s2yz8jl958kok6WpHmZ7p_n3TRWTdEWSpr1le5T28kFQO/s1700-nu-rw-lo-l85-e365/drupal.gif"
-        },
-        {
-          "titre": "Drupal Warns of New Highly Critical Site Takeover Vulnerability Under Active Exploitation",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html",
-          "date": "2026-11-26",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiy2EcytpsKiKLhUfvQEADKBG6Ht2NprR2VIhIXPJcNQMIGqKT20l0afBPUVhehKFhRzpkHvl3Qu_qaPjFL3L4UsLYH3L4C1DM63zqskhJV1UAjaPqONaEbNkBFsxVDX2jpPZrMym52WvBx2pHktUiRfdXOcp_23xjTdUOxxjxJtI906XLMmw258Bjah1J2/s1700-nu-rw-lo-l85-e365/drupal-rce.png"
-        },
-        {
-          "titre": "Drupal Installer Patch Left a Gap Attackers Are Already Exploiting",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/drupal-installer-patch-left-a-gap-attackers-are-already-exploiting/",
-          "date": "2026-11-26",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/05/Drupal.jpg"
-        },
-        {
-          "titre": "Drupal warns of new site takeover flaw exploited in attacks",
-          "site": "BleepingComputer",
-          "url": "https://www.bleepingcomputer.com/news/security/drupal-warns-of-new-access-bypass-flaw-exploited-in-attacks/",
-          "date": "2026-11-27",
-          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/27/Drupal_headpic.jpg"
         }
       ]
     },
@@ -4266,114 +4738,6 @@
           "titre": "Fiche NVD CVE-2026-132224",
           "site": "NVD (NIST)",
           "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132224"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-24-mycolorado-application-donnees-volees",
-      "title": "Colorado : une cyberattaque met hors ligne l'application myColorado et touche les données de 150 000 personnes",
-      "created": "2026-11-24T21:30:00+00:00",
-      "updated": "2026-11-27T10:20:00+00:00",
-      "version": 2,
-      "resume": "Des pirates ont consulté des documents d'utilisateurs de myColorado, l'application d'identité numérique de l'État du Colorado, qui l'a fermée ; l'État a d'abord évoqué près de 150 000 personnes touchées [1], puis environ 100 000, estimation en cours d'affinage [2].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1, 2]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Accès aux documents téléversés par les utilisateurs (pièces d'identité, cartes grises, cartes d'assurance) → données consultées, sans informations de paiement selon l'État [2]."
-        },
-        {
-          "etape": "Détection",
-          "texte": "Les attaquants déclenchent la détection automatisée des menaces de l'environnement AWS de l'État → incident découvert [2], le soir du 18 novembre [1]."
-        },
-        {
-          "etape": "Impact",
-          "texte": "Application fermée par le service informatique de l'État, toujours indisponible ensuite, notifications aux personnes à partir du 27 novembre [1, 2]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "app",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Application myColorado",
-            "note": "Fermée par l'État"
-          },
-          {
-            "id": "cloud",
-            "type": "cloud",
-            "zone": "victime",
-            "nom": "Environnement AWS de l'État",
-            "note": "Détection déclenchée"
-          },
-          {
-            "id": "data",
-            "type": "donnees",
-            "zone": "victime",
-            "nom": "Documents téléversés des utilisateurs",
-            "note": "Pièces d'identité, assurances"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "app",
-            "etape": 2,
-            "texte": "Accès non autorisé à la plateforme"
-          },
-          {
-            "de": "app",
-            "vers": "data",
-            "etape": 2,
-            "texte": "Documents des utilisateurs consultés"
-          },
-          {
-            "de": "att",
-            "vers": "cloud",
-            "etape": 3,
-            "texte": "Détection automatisée des menaces déclenchée"
-          }
-        ]
-      },
-      "limites": "Les sources ne précisent ni le vecteur d'entrée ni l'auteur ; le nombre de personnes touchées reste une estimation de l'État : près de 150 000 [1], puis environ 100 000 [2].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [],
-      "cibles": [
-        "Utilisateurs de myColorado : 2,1 millions d'utilisateurs [1, 2], près de 150 000 [1] ou environ 100 000 [2] personnes touchées"
-      ],
-      "abreviations": [
-        {
-          "sigle": "AWS",
-          "definition": "Amazon Web Services : plateforme d'informatique en nuage d'Amazon"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Colorado says cyberattack took down myColorado app, warns 150,000 had data stolen",
-          "site": "The Record",
-          "url": "https://therecord.media/mycolorado-app-down-data-breach",
-          "date": "2026-11-24",
-          "image": "https://cms.therecord.media/uploads/my_colorado_app_fb8214e64c.jpg"
-        },
-        {
-          "titre": "100,000 Potentially Impacted by Colorado Data Breach",
-          "site": "SecurityWeek",
-          "url": "https://www.securityweek.com/100000-potentially-impacted-by-colorado-data-breach/",
-          "date": "2026-11-27",
-          "image": "https://www.securityweek.com/wp-content/uploads/2026/07/data-tracking-report.jpeg"
         }
       ]
     },
@@ -57808,337 +58172,6 @@
           "url": "https://therecord.media/cheap-androids-shipped-with-ad-fraud-malware",
           "date": "2026-10-08",
           "image": "https://cms.therecord.media/uploads/phones_yianni_mathioudakis_unsplash_686f0c639b.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-10-08-uac-0099-matchboil-ukraine",
-      "title": "UAC-0099 : le malware MatchBoil vise des entreprises ukrainiennes de transport, d'industrie et d'énergie",
-      "created": "2026-10-08T13:30:00+00:00",
-      "updated": "2026-10-08T13:30:00+00:00",
-      "version": 1,
-      "resume": "ESET décrit un malware en évolution, MatchBoil, détecté dans des entreprises ukrainiennes de transport, de fabrication et d'énergie. Le groupe UAC-0099 en est l'auteur, ESET le jugeant probablement lié à la Russie [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "E-mails d'hameçonnage contenant des liens → téléchargement d'une archive dont les fichiers exécutent finalement le malware [1]."
-        },
-        {
-          "etape": "Collecte et téléchargement",
-          "texte": "Exécution de MatchBoil → informations collectées sur la machine et logiciels supplémentaires téléchargés depuis un serveur des attaquants [1]."
-        },
-        {
-          "etape": "Persistance",
-          "texte": "Le malware reste présent sur le système [1]."
-        },
-        {
-          "etape": "Vol de données",
-          "texte": "Selon le rapport d'août 2025 de CERT-UA, MatchBoil déploie la porte dérobée MatchWok (commandes à distance) et le voleur Dragstare (mots de passe, cookies, fichiers du bureau) [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (UAC-0099)",
-            "note": ""
-          },
-          {
-            "id": "mail",
-            "type": "messagerie",
-            "zone": "victime",
-            "nom": "Messagerie des victimes",
-            "note": "Lien malveillant"
-          },
-          {
-            "id": "pc",
-            "type": "postes",
-            "zone": "victime",
-            "nom": "Postes des entreprises",
-            "note": "MatchBoil"
-          },
-          {
-            "id": "srv",
-            "type": "serveur",
-            "zone": "internet",
-            "nom": "Serveur des attaquants",
-            "note": ""
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "mail",
-            "etape": 1,
-            "texte": "E-mails d'hameçonnage avec liens"
-          },
-          {
-            "de": "mail",
-            "vers": "pc",
-            "etape": 1,
-            "texte": "Archive téléchargée, malware exécuté"
-          },
-          {
-            "de": "srv",
-            "vers": "pc",
-            "etape": 2,
-            "texte": "Logiciels supplémentaires téléchargés"
-          }
-        ]
-      },
-      "limites": "L'article ne dit pas combien d'entreprises ont été touchées [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "UAC-0099, groupe de cyberespionnage actif depuis au moins 2022, probablement lié à la Russie selon ESET [1]"
-      ],
-      "cibles": [
-        "Entreprises ukrainiennes de transport, de fabrication et d'énergie [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "CERT-UA",
-          "definition": "Équipe ukrainienne de réponse aux incidents informatiques"
-        },
-        {
-          "sigle": "ESET",
-          "definition": "Entreprise de cybersécurité qui a publié le rapport"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Russian-aligned spies upgrade malware used in attacks on Ukrainian transport, energy firms",
-          "site": "The Record",
-          "url": "https://therecord.media/russia-ukraine-malware-transportation",
-          "date": "2026-10-08",
-          "image": "https://cms.therecord.media/uploads/Ukraine_railroad_f8f0a5b0ec.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-27-softwareok-q-dir-desktopok-pieges",
-      "title": "SoftwareOK : les installateurs officiels de Q-Dir et DesktopOK piégés pour installer un logiciel de contrôle à distance",
-      "created": "2026-11-27T12:07:35+00:00",
-      "updated": "2026-11-27T12:07:35+00:00",
-      "version": 1,
-      "resume": "Les programmes d'installation de Q-Dir et DesktopOK diffusés par le site officiel SoftwareOK ont été piégés pour installer un cheval de Troie de contrôle à distance chez les utilisateurs [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Installateurs piégés sur le site officiel SoftwareOK, au téléchargement comme lors des mises à jour → exécution sur la machine de l'utilisateur [1]."
-        },
-        {
-          "etape": "Diversion et téléchargement",
-          "texte": "Lancement du vrai logiciel pour réduire les soupçons et, en même temps, téléchargement de 7zr.exe et d'une archive depuis mail.c1a2[.]top [1]."
-        },
-        {
-          "etape": "Installation",
-          "texte": "Extraction de l'archive avec 7zr.exe → cheval de Troie et environnement Python exécutés sur la machine [1]."
-        },
-        {
-          "etape": "Persistance",
-          "texte": "Tâche planifiée se faisant passer pour Microsoft Edge → relance du script py_client_dsv2.py [1]."
-        },
-        {
-          "etape": "Contrôle à distance",
-          "texte": "Connexion au serveur de commande 8.210.69[.]51 → commandes, code Python, transferts de fichiers et captures d'écran [1]."
-        },
-        {
-          "etape": "Repérage des défenses",
-          "texte": "Processus comparés à une liste de produits de sécurité, résultat envoyé au serveur pour aider les attaquants à préparer la suite ou livrer des charges indétectées [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant",
-            "note": ""
-          },
-          {
-            "id": "site",
-            "type": "application",
-            "zone": "internet",
-            "nom": "Site officiel SoftwareOK",
-            "note": "Installateurs piégés"
-          },
-          {
-            "id": "dl",
-            "type": "serveur",
-            "zone": "internet",
-            "nom": "Serveur mail.c1a2[.]top",
-            "note": "Héberge l'archive"
-          },
-          {
-            "id": "c2",
-            "type": "serveur",
-            "zone": "internet",
-            "nom": "Serveur de commande",
-            "note": "8.210.69[.]51"
-          },
-          {
-            "id": "pc",
-            "type": "poste",
-            "zone": "victime",
-            "nom": "Machine de l'utilisateur",
-            "note": "Tâche planifiée"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "site",
-            "etape": 1,
-            "texte": "Installateurs remplacés par des versions piégées"
-          },
-          {
-            "de": "site",
-            "vers": "pc",
-            "etape": 1,
-            "texte": "Téléchargement ou mise à jour piégée"
-          },
-          {
-            "de": "dl",
-            "vers": "pc",
-            "etape": 2,
-            "texte": "Envoi de 7zr.exe et de l'archive"
-          },
-          {
-            "de": "c2",
-            "vers": "pc",
-            "etape": 5,
-            "texte": "Commandes, fichiers, captures d'écran"
-          },
-          {
-            "de": "pc",
-            "vers": "c2",
-            "etape": 6,
-            "texte": "Liste des produits de sécurité envoyée"
-          }
-        ]
-      },
-      "limites": "Les sources ne disent pas comment les installateurs du site officiel ont été remplacés, depuis quand, ni combien d'utilisateurs sont touchés [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non attribué ; AhnLab relève des commentaires en chinois dans le code [1]"
-      ],
-      "cibles": [
-        "Utilisateurs de Q-Dir 12.83.0.0, 12.84.0.0, 12.85.0.0 et DesktopOK 12.82.0.0, 12.85.0.0 [1]"
-      ],
-      "abreviations": [],
-      "sources": [
-        {
-          "titre": "Hackers Trojanize Official Q-Dir and DesktopOK Downloads to Deliver Remote Access Malware",
-          "site": "The Hacker News",
-          "url": "https://thehackernews.com/2026/11/hackers-trojanize-official-q-dir-and.html",
-          "date": "2026-11-27",
-          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSXVfewkMqSKHEHRrAVXFHFOsMisOpBVnJ_sWbNNQQXuSWTHU5Y8AZW18gdQq7eI5N4l1dXoeBXVuqGGNClEK0U55LHgLYUxmopN9JHaMrYtrt4QrtWmk3uIvX8FzE2jL7Rf-oOG2fiDzj4g99wYn1Ih9uAOmyD0DtWN7ZqkG5UTd3xRYSRnIurQuT437O/s1700-nu-rw-lo-l85-e365/trojan.jpg"
-        }
-      ]
-    },
-    {
-      "schema": 3,
-      "id": "2026-11-27-afp-forum-cyberattaque",
-      "title": "Agence France-Presse : une intrusion force la mise hors ligne d'AFP Forum, sa plateforme de diffusion aux médias",
-      "created": "2026-11-27T12:07:35+00:00",
-      "updated": "2026-11-27T12:07:35+00:00",
-      "version": 1,
-      "resume": "L'Agence France-Presse a subi jeudi une intrusion et a mis hors ligne AFP Forum, la plateforme où les médias du monde entier récupèrent ses dépêches, photos et vidéos [1].",
-      "chaine": [
-        {
-          "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
-        },
-        {
-          "etape": "Intrusion",
-          "texte": "Intrusion visant AFP Forum, la plateforme en ligne de diffusion des contenus de l'agence ; dès sa détection, les équipes ont agi pour la contenir [1]."
-        },
-        {
-          "etape": "Impact",
-          "texte": "Plateforme mise hors ligne par précaution → diffusion des contenus aux médias clients perturbée, avis de maintenance affiché vendredi [1]."
-        }
-      ],
-      "parcours": {
-        "noeuds": [
-          {
-            "id": "att",
-            "type": "attaquant",
-            "zone": "internet",
-            "nom": "Attaquant (non identifié)",
-            "note": ""
-          },
-          {
-            "id": "inc",
-            "type": "inconnu",
-            "zone": "victime",
-            "nom": "Point d'entrée inconnu",
-            "note": ""
-          },
-          {
-            "id": "forum",
-            "type": "application",
-            "zone": "victime",
-            "nom": "Plateforme AFP Forum",
-            "note": "Mise hors ligne"
-          },
-          {
-            "id": "med",
-            "type": "utilisateur",
-            "zone": "internet",
-            "nom": "Médias clients",
-            "note": "Diffusion perturbée"
-          }
-        ],
-        "liens": [
-          {
-            "de": "att",
-            "vers": "inc",
-            "etape": 1,
-            "texte": "Accès initial non précisé"
-          },
-          {
-            "de": "inc",
-            "vers": "forum",
-            "etape": 2,
-            "texte": "Intrusion visant la plateforme"
-          },
-          {
-            "de": "forum",
-            "vers": "med",
-            "etape": 3,
-            "texte": "Plateforme hors ligne, accès alternatifs proposés aux abonnés"
-          }
-        ]
-      },
-      "limites": "Les sources ne disent pas comment les attaquants sont entrés, qui ils sont, ni si des données ont été consultées ou d'autres systèmes touchés [1].",
-      "cves": [],
-      "mitre": [],
-      "acteurs": [
-        "Non identifié par l'agence [1]"
-      ],
-      "cibles": [
-        "Agence France-Presse et ses clients, des médias du monde entier [1]"
-      ],
-      "abreviations": [
-        {
-          "sigle": "AFP",
-          "definition": "Agence France-Presse, agence de presse internationale française"
-        }
-      ],
-      "sources": [
-        {
-          "titre": "Cyberattack disrupts global news distribution platform at France’s AFP",
-          "site": "The Record",
-          "url": "https://therecord.media/france-afp-hit-by-cyberattack",
-          "date": "2026-11-27",
-          "image": "https://cms.therecord.media/uploads/paris_france_558ae68906.jpg"
         }
       ]
     }

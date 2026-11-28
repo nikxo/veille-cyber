@@ -938,13 +938,13 @@
       "id": "2026-11-27-softwareok-q-dir-desktopok-pieges",
       "title": "SoftwareOK : les installateurs officiels de Q-Dir et DesktopOK piégés pour installer un logiciel de contrôle à distance",
       "created": "2026-11-27T12:07:35+00:00",
-      "updated": "2026-11-27T12:07:35+00:00",
-      "version": 1,
-      "resume": "Les programmes d'installation de Q-Dir et DesktopOK diffusés par le site officiel SoftwareOK ont été piégés pour installer un cheval de Troie de contrôle à distance chez les utilisateurs [1].",
+      "updated": "2026-11-28T16:07:02+00:00",
+      "version": 2,
+      "resume": "Les programmes d'installation de Q-Dir et DesktopOK diffusés par le site officiel SoftwareOK ont été piégés pour installer un cheval de Troie de contrôle à distance écrit en Python [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Installateurs piégés sur le site officiel SoftwareOK, au téléchargement comme lors des mises à jour → exécution sur la machine de l'utilisateur [1]."
+          "texte": "Installateurs piégés, signés d'un certificat au nom du développeur, sur le site officiel, au téléchargement comme lors des mises à jour → exécution chez l'utilisateur [1, 2]."
         },
         {
           "etape": "Diversion et téléchargement",
@@ -956,7 +956,7 @@
         },
         {
           "etape": "Persistance",
-          "texte": "Tâche planifiée se faisant passer pour Microsoft Edge → relance du script py_client_dsv2.py [1]."
+          "texte": "Tâche planifiée se faisant passer pour Microsoft Edge → relance du script py_client_dsv2.py [1]. Désinstaller le logiciel piégé ne garantit pas le retrait du cheval de Troie [2]."
         },
         {
           "etape": "Contrôle à distance",
@@ -964,7 +964,7 @@
         },
         {
           "etape": "Repérage des défenses",
-          "texte": "Processus comparés à une liste de produits de sécurité, résultat envoyé au serveur pour aider les attaquants à préparer la suite ou livrer des charges indétectées [1]."
+          "texte": "Processus comparés à une liste de produits de sécurité [1], dont 1 206 noms de processus d'antivirus [2], résultat envoyé au serveur pour agir sans être détectés [1, 2]."
         }
       ],
       "parcours": {
@@ -1038,14 +1038,15 @@
           }
         ]
       },
-      "limites": "Les sources ne disent pas comment les installateurs du site officiel ont été remplacés, depuis quand, ni combien d'utilisateurs sont touchés [1].",
+      "limites": "Les sources ne disent pas comment les installateurs du site officiel ont été remplacés ni combien d'utilisateurs sont touchés [1, 2]. Des utilisateurs signalaient des problèmes environ deux semaines avant la parution de l'article [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [
         "Non attribué ; AhnLab relève des commentaires en chinois dans le code [1]"
       ],
       "cibles": [
-        "Utilisateurs de Q-Dir 12.83.0.0, 12.84.0.0, 12.85.0.0 et DesktopOK 12.82.0.0, 12.85.0.0 [1]"
+        "Utilisateurs de Q-Dir 12.83.0.0, 12.84.0.0, 12.85.0.0 et DesktopOK 12.82.0.0, 12.85.0.0 [1, 2]",
+        "Professionnels de l'informatique, utilisateurs avancés et administrateurs système [2]"
       ],
       "abreviations": [],
       "sources": [
@@ -1055,6 +1056,13 @@
           "url": "https://thehackernews.com/2026/11/hackers-trojanize-official-q-dir-and.html",
           "date": "2026-11-27",
           "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSXVfewkMqSKHEHRrAVXFHFOsMisOpBVnJ_sWbNNQQXuSWTHU5Y8AZW18gdQq7eI5N4l1dXoeBXVuqGGNClEK0U55LHgLYUxmopN9JHaMrYtrt4QrtWmk3uIvX8FzE2jL7Rf-oOG2fiDzj4g99wYn1Ih9uAOmyD0DtWN7ZqkG5UTd3xRYSRnIurQuT437O/s1700-nu-rw-lo-l85-e365/trojan.jpg"
+        },
+        {
+          "titre": "Q-Dir and DesktopOK Windows utilities compromised to push Python RAT",
+          "site": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/q-dir-and-desktopok-windows-utilities-compromised-to-push-python-rat/",
+          "date": "2026-11-28",
+          "image": "https://www.bleepstatic.com/content/hl-images/2026/11/27/malware.jpg"
         }
       ]
     },

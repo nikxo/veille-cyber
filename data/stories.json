@@ -5,21 +5,25 @@
       "id": "2026-11-27-pcloud-pass-adresses-exposees",
       "title": "pCloud Pass : cyberattaque, adresses email exposées et tentatives de connexion",
       "created": "2026-11-27T20:20:00+00:00",
-      "updated": "2026-11-27T20:20:00+00:00",
-      "version": 1,
-      "resume": "Le gestionnaire de mots de passe pCloud Pass a subi une cyberattaque que l'éditeur dit rapidement contenue : un petit nombre d'adresses email d'utilisateurs ont été exposées et des tentatives de connexion ont eu lieu [1].",
+      "updated": "2026-11-28T09:20:00+00:00",
+      "version": 2,
+      "resume": "Le gestionnaire de mots de passe pCloud Pass a subi une cyberattaque que l'éditeur dit rapidement contenue : un petit nombre d'adresses email d'utilisateurs ont été exposées et des tentatives de connexion ont eu lieu [1, 2].",
       "chaine": [
         {
           "etape": "Accès initial",
-          "texte": "Non précisé par les sources [1]."
+          "texte": "Non précisé par les sources [1, 2]."
         },
         {
           "etape": "Exposition de données",
-          "texte": "Exposition d'un petit nombre d'adresses email d'utilisateurs de pCloud Pass, selon l'éditeur [1]."
+          "texte": "Exposition d'un petit nombre d'adresses email d'utilisateurs de pCloud Pass, selon l'éditeur [1, 2]."
         },
         {
           "etape": "Tentatives de connexion",
-          "texte": "Tentatives de connexion aux comptes ; des utilisateurs, même protégés par double authentification, ont reçu des alertes de nouvel appareil connecté [1]."
+          "texte": "Tentatives de connexion aux comptes, selon l'éditeur ; des utilisateurs, même protégés par double authentification, ont reçu des alertes de nouvel appareil connecté [1, 2]."
+        },
+        {
+          "etape": "Appareil inconnu",
+          "texte": "Un appareil nommé « pd » se connecte depuis deux adresses IP de l'infrastructure de pCloud au Luxembourg [2]."
         }
       ],
       "parcours": {
@@ -44,6 +48,13 @@
             "zone": "victime",
             "nom": "Adresses email d'utilisateurs",
             "note": "Petit nombre exposé"
+          },
+          {
+            "id": "infra",
+            "type": "serveur",
+            "zone": "victime",
+            "nom": "Infrastructure pCloud au Luxembourg",
+            "note": "Deux adresses IP"
           },
           {
             "id": "comptes",
@@ -71,17 +82,29 @@
             "vers": "comptes",
             "etape": 3,
             "texte": "Tentatives de connexion aux comptes"
+          },
+          {
+            "de": "infra",
+            "vers": "comptes",
+            "etape": 4,
+            "texte": "Connexions de l'appareil « pd »"
           }
         ]
       },
-      "limites": "La source ne précise ni le point d'entrée, ni l'auteur, ni le nombre d'adresses exposées, ni si des coffres chiffrés ont été consultés ou volés [1].",
+      "limites": "pCloud n'a pas indiqué comment les attaquants sont entrés [2]. On ignore si les coffres chiffrés ont été consultés ou téléchargés, même si pCloud affirme que les données des utilisateurs n'ont pas été compromises [2].",
       "cves": [],
       "mitre": [],
       "acteurs": [],
       "cibles": [
-        "Utilisateurs de pCloud Pass ; des personnes n'ayant jamais utilisé le service ont aussi reçu des alertes [1]"
+        "Utilisateurs de pCloud Pass ; des personnes n'ayant jamais utilisé le service ont aussi reçu des alertes [1]",
+        "Selon pCloud, l'incident se limite à pCloud Pass et ne touche pas ses services de stockage en ligne [2]"
       ],
-      "abreviations": [],
+      "abreviations": [
+        {
+          "sigle": "IP",
+          "definition": "Internet Protocol : adresse numérique identifiant une machine sur un réseau"
+        }
+      ],
       "sources": [
         {
           "titre": "pCloud confirms password manager hack after suspicious login alerts",
@@ -89,6 +112,13 @@
           "url": "https://www.bleepingcomputer.com/news/security/pcloud-confirms-password-manager-hack-after-suspicious-login-alerts/",
           "date": "2026-11-27",
           "image": "https://www.bleepstatic.com/content/hl-images/2026/11/27/pcloud-logo.jpg"
+        },
+        {
+          "titre": "pCloud Password Manager Hit by Cyber Attack Involving Email Address Exposure and Login Attempts",
+          "site": "The Hacker News",
+          "url": "https://thehackernews.com/2026/11/pcloud-password-manager-hit-by-cyber.html",
+          "date": "2026-11-28",
+          "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizySCkvtf5mXH_3zoxzuk-QyEdUnYmspglEsVYdqRITloUFrUDZCQJcwtQG09teFmXo2IJOknOQb7CXhUpjKjGnadD6TuOIvVWIoWmKcaxb8-1uwf-3AiXZPYCFf2RzDkHNZ06d2Q5OS6AcCV7JHjTACCJH2f5aipC8vllpOwj1dSBYQJtqJ_wDc5nXQwU/s1700-nu-rw-lo-l85-e365/pcloud.jpg"
         }
       ]
     },
